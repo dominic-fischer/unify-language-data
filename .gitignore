@@ -1,0 +1,20 @@
+# Python cache
+__pycache__/
+
+# Debug files
+debug_files/
+
+# Junk
+junk/
+
+# Virtual environment
+venv/
+
+# Wiktionary extracted data (likely large)
+wiktionary_data/
+
+# Input files only (not the whole docx_files folder)
+docx_files/docx_input_files/
+
+# Notes (personal, not code)
+notes.txt
