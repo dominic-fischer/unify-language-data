@@ -16,5 +16,9 @@ wiktionary_data/
 # Input files only (not the whole docx_files folder)
 docx_files/docx_input_files/
 
+# large output files
+docx_files/BANTU_Chichewa_NEW_tables/
+wiktionary_files/by_lang/
+
 # Notes (personal, not code)
 notes.txt

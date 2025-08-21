@@ -459,7 +459,7 @@ class WikipediaParser(TextParser):
         table_index = 0
         useful_index = 0
 
-        for elem in soup.select('div.mw-parser-output > *'):
+        for elem in soup.select('div.mw-parser-output *'):
             # Update heading chain and add to word buffer
             if re.fullmatch(r'h[2-6]', elem.name):
                 level = int(elem.name[1])
@@ -483,6 +483,7 @@ class WikipediaParser(TextParser):
                 word_buffer.extend(words)
                 word_buffer = word_buffer[-50:]
 
+            
             elif elem.name == 'table':
                 try:
                     df = pd.read_html(StringIO(str(elem)))[0]
@@ -524,6 +525,7 @@ class WikipediaParser(TextParser):
                 except Exception as e:
                     print(f"\tSkipping table {table_index} due to read_html error: {e}")
                 table_index += 1
+        
 
         print(f"Found {len(table_snippets)} tables with preceding text snippets.\n")
         for snippet in table_snippets:

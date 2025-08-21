@@ -50,9 +50,9 @@ Table of Contents
 ## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Potential
 ## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Nessessitativ
 ## Das Verb > ### Zeitformen > #### Partizipielle Zeiten
-## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ##### Vorzeitigkeit
-## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ##### Gleichzeitigkeit
-## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ##### Nachzeitigkeit
+## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ###### Vorzeitigkeit
+## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ###### Gleichzeitigkeit
+## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ###### Nachzeitigkeit
 ## Das Verb > ### Zeitformen > #### Relativsätze
 ## Das Verb > ### Sein
 ## Das Verb > ### Sein > #### «ndi»
@@ -141,59 +141,60 @@ Table of Contents
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### Y
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### Z
 ## Vokabular > ### Nomen
-## Vokabular > ### Nomen > #### Klasse 1: M-, A-
-## Vokabular > ### Nomen > #### Klasse 1: M-, A- > ##### M-, A-
-## Vokabular > ### Nomen > #### Klasse 1: M-, A- > ##### M-, A- > ###### (Erweiterte) Familie
-## Vokabular > ### Nomen > #### Klasse 1: M-, A- > ##### M-, A- > ###### Weitere Menschen
-## Vokabular > ### Nomen > #### Klasse 1: M-, A- > ##### Wo-, O-
-## Vokabular > ### Nomen > #### Klasse 1: M-, A- > ##### Wa-, A-
-## Vokabular > ### Nomen > #### Klasse 1: M-, A- > ##### Tiere
-## Vokabular > ### Nomen > #### Klasse 1: M-, A- > ##### Sonstige
-## Vokabular > ### Nomen > #### Klasse 2: M-, Mi-
-## Vokabular > ### Nomen > #### Klasse 2: M-, Mi- > ##### Natürliches
-## Vokabular > ### Nomen > #### Klasse 2: M-, Mi- > ##### Menschengemachtes
-## Vokabular > ### Nomen > #### Klasse 2: M-, Mi- > ##### Menschlicher Körper
-## Vokabular > ### Nomen > #### Klasse 2: M-, Mi- > ##### Abstraka
-## Vokabular > ### Nomen > #### Klasse 3: -, Ma-
-## Vokabular > ### Nomen > #### Klasse 3: -, Ma- > ##### Fremdwörter
-## Vokabular > ### Nomen > #### Klasse 3: -, Ma- > ##### Natürliches
-## Vokabular > ### Nomen > #### Klasse 3: -, Ma- > ##### Menschengemachtes
-## Vokabular > ### Nomen > #### Klasse 3: -, Ma- > ##### Singularlose
-## Vokabular > ### Nomen > #### Klasse 3: -, Ma- > ##### Abstrakta
-## Vokabular > ### Nomen > #### Klasse 4: Ch-, Z-
-## Vokabular > ### Nomen > #### Klasse 4: Ch-, Z- > ##### Abstrakta
-## Vokabular > ### Nomen > #### Klasse 4: Ch-, Z- > ##### Menschengemachtes
-## Vokabular > ### Nomen > #### Klasse 4: Ch-, Z- > ##### Natürliches
-## Vokabular > ### Nomen > #### Klasse 5: N-, N-
-## Vokabular > ### Nomen > #### Klasse 5: N-, N- > ##### Tiere
-## Vokabular > ### Nomen > #### Klasse 5: N-, N- > ##### N-
-## Vokabular > ### Nomen > #### Klasse 5: N-, N- > ##### N- > ###### Abstrakta
-## Vokabular > ### Nomen > #### Klasse 5: N-, N- > ##### N- > ###### Weitere
-## Vokabular > ### Nomen > #### Klasse 5: N-, N- > ##### M-
-## Vokabular > ### Nomen > #### Klasse 5: N-, N- > ##### Sonstige
-## Vokabular > ### Nomen > #### Klasse 6: U-, Ma-
-## Vokabular > ### Nomen > #### Klasse 6: U-, Ma- > ##### Abstraka
-## Vokabular > ### Nomen > #### Klasse 6: U-, Ma- > ##### Weitere
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A-
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### M-, A-
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### M-, A- > ###### (Erweiterte) Familie
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### M-, A- > ###### Weitere Menschen
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### Wo-, O-
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### Wa-, A_
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### Tiere
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### Sonstige
+## Vokabular > ### Nomen > #### Klasse 3/4: M-, Mi-
+## Vokabular > ### Nomen > #### Klasse 3/4: M-, Mi- > ##### Natürliches
+## Vokabular > ### Nomen > #### Klasse 3/4: M-, Mi- > ##### Menschengemachtes
+## Vokabular > ### Nomen > #### Klasse 3/4: M-, Mi- > ##### Menschlicher Körper
+## Vokabular > ### Nomen > #### Klasse 3/4: M-, Mi- > ##### Abstraka
+## Vokabular > ### Nomen > #### Klasse 5/6: -, Ma-
+## Vokabular > ### Nomen > #### Klasse 5/6: -, Ma- > ##### Fremdwörter
+## Vokabular > ### Nomen > #### Klasse 5/6: -, Ma- > ##### Natürliches
+## Vokabular > ### Nomen > #### Klasse 5/6: -, Ma- > ##### Menschengemachtes
+## Vokabular > ### Nomen > #### Klasse 5/6: -, Ma- > ##### Singularlose
+## Vokabular > ### Nomen > #### Klasse 5/6: -, Ma- > ##### Abstrakta
+## Vokabular > ### Nomen > #### Klasse 7/8: Ch-, Z-
+## Vokabular > ### Nomen > #### Klasse 7/8: Ch-, Z- > ##### Abstrakta
+## Vokabular > ### Nomen > #### Klasse 7/8: Ch-, Z- > ##### Menschengemachtes
+## Vokabular > ### Nomen > #### Klasse 7/8: Ch-, Z- > ##### Natürliches
+## Vokabular > ### Nomen > #### Klasse 9/10: N-, N-
+## Vokabular > ### Nomen > #### Klasse 9/10: N-, N- > ##### Tiere
+## Vokabular > ### Nomen > #### Klasse 9/10: N-, N- > ##### N-
+## Vokabular > ### Nomen > #### Klasse 9/10: N-, N- > ##### N- > ###### Abstrakta
+## Vokabular > ### Nomen > #### Klasse 9/10: N-, N- > ##### N- > ###### Weitere
+## Vokabular > ### Nomen > #### Klasse 9/10: N-, N- > ##### M-
+## Vokabular > ### Nomen > #### Klasse 9/10: N-, N- > ##### Sonstige
+## Vokabular > ### Nomen > #### Klasse 14: U-, Ma-
+## Vokabular > ### Nomen > #### Klasse 14: U-, Ma- > ##### Abstraka
+## Vokabular > ### Nomen > #### Klasse 14: U-, Ma- > ##### Weitere
 ## Vokabular > ### Nomen > #### Zusatzklassen
-## Vokabular > ### Nomen > #### Zusatzklassen > ##### Substantivierte Verben
-## Vokabular > ### Nomen > #### Zusatzklassen > ##### Substantivierte Verben > ###### Abstrakta
-## Vokabular > ### Nomen > #### Zusatzklassen > ##### Substantivierte Verben > ###### Weitere
-## Vokabular > ### Nomen > #### Zusatzklassen > ##### Verkleinerung
-## Vokabular > ### Nomen > #### Zusatzklassen > ##### Ortsklasse
+## Vokabular > ### Nomen > #### Zusatzklassen > ##### Klasse 12/13: Verkleinerung
+## Vokabular > ### Nomen > #### Zusatzklassen > ##### Klasse 15: Substantivierte Verben
+## Vokabular > ### Nomen > #### Zusatzklassen > ##### Klasse 15: Substantivierte Verben > ###### Abstrakta
+## Vokabular > ### Nomen > #### Zusatzklassen > ##### Klasse 15: Substantivierte Verben > ###### Weitere
+## Vokabular > ### Nomen > #### Zusatzklassen > ##### Klasse 16/17/18: Ortsklasse
 ## Vokabular > ### Sprichwörter
 ## Anhang
 ## Anhang > ### Proto-Bantu-Klassen
 ## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen
-## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 1: *Mu-, *Ba-
-## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 2: *Mu-, *Mi-
-## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 3: *(L)i-, *Ma-
-## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 4: *Chi-, *Zi-
-## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 5: In-, *(Z)in-
-## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 6: *(B)u-
+## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 1/2: *Mu-, *Ba-
+## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 3/4: *Mu-, *Mi-
+## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 5/6: *(L)i-, *Ma-
+## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 7/8: *Chi-, *Zi-
+## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 9/10: In-, *(Z)in-
+## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 11: *(L)u-
+## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 14: *(B)u-
 ## Anhang > ### Proto-Bantu-Klassen > #### Zusatzklassen
-## Anhang > ### Proto-Bantu-Klassen > #### Zusatzklassen > ##### Infinitivklasse: *Ku-
-## Anhang > ### Proto-Bantu-Klassen > #### Zusatzklassen > ##### Ortsklassen: ku- (Umkreis), pa- (Ankreis), mu- (Inkreis)
-## Anhang > ### Proto-Bantu-Klassen > #### Zusatzklassen > ##### Diminutive und Augmentative : Diverse Bildungen
+## Anhang > ### Proto-Bantu-Klassen > #### Zusatzklassen > ##### Klasse 12/13: Diminutive und Klasse 21/22: Augmentative – Diverse Bildungen
+## Anhang > ### Proto-Bantu-Klassen > #### Zusatzklassen > ##### Infinitivklasse 15: *Ku-
+## Anhang > ### Proto-Bantu-Klassen > #### Zusatzklassen > ##### Ortsklasse 16/17/18: ku- (Umkreis), pa- (Ankreis), mu- (Inkreis)
 ```</pre>
 
 # Chichewa Chosavuta
@@ -206,66 +207,42 @@ Chichewa Dictionnaire gefällig? Online Chichewa Dictionary - welcome!
 
 Im Chichewa werden die meisten Wörter (inkl. Verbformen) auf der zweitletzten Silbe betont. Wichtig zu beachten ist, dass Betonung und Tonhöhe nicht dasselbe sind. Da Chichewa ein tonale Sprache ist, kann die Tonhöhe (hoch – tief) bedeutungsunterscheidend sein – welche Silbe betont ist, ändert sich aber nicht!
 
-Im Vokabular gibt es nur wenige solchen Minimalpaare, weshalb hier nicht mit jedem Wort die Betonung explizit angegeben wird. Bei den Zeitformen hingegen ist die Betonung oft bedeutungsunterscheidend und wird entsprechend angegeben.
+Im Vokabular gibt es nur wenige solchen Minimalpaare, weshalb hier nicht mit jedem Wort die Betonung explizit angegeben wird. Bei den Zeitformen hingegen ist die Betonung öfter bedeutungsunterscheidend und wird entsprechend angegeben.
 
 In der nachfolgenden Tabelle sind alle Buchstaben und Buchstabenverbindungen aufgeführt, die dem Deutschsprechenden speziell erscheinen.
 
 ## Einführung > ### Betonung und Aussprache > #### Table 1
 
 <pre>```
-| 0        | 1                       | 2         |
-|:---------|:------------------------|:----------|
-| Chichewa | (Deutsche) Entsprechung | Beispiele |
-```</pre>
-
-
-## Einführung > ### Betonung und Aussprache > #### Table 2
-
-<pre>```
 | 0                                                                                                   | 1                                                                                                   | 2                                                                                                   |
 |:----------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------|
+| Chichewa                                                                                            | (Deutsche) Entsprechung                                                                             | Beispiele                                                                                           |
 | Vokale und Doppelvokale                                                                             | Vokale und Doppelvokale                                                                             | Vokale und Doppelvokale                                                                             |
 | Die normalen Vokale werden wie auf Deutsch ausgesprochen. Einzig einige Doppelvokale sind speziell. | Die normalen Vokale werden wie auf Deutsch ausgesprochen. Einzig einige Doppelvokale sind speziell. | Die normalen Vokale werden wie auf Deutsch ausgesprochen. Einzig einige Doppelvokale sind speziell. |
 | eu                                                                                                  | ewu                                                                                                 |                                                                                                     |
 | au                                                                                                  | awu                                                                                                 |                                                                                                     |
-```</pre>
-
-
-## Einführung > ### Betonung und Aussprache > #### Table 3
-
-<pre>```
-| 0                                      | 1                                                           | 2                                      |
-|:---------------------------------------|:------------------------------------------------------------|:---------------------------------------|
-| Konsonaten und Konsonantenverbindungen | Konsonaten und Konsonantenverbindungen                      | Konsonaten und Konsonantenverbindungen |
-| ch                                     | ähnlich wie ein engl. ch, nur weicher, teils fast wie ein j | Dschungel, Junge                       |
-| j                                      |                                                             | engl. joy                              |
-| l/r                                    | weiches l                                                   |                                        |
-| ng                                     | hörbares g                                                  | Angelika                               |
-| ng’                                    | nasal                                                       | Singen                                 |
-| s                                      | stimmloses s                                                | Sonne                                  |
-| tch                                    | wie ein engl. ch                                            | Tschau, engl. choice                   |
-| v                                      | w                                                           | Wasser                                 |
-| w                                      | engl. w                                                     | engl. wool                             |
-| z                                      | stimmhaftes s                                               | Rose                                   |
-| Behaucht/Unbehaucht                    | Behaucht/Unbehaucht                                         | Behaucht/Unbehaucht                    |
-| k                                      | gg bzw. unbehauchtes k, ital. cch                           | ital. zucchini                         |
-| kh                                     | k (behaucht)                                                | Können                                 |
-| p                                      | bb bzw. unbehauchtes p, ital. p                             | Ebbe, ital. pausa                      |
-| ph                                     | p (behaucht)                                                | Pause                                  |
-| t                                      | dd bzw. unbehauchtes t                                      | Ch.-Deutsch Tier                       |
-| th                                     | t (behaucht)                                                | Traum                                  |
-```</pre>
-
-
-## Einführung > ### Betonung und Aussprache > #### Table 4
-
-<pre>```
-| 0                                                                                         |
-|:------------------------------------------------------------------------------------------|
-| M- und N- in Konsonantenverbindungen                                                      |
-| Auf M- und N- am Wortanfang folgen häufig weitere Konsonanten. Es gilt folgendes:         |
-| N- ist nie als separate Silbe zu betrachten, sondern verschmilzt mit dem Folgekonsonanten |
-| M- ist nur dann als separate Silbe zu betrachten, wenn es Teil des Klassenpräfixes ist    |
+| Konsonaten und Konsonantenverbindungen                                                              | Konsonaten und Konsonantenverbindungen                                                              | Konsonaten und Konsonantenverbindungen                                                              |
+| ch                                                                                                  | ähnlich wie ein engl. ch, nur weicher, teils fast wie ein j                                         | Dschungel, Junge                                                                                    |
+| j                                                                                                   |                                                                                                     | engl. joy                                                                                           |
+| l/r                                                                                                 | weiches l                                                                                           |                                                                                                     |
+| ng                                                                                                  | hörbares g                                                                                          | Angelika                                                                                            |
+| ng’                                                                                                 | nasal                                                                                               | Singen                                                                                              |
+| s                                                                                                   | stimmloses s                                                                                        | Sonne                                                                                               |
+| tch                                                                                                 | wie ein engl. ch                                                                                    | Tschau, engl. choice                                                                                |
+| v                                                                                                   | w                                                                                                   | Wasser                                                                                              |
+| w                                                                                                   | engl. w                                                                                             | engl. wool                                                                                          |
+| z                                                                                                   | stimmhaftes s                                                                                       | Rose                                                                                                |
+| Behaucht/Unbehaucht                                                                                 | Behaucht/Unbehaucht                                                                                 | Behaucht/Unbehaucht                                                                                 |
+| k                                                                                                   | gg bzw. unbehauchtes k, ital. cch                                                                   | ital. zucchini                                                                                      |
+| kh                                                                                                  | k (behaucht)                                                                                        | Können                                                                                              |
+| p                                                                                                   | bb bzw. unbehauchtes p, ital. p                                                                     | Ebbe, ital. pausa                                                                                   |
+| ph                                                                                                  | p (behaucht)                                                                                        | Pause                                                                                               |
+| t                                                                                                   | dd bzw. unbehauchtes t                                                                              | Ch.-Deutsch Tier                                                                                    |
+| th                                                                                                  | t (behaucht)                                                                                        | Traum                                                                                               |
+| M- und N- in Konsonantenverbindungen                                                                | M- und N- in Konsonantenverbindungen                                                                | M- und N- in Konsonantenverbindungen                                                                |
+| Auf M- und N- am Wortanfang folgen häufig weitere Konsonanten. Es gilt folgendes:                   | Auf M- und N- am Wortanfang folgen häufig weitere Konsonanten. Es gilt folgendes:                   | Auf M- und N- am Wortanfang folgen häufig weitere Konsonanten. Es gilt folgendes:                   |
+| N- ist nie als separate Silbe zu betrachten, sondern verschmilzt mit dem Folgekonsonanten           | N- ist nie als separate Silbe zu betrachten, sondern verschmilzt mit dem Folgekonsonanten           | N- ist nie als separate Silbe zu betrachten, sondern verschmilzt mit dem Folgekonsonanten           |
+| M- ist nur dann als separate Silbe zu betrachten, wenn es Teil des Klassenpräfixes ist              | M- ist nur dann als separate Silbe zu betrachten, wenn es Teil des Klassenpräfixes ist              | M- ist nur dann als separate Silbe zu betrachten, wenn es Teil des Klassenpräfixes ist              |
 ```</pre>
 
 
@@ -275,7 +252,7 @@ Bantusprachen zeichnen sich vor allem durch drei Eigenheiten aus.
 
 Erstens sind sie agglutinierend, d.h., dass die grammatische Funktion, beispielsweise Person, Zeit, Kasus, durch das An- und Einfügen von Affixen, Silben also, innerhalb des Verbs kenntlich gemacht wird. Die verschiedenen Silben reihen sich folgendermassen aneinander: Kennsilbe – Zeitsilbe – Aspektsilbe – Objektsilbe – Verbstamm – Nachsilbe. Die unterstrichenen Silben sind hierbei zwingend nötig. Der Satzbau folgt der Subjekt-Verb-Objekt-Struktur.
 
-Zweitens besitzen sie Nominalklassensysteme: Anstelle der grammatikalischen Geschlechter, die wir in vielen Sprachen kennen, werden die Nomen in diverse Klassen eingeteilt, die jeweils eigene Präfixe besitzen. Im Chichewa sind dies sechs Haupt- und vier Unterklassen. Ursprünglich waren diese wohl sehr klar definiert und voneinander abgegrenzt, heute verfliessen sie teils ineinander. Trotzdem lassen sich klare Tendenzen erkennen, Wörter werden (wie in der Tabelle unten beschrieben) nach Bedeutung (Lehnwörter auch nach Wortbeginn) eingeteilt.
+Zweitens besitzen sie Nominalklassensysteme: Anstelle der grammatikalischen Geschlechter, die wir in vielen Sprachen kennen, werden die Nomen in diverse Klassen eingeteilt, die jeweils eigene Präfixe besitzen. Im Chichewa sind dies 11 Haupt- und 6 Unterklassen. Ursprünglich waren diese wohl sehr klar definiert und voneinander abgegrenzt, heute verfliessen sie teils ineinander. Trotzdem lassen sich klare Tendenzen erkennen, Wörter werden (wie in der Tabelle unten beschrieben) nach Bedeutung (Lehnwörter auch nach Wortbeginn) eingeteilt.
 
 Drittens müssen (im Gegensatz zu hiesigen Sprachen, in dem sich häufig nur Adjektive und Fürwörter an das Nomen angleichen) im Chichewa – und in Bantusprachen allgemein – alle Satzteile, die vom Nomen abhängen, angeglichen werden; also auch das Verb. Das kann zunächst komplex und verwirrend wirken, doch im Grunde ist es ein überaus logisches und konsequentes System.
 
@@ -283,18 +260,18 @@ Zudem, wie oben kurz angetönt, kann die Tonhöhe bei der Aussprache bedeutungsu
 
 ## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Nominalklassen und Pluralbildung
 
-Hier sollen kurz zwei Nominalklassen als Beispiele dienen. Jede Klasse (s. vierte Spalte) besitzt Klassenpräfixe, und zwar je eins für den Singular und Plural. Nomen werden gebildet aus ihrem Stamm und diesen Präfixen.
+Hier sollen kurz vier Nominalklassen als Beispiele dienen. Jede Klasse (s. vierte Spalte) besitzt Klassenpräfixe, und bei den Hauptklassen gehören grundsätzlich eine Singular und eine Pluralklasse zusammen (1/2, 3/4 etc.). Nomen werden gebildet aus ihrem Stamm und diesen Präfixen.
 
-## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Nominalklassen und Pluralbildung > ##### Table 5
+## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Nominalklassen und Pluralbildung > ##### Table 2
 
 <pre>```
 | 0   | 1        | 2    | 3      | 4        | 5        |
 |:----|:---------|:-----|:-------|:---------|:---------|
 | #   | Inhalt   | Num. | Präfix | Chichewa | Deutsch  |
 | 1   | Menschen | Ez.  | m(u)-  | mu-nthu  | Mensch   |
-|     |          | Mz.  | a-     | a-nthu   | Menschen |
-| 2   | Dinge    | Ez.  | m(u)-  | mu-ti    | Baum     |
-|     |          | Mz.  | mi-    | mi-ti    | Bäume    |
+| 2   |          | Mz.  | a-     | a-nthu   | Menschen |
+| 3   | Dinge    | Ez.  | m(u)-  | mu-ti    | Baum     |
+| 4   |          | Mz.  | mi-    | mi-ti    | Bäume    |
 ```</pre>
 
 
@@ -310,19 +287,19 @@ Klassenzugehörigkeiten von Silben werden in Klammern () angegeben.
 
 Wie bereits angetönt hängt im Chichewa das Verb vom Subjekt ab. Die Kenn- oder Subjektsilbe gleicht das Verb dem Nomen an. Die Kennsilbe wird vor das Verb gehängt und folgt lautlich zumeist dem Wortanfang.
 
-## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Kenn- oder Subjektsilbe > ###### Table 6
+## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Kenn- oder Subjektsilbe > ###### Table 3
 
 <pre>```
 | 0                                | 1                                     |
 |:---------------------------------|:--------------------------------------|
 | Die Menschen laufen in den Wald. | A-nthu a-ku-pita ku-nkhalango.        |
-|                                  | Menschen sie(1)-Präs.-laufen in-Wald. |
+|                                  | Menschen sie(2)-Präs.-laufen in-Wald. |
 ```</pre>
 
 
 Nebst den Nomen, die Klassen angehören, können auch Personen (ich, Du, etc.) Subjekte sein. Die Personalpronomen ine, iwe, iye, ife, inu, iwo werden nur genannt, wenn sie betont werden sollen. Ansonsten bedient man sich der Personen-Kennsilben.
 
-## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Kenn- oder Subjektsilbe > ###### Table 7
+## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Kenn- oder Subjektsilbe > ###### Table 4
 
 <pre>```
 | 0                                | 1                                              |
@@ -338,7 +315,7 @@ Das Chichewa kennt keine Fälle wie das Deutsch. Die Objektsilbe zeigt Objekte a
 
 Wird durch den Satzaufbau (SVO) klar, welches das Objekt ist, so kann es auch weggelassen werden.
 
-## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Objektsilbe > ###### Table 8
+## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Objektsilbe > ###### Table 5
 
 <pre>```
 | 0                                 | 1                                     |
@@ -356,7 +333,7 @@ Wird durch den Satzaufbau (SVO) klar, welches das Objekt ist, so kann es auch we
 
 Die Besitzsilbe drückt Besitzverhältnisse zwischen Nomen aus. Im Chichewa wird hier zwischen subjektiven und attributivem Genitiv unterschieden.
 
-## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Besitzsilbe > ###### Table 9
+## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Besitzsilbe > ###### Table 6
 
 <pre>```
 | 0                                                                           | 1                                |
@@ -370,7 +347,7 @@ Die attributive Genitivfunktion ist eine mehrerer Möglichkeiten, Nomen adjektiv
 
 Objektive Genitive werden im Chichewa durch Infinitivkonstruktionen ausgedrückt:
 
-## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Besitzsilbe > ###### Table 10
+## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Besitzsilbe > ###### Table 7
 
 <pre>```
 | 0                                                                                   | 1                   |
@@ -386,13 +363,13 @@ Hingegen zeigt die Eigenschaftssilbe Besitzsverhältnisse von Nomen zu Verben an
 
 Dies ist die zweite Möglichkeit, Nomen adjektivisch zu beschreiben.
 
-## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Eigenschaftssilbe > ###### Table 11
+## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Eigenschaftssilbe > ###### Table 8
 
 <pre>```
 | 0                            | 1                                            |
 |:-----------------------------|:---------------------------------------------|
 | Wir ernten in der Erntezeit. | Ti-ma-kolola mu nyengo yokolola.             |
-|                              | Wir-Gewohnheit-ernten in Zeit von(5)-ernten. |
+|                              | Wir-Gewohnheit-ernten in Zeit von(9)-ernten. |
 ```</pre>
 
 
@@ -402,51 +379,53 @@ Dies ist die zweite Möglichkeit, Nomen adjektivisch zu beschreiben.
 
 ## Das Nomen > ### Nominalklassen > #### Hauptklassen
 
-In der Linguistik wird jedem einzelnen Klassenpräfix eine Nummer zugewiesen – der Einfachheit halber weisen wir demselben Wort im Singular und Plural dieselbe Klassennummer zu. Im Anhang wird detaillierter darauf eingegangen, wie die Wörter in die Klassen eingeteilt werden und wie diese überhaupt zustande kommen.
+In der Linguistik wird jedem einzelnen Klassenpräfix eine Nummer zugewiesen – wir folgen dieser Einteilung. Gedanklich kann man aber durchaus Singular- und Pluralklassen jeweils zusammennehmen (ungerade = Singular, gerade = Plural).
+
+Klasse 11 fehlt im Chichewa, wobei die Durchnummerierung aber beibehalten wird, um Interkompatibilität mit anderen Bantusprachen zu gewährleisten. Klasse 14 hat keinen eigenen Plural, es wird der Klasse 6 genutzt. Im Anhang wird detaillierter darauf eingegangen, wie die Wörter in die Klassen eingeteilt werden und wie diese überhaupt zustande kommen.
 
 Will man ein Nomen in den Plural setzen, so ersetzt die Pluralvorsilbe die des Singulars. Ausnahme hiervon ist die Pluralvorsilbe «ma-», diese wird direkt an den Wortanfang angehängt.
 
-## Das Nomen > ### Nominalklassen > #### Hauptklassen > ##### Table 12
+## Das Nomen > ### Nominalklassen > #### Hauptklassen > ##### Table 9
 
 <pre>```
-|   0 | 1                     | 2   | 3      | 4        | 5        |
-|----:|:----------------------|:----|:-------|:---------|:---------|
-|   1 | Menschen              | Ez. | m(u)-  | munthu   | Mensch   |
-|     |                       | Mz. | a-     | anthu    | Menschen |
-|   2 | Dinge                 | Ez. | m(u)-  | muti     | Baum     |
-|     |                       | Mz. | mi-    | miti     | Bäume    |
-|   3 | Fremdwörter           | Ez. | -      | sukulu   | Schule   |
-|     |                       | Mz. | ma-    | masukulu | Schulen  |
-|   4 | Abstrakta             | Ez. | ch(i)- | chinthu  | Ding     |
-|     |                       | Mz. | z(i)-  | zinthu   | Dinge    |
-|   5 | -                     | Ez. | (n-)   | nyumba   | Haus     |
-|     |                       | Mz. | (n-)   | nyumba   | Häuser   |
-|   6 | Abstrakta, Plurallose | Ez. | u-     | ubwino   | Güte     |
-|     |                       | Mz. | ma-    | -        | -        |
+| 0   | 1                     | 2   | 3      | 4        | 5        |
+|:----|:----------------------|:----|:-------|:---------|:---------|
+| 1   | Menschen              | Ez. | m(u)-  | munthu   | Mensch   |
+| 2   |                       | Mz. | a-     | anthu    | Menschen |
+| 3   | Dinge                 | Ez. | m(u)-  | muti     | Baum     |
+| 4   |                       | Mz. | mi-    | miti     | Bäume    |
+| 5   | Fremdwörter           | Ez. | -      | sukulu   | Schule   |
+| 6   |                       | Mz. | ma-    | masukulu | Schulen  |
+| 7   | Abstrakta             | Ez. | ch(i)- | chinthu  | Ding     |
+| 8   |                       | Mz. | z(i)-  | zinthu   | Dinge    |
+| 9   | -                     | Ez. | (n-)   | nyumba   | Haus     |
+| 10  |                       | Mz. | (n-)   | nyumba   | Häuser   |
+| 14  | Abstrakta, Plurallose | Ez. | u-     | ubwino   | Güte     |
+| (6) |                       | Mz. | ma-    | -        | -        |
 ```</pre>
 
 
 ## Das Nomen > ### Nominalklassen > #### Zusatzklassen
 
-Klasse 7: In Bantusprachen kann man jedes Verb substantivieren, wobei nur eine Singularform existiert, die dem Infinitiv entspricht (Dies ist für Deutschsprachige ganz natürlich: z.B.  gehen -> das Gehen). Daneben gibt es häufig – ebenfalls wie im Deutschen –  weitere vom Verbstamm abgeleitete Nomen.
+Diminutivklasse 12/13 und Augmentative (nutzen Klassensilben der Klasse 7/8): Die Verkleinerungs- und Vergrösserungsklassen müssen im Plural doppelt dekliniert werden: Ihre klasseneigenen Vorsilben «ti-» und «zi-» werden an den Plural des zu verkleinernden/vergrössernden Nomens angehängt.
 
-Klassen 8 & 9: Die Verkleinerungs- und Vergrösserungsklassen müssen im Plural doppelt dekliniert werden: Ihre klasseneigenen Vorsilben «ti-» und «zi-» werden an den Plural des zu verkleinernden/vergrössernden Nomens angehängt.
+Klasse 15: In Bantusprachen kann man jedes Verb substantivieren, wobei nur eine Singularform existiert, die dem Infinitiv entspricht (Dies ist für Deutschsprachige ganz natürlich: z.B.  gehen -> das Gehen). Daneben gibt es häufig – ebenfalls wie im Deutschen –  weitere vom Verbstamm abgeleitete Nomen.
 
-Klasse 10: Gibt man in einem Satz zusammen einen Ort mit einem Nomen an (z.B. in der Schule), so gehört das Nomen nun der Ortsklasse an und der Satz muss entsprechend angepasst werden.
+Ortsklassen 16/17/18: Gibt man in einem Satz zusammen einen Ort mit einem Nomen an (z.B. in der Schule), so gehört das Nomen nun der Ortsklasse an und der Satz muss entsprechend angepasst werden.
 
-## Das Nomen > ### Nominalklassen > #### Zusatzklassen > ##### Table 13
+## Das Nomen > ### Nominalklassen > #### Zusatzklassen > ##### Table 10
 
 <pre>```
-|   0 | 1             | 2                           | 3    | 4         | 5             |
-|----:|:--------------|:----------------------------|:-----|:----------|:--------------|
-|   7 | Subst. Verben |                             | ku-  | kupita    | das Gehen     |
-|   8 | Verkleinerung | Ez.                         | ka-  | kamwana   | Kleinkind     |
-|     |               | Mz.                         | ti-  | tiana     | Kleinkinder   |
-|   9 | Vergrösserung | Ez.                         | chi- | chinyumba | Villa         |
-|     |               | Mz.                         | zi-  | zinyumba  | Villen        |
-|  10 | Ort           | Ort (grossräumig, Richtung) | ku-  | kuMalawi  | in Malawi     |
-|     |               | Ort (exakt)                 | pa-  | pamwala   | auf dem Stein |
-|     |               | Ort (innerhalb, zeitlich)   | mu-  | munyumba  | im Haus       |
+| 0   | 1             | 2                           | 3    | 4         | 5             |
+|:----|:--------------|:----------------------------|:-----|:----------|:--------------|
+| 12  | Verkleinerung | Ez.                         | ka-  | kamwana   | Kleinkind     |
+| 13  |               | Mz.                         | ti-  | tiana     | Kleinkinder   |
+| (7) | Vergrösserung | Ez.                         | chi- | chinyumba | Villa         |
+| (8) |               | Mz.                         | zi-  | zinyumba  | Villen        |
+| 15  | Subst. Verben |                             | ku-  | kupita    | das Gehen     |
+| 16  | Ort           | Ort (grossräumig, Richtung) | ku-  | kuMalawi  | in Malawi     |
+| 17  |               | Ort (exakt)                 | pa-  | pamwala   | auf dem Stein |
+| 18  |               | Ort (innerhalb, zeitlich)   | mu-  | munyumba  | im Haus       |
 ```</pre>
 
 
@@ -454,48 +433,34 @@ Klasse 10: Gibt man in einem Satz zusammen einen Ort mit einem Nomen an (z.B. in
 
 Die Nominalklassen bilden die Basis eines jeden Satzes. Die Meisterung der zugehören Silben ist somit unumgänglich. Auf der nächsten Seite findet sich eine Übersichtsdarstellung aller Silben. Silben(-teile), die von der regulären Bildung abweichen, sind speziell markiert.
 
-## Das Nomen > ### Nominalklassen > #### Silben-Übersichtsdarstellung > ##### Table 14
+## Das Nomen > ### Nominalklassen > #### Silben-Übersichtsdarstellung > ##### Table 11
 
 <pre>```
-| 0   | 1   | 2   | 3   | 4       | 5      | 6      | 7           |
-|:----|:----|:----|:----|:--------|:-------|:-------|:------------|
-|     |     |     |     | Subjekt | Objekt | Besitz | Eigenschaft |
-```</pre>
-
-
-## Das Nomen > ### Nominalklassen > #### Silben-Übersichtsdarstellung > ##### Table 15
-
-<pre>```
-|   0 | 1                     | 2   | 3      | 4            | 5                    | 6    | 7    |
-|----:|:----------------------|:----|:-------|:-------------|:---------------------|:-----|:-----|
-|   1 | Menschen              | Ez. | m(u)-  | ndi-, u-, a- | -ndi-, -ku-, -mu-    | wa-  | wo-  |
-|     |                       | Mz. | a-     | ti-, mu-, a- | -ti-, -ku-…-ni, -wa- | a-   | o-   |
-|   2 | Dinge                 | Ez. | m(u)-  | u-           | -wu-                 | wa-  | wo-  |
-|     |                       | Mz. | mi-    | i-           | -yi-                 | ya-  | yo-  |
-|   3 | Fremdwörter           | Ez. | -      | li-          | -li-                 | la-  | lo-  |
-|     |                       | Mz. | ma-    | a-           | -wa                  | a-   | o-   |
-|   4 | Abstrakta             | Ez. | ch(i)- | chi-         | -chi-                | cha- | cho- |
-|     |                       | Mz. | z(i)-  | zi-          | -zi-                 | za-  | zo-  |
-|   5 | -                     | Ez. | (n-)   | i-           | -yi-                 | ya-  | yo-  |
-|     |                       | Mz. | (n-)   | zi-          | -zi-                 | za-  | zo-  |
-|   6 | Abstrakta, Plurallose | Ez. | u-     | u-           | -wu-                 | wa-  | wo-  |
-|     |                       | Mz. | ma-    | a-           | -wa-                 | a-   | o-   |
-```</pre>
-
-
-## Das Nomen > ### Nominalklassen > #### Silben-Übersichtsdarstellung > ##### Table 16
-
-<pre>```
-|   0 | 1             | 2     | 3    | 4    | 5     | 6    | 7    |
-|----:|:--------------|:------|:-----|:-----|:------|:-----|:-----|
-|   7 | Subst. Verben |       | ku-  | ku-  | -ku-  | kwa- | ko-  |
-|   8 | Verkleinerung | Ez.   | ka-  | ka-  | -ka-  | ka-  | ko-  |
-|     |               | Mz.   | ti-  | ti-  | -ti-  | ta-  | to-  |
-|   9 | Vergrösserung | Ez.   | chi- | chi- | -chi- | cha- | cho- |
-|     |               | Mz.   | zi-  | zi-  | -zi-  | za-  | zo-  |
-|  10 | Ort           | Ort   | ku-  | ku-  | -ku-  | kwa- | ko-  |
-|     |               | Punkt | pa-  | pa-  | -pa-  | pa-  | po-  |
-|     |               | «in»  | mu-  | mu-  | -mu-  | mwa- | mo-  |
+| 0             | 1                     | 2             | 3             | 4             | 5                    | 6                    | 7             | 8             |
+|:--------------|:----------------------|:--------------|:--------------|:--------------|:---------------------|:---------------------|:--------------|:--------------|
+|               |                       |               |               | Subjekt       | Objekt               | Objekt               | Besitz        | Eigenschaft   |
+| Hauptklassen  | Hauptklassen          | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen         | Hauptklassen         | Hauptklassen  | Hauptklassen  |
+| 1             | Menschen              | Ez.           | m(u)-         | ndi-, u-, a-  | -ndi-, -ku-, -mu-    | -ndi-, -ku-, -mu-    | wa-           | wo-           |
+| 2             |                       | Mz.           | a-            | ti-, mu-, a-  | -ti-, -ku-…-ni, -wa- | -ti-, -ku-…-ni, -wa- | a-            | o-            |
+| 3             | Dinge                 | Ez.           | m(u)-         | u-            | -wu-                 | -wu-                 | wa-           | wo-           |
+| 4             |                       | Mz.           | mi-           | i-            | -yi-                 | -yi-                 | ya-           | yo-           |
+| 5             | Fremdwörter           | Ez.           | -             | li-           | -li-                 | -li-                 | la-           | lo-           |
+| 6             |                       | Mz.           | ma-           | a-            | -wa                  | -wa                  | a-            | o-            |
+| 7             | Abstrakta             | Ez.           | ch(i)-        | chi-          | -chi-                | -chi-                | cha-          | cho-          |
+| 8             |                       | Mz.           | z(i)-         | zi-           | -zi-                 | -zi-                 | za-           | zo-           |
+| 9             | -                     | Ez.           | (n-)          | i-            | -yi-                 | -yi-                 | ya-           | yo-           |
+| 10            |                       | Mz.           | (n-)          | zi-           | -zi-                 | -zi-                 | za-           | zo-           |
+| 14            | Abstrakta, Plurallose | Ez.           | u-            | u-            | -wu-                 | -wu-                 | wa-           | wo-           |
+| (6)           |                       | Mz.           | ma-           | a-            | -wa-                 | -wa-                 | a-            | o-            |
+| Zusatzklassen | Zusatzklassen         | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen        | Zusatzklassen        | Zusatzklassen | Zusatzklassen |
+| 12            | Verkleinerung         | Ez.           | ka-           | ka-           | ka-                  | -ka-                 | ka-           | ko-           |
+| 13            |                       | Mz.           | ti-           | ti-           | ti-                  | -ti-                 | ta-           | to-           |
+| (7)           | Vergrösserung         | Ez.           | chi-          | chi-          | chi-                 | -chi-                | cha-          | cho-          |
+| (8)           |                       | Mz.           | zi-           | zi-           | zi-                  | -zi-                 | za-           | zo-           |
+| 15            | Subst. Verben         |               | ku-           | ku-           | ku-                  | -ku-                 | kwa-          | ko-           |
+| 16            | Ort                   | Ort           | ku-           | ku-           | ku-                  | -ku-                 | kwa-          | ko-           |
+| 17            |                       | Punkt         | pa-           | pa-           | pa-                  | -pa-                 | pa-           | po-           |
+| 18            |                       | «in»          | mu-           | mu-           | mu-                  | -mu-                 | mwa-          | mo-           |
 ```</pre>
 
 
@@ -505,32 +470,24 @@ Die Nominalklassen bilden die Basis eines jeden Satzes. Die Meisterung der zugeh
 
 Im Chichewa ist der Gebrauch von Demonstrativpronomina sehr differenziert und häufig. So unterscheidet man zwischen vier Arten von Demonstrativpronomina.
 
-## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Table 17
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Table 12
 
 <pre>```
-| 0   | 1       | 2        | 3       | 4         |
-|:----|:--------|:---------|:--------|:----------|
-|     | Deutsch | Chichewa | Bildung | Ausnahmen |
-```</pre>
-
-
-## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Table 18
-
-<pre>```
-| 0   | 1                  | 2          | 3                                   | 4                 |
-|:----|:-------------------|:-----------|:------------------------------------|:------------------|
-| I   | Dieser Mensch      | munthu uyu | Kennsilbenvokal + Kennsilbe         | Klasse 1 Sg. uyu  |
-| II  | Jener Mensch       | munthu uyo | Kennsilbenvokal + Eigenschaftssilbe | Klasse 1. Sg. uyo |
-| III | Dieser Mensch hier | munthu uno | Kennsilbe + no                      | Klasse 1 Sg. uno  |
-| IV  | Jener Mensch       | munthu uja | Kennsilbe + ja                      | Klasse 1 Sg. uja  |
+| 0   | 1                  | 2          | 3                                   | 4                   |
+|:----|:-------------------|:-----------|:------------------------------------|:--------------------|
+|     | Deutsch            | Chichewa   | Bildung                             | Ausnahmen           |
+| I   | Dieser Mensch      | munthu uyu | Kennsilbenvokal + Kennsilbe         | Klasse 1/2 Sg. uyu  |
+| II  | Jener Mensch       | munthu uyo | Kennsilbenvokal + Eigenschaftssilbe | Klasse 1/2. Sg. uyo |
+| III | Dieser Mensch hier | munthu uno | Kennsilbe + no                      | Klasse 1/2 Sg. uno  |
+| IV  | Jener Mensch       | munthu uja | Kennsilbe + ja                      | Klasse 1/2 Sg. uja  |
 ```</pre>
 
 
 ## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Mit Diesem/r / Jenem/r
 
-Das Chichewa-Wort für «mit» (ndi) funktioniert genau gleich wie auf Deutsch. Vor Pronomen aber verschmilzt es mit diesen: Man setzt ein «na» vor das Demonstrativpronomen II, wobei der Anfangsvokal dieses entfällt (Ausnahme: Klasse 1 Sg. naye).
+Das Chichewa-Wort für «mit» (ndi) funktioniert genau gleich wie auf Deutsch. Vor Pronomen aber verschmilzt es mit diesen: Man setzt ein «na» vor das Demonstrativpronomen II, wobei der Anfangsvokal dieses entfällt (Ausnahme: Klasse 1/2 Sg. naye).
 
-## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Mit Diesem/r / Jenem/r > ###### Table 19
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Mit Diesem/r / Jenem/r > ###### Table 13
 
 <pre>```
 | 0                                         | 1                                                 |
@@ -541,9 +498,9 @@ Das Chichewa-Wort für «mit» (ndi) funktioniert genau gleich wie auf Deutsch. 
 
 ## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Welche/r/s?
 
-Will man herausfinden, welche/r/s gemeint ist, so nutzt man die Kennsilbe und hängt ihr ein «-ti» an (Ausnahme: Klasse 1 Sg. uti).
+Will man herausfinden, welche/r/s gemeint ist, so nutzt man die Kennsilbe und hängt ihr ein «-ti» an (Ausnahme: Klasse 1/2 Sg. uti).
 
-## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Welche/r/s? > ###### Table 20
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Welche/r/s? > ###### Table 14
 
 <pre>```
 | 0               | 1           |
@@ -555,65 +512,35 @@ Will man herausfinden, welche/r/s gemeint ist, so nutzt man die Kennsilbe und h�
 
 ## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung
 
-## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung > ###### Table 21
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung > ###### Table 15
 
 <pre>```
-| 0   | 1   | 2         | 3        | 4      | 5     | 6           | 7              | 8         |
-|:----|:----|:----------|:---------|:-------|:------|:------------|:---------------|:----------|
-|     |     | Kennsilbe | Welches? | Dieses | Jenes | Dieses hier | Jenes bekannte | Mit Jenem |
-```</pre>
-
-
-## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung > ###### Table 22
-
-<pre>```
-|   0 | 1      | 2    | 3      | 4    | 5    | 6     | 7     | 8     |
-|----:|:-------|:-----|:-------|:-----|:-----|:------|:------|:------|
-|   1 | m(u)-  | a-   | uti?   | uyu  | uyo  | uno   | uja   | naye  |
-|     | a-     | a-   | ati?   | awa  | awo  | ano   | aja   | nawo  |
-|   2 | m(u)-  | u-   | uti?   | uwu  | uwo  | uno   | uja   | nawo  |
-|     | mi-    | i-   | iti?   | iyi  | iyo  | ino   | ija   | nayo  |
-|   3 | -      | li-  | liti?  | ili  | ilo  | lino  | lija  | nalo  |
-|     | ma-    | a-   | ati?   | awa  | awo  | ano   | aja   | nawo  |
-|   4 | ch(i)- | chi- | chiti? | ichi | icho | chino | chija | nacho |
-|     | z(i)-  | zi-  | ziti?  | izi  | izo  | zino  | zija  | nazo  |
-|   5 | (n-)   | i-   | iti?   | iyi  | iyo  | ino   | ija   | nayo  |
-|     | (n-)   | zi-  | ziti?  | izi  | izo  | zino  | zija  | nazo  |
-|   6 | u-     | u-   | uti?   | uwu  | uwo  | uno   | uja   | nawo  |
-|     | ma-    | a-   | ati?   | awa  | awo  | ano   | aja   | nawo  |
-```</pre>
-
-
-## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung > ###### Table 23
-
-<pre>```
-|   0 | 1    | 2    | 3      | 4    | 5    | 6     | 7     | 8     |
-|----:|:-----|:-----|:-------|:-----|:-----|:------|:------|:------|
-|   7 | ku-  | ku-  | kuti?  | uku  | uko  | kuno  | kuja  | nako  |
-|   8 | ka-  | ka-  | kati?  | aka  | ako  | kano  | kaja  | nako  |
-|     | ti-  | ti-  | titi?  | iti  | ito  | tino  | tija  | nato  |
-|   9 | chi- | chi- | chiti? | ichi | icho | chino | chija | nacho |
-|     | zi-  | zi-  | ziti?  | izi  | izo  | zino  | zija  | nazo  |
-```</pre>
-
-
-## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung > ###### Table 24
-
-<pre>```
-| 0   | 1   | 2   | 3   | 4    | 5    | 6         | 7       | 8   |
-|:----|:----|:----|:----|:-----|:-----|:----------|:--------|:----|
-|     |     |     | Wo? | hier | dort | hier drin | da drin | -   |
-```</pre>
-
-
-## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung > ###### Table 25
-
-<pre>```
-|   0 | 1   | 2   | 3     | 4   | 5   | 6    | 7    | 8   |
-|----:|:----|:----|:------|:----|:----|:-----|:-----|:----|
-|  10 | ku- | ku- | kuti? | uku | uko | kuno | kuja | -   |
-|     | pa- | pa- | pati? | apa | apo | pano | paja | -   |
-|     | mu- | mu- | muti? | umu | umo | muno | muja | -   |
+| 0             | 1             | 2             | 3             | 4             | 5             | 6             | 7              | 8             |
+|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:---------------|:--------------|
+|               |               | Kennsilbe     | Welches?      | Dieses        | Jenes         | Dieses hier   | Jenes bekannte | Mit Jenem     |
+| Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen   | Hauptklassen  |
+| 1             | m(u)-         | a-            | uti?          | uyu           | uyo           | uno           | uja            | naye          |
+| 2             | a-            | a-            | ati?          | awa           | awo           | ano           | aja            | nawo          |
+| 3             | m(u)-         | u-            | uti?          | uwu           | uwo           | uno           | uja            | nawo          |
+| 4             | mi-           | i-            | iti?          | iyi           | iyo           | ino           | ija            | nayo          |
+| 5             | -             | li-           | liti?         | ili           | ilo           | lino          | lija           | nalo          |
+| 6             | ma-           | a-            | ati?          | awa           | awo           | ano           | aja            | nawo          |
+| 7             | ch(i)-        | chi-          | chiti?        | ichi          | icho          | chino         | chija          | nacho         |
+| 8             | z(i)-         | zi-           | ziti?         | izi           | izo           | zino          | zija           | nazo          |
+| 9             | (n-)          | i-            | iti?          | iyi           | iyo           | ino           | ija            | nayo          |
+| 10            | (n-)          | zi-           | ziti?         | izi           | izo           | zino          | zija           | nazo          |
+| 14            | u-            | u-            | uti?          | uwu           | uwo           | uno           | uja            | nawo          |
+| (6)           | ma-           | a-            | ati?          | awa           | awo           | ano           | aja            | nawo          |
+| Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen  | Zusatzklassen |
+| 15            | ku-           | ku-           | kuti?         | uku           | uko           | kuno          | kuja           | nako          |
+| 12            | ka-           | ka-           | kati?         | aka           | ako           | kano          | kaja           | nako          |
+| 13            | ti-           | ti-           | titi?         | iti           | ito           | tino          | tija           | nato          |
+| (7)           | chi-          | chi-          | chiti?        | ichi          | icho          | chino         | chija          | nacho         |
+| (8)           | zi-           | zi-           | ziti?         | izi           | izo           | zino          | zija           | nazo          |
+|               |               |               | Wo?           | hier          | dort          | hier drin     | da drin        | -             |
+| 16            | ku-           | ku-           | kuti?         | uku           | uko           | kuno          | kuja           | -             |
+| 17            | pa-           | pa-           | pati?         | apa           | apo           | pano          | paja           | -             |
+| 18            | mu-           | mu-           | muti?         | umu           | umo           | muno          | muja           | -             |
 ```</pre>
 
 
@@ -621,25 +548,18 @@ Will man herausfinden, welche/r/s gemeint ist, so nutzt man die Kennsilbe und h�
 
 Die Personalprononima sind im Chichewa für Subjekt und Objekt identisch und lauten:
 
-## Das Nomen > ### Pronomina > #### Personalpronomina > ##### Table 26
+## Das Nomen > ### Pronomina > #### Personalpronomina > ##### Table 16
 
 <pre>```
-| 0         | 1   | 2           | 3    |
-|:----------|:----|:------------|:-----|
-| ich       | ine | mit mir     | nane |
-| Du        | iwe | mit Dir     | nawe |
-| er/sie/es | iye | mit ihm/ihr | naye |
-```</pre>
-
-
-## Das Nomen > ### Pronomina > #### Personalpronomina > ##### Table 27
-
-<pre>```
-| 0       | 1   | 2              | 3    |
-|:--------|:----|:---------------|:-----|
-| wir     | ife | mit uns        | nafe |
-| ihr/Sie | inu | mit Euch/Ihnen | nane |
-| sie     | iwo | mit ihnen      | nawo |
+| 0         | 1   | 2              | 3    |
+|:----------|:----|:---------------|:-----|
+| ich       | ine | mit mir        | nane |
+| Du        | iwe | mit Dir        | nawe |
+| er/sie/es | iye | mit ihm/ihr    | naye |
+|           |     |                |      |
+| wir       | ife | mit uns        | nafe |
+| ihr/Sie   | inu | mit Euch/Ihnen | nane |
+| sie       | iwo | mit ihnen      | nawo |
 ```</pre>
 
 
@@ -649,57 +569,34 @@ Es gilt, Erwachsene stets in der zweiten Person Plural anzusprechen. Der Singula
 
 Bei den Relativpronomina hat man zwei Möglichkeiten, wobei letztere etwas stärker betont:
 
-## Das Nomen > ### Pronomina > #### Relativpronomina > ##### Table 28
+## Das Nomen > ### Pronomina > #### Relativpronomina > ##### Table 17
 
 <pre>```
-| 0       | 1         | 2       | 3        |
-|:--------|:----------|:--------|:---------|
-| Bildung | Ausnahmen | Deutsch | Chichewa |
-```</pre>
-
-
-## Das Nomen > ### Pronomina > #### Relativpronomina > ##### Table 29
-
-<pre>```
-| 0                       | 1                   | 2                                    | 3                                                |
-|:------------------------|:--------------------|:-------------------------------------|:-------------------------------------------------|
-| Kennsilbe + mene        | Klasse 1 Sg. m’mene | Das, was Du gestern gesagt hast      | Zinthu zi-mene mwa-nena dzulo.                   |
-|                         |                     |                                      | Dinge sie(4)-welche Du-Vgh.-sagen gestern.       |
-| Eigenschaftssilbe + mwe | Klasse 1 Sg. yemwe  | Genau die Worte, die Du benutzt hast | Mawu omwe mwa-gwiri-tsa ntchito.                 |
-|                         |                     |                                      | Worte sie(3)-diese Du-Vgh.-halten-machen Arbeit. |
+| 0                       | 1                     | 2                                    | 3                                                |
+|:------------------------|:----------------------|:-------------------------------------|:-------------------------------------------------|
+| Bildung                 | Ausnahmen             | Deutsch                              | Chichewa                                         |
+| Kennsilbe + mene        | Klasse 1/2 Sg. m’mene | Das, was Du gestern gesagt hast      | Zinthu zi-mene mwa-nena dzulo.                   |
+|                         |                       |                                      | Dinge sie(4)-welche Du-Vgh.-sagen gestern.       |
+| Eigenschaftssilbe + mwe | Klasse 1/2 Sg. yemwe  | Genau die Worte, die Du benutzt hast | Mawu omwe mwa-gwiri-tsa ntchito.                 |
+|                         |                       |                                      | Worte sie(3)-diese Du-Vgh.-halten-machen Arbeit. |
 ```</pre>
 
 
 ## Das Nomen > ### Pronomina > #### Possessivpronomina
 
-## Das Nomen > ### Pronomina > #### Possessivpronomina > ##### Table 30
-
-<pre>```
-| 0   | 1        | 2   |
-|:----|:---------|:----|
-|     | Vorsilbe |     |
-```</pre>
-
-
-## Das Nomen > ### Pronomina > #### Possessivpronomina > ##### Table 31
+## Das Nomen > ### Pronomina > #### Possessivpronomina > ##### Table 18
 
 <pre>```
 | 0        | 1           | 2    |
 |:---------|:------------|:-----|
+|          | Vorsilbe    |      |
 | mein     | Besitzsilbe | -nga |
 | Dein     | Besitzsilbe | -ko  |
 | sein/ihr | Besitzsilbe | -ke  |
-```</pre>
-
-
-## Das Nomen > ### Pronomina > #### Possessivpronomina > ##### Table 32
-
-<pre>```
-| 0        | 1           | 2   |
-|:---------|:------------|:----|
-| unser    | Besitzsilbe | -tu |
-| euer/Ihr | Besitzsilbe | -nu |
-| ihr      | Besitzsilbe | -wo |
+|          |             |      |
+| unser    | Besitzsilbe | -tu  |
+| euer/Ihr | Besitzsilbe | -nu  |
+| ihr      | Besitzsilbe | -wo  |
 ```</pre>
 
 
@@ -765,7 +662,7 @@ SUBJekt – TEMPus – (ASPekt –) (OBJekt – )VERB (– ENDung)
 
 Eine Anmerkung zur Verneinung: Wird die Verneinung mit «Si-» gebildet, so entfällt das «-i» des «Si-«, wenn die darauffolgende Kennsilbe mit einem Vokal beginnt.
 
-## Das Verb > ### Zeitformen > #### Negation > ##### Table 33
+## Das Verb > ### Zeitformen > #### Negation > ##### Table 19
 
 <pre>```
 | 0               | 1                  |
@@ -781,7 +678,7 @@ Continuous: Der Effekt der Handlung ist immer noch gültig
 
 Discontinuous: Der Effekt der Handlung ist nicht mehr gültig
 
-## Das Verb > ### Zeitformen > #### Vergangenheit > ##### Table 34
+## Das Verb > ### Zeitformen > #### Vergangenheit > ##### Table 20
 
 <pre>```
 | 0                                         | 1       | 2     | 3        | 4   | 5                                          |
@@ -800,7 +697,7 @@ Discontinuous: Der Effekt der Handlung ist nicht mehr gültig
 
 Wie bei allen Zeitstufen können auch hier Aspektsinfixe eingefügt werden, sofern sie nicht mit dem intrinsischen Aspekt konkurrieren (e.g., imperfektives -ma- mit einer Perfektzeitform). Häufig ist u.a.:
 
-## Das Verb > ### Zeitformen > #### Vergangenheit > ##### Table 35
+## Das Verb > ### Zeitformen > #### Vergangenheit > ##### Table 21
 
 <pre>```
 | 0              | 1    | 2    | 3   | 4        | 5               |
@@ -812,7 +709,7 @@ Wie bei allen Zeitstufen können auch hier Aspektsinfixe eingefügt werden, sofe
 
 Das Past Perfect oder Plusquamperfekt bilden wir mit einer zusammengesetzen Zeitform:
 
-## Das Verb > ### Zeitformen > #### Vergangenheit > ##### Table 36
+## Das Verb > ### Zeitformen > #### Vergangenheit > ##### Table 22
 
 <pre>```
 | 0            | 1    | 2    | 3    | 4    | 5      | 6        | 7   | 8                     |
@@ -825,7 +722,7 @@ Das Past Perfect oder Plusquamperfekt bilden wir mit einer zusammengesetzen Zeit
 
 ## Das Verb > ### Zeitformen > #### Präsens
 
-## Das Verb > ### Zeitformen > #### Präsens > ##### Table 37
+## Das Verb > ### Zeitformen > #### Präsens > ##### Table 23
 
 <pre>```
 | 0                            | 1       | 2     | 3        | 4   | 5                                     |
@@ -842,7 +739,7 @@ Das Past Perfect oder Plusquamperfekt bilden wir mit einer zusammengesetzen Zeit
 
 Auch hier können Aspektsinfixe eingefügt werden:
 
-## Das Verb > ### Zeitformen > #### Präsens > ##### Table 38
+## Das Verb > ### Zeitformen > #### Präsens > ##### Table 24
 
 <pre>```
 | 0                        | 1    | 2   | 3    | 4        | 5   | 6                            |
@@ -854,7 +751,7 @@ Auch hier können Aspektsinfixe eingefügt werden:
 
 Das englische Present Perfect continuous bilden wir mit einer zusammengesetzten Zeitform. Ebenso ein habituelles Present Perfect, bei dem eine Handlung zu einem gewissen Zeitpunkt wiederholt bereits abgeschlossen ist.
 
-## Das Verb > ### Zeitformen > #### Präsens > ##### Table 39
+## Das Verb > ### Zeitformen > #### Präsens > ##### Table 25
 
 <pre>```
 | 0                        | 1    | 2    | 3      | 4    | 5      | 6        | 7   | 8                          |
@@ -868,7 +765,7 @@ Das englische Present Perfect continuous bilden wir mit einer zusammengesetzten 
 
 ## Das Verb > ### Zeitformen > #### Futur
 
-## Das Verb > ### Zeitformen > #### Futur > ##### Table 40
+## Das Verb > ### Zeitformen > #### Futur > ##### Table 26
 
 <pre>```
 | 0                        | 1       | 2    | 3        | 4   | 5                             |
@@ -887,7 +784,7 @@ Das englische Present Perfect continuous bilden wir mit einer zusammengesetzten 
 
 In der Zukunft werden perfektive Zeiten zusammengesetzt gebildet:
 
-## Das Verb > ### Zeitformen > #### Futur > ##### Table 41
+## Das Verb > ### Zeitformen > #### Futur > ##### Table 27
 
 <pre>```
 | 0                     | 1    | 2    | 3     | 4    | 5      | 6        | 7   | 8                                  |
@@ -902,7 +799,7 @@ In der Zukunft werden perfektive Zeiten zusammengesetzt gebildet:
 
 Die folgenden mit Aspektinfix gebildeten Futurzeitformen beziehen sich alle auf die ferne Zukunft.
 
-## Das Verb > ### Zeitformen > #### Futur > ##### Table 42
+## Das Verb > ### Zeitformen > #### Futur > ##### Table 28
 
 <pre>```
 | 0                               | 1    | 2    | 3    | 4        | 5                                   |
@@ -917,7 +814,7 @@ Die folgenden mit Aspektinfix gebildeten Futurzeitformen beziehen sich alle auf 
 
 ## Das Verb > ### Zeitformen > #### Konditional
 
-## Das Verb > ### Zeitformen > #### Konditional > ##### Table 43
+## Das Verb > ### Zeitformen > #### Konditional > ##### Table 29
 
 <pre>```
 | 0                             | 1    | 2           | 3       | 4        | 5                            |
@@ -933,7 +830,7 @@ Die folgenden mit Aspektinfix gebildeten Futurzeitformen beziehen sich alle auf 
 
 Die negativen Konditonale brauchen «ku-panda» ‘nicht haben’ als Hilfsverb:
 
-## Das Verb > ### Zeitformen > #### Konditional > ##### Table 44
+## Das Verb > ### Zeitformen > #### Konditional > ##### Table 30
 
 <pre>```
 | 0                     | 1    | 2      | 3    | 4     | 5    | 6        | 7                              |
@@ -951,7 +848,7 @@ Konditionalsätze haben im Bedingungssatz einen Konditional, im Hauptsatz einen 
 
 ## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Vergangenheit
 
-## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Vergangenheit > ####### Table 45
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Vergangenheit > ####### Table 31
 
 <pre>```
 | 0                                             | 1                                                            |
@@ -966,7 +863,7 @@ Der Konditional Präsens selbst kann in mehrere Unterarten aufgeteilt werden:
 
 Gewohnheit: -kama- … -ma-
 
-## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Gegenwart > ####### Table 46
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Gegenwart > ####### Table 32
 
 <pre>```
 | 0                                                     | 1                                         |
@@ -978,7 +875,7 @@ Gewohnheit: -kama- … -ma-
 
 Wahrscheinlich: -ka- …
 
-## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Gegenwart > ####### Table 47
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Gegenwart > ####### Table 33
 
 <pre>```
 | 0                                                | 1                                                                                         |
@@ -989,7 +886,7 @@ Wahrscheinlich: -ka- …
 
 Möglich: -ka- … -ka-
 
-## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Gegenwart > ####### Table 48
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Gegenwart > ####### Table 34
 
 <pre>```
 | 0                                   | 1                                                              |
@@ -1005,7 +902,7 @@ Möglich: -ka- … -ka-
 
 Je nach Bedeutung («Kommen-und-Tun» oder «Gehen-und-Tun») wird im zweiten Teilsatz «-ka-» oder «-dza-» gewählt.
 
-## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Zukunft > ####### Table 49
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Zukunft > ####### Table 35
 
 <pre>```
 | 0                                       | 1                                                        |
@@ -1019,7 +916,7 @@ Je nach Bedeutung («Kommen-und-Tun» oder «Gehen-und-Tun») wird im zweiten Te
 
 Eine weitere – und vielleicht einfachere – Möglichkeit der Bildung von Konditionalsätzen ist die Verwendung von «ngati» (falls). Ein Vorteil ist, dass man dadurch im Präsens und Futur die Negation einfach bilden, indem man das Verb negiert.
 
-## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Weitere Bildungsmöglichkeit und Verneinung > ####### Table 50
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Weitere Bildungsmöglichkeit und Verneinung > ####### Table 36
 
 <pre>```
 | 0                                                     | 1                                                     |
@@ -1032,7 +929,7 @@ Eine weitere – und vielleicht einfachere – Möglichkeit der Bildung von Kond
 
 Einzig in der Vergangenheit muss man die Konstruktion modifizieren und die oben beschrieben negativen Konditionale nutzen:
 
-## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Weitere Bildungsmöglichkeit und Verneinung > ####### Table 51
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Weitere Bildungsmöglichkeit und Verneinung > ####### Table 37
 
 <pre>```
 | 0                                                             | 1                                                                  |
@@ -1046,7 +943,7 @@ Diese Konstruktion kann man auch für Präsens und Futur nutzen; teils wird ihr 
 
 ## Das Verb > ### Zeitformen > #### Subjunktiv
 
-## Das Verb > ### Zeitformen > #### Subjunktiv > ##### Table 52
+## Das Verb > ### Zeitformen > #### Subjunktiv > ##### Table 38
 
 <pre>```
 | 0           | 1       | 2    | 3        | 4   | 5                                           |
@@ -1059,7 +956,7 @@ Diese Konstruktion kann man auch für Präsens und Futur nutzen; teils wird ihr 
 
 Verschiedene Aspektinfixe ändern die Bedeutung leicht, zur Negation kann hier einfach -sa- nach dem Subjekt eingefügt werden.
 
-## Das Verb > ### Zeitformen > #### Subjunktiv > ##### Table 53
+## Das Verb > ### Zeitformen > #### Subjunktiv > ##### Table 39
 
 <pre>```
 | 0                     | 1    | 2   | 3    | 4        | 5   | 6                             |
@@ -1076,7 +973,7 @@ Im Unterschied zum Indikativ enden Verben im Subjunktiv auf «-e». Er wird benu
 
 Bei höflichen Aufforderungen und Wünschen
 
-## Das Verb > ### Zeitformen > #### Subjunktiv > ##### Anwendungsgebiete > ###### Table 54
+## Das Verb > ### Zeitformen > #### Subjunktiv > ##### Anwendungsgebiete > ###### Table 40
 
 <pre>```
 | 0                         | 1                  |
@@ -1087,7 +984,7 @@ Bei höflichen Aufforderungen und Wünschen
 
 Nach «kuti» («dass») nach Verben des Wünschens, des Wollens und der Aufforderung
 
-## Das Verb > ### Zeitformen > #### Subjunktiv > ##### Anwendungsgebiete > ###### Table 55
+## Das Verb > ### Zeitformen > #### Subjunktiv > ##### Anwendungsgebiete > ###### Table 41
 
 <pre>```
 | 0                                   | 1                               |
@@ -1098,7 +995,7 @@ Nach «kuti» («dass») nach Verben des Wünschens, des Wollens und der Aufford
 
 Nach «kuti» im Sinne von sodass/damit
 
-## Das Verb > ### Zeitformen > #### Subjunktiv > ##### Anwendungsgebiete > ###### Table 56
+## Das Verb > ### Zeitformen > #### Subjunktiv > ##### Anwendungsgebiete > ###### Table 42
 
 <pre>```
 | 0                                                   | 1                                   |
@@ -1110,7 +1007,7 @@ Nach «kuti» im Sinne von sodass/damit
 
 Sind Formen wie «könnte» oder «würde» enthalten, so ist zusätzlich das modale Infix «-nga-» dabei.
 
-## Das Verb > ### Zeitformen > #### Subjunktiv > ##### Anwendungsgebiete > ###### Table 57
+## Das Verb > ### Zeitformen > #### Subjunktiv > ##### Anwendungsgebiete > ###### Table 43
 
 <pre>```
 | 0                         | 1               |
@@ -1121,7 +1018,7 @@ Sind Formen wie «könnte» oder «würde» enthalten, so ist zusätzlich das mo
 
 ## Das Verb > ### Zeitformen > #### Imperativ
 
-## Das Verb > ### Zeitformen > #### Imperativ > ##### Table 58
+## Das Verb > ### Zeitformen > #### Imperativ > ##### Table 44
 
 <pre>```
 | 0                       | 1       | 2    | 3        | 4      | 5                             |
@@ -1136,7 +1033,7 @@ Sind Formen wie «könnte» oder «würde» enthalten, so ist zusätzlich das mo
 
 Wird das Objekt beim Imperativ vorangestellt, liegt eine Subjunktivform vor:
 
-## Das Verb > ### Zeitformen > #### Imperativ > ##### Table 59
+## Das Verb > ### Zeitformen > #### Imperativ > ##### Table 45
 
 <pre>```
 | 0         | 1    | 2    | 3    | 4        | 5             | 6                         |
@@ -1148,7 +1045,7 @@ Wird das Objekt beim Imperativ vorangestellt, liegt eine Subjunktivform vor:
 
 Zudem werden häufig Aspektinfixe zusammen mit dem Imperativ verwendet:
 
-## Das Verb > ### Zeitformen > #### Imperativ > ##### Table 60
+## Das Verb > ### Zeitformen > #### Imperativ > ##### Table 46
 
 <pre>```
 | 0              | 1     | 2     | 3    | 4        | 5       | 6                        |
@@ -1162,7 +1059,7 @@ Zudem werden häufig Aspektinfixe zusammen mit dem Imperativ verwendet:
 
 ## Das Verb > ### Zeitformen > #### Infinitiv
 
-## Das Verb > ### Zeitformen > #### Infinitiv > ##### Table 61
+## Das Verb > ### Zeitformen > #### Infinitiv > ##### Table 47
 
 <pre>```
 | 0            | 1      | 2    | 3        | 4   | 5           |
@@ -1173,7 +1070,7 @@ Zudem werden häufig Aspektinfixe zusammen mit dem Imperativ verwendet:
 ```</pre>
 
 
-## Das Verb > ### Zeitformen > #### Infinitiv > ##### Table 62
+## Das Verb > ### Zeitformen > #### Infinitiv > ##### Table 48
 
 <pre>```
 | 0                | 1    | 2    | 3    | 4        | 5   | 6                 |
@@ -1190,7 +1087,7 @@ Zudem werden häufig Aspektinfixe zusammen mit dem Imperativ verwendet:
 
 Wie im deutschen können auch im Chichewa Verben kombiniert werden. Die geschieht ganz einfach: Das konjugierte Verb nimmt die Form eines Hilfsverbs an, darauf folgt der Infinitiv.
 
-## Das Verb > ### Zeitformen > #### Infinitiv > ##### Verben kombinieren > ###### Table 63
+## Das Verb > ### Zeitformen > #### Infinitiv > ##### Verben kombinieren > ###### Table 49
 
 <pre>```
 | 0                            | 1                    |
@@ -1213,7 +1110,7 @@ Letztere ist der Indikator für den Potenzial, den potenziellen modus also. Demz
 
 Die beiden modalen Infixe ersetzen in einer Verbform die Zeitsilbe:
 
-## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Table 64
+## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Table 50
 
 <pre>```
 | 0                                          | 1                                        |
@@ -1227,7 +1124,7 @@ Die beiden modalen Infixe ersetzen in einer Verbform die Zeitsilbe:
 
 Wird «-nga-» verneint, so endet es auf «-e». Eine mögliche Erklärung dafür ist die Unsicherheit, die sich durch das «nicht-Können» einschleicht und die das Subjunktiv-e kenntlich macht.
 
-## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Table 65
+## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Table 51
 
 <pre>```
 | 0                                              | 1                          |
@@ -1239,7 +1136,7 @@ Wird «-nga-» verneint, so endet es auf «-e». Eine mögliche Erklärung dafü
 
 ## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Potential
 
-## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Potential > ###### Table 66
+## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Potential > ###### Table 52
 
 <pre>```
 | 0              | 1       | 2      | 3        | 4   | 5                           |
@@ -1254,7 +1151,7 @@ Wird «-nga-» verneint, so endet es auf «-e». Eine mögliche Erklärung dafü
 
 Das Futur in der Vergangenheit ist eigentlich eine Vergangenheitszeitform mit einem Aspektinfix, da die Zeitform dadurch aber potentiell wird, ist sie in dieser Spalte aufgeführt.
 
-## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Potential > ###### Table 67
+## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Potential > ###### Table 53
 
 <pre>```
 | 0                    | 1    | 2      | 3    | 4        | 5                               |
@@ -1267,7 +1164,7 @@ Das Futur in der Vergangenheit ist eigentlich eine Vergangenheitszeitform mit ei
 
 Das Futur in der Vergangenheit kann alternativ auch mit dem Hilfsverb kuti + Subjunktiv gebildet werden:
 
-## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Potential > ###### Table 68
+## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Potential > ###### Table 54
 
 <pre>```
 | 0                  | 1    | 2    | 3    | 4    | 5   | 6        | 7   | 8                    |
@@ -1279,7 +1176,7 @@ Das Futur in der Vergangenheit kann alternativ auch mit dem Hilfsverb kuti + Sub
 
 ## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Nessessitativ
 
-## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Nessessitativ > ###### Table 69
+## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Nessessitativ > ###### Table 55
 
 <pre>```
 | 0             | 1       | 2    | 3        | 4   | 5                                               |
@@ -1294,7 +1191,7 @@ Das Futur in der Vergangenheit kann alternativ auch mit dem Hilfsverb kuti + Sub
 
 Partizipialsätze haben keine bestimmte Zeitform. Die Zeitform wird durch das Verb im Hauptsatz angegeben
 
-## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ##### Table 70
+## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ##### Table 56
 
 <pre>```
 | 0                | 1       | 2    | 3      | 4        | 5   | 6                                 |
@@ -1306,11 +1203,11 @@ Partizipialsätze haben keine bestimmte Zeitform. Die Zeitform wird durch das Ve
 ```</pre>
 
 
-## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ##### Vorzeitigkeit
+## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ###### Vorzeitigkeit
 
 -sana-…-e
 
-## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ##### Vorzeitigkeit > ###### Table 71
+## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ###### Vorzeitigkeit > ####### Table 57
 
 <pre>```
 | 0                                               | 1                                                                |
@@ -1321,13 +1218,13 @@ Partizipialsätze haben keine bestimmte Zeitform. Die Zeitform wird durch das Ve
 ```</pre>
 
 
-## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ##### Gleichzeitigkeit
+## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ###### Gleichzeitigkeit
 
 -ku-
 
 Pamene, pomwe oder po- (1.Sg./Pl.)
 
-## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ##### Gleichzeitigkeit > ###### Table 72
+## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ###### Gleichzeitigkeit > ####### Table 58
 
 <pre>```
 | 0                                                 | 1                                                                             |
@@ -1338,7 +1235,7 @@ Pamene, pomwe oder po- (1.Sg./Pl.)
 
 «Pamene» und «pomwe» sind beides Relativkonstruktionen mit de Silbe «pa» die einen exakten örtlichen oder – in diesem Fall – zeitlichen Aspekt ausdrückt. Die Verkürzung zu «po-» kann lediglich mit der 1. Person benutzt werden, da die Bedeutung des Verbs sonst nicht mehr eindeutig bestimmbar sein würde.
 
-## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ##### Gleichzeitigkeit > ###### Table 73
+## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ###### Gleichzeitigkeit > ####### Table 59
 
 <pre>```
 | 0                                    | 1                                                 |
@@ -1348,11 +1245,11 @@ Pamene, pomwe oder po- (1.Sg./Pl.)
 ```</pre>
 
 
-## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ##### Nachzeitigkeit
+## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ###### Nachzeitigkeit
 
 «-Ta-» bildet das logische Gegenstück zu «-sana…-e». Es ist ebenfalls unveränderlich und kann in allen Zeiten benutzt werden.
 
-## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ##### Nachzeitigkeit > ###### Table 74
+## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ###### Nachzeitigkeit > ####### Table 60
 
 <pre>```
 | 0                                          | 1                                                                   |
@@ -1396,7 +1293,7 @@ Sákudzíwa chomwé chínamúpha mchemwalí wákéyo."Er weiß nicht, was seine 
 
 Im Präsens werden viele Konstruktion des Seins mit «ndi» ausgedrückt. Insbesondere sind dies solche, die im Deutschen unpersönliche Subjekte wie «es, dies, das» beinhalten, permanente Zustände oder Identitäten. Bei Konstruktionen, die mit «es» übersetzt werden, verändert sich «ndi» nicht.
 
-## Das Verb > ### Sein > #### «ndi» > ##### Table 75
+## Das Verb > ### Sein > #### «ndi» > ##### Table 61
 
 <pre>```
 | 0           | 1            |
@@ -1407,7 +1304,7 @@ Im Präsens werden viele Konstruktion des Seins mit «ndi» ausgedrückt. Insbes
 
 Ist das Subjekt im Deutschen ein Demonstrativpronomen, so kann das «ndi» an sein Nomen angeglichen werden, indem man ihm das Demonstrativpronomen II (Jene/r/s) anhängt. Der Anfangsvokal geht dabei verloren.
 
-## Das Verb > ### Sein > #### «ndi» > ##### Table 76
+## Das Verb > ### Sein > #### «ndi» > ##### Table 62
 
 <pre>```
 | 0                   | 1            |
@@ -1419,7 +1316,7 @@ Ist das Subjekt im Deutschen ein Demonstrativpronomen, so kann das «ndi» an se
 
 Werden Besitzverhältnisse ausgedrückt, so wird ebenfalls «ndi» eingesetzt, wobei es unveränderlich bleibt.
 
-## Das Verb > ### Sein > #### «ndi» > ##### Table 77
+## Das Verb > ### Sein > #### «ndi» > ##### Table 63
 
 <pre>```
 | 0                          | 1                                              |
@@ -1431,7 +1328,7 @@ Werden Besitzverhältnisse ausgedrückt, so wird ebenfalls «ndi» eingesetzt, w
 
 Sind Personen Subjekte und Identitäten werden ausgedrückt, so wird «ndi» verwendet und gleicht sich durch Anhängen des Personalpronomens an. Wiederum entfällt der Anfangsvokal.
 
-## Das Verb > ### Sein > #### «ndi» > ##### Table 78
+## Das Verb > ### Sein > #### «ndi» > ##### Table 64
 
 <pre>```
 | 0                    | 1             |
@@ -1444,7 +1341,7 @@ Sind Personen Subjekte und Identitäten werden ausgedrückt, so wird «ndi» ver
 
 Das Gegenstückt zum Sein bildet «si», das Nicht-Sein. Es kann in jeglichen unpersönlichen Konstruktionen «ndi» ersetzen und somit die Bedeutung ins Gegenteil umkehren.
 
-## Das Verb > ### Sein > #### Verneinung – «si» > ##### Table 79
+## Das Verb > ### Sein > #### Verneinung – «si» > ##### Table 65
 
 <pre>```
 | 0                   | 1           |
@@ -1456,7 +1353,7 @@ Das Gegenstückt zum Sein bildet «si», das Nicht-Sein. Es kann in jeglichen un
 
 Bei den persönlichen Identitätsverhaltnissen wird das «si» vor dem Verb angefügt.
 
-## Das Verb > ### Sein > #### Verneinung – «si» > ##### Table 80
+## Das Verb > ### Sein > #### Verneinung – «si» > ##### Table 66
 
 <pre>```
 | 0                     | 1               |
@@ -1471,7 +1368,7 @@ Jegliche anderen Konstruktionen werden mit den Verben «kuli» und «kukhala» g
 
 Im Präsens entfällt für «kuli» die Präsens-Zeitsilbe «ku»:
 
-## Das Verb > ### Sein > #### «kuli» und «kukhala» > ##### Table 81
+## Das Verb > ### Sein > #### «kuli» und «kukhala» > ##### Table 67
 
 <pre>```
 | 0                    | 1                        |
@@ -1487,7 +1384,7 @@ Nebst dem Präsens wird «kuli» nur im Perfekt benutzt.
 
 Für die Verneinung wird das bereits bekannte «si» an den Verbanfang gestellt:
 
-## Das Verb > ### Sein > #### Verneinung – «si-» > ##### Table 82
+## Das Verb > ### Sein > #### Verneinung – «si-» > ##### Table 68
 
 <pre>```
 | 0                          | 1                          |
@@ -1501,7 +1398,7 @@ Für die Verneinung wird das bereits bekannte «si» an den Verbanfang gestellt:
 
 «Ndi» und «si» werden verwendet, wenn der unpersönliche Ausdruck im Präsens steht und danach ein Nomen folgt oder ein Wort, das wie ein Nomen behandelt wird (z.B. Personen(-namen)). Steht der Satz nicht im Präsens, so nutzt man die Kennsilbe des Klasse des Nomens.
 
-## Das Verb > ### Sein > #### Unpersönliche Ausdrücke > ##### Table 83
+## Das Verb > ### Sein > #### Unpersönliche Ausdrücke > ##### Table 69
 
 <pre>```
 | 0                | 1                  |
@@ -1516,7 +1413,7 @@ Wie aber übersetzt man Ausdrücke wie: «Es ist dunkel geworden.» ?
 
 Hierfür nutzt man das unpersönliche «ku-» als Kennsilbe, das dem Infinitiv entspricht, und bildet ansonsten ganz normale Verbformen.
 
-## Das Verb > ### Sein > #### Unpersönliche Ausdrücke > ##### Table 84
+## Das Verb > ### Sein > #### Unpersönliche Ausdrücke > ##### Table 70
 
 <pre>```
 | 0                                | 1                                       |
@@ -1545,7 +1442,7 @@ Kennsilbe – Zeitsilbe – khala popanda
 
 «Kupanda» bedeutet «nicht haben», «popanda» demzufolge «nicht habend».
 
-## Das Verb > ### Haben > #### Verneinung > ##### Table 85
+## Das Verb > ### Haben > #### Verneinung > ##### Table 71
 
 <pre>```
 | 0                   | 1                            |
@@ -1561,7 +1458,7 @@ Kennsilbe – Zeitsilbe – khala popanda
 
 Wird der Stamm eines Verbs wiederholt, so drückt dies Kontinuität oder Wiederholung aus:
 
-## Das Verb > ### Verbmodifikationen > #### Reduplikation > ##### Table 86
+## Das Verb > ### Verbmodifikationen > #### Reduplikation > ##### Table 72
 
 <pre>```
 | 0                             | 1                                         |
@@ -1571,7 +1468,7 @@ Wird der Stamm eines Verbs wiederholt, so drückt dies Kontinuität oder Wiederh
 ```</pre>
 
 
-## Das Verb > ### Verbmodifikationen > #### Reduplikation > ##### Table 87
+## Das Verb > ### Verbmodifikationen > #### Reduplikation > ##### Table 73
 
 <pre>```
 | 0                               | 1                                  |
@@ -1593,7 +1490,7 @@ Zweitletzter Vokal ein e/o: «e» wird der Nachsilbe vorangestellt
 
 Insbesondere bei einsilbigen Verben gibt es Ausnahmen zu dieser Regel.
 
-## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 88
+## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 74
 
 <pre>```
 | 0                      | 1                             |
@@ -1602,7 +1499,7 @@ Insbesondere bei einsilbigen Verben gibt es Ausnahmen zu dieser Regel.
 ```</pre>
 
 
-## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 89
+## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 75
 
 <pre>```
 | 0                                  | 1                                        |
@@ -1613,7 +1510,7 @@ Insbesondere bei einsilbigen Verben gibt es Ausnahmen zu dieser Regel.
 ```</pre>
 
 
-## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 90
+## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 76
 
 <pre>```
 | 0                    | 1                                        |
@@ -1623,7 +1520,7 @@ Insbesondere bei einsilbigen Verben gibt es Ausnahmen zu dieser Regel.
 ```</pre>
 
 
-## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 91
+## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 77
 
 <pre>```
 | 0             | 1                          |
@@ -1633,7 +1530,7 @@ Insbesondere bei einsilbigen Verben gibt es Ausnahmen zu dieser Regel.
 ```</pre>
 
 
-## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 92
+## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 78
 
 <pre>```
 | 0                                 | 1                                        |
@@ -1643,7 +1540,7 @@ Insbesondere bei einsilbigen Verben gibt es Ausnahmen zu dieser Regel.
 ```</pre>
 
 
-## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 93
+## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 79
 
 <pre>```
 | 0                      | 1                                    |
@@ -1655,7 +1552,7 @@ Insbesondere bei einsilbigen Verben gibt es Ausnahmen zu dieser Regel.
 
 Beachte: Mit dem Verb kuli «sein» bedeutet -be «nicht haben», deshalb braucht man für «immer noch» eine andere Konstruktion: Ndi-ka-da-li mphunzitsi «Ich bin immer noch Lehrer.»
 
-## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 94
+## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 80
 
 <pre>```
 | 0               | 1                                 |
@@ -1665,7 +1562,7 @@ Beachte: Mit dem Verb kuli «sein» bedeutet -be «nicht haben», deshalb brauch
 ```</pre>
 
 
-## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 95
+## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 81
 
 <pre>```
 | 0                  | 1                                               |
@@ -1686,7 +1583,7 @@ Führt jemand mehrere Aktionen hintereinander aus, so wird oft der Infinitiv ans
 
 Zusätzlich kann «ndi + ku» zu «n’ku»/«naku» verkürzt werden («ku» sowohl als Objekt- als auch als Zeitsilbe).
 
-## Das Verb > ### Verbmodifikationen > #### Passiv > ##### Table 96
+## Das Verb > ### Verbmodifikationen > #### Passiv > ##### Table 82
 
 <pre>```
 | 0                                       | 1                                                    |
@@ -1699,7 +1596,7 @@ Zusätzlich kann «ndi + ku» zu «n’ku»/«naku» verkürzt werden («ku» so
 
 Bem.: Ohne das angehängte -ni kann der Satz folgendes heissen:
 
-## Das Verb > ### Verbmodifikationen > #### Passiv > ##### Table 97
+## Das Verb > ### Verbmodifikationen > #### Passiv > ##### Table 83
 
 <pre>```
 | 0                                                 | 1                                       |
@@ -1720,7 +1617,7 @@ Im Chichewa gibt es nur eine handvoll Adjektive, die nicht von Nomen oder Verben
 
 Von Hauptwörtern: Besitzsilbe + Hauptwort
 
-## Adjektive & Adverben > ### Adjektive > #### Nominale Adjektive > ##### Table 98
+## Adjektive & Adverben > ### Adjektive > #### Nominale Adjektive > ##### Table 84
 
 <pre>```
 | 0                                | 1                      |
@@ -1733,7 +1630,7 @@ Von Hauptwörtern: Besitzsilbe + Hauptwort
 
 Eigenschaftssilbe – Verbstamm + Hauptwort
 
-## Adjektive & Adverben > ### Adjektive > #### Nominale Adjektive > ##### Verneinung > ###### Table 99
+## Adjektive & Adverben > ### Adjektive > #### Nominale Adjektive > ##### Verneinung > ###### Table 85
 
 <pre>```
 | 0                                 | 1                           |
@@ -1748,7 +1645,7 @@ Betonung: wó-chéza, yó-kóngola
 
 Einsilbig: 	Besitzsilbe – Grundform
 
-## Adjektive & Adverben > ### Adjektive > #### Verbale Adjektive > ##### Table 100
+## Adjektive & Adverben > ### Adjektive > #### Verbale Adjektive > ##### Table 86
 
 <pre>```
 | 0                                 | 1                    |
@@ -1760,7 +1657,7 @@ Einsilbig: 	Besitzsilbe – Grundform
 
 Mehrsilbig: 	Eigenschaftssilbe – Verbstamm
 
-## Adjektive & Adverben > ### Adjektive > #### Verbale Adjektive > ##### Table 101
+## Adjektive & Adverben > ### Adjektive > #### Verbale Adjektive > ##### Table 87
 
 <pre>```
 | 0                             | 1                     |
@@ -1778,7 +1675,7 @@ Eigenschaftssilbe – sa-
 
 Verbstamm
 
-## Adjektive & Adverben > ### Adjektive > #### Verbale Adjektive > ##### Verneinung > ###### Table 102
+## Adjektive & Adverben > ### Adjektive > #### Verbale Adjektive > ##### Verneinung > ###### Table 88
 
 <pre>```
 | 0                                  | 1                       |
@@ -1792,7 +1689,7 @@ Verbstamm
 
 Eine Wiederholung des Adjektivstamms – wobei die Adjektivart keine Rolle spielt – beschreibt einen Elativ oder Superlativ.
 
-## Adjektive & Adverben > ### Adjektive > #### Reduplikation > ##### Table 103
+## Adjektive & Adverben > ### Adjektive > #### Reduplikation > ##### Table 89
 
 <pre>```
 | 0                                 | 1                   |
@@ -1804,7 +1701,7 @@ Eine Wiederholung des Adjektivstamms – wobei die Adjektivart keine Rolle spiel
 
 ## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive
 
-## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive > ##### Table 104
+## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive > ##### Table 90
 
 <pre>```
 | 0   | 1           | 2   | 3         |
@@ -1813,36 +1710,36 @@ Eine Wiederholung des Adjektivstamms – wobei die Adjektivart keine Rolle spiel
 ```</pre>
 
 
-## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive > ##### Table 105
+## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive > ##### Table 91
 
 <pre>```
-| 0                           | 1                       | 2       | 3                     |
-|:----------------------------|:------------------------|:--------|:----------------------|
-| gross, Menschen: alt        | Besitzsilbe + Kennsilbe | -kulu   | Klasse 1 Sg. wamkulu  |
-| klein, Menschen: jung       | Besitzsilbe + Kennsilbe | -ng’ono | Klasse 1 Sg. wang’ono |
-| weit, lang, Menschen: gross | Besitzsilbe + Kennsilbe | -tali   | Klasse 1 Sg. wamtali  |
-| nah, kurz, Menschen: klein  | Besitzsilbe + Kennsilbe | -fupi   | Klasse 1 Sg. wamfupi  |
+| 0                           | 1                       | 2       | 3                    |
+|:----------------------------|:------------------------|:--------|:---------------------|
+| gross, Menschen: alt        | Besitzsilbe + Kennsilbe | -kulu   | Klasse 1 wamkulu     |
+| klein, Menschen: jung       | Besitzsilbe + Kennsilbe | -ng’ono | Klasse 1 wang’ono    |
+| weit, lang, Menschen: gross | Besitzsilbe + Kennsilbe | -tali   | Klasse 1 Sg. wamtali |
+| nah, kurz, Menschen: klein  | Besitzsilbe + Kennsilbe | -fupi   | Klasse 1 wamfupi     |
 ```</pre>
 
 
 ## Adjektive & Adverben > ### Adjektive > #### Weitere Adjektive
 
-## Adjektive & Adverben > ### Adjektive > #### Weitere Adjektive > ##### Table 106
+## Adjektive & Adverben > ### Adjektive > #### Weitere Adjektive > ##### Table 92
 
 <pre>```
-| 0                    | 1                                  | 2        | 3                     |
-|:---------------------|:-----------------------------------|:---------|:----------------------|
-| alle, ganz           | Eigenschaftssilbe                  | -nse     | Klasse 1 sg. yense    |
-| alleine, nur, selbst | Eigenschaftssilbe                  | -kha     | Klasse 1 Sg. yekha    |
-| andere/r/s           | Anfangvokal Eigenschaftssilbe      | -ina     | ona -> ena            |
-| echte/r/s            | Anfangsvokal Eigenschaftssilbe     | -eni…eni | oenioeni -> enieni    |
-| jede/r/s             | Kennsilbe + li + Eigenschaftssilbe | -nse     | Klasse 1 sg. aliyense |
+| 0                    | 1                                  | 2        | 3                  |
+|:---------------------|:-----------------------------------|:---------|:-------------------|
+| alle, ganz           | Eigenschaftssilbe                  | -nse     | Klasse 1 yense     |
+| alleine, nur, selbst | Eigenschaftssilbe                  | -kha     | Klasse 1 yekha     |
+| andere/r/s           | Anfangvokal Eigenschaftssilbe      | -ina     | ona -> ena         |
+| echte/r/s            | Anfangsvokal Eigenschaftssilbe     | -eni…eni | oenioeni -> enieni |
+| jede/r/s             | Kennsilbe + li + Eigenschaftssilbe | -nse     | Klasse 1 aliyense  |
 ```</pre>
 
 
 Folgende Adjektive waren ursprünglich nominalen Ursprungs, weshalb sie die Besitzsilbe verwenden.
 
-## Adjektive & Adverben > ### Adjektive > #### Weitere Adjektive > ##### Table 107
+## Adjektive & Adverben > ### Adjektive > #### Weitere Adjektive > ##### Table 93
 
 <pre>```
 | 0       | 1           | 2        |
@@ -1857,55 +1754,47 @@ Folgende Adjektive waren ursprünglich nominalen Ursprungs, weshalb sie die Besi
 
 ## Adjektive & Adverben > ### Adjektive > #### Zahlwörter
 
-## Adjektive & Adverben > ### Adjektive > #### Zahlwörter > ##### Table 108
+## Adjektive & Adverben > ### Adjektive > #### Zahlwörter > ##### Table 94
 
 <pre>```
-| 0                 | 1                | 2                |
-|:------------------|:-----------------|:-----------------|
-| Kardinalzahlen DE | Kardinalzahlen C | Ordnungszahlen C |
-```</pre>
-
-
-## Adjektive & Adverben > ### Adjektive > #### Zahlwörter > ##### Table 109
-
-<pre>```
-| 0              | 1         | 2                          | 3                 | 4                      |
-|:---------------|:----------|:---------------------------|:------------------|:-----------------------|
-| eins           | Kennsilbe | -modzi                     | Eigenschaftssilbe | -yamba                 |
-| zwei           | Kennsilbe | -wiri                      | Besitzsilbe       | -chiwiri               |
-| drei           | Kennsilbe | -tatu                      | Besitzsilbe       | -chitatu               |
-| vier           | …         | -nayi                      | …                 | -chinayi               |
-| fünf           | …         | - anu                      | …                 | -chisanu               |
-| sechs          | …         | -sanu ndi -modzi           | …                 | -chisanu ndi chimodzi  |
-| sieben         | …         | -sanu ndi -wiri            | …                 | -chisanu ndi chiwiri   |
-| acht           | …         | -sanu ndi -tatu            | …                 | -chisanu ndi chitatu   |
-| neun           | …         | -sanu ndi -nayi            | …                 | -chisanu ndi chinayi   |
-| zehn           | …         | khumi                      | …                 | -chikhumi              |
-| elf            | …         | khumi ndi -modzi           | …                 | -chikhumi ndi chimodzi |
-| zwölf          | …         | khumi ndi -wiri            | …                 | -chikhumi ndi chiwiri  |
-| dreizehn       | …         | khumi ndi -tatu            | …                 | …                      |
-| vierzehn       | …         | khumi ndi -nayi            | …                 | …                      |
-| fünfzehn       | …         | khumi ndi -sanu            | …                 | …                      |
-| sechzehn       | …         | khumi ndi -sanu ndi -modzi | …                 | …                      |
-| …              | …         | …                          | …                 | …                      |
-| zwanzig        | …         | makumi awiri               |                   |                        |
-| einundzwanzig  | …         | makumi awiri ndi -modzi    |                   |                        |
-| zweiundzwanzig | …         | makumi awiri ndi -tatu     |                   |                        |
-| …              | …         | …                          |                   |                        |
-| dreissig       | …         | makumi atatu               |                   |                        |
-| vierzig        | …         | makumi anayi               |                   |                        |
-| fünfzig        | …         | makumi asanu               |                   |                        |
-| sechzig        | …         | makumi asanu ndi limodzi   |                   |                        |
-| siebzig        | …         | makumi asanu ndi awiri     |                   |                        |
-| achtzig        | …         | makumi asanu ndi atatu     |                   |                        |
-| neunzig        | …         | makumi asanu ndi anayi     |                   |                        |
-| hundert        | …         | zana                       |                   |                        |
-| hunderteins    | …         | zana ndi -modzi            |                   |                        |
-| …              | …         | ..                         |                   |                        |
-| zweihundert    | …         | mazana awiri               |                   |                        |
-| …              | …         | …                          |                   |                        |
-| tausend        | …         | chikwi                     |                   |                        |
-| zweitausend    | …         | zikwi ziwiri               |                   |                        |
+| 0                 | 1                | 2                          | 3                 | 4                      |
+|:------------------|:-----------------|:---------------------------|:------------------|:-----------------------|
+| Kardinalzahlen DE | Kardinalzahlen C | Kardinalzahlen C           | Ordnungszahlen C  | Ordnungszahlen C       |
+| eins              | Kennsilbe        | -modzi                     | Eigenschaftssilbe | -yamba                 |
+| zwei              | Kennsilbe        | -wiri                      | Besitzsilbe       | -chiwiri               |
+| drei              | Kennsilbe        | -tatu                      | Besitzsilbe       | -chitatu               |
+| vier              | …                | -nayi                      | …                 | -chinayi               |
+| fünf              | …                | - anu                      | …                 | -chisanu               |
+| sechs             | …                | -sanu ndi -modzi           | …                 | -chisanu ndi chimodzi  |
+| sieben            | …                | -sanu ndi -wiri            | …                 | -chisanu ndi chiwiri   |
+| acht              | …                | -sanu ndi -tatu            | …                 | -chisanu ndi chitatu   |
+| neun              | …                | -sanu ndi -nayi            | …                 | -chisanu ndi chinayi   |
+| zehn              | …                | khumi                      | …                 | -chikhumi              |
+| elf               | …                | khumi ndi -modzi           | …                 | -chikhumi ndi chimodzi |
+| zwölf             | …                | khumi ndi -wiri            | …                 | -chikhumi ndi chiwiri  |
+| dreizehn          | …                | khumi ndi -tatu            | …                 | …                      |
+| vierzehn          | …                | khumi ndi -nayi            | …                 | …                      |
+| fünfzehn          | …                | khumi ndi -sanu            | …                 | …                      |
+| sechzehn          | …                | khumi ndi -sanu ndi -modzi | …                 | …                      |
+| …                 | …                | …                          | …                 | …                      |
+| zwanzig           | …                | makumi awiri               |                   |                        |
+| einundzwanzig     | …                | makumi awiri ndi -modzi    |                   |                        |
+| zweiundzwanzig    | …                | makumi awiri ndi -tatu     |                   |                        |
+| …                 | …                | …                          |                   |                        |
+| dreissig          | …                | makumi atatu               |                   |                        |
+| vierzig           | …                | makumi anayi               |                   |                        |
+| fünfzig           | …                | makumi asanu               |                   |                        |
+| sechzig           | …                | makumi asanu ndi limodzi   |                   |                        |
+| siebzig           | …                | makumi asanu ndi awiri     |                   |                        |
+| achtzig           | …                | makumi asanu ndi atatu     |                   |                        |
+| neunzig           | …                | makumi asanu ndi anayi     |                   |                        |
+| hundert           | …                | zana                       |                   |                        |
+| hunderteins       | …                | zana ndi -modzi            |                   |                        |
+| …                 | …                | ..                         |                   |                        |
+| zweihundert       | …                | mazana awiri               |                   |                        |
+| …                 | …                | …                          |                   |                        |
+| tausend           | …                | chikwi                     |                   |                        |
+| zweitausend       | …                | zikwi ziwiri               |                   |                        |
 ```</pre>
 
 
@@ -1917,7 +1806,7 @@ Adverben sind im Grunde genommen Adjektive, die jedoch nicht an Subjekte, sonder
 
 mwa-
 
-## Adjektive & Adverben > ### Adverben > #### Nominale Adverben > ##### Table 110
+## Adjektive & Adverben > ### Adverben > #### Nominale Adverben > ##### Table 95
 
 <pre>```
 | 0                 | 1                      |
@@ -1931,7 +1820,7 @@ mwa-
 
 mopanda
 
-## Adjektive & Adverben > ### Adverben > #### Nominale Adverben > ##### Verneinung > ###### Table 111
+## Adjektive & Adverben > ### Adverben > #### Nominale Adverben > ##### Verneinung > ###### Table 96
 
 <pre>```
 | 0                       | 1                           |
@@ -1944,7 +1833,7 @@ mopanda
 
 mo-
 
-## Adjektive & Adverben > ### Adverben > #### Verbale Adverben > ##### Table 112
+## Adjektive & Adverben > ### Adverben > #### Verbale Adverben > ##### Table 97
 
 <pre>```
 | 0                 | 1                       |
@@ -1958,7 +1847,7 @@ mo-
 
 mo – sa-
 
-## Adjektive & Adverben > ### Adverben > #### Verbale Adverben > ##### Verneinung > ###### Table 113
+## Adjektive & Adverben > ### Adverben > #### Verbale Adverben > ##### Verneinung > ###### Table 98
 
 <pre>```
 | 0                       | 1                         |
@@ -1979,7 +1868,7 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Konjunktionen > ##### Kausal
 
-## Vokabular > ### Kleine Wörter > #### Konjunktionen > ##### Kausal > ###### Table 114
+## Vokabular > ### Kleine Wörter > #### Konjunktionen > ##### Kausal > ###### Table 99
 
 <pre>```
 | 0               | 1              |
@@ -1992,7 +1881,7 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Konjunktionen > ##### Konzessiv
 
-## Vokabular > ### Kleine Wörter > #### Konjunktionen > ##### Konzessiv > ###### Table 115
+## Vokabular > ### Kleine Wörter > #### Konjunktionen > ##### Konzessiv > ###### Table 100
 
 <pre>```
 | 0                 | 1                     |
@@ -2008,7 +1897,7 @@ Siehe unter Adverben.
 
 (siehe unter Partizipielle Zeiten)
 
-## Vokabular > ### Kleine Wörter > #### Konjunktionen > ##### Temporal > ###### Table 116
+## Vokabular > ### Kleine Wörter > #### Konjunktionen > ##### Temporal > ###### Table 101
 
 <pre>```
 | 0       | 1                                      |
@@ -2022,7 +1911,7 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Konjunktionen > ##### Final
 
-## Vokabular > ### Kleine Wörter > #### Konjunktionen > ##### Final > ###### Table 117
+## Vokabular > ### Kleine Wörter > #### Konjunktionen > ##### Final > ###### Table 102
 
 <pre>```
 | 0           | 1    |
@@ -2033,7 +1922,7 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Konjunktionen > ##### Möglich
 
-## Vokabular > ### Kleine Wörter > #### Konjunktionen > ##### Möglich > ###### Table 118
+## Vokabular > ### Kleine Wörter > #### Konjunktionen > ##### Möglich > ###### Table 103
 
 <pre>```
 | 0           | 1                      |
@@ -2044,7 +1933,7 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Konjunktionen > ##### Ausschliessend
 
-## Vokabular > ### Kleine Wörter > #### Konjunktionen > ##### Ausschliessend > ###### Table 119
+## Vokabular > ### Kleine Wörter > #### Konjunktionen > ##### Ausschliessend > ###### Table 104
 
 <pre>```
 | 0                 | 1              |
@@ -2059,7 +1948,7 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Konjunktionen > ##### Verbindend
 
-## Vokabular > ### Kleine Wörter > #### Konjunktionen > ##### Verbindend > ###### Table 120
+## Vokabular > ### Kleine Wörter > #### Konjunktionen > ##### Verbindend > ###### Table 105
 
 <pre>```
 | 0                     | 1                                   |
@@ -2076,7 +1965,7 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Adverben > ##### Modal
 
-## Vokabular > ### Kleine Wörter > #### Adverben > ##### Modal > ###### Table 121
+## Vokabular > ### Kleine Wörter > #### Adverben > ##### Modal > ###### Table 106
 
 <pre>```
 | 0                                   | 1                                        |
@@ -2097,7 +1986,7 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Adverben > ##### Temporal
 
-## Vokabular > ### Kleine Wörter > #### Adverben > ##### Temporal > ###### Table 122
+## Vokabular > ### Kleine Wörter > #### Adverben > ##### Temporal > ###### Table 107
 
 <pre>```
 | 0                     | 1                             |
@@ -2118,7 +2007,7 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Adverben > ##### Quantitativ
 
-## Vokabular > ### Kleine Wörter > #### Adverben > ##### Quantitativ > ###### Table 123
+## Vokabular > ### Kleine Wörter > #### Adverben > ##### Quantitativ > ###### Table 108
 
 <pre>```
 | 0                      | 1                                     |
@@ -2135,7 +2024,7 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Adverben > ##### Möglich/gewiss
 
-## Vokabular > ### Kleine Wörter > #### Adverben > ##### Möglich/gewiss > ###### Table 124
+## Vokabular > ### Kleine Wörter > #### Adverben > ##### Möglich/gewiss > ###### Table 109
 
 <pre>```
 | 0                         | 1                                            |
@@ -2150,7 +2039,7 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Präpositionen > ##### Modal
 
-## Vokabular > ### Kleine Wörter > #### Präpositionen > ##### Modal > ###### Table 125
+## Vokabular > ### Kleine Wörter > #### Präpositionen > ##### Modal > ###### Table 110
 
 <pre>```
 | 0                   | 1   |
@@ -2161,7 +2050,7 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Präpositionen > ##### Örtlich – allgemein
 
-## Vokabular > ### Kleine Wörter > #### Präpositionen > ##### Örtlich – allgemein > ###### Table 126
+## Vokabular > ### Kleine Wörter > #### Präpositionen > ##### Örtlich – allgemein > ###### Table 111
 
 <pre>```
 | 0                | 1   |
@@ -2174,20 +2063,12 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Präpositionen > ##### Örtlich
 
-## Vokabular > ### Kleine Wörter > #### Präpositionen > ##### Örtlich > ###### Table 127
-
-<pre>```
-| 0   | 1        | 2   |
-|:----|:---------|:----|
-|     | Vorsilbe |     |
-```</pre>
-
-
-## Vokabular > ### Kleine Wörter > #### Präpositionen > ##### Örtlich > ###### Table 128
+## Vokabular > ### Kleine Wörter > #### Präpositionen > ##### Örtlich > ###### Table 112
 
 <pre>```
 | 0                                     | 1         | 2                                   |
 |:--------------------------------------|:----------|:------------------------------------|
+|                                       | Vorsilbe  |                                     |
 | ausserhalb                            | ku/pa/mu  | -nja kwa/pa/mwa                     |
 | bei                                   | kwa       | Personennamen/Pronomen              |
 | bis                                   |           | mpaka, kufikira (T)                 |
@@ -2209,7 +2090,7 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Präpositionen > ##### Temporal
 
-## Vokabular > ### Kleine Wörter > #### Präpositionen > ##### Temporal > ###### Table 129
+## Vokabular > ### Kleine Wörter > #### Präpositionen > ##### Temporal > ###### Table 113
 
 <pre>```
 | 0                | 1                   |
@@ -2224,7 +2105,7 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Zeitangaben > ##### Allgemein
 
-## Vokabular > ### Kleine Wörter > #### Zeitangaben > ##### Allgemein > ###### Table 130
+## Vokabular > ### Kleine Wörter > #### Zeitangaben > ##### Allgemein > ###### Table 114
 
 <pre>```
 | 0               | 1                           |
@@ -2240,7 +2121,7 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Zeitangaben > ##### Jahreszeiten
 
-## Vokabular > ### Kleine Wörter > #### Zeitangaben > ##### Jahreszeiten > ###### Table 131
+## Vokabular > ### Kleine Wörter > #### Zeitangaben > ##### Jahreszeiten > ###### Table 115
 
 <pre>```
 | 0                 | 1               |
@@ -2253,7 +2134,7 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Zeitangaben > ##### Innerhalb eines Tages
 
-## Vokabular > ### Kleine Wörter > #### Zeitangaben > ##### Innerhalb eines Tages > ###### Table 132
+## Vokabular > ### Kleine Wörter > #### Zeitangaben > ##### Innerhalb eines Tages > ###### Table 116
 
 <pre>```
 | 0                     | 1          |
@@ -2269,7 +2150,7 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Zeitangaben > ##### Wochentage
 
-## Vokabular > ### Kleine Wörter > #### Zeitangaben > ##### Wochentage > ###### Table 133
+## Vokabular > ### Kleine Wörter > #### Zeitangaben > ##### Wochentage > ###### Table 117
 
 <pre>```
 | 0                          | 1         |
@@ -2286,7 +2167,7 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Zeitangaben > ##### Zeiteinheiten
 
-## Vokabular > ### Kleine Wörter > #### Zeitangaben > ##### Zeiteinheiten > ###### Table 134
+## Vokabular > ### Kleine Wörter > #### Zeitangaben > ##### Zeiteinheiten > ###### Table 118
 
 <pre>```
 | 0             | 1             |
@@ -2313,20 +2194,12 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Ortsangaben > ##### Hier
 
-## Vokabular > ### Kleine Wörter > #### Ortsangaben > ##### Hier > ###### Table 135
-
-<pre>```
-| 0   | 1        | 2   |
-|:----|:---------|:----|
-|     | Vorsilbe |     |
-```</pre>
-
-
-## Vokabular > ### Kleine Wörter > #### Ortsangaben > ##### Hier > ###### Table 136
+## Vokabular > ### Kleine Wörter > #### Ortsangaben > ##### Hier > ###### Table 119
 
 <pre>```
 | 0                                         | 1        | 2             |
 |:------------------------------------------|:---------|:--------------|
+|                                           | Vorsilbe |               |
 | hier                                      | ku/pa/mu | -no           |
 | hier, genau hier, hier drin               |          | uku, apa, umu |
 | hier, genau hier, hier drin gibt es       | ku/pa/mu | -li           |
@@ -2336,7 +2209,7 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Ortsangaben > ##### Dort
 
-## Vokabular > ### Kleine Wörter > #### Ortsangaben > ##### Dort > ###### Table 137
+## Vokabular > ### Kleine Wörter > #### Ortsangaben > ##### Dort > ###### Table 120
 
 <pre>```
 | 0                                         | 1        | 2                   |
@@ -2349,7 +2222,7 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Ortsangaben > ##### Richtungsangaben
 
-## Vokabular > ### Kleine Wörter > #### Ortsangaben > ##### Richtungsangaben > ###### Table 138
+## Vokabular > ### Kleine Wörter > #### Ortsangaben > ##### Richtungsangaben > ###### Table 121
 
 <pre>```
 | 0                       | 1           |
@@ -2366,23 +2239,15 @@ Siehe unter Adverben.
 
 ## Vokabular > ### Kleine Wörter > #### Fragewörter
 
-## Vokabular > ### Kleine Wörter > #### Fragewörter > ##### Table 139
-
-<pre>```
-| 0   | 1        | 2   |
-|:----|:---------|:----|
-|     | Vorsilbe |     |
-```</pre>
-
-
-## Vokabular > ### Kleine Wörter > #### Fragewörter > ##### Table 140
+## Vokabular > ### Kleine Wörter > #### Fragewörter > ##### Table 122
 
 <pre>```
 | 0                         | 1           | 2                          |
 |:--------------------------|:------------|:---------------------------|
+|                           | Vorsilbe    |                            |
 | wann?                     |             | liti?                      |
 | was?                      |             | chiyani, -nji (angehängt)? |
-| welche/r/s?               | Kennsilbe   | -ti? (Klasse 1 Sg. uti?)   |
+| welche/r/s?               | Kennsilbe   | -ti? (Klasse 1/2 Sg. uti?) |
 | welcher Art?              | Besitzsilbe | -nji?                      |
 | wer?                      |             | ndani?                     |
 | weshalb?                  |             | chifukwa chiyani           |
@@ -2399,7 +2264,7 @@ Insbesondere die Begrüssungsfloskeln besitzen eine grosse Wichtigkeit in vielen
 
 ## Vokabular > ### Floskeln > #### Begrüssung
 
-## Vokabular > ### Floskeln > #### Begrüssung > ##### Table 141
+## Vokabular > ### Floskeln > #### Begrüssung > ##### Table 123
 
 <pre>```
 | 0                                              | 1                              |
@@ -2418,7 +2283,7 @@ Insbesondere die Begrüssungsfloskeln besitzen eine grosse Wichtigkeit in vielen
 
 ## Vokabular > ### Floskeln > #### Verabschiedung
 
-## Vokabular > ### Floskeln > #### Verabschiedung > ##### Table 142
+## Vokabular > ### Floskeln > #### Verabschiedung > ##### Table 124
 
 <pre>```
 | 0                            | 1                          |
@@ -2435,7 +2300,7 @@ Insbesondere die Begrüssungsfloskeln besitzen eine grosse Wichtigkeit in vielen
 
 ## Vokabular > ### Floskeln > #### Entschuldigen
 
-## Vokabular > ### Floskeln > #### Entschuldigen > ##### Table 143
+## Vokabular > ### Floskeln > #### Entschuldigen > ##### Table 125
 
 <pre>```
 | 0                  | 1             |
@@ -2447,7 +2312,7 @@ Insbesondere die Begrüssungsfloskeln besitzen eine grosse Wichtigkeit in vielen
 
 ## Vokabular > ### Floskeln > #### Bitten und Danken
 
-## Vokabular > ### Floskeln > #### Bitten und Danken > ##### Table 144
+## Vokabular > ### Floskeln > #### Bitten und Danken > ##### Table 126
 
 <pre>```
 | 0             | 1                    |
@@ -2461,7 +2326,7 @@ Insbesondere die Begrüssungsfloskeln besitzen eine grosse Wichtigkeit in vielen
 
 ## Vokabular > ### Floskeln > #### Weitere
 
-## Vokabular > ### Floskeln > #### Weitere > ##### Table 145
+## Vokabular > ### Floskeln > #### Weitere > ##### Table 127
 
 <pre>```
 | 0                     | 1                              |
@@ -2513,7 +2378,7 @@ LOK 	Lokativ
 
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### B
 
-## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### B > ##### Table 146
+## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### B > ##### Table 128
 
 <pre>```
 | 0                       | 1                             | 2                        | 3                  |
@@ -2545,7 +2410,7 @@ LOK 	Lokativ
 
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### C
 
-## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### C > ##### Table 147
+## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### C > ##### Table 129
 
 <pre>```
 | 0                           | 1                                             | 2                     | 3                      |
@@ -2585,7 +2450,7 @@ LOK 	Lokativ
 
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### D
 
-## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### D > ##### Table 148
+## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### D > ##### Table 130
 
 <pre>```
 | 0                  | 1                                 | 2                    | 3                      |
@@ -2617,7 +2482,7 @@ LOK 	Lokativ
 
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### F
 
-## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### F > ##### Table 149
+## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### F > ##### Table 131
 
 <pre>```
 | 0                               | 1                          | 2                          | 3                       |
@@ -2646,7 +2511,7 @@ LOK 	Lokativ
 
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### G
 
-## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### G > ##### Table 150
+## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### G > ##### Table 132
 
 <pre>```
 | 0                    | 1                                                  | 2                   | 3                        |
@@ -2663,20 +2528,20 @@ LOK 	Lokativ
 | gulitsa (T)          | verkaufen                                          | mgulitsi, a-        | Verkäufer                |
 | gwa                  | fallen                                             | chigwa, zi- (Tal)   |                          |
 | gwa chisanu          | schneien                                           | chisanu, -          | Schnee                   |
-| gwa mvula            | regnen                                             | mvula, - (Klasse 5) | Regen                    |
+| gwa mvula            | regnen                                             | mvula, - (Klasse 9) | Regen                    |
 | gwedeza (T)          | schütteln (etw., tr.)                              |                     |                          |
 | gwetsa (T)           | fällen, fallenlassen                               |                     |                          |
 | gwira                | berühren                                           |                     |                          |
 | gwira ntchito        | arbeiten                                           | ntchito             | Arbeit, Beruf, Übung     |
 | gwira, gwiritsa (T)  | greifen, halten, fangen                            |                     |                          |
 | gwiritsa (T) ntchito | benutzen                                           |                     |                          |
-| gwirizana (T, GG)    | einigen (sich), einverstanden sein, zusammenkommen | mgwirizano, mi-,    | Einverständnis, Einigung |
+| gwirizana (T, GG)    | einigen (sich), einverstanden sein, zusammenkommen | mgwirizano, mi-     | Einverständnis, Einigung |
 ```</pre>
 
 
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### I
 
-## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### I > ##### Table 151
+## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### I > ##### Table 133
 
 <pre>```
 | 0                | 1                                           | 2           | 3                    |
@@ -2698,7 +2563,7 @@ LOK 	Lokativ
 
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### K
 
-## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### K > ##### Table 152
+## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### K > ##### Table 134
 
 <pre>```
 | 0                                   | 1                              | 2                             | 3                           |
@@ -2753,7 +2618,7 @@ LOK 	Lokativ
 
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### L
 
-## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### L > ##### Table 153
+## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### L > ##### Table 135
 
 <pre>```
 | 0                             | 1                                   | 2                     | 3                        |
@@ -2828,7 +2693,7 @@ LOK 	Lokativ
 
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### M
 
-## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### M > ##### Table 154
+## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### M > ##### Table 136
 
 <pre>```
 | 0                              | 1                                  | 2                | 3           |
@@ -2858,7 +2723,7 @@ LOK 	Lokativ
 
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### N
 
-## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### N > ##### Table 155
+## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### N > ##### Table 137
 
 <pre>```
 | 0                                        | 1                                              | 2                            | 3                       |
@@ -2892,7 +2757,7 @@ LOK 	Lokativ
 
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### O
 
-## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### O > ##### Table 156
+## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### O > ##### Table 138
 
 <pre>```
 | 0                  | 1                                                       | 2                                  | 3                 |
@@ -2912,7 +2777,7 @@ LOK 	Lokativ
 
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### P
 
-## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### P > ##### Table 157
+## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### P > ##### Table 139
 
 <pre>```
 | 0                               | 1                                                               | 2                             | 3                         |
@@ -2980,7 +2845,7 @@ LOK 	Lokativ
 
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### S
 
-## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### S > ##### Table 158
+## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### S > ##### Table 140
 
 <pre>```
 | 0                                | 1                                               | 2                    | 3                      |
@@ -3050,7 +2915,7 @@ LOK 	Lokativ
 
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### T
 
-## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### T > ##### Table 159
+## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### T > ##### Table 141
 
 <pre>```
 | 0                                 | 1                                                        | 2                   | 3                            |
@@ -3115,7 +2980,7 @@ LOK 	Lokativ
 
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### U
 
-## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### U > ##### Table 160
+## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### U > ##### Table 142
 
 <pre>```
 | 0              | 1              | 2       | 3    |
@@ -3129,7 +2994,7 @@ LOK 	Lokativ
 
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### V
 
-## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### V > ##### Table 161
+## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### V > ##### Table 143
 
 <pre>```
 | 0                                                 | 1                                  | 2                  | 3                 |
@@ -3152,7 +3017,7 @@ LOK 	Lokativ
 
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### W
 
-## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### W > ##### Table 162
+## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### W > ##### Table 144
 
 <pre>```
 | 0            | 1                 | 2                         | 3              |
@@ -3169,7 +3034,7 @@ LOK 	Lokativ
 
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### Y
 
-## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### Y > ##### Table 163
+## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### Y > ##### Table 145
 
 <pre>```
 | 0                                   | 1                             | 2                                  | 3                         |
@@ -3204,7 +3069,7 @@ LOK 	Lokativ
 
 ## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### Z
 
-## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### Z > ##### Table 164
+## Vokabular > ### Chichewa Verbstämme A-Z und abgeleitete Nomen > #### Z > ##### Table 146
 
 <pre>```
 | 0                                            | 1                                       | 2                             | 3          |
@@ -3231,17 +3096,17 @@ Ursprünglich war wohl jedes Nomen von einem Verbstamm abgeleitet worden (wie au
 
 Wie bereits im Grammatikteil werden im Chichewa alle Nomen gemäss ihrer Vorsilben in Klassen aufgeteilt – so auch hier. Innerhalb einer Klasse wird nach Wortanfang, -Bedeutung oder -Herkunft gegliedert – je nachdem, was dem Verständnis am meisten zuträglich ist.
 
-## Vokabular > ### Nomen > #### Klasse 1: M-, A-
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A-
 
-Die Klasse 1 umfasst grundsätzlich alle und fast ausschliesslich Menschen. Zudem haben sich einige Tiere sowie einige andere, ganz fremde Wörter, hierher verirrt.
+Die Klasse 1/2 umfasst grundsätzlich alle und fast ausschliesslich Menschen. Zudem haben sich einige Tiere sowie einige andere, ganz fremde Wörter, hierher verirrt.
 
-## Vokabular > ### Nomen > #### Klasse 1: M-, A- > ##### M-, A-
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### M-, A-
 
 Die Vorsilbe M- ist (u.a.) die Vorsilbe für Menschen, was bei einigen Beispielen noch sehr schön zu sehen ist. Daneben gab/gibt es zwei weitere Möglichkeiten, menschliche Nomen aus Verbstämmen oder aber anderen Nomen abzuleiten.
 
-## Vokabular > ### Nomen > #### Klasse 1: M-, A- > ##### M-, A- > ###### (Erweiterte) Familie
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### M-, A- > ###### (Erweiterte) Familie
 
-## Vokabular > ### Nomen > #### Klasse 1: M-, A- > ##### M-, A- > ###### (Erweiterte) Familie > ####### Table 165
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### M-, A- > ###### (Erweiterte) Familie > ####### Table 147
 
 <pre>```
 | 0                             | 1              | 2         | 3              |
@@ -3263,9 +3128,9 @@ Die Vorsilbe M- ist (u.a.) die Vorsilbe für Menschen, was bei einigen Beispiele
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 1: M-, A- > ##### M-, A- > ###### Weitere Menschen
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### M-, A- > ###### Weitere Menschen
 
-## Vokabular > ### Nomen > #### Klasse 1: M-, A- > ##### M-, A- > ###### Weitere Menschen > ####### Table 166
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### M-, A- > ###### Weitere Menschen > ####### Table 148
 
 <pre>```
 | 0                               | 1                            | 2                            | 3                              |
@@ -3294,15 +3159,15 @@ Die Vorsilbe M- ist (u.a.) die Vorsilbe für Menschen, was bei einigen Beispiele
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 1: M-, A- > ##### Wo-, O-
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### Wo-, O-
 
-«Wo-», die Eigenschaftssilbe der Klasse 1, deute auf einen verbalen Ursprung hin. So kann aus gründsätzlich jedem Verb die zugehörige Person wortgeschöpft werden. Die wichtigsten davon sind hier aufgelistet.
+«Wo-», die Eigenschaftssilbe der Klasse 1/2, deute auf einen verbalen Ursprung hin. So kann aus gründsätzlich jedem Verb die zugehörige Person wortgeschöpft werden. Die wichtigsten davon sind hier aufgelistet.
 
-## Vokabular > ### Nomen > #### Klasse 1: M-, A- > ##### Wa-, A-
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### Wa-, A_
 
-«Wa-», die Besitzsilbe der Klasse 1, deutet auf einen nominalen Ursprung bzw. auf einen verbalen Ursprung eines einsilbigen Verbes hin hin. So kann aus gründsätzlich jedem Nomen die zugehörige Person wortgeschöpft werden. Die wichtigsten davon sind hier aufgelistet.
+«Wa-», die Besitzsilbe der Klasse 1/2, deutet auf einen nominalen Ursprung bzw. auf einen verbalen Ursprung eines einsilbigen Verbes hin hin. So kann aus gründsätzlich jedem Nomen die zugehörige Person wortgeschöpft werden. Die wichtigsten davon sind hier aufgelistet.
 
-## Vokabular > ### Nomen > #### Klasse 1: M-, A- > ##### Wa-, A- > ###### Table 167
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### Wa-, A_ > ###### Table 149
 
 <pre>```
 | 0                         | 1                | 2                    | 3                 |
@@ -3322,7 +3187,7 @@ Die Vorsilbe M- ist (u.a.) die Vorsilbe für Menschen, was bei einigen Beispiele
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 1: M-, A- > ##### Wa-, A- > ###### Table 168
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### Wa-, A_ > ###### Table 150
 
 <pre>```
 | 0                              | 1         | 2           | 3           |
@@ -3336,9 +3201,9 @@ Die Vorsilbe M- ist (u.a.) die Vorsilbe für Menschen, was bei einigen Beispiele
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 1: M-, A- > ##### Tiere
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### Tiere
 
-## Vokabular > ### Nomen > #### Klasse 1: M-, A- > ##### Tiere > ###### Table 169
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### Tiere > ###### Table 151
 
 <pre>```
 | 0                   | 1     | 2   | 3   |
@@ -3351,9 +3216,9 @@ Die Vorsilbe M- ist (u.a.) die Vorsilbe für Menschen, was bei einigen Beispiele
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 1: M-, A- > ##### Sonstige
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### Sonstige
 
-## Vokabular > ### Nomen > #### Klasse 1: M-, A- > ##### Sonstige > ###### Table 170
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### Sonstige > ###### Table 152
 
 <pre>```
 | 0                              | 1                  | 2          | 3               |
@@ -3363,26 +3228,26 @@ Die Vorsilbe M- ist (u.a.) die Vorsilbe für Menschen, was bei einigen Beispiele
 | kholo, ma-                     | Eltern (-teil)     |            |                 |
 | bambo, a-, tate, a-            | Vater              |            |                 |
 | chitsiru, zi-                  | Idiot              |            |                 |
-| dalaivala, ma- (Pl. Klasse 3)  | Fahrer             |            |                 |
-| dokotala, ma- (Pl. Klasse 3)   | Arzt               |            |                 |
+| dalaivala, ma- (Pl. Klasse 6)  | Fahrer             |            |                 |
+| dokotala, ma- (Pl. Klasse 6)   | Arzt               |            |                 |
 | fodya, -                       | Tabak              | suta fodya | rauchen         |
-| kasitomala, ma- (Pl. Klasse 3) | Kunde              |            |                 |
+| kasitomala, ma- (Pl. Klasse 6) | Kunde              |            |                 |
 | namwino, a-                    | Krankenschwester   |            |                 |
 | nyenga, a-                     | Betrüger           | nyenga     | lügen, betrügen |
 | petulo, -                      | Benzin             |            |                 |
 | polisi, -                      | Polizei            |            |                 |
-| sopo, Pl.: sopo (Klasse 3)     | Seife              |            |                 |
+| sopo, Pl.: sopo (Klasse 5/6)   | Seife              |            |                 |
 | tiyi, -                        | Tee                |            |                 |
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 2: M-, Mi-
+## Vokabular > ### Nomen > #### Klasse 3/4: M-, Mi-
 
-Die Klasse 2 enthält vor allem Gegenstände, sowohl menschgemachte als auch natürliche, jedoch allesamt unbelebt.
+Die Klasse 3/4 enthält vor allem Gegenstände, sowohl menschgemachte als auch natürliche, jedoch allesamt unbelebt.
 
-## Vokabular > ### Nomen > #### Klasse 2: M-, Mi- > ##### Natürliches
+## Vokabular > ### Nomen > #### Klasse 3/4: M-, Mi- > ##### Natürliches
 
-## Vokabular > ### Nomen > #### Klasse 2: M-, Mi- > ##### Natürliches > ###### Table 171
+## Vokabular > ### Nomen > #### Klasse 3/4: M-, Mi- > ##### Natürliches > ###### Table 153
 
 <pre>```
 | 0                | 1             | 2                | 3                    |
@@ -3411,9 +3276,9 @@ Die Klasse 2 enthält vor allem Gegenstände, sowohl menschgemachte als auch nat
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 2: M-, Mi- > ##### Menschengemachtes
+## Vokabular > ### Nomen > #### Klasse 3/4: M-, Mi- > ##### Menschengemachtes
 
-## Vokabular > ### Nomen > #### Klasse 2: M-, Mi- > ##### Menschengemachtes > ###### Table 172
+## Vokabular > ### Nomen > #### Klasse 3/4: M-, Mi- > ##### Menschengemachtes > ###### Table 154
 
 <pre>```
 | 0             | 1            | 2              | 3                      |
@@ -3432,9 +3297,9 @@ Die Klasse 2 enthält vor allem Gegenstände, sowohl menschgemachte als auch nat
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 2: M-, Mi- > ##### Menschlicher Körper
+## Vokabular > ### Nomen > #### Klasse 3/4: M-, Mi- > ##### Menschlicher Körper
 
-## Vokabular > ### Nomen > #### Klasse 2: M-, Mi- > ##### Menschlicher Körper > ###### Table 173
+## Vokabular > ### Nomen > #### Klasse 3/4: M-, Mi- > ##### Menschlicher Körper > ###### Table 155
 
 <pre>```
 | 0               | 1            | 2     | 3             |
@@ -3449,15 +3314,15 @@ Die Klasse 2 enthält vor allem Gegenstände, sowohl menschgemachte als auch nat
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 2: M-, Mi- > ##### Abstraka
+## Vokabular > ### Nomen > #### Klasse 3/4: M-, Mi- > ##### Abstraka
 
-## Vokabular > ### Nomen > #### Klasse 2: M-, Mi- > ##### Abstraka > ###### Table 174
+## Vokabular > ### Nomen > #### Klasse 3/4: M-, Mi- > ##### Abstraka > ###### Table 156
 
 <pre>```
 | 0                                    | 1                        | 2                          | 3                                                  |
 |:-------------------------------------|:-------------------------|:---------------------------|:---------------------------------------------------|
 | mbali, mi-                           | Seite, Richtung          |                            |                                                    |
-| mchiritso, machiritso (Pl. Klasse 3) | Heilung                  | chiritsa (T)               | heilen (jmdn.)                                     |
+| mchiritso, machiritso (Pl. Klasse 6) | Heilung                  | chiritsa (T)               | heilen (jmdn.)                                     |
 | mgwirizano, mi-,                     | Einverständnis, Einigung | gwirizana (T, GG)          | einigen (sich), einverstanden sein, zusammenkommen |
 | mlandu, mi-                          | Verbrechen, Rechtsstreit | lamula mlandu              | ein Verbrechen begehen                             |
 | msonkhano, mi-                       | Treffen                  | sonkhana (GG) (komana ndi) | treffen (sich)                                     |
@@ -3468,13 +3333,13 @@ Die Klasse 2 enthält vor allem Gegenstände, sowohl menschgemachte als auch nat
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 3: -, Ma-
+## Vokabular > ### Nomen > #### Klasse 5/6: -, Ma-
 
-Die Klasse 3 beinhaltet sehr viele Fremdwörter sowie alle Wörter, die mit Konsonanten beginnen, die in die anderen Klassen nicht reinpassen, insbesondere: b-, d-, f-, g-, k-, l-, p-, r-, s-, t-.
+Die Klasse 5/6 beinhaltet sehr viele Fremdwörter sowie alle Wörter, die mit Konsonanten beginnen, die in die anderen Klassen nicht reinpassen, insbesondere: b-, d-, f-, g-, k-, l-, p-, r-, s-, t-.
 
-## Vokabular > ### Nomen > #### Klasse 3: -, Ma- > ##### Fremdwörter
+## Vokabular > ### Nomen > #### Klasse 5/6: -, Ma- > ##### Fremdwörter
 
-## Vokabular > ### Nomen > #### Klasse 3: -, Ma- > ##### Fremdwörter > ###### Table 175
+## Vokabular > ### Nomen > #### Klasse 5/6: -, Ma- > ##### Fremdwörter > ###### Table 157
 
 <pre>```
 | 0                                 | 1                 |
@@ -3558,9 +3423,9 @@ Die Klasse 3 beinhaltet sehr viele Fremdwörter sowie alle Wörter, die mit Kons
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 3: -, Ma- > ##### Natürliches
+## Vokabular > ### Nomen > #### Klasse 5/6: -, Ma- > ##### Natürliches
 
-## Vokabular > ### Nomen > #### Klasse 3: -, Ma- > ##### Natürliches > ###### Table 176
+## Vokabular > ### Nomen > #### Klasse 5/6: -, Ma- > ##### Natürliches > ###### Table 158
 
 <pre>```
 | 0                       | 1                           | 2              | 3                   |
@@ -3608,9 +3473,9 @@ Die Klasse 3 beinhaltet sehr viele Fremdwörter sowie alle Wörter, die mit Kons
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 3: -, Ma- > ##### Menschengemachtes
+## Vokabular > ### Nomen > #### Klasse 5/6: -, Ma- > ##### Menschengemachtes
 
-## Vokabular > ### Nomen > #### Klasse 3: -, Ma- > ##### Menschengemachtes > ###### Table 177
+## Vokabular > ### Nomen > #### Klasse 5/6: -, Ma- > ##### Menschengemachtes > ###### Table 159
 
 <pre>```
 | 0               | 1                     | 2      | 3       |
@@ -3635,9 +3500,9 @@ Die Klasse 3 beinhaltet sehr viele Fremdwörter sowie alle Wörter, die mit Kons
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 3: -, Ma- > ##### Singularlose
+## Vokabular > ### Nomen > #### Klasse 5/6: -, Ma- > ##### Singularlose
 
-## Vokabular > ### Nomen > #### Klasse 3: -, Ma- > ##### Singularlose > ###### Table 178
+## Vokabular > ### Nomen > #### Klasse 5/6: -, Ma- > ##### Singularlose > ###### Table 160
 
 <pre>```
 | 0             | 1                         | 2                     | 3                                 |
@@ -3673,9 +3538,9 @@ Die Klasse 3 beinhaltet sehr viele Fremdwörter sowie alle Wörter, die mit Kons
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 3: -, Ma- > ##### Abstrakta
+## Vokabular > ### Nomen > #### Klasse 5/6: -, Ma- > ##### Abstrakta
 
-## Vokabular > ### Nomen > #### Klasse 3: -, Ma- > ##### Abstrakta > ###### Table 179
+## Vokabular > ### Nomen > #### Klasse 5/6: -, Ma- > ##### Abstrakta > ###### Table 161
 
 <pre>```
 | 0                     | 1                         | 2                     | 3                            |
@@ -3709,13 +3574,13 @@ Die Klasse 3 beinhaltet sehr viele Fremdwörter sowie alle Wörter, die mit Kons
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 4: Ch-, Z-
+## Vokabular > ### Nomen > #### Klasse 7/8: Ch-, Z-
 
-Die Klasse 4 umfasst sehr viele, aber nicht nur Abstrakta. Die Vorsilbe Chi- ist ein die Vorsilbe, um eine Sache aus einem Verbstamm zu kreieren.
+Die Klasse 7/8 umfasst sehr viele, aber nicht nur Abstrakta. Die Vorsilbe Chi- ist ein die Vorsilbe, um eine Sache aus einem Verbstamm zu kreieren.
 
-## Vokabular > ### Nomen > #### Klasse 4: Ch-, Z- > ##### Abstrakta
+## Vokabular > ### Nomen > #### Klasse 7/8: Ch-, Z- > ##### Abstrakta
 
-## Vokabular > ### Nomen > #### Klasse 4: Ch-, Z- > ##### Abstrakta > ###### Table 180
+## Vokabular > ### Nomen > #### Klasse 7/8: Ch-, Z- > ##### Abstrakta > ###### Table 162
 
 <pre>```
 | 0                     | 1                           | 2                               | 3                                       |
@@ -3784,9 +3649,9 @@ Die Klasse 4 umfasst sehr viele, aber nicht nur Abstrakta. Die Vorsilbe Chi- ist
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 4: Ch-, Z- > ##### Menschengemachtes
+## Vokabular > ### Nomen > #### Klasse 7/8: Ch-, Z- > ##### Menschengemachtes
 
-## Vokabular > ### Nomen > #### Klasse 4: Ch-, Z- > ##### Menschengemachtes > ###### Table 181
+## Vokabular > ### Nomen > #### Klasse 7/8: Ch-, Z- > ##### Menschengemachtes > ###### Table 163
 
 <pre>```
 | 0                          | 1                  | 2                               | 3                        |
@@ -3833,9 +3698,9 @@ Die Klasse 4 umfasst sehr viele, aber nicht nur Abstrakta. Die Vorsilbe Chi- ist
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 4: Ch-, Z- > ##### Natürliches
+## Vokabular > ### Nomen > #### Klasse 7/8: Ch-, Z- > ##### Natürliches
 
-## Vokabular > ### Nomen > #### Klasse 4: Ch-, Z- > ##### Natürliches > ###### Table 182
+## Vokabular > ### Nomen > #### Klasse 7/8: Ch-, Z- > ##### Natürliches > ###### Table 164
 
 <pre>```
 | 0                            | 1                                | 2                             | 3        |
@@ -3860,13 +3725,13 @@ Die Klasse 4 umfasst sehr viele, aber nicht nur Abstrakta. Die Vorsilbe Chi- ist
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 5: N-, N-
+## Vokabular > ### Nomen > #### Klasse 9/10: N-, N-
 
-Die Klasse 5 zeichnet sich dadurch aus, dass in ihr Plural und Singular gleich lauten. Sie beinhaltet praktisch ausschliesslich Wörter und m- und, vor allem, n-. Auffallend viele Tiere sind in ihr vertreten.
+Die Klasse 9/10 zeichnet sich dadurch aus, dass in ihr Plural und Singular gleich lauten. Sie beinhaltet praktisch ausschliesslich Wörter und m- und, vor allem, n-. Auffallend viele Tiere sind in ihr vertreten.
 
-## Vokabular > ### Nomen > #### Klasse 5: N-, N- > ##### Tiere
+## Vokabular > ### Nomen > #### Klasse 9/10: N-, N- > ##### Tiere
 
-## Vokabular > ### Nomen > #### Klasse 5: N-, N- > ##### Tiere > ###### Table 183
+## Vokabular > ### Nomen > #### Klasse 9/10: N-, N- > ##### Tiere > ###### Table 165
 
 <pre>```
 | 0                    | 1             |
@@ -3890,11 +3755,11 @@ Die Klasse 5 zeichnet sich dadurch aus, dass in ihr Plural und Singular gleich l
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 5: N-, N- > ##### N-
+## Vokabular > ### Nomen > #### Klasse 9/10: N-, N- > ##### N-
 
-## Vokabular > ### Nomen > #### Klasse 5: N-, N- > ##### N- > ###### Abstrakta
+## Vokabular > ### Nomen > #### Klasse 9/10: N-, N- > ##### N- > ###### Abstrakta
 
-## Vokabular > ### Nomen > #### Klasse 5: N-, N- > ##### N- > ###### Abstrakta > ####### Table 184
+## Vokabular > ### Nomen > #### Klasse 9/10: N-, N- > ##### N- > ###### Abstrakta > ####### Table 166
 
 <pre>```
 | 0        | 1                                          | 2                       | 3                            |
@@ -3913,9 +3778,9 @@ Die Klasse 5 zeichnet sich dadurch aus, dass in ihr Plural und Singular gleich l
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 5: N-, N- > ##### N- > ###### Weitere
+## Vokabular > ### Nomen > #### Klasse 9/10: N-, N- > ##### N- > ###### Weitere
 
-## Vokabular > ### Nomen > #### Klasse 5: N-, N- > ##### N- > ###### Weitere > ####### Table 185
+## Vokabular > ### Nomen > #### Klasse 9/10: N-, N- > ##### N- > ###### Weitere > ####### Table 167
 
 <pre>```
 | 0                 | 1                      | 2            | 3                         |
@@ -3957,9 +3822,9 @@ Die Klasse 5 zeichnet sich dadurch aus, dass in ihr Plural und Singular gleich l
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 5: N-, N- > ##### M-
+## Vokabular > ### Nomen > #### Klasse 9/10: N-, N- > ##### M-
 
-## Vokabular > ### Nomen > #### Klasse 5: N-, N- > ##### M- > ###### Table 186
+## Vokabular > ### Nomen > #### Klasse 9/10: N-, N- > ##### M- > ###### Table 168
 
 <pre>```
 | 0                | 1                          | 2            | 3                |
@@ -3988,9 +3853,9 @@ Die Klasse 5 zeichnet sich dadurch aus, dass in ihr Plural und Singular gleich l
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 5: N-, N- > ##### Sonstige
+## Vokabular > ### Nomen > #### Klasse 9/10: N-, N- > ##### Sonstige
 
-## Vokabular > ### Nomen > #### Klasse 5: N-, N- > ##### Sonstige > ###### Table 187
+## Vokabular > ### Nomen > #### Klasse 9/10: N-, N- > ##### Sonstige > ###### Table 169
 
 <pre>```
 | 0    | 1       | 2            | 3            |
@@ -4000,13 +3865,13 @@ Die Klasse 5 zeichnet sich dadurch aus, dass in ihr Plural und Singular gleich l
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 6: U-, Ma-
+## Vokabular > ### Nomen > #### Klasse 14: U-, Ma-
 
-Die Klasse 6 beinhaltet fast nur Abstrakta, zudem sind viele dieser plurallos.
+Die Klasse 14 beinhaltet fast nur Abstrakta, zudem sind viele dieser plurallos.
 
-## Vokabular > ### Nomen > #### Klasse 6: U-, Ma- > ##### Abstraka
+## Vokabular > ### Nomen > #### Klasse 14: U-, Ma- > ##### Abstraka
 
-## Vokabular > ### Nomen > #### Klasse 6: U-, Ma- > ##### Abstraka > ###### Table 188
+## Vokabular > ### Nomen > #### Klasse 14: U-, Ma- > ##### Abstraka > ###### Table 170
 
 <pre>```
 | 0                    | 1                        | 2               | 3            |
@@ -4035,9 +3900,9 @@ Die Klasse 6 beinhaltet fast nur Abstrakta, zudem sind viele dieser plurallos.
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Klasse 6: U-, Ma- > ##### Weitere
+## Vokabular > ### Nomen > #### Klasse 14: U-, Ma- > ##### Weitere
 
-## Vokabular > ### Nomen > #### Klasse 6: U-, Ma- > ##### Weitere > ###### Table 189
+## Vokabular > ### Nomen > #### Klasse 14: U-, Ma- > ##### Weitere > ###### Table 171
 
 <pre>```
 | 0              | 1              | 2            | 3            |
@@ -4060,13 +3925,29 @@ Die Klasse 6 beinhaltet fast nur Abstrakta, zudem sind viele dieser plurallos.
 
 Die Zusatzklassen sind eher klassen, die spontan innerhalb eines Satzes verwendet werden. Natürlich gibt es aber einige Wörter, die in diesen speziellen Formen geläufig sind – die sollen nicht vorenthalten werden.
 
-## Vokabular > ### Nomen > #### Zusatzklassen > ##### Substantivierte Verben
+## Vokabular > ### Nomen > #### Zusatzklassen > ##### Klasse 12/13: Verkleinerung
+
+## Vokabular > ### Nomen > #### Zusatzklassen > ##### Klasse 12/13: Verkleinerung > ###### Table 172
+
+<pre>```
+| 0                             | 1                              | 2           | 3               |
+|:------------------------------|:-------------------------------|:------------|:----------------|
+| kabudula, timabudula          | kurze Hose                     | budula, ma- | Hose            |
+| kafananidwe (VK), -           | Ähnlichkeit                    | fanana (GG) | ebenbürtig sein |
+| kakonzedwe, timakonzedwe (VK) | Reparatur                      | konza       | reparieren      |
+| kambale, timbale              | Kleiner Teller, Kleines Gefäss | mbale       | Teller          |
+| kamtengo, timitengo           | Ast                            | mtengo, mi- | Baum            |
+| kamwana, tiana                | Baby                           | mwana, ana  | Kind            |
+```</pre>
+
+
+## Vokabular > ### Nomen > #### Zusatzklassen > ##### Klasse 15: Substantivierte Verben
 
 Wie erwähnt kann aus jedem Verb ein Nomen gebildet werden. Häufig verwendete sollen trotzdem hier aufgeführt sein.
 
-## Vokabular > ### Nomen > #### Zusatzklassen > ##### Substantivierte Verben > ###### Abstrakta
+## Vokabular > ### Nomen > #### Zusatzklassen > ##### Klasse 15: Substantivierte Verben > ###### Abstrakta
 
-## Vokabular > ### Nomen > #### Zusatzklassen > ##### Substantivierte Verben > ###### Abstrakta > ####### Table 190
+## Vokabular > ### Nomen > #### Zusatzklassen > ##### Klasse 15: Substantivierte Verben > ###### Abstrakta > ####### Table 173
 
 <pre>```
 | 0              | 1                       | 2                                         | 3                                             |
@@ -4093,9 +3974,9 @@ Wie erwähnt kann aus jedem Verb ein Nomen gebildet werden. Häufig verwendete s
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Zusatzklassen > ##### Substantivierte Verben > ###### Weitere
+## Vokabular > ### Nomen > #### Zusatzklassen > ##### Klasse 15: Substantivierte Verben > ###### Weitere
 
-## Vokabular > ### Nomen > #### Zusatzklassen > ##### Substantivierte Verben > ###### Weitere > ####### Table 191
+## Vokabular > ### Nomen > #### Zusatzklassen > ##### Klasse 15: Substantivierte Verben > ###### Weitere > ####### Table 174
 
 <pre>```
 | 0                 | 1                   | 2             | 3                                 |
@@ -4123,25 +4004,9 @@ Wie erwähnt kann aus jedem Verb ein Nomen gebildet werden. Häufig verwendete s
 ```</pre>
 
 
-## Vokabular > ### Nomen > #### Zusatzklassen > ##### Verkleinerung
+## Vokabular > ### Nomen > #### Zusatzklassen > ##### Klasse 16/17/18: Ortsklasse
 
-## Vokabular > ### Nomen > #### Zusatzklassen > ##### Verkleinerung > ###### Table 192
-
-<pre>```
-| 0                             | 1                              | 2           | 3               |
-|:------------------------------|:-------------------------------|:------------|:----------------|
-| kabudula, timabudula          | kurze Hose                     | budula, ma- | Hose            |
-| kafananidwe (VK), -           | Ähnlichkeit                    | fanana (GG) | ebenbürtig sein |
-| kakonzedwe, timakonzedwe (VK) | Reparatur                      | konza       | reparieren      |
-| kambale, timbale              | Kleiner Teller, Kleines Gefäss | mbale       | Teller          |
-| kamtengo, timitengo           | Ast                            | mtengo, mi- | Baum            |
-| kamwana, tiana                | Baby                           | mwana, ana  | Kind            |
-```</pre>
-
-
-## Vokabular > ### Nomen > #### Zusatzklassen > ##### Ortsklasse
-
-## Vokabular > ### Nomen > #### Zusatzklassen > ##### Ortsklasse > ###### Table 193
+## Vokabular > ### Nomen > #### Zusatzklassen > ##### Klasse 16/17/18: Ortsklasse > ###### Table 175
 
 <pre>```
 | 0           | 1              | 2         | 3              |
@@ -4156,7 +4021,7 @@ Wie erwähnt kann aus jedem Verb ein Nomen gebildet werden. Häufig verwendete s
 
 Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an sehr bildhaften Sprichwörtern. Im Gegensatz zu hiesigen Sprichwörtern liegt jedem Sprichwort liegt eine Geschichte zugrunde, die die Aussage des Sprichwortes verdeutlicht oder erst verständlich macht.
 
-## Vokabular > ### Sprichwörter > #### Table 194
+## Vokabular > ### Sprichwörter > #### Table 176
 
 <pre>```
 | 0                    | 1                                                                       |
@@ -4167,7 +4032,7 @@ Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an s
 ```</pre>
 
 
-## Vokabular > ### Sprichwörter > #### Table 195
+## Vokabular > ### Sprichwörter > #### Table 177
 
 <pre>```
 | 0                    | 1                                               |
@@ -4178,7 +4043,7 @@ Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an s
 ```</pre>
 
 
-## Vokabular > ### Sprichwörter > #### Table 196
+## Vokabular > ### Sprichwörter > #### Table 178
 
 <pre>```
 | 0                    | 1                                            |
@@ -4189,7 +4054,7 @@ Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an s
 ```</pre>
 
 
-## Vokabular > ### Sprichwörter > #### Table 197
+## Vokabular > ### Sprichwörter > #### Table 179
 
 <pre>```
 | 0                    | 1                                                   |
@@ -4200,7 +4065,7 @@ Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an s
 ```</pre>
 
 
-## Vokabular > ### Sprichwörter > #### Table 198
+## Vokabular > ### Sprichwörter > #### Table 180
 
 <pre>```
 | 0                    | 1                                |
@@ -4211,7 +4076,7 @@ Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an s
 ```</pre>
 
 
-## Vokabular > ### Sprichwörter > #### Table 199
+## Vokabular > ### Sprichwörter > #### Table 181
 
 <pre>```
 | 0                    | 1                                                                   |
@@ -4222,7 +4087,7 @@ Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an s
 ```</pre>
 
 
-## Vokabular > ### Sprichwörter > #### Table 200
+## Vokabular > ### Sprichwörter > #### Table 182
 
 <pre>```
 | 0                    | 1                                             |
@@ -4233,7 +4098,7 @@ Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an s
 ```</pre>
 
 
-## Vokabular > ### Sprichwörter > #### Table 201
+## Vokabular > ### Sprichwörter > #### Table 183
 
 <pre>```
 | 0                    | 1                                   |
@@ -4244,7 +4109,7 @@ Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an s
 ```</pre>
 
 
-## Vokabular > ### Sprichwörter > #### Table 202
+## Vokabular > ### Sprichwörter > #### Table 184
 
 <pre>```
 | 0                    | 1                                                              |
@@ -4255,7 +4120,7 @@ Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an s
 ```</pre>
 
 
-## Vokabular > ### Sprichwörter > #### Table 203
+## Vokabular > ### Sprichwörter > #### Table 185
 
 <pre>```
 | 0                    | 1                                                                        |
@@ -4266,7 +4131,7 @@ Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an s
 ```</pre>
 
 
-## Vokabular > ### Sprichwörter > #### Table 204
+## Vokabular > ### Sprichwörter > #### Table 186
 
 <pre>```
 | 0                    | 1                                                          |
@@ -4277,7 +4142,7 @@ Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an s
 ```</pre>
 
 
-## Vokabular > ### Sprichwörter > #### Table 205
+## Vokabular > ### Sprichwörter > #### Table 187
 
 <pre>```
 | 0                    | 1                               |
@@ -4288,7 +4153,7 @@ Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an s
 ```</pre>
 
 
-## Vokabular > ### Sprichwörter > #### Table 206
+## Vokabular > ### Sprichwörter > #### Table 188
 
 <pre>```
 | 0                    | 1                                                                                                                                            |
@@ -4299,7 +4164,7 @@ Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an s
 ```</pre>
 
 
-## Vokabular > ### Sprichwörter > #### Table 207
+## Vokabular > ### Sprichwörter > #### Table 189
 
 <pre>```
 | 0                    | 1                                             |
@@ -4310,7 +4175,7 @@ Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an s
 ```</pre>
 
 
-## Vokabular > ### Sprichwörter > #### Table 208
+## Vokabular > ### Sprichwörter > #### Table 190
 
 <pre>```
 | 0                    | 1                                                                          |
@@ -4321,7 +4186,7 @@ Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an s
 ```</pre>
 
 
-## Vokabular > ### Sprichwörter > #### Table 209
+## Vokabular > ### Sprichwörter > #### Table 191
 
 <pre>```
 | 0                    | 1                                            |
@@ -4334,7 +4199,7 @@ Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an s
 ```</pre>
 
 
-## Vokabular > ### Sprichwörter > #### Table 210
+## Vokabular > ### Sprichwörter > #### Table 192
 
 <pre>```
 | 0                    | 1                                                                                            |
@@ -4345,7 +4210,7 @@ Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an s
 ```</pre>
 
 
-## Vokabular > ### Sprichwörter > #### Table 211
+## Vokabular > ### Sprichwörter > #### Table 193
 
 <pre>```
 | 0                    | 1                                                                                 |
@@ -4356,7 +4221,7 @@ Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an s
 ```</pre>
 
 
-## Vokabular > ### Sprichwörter > #### Table 212
+## Vokabular > ### Sprichwörter > #### Table 194
 
 <pre>```
 | 0                    | 1                                 |
@@ -4367,7 +4232,7 @@ Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an s
 ```</pre>
 
 
-## Vokabular > ### Sprichwörter > #### Table 213
+## Vokabular > ### Sprichwörter > #### Table 195
 
 <pre>```
 | 0                    | 1                                              |
@@ -4378,7 +4243,7 @@ Kulturen des südlichen Afrika besitzen häufig eine reichhaltigen Sammlung an s
 ```</pre>
 
 
-## Vokabular > ### Sprichwörter > #### Table 214
+## Vokabular > ### Sprichwörter > #### Table 196
 
 <pre>```
 | 0                    | 1                                                                                                                                                                                                                                                                                                                                                                                                          |
@@ -4400,7 +4265,7 @@ Zur Erinnerung: In Bantusprachen beinhalten nur die Nominalstämme die Bedeutung
 
 Anmerkungen:
 
-Das Sternchen (*) steht für Vokale, die in gewissen Sprachen die Klassenpräfixe ergänzen. Es sind dies in aller Regel dieselben Vokale, die in der Silbe selbst vorkommen (z.B. Zulu Klasse 1: Umu-, Aba-).
+Das Sternchen (*) steht für Vokale, die in gewissen Sprachen die Klassenpräfixe ergänzen. Es sind dies in aller Regel dieselben Vokale, die in der Silbe selbst vorkommen (z.B. Zulu Klasse 1/2: Umu-, Aba-).
 
 Dieselben Dinge können aus verschiedenen Blickwinkeln betrachtet werden, genauso kann bestimmten Eigenschaften mehr Bedeutung zugerechnet werden; dies führt dazu, dass Substantive nicht in allen Sprachen in der gleichen Klassen eingeordnet werden.
 
@@ -4408,7 +4273,7 @@ Bei den Erklärungen von Silbenherkünften werden Wörter angegeben, die in dies
 
 ## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen
 
-## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 1: *Mu-, *Ba-
+## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 1/2: *Mu-, *Ba-
 
 Verschiedene Vorsilben: 	Pl.: *ba- auch (w)a-, va- u.a.
 
@@ -4422,7 +4287,7 @@ Menschen
 
 Gewisse aufrecht stehende Tiere
 
-## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 2: *Mu-, *Mi-
+## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 3/4: *Mu-, *Mi-
 
 Etymologie der Vorsilben: 	Sg.: Von -umi (lebendig) und -(i)ma (aufrecht stehen)
 
@@ -4440,7 +4305,7 @@ Natürliche (häufig lebenspendende und teils schnell formwandlerische) Dinge (F
 
 Menschengemachte lebenspendende Dinge (Medizin)
 
-## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 3: *(L)i-, *Ma-
+## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 5/6: *(L)i-, *Ma-
 
 Verschiedene Vorsilben: 	Sg: *li auch ji-, di-, ri- oder ohne Präfix
 
@@ -4454,7 +4319,7 @@ Klasseninhalt: 	Unproduktives, hartes, flaches, schädliches; Lehnwörter (bei S
 
 Unproduktive, schädliche oder nackte Menschen und Tiere (Blinde(r), Teufel)
 
-Teils auch Derogativa, teils werden diese durch Ersetzen der Silbe *(L)i- durch die Singularvorsilbe der Klasse 3 *Chi- gebildet.
+Teils auch Derogativa, teils werden diese durch Ersetzen der Silbe *(L)i- durch die Singularvorsilbe der Klasse 5/6 *Chi- gebildet.
 
 Harte, nackte oder flache Früchte, Gemüse und Körperteile (Ei, Kokosnuss, Stirn)
 
@@ -4472,7 +4337,7 @@ Teils Augmentative, besonders Hohes, Grosses, Tiefes
 
 Teils Lehnwörter
 
-## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 4: *Chi-, *Zi-
+## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 7/8: *Chi-, *Zi-
 
 Verschiedene Vorsilben: 	Sg.: *chi- auch (i)si-, ki- u.a.
 
@@ -4496,7 +4361,7 @@ Sprachbezeichnungen
 
 Kurzes, Dickes; Grosses, Starkes
 
-## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 5: In-, *(Z)in-
+## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 9/10: In-, *(Z)in-
 
 Verschiedene Vorsilben: 	Sg.: in- auch im- (vor b, p, f, v); n- oder m- (vor harten Konsonanten (insb. k, s, t, ch) kann das i- entfallen) u.a.
 
@@ -4506,7 +4371,7 @@ Etymologie der Vorsilben: 	Sg.: von -nye (eins)
 
 Pl.: von -ziala/zaa (gebären (tierisch)); -nzi/nji/ngi (viele)
 
-Klasseninhalt: 	Die Klasse 5 ist u.a. eine Sammelklasse, die alle Substantive beinhaltet, für die es keinen Grund gibt, sie irgendwo sonst unterzubringen.
+Klasseninhalt: 	Die Klasse 9/10 ist u.a. eine Sammelklasse, die alle Substantive beinhaltet, für die es keinen Grund gibt, sie irgendwo sonst unterzubringen.
 
 Tiere (nicht aufrecht stehend)
 
@@ -4518,11 +4383,19 @@ Menschengemachtes (häufig gebogen oder beugsam)
 
 Lehnwörter
 
-## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 6: *(B)u-
+## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 11: *(L)u-
 
-Verschiedene Vorsilben: 	Sg.: u- auch bu-, lu-, ru- u.a.
+Verschiedene Vorsilben: 	Sg.: u- auch lu-, ru-, u.a.
 
-Pl.: Plural anderer Klassen oder plurallos
+Pl.: Plural anderer Klassen (insb. 10) oder plurallos
+
+Klasseninhalt: 	Am häufigsten für lange, dünne, oder verlängerte Dinge; wie Körperteile oder Geräte mit diesen Eigenschaften. Teils auch Abstrakta.
+
+## Anhang > ### Proto-Bantu-Klassen > #### Hauptklassen > ##### Klasse 14: *(B)u-
+
+Verschiedene Vorsilben: 	Sg.: u- auch bu-, u.a.
+
+Pl.: Plural anderer Klassen (insb. 6) oder plurallos
 
 Etymologie der Vorsilbe: 	Sg.: von -bumba/bubua (formen) oder -bua/(g)wa (fallen)
 
@@ -4536,17 +4409,23 @@ Abstrakta (v.a. Konzepte)
 
 Anmerkungen:
 
-Viele Singularlose der Klasse 3 sollten als Plurale der Klasse 6 angesehen werden.
+Viele Singularlose der Klasse 5/6 können als Plurale der Klasse 14 angesehen werden.
 
-Einige Sprachen beinhalten mehrere separate Klassen mit einer Auswahl der obigen Klasse-6-Vorsilben. Genauer aber müsste man diese Klassen wohl in dieser Klasse 6 zusammenfassen, und die verschiedenen Vorsilben lediglich als Unterklassen ansehen.
+Einige Sprachen beinhalten mehrere separate Klassen mit einer Auswahl der obigen Klasse-6-Vorsilben. Genauer aber müsste man diese Klassen wohl in dieser Klasse 14 zusammenfassen, und die verschiedenen Vorsilben lediglich als Unterklassen ansehen.
 
 ## Anhang > ### Proto-Bantu-Klassen > #### Zusatzklassen
 
-## Anhang > ### Proto-Bantu-Klassen > #### Zusatzklassen > ##### Infinitivklasse: *Ku-
+## Anhang > ### Proto-Bantu-Klassen > #### Zusatzklassen > ##### Klasse 12/13: Diminutive und Klasse 21/22: Augmentative – Diverse Bildungen
+
+Diminutive und Augmentative werden in vielen Sprachen unterschiedlich gebildet, teils nicht einmal mit diesem Präfixsystem. Speziell ist, dass die Diminutiv- und Augmentativsilben teils an den Stamm, teils an eine bereits bestehende Vorsilbe angehängt werden. Bei der Pluralbildung hat dies zur Folge, dass in gewissen Sprachen der Plural doppelt gebildet wird, also sowohl die Diminutiv-/Augmentativ- als auch die regulären Klassenvorsilben in den Pural gesetzt werden.
+
+Bei den Diminutiven fällt auf, dass Sprachen häufiger eine eigene, zusätzliche, relativ konsistente Klasse nutzen: ka- (Sg.); tu-/ti- (Pl.)
+
+## Anhang > ### Proto-Bantu-Klassen > #### Zusatzklassen > ##### Infinitivklasse 15: *Ku-
 
 Diese Klassen beinhaltet substantivierte Verben und ist so in ziemlich jeder Bantusprache zu finden.
 
-## Anhang > ### Proto-Bantu-Klassen > #### Zusatzklassen > ##### Ortsklassen: ku- (Umkreis), pa- (Ankreis), mu- (Inkreis)
+## Anhang > ### Proto-Bantu-Klassen > #### Zusatzklassen > ##### Ortsklasse 16/17/18: ku- (Umkreis), pa- (Ankreis), mu- (Inkreis)
 
 Verschiedene Silben: 		Inkreis: mu- auch -ni
 
@@ -4561,9 +4440,3 @@ Inkreis: von -umi (lebendig); -mwe (eins)
 Klasseninhalt:	Orts- und Richtungsangaben
 
 Anm.: die Lokativbildung mit dem angefügten -ni in einigen Bantusprachen lässt sich wohl durch eine Modifikation des Inkreis-Präfixes mu- erklären, dass nun als Suffix fungiert. Die Änderung zu -ni funktioniert analog zur Änderung von -mwe zu -nye, die wir in einigen Sprachen (z.B. Zulu) beobachten können.
-
-## Anhang > ### Proto-Bantu-Klassen > #### Zusatzklassen > ##### Diminutive und Augmentative : Diverse Bildungen
-
-Diminutive und Augmentative werden in vielen Sprachen unterschiedlich gebildet, teils nicht einmal mit diesem Präfixsystem. Speziell ist, dass die Diminutiv- und Augmentativsilben teils an den Stamm, teils an eine bereits bestehende Vorsilbe angehängt werden. Bei der Pluralbildung hat dies zur Folge, dass in gewissen Sprachen der Plural doppelt gebildet wird, also sowohl die Diminutiv-/Augmentativ- als auch die regulären Klassenvorsilben in den Pural gesetzt werden.
-
-Bei den Diminutiven fällt auf, dass einige Sprache eine eigene, zusätzliche Klasse nutzen: ka- (Sg.); tu-/ti- (Pl.)
