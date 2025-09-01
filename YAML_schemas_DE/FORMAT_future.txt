@@ -1,0 +1,17 @@
+Future:
+  Features:
+    tense: [fut]
+    form: [I, II]
+
+  Rules:
+    form-I_tense-fut:
+      applies: {tense: fut, form: I}
+      pattern: "{werden (finite)} + infinitive"
+      example: "ich werde gehen"
+      note: "future reference or modal meaning ('probably')"
+
+    form-II_tense-fut:
+      applies: {tense: fut, form: II}
+      pattern: "{werden (finite)} + past participle + {haben/sein infinitive}"
+      example: "ich werde gegangen sein"
+      note: "future perfect; often expresses assumption about the past"

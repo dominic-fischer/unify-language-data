@@ -1,0 +1,86 @@
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9]*$": { 
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "properties": {
+            "pattern": { "type": "string" },
+            "example": { "type": "string" },
+            "note": { "type": "string" }
+          },
+          "required": ["pattern"]
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "type": "object" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "pattern": { "type": "string" },
+                    "example": { "type": "string" },
+                    "note": { "type": "string" },
+                    "endings": { "$ref": "#/patternProperties/^[A-Z][A-Za-z0-9]*/properties/Rules/additionalProperties/properties/endings" },
+                    "forms": { "$ref": "#/patternProperties/^[A-Z][A-Za-z0-9]*/properties/Rules/additionalProperties/properties/forms" }
+                  },
+                  "required": ["pattern"]
+                }
+              },
+              "endings": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "features": { "type": "object" },
+                    "form": { "type": "string" },
+                    "note": { "type": "string" }
+                  },
+                  "required": ["features", "form"]
+                }
+              },
+              "forms": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "features": { "type": "object" },
+                    "form": { "type": "string" },
+                    "note": { "type": "string" }
+                  },
+                  "required": ["features", "form"]
+                }
+              },
+              "example": { "type": "string" },
+              "note": { "type": "string" }
+            },
+            "oneOf": [
+              { "required": ["pattern"] },
+              { "required": ["patterns"] },
+              { "required": ["forms"] }
+            ]
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}

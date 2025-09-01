@@ -1,0 +1,30 @@
+Imperative:
+  Features:
+    mood: [imp]
+    person: [1, 2, 3]
+  nNumber: [sg, pl]
+
+  Rules:
+    mood-imp_number-sg_person-2:
+      applies: {mood: imp, person: 2, number: sg}
+      pattern: "{stem} + (optionally -e)"
+      example: "geh!, mache!"
+      note: "direct imperative singular; -e ending optional in 2sg, often dropped in colloquial usage"
+
+    mood-imp_number-pl_person-2:
+      applies: {mood: imp, person: 2, number: pl}
+      pattern: "{stem} + t"
+      example: "geht!, macht!"
+      note: "direct imperative plural"
+
+    mood-imp_number-pl_person-1:
+      applies: {mood: imp, person: 1, number: pl}
+      pattern: "{stem} + en + wir"
+      example: "gehen wir!"
+      note: "inclusive 'let's…' construction"
+
+    mood-imp_number-pl_person-3:
+      applies: {mood: imp, person: 3, number: pl}
+      pattern: "infinitive + Sie"
+      example: "gehen Sie!"
+      note: "polite form, direct imperative singular"

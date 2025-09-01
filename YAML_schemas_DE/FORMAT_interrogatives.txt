@@ -1,0 +1,17 @@
+Interrogatives:
+  Features:
+    type: [yesno, wh]
+    wordorder: [V1, V2]
+
+  Rules:
+    type-yesno_wordorder-V1:
+      applies: {type: yes-no, wordorder: V1}
+      pattern: "Vfin + subject + …?"
+      example: "Geht er nach Hause?"
+      note: "finite verb in initial position, Inversion (Er geht geht → er?)"
+
+    type-wh_wordorder-V2:
+      applies: {type: wh, wordorder: V2}
+      pattern: "Wh-word + Vfin + subject + …?"
+      example: "Wohin geht er?"
+      note: "wh-element initial, finite verb in second position"

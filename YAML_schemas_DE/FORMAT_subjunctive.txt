@@ -1,0 +1,62 @@
+Subjunctive:
+  Features:
+    Mood: [subj]
+    Type: [I, II]
+    Tense: [pres, past, fut]
+    Construction: [synthetic, periphrastic]
+
+  Rules:
+    SubjunctiveI:
+      Present:
+        applies: {mood: subj, type: I, tense: pres, construction: synthetic}
+        pattern: "{present stem} + {endings}"
+        endings:
+          - {features: {person: 1, number: sg}, form: "e"}     # ich habe
+          - {features: {person: 2, number: sg}, form: "est"}   # du habest
+          - {features: {person: 3, number: sg}, form: "e"}     # er habe
+          - {features: {person: 1, number: pl}, form: "en"}    # wir haben
+          - {features: {person: 2, number: pl}, form: "et"}    # ihr habet
+          - {features: {person: 3, number: pl}, form: "en"}    # sie haben
+        example: {lemma: "haben", form: "er habe"}
+        note: "used mainly in indirect speech"
+
+      Past:
+        applies: {mood: subj, type: I, tense: past, construction: periphrastic}
+        pattern: "{haben/sein in Subjunctive I} + past participle"
+        example: "er habe gesagt, er sei gegangen"
+
+      Future:
+        applies: {mood: subj, type: I, tense: fut, construction: periphrastic}
+        pattern: "{werden in Subjunctive I} + infinitive"
+        example: "er werde gehen"
+
+    SubjunctiveII:
+      PresentSynthetic:
+        applies: {mood: subj, type: II, tense: pres, construction: synthetic}
+        pattern: "{preterite stem (ablaut/umlaut)} + {endings}"
+        endings:
+          - {features: {person: 1, number: sg}, form: "e"}    # ich ginge
+          - {features: {person: 2, number: sg}, form: "est"}  # du gingest
+          - {features: {person: 3, number: sg}, form: "e"}    # er ginge
+          - {features: {person: 1, number: pl}, form: "en"}   # wir gingen
+          - {features: {person: 2, number: pl}, form: "et"}   # ihr ginget
+          - {features: {person: 3, number: pl}, form: "en"}   # sie gingen
+        example: {lemma: "gehen", form: "ich ginge"}
+
+      PresentPeriphrastic:
+        applies: {mood: subj, type: II, tense: pres, construction: periphrastic}
+        pattern: "{würde (Konjunktiv II)} + infinitive"
+        example: "ich würde gehen"
+        note: "dominant form for most verbs in modern usage"
+
+      Past:
+        applies: {mood: subj, type: II, tense: past, construction: periphrastic}
+        pattern: "{hätte/wäre (Konjunktiv II)} + past participle"
+        example: "ich hätte gesagt, ich wäre gegangen"
+        note: "used for counterfactuals about the past"
+
+      Future:
+        applies: {mood: subj, type: II, tense: fut, construction: periphrastic}
+        pattern: "{würde (Konjunktiv II)} + infinitive + auxiliary infinitive"
+        example: "ich würde gegangen sein"
+        note: "rare; equivalent to Future II under subjunctive"

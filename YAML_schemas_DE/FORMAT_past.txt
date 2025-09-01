@@ -1,0 +1,36 @@
+Past:
+  Features:
+    Tense: [past]
+    Form: [preterite, perfect, pluperfect]
+    VerbClass: [weak, strong, irregular]
+
+  Rules:
+    PreteriteWeak:
+      applies: {tense: past, form: preterite, verbClass: weak}
+      pattern: "{stem} + te + {personal ending}"
+      example: "ich machte"
+      note: "productive class; endings identical to present except 1sg/3sg with -te"
+
+    PreteriteStrong:
+      applies: {tense: past, form: preterite, verbClass: strong}
+      pattern: "{ablauted stem} + {personal ending}"
+      example: "ich ging"
+      note: "vowel change (ablaut) marks tense; endings mostly identical to weak preterite"
+
+    PreteriteIrregular:
+      applies: {tense: past, form: preterite, verbClass: irregular}
+      pattern: "suppletive forms"
+      example: "ich war, ich hatte"
+      note: "sein, haben, modal verbs, wissen, tun, etc."
+
+    Perfect:
+      applies: {tense: past, form: perfect}
+      pattern: "{haben/sein (present finite)} + past participle"
+      example: "ich habe gesehen, ich bin gegangen"
+      note: "preferred spoken past; auxiliary choice depends on verb semantics (movement/change of state → sein, otherwise haben)"
+
+    Pluperfect:
+      applies: {tense: past, form: pluperfect}
+      pattern: "{haben/sein (preterite finite)} + past participle"
+      example: "ich hatte gesehen, ich war gegangen"
+      note: "used to mark anteriority in narration"

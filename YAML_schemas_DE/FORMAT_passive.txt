@@ -1,0 +1,17 @@
+Passive:
+  Features:
+    Voice: [pass]
+    Type: [process, state]
+
+  Rules:
+    ProcessPassive:
+      applies: {voice: pass, type: process}
+      pattern: "{werden (finite)} + past participle"
+      example: "Der Hund wird gesehen"
+      note: "Vorgangspassiv; describes an ongoing action or process"
+
+    StatePassive:
+      applies: {voice: pass, type: state}
+      pattern: "{sein (finite)} + past participle"
+      example: "Der Hund ist gesehen"
+      note: "Zustandspassiv; describes the result or state after an action"

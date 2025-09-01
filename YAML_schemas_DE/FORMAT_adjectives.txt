@@ -1,0 +1,91 @@
+Adjective:
+  Features:
+    degree: [positive, comparative, superlative]
+    inflection: [def, indef, bare]
+    case: [nom, acc, dat, gen]
+    number: [sg, pl]
+    gender: [m, f, n]
+
+  Rules:
+    degree-positive:
+      applies: {process: comparison, degree: positive}
+      pattern: "{stem}"
+      examples: "schön"
+
+    degree-comparative:
+      applies: {process: comparison, degree: comparative}
+      pattern: "{stem} + er"
+      note: "often with umlaut"
+      example: "schön  →  schöner"
+
+    degree-superlative:
+      applies: {process: comparison, degree: superlative}
+      pattern: "am {stem} + sten"
+      example: "schön  →  am schönsten"
+
+    inflection-bare:
+      applies: {inflection: bare}
+      pattern: "{stem} + {ending}"
+      endings:
+        - {features: {case: nom, number: sg, gender: m}, form: "er"}
+        - {features: {case: nom, number: sg, gender: f}, form: "e"}
+        - {features: {case: nom, number: sg, gender: n}, form: "es"}
+        - {features: {case: nom, number: pl}, form: "e"}
+
+        - {features: {case: acc, number: sg, gender: m}, form: "en"}
+        - {features: {case: acc, number: sg, gender: f}, form: "e"}
+        - {features: {case: acc, number: sg, gender: n}, form: "es"}
+        - {features: {case: acc, number: pl}, form: "e"}
+
+        - {features: {case: dat, number: sg, gender: m}, form: "em"}
+        - {features: {case: dat, number: sg, gender: f}, form: "er"}
+        - {features: {case: dat, number: sg, gender: n}, form: "em"}
+        - {features: {case: dat, number: pl}, form: "en"}
+
+        - {features: {case: gen, number: sg, gender: m}, form: "en"}
+        - {features: {case: gen, number: sg, gender: f}, form: "er"}
+        - {features: {case: gen, number: sg, gender: n}, form: "en"}
+        - {features: {case: gen, number: pl}, form: "er"}
+      example: "schön  →  schöner Mann, schöne Frau, etc."
+
+    inflection-def:
+      applies: {inflection: def}
+      pattern: "{stem} + {ending}"
+      endings:
+        - {features: {case: nom, number: sg, gender: m}, form: "e"}
+        - {features: {case: nom, number: sg, gender: f}, form: "e"}
+        - {features: {case: nom, number: sg, gender: n}, form: "e"}
+        - {features: {case: nom, number: pl}, form: "en"}
+
+        - {features: {case: acc, number: sg, gender: m}, form: "en"}
+        - {features: {case: acc, number: sg, gender: f}, form: "e"}
+        - {features: {case: acc, number: sg, gender: n}, form: "e"}
+        - {features: {case: acc, number: pl}, form: "en"}
+
+        - {features: {case: dat, number: sg}, form: "en"}
+        - {features: {case: dat, number: pl}, form: "en"}
+
+        - {features: {case: gen, number: sg}, form: "en"}
+        - {features: {case: gen, number: pl}, form: "en"}
+      example: "schön  →  der schöne Hund, die schöne Katze, etc."
+
+    inflection-indef:
+      applies: {inflection: indef}
+      pattern: "{stem} + {ending}"
+      endings:
+        - {features: {case: nom, number: sg, gender: m}, form: "er"}
+        - {features: {case: nom, number: sg, gender: f}, form: "e"}
+        - {features: {case: nom, number: sg, gender: n}, form: "es"}
+        - {features: {case: nom, number: pl}, form: "en"}
+
+        - {features: {case: acc, number: sg, gender: m}, form: "en"}
+        - {features: {case: acc, number: sg, gender: f}, form: "e"}
+        - {features: {case: acc, number: sg, gender: n}, form: "es"}
+        - {features: {case: acc, number: pl}, form: "en"}
+
+        - {features: {case: dat, number: sg}, form: "en"}
+        - {features: {case: dat, number: pl}, form: "en"}
+
+        - {features: {case: gen, number: sg}, form: "en"}
+        - {features: {case: gen, number: pl}, form: "en"}
+      example: "schön → einer schöner Hund, eine Schöne Katze, etc."

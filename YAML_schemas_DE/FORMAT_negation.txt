@@ -1,0 +1,15 @@
+Negation:
+  Features:
+    type: [sentence, constituent]
+
+  Rules:
+    type-sentence:
+      applies: {type: sentence}
+      pattern: "… Vfin … nicht + [rest]"
+      example: "Er geht nicht nach Hause; Er bleibt in der Schule, weil er nicht nach Hause gehen will."
+      note: "nicht follows finite verb, but precedes VP-final position. I.e., nicht stays in its slot, even if the conjugated verb ends up at the end (VF, Verb-final)"
+
+    marker-nicht_type-constituent:
+      patterns: 
+      - {pattern: "nicht + constituent", example: "nicht er, sondern ich; nicht gross, eher klein", note: "focuses on constituent rather than whole sentence"}
+      - {pattern: "kein + noun", example: "kein Hund", note: "negates indefinite noun phrase; inflected like indefinite determiner"}
