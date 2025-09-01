@@ -2,10 +2,14 @@ Interrogatives:
   Features:
     type: [yesno, wh]
     wordorder: [V1, V2]
+  
+  Negation:
+    pattern: "[Vfin (...)] nicht (...) ([final verb cluster])"
+    example: "Geht er nicht nach Hause? Warum sieht er mich nicht?"
 
   Rules:
     type-yesno_wordorder-V1:
-      applies: {type: yes-no, wordorder: V1}
+      applies: {type: yesno, wordorder: V1}
       pattern: "Vfin + subject + …?"
       example: "Geht er nach Hause?"
       note: "finite verb in initial position, Inversion (Er geht geht → er?)"

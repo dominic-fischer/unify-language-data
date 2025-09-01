@@ -6,7 +6,7 @@ Determiner:
     case: [nom, acc, dat, gen]
 
   Rules:
-    Definite:
+    type-def:
       applies: {type: def}
       forms:
         - {features: {gender: m, number: sg, case: nom}, form: "der"}
@@ -29,7 +29,7 @@ Determiner:
         - {features: {number: pl, case: dat}, form: "den"}
         - {features: {number: pl, case: gen}, form: "der"}
 
-    Indefinite:
+    type-indef:
       applies: {type: indef}
       forms:
         - {features: {gender: m, number: sg, case: nom}, form: "ein"}

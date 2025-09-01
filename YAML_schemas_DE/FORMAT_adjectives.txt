@@ -8,18 +8,18 @@ Adjective:
 
   Rules:
     degree-positive:
-      applies: {process: comparison, degree: positive}
+      applies: {degree: positive}
       pattern: "{stem}"
       examples: "schön"
 
     degree-comparative:
-      applies: {process: comparison, degree: comparative}
+      applies: {degree: comparative}
       pattern: "{stem} + er"
       note: "often with umlaut"
       example: "schön  →  schöner"
 
     degree-superlative:
-      applies: {process: comparison, degree: superlative}
+      applies: {degree: superlative}
       pattern: "am {stem} + sten"
       example: "schön  →  am schönsten"
 
@@ -47,6 +47,7 @@ Adjective:
         - {features: {case: gen, number: sg, gender: n}, form: "en"}
         - {features: {case: gen, number: pl}, form: "er"}
       example: "schön  →  schöner Mann, schöne Frau, etc."
+      note: "also called 'strong'; adjective endings show the full case/gender/number set, like definite articles"
 
     inflection-def:
       applies: {inflection: def}
@@ -68,6 +69,7 @@ Adjective:
         - {features: {case: gen, number: sg}, form: "en"}
         - {features: {case: gen, number: pl}, form: "en"}
       example: "schön  →  der schöne Hund, die schöne Katze, etc."
+      note: "also called 'weak'; adjective endings are reduced, since the definite determiner already shows case/gender/number"
 
     inflection-indef:
       applies: {inflection: indef}
@@ -88,4 +90,5 @@ Adjective:
 
         - {features: {case: gen, number: sg}, form: "en"}
         - {features: {case: gen, number: pl}, form: "en"}
-      example: "schön → einer schöner Hund, eine Schöne Katze, etc."
+      example: "schön → einer schöner Hund, eine schöne Katze, etc."
+      note: "also called 'mixed'; adjective endings supply the missing case/gender/number features not marked on the determiner"

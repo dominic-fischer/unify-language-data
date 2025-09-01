@@ -1,23 +1,23 @@
 WordOrder:
   Features:
-    ClauseType: [main, subordinate, interrogative, relative, conditional]
-    Position: [V2, Vfinal, Vinitial]
+    clausetype: [main, subordinate, interrogative, relative, conditional]
+    position: [V2, Vfinal, Vinitial]
 
   Rules:
-    MainClause:
-      applies: {clauseType: main, position: V2}
+    clausetype-main_position-V2:
+      applies: {clausetype: main, position: V2}
       pattern: "X Vfin …"
       example: "Heute geht er nach Hause"
       note: "finite verb in second position; first slot (Vorfeld) can host subject, object, or adverbial"
 
-    SubordinateClause:
-      applies: {clauseType: subordinate, position: Vfinal}
+    clausetype-subordinate_position-Vfinal:
+      applies: {clausetype: subordinate, position: Vfinal}
       pattern: "… Vfin-final"
       example: "weil er nach Hause geht"
       note: "introduced by subordinating conjunction; finite verb placed at end"
 
-    ConditionalClause:
-      applies: {clauseType: conditional, position: Vfinal}
+    clausetype-conditional_position-Vfinal:
+      applies: {clausetype: conditional, position: Vfinal}
       pattern: "wenn + clause (Vfin-final)"
       example: "Wenn er käme, würden wir feiern"
       note: "protasis verb-final, apodosis verb-second"

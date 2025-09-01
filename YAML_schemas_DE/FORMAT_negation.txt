@@ -5,11 +5,12 @@ Negation:
   Rules:
     type-sentence:
       applies: {type: sentence}
-      pattern: "… Vfin … nicht + [rest]"
-      example: "Er geht nicht nach Hause; Er bleibt in der Schule, weil er nicht nach Hause gehen will."
-      note: "nicht follows finite verb, but precedes VP-final position. I.e., nicht stays in its slot, even if the conjugated verb ends up at the end (VF, Verb-final)"
-
-    marker-nicht_type-constituent:
       patterns: 
-      - {pattern: "nicht + constituent", example: "nicht er, sondern ich; nicht gross, eher klein", note: "focuses on constituent rather than whole sentence"}
-      - {pattern: "kein + noun", example: "kein Hund", note: "negates indefinite noun phrase; inflected like indefinite determiner"}
+      - {pattern: "[(...) Vfin (...)] nicht (...) ([final verb cluster])", example: "Er will den Kuchen nicht essen; Er rennt heute nicht"}
+      - {pattern: "[main clause with Vfin], [subordinating conjunction (...)] nicht (...) [final verb cluster]", example: "Er geht nach Hause, weil er nicht in der Schule bleiben will", note: "What is supposed to be negated comes after 'nicht': c.f. the difference between '..., weil er in der Schule jeden Tag nicht gut aufpasst' (every day NOT paying attention) and '..., weil er in der Schule nicht jeden Tag gut aufpasst' (NOT every day paying attention)"}
+
+    type-constituent:
+      applies: {type: constituent}
+      patterns: 
+      - {pattern: "nicht + constituent", example: "Er rennt nicht heute; Nicht das Essen, sondern die Getränke hat er bezahlt", note: "focuses on constituent rather than whole sentence"}
+      - {pattern: "kein + noun", example: "Ich habe keinen Hund gesehen", note: "negates indefinite noun phrase; inflected like indefinite determiner"}

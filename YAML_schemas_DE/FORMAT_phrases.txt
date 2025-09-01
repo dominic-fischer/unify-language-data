@@ -1,38 +1,38 @@
 Phrases:
   Features:
-    Category: [NP, VP, AP, PP, AdvP, CP]
+    category: [NP, VP, AP, PP, AdvP, CP]
 
   Rules:
-    NP:
+    category-NP:
       applies: {category: NP}
       pattern: "[Determiner] [AdjectivePhrase] Noun [PrepositionalPhrase] [RelativeClause] [PossessivePronoun]"
       example: "der große Hund"
       note: "Determiner obligatory in singular count nouns, unless proper noun or bare plural"
 
-    VP:
+    category-VP:
       applies: {category: VP}
       pattern: "[Auxiliary] Verb [Object (NP/CP)] [AdverbPhrase] [PrepositionalPhrase] [SubordinateClause (CP)]"
       example: "hat den Hund gesehen"
       note: "verb-second in main clauses, verb-final in subordinates"
 
-    AP:
+    category-AP:
       applies: {category: AP}
       pattern: "[DegreeMarker] Adjective [Complement (PP/CP)]"
       example: "sehr schön"
       note: "adjective inflects for case/number/gender of NP"
 
-    PP:
+    category-PP:
       applies: {category: PP}
       pattern: "Preposition + NP [AdverbPhrase]"
       example: "mit dem Hund"
       note: "preposition governs case (acc/dat/gen)"
 
-    AdvP:
+    category-AdvP:
       applies: {category: AdvP}
       pattern: "[DegreeMarker] Adverb"
       example: "sehr schnell"
 
-    CP:
+    category-CP:
       applies: {category: CP}
       pattern: "[Complementizer] Subject (NP) [Adverbials] VP"
       example: "dass er den Hund sieht"

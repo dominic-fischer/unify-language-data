@@ -2,6 +2,28 @@
   "$schema": "http://json-schema.org/draft/2020-12/schema",
   "title": "Grammar File Schema",
   "type": "object",
+
+  "$defs": {
+    "ending": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "form": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    }
+  },
+
   "patternProperties": {
     "^[A-Z][A-Za-z0-9]*$": { 
       "type": "object",
@@ -39,38 +61,32 @@
                     "pattern": { "type": "string" },
                     "example": { "type": "string" },
                     "note": { "type": "string" },
-                    "endings": { "$ref": "#/patternProperties/^[A-Z][A-Za-z0-9]*/properties/Rules/additionalProperties/properties/endings" },
-                    "forms": { "$ref": "#/patternProperties/^[A-Z][A-Za-z0-9]*/properties/Rules/additionalProperties/properties/forms" }
+                    "endings": {
+                      "type": "array",
+                      "items": { "$ref": "#/$defs/ending" }
+                    },
+                    "forms": {
+                      "type": "array",
+                      "items": { "$ref": "#/$defs/form" }
+                    }
                   },
-                  "required": ["pattern"]
+                  "oneOf": [
+                    { "required": ["pattern"] },
+                    { "required": ["forms"] }
+                  ]
                 }
               },
               "endings": {
                 "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "features": { "type": "object" },
-                    "form": { "type": "string" },
-                    "note": { "type": "string" }
-                  },
-                  "required": ["features", "form"]
-                }
+                "items": { "$ref": "#/$defs/ending" }
               },
               "forms": {
                 "type": "array",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "features": { "type": "object" },
-                    "form": { "type": "string" },
-                    "note": { "type": "string" }
-                  },
-                  "required": ["features", "form"]
-                }
+                "items": { "$ref": "#/$defs/form" }
               },
               "example": { "type": "string" },
-              "note": { "type": "string" }
+              "note": { "type": "string" },
+              "negation": { "type": "string" }
             },
             "oneOf": [
               { "required": ["pattern"] },
@@ -82,5 +98,6 @@
       }
     }
   },
+
   "additionalProperties": false
 }

@@ -5,8 +5,9 @@ from pathlib import Path
 
 # File suffixes that require negation handling
 NEGATION_FILES = [
-    "past.txt", "present.txt", "future.txt", 
-    "imperative.txt","subjunctive.txt", "conditional.txt"
+    "past.txt", "present.txt", "future.txt",
+    "imperative.txt", "subjunctive.txt", "conditional.txt",
+    "interrogatives.txt"
 ]
 
 def make_rule_name(applies: dict) -> str:
@@ -17,8 +18,8 @@ def make_rule_name(applies: dict) -> str:
         parts.append(f"{feat}-{val}")
     return "_".join(parts)
 
-def validate_file(path: Path) -> None:
-    # Load YAML or JSON
+def validate_file(path: Path) -> list[str]:
+    """Validate a single file, return list of error messages (empty if ok)."""
     text = path.read_text(encoding="utf-8")
     if path.suffix == ".json":
         data = json.loads(text)
@@ -29,7 +30,6 @@ def validate_file(path: Path) -> None:
 
     for category, cat_obj in data.items():
         rules = cat_obj.get("Rules", {})
-        features = cat_obj.get("Features", {})
 
         # --- A) validate rule names
         for rule_name, rule_obj in rules.items():
@@ -55,19 +55,33 @@ def validate_file(path: Path) -> None:
                             f"(required in {filename})"
                         )
 
-    if errors:
-        print(f"❌ Validation failed for {path}:")
-        for e in errors:
-            print("  -", e)
+    return errors
+
+def main():
+    if len(sys.argv) != 2:
+        print("Usage: python validate_rules.py <folder>")
+        sys.exit(1)
+
+    folder = Path(sys.argv[1])
+    if not folder.is_dir():
+        print(f"Error: {folder} is not a directory")
+        sys.exit(1)
+
+    all_errors = 0
+    for path in sorted(folder.glob("*.txt")):
+        errors = validate_file(path)
+        if errors:
+            print(f"❌ Validation failed for {path}:")
+            for e in errors:
+                print("  -", e)
+            all_errors += 1
+        else:
+            print(f"✅ {path}: all checks passed")
+
+    if all_errors:
         sys.exit(1)
     else:
-        print(f"✅ {path}: all checks passed")
-
+        sys.exit(0)
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python validate_rules.py <grammar_file1> [<grammar_file2> ...]")
-        sys.exit(1)
-
-    for file in sys.argv[1:]:
-        validate_file(Path(file))
+    main()

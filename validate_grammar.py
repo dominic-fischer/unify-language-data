@@ -4,36 +4,44 @@ import yaml
 from pathlib import Path
 from jsonschema import Draft202012Validator
 
-def main():
-    if len(sys.argv) != 2:
-        print("Usage: python validate.py <filename_without_txt>")
-        sys.exit(1)
-
-    # build path
-    folder = "YAML_schemas_DE"
-    base = sys.argv[1]
-    filepath = Path(folder) / f"{base}.txt"
-
-    # load schema
-    with open("grammar_schema.json") as f:
-        schema = json.load(f)
-
-    # load data (YAML → Python dict)
+def validate_file(filepath: Path, schema) -> None:
     with open(filepath) as f:
         data = yaml.safe_load(f)
 
-    # validate
     validator = Draft202012Validator(schema)
     errors = sorted(validator.iter_errors(data), key=lambda e: e.path)
 
+    base = filepath.stem  # filename without extension
     if not errors:
         print(f"✅ {base} is valid")
     else:
         print(f"❌ {base} has {len(errors)} error(s):")
         for err in errors:
-            # Show *where* and *what*
             location = ".".join(map(str, err.path)) or "<root>"
             print(f"  - At {location}: {err.message}")
+
+def main():
+    if len(sys.argv) != 2:
+        print("Usage: python validate.py <folder>")
+        sys.exit(1)
+
+    folder = Path(sys.argv[1])
+    if not folder.is_dir():
+        print(f"Error: {folder} is not a folder")
+        sys.exit(1)
+
+    # load schema once
+    with open("grammar_schema.json") as f:
+        schema = json.load(f)
+
+    # validate all .txt files in folder
+    files = sorted(folder.glob("*.txt"))
+    if not files:
+        print(f"No .txt files found in {folder}")
+        sys.exit(0)
+
+    for filepath in files:
+        validate_file(filepath, schema)
 
 if __name__ == "__main__":
     main()

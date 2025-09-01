@@ -1,177 +1,80 @@
 Pronoun:
   Features:
-    Person: [1, 2, 3]
-    Number: [sg, pl]
-    Gender: [m, f, n]   # only for 3sg where relevant
-    Case: [nom, acc, dat, gen]
-    Type: [personal, reflexive, demonstrative, possessive, interrogative, relative]
+    person: [first, second, third]
+    number: [sg, pl]
+    gender: [m, f, n]   # only for 3sg where relevant
+    case: [nom, acc, dat, gen]
+    type: [personal, reflexive, demonstrative, possessive, interrogative, relative]
+    formtype: [standalone, clitic]
+
 
   Rules:
-    Personal:
+    type-personal:
       applies: {type: personal}
       forms:
-        - {features: {person: 1, number: sg, case: nom}, form: "ich"}
-        - {features: {person: 1, number: sg, case: acc}, form: "mich"}
-        - {features: {person: 1, number: sg, case: dat}, form: "mir"}
+        - {features: {person: first, number: sg, case: nom}, form: "ich"}
+        - {features: {person: first, number: sg, case: acc}, form: "mich"}
+        - {features: {person: first, number: sg, case: dat}, form: "mir"}
 
-        - {features: {person: 2, number: sg, case: nom}, form: "du"}
-        - {features: {person: 2, number: sg, case: acc}, form: "dich"}
-        - {features: {person: 2, number: sg, case: dat}, form: "dir"}
+        - {features: {person: second, number: sg, case: nom}, form: "du"}
+        - {features: {person: second, number: sg, case: acc}, form: "dich"}
+        - {features: {person: second, number: sg, case: dat}, form: "dir"}
 
-        - {features: {person: 3, number: sg, gender: m, case: nom}, form: "er"}
-        - {features: {person: 3, number: sg, gender: m, case: acc}, form: "ihn"}
-        - {features: {person: 3, number: sg, gender: m, case: dat}, form: "ihm"}
-        - {features: {person: 3, number: sg, gender: f, case: nom}, form: "sie"}
-        - {features: {person: 3, number: sg, gender: f, case: acc}, form: "sie"}
-        - {features: {person: 3, number: sg, gender: f, case: dat}, form: "ihr"}
-        - {features: {person: 3, number: sg, gender: n, case: nom}, form: "es"}
-        - {features: {person: 3, number: sg, gender: n, case: acc}, form: "es"}
-        - {features: {person: 3, number: sg, gender: n, case: dat}, form: "ihm"}
+        - {features: {person: third, number: sg, gender: m, case: nom}, form: "er"}
+        - {features: {person: third, number: sg, gender: m, case: acc}, form: "ihn"}
+        - {features: {person: third, number: sg, gender: m, case: dat}, form: "ihm"}
+        - {features: {person: third, number: sg, gender: f, case: nom}, form: "sie"}
+        - {features: {person: third, number: sg, gender: f, case: acc}, form: "sie"}
+        - {features: {person: third, number: sg, gender: f, case: dat}, form: "ihr"}
+        - {features: {person: third, number: sg, gender: n, case: nom}, form: "es"}
+        - {features: {person: third, number: sg, gender: n, case: acc}, form: "es"}
+        - {features: {person: third, number: sg, gender: n, case: dat}, form: "ihm"}
 
-        - {features: {person: 1, number: pl, case: nom}, form: "wir"}
-        - {features: {person: 1, number: pl, case: acc}, form: "uns"}
-        - {features: {person: 1, number: pl, case: dat}, form: "uns"}
-        - {features: {person: 2, number: pl, case: nom}, form: "ihr"}
-        - {features: {person: 2, number: pl, case: acc}, form: "euch"}
-        - {features: {person: 2, number: pl, case: dat}, form: "euch"}
-        - {features: {person: 3, number: pl, case: nom}, form: "sie"}
-        - {features: {person: 3, number: pl, case: acc}, form: "sie"}
-        - {features: {person: 3, number: pl, case: dat}, form: "ihnen"}
+        - {features: {person: first, number: pl, case: nom}, form: "wir"}
+        - {features: {person: first, number: pl, case: acc}, form: "uns"}
+        - {features: {person: first, number: pl, case: dat}, form: "uns"}
+        - {features: {person: second, number: pl, case: nom}, form: "ihr"}
+        - {features: {person: second, number: pl, case: acc}, form: "euch"}
+        - {features: {person: second, number: pl, case: dat}, form: "euch"}
+        - {features: {person: third, number: pl, case: nom}, form: "sie"}
+        - {features: {person: third, number: pl, case: acc}, form: "sie"}
+        - {features: {person: third, number: pl, case: dat}, form: "ihnen"}
 
-    Reflexive:
+    type-reflexive:
       applies: {type: reflexive}
-      pattern: "sich"
+      pattern: "pronouns in accusative/dative case"
       note: "only in acc/dat, used obligatorily with reflexive verbs"
 
-    Demonstrative:
+    type-demonstrative:
       applies: {type: demonstrative}
-      pattern: "dies- + {ending}"
-      forms:
-        - {features: {gender: m, number: sg, case: nom}, form: "dieser"}
-        - {features: {gender: m, number: sg, case: acc}, form: "diesen"}
-        - {features: {gender: m, number: sg, case: dat}, form: "diesem"}
-        - {features: {gender: m, number: sg, case: gen}, form: "dieses"}
-        - {features: {gender: f, number: sg, case: nom}, form: "diese"}
-        - {features: {gender: f, number: sg, case: acc}, form: "diese"}
-        - {features: {gender: f, number: sg, case: dat}, form: "dieser"}
-        - {features: {gender: f, number: sg, case: gen}, form: "dieser"}
-        - {features: {gender: n, number: sg, case: nom}, form: "dieses"}
-        - {features: {gender: n, number: sg, case: acc}, form: "dieses"}
-        - {features: {gender: n, number: sg, case: dat}, form: "diesem"}
-        - {features: {gender: n, number: sg, case: gen}, form: "dieses"}
-        - {features: {number: pl, case: nom}, form: "diese"}
-        - {features: {number: pl, case: acc}, form: "diese"}
-        - {features: {number: pl, case: dat}, form: "diesen"}
-        - {features: {number: pl, case: gen}, form: "dieser"}
+      pattern: "dies- + {def-determiner-endings}"
 
-    Possessive:
-      applies: {type: possessive}
-      pattern: "{stem} + {ending}"
-      stems: ["mein-", "dein-", "sein-", "ihr-", "unser-", "euer-", "Ihr-"]
-      note: "declined like an adjective"
-      forms:
-        - {features: {gender: m, number: sg, case: nom}, form: "{stem}er"}
-        - {features: {gender: m, number: sg, case: acc}, form: "{stem}en"}
-        - {features: {gender: m, number: sg, case: dat}, form: "{stem}em"}
-        - {features: {gender: m, number: sg, case: gen}, form: "{stem}es"}
-        - {features: {gender: f, number: sg, case: nom}, form: "{stem}e"}
-        - {features: {gender: f, number: sg, case: acc}, form: "{stem}e"}
-        - {features: {gender: f, number: sg, case: dat}, form: "{stem}er"}
-        - {features: {gender: f, number: sg, case: gen}, form: "{stem}er"}
-        - {features: {gender: n, number: sg, case: nom}, form: "{stem}es"}
-        - {features: {gender: n, number: sg, case: acc}, form: "{stem}es"}
-        - {features: {gender: n, number: sg, case: dat}, form: "{stem}em"}
-        - {features: {gender: n, number: sg, case: gen}, form: "{stem}es"}
-        - {features: {number: pl, case: nom}, form: "{stem}e"}
-        - {features: {number: pl, case: acc}, form: "{stem}e"}
-        - {features: {number: pl, case: dat}, form: "{stem}en"}
-        - {features: {number: pl, case: gen}, form: "{stem}er"}
+    formtype-standalone_type-possessive:
+      applies: {type: possessive, formtype: standalone}
+      pattern: "{stem} + {bare-adj-endings}"
+      note: "the stems are: mein-, dein-, sein-, ihr-, unser-, euer-, Ihr-"
+    
+    formtype-clitic_type-possessive:
+      applies: {type: possessive, formtype: clitic}
+      pattern: "{stem} + {indef-determiner-endings}"
+      note: "the stems are: mein-, dein-, sein-, ihr-, unser-, euer-, Ihr-"
 
-    Interrogative:
-      Wer:
-        applies: {type: interrogative, lemma: "wer"}
-        forms:
-          - {features: {case: nom}, form: "wer"}
-          - {features: {case: acc}, form: "wen"}
-          - {features: {case: dat}, form: "wem"}
-          - {features: {case: gen}, form: "wessen"}
-        note: "used for persons"
+    type-interrogative:
+      applies: {type: interrogative}
+      patterns:
+      - forms:
+        - {features: {case: nom, gender: m}, form: "wer"}
+        - {features: {case: nom, gender: f}, form: "wer"}
+        - {features: {case: nom, gender: n}, form: "was"}
+        - {features: {case: acc, gender: m}, form: "wen"}
+        - {features: {case: acc, gender: f}, form: "wen"}
+        - {features: {case: acc, gender: n}, form: "was"}
+        - {features: {case: dat}, form: "wem"}
+        - {features: {case: gen}, form: "wessen"}
+      - {pattern: "welch- + {def-determiner-endings}"}
 
-      Was:
-        applies: {type: interrogative, lemma: "was"}
-        forms:
-          - {features: {case: nom}, form: "was"}
-          - {features: {case: acc}, form: "was"}
-          - {features: {case: gen}, form: "wessen"}
-        note: "used for things; no dative"
-
-      Welcher:
-        applies: {type: interrogative, lemma: "welcher"}
-        pattern: "welch- + {adjective-type ending}"
-        forms:
-          - {features: {gender: m, number: sg, case: nom}, form: "welcher"}
-          - {features: {gender: m, number: sg, case: acc}, form: "welchen"}
-          - {features: {gender: m, number: sg, case: dat}, form: "welchem"}
-          - {features: {gender: m, number: sg, case: gen}, form: "welches"}
-
-          - {features: {gender: f, number: sg, case: nom}, form: "welche"}
-          - {features: {gender: f, number: sg, case: acc}, form: "welche"}
-          - {features: {gender: f, number: sg, case: dat}, form: "welcher"}
-          - {features: {gender: f, number: sg, case: gen}, form: "welcher"}
-
-          - {features: {gender: n, number: sg, case: nom}, form: "welches"}
-          - {features: {gender: n, number: sg, case: acc}, form: "welches"}
-          - {features: {gender: n, number: sg, case: dat}, form: "welchem"}
-          - {features: {gender: n, number: sg, case: gen}, form: "welches"}
-
-          - {features: {number: pl, case: nom}, form: "welche"}
-          - {features: {number: pl, case: acc}, form: "welche"}
-          - {features: {number: pl, case: dat}, form: "welchen"}
-          - {features: {number: pl, case: gen}, form: "welcher"}
-        note: "declined like adjective"
-
-    Relative:
-      DefiniteArticleBased:
-        applies: {type: relative, paradigm: definite-article}
-        pattern: "der/die/das + relative endings"
-        forms:
-          - {features: {gender: m, number: sg, case: nom}, form: "der"}
-          - {features: {gender: m, number: sg, case: acc}, form: "den"}
-          - {features: {gender: m, number: sg, case: dat}, form: "dem"}
-          - {features: {gender: m, number: sg, case: gen}, form: "dessen"}
-
-          - {features: {gender: f, number: sg, case: nom}, form: "die"}
-          - {features: {gender: f, number: sg, case: acc}, form: "die"}
-          - {features: {gender: f, number: sg, case: dat}, form: "der"}
-          - {features: {gender: f, number: sg, case: gen}, form: "deren"}
-
-          - {features: {gender: n, number: sg, case: nom}, form: "das"}
-          - {features: {gender: n, number: sg, case: acc}, form: "das"}
-          - {features: {gender: n, number: sg, case: dat}, form: "dem"}
-          - {features: {gender: n, number: sg, case: gen}, form: "dessen"}
-
-          - {features: {number: pl, case: nom}, form: "die"}
-          - {features: {number: pl, case: acc}, form: "die"}
-          - {features: {number: pl, case: dat}, form: "denen"}
-          - {features: {number: pl, case: gen}, form: "deren"}
-
-      WelcherRelative:
-        applies: {type: relative, paradigm: welcher}
-        pattern: "welch- + {adjective-type ending}"
-        forms:
-          - {features: {gender: m, number: sg, case: nom}, form: "welcher"}
-          - {features: {gender: m, number: sg, case: acc}, form: "welchen"}
-          - {features: {gender: m, number: sg, case: dat}, form: "welchem"}
-
-          - {features: {gender: f, number: sg, case: nom}, form: "welche"}
-          - {features: {gender: f, number: sg, case: acc}, form: "welche"}
-          - {features: {gender: f, number: sg, case: dat}, form: "welcher"}
-
-          - {features: {gender: n, number: sg, case: nom}, form: "welches"}
-          - {features: {gender: n, number: sg, case: acc}, form: "welches"}
-          - {features: {gender: n, number: sg, case: dat}, form: "welchem"}
-
-          - {features: {number: pl, case: nom}, form: "welche"}
-          - {features: {number: pl, case: acc}, form: "welche"}
-          - {features: {number: pl, case: dat}, form: "welchen"}
-        note: "archaic/literary; no genitive forms, replaced by dessen/deren"
+    type-relative:
+        applies: {type: relative}
+        patterns: 
+        - {pattern: "{determiner} (exceptions in gen. sg.)", note: "gen. sg. m./n. dessen, f. deren"}
+        - {pattern: "welch- + {def-determiner-endings}", note: "archaic/literary; no genitive forms, replaced by dessen/deren"}

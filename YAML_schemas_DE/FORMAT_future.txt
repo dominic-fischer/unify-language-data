@@ -2,6 +2,10 @@ Future:
   Features:
     tense: [fut]
     form: [I, II]
+  
+  Negation:
+    pattern: "[(...) Vfin (...)] nicht (...) ([final verb cluster])"
+    example: "Ich werde dich nicht sehen/gesehen haben."
 
   Rules:
     form-I_tense-fut:
