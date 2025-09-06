@@ -5,10 +5,15 @@ from pathlib import Path
 
 # File suffixes that require negation handling
 NEGATION_FILES = [
-    "past.txt", "present.txt", "future.txt",
-    "imperative.txt", "subjunctive.txt", "conditional.txt",
-    "interrogatives.txt"
+    "past.txt",
+    "present.txt",
+    "future.txt",
+    "imperative.txt",
+    "subjunctive.txt",
+    "conditional.txt",
+    "interrogatives.txt",
 ]
+
 
 def make_rule_name(applies: dict) -> str:
     """Generate canonical rule name from applies dict."""
@@ -17,6 +22,7 @@ def make_rule_name(applies: dict) -> str:
         val = applies[feat]
         parts.append(f"{feat}-{val}")
     return "_".join(parts)
+
 
 def validate_file(path: Path) -> list[str]:
     """Validate a single file, return list of error messages (empty if ok)."""
@@ -42,20 +48,28 @@ def validate_file(path: Path) -> list[str]:
                     f"[{category}] Rule name mismatch: '{rule_name}' should be '{expected}'"
                 )
 
-        # --- B) check negation requirement
+        # --- B) check negation and usage requirements
         filename = path.name.lower()
         if any(filename.endswith(suffix) for suffix in NEGATION_FILES):
-            if "Negation" in cat_obj:
-                continue  # top-level Negation block satisfies requirement
-            else:
+            # Check for Negation
+            if "Negation" not in cat_obj:
                 for rule_name, rule_obj in rules.items():
                     if "negation" not in rule_obj:
                         errors.append(
                             f"[{category}] Rule '{rule_name}' missing 'negation' field "
                             f"(required in {filename})"
                         )
+            # Check for Usage
+            if "Usage" not in cat_obj:
+                for rule_name, rule_obj in rules.items():
+                    if "usage" not in rule_obj:
+                        errors.append(
+                            f"[{category}] Rule '{rule_name}' missing 'usage' field "
+                            f"(required in {filename})"
+                        )
 
     return errors
+
 
 def main():
     if len(sys.argv) != 2:
@@ -82,6 +96,7 @@ def main():
         sys.exit(1)
     else:
         sys.exit(0)
+
 
 if __name__ == "__main__":
     main()
