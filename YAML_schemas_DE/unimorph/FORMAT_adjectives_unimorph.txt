@@ -1,0 +1,94 @@
+Adjective:
+  Features:
+    u-Comparison: [u-ab, u-cmpr, u-sprl]
+    u-Definiteness: [u-def, u-indf, u-nspec]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+    u-Number: [u-sg, u-pl]
+    u-Gender: [u-masc, u-fem, u-neut]
+
+  Rules:
+    u-Comparison_u-ab:
+      applies: {u-Comparison: u-ab}
+      pattern: "{stem}"
+      examples: "schön"
+
+    u-Comparison_u-cmpr:
+      applies: {u-Comparison: u-cmpr}
+      pattern: "{stem} + er"
+      note: "often with umlaut"
+      example: "schön  →  schöner"
+
+    u-Comparison-superlative:
+      applies: {u-Comparison: u-sprl}
+      pattern: "am {stem} + sten"
+      example: "schön  →  am schönsten"
+
+    u-Definiteness_u-nspec:
+      applies: {u-Definiteness: u-nspec}
+      pattern: "{stem} + {ending}"
+      u-Definiteness_u-def:
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-masc}, form: "er"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-fem}, form: "e"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-neut}, form: "es"}
+        - {features: {u-Case: u-nom, u-Number: u-pl}, form: "e"}
+
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-masc}, form: "en"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-fem}, form: "e"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-neut}, form: "es"}
+        - {features: {u-Case: u-acc, u-Number: u-pl}, form: "e"}
+
+        - {features: {u-Case: u-dat, u-Number: u-sg, u-Gender: u-masc}, form: "em"}
+        - {features: {u-Case: u-dat, u-Number: u-sg, u-Gender: u-fem}, form: "er"}
+        - {features: {u-Case: u-dat, u-Number: u-sg, u-Gender: u-neut}, form: "em"}
+        - {features: {u-Case: u-dat, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-gen, u-Number: u-sg, u-Gender: u-masc}, form: "en"}
+        - {features: {u-Case: u-gen, u-Number: u-sg, u-Gender: u-fem}, form: "er"}
+        - {features: {u-Case: u-gen, u-Number: u-sg, u-Gender: u-neut}, form: "en"}
+        - {features: {u-Case: u-gen, u-Number: u-pl}, form: "er"}
+      example: "schön  →  schöner Mann, schöne Frau, etc."
+      note: "also called 'strong'; adjective endings show the full case/gender/number set, like definite articles"
+
+    u-Definiteness_u-def:
+      applies: {u-Definiteness: u-def}
+      pattern: "{stem} + {ending}"
+      u-Definiteness_u-indf:
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-masc}, form: "e"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-fem}, form: "e"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-neut}, form: "e"}
+        - {features: {u-Case: u-nom, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-masc}, form: "en"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-fem}, form: "e"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-neut}, form: "e"}
+        - {features: {u-Case: u-acc, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-dat, u-Number: u-sg}, form: "en"}
+        - {features: {u-Case: u-dat, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-gen, u-Number: u-sg}, form: "en"}
+        - {features: {u-Case: u-gen, u-Number: u-pl}, form: "en"}
+      example: "schön  →  der schöne Hund, die schöne Katze, etc."
+      note: "also called 'weak'; adjective endings are reduced, since the definite determiner already shows case/gender/number"
+
+    u-Definiteness_u-indf:
+      applies: {u-Definiteness: u-indf}
+      pattern: "{stem} + {ending}"
+      endings:
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-masc}, form: "er"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-fem}, form: "e"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-neut}, form: "es"}
+        - {features: {u-Case: u-nom, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-masc}, form: "en"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-fem}, form: "e"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-neut}, form: "es"}
+        - {features: {u-Case: u-acc, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-dat, u-Number: u-sg}, form: "en"}
+        - {features: {u-Case: u-dat, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-gen, u-Number: u-sg}, form: "en"}
+        - {features: {u-Case: u-gen, u-Number: u-pl}, form: "en"}
+      example: "schön → einer schöner Hund, eine schöne Katze, etc."
+      note: "also called 'mixed'; adjective endings supply the missing case/gender/number features not marked on the determiner"
