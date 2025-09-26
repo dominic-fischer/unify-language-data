@@ -20,7 +20,9 @@
     "x-int-yes-no",
     "x-int-wh",
     "x-exclamative",
-    "x-excl"
+    "x-excl",
+    "x-protasis",
+    "x-apodosis"
   ],
   "x-Word-order": [
     "x-V2",
@@ -30,10 +32,6 @@
   "x-Negation-type": [
     "x-clause",
     "x-constituent"
-  ],
-  "x-Clause": [
-    "x-protasis",
-    "x-apodosis"
   ],
   "x-Constituent": [
     "x-NP",
@@ -58,5 +56,9 @@
   "x-Form-type": [
     "x-standalone",
     "x-clitic"
+  ],
+  "x-Clausetypetype": [
+    "x-protasis",
+    "x-apodosis"
   ]
 }
