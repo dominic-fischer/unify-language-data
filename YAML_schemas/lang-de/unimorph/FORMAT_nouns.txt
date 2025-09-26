@@ -8,7 +8,7 @@ Noun:
   Rules:
     de-Declension_de-plural-e__u-Gender_u-fem:
       applies: {de-Declension: de-plural-e, u-Gender: u-fem}
-      pattern: "{stem} + {ending}"
+      pattern: "_stem_ + _ending_"
       endings:
         - features: {u-Number: u-sg}
           form: ""
@@ -21,7 +21,7 @@ Noun:
 
     de-Declension_de-plural-en__u-Gender_u-fem:
       applies: {de-Declension: de-plural-en, u-Gender: u-fem}
-      pattern: "{stem} + {ending}"
+      pattern: "_stem_ + _ending_"
       endings:
         - features: {u-Number: u-sg}
           form: ""
@@ -33,7 +33,7 @@ Noun:
 
     de-Declension_de-plural-er__u-Gender_u-neut:
       applies: {de-Declension: de-plural-er, u-Gender: u-neut}
-      pattern: "{stem} + {ending}"
+      pattern: "_stem_ + _ending_"
       endings:
         - features: {u-Number: u-sg, u-Case: u-nom}
           form: ""
@@ -52,7 +52,7 @@ Noun:
 
     de-Declension_de-plural-s__u-Gender_u-neut:
       applies: {de-Declension: de-plural-s, u-Gender: u-neut}
-      pattern: "{stem} + s"
+      pattern: "_stem_ + s"
       endings:
         - features: {u-Number: u-sg}
           form: ""
@@ -64,7 +64,7 @@ Noun:
 
     de-Declension_de-strong__u-Gender_u-masc:
       applies: {de-Declension: de-strong, u-Gender: u-masc}
-      pattern: "{stem} + {ending}"
+      pattern: "_stem_ + _ending_"
       endings:
         - features: {u-Number: u-sg, u-Case: u-nom}
           form: ""
@@ -87,7 +87,7 @@ Noun:
 
     de-Declension_de-weak__u-Gender_u-masc:
       applies: {de-Declension: de-weak, u-Gender: u-masc}
-      pattern: "{stem} + {ending}"
+      pattern: "_stem_ + _ending_"
       endings:
         - features: {u-Number: u-sg, u-Case: u-nom}
           form: "e"   # Junge

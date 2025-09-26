@@ -2,13 +2,12 @@ Present:
   Features:
     u-Person: [u-1, u-2, u-3]
     u-Number: [u-sg, u-pl]
-    u-Tense: [u-prs]
-    u-Voice: [u-act]
     de-Verbclass: [de-weak, de-strong, de-irregular]
     de-Present-tense-type: [de-praesens, de-praesens-progressive]
 
   Negation:
-    pattern: "[(...) Vfin (...)] nicht (...) ([final verb cluster])"
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
     examples:
     - "Ich weiß nicht."
     - "Er isst den Kuchen nicht."
@@ -29,9 +28,9 @@ Present:
       - "u-ipfv: Er ist am Arbeiten."
 
   Rules:
-    de-Present-tense-type_de-praesens__de-Verbclass_de-weak__u-Tense_u-prs__u-Voice_u-act:
-      applies: {de-Verbclass: de-weak, u-Tense: u-prs, u-Voice: u-act, de-Present-tense-type: de-praesens}
-      pattern: "{stem} + {ending}"
+    de-Present-tense-type_de-praesens__de-Verbclass_de-weak:
+      applies: {de-Verbclass: de-weak, de-Present-tense-type: de-praesens}
+      pattern: "_stem_ + _ending_"
       endings:
       - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}     # ich mache
       - {features: {u-Person: u-2, u-Number: u-sg}, form: "st"}    # du machst
@@ -42,9 +41,9 @@ Present:
       examples:
       - "lemma: 'machen', stem: 'mach-'"
 
-    de-Present-tense-type_de-praesens__de-Verbclass_de-strong__u-Tense_u-prs__u-Voice_u-act:
-      applies: {de-Verbclass: de-strong, u-Tense: u-prs, u-Voice: u-act, de-Present-tense-type: de-praesens}
-      pattern: "{stem/alteredStem} + {ending}"
+    de-Present-tense-type_de-praesens__de-Verbclass_de-strong:
+      applies: {de-Verbclass: de-strong, de-Present-tense-type: de-praesens}
+      pattern: "_stem/alteredStem_ + _ending_"
       endings:
       - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}     # ich sehe
       - {features: {u-Person: u-2, u-Number: u-sg}, form: "st"}    # du siehst
@@ -56,16 +55,16 @@ Present:
       examples:
       - "lemma: 'sehen', stem: 'seh-', altered stem: 'sieh-'"
 
-    de-Present-tense-type_de-praesens__de-Verbclass_de-irregular__u-Tense_u-prs__u-Voice_u-act:
-      applies: {de-Verbclass: de-irregular, u-Tense: u-prs, u-Voice: u-act, de-Present-tense-type: de-praesens}
+    de-Present-tense-type_de-praesens__de-Verbclass_de-irregular:
+      applies: {de-Verbclass: de-irregular, de-Present-tense-type: de-praesens}
       pattern: "suppletive forms"
       examples:
       - "sein → ich bin, du bist, er ist"
       - "haben → ich habe, du hast, er hat"
       - "wissen → ich weiß, du weißt, er weiß"
 
-    de-Present-tense-type_de-praesens-progressive__u-Tense_u-prs__u-Voice_u-act:
-      applies: {de-Present-tense-type: de-praesens-progressive, u-Tense: u-prs, u-Voice: u-act}
+    de-Present-tense-type_de-praesens-progressive:
+      applies: {de-Present-tense-type: de-praesens-progressive}
       pattern: "{sein (finite)} + am + Infinitiv"
       examples:
       - "ich bin am Arbeiten"

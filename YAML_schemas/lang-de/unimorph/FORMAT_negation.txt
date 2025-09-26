@@ -1,6 +1,6 @@
 Negation:
   Features:
-    x-Negation-type: [x-sentence, x-constituent]
+    x-Negation-type: [x-clause, x-constituent]
 
   Rules:
     x-Negation-type_x-constituent:
@@ -16,14 +16,18 @@ Negation:
           - "Ich habe keinen Hund gesehen"
           note: "negates indefinite noun phrase; inflected like indefinite determiner"
 
-    x-Negation-type_x-sentence:
-      applies: {x-Negation-type: x-sentence}
+    x-Negation-type_x-clause:
+      applies: {x-Negation-type: x-clause}
       patterns: 
-        - pattern: "[(...) Vfin (...)] nicht (...) ([final verb cluster])"
-          examples: 
-          - "Er will den Kuchen nicht essen"
-          - "Er rennt heute nicht"
-        - pattern: "[main clause with Vfin], [subordinating conjunction (...)] nicht (...) [final verb cluster]"
-          examples: 
-          - "Er geht nach Hause, weil er nicht in der Schule bleiben will"
-          note: "What is supposed to be negated comes after 'nicht': c.f. the difference between '..., weil er in der Schule jeden Tag nicht gut aufpasst' (every day NOT paying attention) and '..., weil er in der Schule nicht jeden Tag gut aufpasst' (NOT every day paying attention)"
+      - pattern: "(...) finite/main verb (...) nicht (...) (final verb cluster)"
+        examples: 
+        - "Er will den Kuchen nicht essen"
+        - "Er rennt heute nicht"
+        note: "Negated main clauses."
+      - pattern: "main clause with Vfin, subordinating conjunction (...) nicht (...) final verb cluster"
+        examples: 
+        - "Er geht nach Hause, weil er nicht in der Schule bleiben will"
+        - "..., weil er in der Schule jeden Tag nicht gut aufpasst"
+        - "..., weil er in der Schule nicht jeden Tag gut aufpasst"
+        note: "Negated subclauses."
+      note: "If the entire sentence is to be negated, 'nicht' goes as far to the end as possible, but before the final verb cluster/the constituent it is supposed to negate. Note that for main- and subclauses, the principle of negation (finite/main verb - negation - final verb cluster) stays the same, apart from the subordinating conjunction intervening."

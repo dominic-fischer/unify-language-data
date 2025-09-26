@@ -91,7 +91,7 @@
         },
         "Negation": {
           "type": "object",
-          "required": ["pattern", "examples"],
+          "required": ["examples"],
           "properties": {
             "pattern": { "type": "string" },
             "examples": { "$ref": "#/$defs/examples" },
@@ -128,6 +128,10 @@
               { "required": ["forms"], "not": { "required": ["patterns"] } }
             ]
           }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
         }
       }
     }

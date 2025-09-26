@@ -1,6 +1,6 @@
-Phrases:
+Constituents:
   Features:
-    x-Category: [x-NP, x-VP, x-AP, x-PP, x-AdvP, x-CP]
+    x-Constituent: [x-NP, x-VP, x-AP, x-PP, x-AdvP, x-CP]
 
   Rules:
     x-Category_x-NP:

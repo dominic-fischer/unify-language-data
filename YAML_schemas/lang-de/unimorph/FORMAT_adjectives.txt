@@ -9,21 +9,21 @@ Adjective:
   Rules:
     u-Comparison_u-cmpr:
       applies: {u-Comparison: u-cmpr}
-      pattern: "{stem} + er"
+      pattern: "_stem_ + er"
       note: "often with umlaut"
       examples: 
       - "schön → schöner"
 
     u-Comparison_u-sprl:
       applies: {u-Comparison: u-sprl}
-      pattern: "am {stem} + sten"
+      pattern: "am _stem_ + sten"
       examples: 
       - "schön → am schönsten"
       - "besser → am besten"
 
     u-Definiteness_u-def:
       applies: {u-Definiteness: u-def}
-      pattern: "{stem} + {ending}"
+      pattern: "_stem_ + _ending_"
       endings:
         - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-masc}, form: "e"}
         - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-fem}, form: "e"}
@@ -47,7 +47,7 @@ Adjective:
 
     u-Definiteness_u-indf:
       applies: {u-Definiteness: u-indf}
-      pattern: "{stem} + {ending}"
+      pattern: "_stem_ + _ending_"
       endings:
         - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-masc}, form: "er"}
         - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-fem}, form: "e"}
@@ -71,7 +71,7 @@ Adjective:
 
     u-Definiteness_u-nspec:
       applies: {u-Definiteness: u-nspec}
-      pattern: "{stem} + {ending}"
+      pattern: "_stem_ + _ending_"
       endings:
         - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-masc}, form: "er"}
         - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-fem}, form: "e"}

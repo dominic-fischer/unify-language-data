@@ -1,6 +1,5 @@
 Past:
   Features:
-    u-Tense: [u-pst]
     de-Tense-type: [de-praeteritum, de-perfekt, de-plusquamperfekt, de-past-progressive]
     de-Verbclass: [de-weak, de-strong, de-irregular]
 
@@ -40,48 +39,66 @@ Past:
 
 
   Negation:
-    applies: {u-Polarity: u-neg}
-    pattern: "[(...) Vfin (...)] nicht (...) ([final verb cluster])"
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
     examples: 
       - "Ich ging nicht nach Hause"
       - "Er ist/war auch nicht nach Hause gegangen"
 
   Rules:
-    de-Tense-type_de-praeteritum__de-Verbclass_de-weak__u-Tense_u-pst:
-      applies: {de-Tense-type: de-praeteritum, u-Tense: u-pst, de-Verbclass: de-weak}
-      pattern: "{stem} + te + {personal ending}"
+    de-Tense-type_de-praeteritum__de-Verbclass_de-weak:
+      applies: {de-Tense-type: de-praeteritum, de-Verbclass: de-weak}
+      pattern: "_stem_ + te + _personal ending_"
       examples: 
         - "ich machte"
 
-    de-Tense-type_de-praeteritum__de-Verbclass_de-strong__u-Tense_u-pst:
-      applies: {de-Tense-type: de-praeteritum, u-Tense: u-pst, de-Verbclass: de-strong}
-      pattern: "{ablauted stem} + {personal ending}"
+    de-Tense-type_de-praeteritum__de-Verbclass_de-strong:
+      applies: {de-Tense-type: de-praeteritum, de-Verbclass: de-strong}
+      pattern: "_ablauted stem_ + _personal ending_"
       examples: 
         - "ich ging"
 
-    de-Tense-type_de-praeteritum__de-Verbclass_de-irregular__u-Tense_u-pst:
-      applies: {de-Tense-type: de-praeteritum, u-Tense: u-pst, de-Verbclass: de-irregular}
+    de-Tense-type_de-praeteritum__de-Verbclass_de-irregular:
+      applies: {de-Tense-type: de-praeteritum, de-Verbclass: de-irregular}
       pattern: "suppletive forms"
       examples: 
         - "ich war"
         - "ich hatte"
 
-    de-Tense-type_de-perfekt__u-Tense_u-pst:
-      applies: {de-Tense-type: de-perfekt, u-Tense: u-pst}
-      pattern: "{haben/sein (present finite)} + past participle"
+    de-Tense-type_de-perfekt:
+      applies: {de-Tense-type: de-perfekt}
+      pattern: "haben/sein (present finite) + past participle"
       examples: 
         - "ich habe gesehen"
         - "ich bin gegangen"
 
-    de-Tense-type_de-plusquamperfekt__u-Tense_u-pst:
-      applies: {de-Tense-type: de-plusquamperfekt, u-Tense: u-pst}
-      pattern: "{haben/sein (preterite finite)} + past participle"
+    de-Tense-type_de-plusquamperfekt:
+      applies: {de-Tense-type: de-plusquamperfekt}
+      pattern: "haben/sein (preterite finite) + past participle"
       examples: 
         - "ich hatte gesehen"
         - "ich war gegangen"
 
-    de-Tense-type_de-past-progressive__u-Tense_u-pst:
-      applies: {de-Tense-type: de-past-progressive, u-Tense: u-pst}
-      pattern: "{sein (preterite finite)} + am + Infinitiv"
+    de-Tense-type_de-past-progressive:
+      applies: {de-Tense-type: de-past-progressive}
+      pattern: "sein (preterite finite) + am + Infinitiv"
       examples: 
         - "ich war am Arbeiten"
+
+    de-Tense-type_de-past-participle__de-Verbclass_de-weak:
+      applies: {de-Tense-type: de-past-participle, de-Verbclass: de-weak}
+      pattern: "ge- + {stem} + (e)t"
+      examples:
+        - "gemacht"
+        - "gearbeitet"
+        - "gespielt"
+      note: "Weak verbs: participle formed with -t, occasionally -et after certain stems."
+
+    de-Tense-type_de-past-participle__de-Verbclass_de-strong:
+      applies: {de-Tense-type: de-past-participle, de-Verbclass: de-strong}
+      pattern: "ge- + {ablauted stem} + en"
+      examples:
+        - "gesehen"
+        - "gegangen"
+        - "gefunden"
+      note: "Strong verbs: participle formed with -en and often stem vowel change (Ablaut)."

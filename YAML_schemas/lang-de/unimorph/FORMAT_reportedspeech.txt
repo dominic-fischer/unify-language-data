@@ -4,44 +4,50 @@ ReportedSpeech:
     u-Interrogativity: [u-decl, u-int, x-excl]
     u-Tense: [u-prs, u-pst, u-fut]
 
+  Notes:
+  - "The tense of the subordinate clause remains unchanged unless the reporting verb is in the past, in which case the reported tense is adjusted relative to it as outlined."
+  - "In either case, though, mood changes: Subjunctive I is the mood of reporting, Subjunctive II if forms coincide"
+  - "Using 'dass' will trigger the inversion, as the sentence then becomes a subclause."
+
   Negation:
-    pattern: "[(...) Vfin (...)] nicht (...) ([final verb cluster])"
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
     examples:
     - "Er sagte, er wolle den Kuchen nicht essen."
 
   Rules:
-    mode_direct:
-      applies: {mode: direct}
-      pattern: "{quote} + {reporting verb}"
+    u-Evidentiality_u-fh:
+      applies: {u-Evidentiality: u-fh}
+      pattern: "quote + _reporting verb_"
       example: "Er sagte: 'Ich komme morgen.'"
       note: "quotation preserves original tense/mood exactly"
 
-    clausetype_declarative__mode_indirect__reportedtense_pres:
-      applies: {mode: indirect, clausetype: declarative, reportedtense: pres}
-      pattern: "{reporting verb} + dass/Ø + {clause in Subjunctive I (present)}"
-      example: "Er sagte, er komme morgen."
-      note: "..."
+    u-Evidentiality_u-quot__u-Interrogativity_u-int:
+      applies: {u-Evidentiality: u-quot, u-Interrogativity: u-int}
+      pattern: "_reporting verb_ + ob/wh-word + {clause in Subjunctive I (present/perfect/future)}"
+      example: "Er fragte, ob er morgen komme."
+      note: "yes/no questions use 'ob', wh-questions use wh-word; tense follows same system as u-decls (pres, past, fut)"
 
-    clausetype_declarative__mode_indirect__reportedtense_past:
-      applies: {mode: indirect, clausetype: declarative, reportedtense: past}
-      pattern: "{reporting verb} + dass/Ø + {clause in Subjunctive I (perfect)}"
-      example: "Er sagte, er sei gestern gekommen."
-      note: "reported past"
+    u-Evidentiality_u-quot__u-Interrogativity_x-excl:
+      applies: {u-Evidentiality: u-quot, u-Interrogativity: x-excl}
+      pattern: "_reporting verb_ + wie/was für + {clause in Subjunctive I (present/perfect/future)}"
+      example: "Er sagte, wie schön es sei!"
+      note: "exclamatives follow the same tense distinctions as u-decls."
+    u-Evidentiality_u-quot__u-Interrogativity_u-decl__u-Tense_u-prs:
+      applies: {u-Evidentiality: u-quot, u-Interrogativity: u-decl, u-Tense: u-prs}
+      pattern: "_reporting verb_ + dass/Ø + {clause in Subjunctive I (present)}"
+      examples:
+      - "Er sagte, er komme morgen."
+      - "Er sagte, dass er morgen komme."
 
-    clausetype_declarative__mode_indirect__reportedtense_fut:
-      applies: {mode: indirect, clausetype: declarative, reportedtense: fut}
-      pattern: "{reporting verb} + dass/Ø + {clause in Subjunctive I (future)}"
+    u-Evidentiality_u-quot__u-Interrogativity_u-decl__u-Tense_u-pst:
+      applies: {u-Evidentiality: u-quot, u-Interrogativity: u-decl, u-Tense: u-pst}
+      pattern: "_reporting verb_ + dass/Ø + {clause in Subjunctive I (perfect)}"
+      example: "Er sagte, er sei gestern angekommen."
+
+    u-Evidentiality_u-quot__u-Interrogativity_u-decl__u-Tense_u-fut:
+      applies: {u-Evidentiality: u-quot, u-Interrogativity: u-decl, u-Tense: u-fut}
+      pattern: "_reporting verb_ + dass/Ø + {clause in Subjunctive I (future)}"
       example: "Er sagte, er werde morgen kommen."
       note: "reported future"
 
-    clausetype_interrogative__mode_indirect:
-      applies: {mode: indirect, clausetype: interrogative}
-      pattern: "{reporting verb} + ob/wh-word + {clause in Subjunctive I (present/perfect/future)}"
-      example: "Er fragte, ob er morgen komme."
-      note: "yes/no questions use 'ob', wh-questions use wh-word; tense follows same system as declaratives (pres, past, fut)"
-
-    clausetype_exclamative__mode_indirect:
-      applies: {mode: indirect, clausetype: exclamative}
-      pattern: "{reporting verb} + wie/was für + {clause in Subjunctive I (present/perfect/future)}"
-      example: "Er sagte, wie schön es sei!"
-      note: "exclamatives follow the same tense distinctions as declaratives; Subjunctive I preferred, Subjunctive II if forms coincide"

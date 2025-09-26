@@ -1,37 +1,27 @@
 Adverbs:
   Features:
     u-Comparison: [u-cmpr, u-sprl, u-rl, u-ab]
-    x-Formation: [x-simple, x-adjective, x-complex, x-modification]
+    x-Process: [x-base-form, x-adj-as-adv, x-complex, x-modification]
 
   Rules:
-    u-Comparison_u-cmpr:
-      applies: {u-Comparison: u-cmpr}
-      pattern: "{stem} + er"
+    x-Process_x-base-form:
+      applies: {x-Process: x-base-form}
+      pattern: "lexical base form"
       examples: 
-      - "schnell → schneller"
+      - "gestern"
+      - "oft"
+      - "bald"
 
-    u-Comparison_u-sprl_u-ab:
-      applies: {u-Comparison: [u-sprl, u-ab]}
-      pattern: "am {stem} + sten"
-      examples: 
-      - "schnell → am schnellsten"
-
-    u-Comparison_u-sprl_u-rl:
-      applies: {u-Comparison: [u-sprl, u-rl]}
-      pattern: "{Determiner} {stem} + ste"
-      examples:
-      - "schnell → schnellste"
-
-    x-Formation_x-adjective:
-      applies: {x-Formation: x-adjective}
+    x-Process_x-adj-as-adv:
+      applies: {x-Process: x-adj-as-adv}
       pattern: "adjective stem reused as adverb (uninflected)"
       examples: 
       - "schnell → schnell"
       - "laut → laut"
       note: "form identical to adjective"
 
-    x-Formation_x-complex:
-      applies: {x-Formation: x-complex}
+    x-Process_x-complex:
+      applies: {x-Process: x-complex}
       pattern: "compound or prepositional phrase functioning adverbially"
       examples: 
       - "trotzdem"
@@ -40,8 +30,8 @@ Adverbs:
       - "immerhin"
       note: "not productive prefixation; historical compounds or fixed expressions. No comparative or superlative."
 
-    x-Formation_x-modification:
-      applies: {x-Formation: x-modification}
+    x-Process_x-modification:
+      applies: {x-Process: x-modification}
       pattern: "degree/modality particles modifying adverb"
       examples: 
       - "sehr schnell"
@@ -49,10 +39,20 @@ Adverbs:
       - "gar nicht"
       note: "no comparative or superlative."
 
-    x-Formation_x-simple:
-      applies: {x-Formation: x-simple}
-      pattern: "lexical base form"
+    u-Comparison_u-cmpr:
+      applies: {u-Comparison: u-cmpr}
+      pattern: "_stem_ + er"
       examples: 
-      - "gestern"
-      - "oft"
-      - "bald"
+      - "schnell → schneller"
+
+    u-Comparison_u-sprl_u-ab:
+      applies: {u-Comparison: [u-sprl, u-ab]}
+      pattern: "am _stem_ + sten"
+      examples: 
+      - "schnell → am schnellsten"
+
+    u-Comparison_u-sprl_u-rl:
+      applies: {u-Comparison: [u-sprl, u-rl]}
+      pattern: "Determiner _stem_ + ste"
+      examples:
+      - "schnell → schnellste"

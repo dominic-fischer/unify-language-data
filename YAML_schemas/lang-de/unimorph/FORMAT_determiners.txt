@@ -1,6 +1,6 @@
 Determiner:
   Features:
-    u-Definiteness: [u-def, u-indef]
+    u-Definiteness: [u-def, u-indf]
     u-Gender: [u-masc, u-fem, u-neut]
     u-Number: [u-sg, u-pl]
     u-Case: [u-nom, u-acc, u-dat, u-gen]
@@ -45,8 +45,8 @@ Determiner:
         - features: {u-Number: u-pl, u-Case: u-gen}
           form: "der"
 
-    u-Definiteness_u-indef:
-      applies: {u-Definiteness: u-indef}
+    u-Definiteness_u-indf:
+      applies: {u-Definiteness: u-indf}
       forms:
         - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-nom}
           form: "ein"

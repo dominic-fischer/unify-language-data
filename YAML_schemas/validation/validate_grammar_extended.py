@@ -13,7 +13,7 @@ NEGATION_FILES = [
     "subjunctive.txt",
     "conditional.txt",
     "conditional-sentences.txt",
-    "interrogatives.txt",
+    "clauses.txt",
 ]
 
 USAGE_FILES = [
