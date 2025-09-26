@@ -1,0 +1,53 @@
+Passive:
+  Features:
+    u-Voice: [u-pass]
+    x-Passive-type: [x-process, x-state]
+    u-Tense: [u-prs, u-pst, u-fut]
+
+  Negation:
+    pattern: "[(...) Vfin (...)] nicht (...) ([final verb cluster])"
+    examples: 
+    - "Der Hund wird nicht gesehen."
+
+  Rules:
+    u-Tense_u-fut__u-Voice_u-pass__x-Passive-type_x-process:
+      applies: {u-Tense: u-fut, u-Voice: u-pass, x-Passive-type: x-process}
+      pattern: "{werden (present, finite)} + past participle + werden (infinitive)"
+      examples: 
+      - "Der Hund wird gesehen werden"
+      note: "Vorgangspassiv im Futur I"
+
+    u-Tense_u-fut__u-Voice_u-pass__x-Passive-type_x-state:
+      applies: {u-Tense: u-fut, u-Voice: u-pass, x-Passive-type: x-state}
+      pattern: "{werden (present, finite)} + past participle + sein (infinitive)"
+      examples: 
+      - "Der Zaun wird gestrichen sein"
+      note: "Zustandspassiv im Futur I"
+
+    u-Tense_u-prs__u-Voice_u-pass__x-Passive-type_x-process:
+      applies: {u-Tense: u-prs, u-Voice: u-pass, x-Passive-type: x-process}
+      pattern: "{werden (present, finite)} + past participle"
+      examples: 
+      - "Der Hund wird gesehen"
+      note: "Vorgangspassiv im Präsens"
+
+    u-Tense_u-prs__u-Voice_u-pass__x-Passive-type_x-state:
+      applies: {u-Tense: u-prs, u-Voice: u-pass, x-Passive-type: x-state}
+      pattern: "{sein (present, finite)} + past participle"
+      examples: 
+      - "Der Zaun ist gestrichen"
+      note: "Zustandspassiv im Präsens"
+
+    u-Tense_u-pst__u-Voice_u-pass__x-Passive-type_x-process:
+      applies: {u-Tense: u-pst, u-Voice: u-pass, x-Passive-type: x-process}
+      pattern: "{werden (preterite, finite)} + past participle"
+      examples: 
+      - "Der Hund wurde gesehen"
+      note: "Vorgangspassiv im Präteritum"
+
+    u-Tense_u-pst__u-Voice_u-pass__x-Passive-type_x-state:
+      applies: {u-Tense: u-pst, u-Voice: u-pass, x-Passive-type: x-state}
+      pattern: "{sein (preterite, finite)} + past participle"
+      examples: 
+      - "Der Zaun war gestrichen"
+      note: "Zustandspassiv im Präteritum"

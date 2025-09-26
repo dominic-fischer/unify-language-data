@@ -1,0 +1,22 @@
+Agreement:
+  Features:
+    domain: [subjectverb, nounadjective, noundeterminer]
+
+  Rules:
+    domain-subjectverb:
+      applies: {domain: subjectverb}
+      pattern: "finite verb agrees with subject in person and number"
+      example: "ich gehe, wir gehen"
+      note: "obligatory agreement; 3sg endings distinct, others reduced"
+
+    domain-nounadjective:
+      applies: {domain: nounadjective}
+      pattern: "adjective inflected for case, number, gender of head noun"
+      example: "ein schöner Hund"
+      note: "endings follow strong/weak/mixed inflection depending on determiner"
+
+    domain-noundeterminer:
+      applies: {domain: noundeterminer}
+      pattern: "determiner inflected for case, number, gender of head noun"
+      example: "die großen Hunde"
+      note: "paradigm identical to article system"

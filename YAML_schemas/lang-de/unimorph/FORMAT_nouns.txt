@@ -1,0 +1,103 @@
+Noun:
+  Features:
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+    de-Declension: [de-strong, de-weak, de-plural-en, de-plural-e, de-plural-er, de-plural-s]
+
+  Rules:
+    de-Declension_de-plural-e__u-Gender_u-fem:
+      applies: {de-Declension: de-plural-e, u-Gender: u-fem}
+      pattern: "{stem} + {ending}"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "e"
+          note: "often with Umlaut"
+      examples: 
+      - "eine Nacht → Nächte"
+      note: "feminine nouns with plural -e, often umlauted"
+
+    de-Declension_de-plural-en__u-Gender_u-fem:
+      applies: {de-Declension: de-plural-en, u-Gender: u-fem}
+      pattern: "{stem} + {ending}"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "en"
+      examples: 
+      - "eine Frau → Frauen"
+      note: "default feminine pattern; plural in -(e)n"
+
+    de-Declension_de-plural-er__u-Gender_u-neut:
+      applies: {de-Declension: de-plural-er, u-Gender: u-neut}
+      pattern: "{stem} + {ending}"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "es"
+        - features: {u-Number: u-pl}
+          form: "er"
+          note: "often with Umlaut"
+      examples: 
+      - "ein Kind → Kinder"
+      note: "common neuter plural type; Umlaut frequent"
+
+    de-Declension_de-plural-s__u-Gender_u-neut:
+      applies: {de-Declension: de-plural-s, u-Gender: u-neut}
+      pattern: "{stem} + s"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "s"
+      examples: 
+      - "ein Auto → Autos"
+      note: "loanwords and abbreviations; plural in -s"
+
+    de-Declension_de-strong__u-Gender_u-masc:
+      applies: {de-Declension: de-strong, u-Gender: u-masc}
+      pattern: "{stem} + {ending}"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "es"
+        - features: {u-Number: u-pl, u-Case: u-nom}
+          form: "e"
+        - features: {u-Number: u-pl, u-Case: u-acc}
+          form: "e"
+        - features: {u-Number: u-pl, u-Case: u-dat}
+          form: "en"
+        - features: {u-Number: u-pl, u-Case: u-gen}
+          form: "e"
+      examples: 
+      - "ein Hund → Hunde"
+
+    de-Declension_de-weak__u-Gender_u-masc:
+      applies: {de-Declension: de-weak, u-Gender: u-masc}
+      pattern: "{stem} + {ending}"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: "e"   # Junge
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: "en"  # Jungen
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: "en"
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "en"
+        - features: {u-Number: u-pl}
+          form: "en"  # Jungen
+      examples: 
+      - "ein Junge → Jungen"

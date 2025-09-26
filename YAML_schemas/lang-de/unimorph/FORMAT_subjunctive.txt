@@ -1,0 +1,75 @@
+Subjunctive:
+  Features:
+    u-Mood: [u-sbjv]
+    de-Subjunctive-type: [de-subj-I, de-subj-II]
+    u-Tense: [u-prs, u-pst, u-fut]
+
+  Negation:
+    pattern: "[(...) Vfin (...)] nicht (...) ([final verb cluster])"
+    examples:
+    - "Ich persönlich würde das nicht jeden Tag tun."
+
+  Usage:
+    de-subj-I:
+      note: "Subjunctive I (Konjunktiv I) is primarily used for indirect/reported speech, especially in formal registers (newspapers, academic writing). It marks distancing of the speaker from the truth of the proposition."
+
+    de-subj-II:
+      note: "Subjunctive II (Konjunktiv II) expresses counterfactuality, unreality, or politeness. In modern usage, synthetic forms survive mostly in a few verbs (sein, haben, modals), while the würde + infinitive construction dominates otherwise."
+
+  Rules:
+    de-Subjunctive-type_de-subj-I__u-Mood_u-sbjv__u-Tense_u-prs:
+      applies: {de-Subjunctive-type: de-subj-I, u-Tense: u-prs, u-Mood: u-sbjv}
+      pattern: "{present stem} + {endings}"
+      endings:
+      - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}       # ich habe
+      - {features: {u-Person: u-2, u-Number: u-sg}, form: "est"}     # du habest
+      - {features: {u-Person: u-3, u-Number: u-sg}, form: "e"}       # er habe
+      - {features: {u-Person: u-1, u-Number: u-pl}, form: "en"}      # wir haben
+      - {features: {u-Person: u-2, u-Number: u-pl}, form: "et"}      # ihr habet
+      - {features: {u-Person: u-3, u-Number: u-pl}, form: "en"}      # sie haben
+      examples:
+      - "lemma: 'haben', form: 'er habe'"
+
+    de-Subjunctive-type_de-subj-I__u-Mood_u-sbjv__u-Tense_u-pst:
+      applies: {de-Subjunctive-type: de-subj-I, u-Tense: u-pst, u-Mood: u-sbjv}
+      pattern: "{haben/sein in Subjunctive I} + past participle"
+      examples:
+      - "er habe gesagt, er sei gegangen"
+
+    de-Subjunctive-type_de-subj-I__u-Mood_u-sbjv__u-Tense_u-fut:
+      applies: {de-Subjunctive-type: de-subj-I, u-Tense: u-fut, u-Mood: u-sbjv}
+      pattern: "{werden in Subjunctive I} + infinitive"
+      examples:
+      - "er werde gehen"
+
+    de-Subjunctive-type_de-subj-II__u-Mood_u-sbjv__u-Tense_u-prs:
+      applies: {de-Subjunctive-type: de-subj-II, u-Tense: u-prs, u-Mood: u-sbjv}
+      patterns:
+      - pattern: "preterite stem (ablaut/umlaut) + {endings}"
+        endings:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}        # ich ginge
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "est"}      # du gingest
+        - {features: {u-Person: u-3, u-Number: u-sg}, form: "e"}        # er ginge
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "en"}       # wir gingen
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "et"}       # ihr ginget
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "en"}       # sie gingen
+        examples:
+        - "ich ginge"
+      - pattern: "{würde (Konjunktiv II)} + infinitive"
+        examples:
+        - "ich würde gehen"
+        note: "dominant form for most verbs in modern usage"
+
+    de-Subjunctive-type_de-subj-II__u-Mood_u-sbjv__u-Tense_u-pst:
+      applies: {de-Subjunctive-type: de-subj-II, u-Tense: u-pst, u-Mood: u-sbjv}
+      pattern: "{hätte/wäre (Konjunktiv II)} + past participle"
+      examples:
+      - "ich hätte gesagt, ich wäre gegangen"
+      note: "used for counterfactuals about the past"
+
+    de-Subjunctive-type_de-subj-II__u-Mood_u-sbjv__u-Tense_u-fut:
+      applies: {de-Subjunctive-type: de-subj-II, u-Tense: u-fut, u-Mood: u-sbjv}
+      pattern: "{würde (Konjunktiv II)} + past participle + {haben/sein infinitive}"
+      examples:
+      - "ich würde gegangen sein"
+      note: "rare; equivalent to Future II under subjunctive"

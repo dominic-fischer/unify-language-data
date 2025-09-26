@@ -1,0 +1,39 @@
+Phrases:
+  Features:
+    category: [NP, VP, AP, PP, AdvP, CP]
+
+  Rules:
+    category-NP:
+      applies: {category: NP}
+      pattern: "[Determiner] [AdjectivePhrase] Noun [PrepositionalPhrase] [RelativeClause] [PossessivePronoun]"
+      example: "der große Hund"
+      note: "Determiner obligatory in singular count nouns, unless proper noun or bare plural"
+
+    category-VP:
+      applies: {category: VP}
+      pattern: "[Auxiliary] Verb [Object (NP/CP)] [AdverbPhrase] [PrepositionalPhrase] [SubordinateClause (CP)]"
+      example: "hat den Hund gesehen"
+      note: "verb-second in main clauses, verb-final in subordinates"
+
+    category-AP:
+      applies: {category: AP}
+      pattern: "[DegreeMarker] Adjective [Complement (PP/CP)]"
+      example: "sehr schön"
+      note: "adjective inflects for case/number/gender of NP"
+
+    category-PP:
+      applies: {category: PP}
+      pattern: "Preposition + NP [AdverbPhrase]"
+      example: "mit dem Hund"
+      note: "preposition governs case (acc/dat/gen)"
+
+    category-AdvP:
+      applies: {category: AdvP}
+      pattern: "[DegreeMarker] Adverb"
+      example: "sehr schnell"
+
+    category-CP:
+      applies: {category: CP}
+      pattern: "[Complementizer] Subject (NP) [Adverbials] VP"
+      example: "dass er den Hund sieht"
+      note: "subordinate clauses require verb-final order"

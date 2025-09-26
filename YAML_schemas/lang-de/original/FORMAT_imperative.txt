@@ -1,0 +1,34 @@
+Imperative:
+  Features:
+    mood: [imp]
+    person: [first, second, third]
+    number: [sg, pl]
+
+  Negation:
+    pattern: "[Vfin (...)] nicht (...)"
+    example: "Geh doch nicht dahin!"
+
+  Rules:
+    mood-imp_number-sg_person-second:
+      applies: {mood: imp, person: second, number: sg}
+      pattern: "{stem} + (optionally -e)"
+      example: "geh!, mache!"
+      note: "direct imperative singular; -e ending optional in 2sg, often dropped in colloquial usage"
+
+    mood-imp_number-pl_person-second:
+      applies: {mood: imp, person: second, number: pl}
+      pattern: "{stem} + t"
+      example: "geht!, macht!"
+      note: "direct imperative plural"
+
+    mood-imp_number-pl_person-first:
+      applies: {mood: imp, person: first, number: pl}
+      pattern: "{stem} + en + wir"
+      example: "gehen wir!"
+      note: "inclusive 'let's…' construction"
+
+    mood-imp_number-pl_person-third:
+      applies: {mood: imp, person: third, number: pl}
+      pattern: "infinitive + Sie"
+      example: "gehen Sie!"
+      note: "polite form, direct imperative singular"

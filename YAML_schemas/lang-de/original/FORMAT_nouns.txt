@@ -1,0 +1,71 @@
+Noun:
+  Features:
+    gender: [m, f, n]
+    number: [sg, pl]
+    case: [nom, acc, dat, gen]
+    declension: [strong, weak, enplural, eplural, erplural, splural]
+
+  Rules:
+    declension-strong_gender-m:
+      applies: {gender: m, declension: strong}
+      pattern: "{stem} + {ending}"
+      endings:
+        - {features: {number: sg, case: nom}, form: ""}
+        - {features: {number: sg, case: acc}, form: ""}
+        - {features: {number: sg, case: dat}, form: ""}
+        - {features: {number: sg, case: gen}, form: "es"}
+        - {features: {number: pl, case: nom}, form: "e"}
+        - {features: {number: pl, case: acc}, form: "e"}
+        - {features: {number: pl, case: dat}, form: "en"}
+        - {features: {number: pl, case: gen}, form: "e"}
+      example: "ein Hund → Hunde"
+
+    declension-weak_gender-m:
+      applies: {gender: m, declension: weak}
+      pattern: "{stem} + {ending}"
+      endings:
+        - {features: {number: sg, case: nom}, form: "e"}   # Junge
+        - {features: {number: sg, case: acc}, form: "en"}  # Jungen
+        - {features: {number: sg, case: dat}, form: "en"}
+        - {features: {number: sg, case: gen}, form: "en"}
+        - {features: {number: pl}, form: "en"}             # Jungen
+      example: "ein Junge → Jungen"
+
+    declension-enplural_gender-f:
+      applies: {gender: f, declension: enplural}
+      pattern: "{stem} + {ending}"
+      endings:
+        - {features: {number: sg}, form: ""}            
+        - {features: {number: pl}, form: "en"}
+      example: "eine Frau → Frauen"
+      note: "default feminine pattern; plural in -(e)n"
+
+    declension-eplural_gender-f:
+      applies: {gender: f, declension: eplural}
+      pattern: "{stem} + {ending}"
+      endings:
+        - {features: {number: sg}, form: ""}            
+        - {features: {number: pl}, form: "e", note: often with Umlaut}
+      example: "eine Nacht → Nächte"
+      note: "feminine nouns with plural -e, often umlauted"
+
+    declension-erplural_gender-n:
+      applies: {gender: n, declension: erplural}
+      pattern: "{stem} + {ending}"
+      endings:
+        - {features: {number: sg, case: nom}, form: ""}
+        - {features: {number: sg, case: acc}, form: ""}
+        - {features: {number: sg, case: dat}, form: ""}
+        - {features: {number: sg, case: gen}, form: "es"}
+        - {features: {number: pl}, form: "er", note: often with Umlaut}
+      example: "ein Kind → Kinder"
+      note: "common neuter plural type; Umlaut frequent"
+
+    declension-splural_gender-n:
+      applies: {gender: n, declension: splural}
+      pattern: "{stem} + s"
+      endings:
+        - {features: {number: sg}, form: ""}
+        - {features: {number: pl}, form: "s"}
+      example: "ein Auto → Autos"
+      note: "loanwords and abbreviations; plural in -s"

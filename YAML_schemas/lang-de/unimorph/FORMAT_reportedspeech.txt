@@ -1,0 +1,47 @@
+ReportedSpeech:
+  Features:
+    u-Evidentiality: [u-fh, u-quot]
+    u-Interrogativity: [u-decl, u-int, x-excl]
+    u-Tense: [u-prs, u-pst, u-fut]
+
+  Negation:
+    pattern: "[(...) Vfin (...)] nicht (...) ([final verb cluster])"
+    examples:
+    - "Er sagte, er wolle den Kuchen nicht essen."
+
+  Rules:
+    mode_direct:
+      applies: {mode: direct}
+      pattern: "{quote} + {reporting verb}"
+      example: "Er sagte: 'Ich komme morgen.'"
+      note: "quotation preserves original tense/mood exactly"
+
+    clausetype_declarative__mode_indirect__reportedtense_pres:
+      applies: {mode: indirect, clausetype: declarative, reportedtense: pres}
+      pattern: "{reporting verb} + dass/Ø + {clause in Subjunctive I (present)}"
+      example: "Er sagte, er komme morgen."
+      note: "..."
+
+    clausetype_declarative__mode_indirect__reportedtense_past:
+      applies: {mode: indirect, clausetype: declarative, reportedtense: past}
+      pattern: "{reporting verb} + dass/Ø + {clause in Subjunctive I (perfect)}"
+      example: "Er sagte, er sei gestern gekommen."
+      note: "reported past"
+
+    clausetype_declarative__mode_indirect__reportedtense_fut:
+      applies: {mode: indirect, clausetype: declarative, reportedtense: fut}
+      pattern: "{reporting verb} + dass/Ø + {clause in Subjunctive I (future)}"
+      example: "Er sagte, er werde morgen kommen."
+      note: "reported future"
+
+    clausetype_interrogative__mode_indirect:
+      applies: {mode: indirect, clausetype: interrogative}
+      pattern: "{reporting verb} + ob/wh-word + {clause in Subjunctive I (present/perfect/future)}"
+      example: "Er fragte, ob er morgen komme."
+      note: "yes/no questions use 'ob', wh-questions use wh-word; tense follows same system as declaratives (pres, past, fut)"
+
+    clausetype_exclamative__mode_indirect:
+      applies: {mode: indirect, clausetype: exclamative}
+      pattern: "{reporting verb} + wie/was für + {clause in Subjunctive I (present/perfect/future)}"
+      example: "Er sagte, wie schön es sei!"
+      note: "exclamatives follow the same tense distinctions as declaratives; Subjunctive I preferred, Subjunctive II if forms coincide"

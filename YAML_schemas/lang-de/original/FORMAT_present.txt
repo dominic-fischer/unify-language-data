@@ -1,0 +1,68 @@
+Verb:
+  Features:
+    Person: [first, second, third]
+    Number: [sg, pl]
+    Tense: [pres]
+    Voice: [act]
+    Class: [weak, strong, irregular]
+    lemma: [sein, haben, wissen]
+
+  Negation:
+    pattern: "[(...) Vfin (...)] nicht (...) ([final verb cluster])"
+    example: "Ich weiss nicht; Er isst den Kuchen nicht"
+
+  Rules:
+    class-weak_tense-pres:
+      applies: {tense: pres, class: weak}
+      pattern: "{stem} + {ending}"
+      endings:
+        - {features: {person: first, number: sg}, form: "e"}   # ich mache
+        - {features: {person: second, number: sg}, form: "st"}  # du machst
+        - {features: {person: third, number: sg}, form: "t"}   # er macht
+        - {features: {person: first, number: pl}, form: "en"}  # wir machen
+        - {features: {person: second, number: pl}, form: "t"}   # ihr macht
+        - {features: {person: third, number: pl}, form: "en"}  # sie machen
+      example: "lemma: 'machen', stem: 'mach-'"
+
+    class-strong_tense-pres:
+      applies: {tense: pres, class: strong}
+      pattern: "{stem/alteredStem} + {ending}"
+      endings:
+        - {features: {person: first, number: sg}, form: "e"}   # ich sehe
+        - {features: {person: second, number: sg}, form: "st"}  # du siehst
+        - {features: {person: third, number: sg}, form: "t"}   # er sieht
+        - {features: {person: first, number: pl}, form: "en"}  # wir sehen
+        - {features: {person: second, number: pl}, form: "t"}   # ihr seht
+        - {features: {person: third, number: pl}, form: "en"}  # sie sehen
+      note: "Stem vowel alternation occurs in 2sg and 3sg"
+      example: "lemma: sehen', stem: 'seh-', altered stem: 'sieh-'"
+
+    class-irregular_lemma-haben_tense-pres:
+      applies: {tense: pres, class: irregular, lemma: "haben"}
+      forms:
+        - {features: {person: first, number: sg}, form: "habe"}
+        - {features: {person: second, number: sg}, form: "hast"}
+        - {features: {person: third, number: sg}, form: "hat"}
+        - {features: {person: first, number: pl}, form: "haben"}
+        - {features: {person: second, number: pl}, form: "habt"}
+        - {features: {person: third, number: pl}, form: "haben"}
+
+    class-irregular_lemma-sein_tense-pres:
+      applies: {tense: pres, class: irregular, lemma: "sein"}
+      forms:
+        - {features: {person: first, number: sg}, form: "bin"}
+        - {features: {person: second, number: sg}, form: "bist"}
+        - {features: {person: third, number: sg}, form: "ist"}
+        - {features: {person: first, number: pl}, form: "sind"}
+        - {features: {person: second, number: pl}, form: "seid"}
+        - {features: {person: third, number: pl}, form: "sind"}
+
+    class-irregular_lemma-wissen_tense-pres:
+      applies: {tense: pres, class: irregular, lemma: "wissen"}
+      forms:
+        - {features: {person: first, number: sg}, form: "weiß"}
+        - {features: {person: second, number: sg}, form: "weißt"}
+        - {features: {person: third, number: sg}, form: "weiß"}
+        - {features: {person: first, number: pl}, form: "wissen"}
+        - {features: {person: second, number: pl}, form: "wisst"}
+        - {features: {person: third, number: pl}, form: "wissen"}

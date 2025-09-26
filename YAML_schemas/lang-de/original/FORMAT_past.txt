@@ -1,0 +1,40 @@
+Past:
+  Features:
+    Tense: [past]
+    Form: [preterite, perfect, pluperfect]
+    verbclass: [weak, strong, irregular]
+
+  Negation:
+    pattern: "[(...) Vfin (...)] nicht (...) ([final verb cluster])"
+    example: "Ich ging nicht nach Hause; Er ist/war auch nicht nach Hause gegangen"
+
+  Rules:
+    form-preterite_tense-past_verbclass-weak:
+      applies: {tense: past, form: preterite, verbclass: weak}
+      pattern: "{stem} + te + {personal ending}"
+      example: "ich machte"
+      note: "productive class; endings identical to present except 1sg/3sg with -te"
+
+    form-preterite_tense-past_verbclass-strong:
+      applies: {tense: past, form: preterite, verbclass: strong}
+      pattern: "{ablauted stem} + {personal ending}"
+      example: "ich ging"
+      note: "vowel change (ablaut) marks tense; endings mostly identical to weak preterite"
+
+    form-preterite_tense-past_verbclass-irregular:
+      applies: {tense: past, form: preterite, verbclass: irregular}
+      pattern: "suppletive forms"
+      example: "ich war, ich hatte"
+      note: "sein, haben, modal verbs, wissen, tun, etc."
+
+    form-perfect_tense-past:
+      applies: {tense: past, form: perfect}
+      pattern: "{haben/sein (present finite)} + past participle"
+      example: "ich habe gesehen, ich bin gegangen"
+      note: "preferred spoken past; auxiliary choice depends on verb semantics (movement/change of state → sein, otherwise haben)"
+
+    form-pluperfect_tense-past:
+      applies: {tense: past, form: pluperfect}
+      pattern: "{haben/sein (preterite finite)} + past participle"
+      example: "ich hatte gesehen, ich war gegangen"
+      note: "used to mark anteriority in narration"

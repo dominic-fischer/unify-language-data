@@ -1,0 +1,46 @@
+Passive:
+  Features:
+    voice: [pass]
+    type: [process, state]
+    tense: [pres, past, fut]
+
+  Negation:
+    pattern: "[(...) Vfin (...)] nicht (...) ([final verb cluster])"
+    example: "Der Hund wird nicht gesehen."
+
+  Rules:
+    tense-pres_type-process_voice-pass:
+      applies: {voice: pass, type: process, tense: pres}
+      pattern: "{werden (present, finite)} + past participle"
+      example: "Der Hund wird gesehen"
+      note: "Vorgangspassiv im Präsens"
+
+    tense-past_type-process_voice-pass:
+      applies: {voice: pass, type: process, tense: past}
+      pattern: "{werden (preterite, finite)} + past participle"
+      example: "Der Hund wurde gesehen"
+      note: "Vorgangspassiv im Präteritum"
+
+    tense-fut_type-process_voice-pass:
+      applies: {voice: pass, type: process, tense: fut}
+      pattern: "{werden (present, finite)} + past participle + werden (infinitive)"
+      example: "Der Hund wird gesehen werden"
+      note: "Vorgangspassiv im Futur I"
+
+    tense-pres_type-state_voice-pass:
+      applies: {voice: pass, type: state, tense: pres}
+      pattern: "{sein (present, finite)} + past participle"
+      example: "Der Zaun ist gestrichen"
+      note: "Zustandspassiv im Präsens"
+
+    tense-past_type-state_voice-pass:
+      applies: {voice: pass, type: state, tense: past}
+      pattern: "{sein (preterite, finite)} + past participle"
+      example: "Der Zaun war gestrichen"
+      note: "Zustandspassiv im Präteritum"
+
+    tense-fut_type-state_voice-pass:
+      applies: {voice: pass, type: state, tense: fut}
+      pattern: "{werden (present, finite)} + past participle + sein (infinitive)"
+      example: "Der Zaun wird gestrichen sein"
+      note: "Zustandspassiv im Futur I"

@@ -1,0 +1,50 @@
+Conditional:
+  Features:
+    tense: [pres, past, fut]
+    reality: [real, irreal]
+    clause: [protasis, apodosis]
+  
+  Negation:
+    pattern: "[(...) conditional conjunction (...)] nicht (...) [final verb cluster]"
+    example: "Auch wenn er nicht kommen sollte, gehen wir nicht ohne ihn."
+    note: "only for protasis, apodosis follows regular negation"
+
+  Rules:
+    clause-protasis_reality-real_tense-pres:
+      applies: {tense: pres, reality: real, clause: protasis}
+      pattern: "{verb in indicative present}"
+      example: "wenn er kommt"
+    clause-apodosis_reality-real_tense-pres:
+      applies: {tense: pres, reality: real, clause: apodosis}
+      pattern: "{verb in indicative present/future}"
+      example: "gehen wir"
+
+    clause-protasis_reality-irreal_tense-pres:
+      applies: {tense: pres, reality: irreal, clause: protasis}
+      pattern: "{Konjunktiv II present (synthetic)}"
+      example: "wenn er käme"
+    clause-apodosis_reality-irreal_tense-pres:
+      applies: {tense: pres, reality: irreal, clause: apodosis}
+      patterns: 
+      - {pattern: "Konjunktiv II present (synthetic)", example: "wir gingen", note: "less common in modern usage, survives with sein/haben/modals"}
+      - {pattern: "{würde (Konjunktiv II)} + infinitive", example: "wir würden gehen", note: "dominant in modern usage"}
+
+    clause-protasis_reality-irreal_tense-past:
+      applies: {tense: past, reality: irreal, clause: protasis}
+      pattern: "{hätte/wäre (Konjunktiv II)} + past participle"
+      example: "wenn er gegangen wäre"
+    clause-apodosis_reality-irreal_tense-past:
+      applies: {tense: past, reality: irreal, clause: apodosis}
+      pattern: "{hätte/wäre (Konjunktiv II)} + past participle"
+      example: "wir hätten gewonnen"
+
+    clause-protasis_tense-fut:
+      applies: {tense: fut, clause: protasis}
+      pattern: "{verb in future indicative}"
+      example: "wenn er kommen wird"
+      note: "rare; often replaced by present indicative"
+    clause-apodosis_tense-fut:
+      applies: {tense: fut, clause: apodosis}
+      pattern: "{würde (Konjunktiv II)} + past participle + {haben/sein infinitive}"
+      example: "wir würden gegangen sein"
+      note: "rare; equivalent to Future II under conditional mood"

@@ -1,0 +1,29 @@
+Negation:
+  Features:
+    x-Negation-type: [x-sentence, x-constituent]
+
+  Rules:
+    x-Negation-type_x-constituent:
+      applies: {x-Negation-type: x-constituent}
+      patterns: 
+        - pattern: "nicht + constituent"
+          examples: 
+          - "Er rennt nicht heute"
+          - "Nicht das Essen, sondern die Getränke hat er bezahlt"
+          note: "focuses on constituent rather than whole sentence"
+        - pattern: "kein + noun"
+          examples: 
+          - "Ich habe keinen Hund gesehen"
+          note: "negates indefinite noun phrase; inflected like indefinite determiner"
+
+    x-Negation-type_x-sentence:
+      applies: {x-Negation-type: x-sentence}
+      patterns: 
+        - pattern: "[(...) Vfin (...)] nicht (...) ([final verb cluster])"
+          examples: 
+          - "Er will den Kuchen nicht essen"
+          - "Er rennt heute nicht"
+        - pattern: "[main clause with Vfin], [subordinating conjunction (...)] nicht (...) [final verb cluster]"
+          examples: 
+          - "Er geht nach Hause, weil er nicht in der Schule bleiben will"
+          note: "What is supposed to be negated comes after 'nicht': c.f. the difference between '..., weil er in der Schule jeden Tag nicht gut aufpasst' (every day NOT paying attention) and '..., weil er in der Schule nicht jeden Tag gut aufpasst' (NOT every day paying attention)"

@@ -1,0 +1,58 @@
+Subjunctive:
+  Features:
+    mood: [subj]
+    type: [I, II]
+    tense: [pres, past, fut]
+
+  Negation:
+    pattern: "[(...) Vfin (...)] nicht (...) ([final verb cluster])"
+
+  Rules:
+    mood-subj_tense-pres_type-I:
+      applies: {mood: subj, type: I, tense: pres}
+      pattern: "{present stem} + {endings}"
+      endings:
+        - {features: {person: 1, number: sg}, form: "e"}     # ich habe
+        - {features: {person: 2, number: sg}, form: "est"}   # du habest
+        - {features: {person: 3, number: sg}, form: "e"}     # er habe
+        - {features: {person: 1, number: pl}, form: "en"}    # wir haben
+        - {features: {person: 2, number: pl}, form: "et"}    # ihr habet
+        - {features: {person: 3, number: pl}, form: "en"}    # sie haben
+      example: "lemma: 'haben', form: 'er habe'"
+      note: "used mainly in indirect speech"
+
+    mood-subj_tense-past_type-I:
+      applies: {mood: subj, type: I, tense: past}
+      pattern: "{haben/sein in Subjunctive I} + past participle"
+      example: "er habe gesagt, er sei gegangen"
+
+    mood-subj_tense-fut_type-I:
+      applies: {mood: subj, type: I, tense: fut}
+      pattern: "{werden in Subjunctive I} + infinitive"
+      example: "er werde gehen"
+
+    mood-subj_tense-pres_type-II:
+      applies: {mood: subj, type: II, tense: pres}
+      patterns: 
+      - pattern: "preterite stem (ablaut/umlaut) + [endings]"
+        endings:
+          - {features: {person: 1, number: sg}, form: "e"}    # ich ginge
+          - {features: {person: 2, number: sg}, form: "est"}  # du gingest
+          - {features: {person: 3, number: sg}, form: "e"}    # er ginge
+          - {features: {person: 1, number: pl}, form: "en"}   # wir gingen
+          - {features: {person: 2, number: pl}, form: "et"}   # ihr ginget
+          - {features: {person: 3, number: pl}, form: "en"}   # sie gingen
+        example: "ich ginge"
+      - {pattern: "{würde (Konjunktiv II)} + infinitive", example: "ich würde gehen", note: "dominant form for most verbs in modern usage"}
+
+    mood-subj_tense-past_type-II:
+      applies: {mood: subj, type: II, tense: past}
+      pattern: "{hätte/wäre (Konjunktiv II)} + past participle"
+      example: "ich hätte gesagt, ich wäre gegangen"
+      note: "used for counterfactuals about the past"
+
+    mood-subj_tense-fut_type-II:
+      applies: {mood: subj, type: II, tense: fut}
+      pattern: "{würde (Konjunktiv II)} + infinitive + auxiliary infinitive"
+      example: "ich würde gegangen sein"
+      note: "rare; equivalent to Future II under subjunctive"

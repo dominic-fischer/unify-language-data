@@ -1,0 +1,68 @@
+Conditional-Sentences:
+  Features:
+    u-Tense: [u-prs, u-pst, u-fut]
+    x-Reality: [x-real, x-irreal]
+    x-Clause: [x-protasis, x-apodosis]
+  
+  Negation:
+    pattern: "[(...) conditional conjunction (...)] nicht (...) [final verb cluster]"
+    examples: 
+    - "Auch wenn er nicht kommen sollte, gehen wir nicht ohne ihn."
+    note: "only for protasis, apodosis follows regular negation"
+
+  Rules:
+    u-Tense_u-fut__x-Clause_x-apodosis:
+      applies: {u-Tense: u-fut, x-Clause: x-apodosis}
+      pattern: "{würde (Konjunktiv II)} + past participle + {haben/sein infinitive}"
+      examples: 
+      - "wir würden gegangen sein"
+      note: "rare; equivalent to Future II under conditional mood"
+
+    u-Tense_u-fut__x-Clause_x-protasis:
+      applies: {u-Tense: u-fut, x-Clause: x-protasis}
+      pattern: "{verb in future indicative}"
+      examples: 
+      - "wenn er kommen wird"
+      note: "rare; often replaced by present indicative"
+
+    u-Tense_u-prs__x-Clause_x-apodosis__x-Reality_x-irreal:
+      applies: {u-Tense: u-prs, x-Clause: x-apodosis, x-Reality: x-irreal}
+      patterns: 
+      - pattern: "Konjunktiv II present (synthetic)"
+        examples: 
+        - "wir gingen"
+        note: "less common in modern usage, survives with sein/haben/modals"
+      - pattern: "{würde (Konjunktiv II)} + infinitive"
+        examples: 
+        - "wir würden gehen"
+        note: "dominant in modern usage"
+
+    u-Tense_u-prs__x-Clause_x-apodosis__x-Reality_x-real:
+      applies: {u-Tense: u-prs, x-Clause: x-apodosis, x-Reality: x-real}
+      pattern: "{verb in indicative present/future}"
+      examples: 
+      - "gehen wir"
+
+    u-Tense_u-prs__x-Clause_x-protasis__x-Reality_x-irreal:
+      applies: {u-Tense: u-prs, x-Clause: x-protasis, x-Reality: x-irreal}
+      pattern: "{Konjunktiv II present (synthetic)}"
+      examples: 
+      - "wenn er käme"
+
+    u-Tense_u-prs__x-Clause_x-protasis__x-Reality_x-real:
+      applies: {u-Tense: u-prs, x-Clause: x-protasis, x-Reality: x-real}
+      pattern: "{verb in indicative present}"
+      examples: 
+      - "wenn er kommt"
+
+    u-Tense_u-pst__x-Clause_x-apodosis__x-Reality_x-irreal:
+      applies: {u-Tense: u-pst, x-Clause: x-apodosis, x-Reality: x-irreal}
+      pattern: "{hätte/wäre (Konjunktiv II)} + past participle"
+      examples: 
+      - "wir hätten gewonnen"
+
+    u-Tense_u-pst__x-Clause_x-protasis__x-Reality_x-irreal:
+      applies: {u-Tense: u-pst, x-Clause: x-protasis, x-Reality: x-irreal}
+      pattern: "{hätte/wäre (Konjunktiv II)} + past participle"
+      examples: 
+      - "wenn er gegangen wäre"
