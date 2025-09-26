@@ -8,7 +8,9 @@
     "de-past-progressive",
     "de-subj-I",
     "de-subj-II",
-    "de-past-participle"
+    "de-past-participle",
+    "de-praesens",
+    "de-praesens-progressive"
   ],
   "de-Declension": [
     "de-strong",
@@ -22,9 +24,5 @@
     "de-weak",
     "de-strong",
     "de-irregular"
-  ],
-  "de-Present-tense-type": [
-    "de-praesens",
-    "de-praesens-progressive"
   ]
 }
