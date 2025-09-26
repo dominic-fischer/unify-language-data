@@ -56,9 +56,5 @@
   "x-Form-type": [
     "x-standalone",
     "x-clitic"
-  ],
-  "x-Clausetypetype": [
-    "x-protasis",
-    "x-apodosis"
   ]
 }

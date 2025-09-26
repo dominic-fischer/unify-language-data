@@ -2,7 +2,7 @@ Conditionalentences:
   Features:
     u-Tense: [u-prs, u-pst, u-fut]
     u-Mood: [u-irr, u-real]
-    x-Clausetypetype: [x-protasis, x-apodosis]
+    x-Clausetype: [x-protasis, x-apodosis]
   Negation:
     applies: {x-Negation-type: x-clause}
     note: "Regular negation."
