@@ -3,7 +3,7 @@ Present:
     u-Person: [u-1, u-2, u-3]
     u-Number: [u-sg, u-pl]
     de-Verbclass: [de-weak, de-strong, de-irregular]
-    de-Present-tense-type: [de-praesens, de-praesens-progressive]
+    de-Tense-type: [de-praesens, de-praesens-progressive]
 
   Negation:
     applies: {x-Negation-type: x-clause}
@@ -28,8 +28,8 @@ Present:
       - "u-ipfv: Er ist am Arbeiten."
 
   Rules:
-    de-Present-tense-type_de-praesens__de-Verbclass_de-weak:
-      applies: {de-Verbclass: de-weak, de-Present-tense-type: de-praesens}
+    de-Tense-type_de-praesens__de-Verbclass_de-weak:
+      applies: {de-Verbclass: de-weak, de-Tense-type: de-praesens}
       pattern: "_stem_ + _ending_"
       endings:
       - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}     # ich mache
@@ -41,8 +41,8 @@ Present:
       examples:
       - "lemma: 'machen', stem: 'mach-'"
 
-    de-Present-tense-type_de-praesens__de-Verbclass_de-strong:
-      applies: {de-Verbclass: de-strong, de-Present-tense-type: de-praesens}
+    de-Tense-type_de-praesens__de-Verbclass_de-strong:
+      applies: {de-Verbclass: de-strong, de-Tense-type: de-praesens}
       pattern: "_stem/alteredStem_ + _ending_"
       endings:
       - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}     # ich sehe
@@ -55,16 +55,16 @@ Present:
       examples:
       - "lemma: 'sehen', stem: 'seh-', altered stem: 'sieh-'"
 
-    de-Present-tense-type_de-praesens__de-Verbclass_de-irregular:
-      applies: {de-Verbclass: de-irregular, de-Present-tense-type: de-praesens}
+    de-Tense-type_de-praesens__de-Verbclass_de-irregular:
+      applies: {de-Verbclass: de-irregular, de-Tense-type: de-praesens}
       pattern: "suppletive forms"
       examples:
       - "sein → ich bin, du bist, er ist"
       - "haben → ich habe, du hast, er hat"
       - "wissen → ich weiß, du weißt, er weiß"
 
-    de-Present-tense-type_de-praesens-progressive:
-      applies: {de-Present-tense-type: de-praesens-progressive}
+    de-Tense-type_de-praesens-progressive:
+      applies: {de-Tense-type: de-praesens-progressive}
       pattern: "{sein (finite)} + am + Infinitiv"
       examples:
       - "ich bin am Arbeiten"
