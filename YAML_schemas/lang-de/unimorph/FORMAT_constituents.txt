@@ -3,42 +3,42 @@ Constituents:
     x-Constituent: [x-NP, x-VP, x-AP, x-PP, x-AdvP, x-CP]
 
   Rules:
-    x-Category_x-NP:
-      applies: {x-Category: x-NP}
+    x-Constituent_x-NP:
+      applies: {x-Constituent: x-NP}
       pattern: "[Determiner] [AdjectivePhrase] Noun [PrepositionalPhrase] [RelativeClause] [PossessivePronoun]"
       examples:
         - "der große Hund"
       note: "Determiner obligatory in singular count nouns, unless proper noun or bare plural"
 
-    x-Category_x-VP:
-      applies: {x-Category: x-VP}
+    x-Constituent_x-VP:
+      applies: {x-Constituent: x-VP}
       pattern: "[Auxiliary] Verb [Object (NP/CP)] [AdverbPhrase] [PrepositionalPhrase] [SubordinateClause (CP)]"
       examples:
         - "hat den Hund gesehen"
       note: "verb-second in main clauses, verb-final in subordinates"
 
-    x-Category_x-AP:
-      applies: {x-Category: x-AP}
+    x-Constituent_x-AP:
+      applies: {x-Constituent: x-AP}
       pattern: "[DegreeMarker] Adjective [Complement (PP/CP)]"
       examples:
         - "sehr schön"
       note: "adjective inflects for case/number/gender of NP"
 
-    x-Category_x-PP:
-      applies: {x-Category: x-PP}
+    x-Constituent_x-PP:
+      applies: {x-Constituent: x-PP}
       pattern: "Preposition + NP [AdverbPhrase]"
       examples:
         - "mit dem Hund"
       note: "preposition governs case (acc/dat/gen)"
 
-    x-Category_x-AdvP:
-      applies: {x-Category: x-AdvP}
+    x-Constituent_x-AdvP:
+      applies: {x-Constituent: x-AdvP}
       pattern: "[DegreeMarker] Adverb"
       examples:
         - "sehr schnell"
 
-    x-Category_x-CP:
-      applies: {x-Category: x-CP}
+    x-Constituent_x-CP:
+      applies: {x-Constituent: x-CP}
       pattern: "[Complementizer] Subject (NP) [Adverbials] VP"
       examples:
         - "dass er den Hund sieht"

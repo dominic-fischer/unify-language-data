@@ -43,14 +43,6 @@
     "x-AdvP",
     "x-CP"
   ],
-  "x-Category": [
-    "x-NP",
-    "x-VP",
-    "x-AP",
-    "x-PP",
-    "x-AdvP",
-    "x-CP"
-  ],
   "x-Passive-type": [
     "x-process",
     "x-state"
