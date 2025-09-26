@@ -1,0 +1,70 @@
+{
+  "x-Process": [
+    "x-base-form",
+    "x-adj-as-adv",
+    "x-complex",
+    "x-modification",
+    "x-prefixation",
+    "x-suffixation",
+    "x-compounding",
+    "x-conversion"
+  ],
+  "x-Domain": [
+    "x-subject-verb",
+    "x-noun-adjective",
+    "x-noun-determiner"
+  ],
+  "x-Clausetype": [
+    "x-main",
+    "x-subordinate",
+    "x-int-yes-no",
+    "x-int-wh",
+    "x-exclamative",
+    "x-excl"
+  ],
+  "x-Word-order": [
+    "x-V2",
+    "x-Vfinal",
+    "x-V1"
+  ],
+  "x-Negation-type": [
+    "x-clause",
+    "x-constituent"
+  ],
+  "x-Clause": [
+    "x-protasis",
+    "x-apodosis"
+  ],
+  "x-Constituent": [
+    "x-NP",
+    "x-VP",
+    "x-AP",
+    "x-PP",
+    "x-AdvP",
+    "x-CP"
+  ],
+  "x-Category": [
+    "x-NP",
+    "x-VP",
+    "x-AP",
+    "x-PP",
+    "x-AdvP",
+    "x-CP"
+  ],
+  "x-Passive-type": [
+    "x-process",
+    "x-state"
+  ],
+  "x-Pronoun-type": [
+    "x-pers",
+    "x-refl",
+    "x-dem",
+    "x-poss",
+    "x-int",
+    "x-rel"
+  ],
+  "x-Form-type": [
+    "x-standalone",
+    "x-clitic"
+  ]
+}

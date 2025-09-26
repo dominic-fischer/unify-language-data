@@ -1,0 +1,30 @@
+{
+  "de-Tense-type": [
+    "de-futur-I",
+    "de-futur-II",
+    "de-praeteritum",
+    "de-perfekt",
+    "de-plusquamperfekt",
+    "de-past-progressive",
+    "de-subj-I",
+    "de-subj-II",
+    "de-past-participle"
+  ],
+  "de-Declension": [
+    "de-strong",
+    "de-weak",
+    "de-plural-en",
+    "de-plural-e",
+    "de-plural-er",
+    "de-plural-s"
+  ],
+  "de-Verbclass": [
+    "de-weak",
+    "de-strong",
+    "de-irregular"
+  ],
+  "de-Present-tense-type": [
+    "de-praesens",
+    "de-praesens-progressive"
+  ]
+}

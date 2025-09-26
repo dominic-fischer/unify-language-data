@@ -1,0 +1,864 @@
+{
+    "u-Aktionsart": {
+        "u-accmp": [
+            "Accomplishment",
+            "Accomplishment — Durative and telic event, requires time and culminates in a result."
+        ],
+        "u-ach": [
+            "Achievement",
+            "Achievement — Punctual and telic event, instantaneous change of state."
+        ],
+        "u-acty": [
+            "Activity",
+            "Activity — Durative and atelic event, extends in time without an endpoint."
+        ],
+        "u-atel": [
+            "Atelic",
+            "Atelic — Event with no natural endpoint."
+        ],
+        "u-dur": [
+            "Durative",
+            "Durative — Event extends over time."
+        ],
+        "u-dyn": [
+            "Dynamic",
+            "Dynamic — True only over a span of time, requires effort to maintain."
+        ],
+        "u-pct": [
+            "Punctual",
+            "Punctual — Event conceived as instantaneous."
+        ],
+        "u-semel": [
+            "Semelfactive",
+            "Semelfactive — Punctual and atelic event."
+        ],
+        "u-stat": [
+            "Stative",
+            "Stative — State true at any instant, requires no effort to maintain."
+        ],
+        "u-tel": [
+            "Telic",
+            "Telic — Event with a natural endpoint or culmination."
+        ]
+    },
+    "u-Animacy": {
+        "u-anim": [
+            "Animate",
+            "Animate — Refers to animate beings (human or animal)."
+        ],
+        "u-hum": [
+            "Human",
+            "Human — Refers specifically to humans."
+        ],
+        "u-inan": [
+            "Inanimate",
+            "Inanimate — Refers to non-living entities."
+        ],
+        "u-nhum": [
+            "Non-human",
+            "Non-human — Animate but not human."
+        ]
+    },
+    "u-Aspect": {
+        "u-hab": [
+            "Habitual",
+            "Habitual — Event occurs regularly or customarily in an unbounded timeframe."
+        ],
+        "u-ipfv": [
+            "Imperfective",
+            "Imperfective — Event duration exceeds the reported timeframe."
+        ],
+        "u-iter": [
+            "Iterative",
+            "Iterative — Event repeats multiple times in a bounded timeframe."
+        ],
+        "u-pfv": [
+            "Perfective",
+            "Perfective — Event viewed as complete, bounded."
+        ],
+        "u-prf": [
+            "Perfect",
+            "Perfect — Event prior to the reported timeframe, with relevance to present state."
+        ],
+        "u-prog": [
+            "Progressive",
+            "Progressive — Event ongoing at the reported timeframe."
+        ],
+        "u-prosp": [
+            "Prospective",
+            "Prospective — Event anticipated, reported timeframe precedes it."
+        ]
+    },
+    "u-Case": {
+        "u-abl": [
+            "Ablative",
+            "Ablative — Marks motion away from."
+        ],
+        "u-abs": [
+            "Absolutive",
+            "Absolutive — Marks S/P in ergative-absolutive alignment."
+        ],
+        "u-acc": [
+            "Accusative",
+            "Accusative — Marks P in nominative-accusative alignment."
+        ],
+        "u-all": [
+            "Allative",
+            "Allative — Marks motion toward."
+        ],
+        "u-ante": [
+            "Near, in front of",
+            "Anterior — Location in front/near."
+        ],
+        "u-apprx": [
+            "Approximative",
+            "Approximative — Marks motion or position close to but not exactly at a location."
+        ],
+        "u-apud": [
+            "Next to",
+            "Apud — Marks position next to or in the vicinity of a location."
+        ],
+        "u-at": [
+            "At",
+            "At — Marks position directly at or on a location."
+        ],
+        "u-avr": [
+            "Aversive",
+            "Aversive — Marks avoidance or fear, 'because of fear of X'."
+        ],
+        "u-ben": [
+            "Benefactive",
+            "Benefactive — Marks beneficiary of an action."
+        ],
+        "u-byway": [
+            "Essive-modal",
+            "Essive-Modal — Marks manner or role in which an action is carried out ('by way of, as')."
+        ],
+        "u-circ": [
+            "Near",
+            "Circumessive — Location around/near."
+        ],
+        "u-com": [
+            "Comitative",
+            "Comitative — Marks accompaniment ('with')."
+        ],
+        "u-compv": [
+            "Comparative",
+            "Comparative — Marks standard of comparison."
+        ],
+        "u-dat": [
+            "Dative",
+            "Dative — Marks recipients, goals, experiencers."
+        ],
+        "u-eqtv": [
+            "Equative",
+            "Equative — Marks equality in comparison."
+        ],
+        "u-erg": [
+            "Ergative",
+            "Ergative — Marks A in ergative-absolutive alignment."
+        ],
+        "u-ess": [
+            "Essive",
+            "Essive — Marks state or temporary location."
+        ],
+        "u-frml": [
+            "Formal",
+            "Formal — Case used in formal registers."
+        ],
+        "u-gen": [
+            "Genitive",
+            "Genitive — Marks possessors and related functions."
+        ],
+        "u-in": [
+            "In",
+            "Inessive — Location inside."
+        ],
+        "u-ins": [
+            "Instrumental",
+            "Instrumental — Marks means/instrument."
+        ],
+        "u-inter": [
+            "Among",
+            "Interessive — Location among/between."
+        ],
+        "u-nom": [
+            "Nominative",
+            "Nominative — Marks S/A in nominative-accusative alignment."
+        ],
+        "u-noms": [
+            "Nominative, S-only",
+            "Nominative, S-only — Distinguishes in tripartite alignment."
+        ],
+        "u-on": [
+            "On",
+            "Onessive — Location on a surface."
+        ],
+        "u-onhr": [
+            "On (horizontal)",
+            "On (horizontal) — Location on a horizontal surface."
+        ],
+        "u-onvr": [
+            "On (vertical)",
+            "On (vertical) — Location on a vertical surface."
+        ],
+        "u-post": [
+            "Behind",
+            "Posterior — Location behind."
+        ],
+        "u-priv": [
+            "Privative",
+            "Privative — Marks absence ('without')."
+        ],
+        "u-prol": [
+            "Prolative/translative",
+            "Prolative — Motion along or through."
+        ],
+        "u-propr": [
+            "Proprietive",
+            "Proprietive — Marks possession ('with')."
+        ],
+        "u-prox": [
+            "Proximate",
+            "Proximate — Location nearby."
+        ],
+        "u-prp": [
+            "Purposive",
+            "Purposive — Marks intended goal/purpose."
+        ],
+        "u-prt": [
+            "Partitive",
+            "Partitive — Marks partial affectedness."
+        ],
+        "u-rel": [
+            "Relative",
+            "Relative — Marks a relative form, expressing comparison in relation to another entity (not strictly comparative or equative)."
+        ],
+        "u-rem": [
+            "Distal",
+            "Remote — Location far away."
+        ],
+        "u-sub": [
+            "Under",
+            "Sublative — Location under."
+        ],
+        "u-term": [
+            "Terminative",
+            "Terminative — Marks endpoint of motion."
+        ],
+        "u-trans": [
+            "Translative",
+            "Translative — Marks change into a role/state."
+        ],
+        "u-vers": [
+            "Versative",
+            "Versative — Marks a change of state or becoming, often 'turn into' or 'make into'."
+        ],
+        "u-voc": [
+            "Vocative",
+            "Vocative — Direct address."
+        ]
+    },
+    "u-Comparison": {
+        "u-ab": [
+            "Absolute",
+            "Absolute (for Superlative) - absolute superlativity."
+        ],
+        "u-cmpr": [
+            "Comparative",
+            "Comparative — Expresses greater degree."
+        ],
+        "u-eqt": [
+            "Equative",
+            "Equative — Expresses equality."
+        ],
+        "u-rl": [
+            "Relative",
+            "Relative (for Superlative) — relative superlativity."
+        ],
+        "u-sprl": [
+            "Superlative",
+            "Superlative — Expresses highest degree among a set."
+        ]
+    },
+    "u-Definiteness": {
+        "u-def": [
+            "Definite",
+            "Definite — Refers to identifiable entities."
+        ],
+        "u-indf": [
+            "Indefinite",
+            "Indefinite — Refers to non-specific entities."
+        ],
+        "u-nspec": [
+            "Non-Specific",
+            "Non-specific — Ambiguous/general reference."
+        ],
+        "u-spec": [
+            "Specific",
+            "Specific — Specific reference, not necessarily definite."
+        ]
+    },
+    "u-Deixis": {
+        "u-abv": [
+            "Above",
+            "Above — Refers to something located above."
+        ],
+        "u-bel": [
+            "Below",
+            "Below — Refers to something located below."
+        ],
+        "u-even": [
+            "Even",
+            "Even — Refers to same level."
+        ],
+        "u-med": [
+            "Medial",
+            "Medial — Refers to mid-range distance."
+        ],
+        "u-noref": [
+            "No Reference Point, Distal",
+            "No reference point, distal deixis."
+        ],
+        "u-nvis": [
+            "Invisible",
+            "Invisible — Not visible from reference point."
+        ],
+        "u-phor": [
+            "Phoric, situated in discourse",
+            "Phoric — Deixis established in discourse."
+        ],
+        "u-prox": [
+            "Proximate",
+            "Proximal — Close to reference point."
+        ],
+        "u-ref1": [
+            "First Person Reference Point",
+            "First person reference point."
+        ],
+        "u-ref2": [
+            "Second Person Reference Point",
+            "Second person reference point."
+        ],
+        "u-remt": [
+            "Remote",
+            "Remote — Far from reference point."
+        ],
+        "u-vis": [
+            "Visible",
+            "Visible — Visible from reference point."
+        ]
+    },
+    "u-Evidentiality": {
+        "u-assum": [
+            "Assumed",
+            "Assumed — Speaker assumes truth."
+        ],
+        "u-aud": [
+            "Auditory",
+            "Auditory — Based on sound."
+        ],
+        "u-drct": [
+            "Direct",
+            "Direct — Direct evidence."
+        ],
+        "u-fh": [
+            "Firsthand",
+            "Firsthand — Based on direct experience."
+        ],
+        "u-hrsy": [
+            "Hearsay",
+            "Hearsay — Based on hearsay."
+        ],
+        "u-infer": [
+            "Inferred",
+            "Inferred — Inferred from indirect evidence."
+        ],
+        "u-nfh": [
+            "Non-firsthand",
+            "Non-firsthand — Indirect evidence."
+        ],
+        "u-nvsen": [
+            "Non-visual sensory",
+            "Non-visual sensory — Based on other senses."
+        ],
+        "u-quot": [
+            "Quotative",
+            "Quotative — Reported speech."
+        ],
+        "u-rprt": [
+            "Reported",
+            "Reported — Reported information."
+        ],
+        "u-sen": [
+            "Sensory",
+            "Sensory — General sensory evidence."
+        ]
+    },
+    "u-Finiteness": {
+        "u-fin": [
+            "Finite",
+            "Finite — Verb form inflected for subject/tense."
+        ],
+        "u-nfin": [
+            "Nonfinite",
+            "Non-finite — Infinitives, participles, etc."
+        ]
+    },
+    "u-Gender": {
+        "u-bantu1-23": [
+            "Bantu Noun Classes",
+            "Bantu Noun Classes — Gender-like system in Bantu languages with up to 23 noun classes."
+        ],
+        "u-fem": [
+            "Feminine",
+            "Feminine — Nouns or agreement forms marked as female gender."
+        ],
+        "u-masc": [
+            "Masculine",
+            "Masculine — Nouns or agreement forms marked as male gender."
+        ],
+        "u-nakh1-8": [
+            "Nakh-Daghestanian Noun Classes",
+            "Nakh-Daghestanian Noun Classes — Gender-like system in Nakh-Daghestanian languages with multiple noun classes."
+        ],
+        "u-neut": [
+            "Neuter",
+            "Neuter — Nouns or agreement forms that are neither masculine nor feminine."
+        ]
+    },
+    "u-Information Structure": {
+        "u-foc": [
+            "Focus",
+            "Focus — Marks the highlighted or emphasized part of the sentence."
+        ],
+        "u-top": [
+            "Topic",
+            "Topic — Marks what the sentence is about, often known information."
+        ]
+    },
+    "u-Interrogativity": {
+        "u-decl": [
+            "Declarative",
+            "Declarative — Statement form, not a question."
+        ],
+        "u-int": [
+            "Interrogative",
+            "Interrogative — Question form."
+        ]
+    },
+    "u-Mood": {
+        "u-adm": [
+            "Admirative",
+            "Admirative — Marks surprise or unexpectedness."
+        ],
+        "u-aunprp": [
+            "Australian Non-Purposive",
+            "Australian Non-Purposive — Special non-purpose mood found in Australian languages."
+        ],
+        "u-auprp": [
+            "Australian Purposive",
+            "Australian Purposive — Special purposive mood in Australian languages."
+        ],
+        "u-cond": [
+            "Conditional",
+            "Conditional — Marks hypothetical situations or consequences."
+        ],
+        "u-deb": [
+            "Debitive",
+            "Debitive — Marks necessity or obligation."
+        ],
+        "u-ded": [
+            "Deductive",
+            "Deductive — Marks inferred or deduced information."
+        ],
+        "u-imp": [
+            "Imperative-Jussive",
+            "Imperative-Jussive — Marks commands, requests, or exhortations."
+        ],
+        "u-ind": [
+            "Indicative",
+            "Indicative — Marks factual or real events."
+        ],
+        "u-inten": [
+            "Intentive",
+            "Intentive — Marks intention or desire to act."
+        ],
+        "u-irr": [
+            "Irrealis",
+            "Irrealis — Marks events not real or actual (hypothetical, counterfactual)."
+        ],
+        "u-lkly": [
+            "Likely",
+            "Likely — Marks probability or likelihood."
+        ],
+        "u-oblig": [
+            "Obligative",
+            "Obligative — Marks obligation or duty."
+        ],
+        "u-opt": [
+            "Optative-Desiderative",
+            "Optative-Desiderative — Marks wishes, hopes, or desires."
+        ],
+        "u-perm": [
+            "Permissive",
+            "Permissive — Marks allowance or permission."
+        ],
+        "u-pot": [
+            "Potential",
+            "Potential — Marks possibility or ability."
+        ],
+        "u-purp": [
+            "General Purposive",
+            "General Purposive — Marks purpose or aim."
+        ],
+        "u-real": [
+            "Realis",
+            "Realis — Marks events considered actual or real."
+        ],
+        "u-sbjv": [
+            "Subjunctive",
+            "Subjunctive — Marks non-assertive, dependent, or hypothetical events."
+        ],
+        "u-sim": [
+            "Simulative",
+            "Simulative — Marks pretend or simulated action."
+        ]
+    },
+    "u-Number": {
+        "u-du": [
+            "Dual",
+            "Dual — Refers to exactly two entities."
+        ],
+        "u-gpauc": [
+            "Greater paucal",
+            "Greater Paucal — Refers to more entities than paucal, but not as many as full plural."
+        ],
+        "u-grpl": [
+            "Greater plural",
+            "Greater Plural — Refers to very many entities."
+        ],
+        "u-invn": [
+            "Inverse",
+            "Inverse Number — Marks unusual number for the noun (e.g., collective treated as singular)."
+        ],
+        "u-pauc": [
+            "Paucal",
+            "Paucal — Refers to a small number of entities (more than two, but not many)."
+        ],
+        "u-pl": [
+            "Plural",
+            "Plural — Refers to more than one entity (often 3+)."
+        ],
+        "u-sg": [
+            "Singular",
+            "Singular — Refers to exactly one entity."
+        ],
+        "u-tri": [
+            "Trial",
+            "Trial — Refers to exactly three entities."
+        ]
+    },
+    "u-Part-of-Speech": {
+        "u-adj": [
+            "Adjective",
+            "Adjective — Describes qualities of nouns."
+        ],
+        "u-adp": [
+            "Adposition",
+            "Adposition — Prepositions or postpositions."
+        ],
+        "u-adv": [
+            "Adverb",
+            "Adverb — Modifies verbs, adjectives, or clauses."
+        ],
+        "u-art": [
+            "Article",
+            "Article — Marks definiteness or indefiniteness of nouns."
+        ],
+        "u-aux": [
+            "Auxiliary",
+            "Auxiliary — Helps form tense, aspect, or voice."
+        ],
+        "u-clf": [
+            "Classifier",
+            "Classifier — Noun classifiers used in some languages."
+        ],
+        "u-comp": [
+            "Complementizer",
+            "Complementizer — Introduces subordinate clauses."
+        ],
+        "u-conj": [
+            "Conjunction",
+            "Conjunction — Connects words, phrases, or clauses."
+        ],
+        "u-det": [
+            "Determiner",
+            "Determiner — Introduces and specifies nouns."
+        ],
+        "u-intj": [
+            "Interjection",
+            "Interjection — Exclamation or emotive word."
+        ],
+        "u-n": [
+            "Noun",
+            "Noun — Refers to persons, places, things, or concepts."
+        ],
+        "u-num": [
+            "Numeral",
+            "Numeral — Expresses number."
+        ],
+        "u-part": [
+            "Particle",
+            "Particle — Grammatical marker, often short and invariable."
+        ],
+        "u-pro": [
+            "Pronoun",
+            "Pronoun — Stands in place of a noun."
+        ],
+        "u-propn": [
+            "Proper Name",
+            "Proper Name — Names of people, places, etc."
+        ],
+        "u-v": [
+            "Verb",
+            "Verb — Describes actions, processes, or states."
+        ],
+        "u-v.cvb": [
+            "Converb",
+            "Converb — Verb form used in subordinate or adverbial clauses."
+        ],
+        "u-v.msdr": [
+            "Masdar",
+            "Masdar — Verbal noun, especially in Semitic languages."
+        ],
+        "u-v.ptcp": [
+            "Participle",
+            "Participle — Verb form used as adjective or noun."
+        ]
+    },
+    "u-Person": {
+        "u-0": [
+            "Zero person",
+            "Zero Person — Refers to generic or impersonal subjects."
+        ],
+        "u-1": [
+            "First person",
+            "First Person — Refers to the speaker or speakers (I, we)."
+        ],
+        "u-2": [
+            "Second person",
+            "Second Person — Refers to the addressee(s) (you)."
+        ],
+        "u-3": [
+            "Third person",
+            "Third Person — Refers to someone/something not part of speech act (he, she, it, they)."
+        ],
+        "u-4": [
+            "Fourth person",
+            "Fourth Person — Special category used in some languages (e.g., Algonquian)."
+        ],
+        "u-excl": [
+            "Exclusive",
+            "Exclusive — Refers to 'we' excluding the addressee."
+        ],
+        "u-incl": [
+            "Inclusive",
+            "Inclusive — Refers to 'we' including the addressee."
+        ],
+        "u-obv": [
+            "Obviative",
+            "Obviative — Distinguishes less central third person in discourse."
+        ],
+        "u-prx": [
+            "Proximate",
+            "Proximate — Marks the more central third person in discourse."
+        ]
+    },
+    "u-Polarity": {
+        "u-pos": [
+            "Positive",
+            "Positive — Affirms or asserts an event."
+        ],
+        "u-neg": [
+            "Negative",
+            "Negative — Denies or negates an event."
+        ]
+    },
+    "u-Politeness": {
+        "u-avoid": [
+            "Avoidance style",
+            "Avoidance style — Marks special register avoiding direct reference."
+        ],
+        "u-col": [
+            "Colloquial",
+            "Colloquial — Informal, everyday register."
+        ],
+        "u-elev": [
+            "Formal, Referent Elevating",
+            "Formal, Referent Elevating — Raises status of the person referred to."
+        ],
+        "u-foreg": [
+            "Formal register",
+            "Formal Register — Used in formal speech or writing."
+        ],
+        "u-form": [
+            "Formal",
+            "Formal — General formality."
+        ],
+        "u-high": [
+            "High status",
+            "High Status — Marks deference to a high-status addressee."
+        ],
+        "u-humb": [
+            "Formal, Speaker Humbling",
+            "Formal, Speaker Humbling — Speaker lowers own status."
+        ],
+        "u-infm": [
+            "Informal",
+            "Informal — Casual speech style."
+        ],
+        "u-lit": [
+            "Literary",
+            "Literary — Used in literary or elevated style."
+        ],
+        "u-low": [
+            "Low status",
+            "Low Status — Marks deference to a low-status addressee."
+        ],
+        "u-pol": [
+            "Polite",
+            "Polite — Neutral politeness."
+        ],
+        "u-stelev": [
+            "High status, elevated",
+            "High Status, Elevated — Strong deference to high rank."
+        ],
+        "u-stsupr": [
+            "High status, supreme",
+            "High Status, Supreme — Extreme deference to the highest rank."
+        ]
+    },
+    "u-Tense": {
+        "u-1day": [
+            "Within 1 day",
+            "Within 1 Day — Event occurred within a day span."
+        ],
+        "u-fut": [
+            "Future",
+            "Future — Event will occur after now."
+        ],
+        "u-hod": [
+            "Hodiernal",
+            "Hodiernal — Event occurred today."
+        ],
+        "u-immed": [
+            "Immediate",
+            "Immediate — Event occurs right now or just after."
+        ],
+        "u-prs": [
+            "Present",
+            "Present — Event occurs now."
+        ],
+        "u-pst": [
+            "Past",
+            "Past — Event occurred before now."
+        ],
+        "u-rct": [
+            "Recent",
+            "Recent — Event occurred recently."
+        ],
+        "u-rmt": [
+            "Remote",
+            "Remote — Event occurred long ago."
+        ]
+    },
+    "u-Valency": {
+        "u-appl": [
+            "Applicative",
+            "Applicative — Adds an extra argument (beneficiary, instrument, etc.)."
+        ],
+        "u-caus": [
+            "Causative",
+            "Causative — Adds a causer argument (makes someone do something)."
+        ],
+        "u-ditr": [
+            "Ditransitive",
+            "Ditransitive — Verb with three core arguments (subject, object, indirect object)."
+        ],
+        "u-imprs": [
+            "Impersonal",
+            "Impersonal — Verb used without a specific subject."
+        ],
+        "u-intr": [
+            "Intransitive",
+            "Intransitive — Verb with only one core argument (the subject)."
+        ],
+        "u-recp": [
+            "Reciprocal",
+            "Reciprocal — Subjects act on each other."
+        ],
+        "u-refl": [
+            "Reflexive",
+            "Reflexive — Subject acts on itself."
+        ],
+        "u-tr": [
+            "Transitive",
+            "Transitive — Verb with two core arguments (subject and object)."
+        ]
+    },
+    "u-Voice": {
+        "u-acfoc": [
+            "Accompanier Focus",
+            "Accompanier Focus — Highlights the accompanier."
+        ],
+        "u-act": [
+            "Active",
+            "Active — Subject performs the action."
+        ],
+        "u-agfoc": [
+            "Agent Focus",
+            "Agent Focus — Highlights the agent (doer)."
+        ],
+        "u-antip": [
+            "Antipassive",
+            "Antipassive — Reduces the prominence of the object."
+        ],
+        "u-bfoc": [
+            "Beneficiary Focus",
+            "Beneficiary Focus — Highlights the beneficiary."
+        ],
+        "u-cfoc": [
+            "Conveyed Focus",
+            "Conveyed Focus — Highlights the conveyed item or theme."
+        ],
+        "u-dir": [
+            "Direct",
+            "Direct — Subject and object roles follow the usual hierarchy."
+        ],
+        "u-ifoc": [
+            "Instrument Focus",
+            "Instrument Focus — Highlights the instrument used."
+        ],
+        "u-inv": [
+            "Inverse",
+            "Inverse — Subject and object roles are inverted compared to the usual hierarchy."
+        ],
+        "u-lfoc": [
+            "Location Focus",
+            "Location Focus — Highlights the location."
+        ],
+        "u-mid": [
+            "Middle",
+            "Middle — Subject acts on or for itself, between active and passive."
+        ],
+        "u-pass": [
+            "Passive",
+            "Passive — Subject receives the action."
+        ],
+        "u-pfoc": [
+            "Patient Focus",
+            "Patient Focus — Highlights the patient (undergoer)."
+        ]
+    }
+}
