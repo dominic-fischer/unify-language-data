@@ -166,6 +166,10 @@ class TextParser:
             title_str = snippet["title"]
             fallback_header = "[No title available]"
 
+            if not preceding:
+                print(f"Skipping table {snippet['table']} as it has no preceding text.")
+                continue
+
             # Format the table
             table_str = table.to_markdown(index=False)
             table_block = f"<pre>```\n{table_str}\n```</pre>"
@@ -186,6 +190,8 @@ class TextParser:
                     f.write("=== start ===\n")
                     f.write(
                         f"table {snippet['index'] + 1} was not added to document.\n"
+                        f"{table}\n"
+                        f"{preceding[-75:]}\n"
                     )
                     f.write("=== end ===\n")
                     f.write("\n")
@@ -412,6 +418,7 @@ class DocxParser(TextParser):
                 # Use a longer context window for the preceding snippet so matches are
                 # less likely to accidentally match an earlier identical phrase.
                 snippet = " ".join(word_buffer[-80:])
+                
 
                 table_snippets.append(
                     {
@@ -557,8 +564,7 @@ class WikipediaParser(TextParser):
                     
                     if (
                         current_heading_chain
-                        and current_heading_chain[-1][1].strip().lower()
-                        == "external links"
+                        and "external links" in current_heading_chain[-1][1].strip().lower()
                     ):
                         print(
                             f"Skipping table {table_index} because it's under 'External links' section.\n"
@@ -572,7 +578,7 @@ class WikipediaParser(TextParser):
 
                     # Skip placeholder tables
                     placeholder_phrases = [
-                        "this section needs expansion",
+                        "this section needs",
                         "you can help by adding to it",
                         "citation needed",
                         "unsourced material",
@@ -599,6 +605,7 @@ class WikipediaParser(TextParser):
                     # so normalized matching has more context and is less
                     # likely to produce false negatives.
                     snippet = " ".join(word_buffer[-80:])
+                    snippet = re.sub(r"\[\s?.*\s?\]", "", snippet)
 
                     table_snippets.append(
                         {

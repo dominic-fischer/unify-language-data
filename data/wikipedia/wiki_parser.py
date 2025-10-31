@@ -8,8 +8,22 @@ sys.path.append(str(Path(__file__).resolve().parent.parent.parent))
 from data.TextParser import WikipediaParser
 
 # Replace with the Wikipedia page title you want to process
-parser = WikipediaParser("Zulu grammar")
+pages = [
+    "Zulu grammar",
+    "Swahili grammar",
+    "Chewa language",
+    "Shona language",
+    "Italian grammar",
+    "French grammar",
+    "Portuguese grammar",
+    "Romanian grammar",
+    "Spanish grammar"
+]
 
-# Save the final output (plaintext with tables inserted)
-parser.output_folder = "data/wikipedia/outfiles"
-parser.save_output()
+for p in pages:
+    # Replace with the Wikipedia page title you want to process
+    parser = WikipediaParser(p)
+
+    # Save the final output (plaintext with tables inserted)
+    parser.output_folder = "data/wikipedia/outfiles"
+    parser.save_output()
