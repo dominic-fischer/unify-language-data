@@ -3163,11 +3163,7 @@ Die Vorsilbe M- ist (u.a.) die Vorsilbe für Menschen, was bei einigen Beispiele
 
 «Wo-», die Eigenschaftssilbe der Klasse 1/2, deute auf einen verbalen Ursprung hin. So kann aus gründsätzlich jedem Verb die zugehörige Person wortgeschöpft werden. Die wichtigsten davon sind hier aufgelistet.
 
-## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### Wa-, A_
-
-«Wa-», die Besitzsilbe der Klasse 1/2, deutet auf einen nominalen Ursprung bzw. auf einen verbalen Ursprung eines einsilbigen Verbes hin hin. So kann aus gründsätzlich jedem Nomen die zugehörige Person wortgeschöpft werden. Die wichtigsten davon sind hier aufgelistet.
-
-## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### Wa-, A_ > ###### Table 149
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### Wo-, O- > ###### Table 149
 
 <pre>```
 | 0                         | 1                | 2                    | 3                 |
@@ -3186,6 +3182,10 @@ Die Vorsilbe M- ist (u.a.) die Vorsilbe für Menschen, was bei einigen Beispiele
 | woyimba, o                | Sänger           | imba                 | singen            |
 ```</pre>
 
+
+## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### Wa-, A_
+
+«Wa-», die Besitzsilbe der Klasse 1/2, deutet auf einen nominalen Ursprung bzw. auf einen verbalen Ursprung eines einsilbigen Verbes hin hin. So kann aus gründsätzlich jedem Nomen die zugehörige Person wortgeschöpft werden. Die wichtigsten davon sind hier aufgelistet.
 
 ## Vokabular > ### Nomen > #### Klasse 1/2: M-, A- > ##### Wa-, A_ > ###### Table 150
 

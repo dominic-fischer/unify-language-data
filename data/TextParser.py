@@ -15,24 +15,21 @@ import os
 from datetime import datetime
 from pathlib import Path
 
+
 class TextParser:
     def __init__(self):
         self.plaintext_lines = []
         self.headers = []
         self.table_snippets = []
 
-
     def build_markdown_plaintext(self):
         raise NotImplementedError
-
 
     def extract_headers(self):
         raise NotImplementedError
 
-
     def extract_table_snippets(self):
         raise NotImplementedError
-    
 
     def save_output(self, output_path=None):
         final_text = self.insert_tables_into_plaintext()
@@ -40,12 +37,13 @@ class TextParser:
         if output_path is None:
             folder = getattr(self, "output_folder", "output_files")
             Path(folder).mkdir(parents=True, exist_ok=True)
-            filename = f"{self.title.replace(' ', '_')}_plaintext_structured_w_tables.txt"
+            filename = (
+                f"{self.title.replace(' ', '_')}_plaintext_structured_w_tables.txt"
+            )
             output_path = Path(folder) / filename
 
-        with open(output_path, 'w', encoding='utf-8') as f:
+        with open(output_path, "w", encoding="utf-8") as f:
             f.write(final_text)
-
 
     def normalize_and_map(self, text):
         """
@@ -56,16 +54,15 @@ class TextParser:
         mapping = []
 
         for i, orig_c in enumerate(text):
-            for c in unicodedata.normalize('NFD', orig_c):
-                if unicodedata.category(c) == 'Mn':
+            for c in unicodedata.normalize("NFD", orig_c):
+                if unicodedata.category(c) == "Mn":
                     continue  # skip diacritic marks
                 if c.isspace() or c in string.punctuation:
                     continue  # skip whitespace and punctuation
                 norm.append(c.lower())
                 mapping.append(i)
 
-        return ''.join(norm), mapping
-
+        return "".join(norm), mapping
 
     def find_normalized_match(self, preceding, norm_text, mapping, original_text):
         """
@@ -73,8 +70,9 @@ class TextParser:
         Returns the insertion point in the original text using the mapping, adjusted to skip
         punctuation, quotes, brackets, and whitespace after the match.
         """
-        norm_snip = ''.join(
-            c.lower() for c in self.strip_accents(preceding)
+        norm_snip = "".join(
+            c.lower()
+            for c in self.strip_accents(preceding)
             if not c.isspace() and c not in string.punctuation
         )
         pos = norm_text.rfind(norm_snip)
@@ -86,10 +84,26 @@ class TextParser:
 
             # Skip over trailing punctuation, quotes, brackets, and whitespace
             while insert_pos < len(original_text) and original_text[insert_pos] in {
-                '.', ',', '!', '?', ':', ';',
-                '"', "'", '”', '’', '`', '“', '‘',
-                ')', ']', '}', '›', '»', '-',
-                ' '
+                ".",
+                ",",
+                "!",
+                "?",
+                ":",
+                ";",
+                '"',
+                "'",
+                "”",
+                "’",
+                "`",
+                "“",
+                "‘",
+                ")",
+                "]",
+                "}",
+                "›",
+                "»",
+                "-",
+                " ",
             }:
                 insert_pos += 1
 
@@ -97,60 +111,59 @@ class TextParser:
         except IndexError:
             return -1
 
-
     def find_closest_header(self, text):
         """
         Return the last valid header from `self.headers` that appears before the end of `text`.
         Assumes `text` is the portion of the document up to the insertion point.
         """
         lines = text.splitlines()
-        
+
         for line in reversed(lines):
             line = line.strip()
-            if line.startswith('#'):  # likely a markdown header
+            if line.startswith("#"):  # likely a markdown header
                 if line in self.headers:
                     return line
 
         return None  # fallback if no valid header found
-
 
     def find_level_header(self, header):
         """
         Find the level (number of '#') of the rightmost section in a breadcrumb-style header.
         For example, '## Grammar > ### Pronunciation' returns 3.
         """
-        parts = header.split(' > ')
+        parts = header.split(" > ")
         if not parts:
             return 2
         last_part = parts[-1].strip()
-        match = re.match(r'^(#+)', last_part)
+        match = re.match(r"^(#+)", last_part)
         return len(match.group(1)) if match else 2
-
 
     def strip_accents(self, text):
         """
         Remove accents from characters in the input text using Unicode normalization.
         """
-        return ''.join(
-            c for c in unicodedata.normalize('NFD', text)
-            if unicodedata.category(c) != 'Mn'
+        return "".join(
+            c
+            for c in unicodedata.normalize("NFD", text)
+            if unicodedata.category(c) != "Mn"
         )
-
 
     def insert_tables_into_plaintext(self):
         """
         Insert formatted tables into the plaintext at appropriate locations,
         based on normalized matches of preceding text and closest headers.
         """
-        output = '\n'.join(self.plaintext_lines)
+        output = "\n".join(self.plaintext_lines)
         norm_text, mapping = self.normalize_and_map(output)
         current_date_and_time = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        log_filename = f"debug_files/{self.title.replace(' ', '_')}_{current_date_and_time}_potential_errors_log.txt"
+        log_filename = f"ERROR_LOGS/{self.title.replace(' ', '_')}_{current_date_and_time}_potential_errors_log.txt"
 
-        for snippet in reversed(self.table_snippets):  # Reverse to avoid shifting insertion points
-            preceding = snippet['preceding_text']
-            table = snippet['table']
-            title_str = snippet['title']
+        for snippet in reversed(
+            self.table_snippets
+        ):  # Reverse to avoid shifting insertion points
+            preceding = snippet["preceding_text"]
+            table = snippet["table"]
+            title_str = snippet["title"]
             fallback_header = "[No title available]"
 
             # Format the table
@@ -158,14 +171,22 @@ class TextParser:
             table_block = f"<pre>```\n{table_str}\n```</pre>"
 
             # 1. Find normalized match location
-            insert_pos = self.find_normalized_match(preceding, norm_text, mapping, output)
+            insert_pos = self.find_normalized_match(
+                preceding, norm_text, mapping, output
+            )
             if insert_pos == -1:
-                print(f"❌ Could not find match for table {snippet['index']}: '{preceding}'")
+                print(
+                    f"❌ Could not find match for table {snippet['index']}: '{preceding}'"
+                )
+                # Create ERROR_LOGS dir only when we need to write
+                Path(log_filename).parent.mkdir(parents=True, exist_ok=True)
                 if not os.path.exists(log_filename):
                     open(log_filename, "w", encoding="utf-8").close()
                 with open(log_filename, "a", encoding="utf-8") as f:
                     f.write("=== start ===\n")
-                    f.write(f"table {snippet['index'] + 1} was not added to document.\n")
+                    f.write(
+                        f"table {snippet['index'] + 1} was not added to document.\n"
+                    )
                     f.write("=== end ===\n")
                     f.write("\n")
                 continue
@@ -173,40 +194,69 @@ class TextParser:
             # 2. Get text up to that point and find closest header
             text_up_to = output[:insert_pos]
             closest_header = self.find_closest_header(text_up_to)
-            #print(f"Closest header: '{closest_header}'")
+            # print(f"Closest header: '{closest_header}'")
 
             # Normalize both strings
             normalized_text_up_to = re.sub(r"\s+", "", text_up_to)
             normalized_preceding = re.sub(r"\s+", "", preceding)
 
-            # Check and write to file if mismatch
+            # Check and write to file if mismatch. If mismatch occurs, skip insertion
+            # to avoid placing the table in an incorrect location.
             if not normalized_text_up_to.endswith(normalized_preceding):
+                # Create ERROR_LOGS dir only when we need to write
+                Path(log_filename).parent.mkdir(parents=True, exist_ok=True)
                 if not os.path.exists(log_filename):
                     open(log_filename, "w", encoding="utf-8").close()
                 with open(log_filename, "a", encoding="utf-8") as f:
                     f.write("=== start ===\n")
-                    f.write(f"Potential mismatch log for table {snippet['index'] + 1}\n")
+                    f.write(
+                        f"Potential mismatch log for table {snippet['index'] + 1}\n"
+                    )
                     f.write("=== text_up_to ===\n")
-                    f.write(f"...'{normalized_text_up_to[-100:]}'\n")
+                    f.write(f"...'{normalized_text_up_to[-200:]}'\n")
                     f.write("=== preceding ===\n")
                     f.write(f"'{normalized_preceding}'\n")
                     f.write("=== end ===\n")
                     f.write("\n")
+                print(
+                    f"⚠️ MISMATCH for table {snippet['index']}: skipping insertion (precise match not found)"
+                )
+                continue
 
-            print(f"Insertion point: ...'{text_up_to[-100:]}' > TABLE {snippet['index']}")
-            print(f"Searching for closest header for table {snippet['index']} with preceding text: '{preceding}'")
+            print(
+                f"Insertion point: ...'{text_up_to[-100:]}' > TABLE {snippet['index']}"
+            )
+            print(
+                f"Searching for closest header for table {snippet['index']} with preceding text: '{preceding}'"
+            )
 
-            # 3. Determine header level and construct title
-            level = self.find_level_header(closest_header) + 1
-            title = f"{closest_header} > {'#' * level} {title_str}"
-            if re.match(r'^(#+) Table \d+$', title):
-                title += f": {fallback_header}"
-            title_block = f"\n\n{title}\n\n{table_block}\n\n"
+            # 3. Determine header level and construct full breadcrumb title
+            level = self.find_level_header(closest_header) + 1 if closest_header else 2
+
+            # Always prefer the full breadcrumb form when possible. However, if the
+            # exact full breadcrumb we would insert already appears immediately
+            # before the insertion point, then collapse it (don't insert the
+            # duplicate header) and only insert the table block.
+            if closest_header:
+                full_breadcrumb = f"{closest_header} > {'#' * level} {title_str}"
+            else:
+                full_breadcrumb = f"{'#' * level} {title_str}"
+
+            pre_region_start = max(0, insert_pos - (len(full_breadcrumb) + 200))
+            pre_region = output[pre_region_start:insert_pos]
+
+            if pre_region.strip().endswith(full_breadcrumb.strip()):
+                # Exact duplicate present; do not reinsert header
+                title_block = f"\n\n{table_block}\n\n"
+            else:
+                title = full_breadcrumb
+                if re.match(r"^(#+) Table \d+$", title):
+                    title += f": {fallback_header}"
+                title_block = f"\n\n{title}\n\n{table_block}\n\n"
 
             # 4. Insert table into output
             output = output[:insert_pos] + title_block + output[insert_pos:]
             print(f"✅ Inserted table {snippet['index']} under '{closest_header}'\n")
-
 
         toc_string = "<pre>```\nTable of Contents\n"
         for h in self.headers:
@@ -228,7 +278,6 @@ class DocxParser(TextParser):
         self.plaintext_lines += self.build_markdown_plaintext()
         self.headers = [f"# {self.title}"] + self.extract_headers()
         self.table_snippets = self.extract_table_snippets()
-
 
     def build_markdown_plaintext(self):
         """
@@ -255,8 +304,9 @@ class DocxParser(TextParser):
                     current_heading_chain.append((level, text))
 
                     # Build breadcrumb header
-                    breadcrumb = ' > '.join(
-                        f"{'#' * (lvl + 1)} {title}" for lvl, title in current_heading_chain
+                    breadcrumb = " > ".join(
+                        f"{'#' * (lvl + 1)} {title}"
+                        for lvl, title in current_heading_chain
                     )
                     lines.append(breadcrumb)
                     lines.append("")
@@ -268,7 +318,6 @@ class DocxParser(TextParser):
             lines.append("")
 
         return lines
-
 
     def extract_headers(self):
         """
@@ -293,15 +342,15 @@ class DocxParser(TextParser):
                     ]
                     current_heading_chain.append((level, text))
 
-                    breadcrumb = ' > '.join(
-                        f"{'#' * (lvl + 1)} {title}" for lvl, title in current_heading_chain
+                    breadcrumb = " > ".join(
+                        f"{'#' * (lvl + 1)} {title}"
+                        for lvl, title in current_heading_chain
                     )
                     headers.append(breadcrumb)
                 except ValueError:
                     continue
 
         return headers
-
 
     def extract_table_snippets(self):
         """
@@ -313,10 +362,10 @@ class DocxParser(TextParser):
         for block in self.doc.element.body:
             if isinstance(block, CT_P):
                 para = Paragraph(block, self.doc)
-                ordered_elements.append(('paragraph', para))
+                ordered_elements.append(("paragraph", para))
             elif isinstance(block, CT_Tbl):
                 table = Table(block, self.doc)
-                ordered_elements.append(('table', table))
+                ordered_elements.append(("table", table))
 
         table_snippets = []
         word_buffer = []
@@ -324,7 +373,7 @@ class DocxParser(TextParser):
         table_index = 0
 
         for item_type, item in ordered_elements:
-            if item_type == 'paragraph':
+            if item_type == "paragraph":
                 text = item.text.strip()
                 if not text:
                     continue
@@ -339,33 +388,39 @@ class DocxParser(TextParser):
                         ]
                         current_heading_chain.append((level, text))
 
-                        # Add breadcrumb-style heading to buffer
-                        breadcrumb = ' > '.join(
+                        # Add breadcrumb-style heading to buffer as a single token
+                        breadcrumb = " > ".join(
                             f"{'#' * (lvl + 1)} {t}" for lvl, t in current_heading_chain
                         )
-                        word_buffer.extend(breadcrumb.split())
-                        word_buffer = word_buffer[-50:]
+                        # preserve the breadcrumb as one unit to keep structure distinctive
+                        word_buffer.append(breadcrumb)
+                        # keep a larger buffer so snippets are more distinctive
+                        word_buffer = word_buffer[-200:]
                     except ValueError:
                         pass
                 else:
                     # Add regular paragraph text to the buffer
                     words = text.split()
                     word_buffer.extend(words)
-                    word_buffer = word_buffer[-50:]
+                    # keep a larger buffer so snippets are more distinctive
+                    word_buffer = word_buffer[-200:]
 
-            elif item_type == 'table':
-                df = pd.DataFrame([
-                    [cell.text.strip() for cell in row.cells]
-                    for row in item.rows
-                ])
-                snippet = " ".join(word_buffer[-10:])
+            elif item_type == "table":
+                df = pd.DataFrame(
+                    [[cell.text.strip() for cell in row.cells] for row in item.rows]
+                )
+                # Use a longer context window for the preceding snippet so matches are
+                # less likely to accidentally match an earlier identical phrase.
+                snippet = " ".join(word_buffer[-80:])
 
-                table_snippets.append({
-                    'index': table_index,
-                    'preceding_text': snippet,
-                    'table': df,
-                    'title': f"Table {table_index + 1}"
-                })
+                table_snippets.append(
+                    {
+                        "index": table_index,
+                        "preceding_text": snippet,
+                        "table": df,
+                        "title": f"Table {table_index + 1}",
+                    }
+                )
                 table_index += 1
 
         return table_snippets
@@ -377,15 +432,13 @@ class WikipediaParser(TextParser):
         self.output_folder = "wikipedia_files"
         self.page_name = page_name
         self.page = wikipediaapi.Wikipedia(
-            user_agent='MyWikiParser/1.0',
-            language='en'
+            user_agent="MyWikiParser/1.0", language="en"
         ).page(page_name)
         self.title = self.page.title
         self.plaintext_lines = [f"# {self.title}", "", self.page.summary.strip(), ""]
         self.plaintext_lines += self.build_markdown_plaintext()
         self.headers = [f"# {self.title}"] + self.extract_headers()
         self.table_snippets = self.extract_table_snippets()
-
 
     def build_markdown_plaintext(self, sections=None, level=0, parent_chain=None):
         """
@@ -402,7 +455,9 @@ class WikipediaParser(TextParser):
             current_chain = parent_chain + [(level + 2, section.title)]
 
             # Build breadcrumb-style header
-            breadcrumb = ' > '.join(f"{'#' * lvl} {title}" for lvl, title in current_chain)
+            breadcrumb = " > ".join(
+                f"{'#' * lvl} {title}" for lvl, title in current_chain
+            )
             section_text = section.text.strip()
 
             lines.append(breadcrumb)
@@ -410,9 +465,12 @@ class WikipediaParser(TextParser):
             lines.append(section_text)
             lines.append("")
 
-            lines.extend(self.build_markdown_plaintext(section.sections, level + 1, current_chain))
+            lines.extend(
+                self.build_markdown_plaintext(
+                    section.sections, level + 1, current_chain
+                )
+            )
         return lines
-
 
     def extract_headers(self, sections=None, level=0, parent_chain=None):
         """
@@ -429,11 +487,13 @@ class WikipediaParser(TextParser):
 
         headers = []
         for section in sections:
-            current_chain = parent_chain + [(level + 2, section.title)]  # level 0 → '##'
+            current_chain = parent_chain + [
+                (level + 2, section.title)
+            ]  # level 0 → '##'
 
             # Build header string like:
             # ## Verbs > ### Tenses and moods > #### Imperative
-            breadcrumb = ' > '.join(
+            breadcrumb = " > ".join(
                 f"{'#' * lvl} {title}" for lvl, title in current_chain
             )
             headers.append(breadcrumb)
@@ -443,15 +503,16 @@ class WikipediaParser(TextParser):
             )
         return headers
 
-
     def extract_table_snippets(self):
         """
         Parse the HTML of the Wikipedia page and extract usable tables with snippet context.
         Uses breadcrumb-style section headers + surrounding context for robust matching.
         """
         url = f'https://en.wikipedia.org/wiki/{self.page_name.replace(" ", "_")}'
-        html = requests.get(url).text
-        soup = BeautifulSoup(html, 'html.parser')
+        # Use a dedicated User-Agent so Wikipedia doesn't reject our request
+        # (the site returns 403 if a UA is missing or default).
+        html = requests.get(url, headers={"User-Agent": "MyWikiParser/1.0"}).text
+        soup = BeautifulSoup(html, "html.parser")
 
         table_snippets = []
         word_buffer = []
@@ -459,9 +520,9 @@ class WikipediaParser(TextParser):
         table_index = 0
         useful_index = 0
 
-        for elem in soup.select('div.mw-parser-output *'):
+        for elem in soup.select("div.mw-parser-output *"):
             # Update heading chain and add to word buffer
-            if re.fullmatch(r'h[2-6]', elem.name):
+            if re.fullmatch(r"h[2-6]", elem.name):
                 level = int(elem.name[1])
                 title = elem.get_text(strip=True)
 
@@ -471,21 +532,41 @@ class WikipediaParser(TextParser):
                 current_heading_chain.append((level, title))
 
                 # Add breadcrumb to buffer
-                breadcrumb = ' > '.join(
+                breadcrumb = " > ".join(
                     f"{'#' * lvl} {t}" for lvl, t in current_heading_chain
                 )
-                word_buffer.extend(breadcrumb.split())
-                word_buffer = word_buffer[-50:]
+                # Preserve the breadcrumb as a single token instead of
+                # splitting it into words. This keeps the breadcrumb
+                # structure intact and makes normalized matching more
+                # reliable when inserting tables into the plaintext.
+                word_buffer.append(breadcrumb)
+                # keep a larger buffer so snippets are more distinctive
+                word_buffer = word_buffer[-200:]
 
-            elif elem.name in ['p', 'ul', 'ol']:
+            elif elem.name in ["p", "ul", "ol"]:
                 text = elem.get_text(" ", strip=True)
                 words = text.split()
                 word_buffer.extend(words)
-                word_buffer = word_buffer[-50:]
+                # keep a larger buffer to improve snippet uniqueness
+                word_buffer = word_buffer[-200:]
 
-            
-            elif elem.name == 'table':
+            elif elem.name == "table":
                 try:
+                    # If the most recent heading is 'External links', skip tables
+                    # in that section to avoid collecting link lists or nav boxes.
+                    
+                    if (
+                        current_heading_chain
+                        and current_heading_chain[-1][1].strip().lower()
+                        == "external links"
+                    ):
+                        print(
+                            f"Skipping table {table_index} because it's under 'External links' section.\n"
+                        )
+                        table_index += 1
+                        continue
+                    
+
                     df = pd.read_html(StringIO(str(elem)))[0]
                     table_str = df.to_string(index=False).lower()
 
@@ -501,36 +582,48 @@ class WikipediaParser(TextParser):
                         "may be challenged and removed",
                         "relevant discussion may be found",
                         "help improve this article",
-                        "by adding citations to reliable sources"
+                        "by adding citations to reliable sources",
                     ]
                     if any(phrase in table_str for phrase in placeholder_phrases):
-                        print(f"Skipping table {table_index} due to placeholder content.")
+                        print(
+                            f"Skipping table {table_index} due to placeholder content."
+                        )
                         print(f"Table content: {table_str}...\n")
                         table_index += 1
                         continue
 
                     caption = elem.caption.get_text(strip=True) if elem.caption else ""
-                    caption = re.sub(r'\s*(\[\d+\])+\s*$', '', caption)
+                    caption = re.sub(r"\s*(\[\d+\])+\s*$", "", caption)
 
-                    snippet = " ".join(word_buffer[-10:])
+                    # Use a longer preceding snippet (last ~80 tokens)
+                    # so normalized matching has more context and is less
+                    # likely to produce false negatives.
+                    snippet = " ".join(word_buffer[-80:])
 
-                    table_snippets.append({
-                        'index': useful_index,
-                        'preceding_text': snippet,
-                        'table': df,
-                        'title': f"Table {useful_index + 1}: {caption}" if caption else f"Table {useful_index + 1}"
-                    })
+                    table_snippets.append(
+                        {
+                            "index": useful_index,
+                            "preceding_text": snippet,
+                            "table": df,
+                            "title": (
+                                f"Table {useful_index + 1}: {caption}"
+                                if caption
+                                else f"Table {useful_index + 1}"
+                            ),
+                        }
+                    )
                     useful_index += 1
 
                 except Exception as e:
                     print(f"\tSkipping table {table_index} due to read_html error: {e}")
                 table_index += 1
-        
 
         print(f"Found {len(table_snippets)} tables with preceding text snippets.\n")
         for snippet in table_snippets:
             print(f"Table {snippet['index']} ({snippet['title']})")
             print(f"\tPreceding text: '{snippet['preceding_text']}'")
             print(f"\tTable shape: {snippet['table'].shape}\n")
+            if snippet["index"] in [27, 28]:
+                print(f"Table: {snippet['table']}\n")
 
         return table_snippets

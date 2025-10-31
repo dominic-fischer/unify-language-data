@@ -1,7 +1,7 @@
 import json, gzip, sys
 sys.stdout.reconfigure(encoding='utf-8')
 
-path = "wiktionary_files/by_lang/romanian.jsonl.gz"
+path = "data/wiktionary/outfiles/romanian.jsonl.gz"
 
 with gzip.open(path, "rt", encoding="utf-8") as f:
     counter = {}

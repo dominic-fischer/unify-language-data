@@ -2,25 +2,17 @@
 __pycache__/
 
 # Debug files
-debug_files/
-
-# Junk
-junk/
+ERROR_LOGS/
 
 # Virtual environment
 venv/
 
-# Wiktionary extracted data (likely large)
-wiktionary_data/
-
-# Input files only (not the whole docx_files folder)
-docx_files/docx_input_files/
-
-# large output files
-docx_files/BANTU_Chichewa_NEW_tables/
-wiktionary_files/by_lang/
+# Input and output files
+infiles/
+outfiles/
+*.jsonl
 
 # Notes (personal, not code)
+junk/
 notes.txt
-
-unimorph_test/
+*.key
