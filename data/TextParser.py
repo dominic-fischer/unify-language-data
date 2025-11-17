@@ -14,6 +14,58 @@ from io import StringIO
 import os
 from datetime import datetime
 from pathlib import Path
+from difflib import SequenceMatcher
+
+def fix_wiki_table(html):
+    df = pd.read_html(StringIO(html))[0]
+
+    # --- Helper to merge tuple headers ---
+    def merge_header(col):
+        a = str(col[0]).strip().lower()
+        b = str(col[1]).strip().lower()
+
+        if "unnamed" in b:
+            return a
+        if "unnamed" in a:
+            return b
+        if a == b:
+            return a
+        return f"{a} + {b}"
+
+    # -------------------------
+    # Case 1: 2-level header detected
+    # -------------------------
+    if isinstance(df.columns, pd.MultiIndex) and df.columns.nlevels == 2:
+
+        col_lvl0 = list(df.columns.get_level_values(0))
+        col_lvl1 = list(df.columns.get_level_values(1))
+
+        # Detect the Wiktionary "first row contains true header" pattern
+        cond_left_dup = col_lvl0[0].lower() == col_lvl1[0].lower()
+        cond_unnamed = all(("unnamed" in str(x).lower()) for x in col_lvl1[1:])
+        first_row = df.iloc[0].astype(str)
+        cond_data_row_valid = first_row.dropna().count() >= len(df.columns) - 1
+
+        # 👉 IF this pattern matches, apply the shifting logic
+        if cond_left_dup and cond_unnamed and cond_data_row_valid:
+
+            row = df.iloc[0].tolist()
+            usable = row[:-1] if pd.isna(row[-1]) else row
+
+            new_header = [col_lvl0[0]] + [str(v).strip().lower() for v in usable]
+
+            df.columns = new_header
+            df = df.iloc[1:].reset_index(drop=True)
+
+        else:
+            # 👉 OTHERWISE: apply the tuple-merge rule safely
+            df.columns = [merge_header(col) for col in df.columns]
+
+    # -------------------------
+    # Normalize and return
+    # -------------------------
+    df = df.applymap(lambda x: str(x).lower().strip() if isinstance(x, str) else x)
+    return df
 
 
 class TextParser:
@@ -188,6 +240,35 @@ class TextParser:
                     cleaned_preceding, norm_text, mapping, output
                 )
 
+            # 3. fallback: some fuzzy matching
+            if insert_pos == -1:
+                insert_pos = self.fuzzy_find_best_match(
+                    preceding, norm_text, mapping, output, min_ratio=0.72
+            )
+                
+            # 4. fallback: use the preceding text of the prior table
+            if insert_pos == -1:
+                prior_index = snippet["index"] - 1
+                if prior_index >= 0:
+                    prior_snip = self.table_snippets[prior_index]["preceding_text"]
+                    while prior_snip == preceding and prior_index > 0:
+                        prior_index -= 1
+                        prior_snip = self.table_snippets[prior_index]["preceding_text"]
+                    print(f">>>Using prior table snippet with index {prior_index} for table {snippet['index'] + 1}")
+                    insert_pos = self.find_normalized_match(
+                        prior_snip, norm_text, mapping, output
+                    )
+                    for _ in range(3):
+                        if insert_pos != -1:
+                            break
+                        prior_index -= 1
+                        prior_snip = self.table_snippets[prior_index]["preceding_text"]
+                        print(f">>>Using prior table snippet with index {prior_index} for table {snippet['index'] + 1}")
+                        insert_pos = self.find_normalized_match(
+                            prior_snip, norm_text, mapping, output
+                        )
+                    preceding = prior_snip
+
             if insert_pos == -1:
                 if (
                     not "alanga)+ 99-AUT-aj (chiNambya -aja..-ajc)+ 99-AUT-ak (chiLilima -aka..-akf)"
@@ -227,26 +308,33 @@ class TextParser:
 
             # Check and write to file if mismatch. If mismatch occurs, skip insertion
             # to avoid placing the table in an incorrect location.
-            if not normalized_text_up_to.endswith(normalized_preceding):
-                # Create ERROR_LOGS dir only when we need to write
-                Path(log_filename).parent.mkdir(parents=True, exist_ok=True)
-                if not os.path.exists(log_filename):
-                    open(log_filename, "w", encoding="utf-8").close()
-                with open(log_filename, "a", encoding="utf-8") as f:
-                    f.write("=== start ===\n")
-                    f.write(
-                        f"Potential mismatch log for table {snippet['index'] + 1}\n"
-                    )
-                    f.write("=== text_up_to ===\n")
-                    f.write(f"...'{normalized_text_up_to[-200:]}'\n")
-                    f.write("=== preceding ===\n")
-                    f.write(f"'{normalized_preceding}'\n")
-                    f.write("=== end ===\n")
-                    f.write("\n")
-                print(
-                    f"⚠️ MISMATCH for table {snippet['index'] + 1}: skipping insertion (precise match not found)"
-                )
-                continue
+            if not normalized_text_up_to.endswith(normalized_preceding[-20:]):
+                print(f"⚠️ Strict mismatch → using safe fallback for table {snippet['index'] + 1}")
+
+                next_table_num = snippet["index"] + 2
+
+                # More tolerant regex that matches real headings
+                print(f"📌 Searching for next table heading ('Table {next_table_num}') to find safe insertion point")
+                next_heading_pattern = rf"[>#\s]*Table\s*{next_table_num}\b"
+
+                match = re.search(next_heading_pattern, output, flags=re.IGNORECASE)
+
+                if match:
+                    safe_pos = match.start()
+                    print(f"📌 Found next table heading ('Table {next_table_num}') at {safe_pos}")
+                else:
+                    safe_pos = len(output)
+                    print(f"📌 No next table heading found — placing at end")
+
+                # Align cleanly to a paragraph break above it
+                paragraph_boundary = output.rfind("\n\n", 0, safe_pos)
+                if paragraph_boundary != -1:
+                    insert_pos = paragraph_boundary + 2
+                    print(f"📌 Adjusted to nearest paragraph break → {insert_pos}")
+                else:
+                    insert_pos = safe_pos
+                    print(f"📌 No paragraph break — using raw heading position {insert_pos}")
+
 
             print(
                 f"Insertion point: ...'{text_up_to[-100:]}' > TABLE {snippet['index'] + 1}"
@@ -293,6 +381,48 @@ class TextParser:
         output = toc_string + output
 
         return output.replace("\n\n\n", "\n\n")  # Clean up triple newlines
+
+    def fuzzy_find_best_match(self, snippet, norm_text, mapping, original_text, min_ratio=0.70):
+        """
+        Fuzzy-search `snippet` inside `norm_text` and return the most likely insertion
+        point mapped back to original text coordinates. 
+        Returns -1 if no acceptable similarity is found.
+        """
+        # Normalize snippet in the same way text was normalized
+        clean_snip = "".join(
+            c.lower()
+            for c in self.strip_accents(snippet)
+            if not c.isspace() and c not in string.punctuation
+        )
+        n = len(clean_snip)
+        best_ratio = 0
+        best_pos = -1
+
+        # Scan through normalized text comparing equal-sized windows
+        for i in range(0, max(1, len(norm_text) - n + 1)):
+            window = norm_text[i: i + n]
+            ratio = SequenceMatcher(None, clean_snip, window).ratio()
+            if ratio > best_ratio:
+                best_ratio = ratio
+                best_pos = i
+
+        if best_ratio < min_ratio or best_pos == -1:
+            return -1
+
+        # Map fuzzy match position back to original text
+        try:
+            insert_pos = mapping[best_pos + n - 1] + 1
+
+            # Skip trailing punctuation (same behavior as your normalized matcher)
+            while insert_pos < len(original_text) and original_text[insert_pos] in {
+                ".", ",", "!", "?", ":", ";", '"', "'", "”", "’", "`", "“", "‘",
+                ")", "]", "}", "›", "»", "-", " ",
+            }:
+                insert_pos += 1
+
+            return insert_pos
+        except Exception:
+            return -1
 
 
 class DocxParser(TextParser):
@@ -604,9 +734,13 @@ class WikipediaParser(TextParser):
                         table_index += 1
                         continue
 
-                    df = pd.read_html(StringIO(str(elem)))[0]
-                    
-                    table_str = df.to_string(index=False).lower()
+                
+                    #TODO: FIX THIS PART
+
+                    df = fix_wiki_table(str(elem))
+                    # drop all entirely empty columns
+                    df = df.dropna(axis=1, how="all")
+                    table_str = df.to_markdown(index=False)
 
                     # Skip placeholder tables
                     placeholder_phrases = [
