@@ -21,8 +21,8 @@ def fix_wiki_table(html):
 
     # --- Helper to merge tuple headers ---
     def merge_header(col):
-        a = str(col[0]).strip().lower()
-        b = str(col[1]).strip().lower()
+        a = str(col[0]).strip()
+        b = str(col[1]).strip()
 
         if "unnamed" in b:
             return a
@@ -42,7 +42,7 @@ def fix_wiki_table(html):
 
         # Detect the Wiktionary "first row contains true header" pattern
         cond_left_dup = col_lvl0[0].lower() == col_lvl1[0].lower()
-        cond_unnamed = all(("unnamed" in str(x).lower()) for x in col_lvl1[1:])
+        cond_unnamed = all(("unnamed" in str(x)) for x in col_lvl1[1:])
         first_row = df.iloc[0].astype(str)
         cond_data_row_valid = first_row.dropna().count() >= len(df.columns) - 1
 
@@ -52,7 +52,7 @@ def fix_wiki_table(html):
             row = df.iloc[0].tolist()
             usable = row[:-1] if pd.isna(row[-1]) else row
 
-            new_header = [col_lvl0[0]] + [str(v).strip().lower() for v in usable]
+            new_header = [col_lvl0[0]] + [str(v).strip() for v in usable]
 
             df.columns = new_header
             df = df.iloc[1:].reset_index(drop=True)
@@ -64,7 +64,7 @@ def fix_wiki_table(html):
     # -------------------------
     # Normalize and return
     # -------------------------
-    df = df.applymap(lambda x: str(x).lower().strip() if isinstance(x, str) else x)
+    df = df.applymap(lambda x: str(x).strip() if isinstance(x, str) else x)
     return df
 
 
@@ -756,7 +756,7 @@ class WikipediaParser(TextParser):
                         "help improve this article",
                         "by adding citations to reliable sources",
                     ]
-                    if any(phrase in table_str for phrase in placeholder_phrases):
+                    if any(phrase in table_str.lower() for phrase in placeholder_phrases):
                         print(
                             f"Skipping table {table_index} due to placeholder content."
                         )
