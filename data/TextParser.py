@@ -174,27 +174,43 @@ class TextParser:
             table_str = table.to_markdown(index=False)
             table_block = f"<pre>```\n{table_str}\n```</pre>"
 
-            # 1. Find normalized match location
+            # 1. Attempt match with original snippet
             insert_pos = self.find_normalized_match(
                 preceding, norm_text, mapping, output
             )
+
+            # 2. Fallback: bracket-stripped snippet
             if insert_pos == -1:
-                print(
-                    f"❌ Could not find match for table {snippet['index']}: '{preceding}'"
+                cleaned_preceding = (
+                    re.sub(r"\[[^\]]+\]", "", preceding).lstrip().removeprefix("]")
                 )
-                # Create ERROR_LOGS dir only when we need to write
-                Path(log_filename).parent.mkdir(parents=True, exist_ok=True)
-                if not os.path.exists(log_filename):
-                    open(log_filename, "w", encoding="utf-8").close()
-                with open(log_filename, "a", encoding="utf-8") as f:
-                    f.write("=== start ===\n")
-                    f.write(
-                        f"table {snippet['index'] + 1} was not added to document.\n"
-                        f"{table}\n"
-                        f"{preceding[-75:]}\n"
+                insert_pos = self.find_normalized_match(
+                    cleaned_preceding, norm_text, mapping, output
+                )
+
+            if insert_pos == -1:
+                if (
+                    not "alanga)+ 99-AUT-aj (chiNambya -aja..-ajc)+ 99-AUT-ak (chiLilima -aka..-akf)"
+                    in preceding
+                    and not "hern Bantoid Bantu Nyasa Chewa Bantu Nyasa Chewa Nyasa Chewa Chewa Zimbabwe"
+                    in preceding
+                ):
+                    print(
+                        f"❌ Could not find match for table {snippet['index']+1}: '{preceding}'\n"
                     )
-                    f.write("=== end ===\n")
-                    f.write("\n")
+                    # Create ERROR_LOGS dir only when we need to write
+                    Path(log_filename).parent.mkdir(parents=True, exist_ok=True)
+                    if not os.path.exists(log_filename):
+                        open(log_filename, "w", encoding="utf-8").close()
+                    with open(log_filename, "a", encoding="utf-8") as f:
+                        f.write("=== start ===\n")
+                        f.write(
+                            f"table {snippet['index'] + 1} was not added to document.\n"
+                            f"{table}\n"
+                            f"{preceding[-75:]}\n"
+                        )
+                        f.write("=== end ===\n")
+                        f.write("\n")
                 continue
 
             # 2. Get text up to that point and find closest header
@@ -204,7 +220,10 @@ class TextParser:
 
             # Normalize both strings
             normalized_text_up_to = re.sub(r"\s+", "", text_up_to)
+            normalized_text_up_to = re.sub(r"\[[^\]]+\]", "", normalized_text_up_to)
+
             normalized_preceding = re.sub(r"\s+", "", preceding)
+            normalized_preceding = re.sub(r"\[[^\]]+\]", "", normalized_preceding)
 
             # Check and write to file if mismatch. If mismatch occurs, skip insertion
             # to avoid placing the table in an incorrect location.
@@ -225,15 +244,15 @@ class TextParser:
                     f.write("=== end ===\n")
                     f.write("\n")
                 print(
-                    f"⚠️ MISMATCH for table {snippet['index']}: skipping insertion (precise match not found)"
+                    f"⚠️ MISMATCH for table {snippet['index'] + 1}: skipping insertion (precise match not found)"
                 )
                 continue
 
             print(
-                f"Insertion point: ...'{text_up_to[-100:]}' > TABLE {snippet['index']}"
+                f"Insertion point: ...'{text_up_to[-100:]}' > TABLE {snippet['index'] + 1}"
             )
             print(
-                f"Searching for closest header for table {snippet['index']} with preceding text: '{preceding}'"
+                f"Searching for closest header for table {snippet['index'] + 1} with preceding text: '{preceding}'"
             )
 
             # 3. Determine header level and construct full breadcrumb title
@@ -262,7 +281,9 @@ class TextParser:
 
             # 4. Insert table into output
             output = output[:insert_pos] + title_block + output[insert_pos:]
-            print(f"✅ Inserted table {snippet['index']} under '{closest_header}'\n")
+            print(
+                f"✅ Inserted table {snippet['index'] + 1} under '{closest_header}'\n"
+            )
 
         toc_string = "<pre>```\nTable of Contents\n"
         for h in self.headers:
@@ -418,7 +439,6 @@ class DocxParser(TextParser):
                 # Use a longer context window for the preceding snippet so matches are
                 # less likely to accidentally match an earlier identical phrase.
                 snippet = " ".join(word_buffer[-80:])
-                
 
                 table_snippets.append(
                     {
@@ -561,19 +581,31 @@ class WikipediaParser(TextParser):
                 try:
                     # If the most recent heading is 'External links', skip tables
                     # in that section to avoid collecting link lists or nav boxes.
-                    
+
+                    # Skip tables from junk meta-article sections
+                    skip_sections = {
+                        "see also",
+                        "notes",
+                        "references",
+                        "further reading",
+                        "external links",
+                        "external link",
+                        "bibliography",
+                    }
+
                     if (
                         current_heading_chain
-                        and "external links" in current_heading_chain[-1][1].strip().lower()
+                        and current_heading_chain[-1][1].strip().lower()
+                        in skip_sections
                     ):
                         print(
-                            f"Skipping table {table_index} because it's under 'External links' section.\n"
+                            f"Skipping table {table_index} because it's under '{current_heading_chain[-1][1]}' section.\n"
                         )
                         table_index += 1
                         continue
-                    
 
                     df = pd.read_html(StringIO(str(elem)))[0]
+                    
                     table_str = df.to_string(index=False).lower()
 
                     # Skip placeholder tables
@@ -601,11 +633,7 @@ class WikipediaParser(TextParser):
                     caption = elem.caption.get_text(strip=True) if elem.caption else ""
                     caption = re.sub(r"\s*(\[\d+\])+\s*$", "", caption)
 
-                    # Use a longer preceding snippet (last ~80 tokens)
-                    # so normalized matching has more context and is less
-                    # likely to produce false negatives.
-                    snippet = " ".join(word_buffer[-80:])
-                    snippet = re.sub(r"\[\s?.*\s?\]", "", snippet)
+                    snippet = " ".join(word_buffer[-15:])
 
                     table_snippets.append(
                         {
@@ -627,7 +655,7 @@ class WikipediaParser(TextParser):
 
         print(f"Found {len(table_snippets)} tables with preceding text snippets.\n")
         for snippet in table_snippets:
-            print(f"Table {snippet['index']} ({snippet['title']})")
+            print(f"Table {snippet['index'] + 1} ({snippet['title']})")
             print(f"\tPreceding text: '{snippet['preceding_text']}'")
             print(f"\tTable shape: {snippet['table'].shape}\n")
             if snippet["index"] in [27, 28]:
