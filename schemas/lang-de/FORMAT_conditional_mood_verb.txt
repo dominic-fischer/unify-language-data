@@ -1,4 +1,4 @@
-Conditionalentences:
+Conditionals:
   Features:
     u-Tense: [u-prs, u-pst, u-fut]
     u-Mood: [u-irr, u-real]

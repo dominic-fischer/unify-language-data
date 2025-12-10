@@ -8,7 +8,7 @@ with open("api.key", "r") as f:
 client = OpenAI(api_key=api_key)
 
 system_prompt = "You are a helpful assistant."
-prompt = "Hello! What can you do?"
+prompt = "Hello! Give me a recipe for a chocolate cake."
 
 response = client.chat.completions.create(
     model="gpt-5-nano",
