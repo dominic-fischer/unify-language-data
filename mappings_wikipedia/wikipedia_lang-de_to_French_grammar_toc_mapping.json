@@ -1,0 +1,674 @@
+{
+  "schemas\\lang-de\\FORMAT_adjective.txt": {
+    "strategy": "lexical",
+    "term_used": "adjective",
+    "topic_terms": [
+      "adjective"
+    ],
+    "matches": [
+      {
+        "full": "## Adjectives",
+        "path": [
+          "## Adjectives"
+        ],
+        "similarity": 1.0,
+        "content": "An adjective must agree in gender and number with the noun it modifies. French adjectives therefore have four forms: masculine singular, feminine singular, masculine plural, and feminine plural. A few adjectives have a fifth form, viz. an additional masculine singular form for use in liaison before a noun beginning with a vowel or a \"mute h\", e.g. un beau jardin, un bel homme, une belle femme, de beaux enfants, de belles maisons (a beautiful garden, a handsome man, a beautiful woman, beautiful children, beautiful houses). This fifth form, which is older, is sometimes used elsewhere in set phrases, e.g. Philippe le Bel (Philip the Fair or the Handsome of France, 1268–1314) vs. Philippe le Beau (Philip the Handsome or the Fair of Castile, 1478–1506).\nThe masculine singular, an adjective's basic form, is listed in dictionaries. The feminine singular is normally formed by adding -e to the basic form. This -e is silent, which makes many masculine and feminine forms homophonous (cf. civil > civile 'civil', both pronounced /sivil/). However, the ending causes \"mute\" final sounds to be pronounced, whereby masculine-feminine pairs become distinguishable in pronunciation if the masculine form ends in a mute consonant, which is the case with a great deal of adjectives (cf. lourd [luʁ] > lourde [luʁd] 'heavy'). Under certain circumstances, other minor changes occur in the formation of feminine forms, such as the placement of an accent, the doubling of a consonant, or its replacement with another, changes that often reflect the pronunciation of such endings (cf. bon [bɔ̃] > bonne [bɔn] 'good'; heureux [øʁø] > heureuse [øʁøz] 'happy'). Irregular feminine forms include beau > belle 'beautiful', blanc > blanche 'white', and a limited number of others. If an adjective's basic form ends in -e, it is left unchanged in the feminine (cf. riche > riche 'rich').\nThe plural is normally formed by adding -s to the singular (masculine and feminine). This -s is usually mute, but pronounced [z] in liaison with a following noun that begins with a vowel. Unlike liaison after plural nouns, liaison after plural adjectives is common and even obligatory in standard usage. If the basic form ends in -s, -x, or -z, an adjective is left unchanged in the masculine plural (cf. doux > doux 'soft, gentle'). A few adjectives take the (also mute) ending -x in the masculine plural (cf. nouveau > nouveaux 'new'). Plural forms that are distinguishable from the singular outside of liaison environments occur only with adjectives ending in -al. These normally have -aux in the masculine plural (cf. central [sɑ̃tʁal] > centraux [sɑ̃tʁo] 'central'). By contrast, the feminine plural is formed according to the general rule: centrale > centrales.\nDue to the aforementioned rules, French adjectives might have four distinguished written forms which are all pronounced the same. This is the case if an adjective's masculine and feminine forms are homophonous and if there is no liaison between the adjective and a following noun.\n\n## Adjectives > ### Table 2\n\n<pre>```\n| Unnamed: 0   | Written form           | Pronunciation   | Translation        |\n|:-------------|:-----------------------|:----------------|:-------------------|\n| masc. sg.    | un prince turc         | œ̃ pʁɛ̃s tyʁk   | a Turkish prince   |\n| fem. sg.     | une princesse turque   | yn pʁɛ̃sɛs tyʁk | a Turkish princess |\n| masc. pl.    | des princes turcs      | de pʁɛ̃s tyʁk   | Turkish princes    |\n| fem. pl.     | des princesses turques | de pʁɛ̃sɛs tyʁk | Turkish princesses |\n```</pre>\n\n\nOn the other hand, if the masculine and feminine forms have different pronunciations and liaison does occur, all four forms can be distinguishable in pronunciation. Adjective declension is therefore important in spoken French, though to a lesser extent than in writing. (All forms distinguished in pronunciation are also distinguished in writing, but not vice versa.)\n\n## Adjectives > ### Table 3\n\n<pre>```\n| Unnamed: 0   | Written form            | Pronunciation        | Translation     |\n|:-------------|:------------------------|:---------------------|:----------------|\n| masc. sg.    | un grand empereur       | œ̃ ɡʁɑ̃t‿ɑ̃pʁœʁ      | a great emperor |\n| fem. sg.     | une grande impératrice  | yn ɡʁɑ̃d‿ɛ̃peʁatʁis  | a great empress |\n| masc. pl.    | de grands empereurs     | də ɡʁɑ̃z‿ɑ̃pʁœʁ      | great emperors  |\n| fem. pl.     | de grandes impératrices | də ɡʁɑ̃dz‿ɛ̃peʁatʁis | great empresses |\n```</pre>\n\n\nDue to the peculiar orthography of French, which denotes mute final consonants, most feminine forms seem regular in terms of their spelling because they are formed by adding -e to the masculine form, e.g., grand > grande, lent > lente, persan > persane. However, if we put this etymologic orthography aside and consider only current pronunciation, the formation of French female forms becomes quite irregular with several possible \"endings\": [ɡʁɑ̃] > [ɡʁɑ̃d], [lɑ̃] > [lɑ̃t], [pɛʁsɑ̃] > [pɛʁsan].\nMost adjectives, when used attributively, appear after their nouns: le vin rouge (\"the red wine\"). A number of adjectives (often having to do with beauty, age, goodness, or size, a tendency summarized by the acronym \"BAGS\"), come before their nouns: une belle femme (\"a beautiful woman\"). With a few adjectives of the latter type, there are two masculine singular forms: one used before consonants (the basic form), and one used before vowels. For example, the adjective beau (\"beautiful\") changes form from un beau garçon (\"a handsome boy\") to un bel homme (\"a handsome man\"). Some adjectives change position depending on their meaning, sometimes preceding their nouns and sometimes following them. For example, ancien means \"former\" when it precedes its noun, but \"ancient\" when it follows it. To give another example, un homme grand means \"a tall man\", whereas un grand homme means \"a great man\".\nMany compound words contain an adjective, such as une belle-mère \"a mother-in-law\", which is distinct from une belle mère \"a beautiful mother\". Some of them use an archaic form of the feminine adjective that lacks the final -e. These used to be written with an apostrophe, but a hyphen is now (at least since 1960) considered more correct: une grand-route (formerly, une grand'route) \"a main country road\", which is distinct from une grande route \"a long way\", and une grand-mère (formerly, une grand'mère) \"a grandmother\", which is distinct from une grande mère \"a tall mother\"."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_adverb.txt": {
+    "strategy": "lexical",
+    "term_used": "adverb",
+    "topic_terms": [
+      "adverb"
+    ],
+    "matches": [
+      {
+        "full": "## Adverbs",
+        "path": [
+          "## Adverbs"
+        ],
+        "similarity": 1.0,
+        "content": "As in English, adverbs in French are used to modify adjectives, other adverbs, verbs, or clauses. Most adverbs are derived from an adjective by adding the suffix -ment, usually to its feminine form (-ment is analogous to the English suffix -ly): e.g. anciennement \"anciently\", \"of old\", \"in olden times\"; grandement \"greatly\"; lentement \"slowly\"; though there are some systematic deviations (e.g. patient → patiemment \"patiently\", malaisé → malaisément \"uneasily\"), some adverbs are derived irregularly (bon \"good\" → bien \"well\") and others do not derive from adjectives at all.\nAdverbs themselves are generally invariable. An exception to this is the adverb tout \"wholly, very\" which agrees in gender and number with the adjective it modifies when it is in the feminine and begins with a consonant (e.g. tout petit \"very small, m.s.\", tous petits \"very small, m.pl.\" but toute petite \"very small, f.s.\", toutes petites \"very small, f.pl.\" — when beginning with a vowel however: tout entier, tout entiers, tout entière, tout entières \"completely, as a whole\" (with liaison))."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_agreement_concord_syntax.txt": {
+    "strategy": "embedding",
+    "term_used": null,
+    "topic_terms": [
+      "agreement",
+      "concord",
+      "syntax"
+    ],
+    "matches": [
+      {
+        "full": "# French grammar",
+        "path": [
+          "# French grammar"
+        ],
+        "similarity": 0.4227712154388428,
+        "content": "French grammar is the set of rules by which the French language creates statements, questions and commands. In many respects, it is quite similar to that of the other Romance languages.\nFrench is a moderately inflected language. Nouns and most pronouns are inflected for number (singular or plural, though in most nouns the plural is pronounced the same as the singular even if spelled differently); adjectives, for number and gender (masculine or feminine) of their nouns; personal pronouns and a few other pronouns, for person, number, gender, and case; and verbs, for tense, aspect, mood, and the person and number of their subjects. Case is primarily marked using word order and prepositions, while certain verb features are marked using auxiliary verbs."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_clauses_syntax.txt": {
+    "strategy": "lexical",
+    "term_used": "clauses",
+    "topic_terms": [
+      "clauses",
+      "syntax"
+    ],
+    "matches": [
+      {
+        "full": "## Existential clauses",
+        "path": [
+          "## Existential clauses"
+        ],
+        "similarity": 1.0,
+        "content": "In French, the equivalent of the English existential clause \"there is/are\" is expressed with il y a (infinitive: y avoir), literally, \"it there has\" or \"it has to it\". As an impersonal verb, the verb may be conjugated to indicate tense, but always remains in the third person singular. For example\n\nIl y a deux bergers et quinze moutons dans le pré. – \"There are two shepherds and fifteen sheep in the meadow.\"\nIl y aura beaucoup à manger. – \"There will be a lot to eat.\"\nIl y aurait deux morts et cinq blessés dans l'accident. – \"There appears to have been (lit. would have) two dead and five injured in the accident.\" (as in news reporting)\nIl n'y avait personne chez les Martin. – \"There was nobody at the Martins' home.\"\nThis construction is also used to express the passage of time since an event occurred, like the English ago or it has been:\n\nJe l'ai vu il y a deux jours. – \"I saw him two days ago.\"\nIl y avait longtemps que je ne l'avais pas vu. – \"It had been a long time since I had seen him.\"\nLe langage d'il y a cent ans est très différent de celui d'aujourd'hui. – \"The language/usage of one hundred years ago is very different from that of today.\"\nIn informal speech, il y is typically reduced to [j], as in:\n\nY a [ja] deux bergers et quinze moutons dans le pré.\nY aura [joʁa] beaucoup à manger.\nY avait [javɛ] personne chez les Martin.\nJe l'ai vu y a deux jours."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_conditional_mood_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "verb",
+    "topic_terms": [
+      "conditional",
+      "mood",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs",
+        "path": [
+          "## Verbs"
+        ],
+        "similarity": 1.0,
+        "content": "Verbs in French are conjugated to reflect the following information:\n\na mood (indicative, imperative, subjunctive, or conditional)\na tense (past, present, or future, though not all tenses can be combined with all moods)\nan aspect (perfective or imperfective)\na voice (active, passive, or reflexive)\nNonfinite forms (e.g., participles, gerunds, infinitives)\nSome of these features are combined into seven tense–aspect–mood combinations. The simple (one-word) forms are commonly referred to as the present, the simple past or preterite (past tense, perfective aspect), the imperfect (past tense, imperfective aspect), the future, the conditional, the present subjunctive, and the imperfect subjunctive. However, the simple past is rarely used in informal French, and the imperfect subjunctive is rarely used in modern French.\nVerbs in the finite moods (indicative, imperative, subjunctive, and conditional) are also conjugated to agree with their subjects in person (first, second, or third) and number (singular or plural). As in English, the subject must be included (except in the imperative mood); in other words, unlike other Romance languages, French is neither a null-subject nor a pro-drop language.\nAuxiliary verbs are combined with past participles of main verbs to produce compound tenses, including the compound past (passé composé). For most main verbs the auxiliary is (the appropriate form of) avoir (\"to have\"), but for reflexive verbs and certain intransitive verbs the auxiliary is a form of être (\"to be\"). The participle agrees with the subject when the auxiliary is être, and with a preceding direct object (if any) when the auxiliary is avoir. Forms of être are also used with the past participles of transitive verbs to form the passive voice.\nThe imperative mood, which only has first-person plural and second-person singular and plural forms, usually has forms similar or identical to the corresponding ones in the present indicative."
+      },
+      {
+        "full": "## Question formation > ### Yes/no questions > #### 4. Inversion of verb and subject",
+        "path": [
+          "## Question formation",
+          "### Yes/no questions",
+          "#### 4. Inversion of verb and subject"
+        ],
+        "similarity": 1.0,
+        "content": "Finally, yes/no questions may be formed by inverting the verb and the subject. This sentence structure is typically used in formal and written French. These questions may be formed in one of two ways, depending on whether the pronoun is stressed or unstressed. If the pronoun is unstressed, it changes places with the verb that it agrees with.\n\nEs-tu content ? (Are you happy?)\nThis subject-verb inversion is similar to question formation in English, though in English the inversion may only occur with auxiliary verbs, while in French it may occur with all verbs.\nIf the subject is anything other than an unstressed pronoun, an unstressed subject pronoun that agrees with the subject is added to the right of the verb.\n\nPierre est-il content ? (Is Pierre happy?)\nTwo additional notes on subject verb inversion in French. First, when the inversion results in the adjacency of two vowels ⟨t⟩ is inserted between them.\n\nT-insertion: A-t-il 17 ans ? (Is he 17?)\nSecondly, only the most formal French inverts the verb with 'je'. It has become more common, both in spoken and written French, to replace je with est-ce-que. For example, the following two sentences are ungrammatical in French.\n\n*Mens-je ? (Am I lying?)\n*Prends-je le bus ? (Am I taking the bus?)"
+      },
+      {
+        "full": "## Question formation > ### Information questions > #### 4. Inversion of verb and subject",
+        "path": [
+          "## Question formation",
+          "### Information questions",
+          "#### 4. Inversion of verb and subject"
+        ],
+        "similarity": 1.0,
+        "content": "Finally, information questions in French may be formed by following the steps outlined above in one and two and additionally, inverting the subject and verb. This is typically the most formal form of question formation and is found in written and formal spoken French. As in yes/no question formation, if the subject is an unstressed pronoun, it switches places with the verb:\n\nQui avez-vous vu ? (Who did you see?)\nIf the subject is anything other than an unstressed pronoun, an unstressed subject pronoun is added after the verb.\n\nQui Robert a-t-il rencontré ? (Who did Robert meet?)"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_constituents_syntax.txt": {
+    "strategy": "embedding",
+    "term_used": null,
+    "topic_terms": [
+      "constituents",
+      "syntax"
+    ],
+    "matches": [
+      {
+        "full": "## Nouns > ### The pronoun and the pronominal group",
+        "path": [
+          "## Nouns",
+          "### The pronoun and the pronominal group"
+        ],
+        "similarity": 0.320534884929657,
+        "content": "The pronoun varies in gender (masculine or feminine), in number (singular or plural), and sometimes also in person. It always takes on the meaning of the word or group of words it replaces (the reference). This function is expressed by its name: pro-noun meaning that which is “for,” “put in the place of” a noun.\nIts meaning also depends on the extralinguistic context (when the pronoun is a deictic), or on the textual context (depending on whether the pronoun is an anaphoric or a cataphoric one). The meaning of the cataphoric pronoun “this one,” on the other hand, depends either on the context or on the word to which it refers.\nThe syntactic characteristics of the pronoun are identical to those of the noun, which the pronoun can replace in the sentence."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_derivation-formation_morphology.txt": {
+    "strategy": "lexical",
+    "term_used": "formation",
+    "topic_terms": [
+      "derivation",
+      "formation",
+      "morphology"
+    ],
+    "matches": [
+      {
+        "full": "## Question formation",
+        "path": [
+          "## Question formation"
+        ],
+        "similarity": 1.0,
+        "content": "Broadly speaking, there are two types of questions; yes/no questions and information questions."
+      },
+      {
+        "full": "## Question formation > ### Yes/no questions",
+        "path": [
+          "## Question formation",
+          "### Yes/no questions"
+        ],
+        "similarity": 1.0,
+        "content": "In French there are four ways to form yes/no questions, each of which is typically associated with a different degree of formality."
+      },
+      {
+        "full": "## Question formation > ### Yes/no questions > #### 1. Raising intonation",
+        "path": [
+          "## Question formation",
+          "### Yes/no questions",
+          "#### 1. Raising intonation"
+        ],
+        "similarity": 1.0,
+        "content": "The simplest and most informal way to ask a yes/no question is by raising intonation at the end of a declarative sentence. This question formation structure is common in informal spoken French, but relatively uncommon in more formal spoken French or written French. Examples include:\n\nElle va rester ici ? (Is she going to stay here?)\nJe peux mettre mes photos au mur ? (Can I put my photos on the wall?)"
+      },
+      {
+        "full": "## Question formation > ### Yes/no questions > #### 2. Est-ce que",
+        "path": [
+          "## Question formation",
+          "### Yes/no questions",
+          "#### 2. Est-ce que"
+        ],
+        "similarity": 1.0,
+        "content": "Yes/no questions may also be formed by adding est-ce que to the beginning of a declarative sentence. This structure may be used in any style of French; formal, informal, spoken, or written.\n\nEst-ce qu'elle va rester ici ? (Is she going to stay here?)\nEst-ce que je peux mettre mes photos au mur ? (Can I put my photos on the wall?)"
+      },
+      {
+        "full": "## Question formation > ### Yes/no questions > #### 3. ..., n'est-ce pas?",
+        "path": [
+          "## Question formation",
+          "### Yes/no questions",
+          "#### 3. ..., n'est-ce pas?"
+        ],
+        "similarity": 1.0,
+        "content": "Source:\nThis is like adding \"is it not?\" to the end and it is pronounced [n‿ɛs pɑ].\n\nTu es Jane, n'est-ce pas ?\nTu parles anglais, n'est-ce pas ?"
+      },
+      {
+        "full": "## Question formation > ### Yes/no questions > #### 4. Inversion of verb and subject",
+        "path": [
+          "## Question formation",
+          "### Yes/no questions",
+          "#### 4. Inversion of verb and subject"
+        ],
+        "similarity": 1.0,
+        "content": "Finally, yes/no questions may be formed by inverting the verb and the subject. This sentence structure is typically used in formal and written French. These questions may be formed in one of two ways, depending on whether the pronoun is stressed or unstressed. If the pronoun is unstressed, it changes places with the verb that it agrees with.\n\nEs-tu content ? (Are you happy?)\nThis subject-verb inversion is similar to question formation in English, though in English the inversion may only occur with auxiliary verbs, while in French it may occur with all verbs.\nIf the subject is anything other than an unstressed pronoun, an unstressed subject pronoun that agrees with the subject is added to the right of the verb.\n\nPierre est-il content ? (Is Pierre happy?)\nTwo additional notes on subject verb inversion in French. First, when the inversion results in the adjacency of two vowels ⟨t⟩ is inserted between them.\n\nT-insertion: A-t-il 17 ans ? (Is he 17?)\nSecondly, only the most formal French inverts the verb with 'je'. It has become more common, both in spoken and written French, to replace je with est-ce-que. For example, the following two sentences are ungrammatical in French.\n\n*Mens-je ? (Am I lying?)\n*Prends-je le bus ? (Am I taking the bus?)"
+      },
+      {
+        "full": "## Question formation > ### Information questions",
+        "path": [
+          "## Question formation",
+          "### Information questions"
+        ],
+        "similarity": 1.0,
+        "content": "There are four ways to form information questions in French. Like yes/no questions, each form is associated with a different degree of formality."
+      },
+      {
+        "full": "## Question formation > ### Information questions > #### 1. Addition of question word or phrase",
+        "path": [
+          "## Question formation",
+          "### Information questions",
+          "#### 1. Addition of question word or phrase"
+        ],
+        "similarity": 1.0,
+        "content": "The simplest and generally most informal way to form an information question in French is by replacing a word in a declarative sentence with a question word or phrase and adding rising intonation to the end of the sentence. The question word or phrase may occur at the beginning or end of the sentence, depending on which word is being replaced, unlike in English, where the question word typically occurs at the start of the sentence.\n\nDeclarative sentence – L'étudiant(e) téléphonera à son député demain. (The student will telephone his/her MP tomorrow.)\nL'étudiant(e) téléphonera à son député quand ? (When will the student telephone his/her MP?)\nQui téléphonera à son député demain ? (Who will telephone his/her MP tomorrow?)"
+      },
+      {
+        "full": "## Question formation > ### Information questions > #### 2. Moving question word or phrase",
+        "path": [
+          "## Question formation",
+          "### Information questions",
+          "#### 2. Moving question word or phrase"
+        ],
+        "similarity": 1.0,
+        "content": "Another common and informal way of forming information questions is by replacing an item in a declarative sentence by a question word or phrase then moving the question word or phrase to the front of the sentence.\n\nQui vous avez vu ? (Who did you see?)\nÀ qui Marcel a écrit ? (Who did Marcel write to?)"
+      },
+      {
+        "full": "## Question formation > ### Information questions > #### 3. Addition of \"est-ce que\"",
+        "path": [
+          "## Question formation",
+          "### Information questions",
+          "#### 3. Addition of \"est-ce que\""
+        ],
+        "similarity": 1.0,
+        "content": "Another way to form a question in French is by following the steps outlined above in one and two, and in addition inserting est-ce que after the question word. This style of question formation may be used in all styles of French.\n\nQui est-ce que vous avez vu ? (Who did you see?)\nÀ qui est-ce que Marcel a écrit ? (Who did Marcel write to?)"
+      },
+      {
+        "full": "## Question formation > ### Information questions > #### 4. Inversion of verb and subject",
+        "path": [
+          "## Question formation",
+          "### Information questions",
+          "#### 4. Inversion of verb and subject"
+        ],
+        "similarity": 1.0,
+        "content": "Finally, information questions in French may be formed by following the steps outlined above in one and two and additionally, inverting the subject and verb. This is typically the most formal form of question formation and is found in written and formal spoken French. As in yes/no question formation, if the subject is an unstressed pronoun, it switches places with the verb:\n\nQui avez-vous vu ? (Who did you see?)\nIf the subject is anything other than an unstressed pronoun, an unstressed subject pronoun is added after the verb.\n\nQui Robert a-t-il rencontré ? (Who did Robert meet?)"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_determiners-articles_noun.txt": {
+    "strategy": "lexical",
+    "term_used": "determiners",
+    "topic_terms": [
+      "determiners",
+      "articles",
+      "noun"
+    ],
+    "matches": [
+      {
+        "full": "## Articles and determiners",
+        "path": [
+          "## Articles and determiners"
+        ],
+        "similarity": 1.0,
+        "content": "Articles and determiners agree in gender and number with the noun they determine; unlike with nouns, this inflection is made in speech as well as in writing.\nFrench has three articles: definite, indefinite, and partitive. The difference between the definite and indefinite articles is similar to that in English (definite: the; indefinite: a, an), except that the indefinite article has a plural form (similar to some, though English normally does not use an article before indefinite plural nouns). The partitive article is similar to the indefinite article but used for uncountable singular nouns."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_futureTense_tense_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "verb",
+    "topic_terms": [
+      "future tense",
+      "tense",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs",
+        "path": [
+          "## Verbs"
+        ],
+        "similarity": 1.0,
+        "content": "Verbs in French are conjugated to reflect the following information:\n\na mood (indicative, imperative, subjunctive, or conditional)\na tense (past, present, or future, though not all tenses can be combined with all moods)\nan aspect (perfective or imperfective)\na voice (active, passive, or reflexive)\nNonfinite forms (e.g., participles, gerunds, infinitives)\nSome of these features are combined into seven tense–aspect–mood combinations. The simple (one-word) forms are commonly referred to as the present, the simple past or preterite (past tense, perfective aspect), the imperfect (past tense, imperfective aspect), the future, the conditional, the present subjunctive, and the imperfect subjunctive. However, the simple past is rarely used in informal French, and the imperfect subjunctive is rarely used in modern French.\nVerbs in the finite moods (indicative, imperative, subjunctive, and conditional) are also conjugated to agree with their subjects in person (first, second, or third) and number (singular or plural). As in English, the subject must be included (except in the imperative mood); in other words, unlike other Romance languages, French is neither a null-subject nor a pro-drop language.\nAuxiliary verbs are combined with past participles of main verbs to produce compound tenses, including the compound past (passé composé). For most main verbs the auxiliary is (the appropriate form of) avoir (\"to have\"), but for reflexive verbs and certain intransitive verbs the auxiliary is a form of être (\"to be\"). The participle agrees with the subject when the auxiliary is être, and with a preceding direct object (if any) when the auxiliary is avoir. Forms of être are also used with the past participles of transitive verbs to form the passive voice.\nThe imperative mood, which only has first-person plural and second-person singular and plural forms, usually has forms similar or identical to the corresponding ones in the present indicative."
+      },
+      {
+        "full": "## Question formation > ### Yes/no questions > #### 4. Inversion of verb and subject",
+        "path": [
+          "## Question formation",
+          "### Yes/no questions",
+          "#### 4. Inversion of verb and subject"
+        ],
+        "similarity": 1.0,
+        "content": "Finally, yes/no questions may be formed by inverting the verb and the subject. This sentence structure is typically used in formal and written French. These questions may be formed in one of two ways, depending on whether the pronoun is stressed or unstressed. If the pronoun is unstressed, it changes places with the verb that it agrees with.\n\nEs-tu content ? (Are you happy?)\nThis subject-verb inversion is similar to question formation in English, though in English the inversion may only occur with auxiliary verbs, while in French it may occur with all verbs.\nIf the subject is anything other than an unstressed pronoun, an unstressed subject pronoun that agrees with the subject is added to the right of the verb.\n\nPierre est-il content ? (Is Pierre happy?)\nTwo additional notes on subject verb inversion in French. First, when the inversion results in the adjacency of two vowels ⟨t⟩ is inserted between them.\n\nT-insertion: A-t-il 17 ans ? (Is he 17?)\nSecondly, only the most formal French inverts the verb with 'je'. It has become more common, both in spoken and written French, to replace je with est-ce-que. For example, the following two sentences are ungrammatical in French.\n\n*Mens-je ? (Am I lying?)\n*Prends-je le bus ? (Am I taking the bus?)"
+      },
+      {
+        "full": "## Question formation > ### Information questions > #### 4. Inversion of verb and subject",
+        "path": [
+          "## Question formation",
+          "### Information questions",
+          "#### 4. Inversion of verb and subject"
+        ],
+        "similarity": 1.0,
+        "content": "Finally, information questions in French may be formed by following the steps outlined above in one and two and additionally, inverting the subject and verb. This is typically the most formal form of question formation and is found in written and formal spoken French. As in yes/no question formation, if the subject is an unstressed pronoun, it switches places with the verb:\n\nQui avez-vous vu ? (Who did you see?)\nIf the subject is anything other than an unstressed pronoun, an unstressed subject pronoun is added after the verb.\n\nQui Robert a-t-il rencontré ? (Who did Robert meet?)"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_imperative_mood_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "verb",
+    "topic_terms": [
+      "imperative",
+      "mood",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs",
+        "path": [
+          "## Verbs"
+        ],
+        "similarity": 1.0,
+        "content": "Verbs in French are conjugated to reflect the following information:\n\na mood (indicative, imperative, subjunctive, or conditional)\na tense (past, present, or future, though not all tenses can be combined with all moods)\nan aspect (perfective or imperfective)\na voice (active, passive, or reflexive)\nNonfinite forms (e.g., participles, gerunds, infinitives)\nSome of these features are combined into seven tense–aspect–mood combinations. The simple (one-word) forms are commonly referred to as the present, the simple past or preterite (past tense, perfective aspect), the imperfect (past tense, imperfective aspect), the future, the conditional, the present subjunctive, and the imperfect subjunctive. However, the simple past is rarely used in informal French, and the imperfect subjunctive is rarely used in modern French.\nVerbs in the finite moods (indicative, imperative, subjunctive, and conditional) are also conjugated to agree with their subjects in person (first, second, or third) and number (singular or plural). As in English, the subject must be included (except in the imperative mood); in other words, unlike other Romance languages, French is neither a null-subject nor a pro-drop language.\nAuxiliary verbs are combined with past participles of main verbs to produce compound tenses, including the compound past (passé composé). For most main verbs the auxiliary is (the appropriate form of) avoir (\"to have\"), but for reflexive verbs and certain intransitive verbs the auxiliary is a form of être (\"to be\"). The participle agrees with the subject when the auxiliary is être, and with a preceding direct object (if any) when the auxiliary is avoir. Forms of être are also used with the past participles of transitive verbs to form the passive voice.\nThe imperative mood, which only has first-person plural and second-person singular and plural forms, usually has forms similar or identical to the corresponding ones in the present indicative."
+      },
+      {
+        "full": "## Question formation > ### Yes/no questions > #### 4. Inversion of verb and subject",
+        "path": [
+          "## Question formation",
+          "### Yes/no questions",
+          "#### 4. Inversion of verb and subject"
+        ],
+        "similarity": 1.0,
+        "content": "Finally, yes/no questions may be formed by inverting the verb and the subject. This sentence structure is typically used in formal and written French. These questions may be formed in one of two ways, depending on whether the pronoun is stressed or unstressed. If the pronoun is unstressed, it changes places with the verb that it agrees with.\n\nEs-tu content ? (Are you happy?)\nThis subject-verb inversion is similar to question formation in English, though in English the inversion may only occur with auxiliary verbs, while in French it may occur with all verbs.\nIf the subject is anything other than an unstressed pronoun, an unstressed subject pronoun that agrees with the subject is added to the right of the verb.\n\nPierre est-il content ? (Is Pierre happy?)\nTwo additional notes on subject verb inversion in French. First, when the inversion results in the adjacency of two vowels ⟨t⟩ is inserted between them.\n\nT-insertion: A-t-il 17 ans ? (Is he 17?)\nSecondly, only the most formal French inverts the verb with 'je'. It has become more common, both in spoken and written French, to replace je with est-ce-que. For example, the following two sentences are ungrammatical in French.\n\n*Mens-je ? (Am I lying?)\n*Prends-je le bus ? (Am I taking the bus?)"
+      },
+      {
+        "full": "## Question formation > ### Information questions > #### 4. Inversion of verb and subject",
+        "path": [
+          "## Question formation",
+          "### Information questions",
+          "#### 4. Inversion of verb and subject"
+        ],
+        "similarity": 1.0,
+        "content": "Finally, information questions in French may be formed by following the steps outlined above in one and two and additionally, inverting the subject and verb. This is typically the most formal form of question formation and is found in written and formal spoken French. As in yes/no question formation, if the subject is an unstressed pronoun, it switches places with the verb:\n\nQui avez-vous vu ? (Who did you see?)\nIf the subject is anything other than an unstressed pronoun, an unstressed subject pronoun is added after the verb.\n\nQui Robert a-t-il rencontré ? (Who did Robert meet?)"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_negation_syntax.txt": {
+    "strategy": "lexical",
+    "term_used": "negation",
+    "topic_terms": [
+      "negation",
+      "syntax"
+    ],
+    "matches": [
+      {
+        "full": "## Negation",
+        "path": [
+          "## Negation"
+        ],
+        "similarity": 1.0,
+        "content": "French usually expresses negation in two parts, with the particle ne attached to the verb, and one or more negative words (connegatives) that modify the verb or one of its arguments. Negation encircles a conjugated verb with ne after the subject and the connegative after the verb, if the verb is finite or a gerund. However, both parts of the negation come before the targeted verb when it is in its infinitive form. For example:\n\nJe les ai pris 'I took them' → Je ne les ai pas pris 'I did not take them'\nJe voudrais regarder un film et m'endormir 'I would like to watch a movie and fall asleep' → Je voudrais regarder un film et ne pas m'endormir. 'I would like to watch a movie and not fall asleep'\nOther negative words used in combination with ne are:\n\nnegative adverbs\nne ... plus — not anymore, no longer\nne ... jamais — never\nne ... nulle part – nowhere\nne ... guère — not much, hardly (literary)\nne ... point / aucunement / nullement — not, not at all (literary)\nnegative pronouns\nne ... rien — nothing\nne ... personne — nobody\nothers\n(determiner) ne ... aucun — no/not any (also nul, literary)\n(restrictive particle) ne ... que — only\nExamples:\n\nJe ne sais pas. — I do not know.\nIl ne fume plus. — He does not smoke anymore.\nNous n'avons vu personne. — We did not see anybody.\nElle  n'a rien bu. — She didn't drink anything.\nJe n'ai aucune idée. — I have no idea.\nVous ne mangez que des légumes ? — You only eat vegetables?\nThe negative adverbs (and rien) follow finite verbs but precede infinitives (along with ne):\n\nIl prétend ne pas/ne jamais/ne rien fumer. — He claims not to smoke/to never smoke/to smoke nothing.\nMoreover, it is possible for rien and personne to be used as the subject of a sentence, which moves them to the beginning of the sentence (before the ne):\n\nRien n'est certain. — Nothing is certain.\nPersonne n'est arrivé. — Nobody came.\nSeveral negative words (other than pas) can appear in the same sentence, but the sentence is still usually interpreted as a simple negation. When another negative word occurs with pas, a double negation interpretation usually arises, but this construction is criticised.\n\nElle n'a plus jamais rien dit à personne. — She never said anything else to anybody.\nElle n'a pas vu personne. — She did not see nobody (i.e., she saw somebody)."
+      },
+      {
+        "full": "## Negation > ### Colloquial usage",
+        "path": [
+          "## Negation",
+          "### Colloquial usage"
+        ],
+        "similarity": 1.0,
+        "content": "In colloquial French, it is common to drop the ne, although this can create some ambiguity with the ne ... plus construction when written down, as plus could mean either 'more' or 'not anymore'. Generally when plus is used to mean more, the final ⟨s⟩ is pronounced ([plys]), whereas it is never pronounced when used to mean 'not anymore' ([ply]).\nAs an example, the informal sentence Il y en a plus could be pronounced with the final [s] ([il i ɑ̃n a plys, jɑ̃n a plys]) to mean \"there is more\", or it could be pronounced without it ([il i ɑ̃n a ply, jɑ̃n a ply]) to mean \"there is none left\"."
+      },
+      {
+        "full": "## Negation > ### Independent ne",
+        "path": [
+          "## Negation",
+          "### Independent ne"
+        ],
+        "similarity": 1.0,
+        "content": "In certain, mostly literary constructions, ne can express negation by itself (without pas or another negative word). The four verbs that can use this construction are pouvoir (\"to be able to\"), savoir (\"to know\"), oser (\"to dare\"), and cesser (\"to cease\").\n\n(standard, ne + pas) Je n'ai pas pu venir. — \"I was not able to come.\"\n(casual, pas only) J'ai pas pu venir. [same]\n(literary, ne only) Je n'ai pu venir. [same];cf. phrase Je ne sais quoi — \"I do not know what [it is]\" remaining in colloquial speech as a fossilized phrase"
+      },
+      {
+        "full": "## Negation > ### Expletive ne",
+        "path": [
+          "## Negation",
+          "### Expletive ne"
+        ],
+        "similarity": 1.0,
+        "content": "In certain cases in formal French, the word ne can be used without signifying negation; the ne in such instances is known as expletive ne (French: ne explétif):\n\nJ'ai peur que cela ne se reproduise. — \"I am afraid that it might happen again.\"\nIl est arrivé avant que nous n'ayons commencé. — \"He arrived before we started.\"\nIls sont plus nombreux que tu ne le crois. — \"There are more of them than you think.\"\nExpletive ne is found in finite subordinate clauses (never before an infinitive). It is characteristic of literary rather than colloquial style. In other registers French tends to not use any negation at all in such clauses, e.g., J'ai peur que cela se reproduise.\nThe following contexts allow expletive ne\n\nthe complement clause of verbs expressing fear or avoidance: craindre (to fear), avoir peur (to be afraid), empêcher (to prevent), éviter (to avoid)\nthe complement clause of verbs expressing doubt or denial: douter (to doubt), nier (to deny)\nadverbial clauses introduced by the following expressions: avant que (before), à moins que (unless), de peur/crainte que (for fear that)\ncomparative constructions expressing inequality: autre (other), meilleur (better), plus fort (stronger), moins intelligent (less intelligent), etc."
+      },
+      {
+        "full": "## Word order > ### Negation",
+        "path": [
+          "## Word order",
+          "### Negation"
+        ],
+        "similarity": 1.0,
+        "content": "As mentioned above, French expresses negation in two parts, the first with the particle ne attached to the verb and one or more negative words, which modify either the verb or one of its arguments. The participle ne comes before the verb in the sentence that is marked for tense and before any unstressed object pronouns that come before the verb. The location of the second part of the negation varies, however."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_noun.txt": {
+    "strategy": "lexical",
+    "term_used": "noun",
+    "topic_terms": [
+      "noun"
+    ],
+    "matches": [
+      {
+        "full": "## Nouns",
+        "path": [
+          "## Nouns"
+        ],
+        "similarity": 1.0,
+        "content": ""
+      },
+      {
+        "full": "## Nouns > ### The pronoun and the pronominal group",
+        "path": [
+          "## Nouns",
+          "### The pronoun and the pronominal group"
+        ],
+        "similarity": 1.0,
+        "content": "The pronoun varies in gender (masculine or feminine), in number (singular or plural), and sometimes also in person. It always takes on the meaning of the word or group of words it replaces (the reference). This function is expressed by its name: pro-noun meaning that which is “for,” “put in the place of” a noun.\nIts meaning also depends on the extralinguistic context (when the pronoun is a deictic), or on the textual context (depending on whether the pronoun is an anaphoric or a cataphoric one). The meaning of the cataphoric pronoun “this one,” on the other hand, depends either on the context or on the word to which it refers.\nThe syntactic characteristics of the pronoun are identical to those of the noun, which the pronoun can replace in the sentence."
+      },
+      {
+        "full": "## Nouns > ### Gender",
+        "path": [
+          "## Nouns",
+          "### Gender"
+        ],
+        "similarity": 1.0,
+        "content": "Every French noun has a grammatical gender, either masculine or feminine. The grammatical gender of a noun referring to a human usually corresponds to the noun's natural gender (i.e., its referent's sex or gender). For such nouns, there will very often be one noun of each gender, with the choice of noun being determined by the natural gender of the person described; for example, a male singer is un chanteur, while a female singer is either une chanteuse (a pop singer) or une cantatrice (an opera singer). A plural noun that refers to both males and females is masculine. In some cases, the two nouns are identical in form, with the difference only being marked in neighbouring words (due to gender agreement; see below); a Catholic man is un catholique, while a Catholic woman is une catholique. Nonetheless, there are some such nouns that retain their grammatical gender regardless of natural gender; personne 'person' is always feminine, while (at least in \"standard\" French) professeur 'teacher' is always masculine. In Canadian French, une professeure is the standard feminine form, which is becoming more and more common in European French.\nA noun's gender is not perfectly predictable from its form, but there are some trends. As a very broad trend, nouns ending in -e tend to be feminine (e.g., une étoile 'a star', une voiture 'a car'), while the rest tend to be masculine (e.g., un ballon 'a balloon', un stylo 'a pen'), but it sometimes can be the opposite. More consistently, some endings, such as -sion, -tion, -aison, -ité and -logie occur almost exclusively with feminine nouns, while others, such as -aire, -isme, -ème and -ège occur almost exclusively with masculine ones. Many nouns ending in -e preceded by double consonants are also masculine (e.g. un cadre, un arbre, un signe, un meuble). Nonetheless, a noun that seems masculine judging by its ending might actually be feminine e.g., la peau 'the skin', une dent 'a tooth' or vice versa e.g., le coude 'the elbow', un squelette 'a skeleton' are masculine. Noun clauses are masculine.\nA very small number of nouns can be used either in masculine or feminine gender with the same meaning (e.g., après-midi 'afternoon'). Often one gender is preferred over the other. Some (very rare) nouns change gender according to the way they are used: the words amour 'love' and délice 'pleasure' are masculine in singular and feminine in plural; the word orgue 'organ' is masculine, but when used emphatically in plural to refer to a church organ it becomes feminine (les grandes orgues); the plural noun gens 'people' changes gender in a very unusual way, being usually masculine but triggering feminine agreement when certain adjectives precede the word.\nOther nouns change meaning depending on which grammatical gender they are used in. For example, le critique (masculine) refers to a critic, while la critique (feminine) means criticism; le livre refers to a book, while la livre means the pound (in the sense of both weight and currency). Similarly, le voile means \"veil\", whereas la voile means \"sail\".\nThe vocabulary of French includes many homophones, i.e., pairs of words with different spellings but the same pronunciation. Grammatical gender, however, may serve to distinguish some of these. For example, le pot 'the pot' and la peau 'the skin' are both pronounced [po] but disagree in gender."
+      },
+      {
+        "full": "## Nouns > ### Number",
+        "path": [
+          "## Nouns",
+          "### Number"
+        ],
+        "similarity": 1.0,
+        "content": "As in English, nouns inflect for number.\nOrthographically, the plural is usually formed from the singular by adding the letter -s (cf. maison > maisons 'houses'). Nouns ending in -au, -eu, and -ou often take the ending -x instead (cf. jeu > jeux 'games'). However, the endings -s and -x are in most cases not pronounced, meaning that in speech the plural form of a noun generally has the same pronunciation as the singular. Nouns that end in -s, -x or -z in the singular are left unchanged in the plural in both pronunciation and spelling (cf. croix > croix 'crosses', both pronounced [kʁwa]).\nLiaison between a plural noun and a following adjective is one case where the plural ending -s or -x may be pronounced: des fenêtres ouvertes [dɛ fənɛtʁəz‿uvɛʁt] (\"open windows\"). However, this form of liaison usually only appears in careful formal speech (for example by newsreaders). In most everyday speech singular and plural forms of most nouns are therefore homophonous in all contexts.\nIn spoken French, the plurality of most nouns is marked not on the form of the noun itself but by a preceding article or determiner (cf. la maison [la mɛzɔ̃] 'the house' > les maisons [le mɛzɔ̃] 'the houses'; mon frère [mɔ̃ fʁɛːʁ] 'my brother' > mes frères [me fʁɛːʁ] 'my brothers').\nFrench nouns whose spoken plural forms are distinguished from the singular include most of those ending in -al, whose plural form is -aux (cf. cheval [ʃəval] > chevaux [ʃəvo] 'horses'), as well as a few nouns ending in -ail that also follow this pattern (cf. travail [tʁavaj] > travaux [tʁavo] 'works'). Three nouns form completely irregular plurals: aïeul [ajœl] > aïeux [ajø] 'ancestors' (but aïeuls [ajœl] 'grandfathers'); ciel [sjɛl] > cieux [sjø] 'heavens' (but des ciels de lit 'bed canopies'); and œil [œj] > yeux [jø] 'eyes' (but des œils-de-bœuf 'oculi' (round windows), des œils-de-perdrix 'calluses' (on the feet)). Three other nouns have regular plurals in spelling but have irregular pronunciations: bœuf [bœf] > bœufs [bø] 'oxen, cattle'; œuf [œf] > œufs [ø] 'eggs'; and os [ɔs] > os [o] 'bones'.\nAs with English, most uncountable nouns are grammatically treated as singular, though some are plural, such as les mathématiques 'mathematics'; some nouns that are uncountable in English are countable in French, such as une information 'a piece of information'."
+      },
+      {
+        "full": "## Nouns > ### Case",
+        "path": [
+          "## Nouns",
+          "### Case"
+        ],
+        "similarity": 1.0,
+        "content": "Nouns in French are not inflected for any other grammatical categories. (However, personal pronouns are inflected for case and person; see below.)"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_passive_voice_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "verb",
+    "topic_terms": [
+      "passive",
+      "voice",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs",
+        "path": [
+          "## Verbs"
+        ],
+        "similarity": 1.0,
+        "content": "Verbs in French are conjugated to reflect the following information:\n\na mood (indicative, imperative, subjunctive, or conditional)\na tense (past, present, or future, though not all tenses can be combined with all moods)\nan aspect (perfective or imperfective)\na voice (active, passive, or reflexive)\nNonfinite forms (e.g., participles, gerunds, infinitives)\nSome of these features are combined into seven tense–aspect–mood combinations. The simple (one-word) forms are commonly referred to as the present, the simple past or preterite (past tense, perfective aspect), the imperfect (past tense, imperfective aspect), the future, the conditional, the present subjunctive, and the imperfect subjunctive. However, the simple past is rarely used in informal French, and the imperfect subjunctive is rarely used in modern French.\nVerbs in the finite moods (indicative, imperative, subjunctive, and conditional) are also conjugated to agree with their subjects in person (first, second, or third) and number (singular or plural). As in English, the subject must be included (except in the imperative mood); in other words, unlike other Romance languages, French is neither a null-subject nor a pro-drop language.\nAuxiliary verbs are combined with past participles of main verbs to produce compound tenses, including the compound past (passé composé). For most main verbs the auxiliary is (the appropriate form of) avoir (\"to have\"), but for reflexive verbs and certain intransitive verbs the auxiliary is a form of être (\"to be\"). The participle agrees with the subject when the auxiliary is être, and with a preceding direct object (if any) when the auxiliary is avoir. Forms of être are also used with the past participles of transitive verbs to form the passive voice.\nThe imperative mood, which only has first-person plural and second-person singular and plural forms, usually has forms similar or identical to the corresponding ones in the present indicative."
+      },
+      {
+        "full": "## Question formation > ### Yes/no questions > #### 4. Inversion of verb and subject",
+        "path": [
+          "## Question formation",
+          "### Yes/no questions",
+          "#### 4. Inversion of verb and subject"
+        ],
+        "similarity": 1.0,
+        "content": "Finally, yes/no questions may be formed by inverting the verb and the subject. This sentence structure is typically used in formal and written French. These questions may be formed in one of two ways, depending on whether the pronoun is stressed or unstressed. If the pronoun is unstressed, it changes places with the verb that it agrees with.\n\nEs-tu content ? (Are you happy?)\nThis subject-verb inversion is similar to question formation in English, though in English the inversion may only occur with auxiliary verbs, while in French it may occur with all verbs.\nIf the subject is anything other than an unstressed pronoun, an unstressed subject pronoun that agrees with the subject is added to the right of the verb.\n\nPierre est-il content ? (Is Pierre happy?)\nTwo additional notes on subject verb inversion in French. First, when the inversion results in the adjacency of two vowels ⟨t⟩ is inserted between them.\n\nT-insertion: A-t-il 17 ans ? (Is he 17?)\nSecondly, only the most formal French inverts the verb with 'je'. It has become more common, both in spoken and written French, to replace je with est-ce-que. For example, the following two sentences are ungrammatical in French.\n\n*Mens-je ? (Am I lying?)\n*Prends-je le bus ? (Am I taking the bus?)"
+      },
+      {
+        "full": "## Question formation > ### Information questions > #### 4. Inversion of verb and subject",
+        "path": [
+          "## Question formation",
+          "### Information questions",
+          "#### 4. Inversion of verb and subject"
+        ],
+        "similarity": 1.0,
+        "content": "Finally, information questions in French may be formed by following the steps outlined above in one and two and additionally, inverting the subject and verb. This is typically the most formal form of question formation and is found in written and formal spoken French. As in yes/no question formation, if the subject is an unstressed pronoun, it switches places with the verb:\n\nQui avez-vous vu ? (Who did you see?)\nIf the subject is anything other than an unstressed pronoun, an unstressed subject pronoun is added after the verb.\n\nQui Robert a-t-il rencontré ? (Who did Robert meet?)"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_pastTense_tense_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "verb",
+    "topic_terms": [
+      "past tense",
+      "tense",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs",
+        "path": [
+          "## Verbs"
+        ],
+        "similarity": 1.0,
+        "content": "Verbs in French are conjugated to reflect the following information:\n\na mood (indicative, imperative, subjunctive, or conditional)\na tense (past, present, or future, though not all tenses can be combined with all moods)\nan aspect (perfective or imperfective)\na voice (active, passive, or reflexive)\nNonfinite forms (e.g., participles, gerunds, infinitives)\nSome of these features are combined into seven tense–aspect–mood combinations. The simple (one-word) forms are commonly referred to as the present, the simple past or preterite (past tense, perfective aspect), the imperfect (past tense, imperfective aspect), the future, the conditional, the present subjunctive, and the imperfect subjunctive. However, the simple past is rarely used in informal French, and the imperfect subjunctive is rarely used in modern French.\nVerbs in the finite moods (indicative, imperative, subjunctive, and conditional) are also conjugated to agree with their subjects in person (first, second, or third) and number (singular or plural). As in English, the subject must be included (except in the imperative mood); in other words, unlike other Romance languages, French is neither a null-subject nor a pro-drop language.\nAuxiliary verbs are combined with past participles of main verbs to produce compound tenses, including the compound past (passé composé). For most main verbs the auxiliary is (the appropriate form of) avoir (\"to have\"), but for reflexive verbs and certain intransitive verbs the auxiliary is a form of être (\"to be\"). The participle agrees with the subject when the auxiliary is être, and with a preceding direct object (if any) when the auxiliary is avoir. Forms of être are also used with the past participles of transitive verbs to form the passive voice.\nThe imperative mood, which only has first-person plural and second-person singular and plural forms, usually has forms similar or identical to the corresponding ones in the present indicative."
+      },
+      {
+        "full": "## Question formation > ### Yes/no questions > #### 4. Inversion of verb and subject",
+        "path": [
+          "## Question formation",
+          "### Yes/no questions",
+          "#### 4. Inversion of verb and subject"
+        ],
+        "similarity": 1.0,
+        "content": "Finally, yes/no questions may be formed by inverting the verb and the subject. This sentence structure is typically used in formal and written French. These questions may be formed in one of two ways, depending on whether the pronoun is stressed or unstressed. If the pronoun is unstressed, it changes places with the verb that it agrees with.\n\nEs-tu content ? (Are you happy?)\nThis subject-verb inversion is similar to question formation in English, though in English the inversion may only occur with auxiliary verbs, while in French it may occur with all verbs.\nIf the subject is anything other than an unstressed pronoun, an unstressed subject pronoun that agrees with the subject is added to the right of the verb.\n\nPierre est-il content ? (Is Pierre happy?)\nTwo additional notes on subject verb inversion in French. First, when the inversion results in the adjacency of two vowels ⟨t⟩ is inserted between them.\n\nT-insertion: A-t-il 17 ans ? (Is he 17?)\nSecondly, only the most formal French inverts the verb with 'je'. It has become more common, both in spoken and written French, to replace je with est-ce-que. For example, the following two sentences are ungrammatical in French.\n\n*Mens-je ? (Am I lying?)\n*Prends-je le bus ? (Am I taking the bus?)"
+      },
+      {
+        "full": "## Question formation > ### Information questions > #### 4. Inversion of verb and subject",
+        "path": [
+          "## Question formation",
+          "### Information questions",
+          "#### 4. Inversion of verb and subject"
+        ],
+        "similarity": 1.0,
+        "content": "Finally, information questions in French may be formed by following the steps outlined above in one and two and additionally, inverting the subject and verb. This is typically the most formal form of question formation and is found in written and formal spoken French. As in yes/no question formation, if the subject is an unstressed pronoun, it switches places with the verb:\n\nQui avez-vous vu ? (Who did you see?)\nIf the subject is anything other than an unstressed pronoun, an unstressed subject pronoun is added after the verb.\n\nQui Robert a-t-il rencontré ? (Who did Robert meet?)"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_presentTense_tense_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "verb",
+    "topic_terms": [
+      "present tense",
+      "tense",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs",
+        "path": [
+          "## Verbs"
+        ],
+        "similarity": 1.0,
+        "content": "Verbs in French are conjugated to reflect the following information:\n\na mood (indicative, imperative, subjunctive, or conditional)\na tense (past, present, or future, though not all tenses can be combined with all moods)\nan aspect (perfective or imperfective)\na voice (active, passive, or reflexive)\nNonfinite forms (e.g., participles, gerunds, infinitives)\nSome of these features are combined into seven tense–aspect–mood combinations. The simple (one-word) forms are commonly referred to as the present, the simple past or preterite (past tense, perfective aspect), the imperfect (past tense, imperfective aspect), the future, the conditional, the present subjunctive, and the imperfect subjunctive. However, the simple past is rarely used in informal French, and the imperfect subjunctive is rarely used in modern French.\nVerbs in the finite moods (indicative, imperative, subjunctive, and conditional) are also conjugated to agree with their subjects in person (first, second, or third) and number (singular or plural). As in English, the subject must be included (except in the imperative mood); in other words, unlike other Romance languages, French is neither a null-subject nor a pro-drop language.\nAuxiliary verbs are combined with past participles of main verbs to produce compound tenses, including the compound past (passé composé). For most main verbs the auxiliary is (the appropriate form of) avoir (\"to have\"), but for reflexive verbs and certain intransitive verbs the auxiliary is a form of être (\"to be\"). The participle agrees with the subject when the auxiliary is être, and with a preceding direct object (if any) when the auxiliary is avoir. Forms of être are also used with the past participles of transitive verbs to form the passive voice.\nThe imperative mood, which only has first-person plural and second-person singular and plural forms, usually has forms similar or identical to the corresponding ones in the present indicative."
+      },
+      {
+        "full": "## Question formation > ### Yes/no questions > #### 4. Inversion of verb and subject",
+        "path": [
+          "## Question formation",
+          "### Yes/no questions",
+          "#### 4. Inversion of verb and subject"
+        ],
+        "similarity": 1.0,
+        "content": "Finally, yes/no questions may be formed by inverting the verb and the subject. This sentence structure is typically used in formal and written French. These questions may be formed in one of two ways, depending on whether the pronoun is stressed or unstressed. If the pronoun is unstressed, it changes places with the verb that it agrees with.\n\nEs-tu content ? (Are you happy?)\nThis subject-verb inversion is similar to question formation in English, though in English the inversion may only occur with auxiliary verbs, while in French it may occur with all verbs.\nIf the subject is anything other than an unstressed pronoun, an unstressed subject pronoun that agrees with the subject is added to the right of the verb.\n\nPierre est-il content ? (Is Pierre happy?)\nTwo additional notes on subject verb inversion in French. First, when the inversion results in the adjacency of two vowels ⟨t⟩ is inserted between them.\n\nT-insertion: A-t-il 17 ans ? (Is he 17?)\nSecondly, only the most formal French inverts the verb with 'je'. It has become more common, both in spoken and written French, to replace je with est-ce-que. For example, the following two sentences are ungrammatical in French.\n\n*Mens-je ? (Am I lying?)\n*Prends-je le bus ? (Am I taking the bus?)"
+      },
+      {
+        "full": "## Question formation > ### Information questions > #### 4. Inversion of verb and subject",
+        "path": [
+          "## Question formation",
+          "### Information questions",
+          "#### 4. Inversion of verb and subject"
+        ],
+        "similarity": 1.0,
+        "content": "Finally, information questions in French may be formed by following the steps outlined above in one and two and additionally, inverting the subject and verb. This is typically the most formal form of question formation and is found in written and formal spoken French. As in yes/no question formation, if the subject is an unstressed pronoun, it switches places with the verb:\n\nQui avez-vous vu ? (Who did you see?)\nIf the subject is anything other than an unstressed pronoun, an unstressed subject pronoun is added after the verb.\n\nQui Robert a-t-il rencontré ? (Who did Robert meet?)"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_pronoun.txt": {
+    "strategy": "lexical",
+    "term_used": "pronoun",
+    "topic_terms": [
+      "pronoun"
+    ],
+    "matches": [
+      {
+        "full": "## Nouns > ### The pronoun and the pronominal group",
+        "path": [
+          "## Nouns",
+          "### The pronoun and the pronominal group"
+        ],
+        "similarity": 1.0,
+        "content": "The pronoun varies in gender (masculine or feminine), in number (singular or plural), and sometimes also in person. It always takes on the meaning of the word or group of words it replaces (the reference). This function is expressed by its name: pro-noun meaning that which is “for,” “put in the place of” a noun.\nIts meaning also depends on the extralinguistic context (when the pronoun is a deictic), or on the textual context (depending on whether the pronoun is an anaphoric or a cataphoric one). The meaning of the cataphoric pronoun “this one,” on the other hand, depends either on the context or on the word to which it refers.\nThe syntactic characteristics of the pronoun are identical to those of the noun, which the pronoun can replace in the sentence."
+      },
+      {
+        "full": "## Pronouns",
+        "path": [
+          "## Pronouns"
+        ],
+        "similarity": 1.0,
+        "content": "In French, pronouns can be inflected to indicate their role in a clause (subject, direct object, etc.), as well as the person, gender, and number of their referent. Not all of these inflections may be present at once; for example, the relative pronoun que (that, which, whom) may have any referent, while the possessive pronoun le mien (mine) may have any role in a clause.\nAs noted above, French (like English) is a non-pro-drop (\"pronoun-dropping\") language; therefore, pronouns feature prominently in the language. Impersonal verbs (e.g., pleuvoir 'to rain') use the impersonal pronoun il (analogous to English 'it').\nFrench object pronouns are all clitics. Some appear so consistently – especially in everyday speech — that some have commented that French could almost be considered to demonstrate polypersonal agreement."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_reported-indirect_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "verb",
+    "topic_terms": [
+      "reported",
+      "indirect",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs",
+        "path": [
+          "## Verbs"
+        ],
+        "similarity": 1.0,
+        "content": "Verbs in French are conjugated to reflect the following information:\n\na mood (indicative, imperative, subjunctive, or conditional)\na tense (past, present, or future, though not all tenses can be combined with all moods)\nan aspect (perfective or imperfective)\na voice (active, passive, or reflexive)\nNonfinite forms (e.g., participles, gerunds, infinitives)\nSome of these features are combined into seven tense–aspect–mood combinations. The simple (one-word) forms are commonly referred to as the present, the simple past or preterite (past tense, perfective aspect), the imperfect (past tense, imperfective aspect), the future, the conditional, the present subjunctive, and the imperfect subjunctive. However, the simple past is rarely used in informal French, and the imperfect subjunctive is rarely used in modern French.\nVerbs in the finite moods (indicative, imperative, subjunctive, and conditional) are also conjugated to agree with their subjects in person (first, second, or third) and number (singular or plural). As in English, the subject must be included (except in the imperative mood); in other words, unlike other Romance languages, French is neither a null-subject nor a pro-drop language.\nAuxiliary verbs are combined with past participles of main verbs to produce compound tenses, including the compound past (passé composé). For most main verbs the auxiliary is (the appropriate form of) avoir (\"to have\"), but for reflexive verbs and certain intransitive verbs the auxiliary is a form of être (\"to be\"). The participle agrees with the subject when the auxiliary is être, and with a preceding direct object (if any) when the auxiliary is avoir. Forms of être are also used with the past participles of transitive verbs to form the passive voice.\nThe imperative mood, which only has first-person plural and second-person singular and plural forms, usually has forms similar or identical to the corresponding ones in the present indicative."
+      },
+      {
+        "full": "## Question formation > ### Yes/no questions > #### 4. Inversion of verb and subject",
+        "path": [
+          "## Question formation",
+          "### Yes/no questions",
+          "#### 4. Inversion of verb and subject"
+        ],
+        "similarity": 1.0,
+        "content": "Finally, yes/no questions may be formed by inverting the verb and the subject. This sentence structure is typically used in formal and written French. These questions may be formed in one of two ways, depending on whether the pronoun is stressed or unstressed. If the pronoun is unstressed, it changes places with the verb that it agrees with.\n\nEs-tu content ? (Are you happy?)\nThis subject-verb inversion is similar to question formation in English, though in English the inversion may only occur with auxiliary verbs, while in French it may occur with all verbs.\nIf the subject is anything other than an unstressed pronoun, an unstressed subject pronoun that agrees with the subject is added to the right of the verb.\n\nPierre est-il content ? (Is Pierre happy?)\nTwo additional notes on subject verb inversion in French. First, when the inversion results in the adjacency of two vowels ⟨t⟩ is inserted between them.\n\nT-insertion: A-t-il 17 ans ? (Is he 17?)\nSecondly, only the most formal French inverts the verb with 'je'. It has become more common, both in spoken and written French, to replace je with est-ce-que. For example, the following two sentences are ungrammatical in French.\n\n*Mens-je ? (Am I lying?)\n*Prends-je le bus ? (Am I taking the bus?)"
+      },
+      {
+        "full": "## Question formation > ### Information questions > #### 4. Inversion of verb and subject",
+        "path": [
+          "## Question formation",
+          "### Information questions",
+          "#### 4. Inversion of verb and subject"
+        ],
+        "similarity": 1.0,
+        "content": "Finally, information questions in French may be formed by following the steps outlined above in one and two and additionally, inverting the subject and verb. This is typically the most formal form of question formation and is found in written and formal spoken French. As in yes/no question formation, if the subject is an unstressed pronoun, it switches places with the verb:\n\nQui avez-vous vu ? (Who did you see?)\nIf the subject is anything other than an unstressed pronoun, an unstressed subject pronoun is added after the verb.\n\nQui Robert a-t-il rencontré ? (Who did Robert meet?)"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_subjunctive-conjunctive_mood_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "verb",
+    "topic_terms": [
+      "subjunctive",
+      "conjunctive",
+      "mood",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs",
+        "path": [
+          "## Verbs"
+        ],
+        "similarity": 1.0,
+        "content": "Verbs in French are conjugated to reflect the following information:\n\na mood (indicative, imperative, subjunctive, or conditional)\na tense (past, present, or future, though not all tenses can be combined with all moods)\nan aspect (perfective or imperfective)\na voice (active, passive, or reflexive)\nNonfinite forms (e.g., participles, gerunds, infinitives)\nSome of these features are combined into seven tense–aspect–mood combinations. The simple (one-word) forms are commonly referred to as the present, the simple past or preterite (past tense, perfective aspect), the imperfect (past tense, imperfective aspect), the future, the conditional, the present subjunctive, and the imperfect subjunctive. However, the simple past is rarely used in informal French, and the imperfect subjunctive is rarely used in modern French.\nVerbs in the finite moods (indicative, imperative, subjunctive, and conditional) are also conjugated to agree with their subjects in person (first, second, or third) and number (singular or plural). As in English, the subject must be included (except in the imperative mood); in other words, unlike other Romance languages, French is neither a null-subject nor a pro-drop language.\nAuxiliary verbs are combined with past participles of main verbs to produce compound tenses, including the compound past (passé composé). For most main verbs the auxiliary is (the appropriate form of) avoir (\"to have\"), but for reflexive verbs and certain intransitive verbs the auxiliary is a form of être (\"to be\"). The participle agrees with the subject when the auxiliary is être, and with a preceding direct object (if any) when the auxiliary is avoir. Forms of être are also used with the past participles of transitive verbs to form the passive voice.\nThe imperative mood, which only has first-person plural and second-person singular and plural forms, usually has forms similar or identical to the corresponding ones in the present indicative."
+      },
+      {
+        "full": "## Question formation > ### Yes/no questions > #### 4. Inversion of verb and subject",
+        "path": [
+          "## Question formation",
+          "### Yes/no questions",
+          "#### 4. Inversion of verb and subject"
+        ],
+        "similarity": 1.0,
+        "content": "Finally, yes/no questions may be formed by inverting the verb and the subject. This sentence structure is typically used in formal and written French. These questions may be formed in one of two ways, depending on whether the pronoun is stressed or unstressed. If the pronoun is unstressed, it changes places with the verb that it agrees with.\n\nEs-tu content ? (Are you happy?)\nThis subject-verb inversion is similar to question formation in English, though in English the inversion may only occur with auxiliary verbs, while in French it may occur with all verbs.\nIf the subject is anything other than an unstressed pronoun, an unstressed subject pronoun that agrees with the subject is added to the right of the verb.\n\nPierre est-il content ? (Is Pierre happy?)\nTwo additional notes on subject verb inversion in French. First, when the inversion results in the adjacency of two vowels ⟨t⟩ is inserted between them.\n\nT-insertion: A-t-il 17 ans ? (Is he 17?)\nSecondly, only the most formal French inverts the verb with 'je'. It has become more common, both in spoken and written French, to replace je with est-ce-que. For example, the following two sentences are ungrammatical in French.\n\n*Mens-je ? (Am I lying?)\n*Prends-je le bus ? (Am I taking the bus?)"
+      },
+      {
+        "full": "## Question formation > ### Information questions > #### 4. Inversion of verb and subject",
+        "path": [
+          "## Question formation",
+          "### Information questions",
+          "#### 4. Inversion of verb and subject"
+        ],
+        "similarity": 1.0,
+        "content": "Finally, information questions in French may be formed by following the steps outlined above in one and two and additionally, inverting the subject and verb. This is typically the most formal form of question formation and is found in written and formal spoken French. As in yes/no question formation, if the subject is an unstressed pronoun, it switches places with the verb:\n\nQui avez-vous vu ? (Who did you see?)\nIf the subject is anything other than an unstressed pronoun, an unstressed subject pronoun is added after the verb.\n\nQui Robert a-t-il rencontré ? (Who did Robert meet?)"
+      }
+    ]
+  }
+}

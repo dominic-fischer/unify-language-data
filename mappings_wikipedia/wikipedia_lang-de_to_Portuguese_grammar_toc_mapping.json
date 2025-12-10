@@ -1,0 +1,694 @@
+{
+  "schemas\\lang-de\\FORMAT_adjective.txt": {
+    "strategy": "lexical",
+    "term_used": "adjective",
+    "topic_terms": [
+      "adjective"
+    ],
+    "matches": [
+      {
+        "full": "## Adjectives",
+        "path": [
+          "## Adjectives"
+        ],
+        "similarity": 1.0,
+        "content": "Adjectives normally follow the nouns that they modify. Thus \"white house\" is casa branca, and \"green fields\" is campos verdes; the reverse order (branca casa, verdes campos) is generally limited to poetic language.\nHowever, some adjectives—such as bom (\"good\"), belo (\"nice\"), and grande (\"great\", \"big\")—often precede the noun. Indeed, some of these have rather different meanings depending on position: compare um grande homem \"a great man\", vs. um homem grande \"a big man\".\nAdjectives are routinely inflected for gender and number, according to a few basic patterns, much like those for nouns, as in the following table:\n\n## Adjectives > ### Table 4\n\n<pre>```\n| singular + masc.   | singular + fem.   | plural + masc.   | plural + fem.   | meaning        |\n|:-------------------|:------------------|:-----------------|:----------------|:---------------|\n| branco             | branca            | brancos          | brancas         | \"white\"        |\n| francês            | francesa          | franceses        | francesas       | \"French\"       |\n| motor              | motriz            | motores          | motrizes        | \"motorised\"    |\n| grandão            | grandona          | grandões         | grandonas       | \"rather big\"   |\n| conservador        | conservadora      | conservadores    | conservadoras   | \"conservative\" |\n| europeu            | europeia          | europeus         | europeias       | \"European\"     |\n| verde              | verde             | verdes           | verdes          | \"green\"        |\n| superior           | superior          | superiores       | superiores      | \"superior\"     |\n| feliz              | feliz             | felizes          | felizes         | \"happy\"        |\n| central            | central           | centrais         | centrais        | \"central\"      |\n| civil              | civil             | civis            | civis           | \"futile\"       |\n| fácil              | fácil             | fáceis           | fáceis          | \"easy\"         |\n| azul               | azul              | azuis            | azuis           | \"blue\"         |\n```</pre>\n\n\nA feminine adjective ending in -eia may correspond either to a masculine adjective ending in -eu (e.g. europeu, europeia) or to one ending in -eio (e.g. feio, feia).\nAlthough, some adjectives are invariable, usually the ones whose singular form ending is -s, and a few colour adjectives, generally the compound ones, as in the table below:\n\n## Adjectives > ### Table 5\n\n<pre>```\n| singular + masc.   | singular + fem.   | plural + masc.   | plural + fem.   | meaning       |\n|:-------------------|:------------------|:-----------------|:----------------|:--------------|\n| simples            | simples           | simples          | simples         | \"simple\"      |\n| reles              | reles             | reles            | reles           | \"lousy\"       |\n| azul-claro         | azul-claro        | azul-claro       | azul-claro      | \"light blue\"  |\n| laranja            | laranja           | laranja          | laranja         | \"orange\"      |\n| verde-oliva        | verde-oliva       | verde-oliva      | verde-oliva     | \"olive green\" |\n| ultravioleta       | ultravioleta      | ultravioleta     | ultravioleta    | \"ultraviolet\" |\n```</pre>\n\n\nThe adjectives for \"good\" and \"bad\" are irregular:\n\n## Adjectives > ### Table 6\n\n<pre>```\n| singular + masc.   | singular + fem.   | plural + masc.   | plural + fem.   | meaning   |\n|:-------------------|:------------------|:-----------------|:----------------|:----------|\n| bom                | boa               | bons             | boas            | \"good\"    |\n| mau                | má                | maus             | más             | \"bad\"     |\n```</pre>\n\n\nComparison of adjectives is regularly expressed in analytic form using the adverb mais: mais alto (do) que = \"higher than\", o mais alto \"the highest\". Most adjectives have—in addition to their positive, comparative, and superlative forms—a so-called \"absolute superlative\" form (sometimes called \"elative\"), which enhances the meaning of the adjective without explicitly comparing it (lindo, \"beautiful\"; muito lindo or lindíssimo, \"very beautiful\"), it can appear in both analytic or synthetic form.\n\n## Adjectives > ### Table 7\n\n<pre>```\n| Positive         | Comparative                | Superlative                      | Analytic absolute superlative   | Synthetic absolute superlative   |\n|:-----------------|:---------------------------|:---------------------------------|:--------------------------------|:---------------------------------|\n| belo \"pretty\"    | mais belo \"prettier\"       | o mais belo \"the prettiest\"      | muito belo \"very pretty\"        | belíssimo \"very pretty\"          |\n| caro \"expensive\" | mais caro \"more expensive\" | o mais caro \"the most expensive\" | muito caro \"very expensive\"     | caríssimo \"very expensive\"       |\n```</pre>\n\n\nA few adjectives (besides mais itself) have suppletive comparative/superlative forms:\n\n## Adjectives > ### Table 8\n\n<pre>```\n| Positive        | Comparative     | Absolute superlative   | Superlative            |\n|:----------------|:----------------|:-----------------------|:-----------------------|\n| bom \"good\"      | melhor \"better\" | ótimo \"very good\"      | o melhor \"the best\"    |\n| mau \"bad\"       | pior \"worse\"    | péssimo \"very bad\"     | o pior \"the worst\"     |\n| pequeno \"small\" | menor \"smaller\" | mínimo \"very small\"    | o menor \"the smallest\" |\n| grande \"big\"    | maior \"bigger\"  | máximo \"very big\"      | o maior \"the biggest\"  |\n```</pre>"
+      },
+      {
+        "full": "## Verbs > ### Copulae > #### Change of adjective meaning",
+        "path": [
+          "## Verbs",
+          "### Copulae",
+          "#### Change of adjective meaning"
+        ],
+        "similarity": 1.0,
+        "content": "Estou tonta = \"I'm dizzy\"\nSou tonta = \"I'm silly\"\nÉ sujo = \"It's dirty\" (i.e. \"It's a dirty place\" — characteristic)\nEstá sujo = \"It's dirty\" (i.e. \"(right now) The place is dirty\" — state)\nÉ aberta = \"She's open\" (i.e. \"She's an open sort of person\" — characteristic)\nEstá aberta = \"It's open\" (probably referring to a door or window — state)\nEle é triste = \"He is sad\" (i.e. gloomy — characteristic)\n(Ele) Está triste = \"He is sad\" (i.e. feeling down — state)\nComo és? / Como você é? = \"What are you like?\" (i.e. \"describe yourself\" — characteristics)\nComo estás? / Como você está? = \"How are you?\" (i.e. \"how are you doing?\" — state)\nWith adjectives of appearance (\"beautiful\", etc.), ser means \"to be\", and estar means \"to look\".\n\nQue linda ela é! = \"Wow, she's so beautiful\" (characteristic)\nQue linda ela está! = \"Wow, she's looking so beautiful\" (state)\nAs in Spanish, the states of life and death are expressed with estar: Está vivo (\"He is alive\"). Está morto (\"He is dead\").\nSer is used with adjectives of fundamental belief (Não sou católico, \"I'm not Catholic\"), nationality (És português, \"You are Portuguese\"), sex/gender (É homem, \"He's a man\"), intelligence (Somos espertos, \"We are smart\"), etc.\nCatólico can also be used with estar, in which case it takes on a figurative meaning:\n\nEu não estou muito católico = \"I'm not feeling very dependable/trustworthy\" (possibly ill or drunk).\nO tempo hoje não está muito católico = \"The weather's not very nice today.\""
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_adverb.txt": {
+    "strategy": "lexical",
+    "term_used": "adverb",
+    "topic_terms": [
+      "adverb"
+    ],
+    "matches": [
+      {
+        "full": "## Adverbs",
+        "path": [
+          "## Adverbs"
+        ],
+        "similarity": 1.0,
+        "content": "Portuguese adverbs work much like their English counterparts, e.g. muito (\"very\"), pouco (\"not much\"), longe (\"far\"), muito (\"much, a lot\"), quase (\"almost\"), etc.  To form adverbs from adjectives, the adverbial suffix -mente is generally added to the feminine singular of the adjective, whether or not it differs from the masculine singular. Thus:\n\nclaro (\"clear\", m. sg.) → clara (f. sg.) → claramente (\"clearly\")\nnatural (\"natural\", m. & f. sg.) → naturalmente (\"naturally\")\nUnlike Spanish, an orthographic accent on the adjective is not retained on the adverb; thus for example rápido → rapidamente (\"fast, quickly\").\nAs with adjectives, the comparative of adverbs is almost always formed by placing mais (\"more\") or menos (\"less\") before the adverb.  Thus mais cedo (\"earlier\"), mais rapidamente (\"faster, more quickly\"), etc.\nThe adjectives bom (\"good\") and mau (\"bad\") have irregular adverbial forms: bem (\"well\") and mal (\"badly\"), respectively.  And, like their corresponding adjectival forms,  bem and mal have irregular comparative forms: melhor (\"better\") and pior (\"worse\"), respectively.\nAdverbs of place show a three-way distinction between close to the speaker, close to the listener, and far from both:\n\naqui = \"here\"\ncá = \"here\" (somewhat near me)\naí = \"there\" (near you)\nlá, acolá = \"there\" (far from you, and where I can't see)\nali = \"there\" (somewhat far from both of us, but in my field of view)\nThese adverbs (except by cá and lá) get contracted with de (from).\n\n## Adverbs > ### Table 9\n\n<pre>```\n| preposition   | adverb + Unnamed: 1_level_1   | adverb + Unnamed: 2_level_1   | adverb + Unnamed: 3_level_1   | adverb + Unnamed: 4_level_1   |\n|:--------------|:------------------------------|:------------------------------|:------------------------------|:------------------------------|\n| aqui          | aí                            | ali                           | acolá                         | nan                           |\n| de            | daqui                         | daí                           | dali                          | dacolá                        |\n```</pre>\n\n\nThe English concept of phrasal verb—a verb-and-adverb sequence that forms a single semantic unit, such as \"set up\", \"get by\", \"pick out\", etc.—is rare in Portuguese. There are, however, some exceptions, such as ir embora (\"to go away / to leave\") and jogar fora (\"to throw away\")."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_agreement_concord_syntax.txt": {
+    "strategy": "embedding",
+    "term_used": null,
+    "topic_terms": [
+      "agreement",
+      "concord",
+      "syntax"
+    ],
+    "matches": [
+      {
+        "full": "## Sentence structure > ### Word classes",
+        "path": [
+          "## Sentence structure",
+          "### Word classes"
+        ],
+        "similarity": 0.3546103239059448,
+        "content": "Like most Indo-European languages, including English, Portuguese classifies most of its lexicon into four word classes: verbs, nouns, adjectives, and adverbs. These are \"open\" classes, in the sense that they readily accept new members, by coinage, borrowing, or compounding. Interjections form a smaller open class.\nThere are also several small closed classes, such as pronouns, prepositions, articles, demonstratives, numerals, and conjunctions. A few grammatically peculiar words are difficult to categorize; these include cadê (\"where is\"—Braz., colloq.), tomara (\"let's hope\"), oxalá (\"let's hope that\"), and eis (\"here is\"; cf. Latin ecce and French voilà).\nWithin the four main classes there are many semi-regular mechanisms that can be used to derive new words from existing words, sometimes with change of class; for example, veloz (\"fast\") → velocíssimo (\"very fast\"), medir (\"to measure\") → medição (\"measurement\"), piloto (\"pilot\") → pilotar (\"to pilot\"). Finally, there are several phrase embedding mechanisms that allow arbitrarily complex phrases to behave like nouns, adjectives, or adverbs."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_clauses_syntax.txt": {
+    "strategy": "embedding",
+    "term_used": null,
+    "topic_terms": [
+      "clauses",
+      "syntax"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs > ### Subjunctive mood",
+        "path": [
+          "## Verbs",
+          "### Subjunctive mood"
+        ],
+        "similarity": 0.48314031958580017,
+        "content": "The Portuguese subjunctive mood is used mainly in certain kinds of subordinate clauses. There are three synthetic subjunctive inflections, conventionally called \"present\", \"past\" and \"future\". The rules of usage, in broad terms, are the following:\n\nThe present subjunctive is used in clauses, often introduced with que (\"that\"), which express generally non-assertive notions, such as wishes, orders, possibilities, etc.:\nquero que cante, \"I want her/him to sing\"\nsupondo que cante, \"assuming that he/she will sing\"\nele será pago, cante ou não, \"he will be paid, whether he sings or not\"\nThe past subjunctive is used for adverbial subordinate clauses, introduced with se (\"if\") or equivalent, that are conditions for a main cause in the conditional tense.\nse cantasse, seria famoso (\"if he/she sang [if he/she were a singer], he/she would be famous\")\nse cantasse, teríamos aplaudido (\"if he/she had sung, we would have applauded\")\nIt is also used for noun clauses, introduced with que, that are the object of past wishes or commands:\n\nesperávamos que cantasse (\"we hoped that he would sing\")\neu mandei que cantassem (\"I ordered them to sing\")\nThe future subjunctive is an uncommon feature among Indo-European languages. It is used in adverbial subordinate clauses, usually introduced by se (\"if\") or quando (\"when\"), or in adjectival subordinate clauses that express a neutral or expected condition for a present- or future-tense main clause:\nse cantarmos, seremos pagos (\"If we (should) sing, we will be paid\")\nse cantarmos, ele fica (\"If we (should) sing, he stays\")\nquando cantarmos, ele escutará (\"When we (should) sing, he will listen\")\nOften, the option between indicative and subjunctive depends on whether the speaker does or does not endorse the proposition expressed by the subordinate clause:\nAdmito que ele roubou a bicicleta. (\"I admit that he stole the bicycle.\")\nAdmito que ele possa ter roubado a bicicleta. (\"I admit that he could have stolen the bicycle.\")\nIn relative clauses, the option between indicative and subjunctive depends on whether the speaker does or does not identify a single object with the property expressed by the relative clause:\nAndo à procura de um cão que fala! (\"I'm looking for a certain dog which can speak!\")\nAndo à procura de um cão que fale! (\"I'm looking for any dog that speaks!\")\nMore on the subjunctive mood in Portuguese can be found at Wikibooks: Variation of the Portuguese Verbs."
+      },
+      {
+        "full": "## Sentence structure > ### Subject, object, and complement",
+        "path": [
+          "## Sentence structure",
+          "### Subject, object, and complement"
+        ],
+        "similarity": 0.4383014440536499,
+        "content": "Following the general Indo-European pattern, the central element of almost any Portuguese clause is a verb, which may directly connect to one, two, or (rarely) three nouns (or noun-like phrases), called the subject, the object (more specifically, the direct object), and the complement (more specifically, the object complement or objective complement). The most frequent order of these elements in Portuguese is subject–verb–object (SVO, as in examples (1) and (2) below), or, when a complement is present, subject–verb–object-complement (SVOC — examples (3) and (4)):\n\n(1) {A Maria}S {ama}V {o Paulo}O, \"Maria loves Paulo.\"\n(2) {O pedreiro}S {construiu}V {a casa}O, \"The mason has constructed the house.\"\n(3) {O presidente}S {nomeou}V o {Pedro}O {ministro}C, \"The president appointed Pedro (as) minister.\"\n(4) {Ela}S {achou}V {o livro}O {uma chatice}C, \"She found the book a bore.\"\nAny of the three noun elements may be omitted if it can be inferred from the context or from other syntactic clues; but many grammatical rules will still apply as if the omitted parts were there.\nA clause will often contain a number of adverbs (or adverbial phrases) that modify the meaning of the verb; they may be inserted between the major components of the clause. Additional nouns can be connected to the verb by means of prepositions; the resulting prepositional phrases have an adverbial function.  For example:\n\nEle carregou {sem demora} a mala {para ela} {do carro} {até a porta}, \"He carried {without delay} the bag {for her} {from the car} {to the door}.\""
+      },
+      {
+        "full": "## Sentence structure",
+        "path": [
+          "## Sentence structure"
+        ],
+        "similarity": 0.4170662760734558,
+        "content": ""
+      },
+      {
+        "full": "## Sentence structure > ### Null-subject language",
+        "path": [
+          "## Sentence structure",
+          "### Null-subject language"
+        ],
+        "similarity": 0.4103342294692993,
+        "content": "Portuguese is a null-subject language, meaning that it permits and sometimes mandates the omission of an explicit subject.\nIn Portuguese, the grammatical person of the subject is generally reflected by the inflection of the verb. Sometimes, though an explicit subject is not necessary to form a grammatically correct sentence, one may be stated in order to emphasize its importance. Some sentences, however, do not allow a subject at all and in some other cases an explicit subject would sound awkward or unnatural:\n\n\"I'm going home\" can be translated either as vou para casa or as eu vou para casa, where eu means \"I\".\n\"It's raining\" is está a chover in European Portuguese, or está chovendo in Brazilian Portuguese, neither of which occurs with an explicit subject. Some older speakers say ele está a chover \"it is raining\", where ele \"he/it\" refers to the masculine subject o tempo \"the weather\". Nowadays this usage is uncommon and seen as old-fashioned.\nQue horas são? \"what time is it?\" (literally \"what hours are they?\"). Some older speakers say que horas são ele?, where ele refers to o tempo \"the time\" (o tempo can also mean \"the weather\"). Nowadays this usage is uncommon and seen as old-fashioned.\nIn European Portuguese, only in exceptional circumstances would \"I'm going home; I'm going to watch TV\" be translated as eu vou para casa; eu vou ver televisão. At least the second eu (\"I\") would normally be omitted, if not both. Meanwhile, in Brazilian Portuguese, the subject pronoun is more likely to be repeated.\nAs in other null subject language with a SVO word order, the subject is often postponed, mostly in existential sentences, in answers to partial questions and in contrast structures:\n\nExistem muitos ratos aqui! (\"There are many mice here!\") — Verb existem, subject ratos, complement aqui indicating place.\nQuem é que foi? Fui eu. (\"Who was it? It was me.\") — Verb fui, subject eu.\nEla não comeu o bolo, mas comi-o eu. (European Portuguese) or ...mas eu comi (Brazilian Portuguese) (\"She didn't eat the cake, but I did.\") — Subject ela, negation não, verb comeu, object o bolo; the complement divides itself into: adversative conjunction mas, verb comi, object -o, subject eu."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_conditional_mood_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "mood",
+    "topic_terms": [
+      "conditional",
+      "mood",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs > ### Synthetic moods and tenses",
+        "path": [
+          "## Verbs",
+          "### Synthetic moods and tenses"
+        ],
+        "similarity": 1.0,
+        "content": "Grammarians usually classify the verbal inflections (i.e. the synthetic verb forms) into the following moods, tenses, and non-finite forms:\n\nindicative mood, used in the main clauses of declarative sentences:\npresent tense: cantamos, \"we sing\"\npast tenses:\npreterite: cantámos (EP), cantamos (BP) \"we sang\"\nimperfect: cantávamos, \"we were singing\"\npluperfect: cantáramos, \"we had sung\"\nfuture tense: cantaremos, \"we will sing\"\nconditional mood:\nconditional tense: cantaríamos, \"we would sing\"\nsubjunctive mood used in certain subordinate clauses:\npresent subjunctive: que cantemos, \"that we sing\"\npreterite subjunctive: se cantássemos, \"if we sang\"\nfuture subjunctive: se cantarmos, \"if we sing/should we sing\"\nimperative mood: used to express a command, advice, encouragement, etc.:\npositive: canta! \"sing!\"\nnegative: não cantes! \"don't sing!\"\nverbals\ninfinitives:\nimpersonal: cantar, \"to sing\"\npersonal: cantarmos, \"for us to sing\", \"that we sing\" or \"our singing\"\nparticiples:\npresent participle: cantando \"singing\"\npast (or passive) participle: cantado \"sung\"\nThe conditional tense is usually called \"future of the past\" in Brazilian grammars, whereas in Portugal it is usually classified as a separate \"conditional mood\". Portuguese grammarians call subjunctive \"conjuntivo\"; Brazilians call it \"subjuntivo\".\nNote that the synthetic future and conditional have largely disappeared from everyday speech.  The synthetic future is generally replaced by ir + infinitive (e.g. vou cantar \"I will sing\"), while the conditional is replaced either by the imperfect (especially in its modal use; se você me desse dinheiro, eu cantava \"if you gave me money, I would sing\") or by the imperfect of ir + infinitive (in its non-modal, \"future of the past\" usage; ele disse que ia cantar \"he said that he would sing\").  However, the synthetic future subjunctive is still in common use (e.g. se você for \"if you should go\").  The synthetic future and conditional of verbs with one-syllable infinitives also sometimes occur (e.g. será/seria \"it will/would be\" or in the compound tenses terá/teria sido \"it will/would have been\").\nIn regular verbs, the personal infinitive is identical to the subjunctive future tense; but they are different in irregular verbs: quando formos (\"when we go\", subjunctive) versus é melhor irmos (\"it is better that we go\").\nThere are also many compound tenses expressed with inflected forms of the auxiliary verbs ser and estar (variants of \"to be\"), haver and ter (variants of \"to have\")."
+      },
+      {
+        "full": "## Verbs > ### Subjunctive mood",
+        "path": [
+          "## Verbs",
+          "### Subjunctive mood"
+        ],
+        "similarity": 1.0,
+        "content": "The Portuguese subjunctive mood is used mainly in certain kinds of subordinate clauses. There are three synthetic subjunctive inflections, conventionally called \"present\", \"past\" and \"future\". The rules of usage, in broad terms, are the following:\n\nThe present subjunctive is used in clauses, often introduced with que (\"that\"), which express generally non-assertive notions, such as wishes, orders, possibilities, etc.:\nquero que cante, \"I want her/him to sing\"\nsupondo que cante, \"assuming that he/she will sing\"\nele será pago, cante ou não, \"he will be paid, whether he sings or not\"\nThe past subjunctive is used for adverbial subordinate clauses, introduced with se (\"if\") or equivalent, that are conditions for a main cause in the conditional tense.\nse cantasse, seria famoso (\"if he/she sang [if he/she were a singer], he/she would be famous\")\nse cantasse, teríamos aplaudido (\"if he/she had sung, we would have applauded\")\nIt is also used for noun clauses, introduced with que, that are the object of past wishes or commands:\n\nesperávamos que cantasse (\"we hoped that he would sing\")\neu mandei que cantassem (\"I ordered them to sing\")\nThe future subjunctive is an uncommon feature among Indo-European languages. It is used in adverbial subordinate clauses, usually introduced by se (\"if\") or quando (\"when\"), or in adjectival subordinate clauses that express a neutral or expected condition for a present- or future-tense main clause:\nse cantarmos, seremos pagos (\"If we (should) sing, we will be paid\")\nse cantarmos, ele fica (\"If we (should) sing, he stays\")\nquando cantarmos, ele escutará (\"When we (should) sing, he will listen\")\nOften, the option between indicative and subjunctive depends on whether the speaker does or does not endorse the proposition expressed by the subordinate clause:\nAdmito que ele roubou a bicicleta. (\"I admit that he stole the bicycle.\")\nAdmito que ele possa ter roubado a bicicleta. (\"I admit that he could have stolen the bicycle.\")\nIn relative clauses, the option between indicative and subjunctive depends on whether the speaker does or does not identify a single object with the property expressed by the relative clause:\nAndo à procura de um cão que fala! (\"I'm looking for a certain dog which can speak!\")\nAndo à procura de um cão que fale! (\"I'm looking for any dog that speaks!\")\nMore on the subjunctive mood in Portuguese can be found at Wikibooks: Variation of the Portuguese Verbs."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_constituents_syntax.txt": {
+    "strategy": "embedding",
+    "term_used": null,
+    "topic_terms": [
+      "constituents",
+      "syntax"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs > ### Compound forms",
+        "path": [
+          "## Verbs",
+          "### Compound forms"
+        ],
+        "similarity": 0.48515772819519043,
+        "content": "Portuguese has many compound verb tenses, consisting of an auxiliary verb (inflected in any of the above forms) combined with the gerund, participle or infinitive of the principal verb.\nThe basic auxiliary verbs of Portuguese are ter, haver, ser, estar and ir. Thus, for example, \"he had spoken\" can be translated as ele havia falado or ele tinha falado."
+      },
+      {
+        "full": "## Verbs > ### Compound forms > #### Other compound tenses",
+        "path": [
+          "## Verbs",
+          "### Compound forms",
+          "#### Other compound tenses"
+        ],
+        "similarity": 0.4208008348941803,
+        "content": "Tenses with ir + infinitive \n\nvamos falar (\"we will speak\", \"we are going to speak\")\níamos falar (\"we were going to speak\")\niríamos falar (\"we would speak\", \"we would be going to speak\")\nIn the spoken language, the construction ir + infinitive almost completely replaces the use of the synthetic future (e.g. vamos falar rather than falaremos).\nTenses with multiple auxiliaries:\n\nteríamos estado falando/a falar (\"we would have been speaking\")\ntenho estado falando/a falar (\"I have been speaking [until now]\")"
+      },
+      {
+        "full": "## Verbs > ### Compound forms > #### Compound perfect",
+        "path": [
+          "## Verbs",
+          "### Compound forms",
+          "#### Compound perfect"
+        ],
+        "similarity": 0.4041930139064789,
+        "content": "Tenses with ter/haver + past participle (compound tenses):\n\nPreterite perfect indicative – temos falado (\"we have been speaking\"; see \"Preterite vs. present perfect\" below). Haver is not used nowadays. This tense may also be equivalent to the simple preterite for some fixed expressions, such as Tenho dito/concluído.\nPluperfect indicative – tínhamos/havíamos falado  (\"we had spoken\")\nAnterior pluperfect indicative – tivéramos/houvéramos falado (\"we had spoken\", literary use only)\nFuture perfect indicative – teremos/haveremos falado (\"we will have spoken\")\nConditional perfect – teríamos/haveríamos falado (\"we would have spoken\")\nPreterite perfect subjunctive – desde que tenhamos/hajamos falado (\"provided that we have spoken\")\nPluperfect subjunctive – se/que tivéssemos/houvéssemos falado (\"if/that we had spoken\")\nFuture perfect subjunctive – se/quando tivermos/houvermos falado (\"if/when we have spoken\")\nPersonal perfect infinitive – termos/havermos falado (\"for us to have spoken\")\nWith no inflection:\n\nImpersonal perfect infinitive – ter/haver falado (\"to have spoken\")\nPerfect gerund – tendo/havendo falado (\"having spoken\")"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_derivation-formation_morphology.txt": {
+    "strategy": "lexical",
+    "term_used": "formation",
+    "topic_terms": [
+      "derivation",
+      "formation",
+      "morphology"
+    ],
+    "matches": [
+      {
+        "full": "## Nouns > ### Plural formation",
+        "path": [
+          "## Nouns",
+          "### Plural formation"
+        ],
+        "similarity": 1.0,
+        "content": "Portuguese nouns form their plurals by adding -s if the singular ends in a vowel, and -es if the singular ends in n, r or z. If the singular ends in s, then if the last syllable is stressed, the plural adds -es, and otherwise the plural is the same as the singular. Words ending in m change that m into ns, and words ending in l change that l  into -is (e.g. animal > animais). Before 1943, the plural of words that ended in l, was -es, so: Crystal -> Crystaes, Papel -> Papees. Words ending in ão vary in how they form their plurals: some replace  the ão with ães, others with ões, and others just add an -s like the other nouns ending in a vowel."
+      },
+      {
+        "full": "## Nouns > ### Plural formation > #### Gender determination",
+        "path": [
+          "## Nouns",
+          "### Plural formation",
+          "#### Gender determination"
+        ],
+        "similarity": 1.0,
+        "content": "Grammatical gender of inanimate entities is sometimes different from that used in sister languages: thus, for example, Portuguese árvore (\"tree\") and flor (\"flower\") are feminine, while Spanish árbol and Italian fiore are masculine; Portuguese mar (\"sea\") and mapa (\"map\") are masculine, while French mer and carte are feminine.\nIn many cases, the gender and number of a noun can be deduced from its ending: the basic pattern is \"-o\" / \"-os\" for masculine singular and plural, \"-a\" / \"-as\" for feminine singular and plural. So, casa (\"house\"), mala (\"suitcase\"), pedra (\"stone\"), and inteligência (\"intelligence\") are feminine, while carro (\"car\"), saco (\"bag\"), tijolo (\"brick\"), and aborrecimento (\"annoyance\") are masculine. However, the complete rules are quite complex: for instance, nouns ending in -ção are usually feminine, except for augmentatives like bração (\"big arm\"). And there are many irregular exceptions. For words ending in other letters, there are few rules: flor (\"flower\"), gente (\"folk\"), nau (\"ship\"), maré (\"tide\") are feminine, while amor (\"love\"), pente (\"comb\"), pau (\"stick\"), café (\"coffee\") are masculine.\nOn the other hand, the gender of some nouns, as well as of first- and second-person pronouns, is determined semantically by the sex or gender of the referent: esta estudante é nova, mas aquele estudante é velho (\"this (female) student is new, but that (male) student is old\";\nor eu sou brasileiro (\"I am Brazilian\", said by a man) and eu sou brasileira (the same, said by a woman). Honorific forms of address such as Vossa Excelência (\"Your Excellency\") exhibit noun/adjective agreement internally, but require agreement according to the gender of the referent for other modifiers, as in Vossa Excelência está atarefado (\"Your Excellency is busy\").\nAlso, many animate masculine nouns have specific feminine derivative forms to indicate female sex or social gender: lobo (\"wolf\" or \"male wolf\", masculine gender) → loba (\"she-wolf\", feminine), conde (\"count\", m.) → condessa (\"countess\", f.), doutor (\"doctor\" or \"male doctor\", m.) → doutora (\"female doctor\", f.), ator (\"actor\", m.) → atriz (\"actress\", f.), etc. The feminine noun derivations should not be confused with the adjectival gender inflections, which use different (and more regular) rules."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_determiners-articles_noun.txt": {
+    "strategy": "lexical",
+    "term_used": "articles",
+    "topic_terms": [
+      "determiners",
+      "articles",
+      "noun"
+    ],
+    "matches": [
+      {
+        "full": "## Articles",
+        "path": [
+          "## Articles"
+        ],
+        "similarity": 1.0,
+        "content": "Portuguese has definite and indefinite articles, with different forms according to the gender and number of the noun to which they refer:\n\n## Articles > ### Table 2\n\n<pre>```\n| Unnamed: 0_level_0 + Unnamed: 0_level_1   | singular + masculine   | singular + feminine   | plural + masculine   | plural + feminine   | meaning     |\n|:------------------------------------------|:-----------------------|:----------------------|:---------------------|:--------------------|:------------|\n| definite article                          | o, el[a]               | a                     | os                   | as                  | the         |\n| indefinite article                        | um                     | uma[b]                | uns                  | umas[c]             | a, an; some |\n```</pre>\n\n\nThe noun after the indefinite article may be elided, in which case the article is equivalent to English \"one\" (if singular) or \"some\" (if plural): quero um também (\"I want one as well\"), quero uns também (\"I want some as well\")."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_futureTense_tense_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "tense",
+    "topic_terms": [
+      "future tense",
+      "tense",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs > ### Synthetic moods and tenses",
+        "path": [
+          "## Verbs",
+          "### Synthetic moods and tenses"
+        ],
+        "similarity": 1.0,
+        "content": "Grammarians usually classify the verbal inflections (i.e. the synthetic verb forms) into the following moods, tenses, and non-finite forms:\n\nindicative mood, used in the main clauses of declarative sentences:\npresent tense: cantamos, \"we sing\"\npast tenses:\npreterite: cantámos (EP), cantamos (BP) \"we sang\"\nimperfect: cantávamos, \"we were singing\"\npluperfect: cantáramos, \"we had sung\"\nfuture tense: cantaremos, \"we will sing\"\nconditional mood:\nconditional tense: cantaríamos, \"we would sing\"\nsubjunctive mood used in certain subordinate clauses:\npresent subjunctive: que cantemos, \"that we sing\"\npreterite subjunctive: se cantássemos, \"if we sang\"\nfuture subjunctive: se cantarmos, \"if we sing/should we sing\"\nimperative mood: used to express a command, advice, encouragement, etc.:\npositive: canta! \"sing!\"\nnegative: não cantes! \"don't sing!\"\nverbals\ninfinitives:\nimpersonal: cantar, \"to sing\"\npersonal: cantarmos, \"for us to sing\", \"that we sing\" or \"our singing\"\nparticiples:\npresent participle: cantando \"singing\"\npast (or passive) participle: cantado \"sung\"\nThe conditional tense is usually called \"future of the past\" in Brazilian grammars, whereas in Portugal it is usually classified as a separate \"conditional mood\". Portuguese grammarians call subjunctive \"conjuntivo\"; Brazilians call it \"subjuntivo\".\nNote that the synthetic future and conditional have largely disappeared from everyday speech.  The synthetic future is generally replaced by ir + infinitive (e.g. vou cantar \"I will sing\"), while the conditional is replaced either by the imperfect (especially in its modal use; se você me desse dinheiro, eu cantava \"if you gave me money, I would sing\") or by the imperfect of ir + infinitive (in its non-modal, \"future of the past\" usage; ele disse que ia cantar \"he said that he would sing\").  However, the synthetic future subjunctive is still in common use (e.g. se você for \"if you should go\").  The synthetic future and conditional of verbs with one-syllable infinitives also sometimes occur (e.g. será/seria \"it will/would be\" or in the compound tenses terá/teria sido \"it will/would have been\").\nIn regular verbs, the personal infinitive is identical to the subjunctive future tense; but they are different in irregular verbs: quando formos (\"when we go\", subjunctive) versus é melhor irmos (\"it is better that we go\").\nThere are also many compound tenses expressed with inflected forms of the auxiliary verbs ser and estar (variants of \"to be\"), haver and ter (variants of \"to have\")."
+      },
+      {
+        "full": "## Verbs > ### Compound forms > #### Progressive tenses",
+        "path": [
+          "## Verbs",
+          "### Compound forms",
+          "#### Progressive tenses"
+        ],
+        "similarity": 1.0,
+        "content": "Portuguese originally constructed progressive tenses with a conjugated form of the verb \"to be\", followed by the gerund of the main verb, like English: e.g. Eu estou trabalhando \"I am working\" (cf. also the corresponding Italian phrase: (Io) sto lavorando). However, in European Portuguese an alternative construction has appeared, formed with the preposition a followed by the infinitive of the main verb: e.g. Eu estou a trabalhar. This has replaced the ancient syntax in central and northern Portugal. The gerund may also be replaced with a followed by the infinitive in less common verb phrases, such as Ele ficou lá, trabalhando / Ele ficou lá, a trabalhar \"He stayed there, working\". However, the construction with the gerund is still found in southern and insular Portugal and in Portuguese literature, and it is the rule in Brazil.\n\nestou falando or estou a falar (\"I am speaking\")\nestava falando/ a falar (imperfective: \"I was speaking\" [at the moment])\nestive falando/ a falar (perfective: \"I was speaking [for a while]\" / \"I have been speaking\" [for a while])\nestivera falando/ a falar (\"I had been speaking\")\nestarei falando/ a falar (\"I will be speaking\")\nesteja falando/ a falar (\"[that] I/he/she be speaking\"; or \"am\" or \"is speaking\")\nse estivesse falando/ a falar (\"if I were speaking\")\nquando estiver falando/ a falar (\"when you are speaking\" [in the future])\nestar falando/ a falar (\"to be speaking\")"
+      },
+      {
+        "full": "## Verbs > ### Compound forms > #### Other compound tenses",
+        "path": [
+          "## Verbs",
+          "### Compound forms",
+          "#### Other compound tenses"
+        ],
+        "similarity": 1.0,
+        "content": "Tenses with ir + infinitive \n\nvamos falar (\"we will speak\", \"we are going to speak\")\níamos falar (\"we were going to speak\")\niríamos falar (\"we would speak\", \"we would be going to speak\")\nIn the spoken language, the construction ir + infinitive almost completely replaces the use of the synthetic future (e.g. vamos falar rather than falaremos).\nTenses with multiple auxiliaries:\n\nteríamos estado falando/a falar (\"we would have been speaking\")\ntenho estado falando/a falar (\"I have been speaking [until now]\")"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_imperative_mood_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "mood",
+    "topic_terms": [
+      "imperative",
+      "mood",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs > ### Synthetic moods and tenses",
+        "path": [
+          "## Verbs",
+          "### Synthetic moods and tenses"
+        ],
+        "similarity": 1.0,
+        "content": "Grammarians usually classify the verbal inflections (i.e. the synthetic verb forms) into the following moods, tenses, and non-finite forms:\n\nindicative mood, used in the main clauses of declarative sentences:\npresent tense: cantamos, \"we sing\"\npast tenses:\npreterite: cantámos (EP), cantamos (BP) \"we sang\"\nimperfect: cantávamos, \"we were singing\"\npluperfect: cantáramos, \"we had sung\"\nfuture tense: cantaremos, \"we will sing\"\nconditional mood:\nconditional tense: cantaríamos, \"we would sing\"\nsubjunctive mood used in certain subordinate clauses:\npresent subjunctive: que cantemos, \"that we sing\"\npreterite subjunctive: se cantássemos, \"if we sang\"\nfuture subjunctive: se cantarmos, \"if we sing/should we sing\"\nimperative mood: used to express a command, advice, encouragement, etc.:\npositive: canta! \"sing!\"\nnegative: não cantes! \"don't sing!\"\nverbals\ninfinitives:\nimpersonal: cantar, \"to sing\"\npersonal: cantarmos, \"for us to sing\", \"that we sing\" or \"our singing\"\nparticiples:\npresent participle: cantando \"singing\"\npast (or passive) participle: cantado \"sung\"\nThe conditional tense is usually called \"future of the past\" in Brazilian grammars, whereas in Portugal it is usually classified as a separate \"conditional mood\". Portuguese grammarians call subjunctive \"conjuntivo\"; Brazilians call it \"subjuntivo\".\nNote that the synthetic future and conditional have largely disappeared from everyday speech.  The synthetic future is generally replaced by ir + infinitive (e.g. vou cantar \"I will sing\"), while the conditional is replaced either by the imperfect (especially in its modal use; se você me desse dinheiro, eu cantava \"if you gave me money, I would sing\") or by the imperfect of ir + infinitive (in its non-modal, \"future of the past\" usage; ele disse que ia cantar \"he said that he would sing\").  However, the synthetic future subjunctive is still in common use (e.g. se você for \"if you should go\").  The synthetic future and conditional of verbs with one-syllable infinitives also sometimes occur (e.g. será/seria \"it will/would be\" or in the compound tenses terá/teria sido \"it will/would have been\").\nIn regular verbs, the personal infinitive is identical to the subjunctive future tense; but they are different in irregular verbs: quando formos (\"when we go\", subjunctive) versus é melhor irmos (\"it is better that we go\").\nThere are also many compound tenses expressed with inflected forms of the auxiliary verbs ser and estar (variants of \"to be\"), haver and ter (variants of \"to have\")."
+      },
+      {
+        "full": "## Verbs > ### Subjunctive mood",
+        "path": [
+          "## Verbs",
+          "### Subjunctive mood"
+        ],
+        "similarity": 1.0,
+        "content": "The Portuguese subjunctive mood is used mainly in certain kinds of subordinate clauses. There are three synthetic subjunctive inflections, conventionally called \"present\", \"past\" and \"future\". The rules of usage, in broad terms, are the following:\n\nThe present subjunctive is used in clauses, often introduced with que (\"that\"), which express generally non-assertive notions, such as wishes, orders, possibilities, etc.:\nquero que cante, \"I want her/him to sing\"\nsupondo que cante, \"assuming that he/she will sing\"\nele será pago, cante ou não, \"he will be paid, whether he sings or not\"\nThe past subjunctive is used for adverbial subordinate clauses, introduced with se (\"if\") or equivalent, that are conditions for a main cause in the conditional tense.\nse cantasse, seria famoso (\"if he/she sang [if he/she were a singer], he/she would be famous\")\nse cantasse, teríamos aplaudido (\"if he/she had sung, we would have applauded\")\nIt is also used for noun clauses, introduced with que, that are the object of past wishes or commands:\n\nesperávamos que cantasse (\"we hoped that he would sing\")\neu mandei que cantassem (\"I ordered them to sing\")\nThe future subjunctive is an uncommon feature among Indo-European languages. It is used in adverbial subordinate clauses, usually introduced by se (\"if\") or quando (\"when\"), or in adjectival subordinate clauses that express a neutral or expected condition for a present- or future-tense main clause:\nse cantarmos, seremos pagos (\"If we (should) sing, we will be paid\")\nse cantarmos, ele fica (\"If we (should) sing, he stays\")\nquando cantarmos, ele escutará (\"When we (should) sing, he will listen\")\nOften, the option between indicative and subjunctive depends on whether the speaker does or does not endorse the proposition expressed by the subordinate clause:\nAdmito que ele roubou a bicicleta. (\"I admit that he stole the bicycle.\")\nAdmito que ele possa ter roubado a bicicleta. (\"I admit that he could have stolen the bicycle.\")\nIn relative clauses, the option between indicative and subjunctive depends on whether the speaker does or does not identify a single object with the property expressed by the relative clause:\nAndo à procura de um cão que fala! (\"I'm looking for a certain dog which can speak!\")\nAndo à procura de um cão que fale! (\"I'm looking for any dog that speaks!\")\nMore on the subjunctive mood in Portuguese can be found at Wikibooks: Variation of the Portuguese Verbs."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_negation_syntax.txt": {
+    "strategy": "embedding",
+    "term_used": null,
+    "topic_terms": [
+      "negation",
+      "syntax"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs > ### Subjunctive mood",
+        "path": [
+          "## Verbs",
+          "### Subjunctive mood"
+        ],
+        "similarity": 0.3651270270347595,
+        "content": "The Portuguese subjunctive mood is used mainly in certain kinds of subordinate clauses. There are three synthetic subjunctive inflections, conventionally called \"present\", \"past\" and \"future\". The rules of usage, in broad terms, are the following:\n\nThe present subjunctive is used in clauses, often introduced with que (\"that\"), which express generally non-assertive notions, such as wishes, orders, possibilities, etc.:\nquero que cante, \"I want her/him to sing\"\nsupondo que cante, \"assuming that he/she will sing\"\nele será pago, cante ou não, \"he will be paid, whether he sings or not\"\nThe past subjunctive is used for adverbial subordinate clauses, introduced with se (\"if\") or equivalent, that are conditions for a main cause in the conditional tense.\nse cantasse, seria famoso (\"if he/she sang [if he/she were a singer], he/she would be famous\")\nse cantasse, teríamos aplaudido (\"if he/she had sung, we would have applauded\")\nIt is also used for noun clauses, introduced with que, that are the object of past wishes or commands:\n\nesperávamos que cantasse (\"we hoped that he would sing\")\neu mandei que cantassem (\"I ordered them to sing\")\nThe future subjunctive is an uncommon feature among Indo-European languages. It is used in adverbial subordinate clauses, usually introduced by se (\"if\") or quando (\"when\"), or in adjectival subordinate clauses that express a neutral or expected condition for a present- or future-tense main clause:\nse cantarmos, seremos pagos (\"If we (should) sing, we will be paid\")\nse cantarmos, ele fica (\"If we (should) sing, he stays\")\nquando cantarmos, ele escutará (\"When we (should) sing, he will listen\")\nOften, the option between indicative and subjunctive depends on whether the speaker does or does not endorse the proposition expressed by the subordinate clause:\nAdmito que ele roubou a bicicleta. (\"I admit that he stole the bicycle.\")\nAdmito que ele possa ter roubado a bicicleta. (\"I admit that he could have stolen the bicycle.\")\nIn relative clauses, the option between indicative and subjunctive depends on whether the speaker does or does not identify a single object with the property expressed by the relative clause:\nAndo à procura de um cão que fala! (\"I'm looking for a certain dog which can speak!\")\nAndo à procura de um cão que fale! (\"I'm looking for any dog that speaks!\")\nMore on the subjunctive mood in Portuguese can be found at Wikibooks: Variation of the Portuguese Verbs."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_noun.txt": {
+    "strategy": "lexical",
+    "term_used": "noun",
+    "topic_terms": [
+      "noun"
+    ],
+    "matches": [
+      {
+        "full": "## Nouns",
+        "path": [
+          "## Nouns"
+        ],
+        "similarity": 1.0,
+        "content": "Nouns are classified into two grammatical genders (\"masculine\" and \"feminine\") and are inflected for grammatical number (singular or plural). Adjectives and determiners (articles, demonstratives, possessives, and quantifiers) must be inflected to agree with the noun in gender and number. Many nouns can take diminutive or augmentative suffixes to express size, endearment, or deprecation.\nPortuguese does not inflect nouns to indicate their grammatical function or case, relying instead on the use of prepositions (simple and phrasal), on pleonastic objects, or on the context or word order. Personal pronouns, on the other hand, still maintain some vestiges of declension from the ancestor language, Latin."
+      },
+      {
+        "full": "## Nouns > ### Gender and number",
+        "path": [
+          "## Nouns",
+          "### Gender and number"
+        ],
+        "similarity": 1.0,
+        "content": "Most adjectives and demonstratives, and all articles must be inflected according to the gender and number of the noun they reference:\n\nesta bela casa branca (\"this beautiful white house\")\neste belo carro branco (\"this beautiful white car\")\nestas belas aves brancas (\"these beautiful white birds\")\nestes belos gatos brancos (\"these beautiful white cats\")\nThe agreement rules apply also to adjectives used with copulas, e.g. o carro é branco (\"the car is white\") vs. a casa é branca (\"the house is white\")."
+      },
+      {
+        "full": "## Nouns > ### Plural formation",
+        "path": [
+          "## Nouns",
+          "### Plural formation"
+        ],
+        "similarity": 1.0,
+        "content": "Portuguese nouns form their plurals by adding -s if the singular ends in a vowel, and -es if the singular ends in n, r or z. If the singular ends in s, then if the last syllable is stressed, the plural adds -es, and otherwise the plural is the same as the singular. Words ending in m change that m into ns, and words ending in l change that l  into -is (e.g. animal > animais). Before 1943, the plural of words that ended in l, was -es, so: Crystal -> Crystaes, Papel -> Papees. Words ending in ão vary in how they form their plurals: some replace  the ão with ães, others with ões, and others just add an -s like the other nouns ending in a vowel."
+      },
+      {
+        "full": "## Nouns > ### Plural formation > #### Gender determination",
+        "path": [
+          "## Nouns",
+          "### Plural formation",
+          "#### Gender determination"
+        ],
+        "similarity": 1.0,
+        "content": "Grammatical gender of inanimate entities is sometimes different from that used in sister languages: thus, for example, Portuguese árvore (\"tree\") and flor (\"flower\") are feminine, while Spanish árbol and Italian fiore are masculine; Portuguese mar (\"sea\") and mapa (\"map\") are masculine, while French mer and carte are feminine.\nIn many cases, the gender and number of a noun can be deduced from its ending: the basic pattern is \"-o\" / \"-os\" for masculine singular and plural, \"-a\" / \"-as\" for feminine singular and plural. So, casa (\"house\"), mala (\"suitcase\"), pedra (\"stone\"), and inteligência (\"intelligence\") are feminine, while carro (\"car\"), saco (\"bag\"), tijolo (\"brick\"), and aborrecimento (\"annoyance\") are masculine. However, the complete rules are quite complex: for instance, nouns ending in -ção are usually feminine, except for augmentatives like bração (\"big arm\"). And there are many irregular exceptions. For words ending in other letters, there are few rules: flor (\"flower\"), gente (\"folk\"), nau (\"ship\"), maré (\"tide\") are feminine, while amor (\"love\"), pente (\"comb\"), pau (\"stick\"), café (\"coffee\") are masculine.\nOn the other hand, the gender of some nouns, as well as of first- and second-person pronouns, is determined semantically by the sex or gender of the referent: esta estudante é nova, mas aquele estudante é velho (\"this (female) student is new, but that (male) student is old\";\nor eu sou brasileiro (\"I am Brazilian\", said by a man) and eu sou brasileira (the same, said by a woman). Honorific forms of address such as Vossa Excelência (\"Your Excellency\") exhibit noun/adjective agreement internally, but require agreement according to the gender of the referent for other modifiers, as in Vossa Excelência está atarefado (\"Your Excellency is busy\").\nAlso, many animate masculine nouns have specific feminine derivative forms to indicate female sex or social gender: lobo (\"wolf\" or \"male wolf\", masculine gender) → loba (\"she-wolf\", feminine), conde (\"count\", m.) → condessa (\"countess\", f.), doutor (\"doctor\" or \"male doctor\", m.) → doutora (\"female doctor\", f.), ator (\"actor\", m.) → atriz (\"actress\", f.), etc. The feminine noun derivations should not be confused with the adjectival gender inflections, which use different (and more regular) rules."
+      },
+      {
+        "full": "## Nouns > ### Diminutives and augmentatives",
+        "path": [
+          "## Nouns",
+          "### Diminutives and augmentatives"
+        ],
+        "similarity": 1.0,
+        "content": "The Portuguese language makes abundant use of diminutives, which connote small size, endearment or insignificance. Diminutives are very commonly used in informal language.  On the other hand, most uses of diminutives are avoided in written and otherwise formal language.\nThe most common diminutive endings are -inho and -inha, replacing -o and -a, respectively. Words with the stress on the last syllable generally have -zinho or -zinha added, such as café \"coffee\" and cafezinho \"coffee served as a show of hospitality\". In writing, a c (but not a ç) becomes qu in some words, like pouco (\"few\") and pouquinho (\"very few\"), in order to preserve the [k] pronunciation.\n\nPossible endings other than -inho(a) are:\n\n## Nouns > ### Diminutives and augmentatives > #### Table 3\n\n<pre>```\n| 0                                                                                                                    | 1                                                                                                              | 2                                                                                                      |\n|:---------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------|\n| -ito(a), e.g. copo/copito (\"glass\") -ico(a), e.g. burro/burrico (\"donkey\") -(z)ete, e.g. palácio/palacete (\"palace\") | -ote, e.g. saia/saiote (\"skirt\") -oto, e.g. lebre/lebroto (\"hare/leveret\") -ejo, e.g. lugar/lugarejo (\"place\") | -acho, e.g. rio/riacho (\"river\") -ola, e.g. aldeia/aldeola (\"village\") -el, e.g. corda/cordel (\"rope\") |\n```</pre>\n\nIt is also possible to form a diminutive of a diminutive, e.g. \"burriquito\" (burro + -ico + -ito).\nPortuguese diminutive endings are often used not only with nouns but also with adjectives, e.g. tonto/tontinho (\"silly\" / \"a bit silly\"), or verde/verdinho (\"green\" / \"nicely green\") and occasionally with adverbs, e.g. depressa/depressinha (\"quickly\") and some other word classes, e.g. obrigadinho—diminutive for the interjection obrigado \"thanks\". Even the numeral um (one) can informally become unzinho.\nThe most common augmentatives are the masculine -ão and the feminine -ona, although there are others, like -aço(a) e.g. mulher/mulheraça (\"woman\"); or -eirão, e.g. voz/vozeirão (\"voice\"), less frequently used. Sometimes the masculine augmentative can be applied to a feminine noun, which then becomes grammatically masculine, but with a feminine meaning, e.g. a mulher / o mulherão (\"the woman\" / \"the big woman\")."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_passive_voice_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "passive",
+    "topic_terms": [
+      "passive",
+      "voice",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs > ### Passive voice",
+        "path": [
+          "## Verbs",
+          "### Passive voice"
+        ],
+        "similarity": 1.0,
+        "content": "An active clause with a transitive verb and direct object can be transformed into a passive clause much the same as is done in English:  the original object becomes the subject; the verb is replaced by ser (in the same mood and tense) followed by the past participle of the original verb; and the original subject may become an adverbial complement with the preposition por (\"by\"):\n\nO rato comeu o queijo (\"The mouse ate the cheese\")\nO queijo foi comido pelo rato (\"The cheese was eaten by the mouse\")\nAquela senhora cantará a ária (\"That lady will sing the aria\")\nA ária será cantada por aquela senhora (\"The aria will be sung by that lady\")\nSe você cantasse a ária, ele ficaria (\"If you were to sing the aria, he would stay\")\nSe a ária fosse cantada por você, ele ficaria (\"If the aria were to be sung by you, he would stay\")\nAs in Spanish, there is also—for third-person objects, and when the agent is not expressed—a \"reflexive\" passive, which uses the pronoun se:\n\nFizeram-se planos e criaram-se esperanças. (\"Plans were made and hopes were created.\")\nThe same construction extends to some intransitive verbs, in which case they are rendered \"impersonal\", in the sense that their subject is not expressed:\n\nComeu-se, bebeu-se e bailou-se. (\"There was eating, drinking, and dancing.\")"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_pastTense_tense_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "tense",
+    "topic_terms": [
+      "past tense",
+      "tense",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs > ### Synthetic moods and tenses",
+        "path": [
+          "## Verbs",
+          "### Synthetic moods and tenses"
+        ],
+        "similarity": 1.0,
+        "content": "Grammarians usually classify the verbal inflections (i.e. the synthetic verb forms) into the following moods, tenses, and non-finite forms:\n\nindicative mood, used in the main clauses of declarative sentences:\npresent tense: cantamos, \"we sing\"\npast tenses:\npreterite: cantámos (EP), cantamos (BP) \"we sang\"\nimperfect: cantávamos, \"we were singing\"\npluperfect: cantáramos, \"we had sung\"\nfuture tense: cantaremos, \"we will sing\"\nconditional mood:\nconditional tense: cantaríamos, \"we would sing\"\nsubjunctive mood used in certain subordinate clauses:\npresent subjunctive: que cantemos, \"that we sing\"\npreterite subjunctive: se cantássemos, \"if we sang\"\nfuture subjunctive: se cantarmos, \"if we sing/should we sing\"\nimperative mood: used to express a command, advice, encouragement, etc.:\npositive: canta! \"sing!\"\nnegative: não cantes! \"don't sing!\"\nverbals\ninfinitives:\nimpersonal: cantar, \"to sing\"\npersonal: cantarmos, \"for us to sing\", \"that we sing\" or \"our singing\"\nparticiples:\npresent participle: cantando \"singing\"\npast (or passive) participle: cantado \"sung\"\nThe conditional tense is usually called \"future of the past\" in Brazilian grammars, whereas in Portugal it is usually classified as a separate \"conditional mood\". Portuguese grammarians call subjunctive \"conjuntivo\"; Brazilians call it \"subjuntivo\".\nNote that the synthetic future and conditional have largely disappeared from everyday speech.  The synthetic future is generally replaced by ir + infinitive (e.g. vou cantar \"I will sing\"), while the conditional is replaced either by the imperfect (especially in its modal use; se você me desse dinheiro, eu cantava \"if you gave me money, I would sing\") or by the imperfect of ir + infinitive (in its non-modal, \"future of the past\" usage; ele disse que ia cantar \"he said that he would sing\").  However, the synthetic future subjunctive is still in common use (e.g. se você for \"if you should go\").  The synthetic future and conditional of verbs with one-syllable infinitives also sometimes occur (e.g. será/seria \"it will/would be\" or in the compound tenses terá/teria sido \"it will/would have been\").\nIn regular verbs, the personal infinitive is identical to the subjunctive future tense; but they are different in irregular verbs: quando formos (\"when we go\", subjunctive) versus é melhor irmos (\"it is better that we go\").\nThere are also many compound tenses expressed with inflected forms of the auxiliary verbs ser and estar (variants of \"to be\"), haver and ter (variants of \"to have\")."
+      },
+      {
+        "full": "## Verbs > ### Compound forms > #### Progressive tenses",
+        "path": [
+          "## Verbs",
+          "### Compound forms",
+          "#### Progressive tenses"
+        ],
+        "similarity": 1.0,
+        "content": "Portuguese originally constructed progressive tenses with a conjugated form of the verb \"to be\", followed by the gerund of the main verb, like English: e.g. Eu estou trabalhando \"I am working\" (cf. also the corresponding Italian phrase: (Io) sto lavorando). However, in European Portuguese an alternative construction has appeared, formed with the preposition a followed by the infinitive of the main verb: e.g. Eu estou a trabalhar. This has replaced the ancient syntax in central and northern Portugal. The gerund may also be replaced with a followed by the infinitive in less common verb phrases, such as Ele ficou lá, trabalhando / Ele ficou lá, a trabalhar \"He stayed there, working\". However, the construction with the gerund is still found in southern and insular Portugal and in Portuguese literature, and it is the rule in Brazil.\n\nestou falando or estou a falar (\"I am speaking\")\nestava falando/ a falar (imperfective: \"I was speaking\" [at the moment])\nestive falando/ a falar (perfective: \"I was speaking [for a while]\" / \"I have been speaking\" [for a while])\nestivera falando/ a falar (\"I had been speaking\")\nestarei falando/ a falar (\"I will be speaking\")\nesteja falando/ a falar (\"[that] I/he/she be speaking\"; or \"am\" or \"is speaking\")\nse estivesse falando/ a falar (\"if I were speaking\")\nquando estiver falando/ a falar (\"when you are speaking\" [in the future])\nestar falando/ a falar (\"to be speaking\")"
+      },
+      {
+        "full": "## Verbs > ### Compound forms > #### Other compound tenses",
+        "path": [
+          "## Verbs",
+          "### Compound forms",
+          "#### Other compound tenses"
+        ],
+        "similarity": 1.0,
+        "content": "Tenses with ir + infinitive \n\nvamos falar (\"we will speak\", \"we are going to speak\")\níamos falar (\"we were going to speak\")\niríamos falar (\"we would speak\", \"we would be going to speak\")\nIn the spoken language, the construction ir + infinitive almost completely replaces the use of the synthetic future (e.g. vamos falar rather than falaremos).\nTenses with multiple auxiliaries:\n\nteríamos estado falando/a falar (\"we would have been speaking\")\ntenho estado falando/a falar (\"I have been speaking [until now]\")"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_presentTense_tense_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "tense",
+    "topic_terms": [
+      "present tense",
+      "tense",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs > ### Synthetic moods and tenses",
+        "path": [
+          "## Verbs",
+          "### Synthetic moods and tenses"
+        ],
+        "similarity": 1.0,
+        "content": "Grammarians usually classify the verbal inflections (i.e. the synthetic verb forms) into the following moods, tenses, and non-finite forms:\n\nindicative mood, used in the main clauses of declarative sentences:\npresent tense: cantamos, \"we sing\"\npast tenses:\npreterite: cantámos (EP), cantamos (BP) \"we sang\"\nimperfect: cantávamos, \"we were singing\"\npluperfect: cantáramos, \"we had sung\"\nfuture tense: cantaremos, \"we will sing\"\nconditional mood:\nconditional tense: cantaríamos, \"we would sing\"\nsubjunctive mood used in certain subordinate clauses:\npresent subjunctive: que cantemos, \"that we sing\"\npreterite subjunctive: se cantássemos, \"if we sang\"\nfuture subjunctive: se cantarmos, \"if we sing/should we sing\"\nimperative mood: used to express a command, advice, encouragement, etc.:\npositive: canta! \"sing!\"\nnegative: não cantes! \"don't sing!\"\nverbals\ninfinitives:\nimpersonal: cantar, \"to sing\"\npersonal: cantarmos, \"for us to sing\", \"that we sing\" or \"our singing\"\nparticiples:\npresent participle: cantando \"singing\"\npast (or passive) participle: cantado \"sung\"\nThe conditional tense is usually called \"future of the past\" in Brazilian grammars, whereas in Portugal it is usually classified as a separate \"conditional mood\". Portuguese grammarians call subjunctive \"conjuntivo\"; Brazilians call it \"subjuntivo\".\nNote that the synthetic future and conditional have largely disappeared from everyday speech.  The synthetic future is generally replaced by ir + infinitive (e.g. vou cantar \"I will sing\"), while the conditional is replaced either by the imperfect (especially in its modal use; se você me desse dinheiro, eu cantava \"if you gave me money, I would sing\") or by the imperfect of ir + infinitive (in its non-modal, \"future of the past\" usage; ele disse que ia cantar \"he said that he would sing\").  However, the synthetic future subjunctive is still in common use (e.g. se você for \"if you should go\").  The synthetic future and conditional of verbs with one-syllable infinitives also sometimes occur (e.g. será/seria \"it will/would be\" or in the compound tenses terá/teria sido \"it will/would have been\").\nIn regular verbs, the personal infinitive is identical to the subjunctive future tense; but they are different in irregular verbs: quando formos (\"when we go\", subjunctive) versus é melhor irmos (\"it is better that we go\").\nThere are also many compound tenses expressed with inflected forms of the auxiliary verbs ser and estar (variants of \"to be\"), haver and ter (variants of \"to have\")."
+      },
+      {
+        "full": "## Verbs > ### Compound forms > #### Progressive tenses",
+        "path": [
+          "## Verbs",
+          "### Compound forms",
+          "#### Progressive tenses"
+        ],
+        "similarity": 1.0,
+        "content": "Portuguese originally constructed progressive tenses with a conjugated form of the verb \"to be\", followed by the gerund of the main verb, like English: e.g. Eu estou trabalhando \"I am working\" (cf. also the corresponding Italian phrase: (Io) sto lavorando). However, in European Portuguese an alternative construction has appeared, formed with the preposition a followed by the infinitive of the main verb: e.g. Eu estou a trabalhar. This has replaced the ancient syntax in central and northern Portugal. The gerund may also be replaced with a followed by the infinitive in less common verb phrases, such as Ele ficou lá, trabalhando / Ele ficou lá, a trabalhar \"He stayed there, working\". However, the construction with the gerund is still found in southern and insular Portugal and in Portuguese literature, and it is the rule in Brazil.\n\nestou falando or estou a falar (\"I am speaking\")\nestava falando/ a falar (imperfective: \"I was speaking\" [at the moment])\nestive falando/ a falar (perfective: \"I was speaking [for a while]\" / \"I have been speaking\" [for a while])\nestivera falando/ a falar (\"I had been speaking\")\nestarei falando/ a falar (\"I will be speaking\")\nesteja falando/ a falar (\"[that] I/he/she be speaking\"; or \"am\" or \"is speaking\")\nse estivesse falando/ a falar (\"if I were speaking\")\nquando estiver falando/ a falar (\"when you are speaking\" [in the future])\nestar falando/ a falar (\"to be speaking\")"
+      },
+      {
+        "full": "## Verbs > ### Compound forms > #### Other compound tenses",
+        "path": [
+          "## Verbs",
+          "### Compound forms",
+          "#### Other compound tenses"
+        ],
+        "similarity": 1.0,
+        "content": "Tenses with ir + infinitive \n\nvamos falar (\"we will speak\", \"we are going to speak\")\níamos falar (\"we were going to speak\")\niríamos falar (\"we would speak\", \"we would be going to speak\")\nIn the spoken language, the construction ir + infinitive almost completely replaces the use of the synthetic future (e.g. vamos falar rather than falaremos).\nTenses with multiple auxiliaries:\n\nteríamos estado falando/a falar (\"we would have been speaking\")\ntenho estado falando/a falar (\"I have been speaking [until now]\")"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_pronoun.txt": {
+    "strategy": "lexical",
+    "term_used": "pronoun",
+    "topic_terms": [
+      "pronoun"
+    ],
+    "matches": [
+      {
+        "full": "## Personal pronouns and possessives",
+        "path": [
+          "## Personal pronouns and possessives"
+        ],
+        "similarity": 1.0,
+        "content": "Pronouns are often inflected for gender and number, although many have irregular inflections.\nPersonal pronouns are inflected according to their syntactic role. They have three main types of forms: for the subject, for the object of a verb, and for the object of a preposition. In the third person, a distinction is also made between simple direct objects, simple indirect objects, and reflexive objects.\nPossessive pronouns are identical to possessive adjectives. They are inflected to agree with the gender of the possessed being or object."
+      },
+      {
+        "full": "## Personal pronouns and possessives > ### Demonstratives",
+        "path": [
+          "## Personal pronouns and possessives",
+          "### Demonstratives"
+        ],
+        "similarity": 1.0,
+        "content": "Demonstratives have the same three-way distinction as place adverbs:\n\neste lápis – \"this pencil\" (near me)\nesse lápis – \"that pencil\" (near you)\naquele lápis – \"that pencil\" (over there, away from both of us)\nIn colloquial Brazilian Portuguese, esse is often used interchangeably with este when there is no need to make a distinction. This distinction is usually only made in formal writing or by people with more formal education, or simply to emphasize the fact that it is near, as in esta sexta! (\"next Friday!\").\nThe demonstratives, like the articles, form contractions with certain preceding prepositions: de + este = deste (\"of this\"), de + esse = desse (\"of that\"), em + aquilo = naquilo (\"in that thing\"), a + aquela = àquela (\"to that\").\n\n## Personal pronouns and possessives > ### Demonstratives > #### Table 15\n\n<pre>```\n| preposition   | demonstrative pronoun + Unnamed: 1_level_1   | demonstrative pronoun + Unnamed: 2_level_1   | demonstrative pronoun + Unnamed: 3_level_1   | demonstrative pronoun + Unnamed: 4_level_1   | demonstrative pronoun + Unnamed: 5_level_1   | demonstrative pronoun + Unnamed: 6_level_1   | demonstrative pronoun + Unnamed: 7_level_1   | demonstrative pronoun + Unnamed: 8_level_1   | demonstrative pronoun + Unnamed: 9_level_1   | demonstrative pronoun + Unnamed: 10_level_1   | demonstrative pronoun + Unnamed: 11_level_1   | demonstrative pronoun + Unnamed: 12_level_1   | demonstrative pronoun + Unnamed: 13_level_1   | demonstrative pronoun + Unnamed: 14_level_1   | demonstrative pronoun + Unnamed: 15_level_1   |\n|:--------------|:---------------------------------------------|:---------------------------------------------|:---------------------------------------------|:---------------------------------------------|:---------------------------------------------|:---------------------------------------------|:---------------------------------------------|:---------------------------------------------|:---------------------------------------------|:----------------------------------------------|:----------------------------------------------|:----------------------------------------------|:----------------------------------------------|:----------------------------------------------|:----------------------------------------------|\n| este          | esta                                         | estes                                        | estas                                        | isto                                         | esse                                         | essa                                         | esses                                        | essas                                        | isso                                         | aquele                                        | aquela                                        | aqueles                                       | aquelas                                       | aquilo                                        | nan                                           |\n| de            | deste                                        | desta                                        | destes                                       | destas                                       | disto                                        | desse                                        | dessa                                        | desses                                       | dessas                                       | disso                                         | daquele                                       | daquela                                       | daqueles                                      | daquelas                                      | daquilo                                       |\n| em            | neste                                        | nesta                                        | nestes                                       | nestas                                       | nisto                                        | nesse                                        | nessa                                        | nesses                                       | nessas                                       | nisso                                         | naquele                                       | naquela                                       | naqueles                                      | naquelas                                      | naquilo                                       |\n| a             | -                                            | -                                            | -                                            | -                                            | -                                            | -                                            | -                                            | -                                            | -                                            | -                                             | àquele                                        | àquela                                        | àqueles                                       | àquelas                                       | àquilo                                        |\n```</pre>\n\n\nDemonstrative adjectives are identical to demonstrative pronouns: e.g. aquele carro \"that car\", and aquele \"that one.\""
+      },
+      {
+        "full": "## Indefinite pronouns",
+        "path": [
+          "## Indefinite pronouns"
+        ],
+        "similarity": 1.0,
+        "content": "The indefinite pronouns todo, toda, todos, todas are followed by the definite article when they mean \"the whole\". Otherwise, articles and indefinite pronouns are mutually exclusive within a noun phrase.\nIn the demonstratives and in some indefinite pronouns, there is a trace of the neuter gender of Latin. For example, todo and esse are used with masculine referents, toda and essa with feminine ones, and tudo and isso  when there is no definite referent. Thus todo livro \"every book\" and todo o livro \"the whole book\"; toda salada \"every salad\" and toda a salada \"the whole salad\"; and tudo \"everything\"; etc.:\n\n## Indefinite pronouns > ### Table 16\n\n<pre>```\n| Indefinite pronouns    | singular + masc.   | singular + fem.   | plural + masc.   | plural + fem.   | neuter1                                                                    |\n|:-----------------------|:-------------------|:------------------|:-----------------|:----------------|:---------------------------------------------------------------------------|\n| \"this\", \"these\"        | este               | esta              | estes            | estas           | isto (\"this thing\", \"this idea\")                                           |\n| \"that\", \"those\" (near) | esse               | essa              | esses            | essas           | isso (\"that thing\", \"that idea\")                                           |\n| \"that\", \"those\" (far)  | aquele             | aquela            | aqueles          | aquelas         | aquilo (\"that thing\", \"that idea\")                                         |\n| \"some\"                 | algum              | alguma            | alguns           | algumas         | algo (\"something\") alguém (\"someone\", \"somebody\")                          |\n| \"any\"                  | qualquer           | qualquer          | quaisquer        | quaisquer       | qualquer coisa (\"anything\") qualquer um (\"anyone\", \"any [one]\", \"anybody\") |\n| \"no\", \"none\"           | nenhum             | nenhuma           | nenhuns          | nenhumas        | nada (\"nothing\") ninguém (\"no one\", \"nobody\")                              |\n| \"every\", \"all\"         | todo               | toda              | todos            | todas           | tudo (\"everything\")                                                        |\n| \"another\", \"other\"2    | outro              | outra             | outros           | outras          | outra coisa (\"another thing\") outrem (\"another person\")                    |\n```</pre>\n\n\n1 For purposes of agreement, these neuter pronouns take masculine modifiers (except for tudo isto, tudo isso, and tudo aquilo).\n2 Archaic, prefereble to use um outro, uma outra, uns outros, umas outras, uma outra coisa and uma outra pessoa respectively.\nJust like the articles, they form contractions with certain preceding prepositions\n\n## Indefinite pronouns > ### Table 17\n\n<pre>```\n| indefinite pronoun   | preposition + Unnamed: 1_level_1   | preposition + Unnamed: 2_level_1   | preposition + Unnamed: 3_level_1   |\n|:---------------------|:-----------------------------------|:-----------------------------------|:-----------------------------------|\n| de                   | em                                 | a                                  | nan                                |\n| este                 | deste                              | neste                              | -                                  |\n| esta                 | desta                              | nesta                              | -                                  |\n| estes                | destes                             | nestes                             | -                                  |\n| estas                | destas                             | nestas                             | -                                  |\n| isto                 | disto                              | nisto                              | -                                  |\n| esse                 | desse                              | nesse                              | -                                  |\n| essa                 | dessa                              | nessa                              | -                                  |\n| esses                | desses                             | nesses                             | -                                  |\n| essas                | dessas                             | nessas                             | -                                  |\n| isso                 | disso                              | nisso                              | -                                  |\n| aquele               | daquele                            | naquele                            | àquele                             |\n| aquela               | daquela                            | naquela                            | àquela                             |\n| aqueles              | daqueles                           | naqueles                           | àqueles                            |\n| aquelas              | daquelas                           | naquelas                           | àquelas                            |\n| aquilo               | daquilo                            | naquilo                            | àquilo                             |\n| algum1               | dalgum                             | nalgum                             | àlgum                              |\n| alguma1              | dalguma                            | nalguma                            | àlguma                             |\n| alguns1              | dalguns                            | nalguns                            | àlguns                             |\n| algumas1             | dalgumas                           | nalgumas                           | àlgumas                            |\n| algo1                | dalgo                              | nalgo                              | àlgo                               |\n| alguém1              | dalguém                            | nalguém                            | àlguém                             |\n| outro1               | doutro                             | noutro                             | -                                  |\n| outra1               | doutra                             | noutra                             | -                                  |\n| outros1              | doutros                            | noutros                            | -                                  |\n| outras1              | doutras                            | noutras                            | -                                  |\n| outra coisa1         | doutra coisa                       | noutra coisa                       | -                                  |\n| outrem1              | doutrem                            | noutrem                            | -                                  |\n```</pre>\n\n\n1Colloquial or poetic contractions."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_reported-indirect_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "verb",
+    "topic_terms": [
+      "reported",
+      "indirect",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs",
+        "path": [
+          "## Verbs"
+        ],
+        "similarity": 1.0,
+        "content": "Portuguese verbs are usually inflected to agree with the subject's grammatical person (with three values, 1 = I/we, 2 = thou/you, 3 = he/she/it/they) and grammatical number (singular or plural), and to express various attributes of the action, such as time (past, present, future); aspect (completed, interrupted, or continuing); subordination and conditionality; command; and more. As a consequence, a regular Portuguese verb stem can take over 50 distinct suffixes. (For comparison, regular verbs have about 40 distinct forms in Italian and about 30 in modern French.)"
+      },
+      {
+        "full": "## Verbs > ### Copulae",
+        "path": [
+          "## Verbs",
+          "### Copulae"
+        ],
+        "similarity": 1.0,
+        "content": "Related article: Romance copula\nPortuguese has two main linking verbs: ser and estar (both translated \"to be\"). They developed from Latin SUM and STŌ, respectively (although the infinitive form ser actually comes from SEDĒRE). Most forms of ser come from SUM (infinitive ESSE)."
+      },
+      {
+        "full": "## Verbs > ### Copulae > #### Change of adjective meaning",
+        "path": [
+          "## Verbs",
+          "### Copulae",
+          "#### Change of adjective meaning"
+        ],
+        "similarity": 1.0,
+        "content": "Estou tonta = \"I'm dizzy\"\nSou tonta = \"I'm silly\"\nÉ sujo = \"It's dirty\" (i.e. \"It's a dirty place\" — characteristic)\nEstá sujo = \"It's dirty\" (i.e. \"(right now) The place is dirty\" — state)\nÉ aberta = \"She's open\" (i.e. \"She's an open sort of person\" — characteristic)\nEstá aberta = \"It's open\" (probably referring to a door or window — state)\nEle é triste = \"He is sad\" (i.e. gloomy — characteristic)\n(Ele) Está triste = \"He is sad\" (i.e. feeling down — state)\nComo és? / Como você é? = \"What are you like?\" (i.e. \"describe yourself\" — characteristics)\nComo estás? / Como você está? = \"How are you?\" (i.e. \"how are you doing?\" — state)\nWith adjectives of appearance (\"beautiful\", etc.), ser means \"to be\", and estar means \"to look\".\n\nQue linda ela é! = \"Wow, she's so beautiful\" (characteristic)\nQue linda ela está! = \"Wow, she's looking so beautiful\" (state)\nAs in Spanish, the states of life and death are expressed with estar: Está vivo (\"He is alive\"). Está morto (\"He is dead\").\nSer is used with adjectives of fundamental belief (Não sou católico, \"I'm not Catholic\"), nationality (És português, \"You are Portuguese\"), sex/gender (É homem, \"He's a man\"), intelligence (Somos espertos, \"We are smart\"), etc.\nCatólico can also be used with estar, in which case it takes on a figurative meaning:\n\nEu não estou muito católico = \"I'm not feeling very dependable/trustworthy\" (possibly ill or drunk).\nO tempo hoje não está muito católico = \"The weather's not very nice today.\""
+      },
+      {
+        "full": "## Verbs > ### Infinitive form",
+        "path": [
+          "## Verbs",
+          "### Infinitive form"
+        ],
+        "similarity": 1.0,
+        "content": "The infinitive is used, as in English, as a nominal expression of an action or state at an unspecified time, and possibly with an indefinite or implicit subject, e.g. queremos cantar (\"we would like to sing\"), cantar é agradável (lit. \"to sing is pleasant\"). Many of its uses would be translated into English by the \"-ing\" nominal form, e.g. mesa para cortar (\"cutting table\"), cantar é bom (\"singing is good\"), trabalhe sem parar (\"work without pausing\").\nEuropean Portuguese has the distinct feature of preferentially using the infinitive preceded by the preposition \"a\" in place of the gerund as the typical method of describing continuing action:\n\nEstou lendo.\n\"I am reading.\" (Brazilian Portuguese)\nEstou a ler.\n\"I am reading.\" (European Portuguese)\nEstavam dormindo.\n\"They were sleeping.\" (Brazilian Portuguese)\nEstavam a dormir.\n\"They were sleeping.\" (European Portuguese)\nThe gerund \"-ndo\" form is still correct in European Portuguese and it is used colloquially in the Alentejo region, but relatively rare (although its adverbial uses and the other participle forms are not uncommon). On the other hand, the \"a + infinitive\" form is virtually nonexistent in Brazil, and is considered incorrect in Brazilian Portuguese, though it can be found in 19th-century literature.\nA distinctive trait of Portuguese grammar (shared with the Galician and Sardinian languages) is the existence of infinitive verb forms inflected according to the person and number of the subject:\n\nÉ melhor voltar, \"It is better to go back\" (impersonal) or \"It is better [that] I go back\"\nÉ melhor voltares, \"It is better that you go back\"\nÉ melhor voltarmos, \"It is better that we go back\"\nDepending on the context and intended sense, the personal infinitive may be forbidden, required, or optional.\nPersonal infinitive sentences may often be used interchangeably with finite subordinate clauses. In these cases, finite clauses are usually associated with the more formal registers of the language."
+      },
+      {
+        "full": "## Verbs > ### Conjugation classes",
+        "path": [
+          "## Verbs",
+          "### Conjugation classes"
+        ],
+        "similarity": 1.0,
+        "content": "All Portuguese verbs in their infinitive form end in the letter r. Verbs are divided into three main conjugation classes according to the vowel in their infinitive ending:\n\nFirst conjugation: -ar\nSecond conjugation: -er (also includes pôr and prefixed verbs in -por; see below)\nThird conjugation: -ir\nThe exceptional verb pôr (\"to put\") is placed by many grammarians in the -er conjugation class, for historical reasons: in older language the infinitive was poer, derived from Latin PONERE. It is the basis for several derived, prefixed verbs, most of which correspond to English verbs in -pose (although some differ in meaning):\n\n## Verbs > ### Conjugation classes > #### Table 18\n\n<pre>```\n| 0                                                                                                                                                                                                                                                                                                                                                                                     | 2                                                                                                                                                                                                                                                                              |\n|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|\n| antepor \"to put before\" (rare) apor \"to place on or adjacent\" (rare) compor \"to compose\" contrapor \"to counterpose\" decompor \"to break down (analyze; or rot)\" descompor \"to disarrange, disturb\" depor \"to set aside; to depose (as a ruler); to testify (in court)\" dispor (de) \"to have at one’s disposal\" expor \"to expose; to expound\" impor \"to impose\" interpor \"to interpose\" | justapor \"to juxtapose\" (rare) opor \"to oppose\" predispor \"to predispose\" pressupor \"to assume\" propor \"to propose\" recompor \"to put back together, reformulate\" repor \"to reset, to put back, or to restore\" sobrepor \"to overlay\" supor \"to suppose\" transpor \"to transpose\" |\n| antepor \"to put before\" (rare)                                                                                                                                                                                                                                                                                                                                                        | nan                                                                                                                                                                                                                                                                            |\n| apor \"to place on or adjacent\" (rare)                                                                                                                                                                                                                                                                                                                                                 | nan                                                                                                                                                                                                                                                                            |\n| compor \"to compose\"                                                                                                                                                                                                                                                                                                                                                                   | nan                                                                                                                                                                                                                                                                            |\n| contrapor \"to counterpose\"                                                                                                                                                                                                                                                                                                                                                            | nan                                                                                                                                                                                                                                                                            |\n| decompor \"to break down (analyze; or rot)\"                                                                                                                                                                                                                                                                                                                                            | nan                                                                                                                                                                                                                                                                            |\n| descompor \"to disarrange, disturb\"                                                                                                                                                                                                                                                                                                                                                    | nan                                                                                                                                                                                                                                                                            |\n| depor \"to set aside; to depose (as a ruler); to testify (in court)\"                                                                                                                                                                                                                                                                                                                   | nan                                                                                                                                                                                                                                                                            |\n| dispor (de) \"to have at one’s disposal\"                                                                                                                                                                                                                                                                                                                                               | nan                                                                                                                                                                                                                                                                            |\n| expor \"to expose; to expound\"                                                                                                                                                                                                                                                                                                                                                         | nan                                                                                                                                                                                                                                                                            |\n| impor \"to impose\"                                                                                                                                                                                                                                                                                                                                                                     | nan                                                                                                                                                                                                                                                                            |\n| interpor \"to interpose\"                                                                                                                                                                                                                                                                                                                                                               | nan                                                                                                                                                                                                                                                                            |\n| justapor \"to juxtapose\" (rare)                                                                                                                                                                                                                                                                                                                                                        | nan                                                                                                                                                                                                                                                                            |\n| opor \"to oppose\"                                                                                                                                                                                                                                                                                                                                                                      | nan                                                                                                                                                                                                                                                                            |\n| predispor \"to predispose\"                                                                                                                                                                                                                                                                                                                                                             | nan                                                                                                                                                                                                                                                                            |\n| pressupor \"to assume\"                                                                                                                                                                                                                                                                                                                                                                 | nan                                                                                                                                                                                                                                                                            |\n| propor \"to propose\"                                                                                                                                                                                                                                                                                                                                                                   | nan                                                                                                                                                                                                                                                                            |\n| recompor \"to put back together, reformulate\"                                                                                                                                                                                                                                                                                                                                          | nan                                                                                                                                                                                                                                                                            |\n| repor \"to reset, to put back, or to restore\"                                                                                                                                                                                                                                                                                                                                          | nan                                                                                                                                                                                                                                                                            |\n| sobrepor \"to overlay\"                                                                                                                                                                                                                                                                                                                                                                 | nan                                                                                                                                                                                                                                                                            |\n| supor \"to suppose\"                                                                                                                                                                                                                                                                                                                                                                    | nan                                                                                                                                                                                                                                                                            |\n| transpor \"to transpose\"                                                                                                                                                                                                                                                                                                                                                               | nan                                                                                                                                                                                                                                                                            |\n```</pre>\n\n\n## Verbs > ### Conjugation classes > #### Table 19\n\n<pre>```\n| 0                                                                   |\n|:--------------------------------------------------------------------|\n| antepor \"to put before\" (rare)                                      |\n| apor \"to place on or adjacent\" (rare)                               |\n| compor \"to compose\"                                                 |\n| contrapor \"to counterpose\"                                          |\n| decompor \"to break down (analyze; or rot)\"                          |\n| descompor \"to disarrange, disturb\"                                  |\n| depor \"to set aside; to depose (as a ruler); to testify (in court)\" |\n| dispor (de) \"to have at one’s disposal\"                             |\n| expor \"to expose; to expound\"                                       |\n| impor \"to impose\"                                                   |\n| interpor \"to interpose\"                                             |\n```</pre>\n\n\n## Verbs > ### Conjugation classes > #### Table 20\n\n<pre>```\n| 0                                            |\n|:---------------------------------------------|\n| justapor \"to juxtapose\" (rare)               |\n| opor \"to oppose\"                             |\n| predispor \"to predispose\"                    |\n| pressupor \"to assume\"                        |\n| propor \"to propose\"                          |\n| recompor \"to put back together, reformulate\" |\n| repor \"to reset, to put back, or to restore\" |\n| sobrepor \"to overlay\"                        |\n| supor \"to suppose\"                           |\n| transpor \"to transpose\"                      |\n```</pre>\n\n\nThe unprefixed pôr has the circumflex accent to distinguish it from the preposition por.\nThe -ar conjugation class is the largest of the three classes, and it is the only one open to neologisms, such as clicar (\"to click\" with a mouse).\nEach conjugation class has its own distinctive set of some 50 inflectional suffixes: cant/ar → cant/ou (\"he sang\"), vend/er → vend/eu (\"he sold\"), part/ir → part/iu (\"he left\"). Some suffixes undergo various regular adjustments depending on the final consonant of the stem, either in pronunciation, in spelling, or in both. Some verbal inflections also entail a shift in syllable stress:  'canto (\"I sing\"), can'tamos (\"we sing\"), canta'rei (\"I will sing\"). See Portuguese verb conjugation.\nVerbs with some irregular inflections number in the hundreds, with a few dozen of them being in common use. Some of the most frequent verbs are among the most irregular, including the auxiliaries ser (\"to be\"), haver (\"there to be\" or \"to have\"), ter (\"to possess\", \"to have\", \"there to be\" – in Brazilian Portuguese), ir (\"to go\")."
+      },
+      {
+        "full": "## Verbs > ### Gerund and participle forms",
+        "path": [
+          "## Verbs",
+          "### Gerund and participle forms"
+        ],
+        "similarity": 1.0,
+        "content": "The gerund form of a verb always ends with -ndo. It is used to make compound tenses expressing continuing action, e.g. ele está cantando (\"he is singing\"), ele estava cantando (\"he was singing\"); or as an adverb, e.g. ele trabalha cantando (\"he works while singing\"). It is never inflected for person or number.\nIn European Portuguese, the gerund is often replaced by the infinitive (preceded by \"a\") when used to express continuing action.\nThe participle of regular verbs is used in compound verb tenses, as in ele havia cantado (\"he had sung\"). It can also be used as an adjective, and in this case it is inflected to agree with the noun's gender and number: um hino cantado (\"a sung anthem\", masculine singular), três árias cantadas (\"three sung arias\", feminine plural). Some verbs have two distinct forms (one regular, one irregular) for these two uses. Additionally, a few verbs have two different verbal participles, a regular one for the active voice, and an irregular one for the passive voice. An example is the verb matar (to kill): Bruto havia matado César (\"Brutus had killed Cesar\"), César foi morto por Bruto (\"Cesar was killed by Brutus\"). Regular participle forms always end with -ado, for first conjugation verbs, or with -ido, for second and third conjugation verbs."
+      },
+      {
+        "full": "## Verbs > ### Synthetic moods and tenses",
+        "path": [
+          "## Verbs",
+          "### Synthetic moods and tenses"
+        ],
+        "similarity": 1.0,
+        "content": "Grammarians usually classify the verbal inflections (i.e. the synthetic verb forms) into the following moods, tenses, and non-finite forms:\n\nindicative mood, used in the main clauses of declarative sentences:\npresent tense: cantamos, \"we sing\"\npast tenses:\npreterite: cantámos (EP), cantamos (BP) \"we sang\"\nimperfect: cantávamos, \"we were singing\"\npluperfect: cantáramos, \"we had sung\"\nfuture tense: cantaremos, \"we will sing\"\nconditional mood:\nconditional tense: cantaríamos, \"we would sing\"\nsubjunctive mood used in certain subordinate clauses:\npresent subjunctive: que cantemos, \"that we sing\"\npreterite subjunctive: se cantássemos, \"if we sang\"\nfuture subjunctive: se cantarmos, \"if we sing/should we sing\"\nimperative mood: used to express a command, advice, encouragement, etc.:\npositive: canta! \"sing!\"\nnegative: não cantes! \"don't sing!\"\nverbals\ninfinitives:\nimpersonal: cantar, \"to sing\"\npersonal: cantarmos, \"for us to sing\", \"that we sing\" or \"our singing\"\nparticiples:\npresent participle: cantando \"singing\"\npast (or passive) participle: cantado \"sung\"\nThe conditional tense is usually called \"future of the past\" in Brazilian grammars, whereas in Portugal it is usually classified as a separate \"conditional mood\". Portuguese grammarians call subjunctive \"conjuntivo\"; Brazilians call it \"subjuntivo\".\nNote that the synthetic future and conditional have largely disappeared from everyday speech.  The synthetic future is generally replaced by ir + infinitive (e.g. vou cantar \"I will sing\"), while the conditional is replaced either by the imperfect (especially in its modal use; se você me desse dinheiro, eu cantava \"if you gave me money, I would sing\") or by the imperfect of ir + infinitive (in its non-modal, \"future of the past\" usage; ele disse que ia cantar \"he said that he would sing\").  However, the synthetic future subjunctive is still in common use (e.g. se você for \"if you should go\").  The synthetic future and conditional of verbs with one-syllable infinitives also sometimes occur (e.g. será/seria \"it will/would be\" or in the compound tenses terá/teria sido \"it will/would have been\").\nIn regular verbs, the personal infinitive is identical to the subjunctive future tense; but they are different in irregular verbs: quando formos (\"when we go\", subjunctive) versus é melhor irmos (\"it is better that we go\").\nThere are also many compound tenses expressed with inflected forms of the auxiliary verbs ser and estar (variants of \"to be\"), haver and ter (variants of \"to have\")."
+      },
+      {
+        "full": "## Verbs > ### Compound forms",
+        "path": [
+          "## Verbs",
+          "### Compound forms"
+        ],
+        "similarity": 1.0,
+        "content": "Portuguese has many compound verb tenses, consisting of an auxiliary verb (inflected in any of the above forms) combined with the gerund, participle or infinitive of the principal verb.\nThe basic auxiliary verbs of Portuguese are ter, haver, ser, estar and ir. Thus, for example, \"he had spoken\" can be translated as ele havia falado or ele tinha falado."
+      },
+      {
+        "full": "## Verbs > ### Compound forms > #### Compound perfect",
+        "path": [
+          "## Verbs",
+          "### Compound forms",
+          "#### Compound perfect"
+        ],
+        "similarity": 1.0,
+        "content": "Tenses with ter/haver + past participle (compound tenses):\n\nPreterite perfect indicative – temos falado (\"we have been speaking\"; see \"Preterite vs. present perfect\" below). Haver is not used nowadays. This tense may also be equivalent to the simple preterite for some fixed expressions, such as Tenho dito/concluído.\nPluperfect indicative – tínhamos/havíamos falado  (\"we had spoken\")\nAnterior pluperfect indicative – tivéramos/houvéramos falado (\"we had spoken\", literary use only)\nFuture perfect indicative – teremos/haveremos falado (\"we will have spoken\")\nConditional perfect – teríamos/haveríamos falado (\"we would have spoken\")\nPreterite perfect subjunctive – desde que tenhamos/hajamos falado (\"provided that we have spoken\")\nPluperfect subjunctive – se/que tivéssemos/houvéssemos falado (\"if/that we had spoken\")\nFuture perfect subjunctive – se/quando tivermos/houvermos falado (\"if/when we have spoken\")\nPersonal perfect infinitive – termos/havermos falado (\"for us to have spoken\")\nWith no inflection:\n\nImpersonal perfect infinitive – ter/haver falado (\"to have spoken\")\nPerfect gerund – tendo/havendo falado (\"having spoken\")"
+      },
+      {
+        "full": "## Verbs > ### Compound forms > #### Compound vs. simple pluperfect",
+        "path": [
+          "## Verbs",
+          "### Compound forms",
+          "#### Compound vs. simple pluperfect"
+        ],
+        "similarity": 1.0,
+        "content": "In addition to the compound forms for completed past actions, Portuguese also retains a synthetic pluperfect: so, ele tinha falado and ele havia falado (\"he had spoken\") can also be expressed as ele falara. However, the simple (one-word) pluperfect is losing ground to the compound forms. While pluperfect forms like falara are generally understood, their use is limited mostly to some regions of Portugal and to written language. In Brazil, they are used nearly exclusively in the printed language, though even in that environment the -ra synthetic pluperfect has been losing ground to the compound form using tinha in the last decades."
+      },
+      {
+        "full": "## Verbs > ### Compound forms > #### Preterite vs. present perfect",
+        "path": [
+          "## Verbs",
+          "### Compound forms",
+          "#### Preterite vs. present perfect"
+        ],
+        "similarity": 1.0,
+        "content": "The simple past (or pretérito perfeito simples in Portuguese) is widely used, sometimes corresponding to the present perfect of English (this happens in many dialects of American Spanish, too).\nA present perfect also exists (normally called pretérito perfeito composto), but it has a very restricted use, denoting an action or a series of actions which began in the past and are expected to continue into the future, but will stop soon. For instance, the meaning of \"Tenho tentado falar com ela\" may be closer to \"I have been trying to talk to her\" than to \"I have tried to talk to her\", in some contexts."
+      },
+      {
+        "full": "## Verbs > ### Compound forms > #### Progressive tenses",
+        "path": [
+          "## Verbs",
+          "### Compound forms",
+          "#### Progressive tenses"
+        ],
+        "similarity": 1.0,
+        "content": "Portuguese originally constructed progressive tenses with a conjugated form of the verb \"to be\", followed by the gerund of the main verb, like English: e.g. Eu estou trabalhando \"I am working\" (cf. also the corresponding Italian phrase: (Io) sto lavorando). However, in European Portuguese an alternative construction has appeared, formed with the preposition a followed by the infinitive of the main verb: e.g. Eu estou a trabalhar. This has replaced the ancient syntax in central and northern Portugal. The gerund may also be replaced with a followed by the infinitive in less common verb phrases, such as Ele ficou lá, trabalhando / Ele ficou lá, a trabalhar \"He stayed there, working\". However, the construction with the gerund is still found in southern and insular Portugal and in Portuguese literature, and it is the rule in Brazil.\n\nestou falando or estou a falar (\"I am speaking\")\nestava falando/ a falar (imperfective: \"I was speaking\" [at the moment])\nestive falando/ a falar (perfective: \"I was speaking [for a while]\" / \"I have been speaking\" [for a while])\nestivera falando/ a falar (\"I had been speaking\")\nestarei falando/ a falar (\"I will be speaking\")\nesteja falando/ a falar (\"[that] I/he/she be speaking\"; or \"am\" or \"is speaking\")\nse estivesse falando/ a falar (\"if I were speaking\")\nquando estiver falando/ a falar (\"when you are speaking\" [in the future])\nestar falando/ a falar (\"to be speaking\")"
+      },
+      {
+        "full": "## Verbs > ### Compound forms > #### Other compound tenses",
+        "path": [
+          "## Verbs",
+          "### Compound forms",
+          "#### Other compound tenses"
+        ],
+        "similarity": 1.0,
+        "content": "Tenses with ir + infinitive \n\nvamos falar (\"we will speak\", \"we are going to speak\")\níamos falar (\"we were going to speak\")\niríamos falar (\"we would speak\", \"we would be going to speak\")\nIn the spoken language, the construction ir + infinitive almost completely replaces the use of the synthetic future (e.g. vamos falar rather than falaremos).\nTenses with multiple auxiliaries:\n\nteríamos estado falando/a falar (\"we would have been speaking\")\ntenho estado falando/a falar (\"I have been speaking [until now]\")"
+      },
+      {
+        "full": "## Verbs > ### Passive voice",
+        "path": [
+          "## Verbs",
+          "### Passive voice"
+        ],
+        "similarity": 1.0,
+        "content": "An active clause with a transitive verb and direct object can be transformed into a passive clause much the same as is done in English:  the original object becomes the subject; the verb is replaced by ser (in the same mood and tense) followed by the past participle of the original verb; and the original subject may become an adverbial complement with the preposition por (\"by\"):\n\nO rato comeu o queijo (\"The mouse ate the cheese\")\nO queijo foi comido pelo rato (\"The cheese was eaten by the mouse\")\nAquela senhora cantará a ária (\"That lady will sing the aria\")\nA ária será cantada por aquela senhora (\"The aria will be sung by that lady\")\nSe você cantasse a ária, ele ficaria (\"If you were to sing the aria, he would stay\")\nSe a ária fosse cantada por você, ele ficaria (\"If the aria were to be sung by you, he would stay\")\nAs in Spanish, there is also—for third-person objects, and when the agent is not expressed—a \"reflexive\" passive, which uses the pronoun se:\n\nFizeram-se planos e criaram-se esperanças. (\"Plans were made and hopes were created.\")\nThe same construction extends to some intransitive verbs, in which case they are rendered \"impersonal\", in the sense that their subject is not expressed:\n\nComeu-se, bebeu-se e bailou-se. (\"There was eating, drinking, and dancing.\")"
+      },
+      {
+        "full": "## Verbs > ### Subjunctive mood",
+        "path": [
+          "## Verbs",
+          "### Subjunctive mood"
+        ],
+        "similarity": 1.0,
+        "content": "The Portuguese subjunctive mood is used mainly in certain kinds of subordinate clauses. There are three synthetic subjunctive inflections, conventionally called \"present\", \"past\" and \"future\". The rules of usage, in broad terms, are the following:\n\nThe present subjunctive is used in clauses, often introduced with que (\"that\"), which express generally non-assertive notions, such as wishes, orders, possibilities, etc.:\nquero que cante, \"I want her/him to sing\"\nsupondo que cante, \"assuming that he/she will sing\"\nele será pago, cante ou não, \"he will be paid, whether he sings or not\"\nThe past subjunctive is used for adverbial subordinate clauses, introduced with se (\"if\") or equivalent, that are conditions for a main cause in the conditional tense.\nse cantasse, seria famoso (\"if he/she sang [if he/she were a singer], he/she would be famous\")\nse cantasse, teríamos aplaudido (\"if he/she had sung, we would have applauded\")\nIt is also used for noun clauses, introduced with que, that are the object of past wishes or commands:\n\nesperávamos que cantasse (\"we hoped that he would sing\")\neu mandei que cantassem (\"I ordered them to sing\")\nThe future subjunctive is an uncommon feature among Indo-European languages. It is used in adverbial subordinate clauses, usually introduced by se (\"if\") or quando (\"when\"), or in adjectival subordinate clauses that express a neutral or expected condition for a present- or future-tense main clause:\nse cantarmos, seremos pagos (\"If we (should) sing, we will be paid\")\nse cantarmos, ele fica (\"If we (should) sing, he stays\")\nquando cantarmos, ele escutará (\"When we (should) sing, he will listen\")\nOften, the option between indicative and subjunctive depends on whether the speaker does or does not endorse the proposition expressed by the subordinate clause:\nAdmito que ele roubou a bicicleta. (\"I admit that he stole the bicycle.\")\nAdmito que ele possa ter roubado a bicicleta. (\"I admit that he could have stolen the bicycle.\")\nIn relative clauses, the option between indicative and subjunctive depends on whether the speaker does or does not identify a single object with the property expressed by the relative clause:\nAndo à procura de um cão que fala! (\"I'm looking for a certain dog which can speak!\")\nAndo à procura de um cão que fale! (\"I'm looking for any dog that speaks!\")\nMore on the subjunctive mood in Portuguese can be found at Wikibooks: Variation of the Portuguese Verbs."
+      },
+      {
+        "full": "## Verbs > ### Verbal derivatives",
+        "path": [
+          "## Verbs",
+          "### Verbal derivatives"
+        ],
+        "similarity": 1.0,
+        "content": "Portuguese has many adjectives that consist of a verbal stem plus an ending in -nte, which are applied to nouns that perform the action of the verb; e.g. dançar (\"to dance\") ~ areia dançante (\"dancing sand\"), ferver (\"to boil\") ~ água fervente (\"boiling water\").\nHowever, those adjectives were not always derived from the corresponding Portuguese verbs. Most of them were directly derived from the accusatives of the present participles of Latin verbs, a form which was not retained by Portuguese. Thus, for example, Portuguese mutante (\"changing\", \"varying\") does not derive from the Portuguese verb mudar (\"to change\"), but directly from the Latin accusative present participle mutantem (\"changing\"). On the other hand, those pairs of words were eventually generalized by Portuguese speakers into a derivational rule, that is somewhat irregular and defective but still productive. So, for example, within the last 500 years we had the derivation pï'poka (Tupi for \"to pop the skin\") → pipoca (Portuguese for \"popcorn\") → pipocar (\"to pop up all over\") → pipocante (\"popping up all over\").\nSimilar processes resulted in many other semi-regular derivational rules that turn verbs into words of other classes, as in the following examples:\n\nclicar (\"to click\") → clicável (\"clickable\")\nvender (\"to sell\") → vendedor (\"seller\")\nencantar (\"to enchant\") → encantamento (\"enchantment\")\ndestilar (\"to distill\") → destilação (\"distillation\")\nThe latter rule is quite productive, to the point that the pervasive -ção ending (derived from Latin -tione) is a visually striking feature of written Portuguese."
+      },
+      {
+        "full": "## Verbs > ### Pronominal suffixes",
+        "path": [
+          "## Verbs",
+          "### Pronominal suffixes"
+        ],
+        "similarity": 1.0,
+        "content": "A specific feature of Portuguese, unusual among the Romance languages, is the placement of pronominal suffixes between the verb stem and the tense/person inflection in future and conditional verb forms. In Brazilian Portuguese it is limited to extremely formal and mostly written style. It has been losing ground in European Portuguese as well:\n\nEla levá-lo-ia (\"She take-it-would\" – \"She would take it\").\nEles dar-no-lo-ão (\"They give-us-it-will\" – \"They will give it to us\")."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_subjunctive-conjunctive_mood_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "subjunctive",
+    "topic_terms": [
+      "subjunctive",
+      "conjunctive",
+      "mood",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs > ### Subjunctive mood",
+        "path": [
+          "## Verbs",
+          "### Subjunctive mood"
+        ],
+        "similarity": 1.0,
+        "content": "The Portuguese subjunctive mood is used mainly in certain kinds of subordinate clauses. There are three synthetic subjunctive inflections, conventionally called \"present\", \"past\" and \"future\". The rules of usage, in broad terms, are the following:\n\nThe present subjunctive is used in clauses, often introduced with que (\"that\"), which express generally non-assertive notions, such as wishes, orders, possibilities, etc.:\nquero que cante, \"I want her/him to sing\"\nsupondo que cante, \"assuming that he/she will sing\"\nele será pago, cante ou não, \"he will be paid, whether he sings or not\"\nThe past subjunctive is used for adverbial subordinate clauses, introduced with se (\"if\") or equivalent, that are conditions for a main cause in the conditional tense.\nse cantasse, seria famoso (\"if he/she sang [if he/she were a singer], he/she would be famous\")\nse cantasse, teríamos aplaudido (\"if he/she had sung, we would have applauded\")\nIt is also used for noun clauses, introduced with que, that are the object of past wishes or commands:\n\nesperávamos que cantasse (\"we hoped that he would sing\")\neu mandei que cantassem (\"I ordered them to sing\")\nThe future subjunctive is an uncommon feature among Indo-European languages. It is used in adverbial subordinate clauses, usually introduced by se (\"if\") or quando (\"when\"), or in adjectival subordinate clauses that express a neutral or expected condition for a present- or future-tense main clause:\nse cantarmos, seremos pagos (\"If we (should) sing, we will be paid\")\nse cantarmos, ele fica (\"If we (should) sing, he stays\")\nquando cantarmos, ele escutará (\"When we (should) sing, he will listen\")\nOften, the option between indicative and subjunctive depends on whether the speaker does or does not endorse the proposition expressed by the subordinate clause:\nAdmito que ele roubou a bicicleta. (\"I admit that he stole the bicycle.\")\nAdmito que ele possa ter roubado a bicicleta. (\"I admit that he could have stolen the bicycle.\")\nIn relative clauses, the option between indicative and subjunctive depends on whether the speaker does or does not identify a single object with the property expressed by the relative clause:\nAndo à procura de um cão que fala! (\"I'm looking for a certain dog which can speak!\")\nAndo à procura de um cão que fale! (\"I'm looking for any dog that speaks!\")\nMore on the subjunctive mood in Portuguese can be found at Wikibooks: Variation of the Portuguese Verbs."
+      }
+    ]
+  }
+}

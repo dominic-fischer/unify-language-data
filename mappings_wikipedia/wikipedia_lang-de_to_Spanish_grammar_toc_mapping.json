@@ -1,0 +1,890 @@
+{
+  "schemas\\lang-de\\FORMAT_adjective.txt": {
+    "strategy": "lexical",
+    "term_used": "adjective",
+    "topic_terms": [
+      "adjective"
+    ],
+    "matches": [
+      {
+        "full": "## Adjectives",
+        "path": [
+          "## Adjectives"
+        ],
+        "similarity": 1.0,
+        "content": "Spanish generally uses adjectives in a similar way to English and most other Indo-European languages.  However, there are three key differences between English and Spanish adjectives.\n\nIn Spanish, adjectives usually go after the noun they modify.  The exception is when the writer/speaker is being slightly emphatic, or even poetic, about a particular quality of an object (rather than the mundane use of using the quality to specify which particular object they are referring to).\nMi casa roja could either mean that there are many red houses in the world but I wish to talk about the one that I happen to own, or that I have many houses but am referring to the red one. Mi casa roja = My house, which is red.\nMi roja casa means that I am stressing how red my particular house is (probably the only house I have). Mi roja casa = My house, which is obviously red. Another way of thinking of it is that this makes the house red at declaration, whereas Spanish typically defines a house and makes it red later.\nIn Spanish, adjectives agree with what they refer to in terms of both plurality (singular/plural) and grammatical gender (masculine/feminine). For example, taza (cup) is feminine, so \"the red cup\" is la taza roja, but vaso (glass) is masculine, so \"the red glass\" is el vaso rojo.\nIn Spanish, it is perfectly normal to let an adjective stand in for a noun or pronoun—with (where people are involved) no implication of condescension or rudeness. For example, los altos means \"the tall ones\" or \"the tall men\". El grande means \"the big one\" or \"the big man\"."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_adverb.txt": {
+    "strategy": "lexical",
+    "term_used": "adverb",
+    "topic_terms": [
+      "adverb"
+    ],
+    "matches": [
+      {
+        "full": "## Adverbs",
+        "path": [
+          "## Adverbs"
+        ],
+        "similarity": 1.0,
+        "content": "Spanish adverbs work much like their English counterparts, e.g. muy (\"very\"), poco (\"a little\"), lejos (\"far\"), mucho (\"much, a lot\"), casi (\"almost\"), etc.  To form adverbs from adjectives, the adverbial suffix -mente is added to the feminine singular of the adjective, whether or not it differs from the masculine singular. Thus:\n\nclaro (\"clear\", m. sg.) → clara (f. sg.) → claramente (\"clearly\")\nrápido (\"fast, rapid\", m. sg.) → rápida (f. sg.) → rápidamente (\"fast, quickly, rapidly\")\nnatural (\"natural\", m. & f. sg.) → naturalmente (\"naturally\")\ntriste (\"sad\", m. & f. sg.) → tristemente (\"sadly\")\naudaz (\"bold\", m. & f. sg.) → audazmente (\"boldly\")\nThe adjectives bueno (\"good\") and malo (\"bad\") have irregular adverbial forms: bien (\"well\") and mal (\"badly\"), respectively.\nAs in English, some adverbs are identical to their adjectival counterparts.  Thus words such as temprano (\"early\"), lento (\"slow\"), and hondo (\"deep\") can also mean \"early\" (as in English, as in \"He arrived early\") \"slowly\", and \"deeply\", respectively.\nIn series of consecutive adverbs that would each end in -mente on their own, the -mente is dropped from all but the final adverb, and the others are left as if they were adjectives in the feminine singular. Thus:\n\nrápida y fácilmente = \"quickly and easily\"\nlenta, cuidosa, y duchamente = \"slowly, carefully, and skillfully\"\nparcial o completamente = \"partially or completely\"\nThere are also a wide variety of adverbial phrases in Spanish, such as a menudo (\"often\"), en todas partes (\"everywhere\"), de repente (\"suddenly\"), por fin (\"finally\"), and sin embargo (\"however, nevertheless\").\nAs with adjectives, the comparative of adverbs is formed by placing más (\"more\") or menos (\"less\") before the adverb.  Thus más temprano (\"earlier\"), más rápidamente (\"faster, quicker, more quickly\"), menos interesantemente (\"less interestingly\"), etc. The superlative is formed by placing the neuter article lo before the comparative, although it is generally used with an additional qualifier phrase such as que puedas (\"that you can\") or de todos (\"of all\"): lo más rápidamente que puedas (\"as quickly as you can\", lit. \"the most quickly that you can\"), lo más interesantemente de todos (\"most interestingly of all\"), lo menos claramente de ellos (\"the least clearly of them\"), etc. As with their corresponding adjectival forms,  bien (\"well\") and mal (\"badly\") have irregular comparative forms (mejor (\"better\") and peor (\"worse\")), and más and menos are the comparatives of mucho (\"much, a lot\") and poco (\"a little\"), respectively."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_agreement_concord_syntax.txt": {
+    "strategy": "lexical",
+    "term_used": "syntax",
+    "topic_terms": [
+      "agreement",
+      "concord",
+      "syntax"
+    ],
+    "matches": [
+      {
+        "full": "## Syntax and syntactic variation",
+        "path": [
+          "## Syntax and syntactic variation"
+        ],
+        "similarity": 1.0,
+        "content": ""
+      },
+      {
+        "full": "## Syntax and syntactic variation > ### Order of constituents",
+        "path": [
+          "## Syntax and syntactic variation",
+          "### Order of constituents"
+        ],
+        "similarity": 1.0,
+        "content": "Spanish unmarked word order for affirmative declarative sentences is subject-verb-object (SVO); however, as in other Romance languages, in practice, word order is more variable, with topicalization and focus being the primary factors in the selection of a particular order. Verb-subject-object (VSO), verb-object-subject (VOS), and object-verb-subject (OVS) are also relatively common, while other orders are very uncommon outside of poetry.\nThus, to simply say, \"My friend wrote the book\", one would say (SVO):\n\nMi amigo escribió el libro\nAlthough bare VSO and VOS are somewhat rare in declarative independent clauses, they are quite common in sentences in which something other than the subject or direct object functions as the focus. For example:\n\nHace pocos años escribió mi amigo un libro or Hace pocos años escribió un libro mi amigo = \"A few years ago, my friend wrote a book\"\nAyer vio mi madre a mi amigo y le preguntó por su libro or Ayer vio a mi amigo mi madre y le preguntó por su libro = \"Yesterday, my mother saw my friend and asked him about his book\"\nIn many dependent clauses, the verb is placed before the subject (and thus often VSO or VOS) to avoid placing the verb in final position:\n\nEste es el libro que escribió mi amigo, but rarely Este es el libro que mi amigo escribió = \"This is the book that my friend wrote\"\nA sentence in which the direct object is the topic or \"theme\" (old information), while the subject is part of the comment, or \"rheme\" (new information), often assumes OVS order. In this case the direct object noun phrase is supplemented with the appropriate direct object pronoun; for example:\n\nEl libro lo escribió mi amigo\nBecause subject pronouns are often dropped, one will often see sentences with a verb and direct object but no explicitly stated subject.\nIn questions, VSO is usual (though not obligatory):\n\n¿Escribió mi amigo el libro? = \"Did my friend write the book?\"\nYes/no questions, regardless of constituent order, are generally distinguished from declarative sentences by context and intonation."
+      },
+      {
+        "full": "## Syntax and syntactic variation > ### Cleft sentences",
+        "path": [
+          "## Syntax and syntactic variation",
+          "### Cleft sentences"
+        ],
+        "similarity": 1.0,
+        "content": "A cleft sentence is one formed with the copular verb (generally with a dummy pronoun like \"it\" as its subject), plus a word that \"cleaves\" the sentence, plus a subordinate clause. They are often used to put emphasis on a part of the sentence. Here are some examples of English sentences and their cleft versions:\n\n\"I did it.\" → \"It was I who did it\" or more colloquially \"It was me that did it.\"\n\"You will stop smoking through willpower.\" → \"It is through willpower that you will stop smoking.\"\nSpanish does not usually employ such a structure in simple sentences. The translations of sentences like these can be readily analyzed as being normal sentences containing relative pronouns. Spanish is capable of expressing such concepts without a special cleft structure thanks to its flexible word order.\nFor example, if we translate a cleft sentence such as \"It was Juan who lost the keys\", we get Fue Juan el que perdió las llaves. Whereas the English sentence uses a special structure, the Spanish one does not. The verb fue has no dummy subject, and the pronoun el que is not a cleaver but a nominalising relative pronoun meaning \"the [male] one that\".  Provided we respect the pairings of \"el que\" and \"las llaves\", we can play with the word order of the Spanish sentence without affecting its structure – although each permutation would, to a native speaker, give a subtly different shading of emphasis.\nFor example, we can say Juan fue el que perdió las llaves (\"Juan was the one who lost the keys\") or El que perdió las llaves fue Juan (\"The one who lost the keys was Juan\").  As can be seen from the translations, if this word order is chosen, English stops using the cleft structure (there is no more dummy \"it\" and a nominalising relative is used instead of the cleaving word) whilst in Spanish no words have changed.\nHere are some examples of such sentences:\n\nFue Juan el que perdió las llaves = \"It was John who lost the keys\"\nSon sólo tres días los que te quedan = \"It is only three days that you have left\"\nSeré yo quien se lo diga = \"It will be I who tells him\"\nSon pocos los que vienen y se quedan = lit. \"There are few who come and stay\"\nNote that it is ungrammatical to try to use just que to cleave such sentences as in English, but using quien in singular or quienes in plural is grammatical.\n\n*Fue Juan que perdió las llaves (incorrect)\nFue Juan quien perdió las llaves (correct)\nWhen prepositions come into play, things become complicated.  Structures unambiguously identifiable as cleft sentences are used. The verb ser introduces the stressed element and then there is a nominaliser. Both of these are preceded by the relevant preposition. For example:\n\nFue a mí a quien le dio permiso = \"It was me to whom he gave permission\", lit. \"It was to me to whom he gave permission\"\nEs para nosotros para quienes se hizo esto = \"It is us for whom this was made\", lit. \"It is for us for whom this was made\"\nEs por eso por lo que lo hice = \"That is why I did it\", more literally: \"It is because of that that I did it\", or completely literally: \"It is because of that because of which I did it\"\nEs así como se debe hacer = \"It is this way that it must be done\", lit. \"It is this way how it must be done\" (como replaces longer expressions such as la forma en que)\nThis structure is quite wordy, and is therefore often avoided by not using a cleft sentence at all. Emphasis is conveyed just by word order and stressing with the voice (indicated here within bolding):\n\nMe dio permiso a mí = \"He gave permission to me\"\nSe hizo esto para nosotros = \"This was done for us\"\nPor eso lo hice = \"I did it because of that\"\nSe debe hacer así = \"It must be done this way\"\nIn casual speech, the complex cleaving pronoun is often reduced to que, just as it is reduced to \"that\" in English.\n\nEs para nosotros que se hizo esto\nEs por eso que lo hice\nFue a mí que le dio permiso (preferred: a quien)\nEs así que se debe hacer (preferred: como)\nIn the singular, the subordinate clause can agree either with the relative pronoun or with the subject of the main sentence, though the latter is seldom used. However, in the plural, only agreement with the subject of the main sentence is acceptable. Therefore:\n\nSingular\nYo fui el que me lo bebí = \"I was the one who drank it\" (agreement with subject of main sentence)\nYo fui el que se lo bebió (preferred form with same meaning, agreement with el que)\nLa que lo sé soy yo = \"I am the one who knows\" (agreement with subject of main sentence)\nLa que lo sabe soy yo = (preferred form with same meaning, agreement with la que)\nPlural\nSomos los únicos que no tenemos ni un centavo para apostar = \"We are the only ones who do not have even a cent to bet\" (agreement with subject of main sentence) (from dialogue of the Gabriel García Márquez novel El coronel no tiene quien le escriba)\nVosotras sois las que lo sabéis = \"You girls are the ones who know\" (agreement with subject of main sentence)"
+      },
+      {
+        "full": "## Syntax and syntactic variation > ### Clitic se",
+        "path": [
+          "## Syntax and syntactic variation",
+          "### Clitic se"
+        ],
+        "similarity": 1.0,
+        "content": "Clitics are a necessary part of syntactic form and representation in Spanish. Defining a specific syntactic role of a clitic in Spanish is cumbersome, as they are used in a variety of ways. Syntactic approaches to this common element have attempted to find a universal way of handling them. For example, all languages are capable of having subjects, objects, and verbs, so a universal methodology to handling word order, whether SVO, VSO, or OSV, is imperative for a multilingual and universal syntactic representation system to work. As such, there has been great discussion and investigation in the literature for that particular word order element. Clitics, on the other hand, have been given relatively less thought and investigation, particularly an inquiry into an uncomplicated approach in their syntactic distribution. Clitics offer a myriad of functional roles depending upon the language in question, further complicating the situation.\nSpanish is a diasporic language which also experiences diachronic variation. While Spanish is said to generally have flexible or \"free\" word order, others such as Pountain assert that the syntax is heavily influenced by topic and comment identification."
+      },
+      {
+        "full": "## Syntax and syntactic variation > ### Clitic se > #### Historical approaches",
+        "path": [
+          "## Syntax and syntactic variation",
+          "### Clitic se",
+          "#### Historical approaches"
+        ],
+        "similarity": 1.0,
+        "content": "The syntactic role of the clitic se and its forms in Spanish has undergone much debate within the research with no obvious conclusion. Part of the difficulty stems from the variable role se and its other forms play with regard to the contextual grammar. Some syntacticians have aptly termed the clitic se as \"paradigmatic\" in reference to the complexity and variance of se features and functions. It is utilized in a variety of Spanish grammar contexts, including the following forms: reflexive pronoun, reciprocal pronoun, replacive pronoun (direct and indirect object), intrinsic pronoun (without the pronoun, the structure is ungrammatical), \"derivational\" pronoun, and \"stylistic\" pronoun. Further, se is used in addition with certain intransitive verbs, in reflexive-passive constructions, and in impersonal constructions.\nAs a class, clitics have such a variety of grammatical functions that they are not always pronominal, anaphoric or related to verbal arguments. Syntactically, they are most often found in non-argument benefactive theta-roles, in formation of passive, in formation of middle voice, and with a completive meaning. They can take the form of either phrasal constituents or words with an independent syntactic structure.\nDespite se being grammatically diverse in Spanish grammatical application, it does certain specific roles. Zagona, author of a comprehensive Spanish syntax textbook, has extensively outlined form and function in depth, stating that:\n\n[sic] the only true subject clitic in Spanish is \"impersonal\" se \"one\".\nThe impersonal form is clearly defined as it does not double and uses only the third person singular verb form as in the impersonal form example here:\n\nZagona also notes that, generally, oblique phrases do not allow for a double clitic, yet some verbs of motion are formed with double clitics:\n\nImperatives in Spanish do not require the use of clitics, but when they are used, a specific word order must be followed. With an affirmative verb, the clitic succeeds the verb. However, in a negative command, word order alters in that the clitic precedes the verb. Another review of sentence positions of se in various grammatical constructions offers the following example, demonstrating imperative differences thus:\n\nWith continuous verbs, the clitic can precede the auxiliary verb or follow the participle, as in (1a) and (1b):\n\nThe clitic cannot follow a past or passive participle, as in (2b):\n\nSpecific issues arise in clitic use and syntactic representation in terms of animacy. The Spanish language does not explicitly demonstrate in its grammar whether an object, either direct or indirect, refers to an animate or inanimate object. Therefore, the use of two clitics is common, although not always required. In this way, clitics can be doubled or \"redundant\" when two instances occur within the same phrase. Double clitics are found in instances of phrases with both direct accusative case objects and indirect dative objects in this way:\n\nRegarding clitic doubling in Spanish, Ordóñez has suggested a \"cluster\" versus \"split\" formation, weighing consideration of the double clitic as a single unit (cluster) or a separable unit (split). The syntactic approach maintains a left-dislocation for the clitics while sustaining a separation from the verb. In the cluster model, both clitics are two adjacent constituents whereas the split model, one clitic has been split from the other, appearing higher on the syntactic tree. Both are still under the same c-command of the left branch but are no longer sisters to each other. Ordóñez suggests that when clitics are sisters, they may not even be considered constituents in the syntax. The hypothesis includes a requirement that a non-third person clitic is located higher on a tree than the third person clitic.\nIn fact, clitic climbing is a common feature in Romance languages with designation of clitics as unbound morphemes where the clitic \"climbs\" to adjoin the verb in a higher position. This widely discussed theory has involved raising of the clitic se as an unaccusative because of the lack of external argument in the grammar structure. The object clitic begins in the subject position of the verb, moving up to attach to the verb via adjunction on the left. Another theory is the \"base-generation\" which considers clitics to be affixes. However, both approaches fail when there is clitic doubling."
+      },
+      {
+        "full": "## Syntax and syntactic variation > ### Clitic se > #### Recent approaches",
+        "path": [
+          "## Syntax and syntactic variation",
+          "### Clitic se",
+          "#### Recent approaches"
+        ],
+        "similarity": 1.0,
+        "content": "As recently as 2021, Cuervo has suggested that, for clitic doubling, the solution is considering the dative clitic to be the head of an Applicative Phrase with care taken in identifying whether the form is proclitic or enclitic. Cuervo addresses the difference by positing the following: if the process is proclitic, there is climbing; if the process is enclitic, there is no climbing. Thus, the determining factor for syntactic presentation is the type of verbal phrase.\nBradley illustrates some inflexible constructions, mainly when two third-person pronouns are within the same sentence and the indirect object must be expressed via se:\n\nYa                   se                     lo                     he mandado\nalready            CL(Nom.)       CL(Acc.)         sent-presperf\n\"I have already sent it\"\nIn such cases, one solution is to use the particle a followed by an infinitive verb when the clitic precedes an auxiliary verb, as in the example provided below:\n\nNos                  vamos              a          acostar\nCL(Nom.)       go-1.pres.        to         go to bed\n\"We are going to bed\"\nThe clitic is not attached to the infinitive verb; instead, it is in subject position. Grammatically, attachment to the verb occurs with a non-finite or a main conjugated verb. The clitic adjoins the verb and undergoes head movement to check its features.\nAdditional structures for direct and indirect objects have been suggested. Other views include the use of AgrS and AgrO for Spanish when clitics are involved. Daussá states that se can block features as it travels attached to the appropriate verb form from the feature geometry which alters the nodes.\nDaussá’s realization of syntactic structure presents a solution for the paradigmatic issue of se using AgrO and AgrS. This model includes a Determiner Phrase that is nominative with verbal agreement in both person and number. Romain has also offered a thorough examination of the various theories, concluding that se is part of a Determiner Phrase. While there had been some postulation that clitics are heads of their own phrases, there has not been much support given to those claims.\nEven more recently, Lewandowski has focused on one function in the use of se with reflexive verbs, the completive, wherein with specific verbs the clitic denotes a completion of an action. Lewandowski has proposed an interconnected functionality for the Spanish reflexive pronoun, representing this concept via a cluster map indicating semantic, pragmatic, and grammatical functions. His discussion has centered around the \"polyfunctionality\" of se and how best to syntactically handle this issue, perhaps by not separating the syntax from morphology. Another recent view is that there are two syntactic formations: first, that se is a probe for A-movement which results in a paradigmatic se and second, that non-paradigmatic se is represented by third person singular. This cross-referencing of syntax and morphology overlapping with a communicative stylistic approach has been suggested in the past."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_clauses_syntax.txt": {
+    "strategy": "lexical",
+    "term_used": "syntax",
+    "topic_terms": [
+      "clauses",
+      "syntax"
+    ],
+    "matches": [
+      {
+        "full": "## Syntax and syntactic variation",
+        "path": [
+          "## Syntax and syntactic variation"
+        ],
+        "similarity": 1.0,
+        "content": ""
+      },
+      {
+        "full": "## Syntax and syntactic variation > ### Order of constituents",
+        "path": [
+          "## Syntax and syntactic variation",
+          "### Order of constituents"
+        ],
+        "similarity": 1.0,
+        "content": "Spanish unmarked word order for affirmative declarative sentences is subject-verb-object (SVO); however, as in other Romance languages, in practice, word order is more variable, with topicalization and focus being the primary factors in the selection of a particular order. Verb-subject-object (VSO), verb-object-subject (VOS), and object-verb-subject (OVS) are also relatively common, while other orders are very uncommon outside of poetry.\nThus, to simply say, \"My friend wrote the book\", one would say (SVO):\n\nMi amigo escribió el libro\nAlthough bare VSO and VOS are somewhat rare in declarative independent clauses, they are quite common in sentences in which something other than the subject or direct object functions as the focus. For example:\n\nHace pocos años escribió mi amigo un libro or Hace pocos años escribió un libro mi amigo = \"A few years ago, my friend wrote a book\"\nAyer vio mi madre a mi amigo y le preguntó por su libro or Ayer vio a mi amigo mi madre y le preguntó por su libro = \"Yesterday, my mother saw my friend and asked him about his book\"\nIn many dependent clauses, the verb is placed before the subject (and thus often VSO or VOS) to avoid placing the verb in final position:\n\nEste es el libro que escribió mi amigo, but rarely Este es el libro que mi amigo escribió = \"This is the book that my friend wrote\"\nA sentence in which the direct object is the topic or \"theme\" (old information), while the subject is part of the comment, or \"rheme\" (new information), often assumes OVS order. In this case the direct object noun phrase is supplemented with the appropriate direct object pronoun; for example:\n\nEl libro lo escribió mi amigo\nBecause subject pronouns are often dropped, one will often see sentences with a verb and direct object but no explicitly stated subject.\nIn questions, VSO is usual (though not obligatory):\n\n¿Escribió mi amigo el libro? = \"Did my friend write the book?\"\nYes/no questions, regardless of constituent order, are generally distinguished from declarative sentences by context and intonation."
+      },
+      {
+        "full": "## Syntax and syntactic variation > ### Cleft sentences",
+        "path": [
+          "## Syntax and syntactic variation",
+          "### Cleft sentences"
+        ],
+        "similarity": 1.0,
+        "content": "A cleft sentence is one formed with the copular verb (generally with a dummy pronoun like \"it\" as its subject), plus a word that \"cleaves\" the sentence, plus a subordinate clause. They are often used to put emphasis on a part of the sentence. Here are some examples of English sentences and their cleft versions:\n\n\"I did it.\" → \"It was I who did it\" or more colloquially \"It was me that did it.\"\n\"You will stop smoking through willpower.\" → \"It is through willpower that you will stop smoking.\"\nSpanish does not usually employ such a structure in simple sentences. The translations of sentences like these can be readily analyzed as being normal sentences containing relative pronouns. Spanish is capable of expressing such concepts without a special cleft structure thanks to its flexible word order.\nFor example, if we translate a cleft sentence such as \"It was Juan who lost the keys\", we get Fue Juan el que perdió las llaves. Whereas the English sentence uses a special structure, the Spanish one does not. The verb fue has no dummy subject, and the pronoun el que is not a cleaver but a nominalising relative pronoun meaning \"the [male] one that\".  Provided we respect the pairings of \"el que\" and \"las llaves\", we can play with the word order of the Spanish sentence without affecting its structure – although each permutation would, to a native speaker, give a subtly different shading of emphasis.\nFor example, we can say Juan fue el que perdió las llaves (\"Juan was the one who lost the keys\") or El que perdió las llaves fue Juan (\"The one who lost the keys was Juan\").  As can be seen from the translations, if this word order is chosen, English stops using the cleft structure (there is no more dummy \"it\" and a nominalising relative is used instead of the cleaving word) whilst in Spanish no words have changed.\nHere are some examples of such sentences:\n\nFue Juan el que perdió las llaves = \"It was John who lost the keys\"\nSon sólo tres días los que te quedan = \"It is only three days that you have left\"\nSeré yo quien se lo diga = \"It will be I who tells him\"\nSon pocos los que vienen y se quedan = lit. \"There are few who come and stay\"\nNote that it is ungrammatical to try to use just que to cleave such sentences as in English, but using quien in singular or quienes in plural is grammatical.\n\n*Fue Juan que perdió las llaves (incorrect)\nFue Juan quien perdió las llaves (correct)\nWhen prepositions come into play, things become complicated.  Structures unambiguously identifiable as cleft sentences are used. The verb ser introduces the stressed element and then there is a nominaliser. Both of these are preceded by the relevant preposition. For example:\n\nFue a mí a quien le dio permiso = \"It was me to whom he gave permission\", lit. \"It was to me to whom he gave permission\"\nEs para nosotros para quienes se hizo esto = \"It is us for whom this was made\", lit. \"It is for us for whom this was made\"\nEs por eso por lo que lo hice = \"That is why I did it\", more literally: \"It is because of that that I did it\", or completely literally: \"It is because of that because of which I did it\"\nEs así como se debe hacer = \"It is this way that it must be done\", lit. \"It is this way how it must be done\" (como replaces longer expressions such as la forma en que)\nThis structure is quite wordy, and is therefore often avoided by not using a cleft sentence at all. Emphasis is conveyed just by word order and stressing with the voice (indicated here within bolding):\n\nMe dio permiso a mí = \"He gave permission to me\"\nSe hizo esto para nosotros = \"This was done for us\"\nPor eso lo hice = \"I did it because of that\"\nSe debe hacer así = \"It must be done this way\"\nIn casual speech, the complex cleaving pronoun is often reduced to que, just as it is reduced to \"that\" in English.\n\nEs para nosotros que se hizo esto\nEs por eso que lo hice\nFue a mí que le dio permiso (preferred: a quien)\nEs así que se debe hacer (preferred: como)\nIn the singular, the subordinate clause can agree either with the relative pronoun or with the subject of the main sentence, though the latter is seldom used. However, in the plural, only agreement with the subject of the main sentence is acceptable. Therefore:\n\nSingular\nYo fui el que me lo bebí = \"I was the one who drank it\" (agreement with subject of main sentence)\nYo fui el que se lo bebió (preferred form with same meaning, agreement with el que)\nLa que lo sé soy yo = \"I am the one who knows\" (agreement with subject of main sentence)\nLa que lo sabe soy yo = (preferred form with same meaning, agreement with la que)\nPlural\nSomos los únicos que no tenemos ni un centavo para apostar = \"We are the only ones who do not have even a cent to bet\" (agreement with subject of main sentence) (from dialogue of the Gabriel García Márquez novel El coronel no tiene quien le escriba)\nVosotras sois las que lo sabéis = \"You girls are the ones who know\" (agreement with subject of main sentence)"
+      },
+      {
+        "full": "## Syntax and syntactic variation > ### Clitic se",
+        "path": [
+          "## Syntax and syntactic variation",
+          "### Clitic se"
+        ],
+        "similarity": 1.0,
+        "content": "Clitics are a necessary part of syntactic form and representation in Spanish. Defining a specific syntactic role of a clitic in Spanish is cumbersome, as they are used in a variety of ways. Syntactic approaches to this common element have attempted to find a universal way of handling them. For example, all languages are capable of having subjects, objects, and verbs, so a universal methodology to handling word order, whether SVO, VSO, or OSV, is imperative for a multilingual and universal syntactic representation system to work. As such, there has been great discussion and investigation in the literature for that particular word order element. Clitics, on the other hand, have been given relatively less thought and investigation, particularly an inquiry into an uncomplicated approach in their syntactic distribution. Clitics offer a myriad of functional roles depending upon the language in question, further complicating the situation.\nSpanish is a diasporic language which also experiences diachronic variation. While Spanish is said to generally have flexible or \"free\" word order, others such as Pountain assert that the syntax is heavily influenced by topic and comment identification."
+      },
+      {
+        "full": "## Syntax and syntactic variation > ### Clitic se > #### Historical approaches",
+        "path": [
+          "## Syntax and syntactic variation",
+          "### Clitic se",
+          "#### Historical approaches"
+        ],
+        "similarity": 1.0,
+        "content": "The syntactic role of the clitic se and its forms in Spanish has undergone much debate within the research with no obvious conclusion. Part of the difficulty stems from the variable role se and its other forms play with regard to the contextual grammar. Some syntacticians have aptly termed the clitic se as \"paradigmatic\" in reference to the complexity and variance of se features and functions. It is utilized in a variety of Spanish grammar contexts, including the following forms: reflexive pronoun, reciprocal pronoun, replacive pronoun (direct and indirect object), intrinsic pronoun (without the pronoun, the structure is ungrammatical), \"derivational\" pronoun, and \"stylistic\" pronoun. Further, se is used in addition with certain intransitive verbs, in reflexive-passive constructions, and in impersonal constructions.\nAs a class, clitics have such a variety of grammatical functions that they are not always pronominal, anaphoric or related to verbal arguments. Syntactically, they are most often found in non-argument benefactive theta-roles, in formation of passive, in formation of middle voice, and with a completive meaning. They can take the form of either phrasal constituents or words with an independent syntactic structure.\nDespite se being grammatically diverse in Spanish grammatical application, it does certain specific roles. Zagona, author of a comprehensive Spanish syntax textbook, has extensively outlined form and function in depth, stating that:\n\n[sic] the only true subject clitic in Spanish is \"impersonal\" se \"one\".\nThe impersonal form is clearly defined as it does not double and uses only the third person singular verb form as in the impersonal form example here:\n\nZagona also notes that, generally, oblique phrases do not allow for a double clitic, yet some verbs of motion are formed with double clitics:\n\nImperatives in Spanish do not require the use of clitics, but when they are used, a specific word order must be followed. With an affirmative verb, the clitic succeeds the verb. However, in a negative command, word order alters in that the clitic precedes the verb. Another review of sentence positions of se in various grammatical constructions offers the following example, demonstrating imperative differences thus:\n\nWith continuous verbs, the clitic can precede the auxiliary verb or follow the participle, as in (1a) and (1b):\n\nThe clitic cannot follow a past or passive participle, as in (2b):\n\nSpecific issues arise in clitic use and syntactic representation in terms of animacy. The Spanish language does not explicitly demonstrate in its grammar whether an object, either direct or indirect, refers to an animate or inanimate object. Therefore, the use of two clitics is common, although not always required. In this way, clitics can be doubled or \"redundant\" when two instances occur within the same phrase. Double clitics are found in instances of phrases with both direct accusative case objects and indirect dative objects in this way:\n\nRegarding clitic doubling in Spanish, Ordóñez has suggested a \"cluster\" versus \"split\" formation, weighing consideration of the double clitic as a single unit (cluster) or a separable unit (split). The syntactic approach maintains a left-dislocation for the clitics while sustaining a separation from the verb. In the cluster model, both clitics are two adjacent constituents whereas the split model, one clitic has been split from the other, appearing higher on the syntactic tree. Both are still under the same c-command of the left branch but are no longer sisters to each other. Ordóñez suggests that when clitics are sisters, they may not even be considered constituents in the syntax. The hypothesis includes a requirement that a non-third person clitic is located higher on a tree than the third person clitic.\nIn fact, clitic climbing is a common feature in Romance languages with designation of clitics as unbound morphemes where the clitic \"climbs\" to adjoin the verb in a higher position. This widely discussed theory has involved raising of the clitic se as an unaccusative because of the lack of external argument in the grammar structure. The object clitic begins in the subject position of the verb, moving up to attach to the verb via adjunction on the left. Another theory is the \"base-generation\" which considers clitics to be affixes. However, both approaches fail when there is clitic doubling."
+      },
+      {
+        "full": "## Syntax and syntactic variation > ### Clitic se > #### Recent approaches",
+        "path": [
+          "## Syntax and syntactic variation",
+          "### Clitic se",
+          "#### Recent approaches"
+        ],
+        "similarity": 1.0,
+        "content": "As recently as 2021, Cuervo has suggested that, for clitic doubling, the solution is considering the dative clitic to be the head of an Applicative Phrase with care taken in identifying whether the form is proclitic or enclitic. Cuervo addresses the difference by positing the following: if the process is proclitic, there is climbing; if the process is enclitic, there is no climbing. Thus, the determining factor for syntactic presentation is the type of verbal phrase.\nBradley illustrates some inflexible constructions, mainly when two third-person pronouns are within the same sentence and the indirect object must be expressed via se:\n\nYa                   se                     lo                     he mandado\nalready            CL(Nom.)       CL(Acc.)         sent-presperf\n\"I have already sent it\"\nIn such cases, one solution is to use the particle a followed by an infinitive verb when the clitic precedes an auxiliary verb, as in the example provided below:\n\nNos                  vamos              a          acostar\nCL(Nom.)       go-1.pres.        to         go to bed\n\"We are going to bed\"\nThe clitic is not attached to the infinitive verb; instead, it is in subject position. Grammatically, attachment to the verb occurs with a non-finite or a main conjugated verb. The clitic adjoins the verb and undergoes head movement to check its features.\nAdditional structures for direct and indirect objects have been suggested. Other views include the use of AgrS and AgrO for Spanish when clitics are involved. Daussá states that se can block features as it travels attached to the appropriate verb form from the feature geometry which alters the nodes.\nDaussá’s realization of syntactic structure presents a solution for the paradigmatic issue of se using AgrO and AgrS. This model includes a Determiner Phrase that is nominative with verbal agreement in both person and number. Romain has also offered a thorough examination of the various theories, concluding that se is part of a Determiner Phrase. While there had been some postulation that clitics are heads of their own phrases, there has not been much support given to those claims.\nEven more recently, Lewandowski has focused on one function in the use of se with reflexive verbs, the completive, wherein with specific verbs the clitic denotes a completion of an action. Lewandowski has proposed an interconnected functionality for the Spanish reflexive pronoun, representing this concept via a cluster map indicating semantic, pragmatic, and grammatical functions. His discussion has centered around the \"polyfunctionality\" of se and how best to syntactically handle this issue, perhaps by not separating the syntax from morphology. Another recent view is that there are two syntactic formations: first, that se is a probe for A-movement which results in a paradigmatic se and second, that non-paradigmatic se is represented by third person singular. This cross-referencing of syntax and morphology overlapping with a communicative stylistic approach has been suggested in the past."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_conditional_mood_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "verb",
+    "topic_terms": [
+      "conditional",
+      "mood",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs",
+        "path": [
+          "## Verbs"
+        ],
+        "similarity": 1.0,
+        "content": "Every Spanish verb belongs to one of three form classes, characterized by the infinitive ending:  -ar, -er, or -ir—sometimes called the first, second, and third conjugations, respectively.\nA Spanish verb has nine indicative tenses with more-or-less direct English equivalents:  the present tense ('I walk'), the preterite ('I walked'), the imperfect ('I was walking' or 'I used to walk'), the present perfect ('I have walked'), the past perfect —also called the pluperfect— ('I had walked'), the future ('I will walk'), the future perfect ('I will have walked'), the conditional simple ('I would walk') and the conditional perfect ('I would have walked').\nIn most dialects, each tense has six potential forms, varying for first, second, or third person and for singular or plural number. In the second person, Spanish maintains the so-called \"T–V distinction\" between familiar and formal modes of address. The formal second-person pronouns (usted, ustedes) take third-person verb forms.\nThe second-person familiar plural is expressed in most of Spain with the pronoun vosotros and its characteristic verb forms (e.g., coméis 'you eat'), while in Latin American Spanish it merges with the formal second-person plural (e.g., ustedes comen). Thus, ustedes is used as both the formal and familiar second-person pronoun in Latin America.\nIn many areas of Latin America (especially Central America and southern South America), the second-person familiar singular pronoun tú is replaced by vos, which frequently requires its own characteristic verb forms, especially in the present indicative, where the endings are -ás, -és, and -ís for -ar, -er, -ir verbs, respectively. (See \"voseo\".)\nIn the tables of paradigms below, the (optional) subject pronouns appear in parentheses."
+      },
+      {
+        "full": "## Verbs > ### Present indicative",
+        "path": [
+          "## Verbs",
+          "### Present indicative"
+        ],
+        "similarity": 1.0,
+        "content": "The present indicative is used to express actions or states of being in a present time frame. For example:\n\nSoy alto (I am tall). (Subject pronoun \"yo\" not required and not routinely used).\nElla canta en el club (She sings in the club).\nTodos nosotros vivimos en un submarino amarillo (We all live in a yellow submarine).\nSon las diez y media ([It] is ten thirty).\n\n## Verbs > ### Present indicative > #### Table 2: Present indicative forms of the regular-arverbhablar('to speak')\n\n<pre>```\n| Unnamed: 0             | Singular                         | Plural                  |\n|:-----------------------|:---------------------------------|:------------------------|\n| First person           | (yo) hablo                       | (nosotros/-as) hablamos |\n| Second person familiar | (tú) hablas (vos) hablás/habláis | (vosotros/-as) habláis  |\n| Second person formal   | (usted) habla                    | (ustedes) hablan        |\n| Third person           | (él, ella) habla                 | (ellos, ellas) hablan   |\n```</pre>\n\n\n## Verbs > ### Present indicative > #### Table 3: Present indicative forms of the regular-erverbcomer('to eat')\n\n<pre>```\n| Unnamed: 0             | Singular                      | Plural                 |\n|:-----------------------|:------------------------------|:-----------------------|\n| First person           | (yo) como                     | (nosotros/-as) comemos |\n| Second person familiar | (tú) comes (vos) comés/coméis | (vosotros/-as) coméis  |\n| Second person formal   | (usted) come                  | (ustedes) comen        |\n| Third person           | (él, ella) come               | (ellos, ellas) comen   |\n```</pre>\n\n\n## Verbs > ### Present indicative > #### Table 4: Present indicative forms of the regular-irverbvivir('to live')\n\n<pre>```\n| Unnamed: 0             | Singular               | Plural                 |\n|:-----------------------|:-----------------------|:-----------------------|\n| First person           | (yo) vivo              | (nosotros/-as) vivimos |\n| Second person familiar | (tú) vives (vos) vivís | (vosotros/-as) vivís   |\n| Second person formal   | (usted) vive           | (ustedes) viven        |\n| Third person           | (él, ella) vive        | (ellos, ellas) viven   |\n```</pre>"
+      },
+      {
+        "full": "## Verbs > ### Past tenses",
+        "path": [
+          "## Verbs",
+          "### Past tenses"
+        ],
+        "similarity": 1.0,
+        "content": "Spanish has a number of verb tenses used to express actions or states of being in a past time frame. The two that are \"simple\" in form (formed with a single word, rather than being compound verbs) are the preterite and the imperfect."
+      },
+      {
+        "full": "## Verbs > ### Past tenses > #### Preterite",
+        "path": [
+          "## Verbs",
+          "### Past tenses",
+          "#### Preterite"
+        ],
+        "similarity": 1.0,
+        "content": "The preterite is used to express actions or events that took place in the past, and which were instantaneous or are viewed as completed. For example:\n\nElla se murió ayer (She died yesterday)\nPablo apagó las luces (Pablo turned the lights off)\nYo me comí el arroz (I ate the rice)\nTe cortaste el pelo (You had your hair cut, Lit. \"You cut yourself the hair\")\n\n## Verbs > ### Past tenses > #### Preterite > ##### Table 5: Preterite forms of the regular-arverbhablar('to speak')\n\n<pre>```\n| Unnamed: 0             | Singular           | Plural                    |\n|:-----------------------|:-------------------|:--------------------------|\n| First person           | (yo) hablé         | (nosotros/-as) hablamos   |\n| Second person familiar | (tú, vos) hablaste | (vosotros/-as) hablasteis |\n| Second person formal   | (usted) habló      | (ustedes) hablaron        |\n| Third person           | (él, ella) habló   | (ellos, ellas) hablaron   |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Preterite > ##### Table 6: Preterite forms of the regular-erverbcomer('to eat')\n\n<pre>```\n| Unnamed: 0             | Singular          | Plural                   |\n|:-----------------------|:------------------|:-------------------------|\n| First person           | (yo) comí         | (nosotros/-as) comimos   |\n| Second person familiar | (tú, vos) comiste | (vosotros/-as) comisteis |\n| Second person formal   | (usted) comió     | (ustedes) comieron       |\n| Third person           | (él, ella) comió  | (ellos, ellas) comieron  |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Preterite > ##### Table 7: Preterite forms of the regular-irverbvivir('to live')\n\n<pre>```\n| Unnamed: 0             | Singular          | Plural                   |\n|:-----------------------|:------------------|:-------------------------|\n| First person           | (yo) viví         | (nosotros/-as) vivimos   |\n| Second person familiar | (tú, vos) viviste | (vosotros/-as) vivisteis |\n| Second person formal   | (usted) vivió     | (ustedes) vivieron       |\n| Third person           | (él, ella) vivió  | (ellos, ellas) vivieron  |\n```</pre>\n\n\nNote that (1) for -ar and -ir verbs (but not -er), the first-person plural form is the same as that of the present indicative; and (2) -er and -ir verbs share the same set of endings."
+      },
+      {
+        "full": "## Verbs > ### Past tenses > #### Imperfect or \"copretérito\"",
+        "path": [
+          "## Verbs",
+          "### Past tenses",
+          "#### Imperfect or \"copretérito\""
+        ],
+        "similarity": 1.0,
+        "content": "The imperfect expresses actions or states that are viewed as ongoing in the past. For example:\n\nYo era cómico en el pasado (I was/used to be funny in the past).\nUsted comía mucho (You ate a lot – literally, this sentence is saying \"You used to eat a lot\", saying that in the past, the person being referred to had a characteristic of \"eating a lot\").\nEllos escuchaban la radio (They were listening to the radio).\nAll three of the sentences above describe \"non-instantaneous\" actions that are viewed as continuing in the past. The characteristic in the first sentence and the action in the second were continuous, not instantaneous occurrences. In the third sentence, the speaker focuses on the action in progress, not on its beginning or end.\n\n## Verbs > ### Past tenses > #### Imperfect or \"copretérito\" > ##### Table 8: Imperfect forms of the regular-arverbhablar('to speak')\n\n<pre>```\n| Unnamed: 0             | Singular           | Plural                    |\n|:-----------------------|:-------------------|:--------------------------|\n| First person           | (yo) hablaba       | (nosotros/-as) hablábamos |\n| Second person familiar | (tú, vos) hablabas | (vosotros/-as) hablabais  |\n| Second person formal   | (usted) hablaba    | (ustedes) hablaban        |\n| Third person           | (él, ella) hablaba | (ellos, ellas) hablaban   |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Imperfect or \"copretérito\" > ##### Table 9: Imperfect forms of the regular-erverbcomer('to eat')\n\n<pre>```\n| Unnamed: 0             | Singular         | Plural                  |\n|:-----------------------|:-----------------|:------------------------|\n| First person           | (yo) comía       | (nosotros/-as) comíamos |\n| Second person familiar | (tú, vos) comías | (vosotros/-as) comíais  |\n| Second person formal   | (usted) comía    | (ustedes) comían        |\n| Third person           | (él, ella) comía | (ellos, ellas) comían   |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Imperfect or \"copretérito\" > ##### Table 10: Imperfect forms of the regular-irverbvivir('to live')\n\n<pre>```\n| Unnamed: 0             | Singular         | Plural                  |\n|:-----------------------|:-----------------|:------------------------|\n| First person           | (yo) vivía       | (nosotros/-as) vivíamos |\n| Second person familiar | (tú, vos) vivías | (vosotros/-as) vivíais  |\n| Second person formal   | (usted) vivía    | (ustedes) vivían        |\n| Third person           | (él, ella) vivía | (ellos, ellas) vivían   |\n```</pre>\n\n\nNote that (1) for all verbs in the imperfect, the first- and third-person singular share the same form; and (2) -er and -ir verbs share the same set of endings."
+      },
+      {
+        "full": "## Verbs > ### Past tenses > #### Using preterite and imperfect together",
+        "path": [
+          "## Verbs",
+          "### Past tenses",
+          "#### Using preterite and imperfect together"
+        ],
+        "similarity": 1.0,
+        "content": "The preterite and the imperfect can be combined in the same sentence to express the occurrence of an event in one clause during an action or state expressed in another clause. For example:\n\nEllos escuchaban la radio cuando oyeron un ruido afuera. (They were listening to the radio when they heard a noise outside.)\nYo estaba en mi cuarto cuando usted entró. (I was in my room when you came in.)\nEra un día muy tranquilo cuando eso pasó. (It was a very peaceful day when that happened.)\nIn all three cases, an event or completed action interrupts an ongoing state or action. For example, in the second sentence, the speaker states that he was in his room (expressed through the imperfect to reflect the ongoing or unfinished state of being there) when the other person \"interrupted\" that state by entering (expressed through the preterite to suggest a completed action)."
+      },
+      {
+        "full": "## Verbs > ### Present progressive and imperfect progressive",
+        "path": [
+          "## Verbs",
+          "### Present progressive and imperfect progressive"
+        ],
+        "similarity": 1.0,
+        "content": "The present and imperfect progressive both are used to express ongoing, progressive action in the present and past, respectively. For example:\n\nEstoy haciendo mi tarea. (I am doing my homework)\nEstamos estudiando. (We are studying)\nEstaba escuchando la radio. (I was listening to the radio)\nÉl estaba limpiando su cuarto. (He was cleaning his room)\nThe present progressive is formed by first conjugating the verb estar or seguir, depending on context, to agree with the subject, and then attaching a gerund of the verb that follows. The past (imperfect) progressive simply requires the estar or seguir to be conjugated, depending on context, in imperfect, with respect to the subject."
+      },
+      {
+        "full": "## Verbs > ### Present progressive and imperfect progressive > #### Forming gerunds",
+        "path": [
+          "## Verbs",
+          "### Present progressive and imperfect progressive",
+          "#### Forming gerunds"
+        ],
+        "similarity": 1.0,
+        "content": "To form the gerund of an -ar verb, replace the -ar of the infinitive with -ando;\ne.g. jugar, hablar, caminar → jugando, hablando, caminando.\nFor -er or -ir verbs, replace the -er or -ir ending with -iendo;\ne.g. comer, escribir, dormir → comiendo, escribiendo, durmiendo (note that dormir undergoes the stem vowel change that is typical of -ir verbs).\nIn -er verbs (and some -ir verbs, like disminuir) whose stem ends with a vowel, the i of the -iendo ending is replaced by y: e.g. leer, traer, creer → leyendo, trayendo, creyendo.\nIn -ir verbs whose stem ends with e—such as reír and sonreír—the stem vowel e is raised to i (as is typical of -ir verbs), and this i merges with the i of the -iendo ending; e.g. reír, freír → riendo, friendo."
+      },
+      {
+        "full": "## Verbs > ### Subjunctive",
+        "path": [
+          "## Verbs",
+          "### Subjunctive"
+        ],
+        "similarity": 1.0,
+        "content": "The subjunctive of a verb is used to express certain connotations in sentences such as a wish or desire, a demand, an emotion, uncertainty, or doubt."
+      },
+      {
+        "full": "## Verbs > ### Subjunctive > #### Present subjunctive",
+        "path": [
+          "## Verbs",
+          "### Subjunctive",
+          "#### Present subjunctive"
+        ],
+        "similarity": 1.0,
+        "content": "Normally, a verb would be conjugated in the present indicative to indicate an event in the present frame of time.\n\nYo soy muy ambicioso. (I am very ambitious)\nMarta trae la comida. (Marta brings the food)\nIf the sentence expresses a desire, demand, or emotion, or something similar, in the present tense, the subjunctive is used.\n\nQuiero que seas muy ambicioso. (I want you to be very ambitious—literally, I want that you be very ambitious)\nMe alegro de que Marta traiga la comida. (I am happy that Marta brings the food)\nEs una lástima que llegues tarde. (It is a shame that you arrive late)\nThe subjunctive is also used to convey doubt, denial, or uncertainty.\n\nBusco un amigo que sea simpático. (I search for a friend who will be likable or I search for a likable friend)\nNo hay ningún autor que lo escriba. (There are no authors who write that.)\nEs posible que ella sepa mucho. (It is possible that she knows a lot.)\nNo parece que tengan mucho dinero. (It does not seem that they have much money.)\nIn the first two examples, the ideally likable friend has not yet been found and remains an uncertainty, and authors \"who write that\" are not known to exist. In the third, possibility is not certainty, but rather a conjecture, and the last expresses clear doubt. Thus, subjunctive is used.\nSome of the phrases and verbs that require sentences to have subjunctive formation include:\n\nDudar, negar, esperar, alegrarse de, temer, sentir, pedir, aconsejar, exigir, desear, querer, mandar\nEs necesario que, conviene que, no parece que, es dudoso que, es probable que, no creo que, importa que, parece mentira que\nSome phrases that require the indicative instead, because they express certainty, include:\n\nEs verdad que, es obvio que, es seguro que, parece que, es evidente que, creo que\nTo form the first-person singular subjunctive, first take the present indicative first-person singular (yo) form of a verb. For example, the verbs hablar, comer, and vivir (To talk, to eat, to live) → Yo hablo, yo como, yo vivo. Then, replace the ending o with the \"opposite ending\". This is done in the following way: if the verb is an -er or -ir verb such as comer, poder, vivir, or compartir, replace the ending o with an a i.e. : Yo como; yo puedo; yo vivo → Yo coma; yo pueda; yo viva. If the verb is an -ar verb such as hablar or caminar replace the ending o with an e: i.e., Yo hablo; yo camino → Yo hable, yo camine. This forms the first-person conjugation. The other conjugations work similarly, as follows:\n\nYo → Yo hable; yo coma; yo viva\nTú → Tú hables; tú comas; tú vivas\nÉl/Ella/Usted → Él hable; él coma; él viva\nNosotros → Nosotros hablemos; nosotros comamos; nosotros vivamos\nVosotros → Vosotros habléis; vosotros comáis; vosotros viváis\nEllos/Ellas/Ustedes → ellos hablen; ellos coman; ellos vivan\nSince the vos forms are derived from vosotros, the following would be expected (and used in Central America):\n\nVos → Vos hablés; vos comás; vos escribás\nHowever, the Royal Spanish Academy, following Argentinian usage, recommends using the tú forms:\n\nVos → Vos hables; vos comas; vos escribas"
+      },
+      {
+        "full": "## Verbs > ### Subjunctive > #### Imperfect subjunctive",
+        "path": [
+          "## Verbs",
+          "### Subjunctive",
+          "#### Imperfect subjunctive"
+        ],
+        "similarity": 1.0,
+        "content": "Today, the two forms of the imperfect subjunctive – for example, \"hubiese\" and \"hubiera\", from \"haber\" – are largely interchangeable.*  The -se form derives (as in most Romance languages) from the Latin pluperfect subjunctive, while the -ra form derives from the Latin pluperfect indicative. The use of one or the other is largely a matter of personal taste and dialect. Many only use the -ra forms in speech, but vary between the two in writing.  Many may spontaneously use either, or even prefer the rarer -se forms. The imperfect subjunctive is formed for basically the same reasons as the present subjunctive, but is used for other tenses and time frames."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_constituents_syntax.txt": {
+    "strategy": "lexical",
+    "term_used": "constituents",
+    "topic_terms": [
+      "constituents",
+      "syntax"
+    ],
+    "matches": [
+      {
+        "full": "## Syntax and syntactic variation > ### Order of constituents",
+        "path": [
+          "## Syntax and syntactic variation",
+          "### Order of constituents"
+        ],
+        "similarity": 1.0,
+        "content": "Spanish unmarked word order for affirmative declarative sentences is subject-verb-object (SVO); however, as in other Romance languages, in practice, word order is more variable, with topicalization and focus being the primary factors in the selection of a particular order. Verb-subject-object (VSO), verb-object-subject (VOS), and object-verb-subject (OVS) are also relatively common, while other orders are very uncommon outside of poetry.\nThus, to simply say, \"My friend wrote the book\", one would say (SVO):\n\nMi amigo escribió el libro\nAlthough bare VSO and VOS are somewhat rare in declarative independent clauses, they are quite common in sentences in which something other than the subject or direct object functions as the focus. For example:\n\nHace pocos años escribió mi amigo un libro or Hace pocos años escribió un libro mi amigo = \"A few years ago, my friend wrote a book\"\nAyer vio mi madre a mi amigo y le preguntó por su libro or Ayer vio a mi amigo mi madre y le preguntó por su libro = \"Yesterday, my mother saw my friend and asked him about his book\"\nIn many dependent clauses, the verb is placed before the subject (and thus often VSO or VOS) to avoid placing the verb in final position:\n\nEste es el libro que escribió mi amigo, but rarely Este es el libro que mi amigo escribió = \"This is the book that my friend wrote\"\nA sentence in which the direct object is the topic or \"theme\" (old information), while the subject is part of the comment, or \"rheme\" (new information), often assumes OVS order. In this case the direct object noun phrase is supplemented with the appropriate direct object pronoun; for example:\n\nEl libro lo escribió mi amigo\nBecause subject pronouns are often dropped, one will often see sentences with a verb and direct object but no explicitly stated subject.\nIn questions, VSO is usual (though not obligatory):\n\n¿Escribió mi amigo el libro? = \"Did my friend write the book?\"\nYes/no questions, regardless of constituent order, are generally distinguished from declarative sentences by context and intonation."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_derivation-formation_morphology.txt": {
+    "strategy": "embedding",
+    "term_used": null,
+    "topic_terms": [
+      "derivation",
+      "formation",
+      "morphology"
+    ],
+    "matches": [
+      {
+        "full": "## Syntax and syntactic variation > ### Order of constituents",
+        "path": [
+          "## Syntax and syntactic variation",
+          "### Order of constituents"
+        ],
+        "similarity": 0.3747539520263672,
+        "content": "Spanish unmarked word order for affirmative declarative sentences is subject-verb-object (SVO); however, as in other Romance languages, in practice, word order is more variable, with topicalization and focus being the primary factors in the selection of a particular order. Verb-subject-object (VSO), verb-object-subject (VOS), and object-verb-subject (OVS) are also relatively common, while other orders are very uncommon outside of poetry.\nThus, to simply say, \"My friend wrote the book\", one would say (SVO):\n\nMi amigo escribió el libro\nAlthough bare VSO and VOS are somewhat rare in declarative independent clauses, they are quite common in sentences in which something other than the subject or direct object functions as the focus. For example:\n\nHace pocos años escribió mi amigo un libro or Hace pocos años escribió un libro mi amigo = \"A few years ago, my friend wrote a book\"\nAyer vio mi madre a mi amigo y le preguntó por su libro or Ayer vio a mi amigo mi madre y le preguntó por su libro = \"Yesterday, my mother saw my friend and asked him about his book\"\nIn many dependent clauses, the verb is placed before the subject (and thus often VSO or VOS) to avoid placing the verb in final position:\n\nEste es el libro que escribió mi amigo, but rarely Este es el libro que mi amigo escribió = \"This is the book that my friend wrote\"\nA sentence in which the direct object is the topic or \"theme\" (old information), while the subject is part of the comment, or \"rheme\" (new information), often assumes OVS order. In this case the direct object noun phrase is supplemented with the appropriate direct object pronoun; for example:\n\nEl libro lo escribió mi amigo\nBecause subject pronouns are often dropped, one will often see sentences with a verb and direct object but no explicitly stated subject.\nIn questions, VSO is usual (though not obligatory):\n\n¿Escribió mi amigo el libro? = \"Did my friend write the book?\"\nYes/no questions, regardless of constituent order, are generally distinguished from declarative sentences by context and intonation."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_determiners-articles_noun.txt": {
+    "strategy": "lexical",
+    "term_used": "determiners",
+    "topic_terms": [
+      "determiners",
+      "articles",
+      "noun"
+    ],
+    "matches": [
+      {
+        "full": "## Determiners",
+        "path": [
+          "## Determiners"
+        ],
+        "similarity": 1.0,
+        "content": "Spanish uses determiners in a similar way to English. The main difference is that they inflect for both number (singular/plural) and gender (masculine/feminine). Common determiners include el (\"the\"), un (\"a\"), este (\"this\"), mucho (\"much, a lot\"), alguno (\"some\")."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_futureTense_tense_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "tense",
+    "topic_terms": [
+      "future tense",
+      "tense",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs > ### Past tenses",
+        "path": [
+          "## Verbs",
+          "### Past tenses"
+        ],
+        "similarity": 1.0,
+        "content": "Spanish has a number of verb tenses used to express actions or states of being in a past time frame. The two that are \"simple\" in form (formed with a single word, rather than being compound verbs) are the preterite and the imperfect."
+      },
+      {
+        "full": "## Verbs > ### Past tenses > #### Preterite",
+        "path": [
+          "## Verbs",
+          "### Past tenses",
+          "#### Preterite"
+        ],
+        "similarity": 1.0,
+        "content": "The preterite is used to express actions or events that took place in the past, and which were instantaneous or are viewed as completed. For example:\n\nElla se murió ayer (She died yesterday)\nPablo apagó las luces (Pablo turned the lights off)\nYo me comí el arroz (I ate the rice)\nTe cortaste el pelo (You had your hair cut, Lit. \"You cut yourself the hair\")\n\n## Verbs > ### Past tenses > #### Preterite > ##### Table 5: Preterite forms of the regular-arverbhablar('to speak')\n\n<pre>```\n| Unnamed: 0             | Singular           | Plural                    |\n|:-----------------------|:-------------------|:--------------------------|\n| First person           | (yo) hablé         | (nosotros/-as) hablamos   |\n| Second person familiar | (tú, vos) hablaste | (vosotros/-as) hablasteis |\n| Second person formal   | (usted) habló      | (ustedes) hablaron        |\n| Third person           | (él, ella) habló   | (ellos, ellas) hablaron   |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Preterite > ##### Table 6: Preterite forms of the regular-erverbcomer('to eat')\n\n<pre>```\n| Unnamed: 0             | Singular          | Plural                   |\n|:-----------------------|:------------------|:-------------------------|\n| First person           | (yo) comí         | (nosotros/-as) comimos   |\n| Second person familiar | (tú, vos) comiste | (vosotros/-as) comisteis |\n| Second person formal   | (usted) comió     | (ustedes) comieron       |\n| Third person           | (él, ella) comió  | (ellos, ellas) comieron  |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Preterite > ##### Table 7: Preterite forms of the regular-irverbvivir('to live')\n\n<pre>```\n| Unnamed: 0             | Singular          | Plural                   |\n|:-----------------------|:------------------|:-------------------------|\n| First person           | (yo) viví         | (nosotros/-as) vivimos   |\n| Second person familiar | (tú, vos) viviste | (vosotros/-as) vivisteis |\n| Second person formal   | (usted) vivió     | (ustedes) vivieron       |\n| Third person           | (él, ella) vivió  | (ellos, ellas) vivieron  |\n```</pre>\n\n\nNote that (1) for -ar and -ir verbs (but not -er), the first-person plural form is the same as that of the present indicative; and (2) -er and -ir verbs share the same set of endings."
+      },
+      {
+        "full": "## Verbs > ### Past tenses > #### Imperfect or \"copretérito\"",
+        "path": [
+          "## Verbs",
+          "### Past tenses",
+          "#### Imperfect or \"copretérito\""
+        ],
+        "similarity": 1.0,
+        "content": "The imperfect expresses actions or states that are viewed as ongoing in the past. For example:\n\nYo era cómico en el pasado (I was/used to be funny in the past).\nUsted comía mucho (You ate a lot – literally, this sentence is saying \"You used to eat a lot\", saying that in the past, the person being referred to had a characteristic of \"eating a lot\").\nEllos escuchaban la radio (They were listening to the radio).\nAll three of the sentences above describe \"non-instantaneous\" actions that are viewed as continuing in the past. The characteristic in the first sentence and the action in the second were continuous, not instantaneous occurrences. In the third sentence, the speaker focuses on the action in progress, not on its beginning or end.\n\n## Verbs > ### Past tenses > #### Imperfect or \"copretérito\" > ##### Table 8: Imperfect forms of the regular-arverbhablar('to speak')\n\n<pre>```\n| Unnamed: 0             | Singular           | Plural                    |\n|:-----------------------|:-------------------|:--------------------------|\n| First person           | (yo) hablaba       | (nosotros/-as) hablábamos |\n| Second person familiar | (tú, vos) hablabas | (vosotros/-as) hablabais  |\n| Second person formal   | (usted) hablaba    | (ustedes) hablaban        |\n| Third person           | (él, ella) hablaba | (ellos, ellas) hablaban   |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Imperfect or \"copretérito\" > ##### Table 9: Imperfect forms of the regular-erverbcomer('to eat')\n\n<pre>```\n| Unnamed: 0             | Singular         | Plural                  |\n|:-----------------------|:-----------------|:------------------------|\n| First person           | (yo) comía       | (nosotros/-as) comíamos |\n| Second person familiar | (tú, vos) comías | (vosotros/-as) comíais  |\n| Second person formal   | (usted) comía    | (ustedes) comían        |\n| Third person           | (él, ella) comía | (ellos, ellas) comían   |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Imperfect or \"copretérito\" > ##### Table 10: Imperfect forms of the regular-irverbvivir('to live')\n\n<pre>```\n| Unnamed: 0             | Singular         | Plural                  |\n|:-----------------------|:-----------------|:------------------------|\n| First person           | (yo) vivía       | (nosotros/-as) vivíamos |\n| Second person familiar | (tú, vos) vivías | (vosotros/-as) vivíais  |\n| Second person formal   | (usted) vivía    | (ustedes) vivían        |\n| Third person           | (él, ella) vivía | (ellos, ellas) vivían   |\n```</pre>\n\n\nNote that (1) for all verbs in the imperfect, the first- and third-person singular share the same form; and (2) -er and -ir verbs share the same set of endings."
+      },
+      {
+        "full": "## Verbs > ### Past tenses > #### Using preterite and imperfect together",
+        "path": [
+          "## Verbs",
+          "### Past tenses",
+          "#### Using preterite and imperfect together"
+        ],
+        "similarity": 1.0,
+        "content": "The preterite and the imperfect can be combined in the same sentence to express the occurrence of an event in one clause during an action or state expressed in another clause. For example:\n\nEllos escuchaban la radio cuando oyeron un ruido afuera. (They were listening to the radio when they heard a noise outside.)\nYo estaba en mi cuarto cuando usted entró. (I was in my room when you came in.)\nEra un día muy tranquilo cuando eso pasó. (It was a very peaceful day when that happened.)\nIn all three cases, an event or completed action interrupts an ongoing state or action. For example, in the second sentence, the speaker states that he was in his room (expressed through the imperfect to reflect the ongoing or unfinished state of being there) when the other person \"interrupted\" that state by entering (expressed through the preterite to suggest a completed action)."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_imperative_mood_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "imperative",
+    "topic_terms": [
+      "imperative",
+      "mood",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Dialectal variations > ### Forms of address > #### Vosotros imperative: -ar for -ad",
+        "path": [
+          "## Dialectal variations",
+          "### Forms of address",
+          "#### Vosotros imperative: -ar for -ad"
+        ],
+        "similarity": 1.0,
+        "content": "In Spain, colloquially, the infinitive is used instead of the normative imperative for vosotros. This is not accepted in the normative language.\n\n¡Venir! instead of ¡Venid!\n¡Callaros! instead of ¡Callaos! (¡Callarse! in some dialects)\n¡Iros! or ¡Marcharos! instead of ¡Idos!"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_negation_syntax.txt": {
+    "strategy": "lexical",
+    "term_used": "syntax",
+    "topic_terms": [
+      "negation",
+      "syntax"
+    ],
+    "matches": [
+      {
+        "full": "## Syntax and syntactic variation",
+        "path": [
+          "## Syntax and syntactic variation"
+        ],
+        "similarity": 1.0,
+        "content": ""
+      },
+      {
+        "full": "## Syntax and syntactic variation > ### Order of constituents",
+        "path": [
+          "## Syntax and syntactic variation",
+          "### Order of constituents"
+        ],
+        "similarity": 1.0,
+        "content": "Spanish unmarked word order for affirmative declarative sentences is subject-verb-object (SVO); however, as in other Romance languages, in practice, word order is more variable, with topicalization and focus being the primary factors in the selection of a particular order. Verb-subject-object (VSO), verb-object-subject (VOS), and object-verb-subject (OVS) are also relatively common, while other orders are very uncommon outside of poetry.\nThus, to simply say, \"My friend wrote the book\", one would say (SVO):\n\nMi amigo escribió el libro\nAlthough bare VSO and VOS are somewhat rare in declarative independent clauses, they are quite common in sentences in which something other than the subject or direct object functions as the focus. For example:\n\nHace pocos años escribió mi amigo un libro or Hace pocos años escribió un libro mi amigo = \"A few years ago, my friend wrote a book\"\nAyer vio mi madre a mi amigo y le preguntó por su libro or Ayer vio a mi amigo mi madre y le preguntó por su libro = \"Yesterday, my mother saw my friend and asked him about his book\"\nIn many dependent clauses, the verb is placed before the subject (and thus often VSO or VOS) to avoid placing the verb in final position:\n\nEste es el libro que escribió mi amigo, but rarely Este es el libro que mi amigo escribió = \"This is the book that my friend wrote\"\nA sentence in which the direct object is the topic or \"theme\" (old information), while the subject is part of the comment, or \"rheme\" (new information), often assumes OVS order. In this case the direct object noun phrase is supplemented with the appropriate direct object pronoun; for example:\n\nEl libro lo escribió mi amigo\nBecause subject pronouns are often dropped, one will often see sentences with a verb and direct object but no explicitly stated subject.\nIn questions, VSO is usual (though not obligatory):\n\n¿Escribió mi amigo el libro? = \"Did my friend write the book?\"\nYes/no questions, regardless of constituent order, are generally distinguished from declarative sentences by context and intonation."
+      },
+      {
+        "full": "## Syntax and syntactic variation > ### Cleft sentences",
+        "path": [
+          "## Syntax and syntactic variation",
+          "### Cleft sentences"
+        ],
+        "similarity": 1.0,
+        "content": "A cleft sentence is one formed with the copular verb (generally with a dummy pronoun like \"it\" as its subject), plus a word that \"cleaves\" the sentence, plus a subordinate clause. They are often used to put emphasis on a part of the sentence. Here are some examples of English sentences and their cleft versions:\n\n\"I did it.\" → \"It was I who did it\" or more colloquially \"It was me that did it.\"\n\"You will stop smoking through willpower.\" → \"It is through willpower that you will stop smoking.\"\nSpanish does not usually employ such a structure in simple sentences. The translations of sentences like these can be readily analyzed as being normal sentences containing relative pronouns. Spanish is capable of expressing such concepts without a special cleft structure thanks to its flexible word order.\nFor example, if we translate a cleft sentence such as \"It was Juan who lost the keys\", we get Fue Juan el que perdió las llaves. Whereas the English sentence uses a special structure, the Spanish one does not. The verb fue has no dummy subject, and the pronoun el que is not a cleaver but a nominalising relative pronoun meaning \"the [male] one that\".  Provided we respect the pairings of \"el que\" and \"las llaves\", we can play with the word order of the Spanish sentence without affecting its structure – although each permutation would, to a native speaker, give a subtly different shading of emphasis.\nFor example, we can say Juan fue el que perdió las llaves (\"Juan was the one who lost the keys\") or El que perdió las llaves fue Juan (\"The one who lost the keys was Juan\").  As can be seen from the translations, if this word order is chosen, English stops using the cleft structure (there is no more dummy \"it\" and a nominalising relative is used instead of the cleaving word) whilst in Spanish no words have changed.\nHere are some examples of such sentences:\n\nFue Juan el que perdió las llaves = \"It was John who lost the keys\"\nSon sólo tres días los que te quedan = \"It is only three days that you have left\"\nSeré yo quien se lo diga = \"It will be I who tells him\"\nSon pocos los que vienen y se quedan = lit. \"There are few who come and stay\"\nNote that it is ungrammatical to try to use just que to cleave such sentences as in English, but using quien in singular or quienes in plural is grammatical.\n\n*Fue Juan que perdió las llaves (incorrect)\nFue Juan quien perdió las llaves (correct)\nWhen prepositions come into play, things become complicated.  Structures unambiguously identifiable as cleft sentences are used. The verb ser introduces the stressed element and then there is a nominaliser. Both of these are preceded by the relevant preposition. For example:\n\nFue a mí a quien le dio permiso = \"It was me to whom he gave permission\", lit. \"It was to me to whom he gave permission\"\nEs para nosotros para quienes se hizo esto = \"It is us for whom this was made\", lit. \"It is for us for whom this was made\"\nEs por eso por lo que lo hice = \"That is why I did it\", more literally: \"It is because of that that I did it\", or completely literally: \"It is because of that because of which I did it\"\nEs así como se debe hacer = \"It is this way that it must be done\", lit. \"It is this way how it must be done\" (como replaces longer expressions such as la forma en que)\nThis structure is quite wordy, and is therefore often avoided by not using a cleft sentence at all. Emphasis is conveyed just by word order and stressing with the voice (indicated here within bolding):\n\nMe dio permiso a mí = \"He gave permission to me\"\nSe hizo esto para nosotros = \"This was done for us\"\nPor eso lo hice = \"I did it because of that\"\nSe debe hacer así = \"It must be done this way\"\nIn casual speech, the complex cleaving pronoun is often reduced to que, just as it is reduced to \"that\" in English.\n\nEs para nosotros que se hizo esto\nEs por eso que lo hice\nFue a mí que le dio permiso (preferred: a quien)\nEs así que se debe hacer (preferred: como)\nIn the singular, the subordinate clause can agree either with the relative pronoun or with the subject of the main sentence, though the latter is seldom used. However, in the plural, only agreement with the subject of the main sentence is acceptable. Therefore:\n\nSingular\nYo fui el que me lo bebí = \"I was the one who drank it\" (agreement with subject of main sentence)\nYo fui el que se lo bebió (preferred form with same meaning, agreement with el que)\nLa que lo sé soy yo = \"I am the one who knows\" (agreement with subject of main sentence)\nLa que lo sabe soy yo = (preferred form with same meaning, agreement with la que)\nPlural\nSomos los únicos que no tenemos ni un centavo para apostar = \"We are the only ones who do not have even a cent to bet\" (agreement with subject of main sentence) (from dialogue of the Gabriel García Márquez novel El coronel no tiene quien le escriba)\nVosotras sois las que lo sabéis = \"You girls are the ones who know\" (agreement with subject of main sentence)"
+      },
+      {
+        "full": "## Syntax and syntactic variation > ### Clitic se",
+        "path": [
+          "## Syntax and syntactic variation",
+          "### Clitic se"
+        ],
+        "similarity": 1.0,
+        "content": "Clitics are a necessary part of syntactic form and representation in Spanish. Defining a specific syntactic role of a clitic in Spanish is cumbersome, as they are used in a variety of ways. Syntactic approaches to this common element have attempted to find a universal way of handling them. For example, all languages are capable of having subjects, objects, and verbs, so a universal methodology to handling word order, whether SVO, VSO, or OSV, is imperative for a multilingual and universal syntactic representation system to work. As such, there has been great discussion and investigation in the literature for that particular word order element. Clitics, on the other hand, have been given relatively less thought and investigation, particularly an inquiry into an uncomplicated approach in their syntactic distribution. Clitics offer a myriad of functional roles depending upon the language in question, further complicating the situation.\nSpanish is a diasporic language which also experiences diachronic variation. While Spanish is said to generally have flexible or \"free\" word order, others such as Pountain assert that the syntax is heavily influenced by topic and comment identification."
+      },
+      {
+        "full": "## Syntax and syntactic variation > ### Clitic se > #### Historical approaches",
+        "path": [
+          "## Syntax and syntactic variation",
+          "### Clitic se",
+          "#### Historical approaches"
+        ],
+        "similarity": 1.0,
+        "content": "The syntactic role of the clitic se and its forms in Spanish has undergone much debate within the research with no obvious conclusion. Part of the difficulty stems from the variable role se and its other forms play with regard to the contextual grammar. Some syntacticians have aptly termed the clitic se as \"paradigmatic\" in reference to the complexity and variance of se features and functions. It is utilized in a variety of Spanish grammar contexts, including the following forms: reflexive pronoun, reciprocal pronoun, replacive pronoun (direct and indirect object), intrinsic pronoun (without the pronoun, the structure is ungrammatical), \"derivational\" pronoun, and \"stylistic\" pronoun. Further, se is used in addition with certain intransitive verbs, in reflexive-passive constructions, and in impersonal constructions.\nAs a class, clitics have such a variety of grammatical functions that they are not always pronominal, anaphoric or related to verbal arguments. Syntactically, they are most often found in non-argument benefactive theta-roles, in formation of passive, in formation of middle voice, and with a completive meaning. They can take the form of either phrasal constituents or words with an independent syntactic structure.\nDespite se being grammatically diverse in Spanish grammatical application, it does certain specific roles. Zagona, author of a comprehensive Spanish syntax textbook, has extensively outlined form and function in depth, stating that:\n\n[sic] the only true subject clitic in Spanish is \"impersonal\" se \"one\".\nThe impersonal form is clearly defined as it does not double and uses only the third person singular verb form as in the impersonal form example here:\n\nZagona also notes that, generally, oblique phrases do not allow for a double clitic, yet some verbs of motion are formed with double clitics:\n\nImperatives in Spanish do not require the use of clitics, but when they are used, a specific word order must be followed. With an affirmative verb, the clitic succeeds the verb. However, in a negative command, word order alters in that the clitic precedes the verb. Another review of sentence positions of se in various grammatical constructions offers the following example, demonstrating imperative differences thus:\n\nWith continuous verbs, the clitic can precede the auxiliary verb or follow the participle, as in (1a) and (1b):\n\nThe clitic cannot follow a past or passive participle, as in (2b):\n\nSpecific issues arise in clitic use and syntactic representation in terms of animacy. The Spanish language does not explicitly demonstrate in its grammar whether an object, either direct or indirect, refers to an animate or inanimate object. Therefore, the use of two clitics is common, although not always required. In this way, clitics can be doubled or \"redundant\" when two instances occur within the same phrase. Double clitics are found in instances of phrases with both direct accusative case objects and indirect dative objects in this way:\n\nRegarding clitic doubling in Spanish, Ordóñez has suggested a \"cluster\" versus \"split\" formation, weighing consideration of the double clitic as a single unit (cluster) or a separable unit (split). The syntactic approach maintains a left-dislocation for the clitics while sustaining a separation from the verb. In the cluster model, both clitics are two adjacent constituents whereas the split model, one clitic has been split from the other, appearing higher on the syntactic tree. Both are still under the same c-command of the left branch but are no longer sisters to each other. Ordóñez suggests that when clitics are sisters, they may not even be considered constituents in the syntax. The hypothesis includes a requirement that a non-third person clitic is located higher on a tree than the third person clitic.\nIn fact, clitic climbing is a common feature in Romance languages with designation of clitics as unbound morphemes where the clitic \"climbs\" to adjoin the verb in a higher position. This widely discussed theory has involved raising of the clitic se as an unaccusative because of the lack of external argument in the grammar structure. The object clitic begins in the subject position of the verb, moving up to attach to the verb via adjunction on the left. Another theory is the \"base-generation\" which considers clitics to be affixes. However, both approaches fail when there is clitic doubling."
+      },
+      {
+        "full": "## Syntax and syntactic variation > ### Clitic se > #### Recent approaches",
+        "path": [
+          "## Syntax and syntactic variation",
+          "### Clitic se",
+          "#### Recent approaches"
+        ],
+        "similarity": 1.0,
+        "content": "As recently as 2021, Cuervo has suggested that, for clitic doubling, the solution is considering the dative clitic to be the head of an Applicative Phrase with care taken in identifying whether the form is proclitic or enclitic. Cuervo addresses the difference by positing the following: if the process is proclitic, there is climbing; if the process is enclitic, there is no climbing. Thus, the determining factor for syntactic presentation is the type of verbal phrase.\nBradley illustrates some inflexible constructions, mainly when two third-person pronouns are within the same sentence and the indirect object must be expressed via se:\n\nYa                   se                     lo                     he mandado\nalready            CL(Nom.)       CL(Acc.)         sent-presperf\n\"I have already sent it\"\nIn such cases, one solution is to use the particle a followed by an infinitive verb when the clitic precedes an auxiliary verb, as in the example provided below:\n\nNos                  vamos              a          acostar\nCL(Nom.)       go-1.pres.        to         go to bed\n\"We are going to bed\"\nThe clitic is not attached to the infinitive verb; instead, it is in subject position. Grammatically, attachment to the verb occurs with a non-finite or a main conjugated verb. The clitic adjoins the verb and undergoes head movement to check its features.\nAdditional structures for direct and indirect objects have been suggested. Other views include the use of AgrS and AgrO for Spanish when clitics are involved. Daussá states that se can block features as it travels attached to the appropriate verb form from the feature geometry which alters the nodes.\nDaussá’s realization of syntactic structure presents a solution for the paradigmatic issue of se using AgrO and AgrS. This model includes a Determiner Phrase that is nominative with verbal agreement in both person and number. Romain has also offered a thorough examination of the various theories, concluding that se is part of a Determiner Phrase. While there had been some postulation that clitics are heads of their own phrases, there has not been much support given to those claims.\nEven more recently, Lewandowski has focused on one function in the use of se with reflexive verbs, the completive, wherein with specific verbs the clitic denotes a completion of an action. Lewandowski has proposed an interconnected functionality for the Spanish reflexive pronoun, representing this concept via a cluster map indicating semantic, pragmatic, and grammatical functions. His discussion has centered around the \"polyfunctionality\" of se and how best to syntactically handle this issue, perhaps by not separating the syntax from morphology. Another recent view is that there are two syntactic formations: first, that se is a probe for A-movement which results in a paradigmatic se and second, that non-paradigmatic se is represented by third person singular. This cross-referencing of syntax and morphology overlapping with a communicative stylistic approach has been suggested in the past."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_noun.txt": {
+    "strategy": "lexical",
+    "term_used": "noun",
+    "topic_terms": [
+      "noun"
+    ],
+    "matches": [
+      {
+        "full": "## Nouns",
+        "path": [
+          "## Nouns"
+        ],
+        "similarity": 1.0,
+        "content": "In Spanish, as in other Romance languages, all nouns belong to one of two genders, \"masculine\" or \"feminine\", and many adjectives change their form to agree in gender with the noun they modify. For most nouns that refer to persons, grammatical gender matches biological gender."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_passive_voice_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "verb",
+    "topic_terms": [
+      "passive",
+      "voice",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs",
+        "path": [
+          "## Verbs"
+        ],
+        "similarity": 1.0,
+        "content": "Every Spanish verb belongs to one of three form classes, characterized by the infinitive ending:  -ar, -er, or -ir—sometimes called the first, second, and third conjugations, respectively.\nA Spanish verb has nine indicative tenses with more-or-less direct English equivalents:  the present tense ('I walk'), the preterite ('I walked'), the imperfect ('I was walking' or 'I used to walk'), the present perfect ('I have walked'), the past perfect —also called the pluperfect— ('I had walked'), the future ('I will walk'), the future perfect ('I will have walked'), the conditional simple ('I would walk') and the conditional perfect ('I would have walked').\nIn most dialects, each tense has six potential forms, varying for first, second, or third person and for singular or plural number. In the second person, Spanish maintains the so-called \"T–V distinction\" between familiar and formal modes of address. The formal second-person pronouns (usted, ustedes) take third-person verb forms.\nThe second-person familiar plural is expressed in most of Spain with the pronoun vosotros and its characteristic verb forms (e.g., coméis 'you eat'), while in Latin American Spanish it merges with the formal second-person plural (e.g., ustedes comen). Thus, ustedes is used as both the formal and familiar second-person pronoun in Latin America.\nIn many areas of Latin America (especially Central America and southern South America), the second-person familiar singular pronoun tú is replaced by vos, which frequently requires its own characteristic verb forms, especially in the present indicative, where the endings are -ás, -és, and -ís for -ar, -er, -ir verbs, respectively. (See \"voseo\".)\nIn the tables of paradigms below, the (optional) subject pronouns appear in parentheses."
+      },
+      {
+        "full": "## Verbs > ### Present indicative",
+        "path": [
+          "## Verbs",
+          "### Present indicative"
+        ],
+        "similarity": 1.0,
+        "content": "The present indicative is used to express actions or states of being in a present time frame. For example:\n\nSoy alto (I am tall). (Subject pronoun \"yo\" not required and not routinely used).\nElla canta en el club (She sings in the club).\nTodos nosotros vivimos en un submarino amarillo (We all live in a yellow submarine).\nSon las diez y media ([It] is ten thirty).\n\n## Verbs > ### Present indicative > #### Table 2: Present indicative forms of the regular-arverbhablar('to speak')\n\n<pre>```\n| Unnamed: 0             | Singular                         | Plural                  |\n|:-----------------------|:---------------------------------|:------------------------|\n| First person           | (yo) hablo                       | (nosotros/-as) hablamos |\n| Second person familiar | (tú) hablas (vos) hablás/habláis | (vosotros/-as) habláis  |\n| Second person formal   | (usted) habla                    | (ustedes) hablan        |\n| Third person           | (él, ella) habla                 | (ellos, ellas) hablan   |\n```</pre>\n\n\n## Verbs > ### Present indicative > #### Table 3: Present indicative forms of the regular-erverbcomer('to eat')\n\n<pre>```\n| Unnamed: 0             | Singular                      | Plural                 |\n|:-----------------------|:------------------------------|:-----------------------|\n| First person           | (yo) como                     | (nosotros/-as) comemos |\n| Second person familiar | (tú) comes (vos) comés/coméis | (vosotros/-as) coméis  |\n| Second person formal   | (usted) come                  | (ustedes) comen        |\n| Third person           | (él, ella) come               | (ellos, ellas) comen   |\n```</pre>\n\n\n## Verbs > ### Present indicative > #### Table 4: Present indicative forms of the regular-irverbvivir('to live')\n\n<pre>```\n| Unnamed: 0             | Singular               | Plural                 |\n|:-----------------------|:-----------------------|:-----------------------|\n| First person           | (yo) vivo              | (nosotros/-as) vivimos |\n| Second person familiar | (tú) vives (vos) vivís | (vosotros/-as) vivís   |\n| Second person formal   | (usted) vive           | (ustedes) viven        |\n| Third person           | (él, ella) vive        | (ellos, ellas) viven   |\n```</pre>"
+      },
+      {
+        "full": "## Verbs > ### Past tenses",
+        "path": [
+          "## Verbs",
+          "### Past tenses"
+        ],
+        "similarity": 1.0,
+        "content": "Spanish has a number of verb tenses used to express actions or states of being in a past time frame. The two that are \"simple\" in form (formed with a single word, rather than being compound verbs) are the preterite and the imperfect."
+      },
+      {
+        "full": "## Verbs > ### Past tenses > #### Preterite",
+        "path": [
+          "## Verbs",
+          "### Past tenses",
+          "#### Preterite"
+        ],
+        "similarity": 1.0,
+        "content": "The preterite is used to express actions or events that took place in the past, and which were instantaneous or are viewed as completed. For example:\n\nElla se murió ayer (She died yesterday)\nPablo apagó las luces (Pablo turned the lights off)\nYo me comí el arroz (I ate the rice)\nTe cortaste el pelo (You had your hair cut, Lit. \"You cut yourself the hair\")\n\n## Verbs > ### Past tenses > #### Preterite > ##### Table 5: Preterite forms of the regular-arverbhablar('to speak')\n\n<pre>```\n| Unnamed: 0             | Singular           | Plural                    |\n|:-----------------------|:-------------------|:--------------------------|\n| First person           | (yo) hablé         | (nosotros/-as) hablamos   |\n| Second person familiar | (tú, vos) hablaste | (vosotros/-as) hablasteis |\n| Second person formal   | (usted) habló      | (ustedes) hablaron        |\n| Third person           | (él, ella) habló   | (ellos, ellas) hablaron   |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Preterite > ##### Table 6: Preterite forms of the regular-erverbcomer('to eat')\n\n<pre>```\n| Unnamed: 0             | Singular          | Plural                   |\n|:-----------------------|:------------------|:-------------------------|\n| First person           | (yo) comí         | (nosotros/-as) comimos   |\n| Second person familiar | (tú, vos) comiste | (vosotros/-as) comisteis |\n| Second person formal   | (usted) comió     | (ustedes) comieron       |\n| Third person           | (él, ella) comió  | (ellos, ellas) comieron  |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Preterite > ##### Table 7: Preterite forms of the regular-irverbvivir('to live')\n\n<pre>```\n| Unnamed: 0             | Singular          | Plural                   |\n|:-----------------------|:------------------|:-------------------------|\n| First person           | (yo) viví         | (nosotros/-as) vivimos   |\n| Second person familiar | (tú, vos) viviste | (vosotros/-as) vivisteis |\n| Second person formal   | (usted) vivió     | (ustedes) vivieron       |\n| Third person           | (él, ella) vivió  | (ellos, ellas) vivieron  |\n```</pre>\n\n\nNote that (1) for -ar and -ir verbs (but not -er), the first-person plural form is the same as that of the present indicative; and (2) -er and -ir verbs share the same set of endings."
+      },
+      {
+        "full": "## Verbs > ### Past tenses > #### Imperfect or \"copretérito\"",
+        "path": [
+          "## Verbs",
+          "### Past tenses",
+          "#### Imperfect or \"copretérito\""
+        ],
+        "similarity": 1.0,
+        "content": "The imperfect expresses actions or states that are viewed as ongoing in the past. For example:\n\nYo era cómico en el pasado (I was/used to be funny in the past).\nUsted comía mucho (You ate a lot – literally, this sentence is saying \"You used to eat a lot\", saying that in the past, the person being referred to had a characteristic of \"eating a lot\").\nEllos escuchaban la radio (They were listening to the radio).\nAll three of the sentences above describe \"non-instantaneous\" actions that are viewed as continuing in the past. The characteristic in the first sentence and the action in the second were continuous, not instantaneous occurrences. In the third sentence, the speaker focuses on the action in progress, not on its beginning or end.\n\n## Verbs > ### Past tenses > #### Imperfect or \"copretérito\" > ##### Table 8: Imperfect forms of the regular-arverbhablar('to speak')\n\n<pre>```\n| Unnamed: 0             | Singular           | Plural                    |\n|:-----------------------|:-------------------|:--------------------------|\n| First person           | (yo) hablaba       | (nosotros/-as) hablábamos |\n| Second person familiar | (tú, vos) hablabas | (vosotros/-as) hablabais  |\n| Second person formal   | (usted) hablaba    | (ustedes) hablaban        |\n| Third person           | (él, ella) hablaba | (ellos, ellas) hablaban   |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Imperfect or \"copretérito\" > ##### Table 9: Imperfect forms of the regular-erverbcomer('to eat')\n\n<pre>```\n| Unnamed: 0             | Singular         | Plural                  |\n|:-----------------------|:-----------------|:------------------------|\n| First person           | (yo) comía       | (nosotros/-as) comíamos |\n| Second person familiar | (tú, vos) comías | (vosotros/-as) comíais  |\n| Second person formal   | (usted) comía    | (ustedes) comían        |\n| Third person           | (él, ella) comía | (ellos, ellas) comían   |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Imperfect or \"copretérito\" > ##### Table 10: Imperfect forms of the regular-irverbvivir('to live')\n\n<pre>```\n| Unnamed: 0             | Singular         | Plural                  |\n|:-----------------------|:-----------------|:------------------------|\n| First person           | (yo) vivía       | (nosotros/-as) vivíamos |\n| Second person familiar | (tú, vos) vivías | (vosotros/-as) vivíais  |\n| Second person formal   | (usted) vivía    | (ustedes) vivían        |\n| Third person           | (él, ella) vivía | (ellos, ellas) vivían   |\n```</pre>\n\n\nNote that (1) for all verbs in the imperfect, the first- and third-person singular share the same form; and (2) -er and -ir verbs share the same set of endings."
+      },
+      {
+        "full": "## Verbs > ### Past tenses > #### Using preterite and imperfect together",
+        "path": [
+          "## Verbs",
+          "### Past tenses",
+          "#### Using preterite and imperfect together"
+        ],
+        "similarity": 1.0,
+        "content": "The preterite and the imperfect can be combined in the same sentence to express the occurrence of an event in one clause during an action or state expressed in another clause. For example:\n\nEllos escuchaban la radio cuando oyeron un ruido afuera. (They were listening to the radio when they heard a noise outside.)\nYo estaba en mi cuarto cuando usted entró. (I was in my room when you came in.)\nEra un día muy tranquilo cuando eso pasó. (It was a very peaceful day when that happened.)\nIn all three cases, an event or completed action interrupts an ongoing state or action. For example, in the second sentence, the speaker states that he was in his room (expressed through the imperfect to reflect the ongoing or unfinished state of being there) when the other person \"interrupted\" that state by entering (expressed through the preterite to suggest a completed action)."
+      },
+      {
+        "full": "## Verbs > ### Present progressive and imperfect progressive",
+        "path": [
+          "## Verbs",
+          "### Present progressive and imperfect progressive"
+        ],
+        "similarity": 1.0,
+        "content": "The present and imperfect progressive both are used to express ongoing, progressive action in the present and past, respectively. For example:\n\nEstoy haciendo mi tarea. (I am doing my homework)\nEstamos estudiando. (We are studying)\nEstaba escuchando la radio. (I was listening to the radio)\nÉl estaba limpiando su cuarto. (He was cleaning his room)\nThe present progressive is formed by first conjugating the verb estar or seguir, depending on context, to agree with the subject, and then attaching a gerund of the verb that follows. The past (imperfect) progressive simply requires the estar or seguir to be conjugated, depending on context, in imperfect, with respect to the subject."
+      },
+      {
+        "full": "## Verbs > ### Present progressive and imperfect progressive > #### Forming gerunds",
+        "path": [
+          "## Verbs",
+          "### Present progressive and imperfect progressive",
+          "#### Forming gerunds"
+        ],
+        "similarity": 1.0,
+        "content": "To form the gerund of an -ar verb, replace the -ar of the infinitive with -ando;\ne.g. jugar, hablar, caminar → jugando, hablando, caminando.\nFor -er or -ir verbs, replace the -er or -ir ending with -iendo;\ne.g. comer, escribir, dormir → comiendo, escribiendo, durmiendo (note that dormir undergoes the stem vowel change that is typical of -ir verbs).\nIn -er verbs (and some -ir verbs, like disminuir) whose stem ends with a vowel, the i of the -iendo ending is replaced by y: e.g. leer, traer, creer → leyendo, trayendo, creyendo.\nIn -ir verbs whose stem ends with e—such as reír and sonreír—the stem vowel e is raised to i (as is typical of -ir verbs), and this i merges with the i of the -iendo ending; e.g. reír, freír → riendo, friendo."
+      },
+      {
+        "full": "## Verbs > ### Subjunctive",
+        "path": [
+          "## Verbs",
+          "### Subjunctive"
+        ],
+        "similarity": 1.0,
+        "content": "The subjunctive of a verb is used to express certain connotations in sentences such as a wish or desire, a demand, an emotion, uncertainty, or doubt."
+      },
+      {
+        "full": "## Verbs > ### Subjunctive > #### Present subjunctive",
+        "path": [
+          "## Verbs",
+          "### Subjunctive",
+          "#### Present subjunctive"
+        ],
+        "similarity": 1.0,
+        "content": "Normally, a verb would be conjugated in the present indicative to indicate an event in the present frame of time.\n\nYo soy muy ambicioso. (I am very ambitious)\nMarta trae la comida. (Marta brings the food)\nIf the sentence expresses a desire, demand, or emotion, or something similar, in the present tense, the subjunctive is used.\n\nQuiero que seas muy ambicioso. (I want you to be very ambitious—literally, I want that you be very ambitious)\nMe alegro de que Marta traiga la comida. (I am happy that Marta brings the food)\nEs una lástima que llegues tarde. (It is a shame that you arrive late)\nThe subjunctive is also used to convey doubt, denial, or uncertainty.\n\nBusco un amigo que sea simpático. (I search for a friend who will be likable or I search for a likable friend)\nNo hay ningún autor que lo escriba. (There are no authors who write that.)\nEs posible que ella sepa mucho. (It is possible that she knows a lot.)\nNo parece que tengan mucho dinero. (It does not seem that they have much money.)\nIn the first two examples, the ideally likable friend has not yet been found and remains an uncertainty, and authors \"who write that\" are not known to exist. In the third, possibility is not certainty, but rather a conjecture, and the last expresses clear doubt. Thus, subjunctive is used.\nSome of the phrases and verbs that require sentences to have subjunctive formation include:\n\nDudar, negar, esperar, alegrarse de, temer, sentir, pedir, aconsejar, exigir, desear, querer, mandar\nEs necesario que, conviene que, no parece que, es dudoso que, es probable que, no creo que, importa que, parece mentira que\nSome phrases that require the indicative instead, because they express certainty, include:\n\nEs verdad que, es obvio que, es seguro que, parece que, es evidente que, creo que\nTo form the first-person singular subjunctive, first take the present indicative first-person singular (yo) form of a verb. For example, the verbs hablar, comer, and vivir (To talk, to eat, to live) → Yo hablo, yo como, yo vivo. Then, replace the ending o with the \"opposite ending\". This is done in the following way: if the verb is an -er or -ir verb such as comer, poder, vivir, or compartir, replace the ending o with an a i.e. : Yo como; yo puedo; yo vivo → Yo coma; yo pueda; yo viva. If the verb is an -ar verb such as hablar or caminar replace the ending o with an e: i.e., Yo hablo; yo camino → Yo hable, yo camine. This forms the first-person conjugation. The other conjugations work similarly, as follows:\n\nYo → Yo hable; yo coma; yo viva\nTú → Tú hables; tú comas; tú vivas\nÉl/Ella/Usted → Él hable; él coma; él viva\nNosotros → Nosotros hablemos; nosotros comamos; nosotros vivamos\nVosotros → Vosotros habléis; vosotros comáis; vosotros viváis\nEllos/Ellas/Ustedes → ellos hablen; ellos coman; ellos vivan\nSince the vos forms are derived from vosotros, the following would be expected (and used in Central America):\n\nVos → Vos hablés; vos comás; vos escribás\nHowever, the Royal Spanish Academy, following Argentinian usage, recommends using the tú forms:\n\nVos → Vos hables; vos comas; vos escribas"
+      },
+      {
+        "full": "## Verbs > ### Subjunctive > #### Imperfect subjunctive",
+        "path": [
+          "## Verbs",
+          "### Subjunctive",
+          "#### Imperfect subjunctive"
+        ],
+        "similarity": 1.0,
+        "content": "Today, the two forms of the imperfect subjunctive – for example, \"hubiese\" and \"hubiera\", from \"haber\" – are largely interchangeable.*  The -se form derives (as in most Romance languages) from the Latin pluperfect subjunctive, while the -ra form derives from the Latin pluperfect indicative. The use of one or the other is largely a matter of personal taste and dialect. Many only use the -ra forms in speech, but vary between the two in writing.  Many may spontaneously use either, or even prefer the rarer -se forms. The imperfect subjunctive is formed for basically the same reasons as the present subjunctive, but is used for other tenses and time frames."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_pastTense_tense_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "past tense",
+    "topic_terms": [
+      "past tense",
+      "tense",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs > ### Past tenses",
+        "path": [
+          "## Verbs",
+          "### Past tenses"
+        ],
+        "similarity": 1.0,
+        "content": "Spanish has a number of verb tenses used to express actions or states of being in a past time frame. The two that are \"simple\" in form (formed with a single word, rather than being compound verbs) are the preterite and the imperfect."
+      },
+      {
+        "full": "## Verbs > ### Past tenses > #### Preterite",
+        "path": [
+          "## Verbs",
+          "### Past tenses",
+          "#### Preterite"
+        ],
+        "similarity": 1.0,
+        "content": "The preterite is used to express actions or events that took place in the past, and which were instantaneous or are viewed as completed. For example:\n\nElla se murió ayer (She died yesterday)\nPablo apagó las luces (Pablo turned the lights off)\nYo me comí el arroz (I ate the rice)\nTe cortaste el pelo (You had your hair cut, Lit. \"You cut yourself the hair\")\n\n## Verbs > ### Past tenses > #### Preterite > ##### Table 5: Preterite forms of the regular-arverbhablar('to speak')\n\n<pre>```\n| Unnamed: 0             | Singular           | Plural                    |\n|:-----------------------|:-------------------|:--------------------------|\n| First person           | (yo) hablé         | (nosotros/-as) hablamos   |\n| Second person familiar | (tú, vos) hablaste | (vosotros/-as) hablasteis |\n| Second person formal   | (usted) habló      | (ustedes) hablaron        |\n| Third person           | (él, ella) habló   | (ellos, ellas) hablaron   |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Preterite > ##### Table 6: Preterite forms of the regular-erverbcomer('to eat')\n\n<pre>```\n| Unnamed: 0             | Singular          | Plural                   |\n|:-----------------------|:------------------|:-------------------------|\n| First person           | (yo) comí         | (nosotros/-as) comimos   |\n| Second person familiar | (tú, vos) comiste | (vosotros/-as) comisteis |\n| Second person formal   | (usted) comió     | (ustedes) comieron       |\n| Third person           | (él, ella) comió  | (ellos, ellas) comieron  |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Preterite > ##### Table 7: Preterite forms of the regular-irverbvivir('to live')\n\n<pre>```\n| Unnamed: 0             | Singular          | Plural                   |\n|:-----------------------|:------------------|:-------------------------|\n| First person           | (yo) viví         | (nosotros/-as) vivimos   |\n| Second person familiar | (tú, vos) viviste | (vosotros/-as) vivisteis |\n| Second person formal   | (usted) vivió     | (ustedes) vivieron       |\n| Third person           | (él, ella) vivió  | (ellos, ellas) vivieron  |\n```</pre>\n\n\nNote that (1) for -ar and -ir verbs (but not -er), the first-person plural form is the same as that of the present indicative; and (2) -er and -ir verbs share the same set of endings."
+      },
+      {
+        "full": "## Verbs > ### Past tenses > #### Imperfect or \"copretérito\"",
+        "path": [
+          "## Verbs",
+          "### Past tenses",
+          "#### Imperfect or \"copretérito\""
+        ],
+        "similarity": 1.0,
+        "content": "The imperfect expresses actions or states that are viewed as ongoing in the past. For example:\n\nYo era cómico en el pasado (I was/used to be funny in the past).\nUsted comía mucho (You ate a lot – literally, this sentence is saying \"You used to eat a lot\", saying that in the past, the person being referred to had a characteristic of \"eating a lot\").\nEllos escuchaban la radio (They were listening to the radio).\nAll three of the sentences above describe \"non-instantaneous\" actions that are viewed as continuing in the past. The characteristic in the first sentence and the action in the second were continuous, not instantaneous occurrences. In the third sentence, the speaker focuses on the action in progress, not on its beginning or end.\n\n## Verbs > ### Past tenses > #### Imperfect or \"copretérito\" > ##### Table 8: Imperfect forms of the regular-arverbhablar('to speak')\n\n<pre>```\n| Unnamed: 0             | Singular           | Plural                    |\n|:-----------------------|:-------------------|:--------------------------|\n| First person           | (yo) hablaba       | (nosotros/-as) hablábamos |\n| Second person familiar | (tú, vos) hablabas | (vosotros/-as) hablabais  |\n| Second person formal   | (usted) hablaba    | (ustedes) hablaban        |\n| Third person           | (él, ella) hablaba | (ellos, ellas) hablaban   |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Imperfect or \"copretérito\" > ##### Table 9: Imperfect forms of the regular-erverbcomer('to eat')\n\n<pre>```\n| Unnamed: 0             | Singular         | Plural                  |\n|:-----------------------|:-----------------|:------------------------|\n| First person           | (yo) comía       | (nosotros/-as) comíamos |\n| Second person familiar | (tú, vos) comías | (vosotros/-as) comíais  |\n| Second person formal   | (usted) comía    | (ustedes) comían        |\n| Third person           | (él, ella) comía | (ellos, ellas) comían   |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Imperfect or \"copretérito\" > ##### Table 10: Imperfect forms of the regular-irverbvivir('to live')\n\n<pre>```\n| Unnamed: 0             | Singular         | Plural                  |\n|:-----------------------|:-----------------|:------------------------|\n| First person           | (yo) vivía       | (nosotros/-as) vivíamos |\n| Second person familiar | (tú, vos) vivías | (vosotros/-as) vivíais  |\n| Second person formal   | (usted) vivía    | (ustedes) vivían        |\n| Third person           | (él, ella) vivía | (ellos, ellas) vivían   |\n```</pre>\n\n\nNote that (1) for all verbs in the imperfect, the first- and third-person singular share the same form; and (2) -er and -ir verbs share the same set of endings."
+      },
+      {
+        "full": "## Verbs > ### Past tenses > #### Using preterite and imperfect together",
+        "path": [
+          "## Verbs",
+          "### Past tenses",
+          "#### Using preterite and imperfect together"
+        ],
+        "similarity": 1.0,
+        "content": "The preterite and the imperfect can be combined in the same sentence to express the occurrence of an event in one clause during an action or state expressed in another clause. For example:\n\nEllos escuchaban la radio cuando oyeron un ruido afuera. (They were listening to the radio when they heard a noise outside.)\nYo estaba en mi cuarto cuando usted entró. (I was in my room when you came in.)\nEra un día muy tranquilo cuando eso pasó. (It was a very peaceful day when that happened.)\nIn all three cases, an event or completed action interrupts an ongoing state or action. For example, in the second sentence, the speaker states that he was in his room (expressed through the imperfect to reflect the ongoing or unfinished state of being there) when the other person \"interrupted\" that state by entering (expressed through the preterite to suggest a completed action)."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_presentTense_tense_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "tense",
+    "topic_terms": [
+      "present tense",
+      "tense",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs > ### Past tenses",
+        "path": [
+          "## Verbs",
+          "### Past tenses"
+        ],
+        "similarity": 1.0,
+        "content": "Spanish has a number of verb tenses used to express actions or states of being in a past time frame. The two that are \"simple\" in form (formed with a single word, rather than being compound verbs) are the preterite and the imperfect."
+      },
+      {
+        "full": "## Verbs > ### Past tenses > #### Preterite",
+        "path": [
+          "## Verbs",
+          "### Past tenses",
+          "#### Preterite"
+        ],
+        "similarity": 1.0,
+        "content": "The preterite is used to express actions or events that took place in the past, and which were instantaneous or are viewed as completed. For example:\n\nElla se murió ayer (She died yesterday)\nPablo apagó las luces (Pablo turned the lights off)\nYo me comí el arroz (I ate the rice)\nTe cortaste el pelo (You had your hair cut, Lit. \"You cut yourself the hair\")\n\n## Verbs > ### Past tenses > #### Preterite > ##### Table 5: Preterite forms of the regular-arverbhablar('to speak')\n\n<pre>```\n| Unnamed: 0             | Singular           | Plural                    |\n|:-----------------------|:-------------------|:--------------------------|\n| First person           | (yo) hablé         | (nosotros/-as) hablamos   |\n| Second person familiar | (tú, vos) hablaste | (vosotros/-as) hablasteis |\n| Second person formal   | (usted) habló      | (ustedes) hablaron        |\n| Third person           | (él, ella) habló   | (ellos, ellas) hablaron   |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Preterite > ##### Table 6: Preterite forms of the regular-erverbcomer('to eat')\n\n<pre>```\n| Unnamed: 0             | Singular          | Plural                   |\n|:-----------------------|:------------------|:-------------------------|\n| First person           | (yo) comí         | (nosotros/-as) comimos   |\n| Second person familiar | (tú, vos) comiste | (vosotros/-as) comisteis |\n| Second person formal   | (usted) comió     | (ustedes) comieron       |\n| Third person           | (él, ella) comió  | (ellos, ellas) comieron  |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Preterite > ##### Table 7: Preterite forms of the regular-irverbvivir('to live')\n\n<pre>```\n| Unnamed: 0             | Singular          | Plural                   |\n|:-----------------------|:------------------|:-------------------------|\n| First person           | (yo) viví         | (nosotros/-as) vivimos   |\n| Second person familiar | (tú, vos) viviste | (vosotros/-as) vivisteis |\n| Second person formal   | (usted) vivió     | (ustedes) vivieron       |\n| Third person           | (él, ella) vivió  | (ellos, ellas) vivieron  |\n```</pre>\n\n\nNote that (1) for -ar and -ir verbs (but not -er), the first-person plural form is the same as that of the present indicative; and (2) -er and -ir verbs share the same set of endings."
+      },
+      {
+        "full": "## Verbs > ### Past tenses > #### Imperfect or \"copretérito\"",
+        "path": [
+          "## Verbs",
+          "### Past tenses",
+          "#### Imperfect or \"copretérito\""
+        ],
+        "similarity": 1.0,
+        "content": "The imperfect expresses actions or states that are viewed as ongoing in the past. For example:\n\nYo era cómico en el pasado (I was/used to be funny in the past).\nUsted comía mucho (You ate a lot – literally, this sentence is saying \"You used to eat a lot\", saying that in the past, the person being referred to had a characteristic of \"eating a lot\").\nEllos escuchaban la radio (They were listening to the radio).\nAll three of the sentences above describe \"non-instantaneous\" actions that are viewed as continuing in the past. The characteristic in the first sentence and the action in the second were continuous, not instantaneous occurrences. In the third sentence, the speaker focuses on the action in progress, not on its beginning or end.\n\n## Verbs > ### Past tenses > #### Imperfect or \"copretérito\" > ##### Table 8: Imperfect forms of the regular-arverbhablar('to speak')\n\n<pre>```\n| Unnamed: 0             | Singular           | Plural                    |\n|:-----------------------|:-------------------|:--------------------------|\n| First person           | (yo) hablaba       | (nosotros/-as) hablábamos |\n| Second person familiar | (tú, vos) hablabas | (vosotros/-as) hablabais  |\n| Second person formal   | (usted) hablaba    | (ustedes) hablaban        |\n| Third person           | (él, ella) hablaba | (ellos, ellas) hablaban   |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Imperfect or \"copretérito\" > ##### Table 9: Imperfect forms of the regular-erverbcomer('to eat')\n\n<pre>```\n| Unnamed: 0             | Singular         | Plural                  |\n|:-----------------------|:-----------------|:------------------------|\n| First person           | (yo) comía       | (nosotros/-as) comíamos |\n| Second person familiar | (tú, vos) comías | (vosotros/-as) comíais  |\n| Second person formal   | (usted) comía    | (ustedes) comían        |\n| Third person           | (él, ella) comía | (ellos, ellas) comían   |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Imperfect or \"copretérito\" > ##### Table 10: Imperfect forms of the regular-irverbvivir('to live')\n\n<pre>```\n| Unnamed: 0             | Singular         | Plural                  |\n|:-----------------------|:-----------------|:------------------------|\n| First person           | (yo) vivía       | (nosotros/-as) vivíamos |\n| Second person familiar | (tú, vos) vivías | (vosotros/-as) vivíais  |\n| Second person formal   | (usted) vivía    | (ustedes) vivían        |\n| Third person           | (él, ella) vivía | (ellos, ellas) vivían   |\n```</pre>\n\n\nNote that (1) for all verbs in the imperfect, the first- and third-person singular share the same form; and (2) -er and -ir verbs share the same set of endings."
+      },
+      {
+        "full": "## Verbs > ### Past tenses > #### Using preterite and imperfect together",
+        "path": [
+          "## Verbs",
+          "### Past tenses",
+          "#### Using preterite and imperfect together"
+        ],
+        "similarity": 1.0,
+        "content": "The preterite and the imperfect can be combined in the same sentence to express the occurrence of an event in one clause during an action or state expressed in another clause. For example:\n\nEllos escuchaban la radio cuando oyeron un ruido afuera. (They were listening to the radio when they heard a noise outside.)\nYo estaba en mi cuarto cuando usted entró. (I was in my room when you came in.)\nEra un día muy tranquilo cuando eso pasó. (It was a very peaceful day when that happened.)\nIn all three cases, an event or completed action interrupts an ongoing state or action. For example, in the second sentence, the speaker states that he was in his room (expressed through the imperfect to reflect the ongoing or unfinished state of being there) when the other person \"interrupted\" that state by entering (expressed through the preterite to suggest a completed action)."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_pronoun.txt": {
+    "strategy": "lexical",
+    "term_used": "pronoun",
+    "topic_terms": [
+      "pronoun"
+    ],
+    "matches": [
+      {
+        "full": "## Pronouns",
+        "path": [
+          "## Pronouns"
+        ],
+        "similarity": 1.0,
+        "content": "Spanish pronouns fall into the same broad categories as English pronouns do: personal, demonstrative, interrogative, relative, and possessive. The personal pronouns–those that vary in form according to whether they represent the first, second, or third grammatical person–include a variety of second-person forms that differ not only according to number (singular or plural), but also according to formality or the social relation between speakers. Additionally, these second-person forms vary according to geographical region. Because the form of a conjugated verb reflects the person and number of its subject, subject pronouns are usually omitted, except where they are felt to be needed for emphasis or disambiguation."
+      },
+      {
+        "full": "## Dialectal variations > ### Third-person object pronoun variation",
+        "path": [
+          "## Dialectal variations",
+          "### Third-person object pronoun variation"
+        ],
+        "similarity": 1.0,
+        "content": "The third-person direct-object and indirect-object pronouns exhibit variation from region to region, from one individual to another, and even within the language of single individuals. The Real Academia Española prefers an \"etymological\" usage, one in which the indirect object function is carried by le (regardless of gender), and the direct object function is carried by la or lo (according to the gender of the antecedent, and regardless of its animacy).\nThe Academy also condones the use of le as a direct object form for masculine, animate antecedents (i.e. male humans). Deviations from these approved usages are named leísmo (for the use of le as a direct object), and laísmo and loísmo (for the use of la and lo as indirect objects). The object pronoun variation is studied in detail by García & Otheguy (1977).\nHere are some examples for this:\n\nLeísmo: Le miraron (They saw him/her/it). Normative: lo miraron or la miraron depending on the gender of the object.\nLaísmo: La dijeron que se callara (They told her to shut up). Normative: Le dijeron que se callara. The person who is told something is an indirect object in Spanish, and the substituting pronoun is the same for both genders.\nLoísmo: Lo dijeron que se callara (They told him to shut up). Normative: Le dijeron que se callara. See above."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_reported-indirect_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "verb",
+    "topic_terms": [
+      "reported",
+      "indirect",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs",
+        "path": [
+          "## Verbs"
+        ],
+        "similarity": 1.0,
+        "content": "Every Spanish verb belongs to one of three form classes, characterized by the infinitive ending:  -ar, -er, or -ir—sometimes called the first, second, and third conjugations, respectively.\nA Spanish verb has nine indicative tenses with more-or-less direct English equivalents:  the present tense ('I walk'), the preterite ('I walked'), the imperfect ('I was walking' or 'I used to walk'), the present perfect ('I have walked'), the past perfect —also called the pluperfect— ('I had walked'), the future ('I will walk'), the future perfect ('I will have walked'), the conditional simple ('I would walk') and the conditional perfect ('I would have walked').\nIn most dialects, each tense has six potential forms, varying for first, second, or third person and for singular or plural number. In the second person, Spanish maintains the so-called \"T–V distinction\" between familiar and formal modes of address. The formal second-person pronouns (usted, ustedes) take third-person verb forms.\nThe second-person familiar plural is expressed in most of Spain with the pronoun vosotros and its characteristic verb forms (e.g., coméis 'you eat'), while in Latin American Spanish it merges with the formal second-person plural (e.g., ustedes comen). Thus, ustedes is used as both the formal and familiar second-person pronoun in Latin America.\nIn many areas of Latin America (especially Central America and southern South America), the second-person familiar singular pronoun tú is replaced by vos, which frequently requires its own characteristic verb forms, especially in the present indicative, where the endings are -ás, -és, and -ís for -ar, -er, -ir verbs, respectively. (See \"voseo\".)\nIn the tables of paradigms below, the (optional) subject pronouns appear in parentheses."
+      },
+      {
+        "full": "## Verbs > ### Present indicative",
+        "path": [
+          "## Verbs",
+          "### Present indicative"
+        ],
+        "similarity": 1.0,
+        "content": "The present indicative is used to express actions or states of being in a present time frame. For example:\n\nSoy alto (I am tall). (Subject pronoun \"yo\" not required and not routinely used).\nElla canta en el club (She sings in the club).\nTodos nosotros vivimos en un submarino amarillo (We all live in a yellow submarine).\nSon las diez y media ([It] is ten thirty).\n\n## Verbs > ### Present indicative > #### Table 2: Present indicative forms of the regular-arverbhablar('to speak')\n\n<pre>```\n| Unnamed: 0             | Singular                         | Plural                  |\n|:-----------------------|:---------------------------------|:------------------------|\n| First person           | (yo) hablo                       | (nosotros/-as) hablamos |\n| Second person familiar | (tú) hablas (vos) hablás/habláis | (vosotros/-as) habláis  |\n| Second person formal   | (usted) habla                    | (ustedes) hablan        |\n| Third person           | (él, ella) habla                 | (ellos, ellas) hablan   |\n```</pre>\n\n\n## Verbs > ### Present indicative > #### Table 3: Present indicative forms of the regular-erverbcomer('to eat')\n\n<pre>```\n| Unnamed: 0             | Singular                      | Plural                 |\n|:-----------------------|:------------------------------|:-----------------------|\n| First person           | (yo) como                     | (nosotros/-as) comemos |\n| Second person familiar | (tú) comes (vos) comés/coméis | (vosotros/-as) coméis  |\n| Second person formal   | (usted) come                  | (ustedes) comen        |\n| Third person           | (él, ella) come               | (ellos, ellas) comen   |\n```</pre>\n\n\n## Verbs > ### Present indicative > #### Table 4: Present indicative forms of the regular-irverbvivir('to live')\n\n<pre>```\n| Unnamed: 0             | Singular               | Plural                 |\n|:-----------------------|:-----------------------|:-----------------------|\n| First person           | (yo) vivo              | (nosotros/-as) vivimos |\n| Second person familiar | (tú) vives (vos) vivís | (vosotros/-as) vivís   |\n| Second person formal   | (usted) vive           | (ustedes) viven        |\n| Third person           | (él, ella) vive        | (ellos, ellas) viven   |\n```</pre>"
+      },
+      {
+        "full": "## Verbs > ### Past tenses",
+        "path": [
+          "## Verbs",
+          "### Past tenses"
+        ],
+        "similarity": 1.0,
+        "content": "Spanish has a number of verb tenses used to express actions or states of being in a past time frame. The two that are \"simple\" in form (formed with a single word, rather than being compound verbs) are the preterite and the imperfect."
+      },
+      {
+        "full": "## Verbs > ### Past tenses > #### Preterite",
+        "path": [
+          "## Verbs",
+          "### Past tenses",
+          "#### Preterite"
+        ],
+        "similarity": 1.0,
+        "content": "The preterite is used to express actions or events that took place in the past, and which were instantaneous or are viewed as completed. For example:\n\nElla se murió ayer (She died yesterday)\nPablo apagó las luces (Pablo turned the lights off)\nYo me comí el arroz (I ate the rice)\nTe cortaste el pelo (You had your hair cut, Lit. \"You cut yourself the hair\")\n\n## Verbs > ### Past tenses > #### Preterite > ##### Table 5: Preterite forms of the regular-arverbhablar('to speak')\n\n<pre>```\n| Unnamed: 0             | Singular           | Plural                    |\n|:-----------------------|:-------------------|:--------------------------|\n| First person           | (yo) hablé         | (nosotros/-as) hablamos   |\n| Second person familiar | (tú, vos) hablaste | (vosotros/-as) hablasteis |\n| Second person formal   | (usted) habló      | (ustedes) hablaron        |\n| Third person           | (él, ella) habló   | (ellos, ellas) hablaron   |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Preterite > ##### Table 6: Preterite forms of the regular-erverbcomer('to eat')\n\n<pre>```\n| Unnamed: 0             | Singular          | Plural                   |\n|:-----------------------|:------------------|:-------------------------|\n| First person           | (yo) comí         | (nosotros/-as) comimos   |\n| Second person familiar | (tú, vos) comiste | (vosotros/-as) comisteis |\n| Second person formal   | (usted) comió     | (ustedes) comieron       |\n| Third person           | (él, ella) comió  | (ellos, ellas) comieron  |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Preterite > ##### Table 7: Preterite forms of the regular-irverbvivir('to live')\n\n<pre>```\n| Unnamed: 0             | Singular          | Plural                   |\n|:-----------------------|:------------------|:-------------------------|\n| First person           | (yo) viví         | (nosotros/-as) vivimos   |\n| Second person familiar | (tú, vos) viviste | (vosotros/-as) vivisteis |\n| Second person formal   | (usted) vivió     | (ustedes) vivieron       |\n| Third person           | (él, ella) vivió  | (ellos, ellas) vivieron  |\n```</pre>\n\n\nNote that (1) for -ar and -ir verbs (but not -er), the first-person plural form is the same as that of the present indicative; and (2) -er and -ir verbs share the same set of endings."
+      },
+      {
+        "full": "## Verbs > ### Past tenses > #### Imperfect or \"copretérito\"",
+        "path": [
+          "## Verbs",
+          "### Past tenses",
+          "#### Imperfect or \"copretérito\""
+        ],
+        "similarity": 1.0,
+        "content": "The imperfect expresses actions or states that are viewed as ongoing in the past. For example:\n\nYo era cómico en el pasado (I was/used to be funny in the past).\nUsted comía mucho (You ate a lot – literally, this sentence is saying \"You used to eat a lot\", saying that in the past, the person being referred to had a characteristic of \"eating a lot\").\nEllos escuchaban la radio (They were listening to the radio).\nAll three of the sentences above describe \"non-instantaneous\" actions that are viewed as continuing in the past. The characteristic in the first sentence and the action in the second were continuous, not instantaneous occurrences. In the third sentence, the speaker focuses on the action in progress, not on its beginning or end.\n\n## Verbs > ### Past tenses > #### Imperfect or \"copretérito\" > ##### Table 8: Imperfect forms of the regular-arverbhablar('to speak')\n\n<pre>```\n| Unnamed: 0             | Singular           | Plural                    |\n|:-----------------------|:-------------------|:--------------------------|\n| First person           | (yo) hablaba       | (nosotros/-as) hablábamos |\n| Second person familiar | (tú, vos) hablabas | (vosotros/-as) hablabais  |\n| Second person formal   | (usted) hablaba    | (ustedes) hablaban        |\n| Third person           | (él, ella) hablaba | (ellos, ellas) hablaban   |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Imperfect or \"copretérito\" > ##### Table 9: Imperfect forms of the regular-erverbcomer('to eat')\n\n<pre>```\n| Unnamed: 0             | Singular         | Plural                  |\n|:-----------------------|:-----------------|:------------------------|\n| First person           | (yo) comía       | (nosotros/-as) comíamos |\n| Second person familiar | (tú, vos) comías | (vosotros/-as) comíais  |\n| Second person formal   | (usted) comía    | (ustedes) comían        |\n| Third person           | (él, ella) comía | (ellos, ellas) comían   |\n```</pre>\n\n\n## Verbs > ### Past tenses > #### Imperfect or \"copretérito\" > ##### Table 10: Imperfect forms of the regular-irverbvivir('to live')\n\n<pre>```\n| Unnamed: 0             | Singular         | Plural                  |\n|:-----------------------|:-----------------|:------------------------|\n| First person           | (yo) vivía       | (nosotros/-as) vivíamos |\n| Second person familiar | (tú, vos) vivías | (vosotros/-as) vivíais  |\n| Second person formal   | (usted) vivía    | (ustedes) vivían        |\n| Third person           | (él, ella) vivía | (ellos, ellas) vivían   |\n```</pre>\n\n\nNote that (1) for all verbs in the imperfect, the first- and third-person singular share the same form; and (2) -er and -ir verbs share the same set of endings."
+      },
+      {
+        "full": "## Verbs > ### Past tenses > #### Using preterite and imperfect together",
+        "path": [
+          "## Verbs",
+          "### Past tenses",
+          "#### Using preterite and imperfect together"
+        ],
+        "similarity": 1.0,
+        "content": "The preterite and the imperfect can be combined in the same sentence to express the occurrence of an event in one clause during an action or state expressed in another clause. For example:\n\nEllos escuchaban la radio cuando oyeron un ruido afuera. (They were listening to the radio when they heard a noise outside.)\nYo estaba en mi cuarto cuando usted entró. (I was in my room when you came in.)\nEra un día muy tranquilo cuando eso pasó. (It was a very peaceful day when that happened.)\nIn all three cases, an event or completed action interrupts an ongoing state or action. For example, in the second sentence, the speaker states that he was in his room (expressed through the imperfect to reflect the ongoing or unfinished state of being there) when the other person \"interrupted\" that state by entering (expressed through the preterite to suggest a completed action)."
+      },
+      {
+        "full": "## Verbs > ### Present progressive and imperfect progressive",
+        "path": [
+          "## Verbs",
+          "### Present progressive and imperfect progressive"
+        ],
+        "similarity": 1.0,
+        "content": "The present and imperfect progressive both are used to express ongoing, progressive action in the present and past, respectively. For example:\n\nEstoy haciendo mi tarea. (I am doing my homework)\nEstamos estudiando. (We are studying)\nEstaba escuchando la radio. (I was listening to the radio)\nÉl estaba limpiando su cuarto. (He was cleaning his room)\nThe present progressive is formed by first conjugating the verb estar or seguir, depending on context, to agree with the subject, and then attaching a gerund of the verb that follows. The past (imperfect) progressive simply requires the estar or seguir to be conjugated, depending on context, in imperfect, with respect to the subject."
+      },
+      {
+        "full": "## Verbs > ### Present progressive and imperfect progressive > #### Forming gerunds",
+        "path": [
+          "## Verbs",
+          "### Present progressive and imperfect progressive",
+          "#### Forming gerunds"
+        ],
+        "similarity": 1.0,
+        "content": "To form the gerund of an -ar verb, replace the -ar of the infinitive with -ando;\ne.g. jugar, hablar, caminar → jugando, hablando, caminando.\nFor -er or -ir verbs, replace the -er or -ir ending with -iendo;\ne.g. comer, escribir, dormir → comiendo, escribiendo, durmiendo (note that dormir undergoes the stem vowel change that is typical of -ir verbs).\nIn -er verbs (and some -ir verbs, like disminuir) whose stem ends with a vowel, the i of the -iendo ending is replaced by y: e.g. leer, traer, creer → leyendo, trayendo, creyendo.\nIn -ir verbs whose stem ends with e—such as reír and sonreír—the stem vowel e is raised to i (as is typical of -ir verbs), and this i merges with the i of the -iendo ending; e.g. reír, freír → riendo, friendo."
+      },
+      {
+        "full": "## Verbs > ### Subjunctive",
+        "path": [
+          "## Verbs",
+          "### Subjunctive"
+        ],
+        "similarity": 1.0,
+        "content": "The subjunctive of a verb is used to express certain connotations in sentences such as a wish or desire, a demand, an emotion, uncertainty, or doubt."
+      },
+      {
+        "full": "## Verbs > ### Subjunctive > #### Present subjunctive",
+        "path": [
+          "## Verbs",
+          "### Subjunctive",
+          "#### Present subjunctive"
+        ],
+        "similarity": 1.0,
+        "content": "Normally, a verb would be conjugated in the present indicative to indicate an event in the present frame of time.\n\nYo soy muy ambicioso. (I am very ambitious)\nMarta trae la comida. (Marta brings the food)\nIf the sentence expresses a desire, demand, or emotion, or something similar, in the present tense, the subjunctive is used.\n\nQuiero que seas muy ambicioso. (I want you to be very ambitious—literally, I want that you be very ambitious)\nMe alegro de que Marta traiga la comida. (I am happy that Marta brings the food)\nEs una lástima que llegues tarde. (It is a shame that you arrive late)\nThe subjunctive is also used to convey doubt, denial, or uncertainty.\n\nBusco un amigo que sea simpático. (I search for a friend who will be likable or I search for a likable friend)\nNo hay ningún autor que lo escriba. (There are no authors who write that.)\nEs posible que ella sepa mucho. (It is possible that she knows a lot.)\nNo parece que tengan mucho dinero. (It does not seem that they have much money.)\nIn the first two examples, the ideally likable friend has not yet been found and remains an uncertainty, and authors \"who write that\" are not known to exist. In the third, possibility is not certainty, but rather a conjecture, and the last expresses clear doubt. Thus, subjunctive is used.\nSome of the phrases and verbs that require sentences to have subjunctive formation include:\n\nDudar, negar, esperar, alegrarse de, temer, sentir, pedir, aconsejar, exigir, desear, querer, mandar\nEs necesario que, conviene que, no parece que, es dudoso que, es probable que, no creo que, importa que, parece mentira que\nSome phrases that require the indicative instead, because they express certainty, include:\n\nEs verdad que, es obvio que, es seguro que, parece que, es evidente que, creo que\nTo form the first-person singular subjunctive, first take the present indicative first-person singular (yo) form of a verb. For example, the verbs hablar, comer, and vivir (To talk, to eat, to live) → Yo hablo, yo como, yo vivo. Then, replace the ending o with the \"opposite ending\". This is done in the following way: if the verb is an -er or -ir verb such as comer, poder, vivir, or compartir, replace the ending o with an a i.e. : Yo como; yo puedo; yo vivo → Yo coma; yo pueda; yo viva. If the verb is an -ar verb such as hablar or caminar replace the ending o with an e: i.e., Yo hablo; yo camino → Yo hable, yo camine. This forms the first-person conjugation. The other conjugations work similarly, as follows:\n\nYo → Yo hable; yo coma; yo viva\nTú → Tú hables; tú comas; tú vivas\nÉl/Ella/Usted → Él hable; él coma; él viva\nNosotros → Nosotros hablemos; nosotros comamos; nosotros vivamos\nVosotros → Vosotros habléis; vosotros comáis; vosotros viváis\nEllos/Ellas/Ustedes → ellos hablen; ellos coman; ellos vivan\nSince the vos forms are derived from vosotros, the following would be expected (and used in Central America):\n\nVos → Vos hablés; vos comás; vos escribás\nHowever, the Royal Spanish Academy, following Argentinian usage, recommends using the tú forms:\n\nVos → Vos hables; vos comas; vos escribas"
+      },
+      {
+        "full": "## Verbs > ### Subjunctive > #### Imperfect subjunctive",
+        "path": [
+          "## Verbs",
+          "### Subjunctive",
+          "#### Imperfect subjunctive"
+        ],
+        "similarity": 1.0,
+        "content": "Today, the two forms of the imperfect subjunctive – for example, \"hubiese\" and \"hubiera\", from \"haber\" – are largely interchangeable.*  The -se form derives (as in most Romance languages) from the Latin pluperfect subjunctive, while the -ra form derives from the Latin pluperfect indicative. The use of one or the other is largely a matter of personal taste and dialect. Many only use the -ra forms in speech, but vary between the two in writing.  Many may spontaneously use either, or even prefer the rarer -se forms. The imperfect subjunctive is formed for basically the same reasons as the present subjunctive, but is used for other tenses and time frames."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_subjunctive-conjunctive_mood_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "subjunctive",
+    "topic_terms": [
+      "subjunctive",
+      "conjunctive",
+      "mood",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs > ### Subjunctive",
+        "path": [
+          "## Verbs",
+          "### Subjunctive"
+        ],
+        "similarity": 1.0,
+        "content": "The subjunctive of a verb is used to express certain connotations in sentences such as a wish or desire, a demand, an emotion, uncertainty, or doubt."
+      },
+      {
+        "full": "## Verbs > ### Subjunctive > #### Present subjunctive",
+        "path": [
+          "## Verbs",
+          "### Subjunctive",
+          "#### Present subjunctive"
+        ],
+        "similarity": 1.0,
+        "content": "Normally, a verb would be conjugated in the present indicative to indicate an event in the present frame of time.\n\nYo soy muy ambicioso. (I am very ambitious)\nMarta trae la comida. (Marta brings the food)\nIf the sentence expresses a desire, demand, or emotion, or something similar, in the present tense, the subjunctive is used.\n\nQuiero que seas muy ambicioso. (I want you to be very ambitious—literally, I want that you be very ambitious)\nMe alegro de que Marta traiga la comida. (I am happy that Marta brings the food)\nEs una lástima que llegues tarde. (It is a shame that you arrive late)\nThe subjunctive is also used to convey doubt, denial, or uncertainty.\n\nBusco un amigo que sea simpático. (I search for a friend who will be likable or I search for a likable friend)\nNo hay ningún autor que lo escriba. (There are no authors who write that.)\nEs posible que ella sepa mucho. (It is possible that she knows a lot.)\nNo parece que tengan mucho dinero. (It does not seem that they have much money.)\nIn the first two examples, the ideally likable friend has not yet been found and remains an uncertainty, and authors \"who write that\" are not known to exist. In the third, possibility is not certainty, but rather a conjecture, and the last expresses clear doubt. Thus, subjunctive is used.\nSome of the phrases and verbs that require sentences to have subjunctive formation include:\n\nDudar, negar, esperar, alegrarse de, temer, sentir, pedir, aconsejar, exigir, desear, querer, mandar\nEs necesario que, conviene que, no parece que, es dudoso que, es probable que, no creo que, importa que, parece mentira que\nSome phrases that require the indicative instead, because they express certainty, include:\n\nEs verdad que, es obvio que, es seguro que, parece que, es evidente que, creo que\nTo form the first-person singular subjunctive, first take the present indicative first-person singular (yo) form of a verb. For example, the verbs hablar, comer, and vivir (To talk, to eat, to live) → Yo hablo, yo como, yo vivo. Then, replace the ending o with the \"opposite ending\". This is done in the following way: if the verb is an -er or -ir verb such as comer, poder, vivir, or compartir, replace the ending o with an a i.e. : Yo como; yo puedo; yo vivo → Yo coma; yo pueda; yo viva. If the verb is an -ar verb such as hablar or caminar replace the ending o with an e: i.e., Yo hablo; yo camino → Yo hable, yo camine. This forms the first-person conjugation. The other conjugations work similarly, as follows:\n\nYo → Yo hable; yo coma; yo viva\nTú → Tú hables; tú comas; tú vivas\nÉl/Ella/Usted → Él hable; él coma; él viva\nNosotros → Nosotros hablemos; nosotros comamos; nosotros vivamos\nVosotros → Vosotros habléis; vosotros comáis; vosotros viváis\nEllos/Ellas/Ustedes → ellos hablen; ellos coman; ellos vivan\nSince the vos forms are derived from vosotros, the following would be expected (and used in Central America):\n\nVos → Vos hablés; vos comás; vos escribás\nHowever, the Royal Spanish Academy, following Argentinian usage, recommends using the tú forms:\n\nVos → Vos hables; vos comas; vos escribas"
+      },
+      {
+        "full": "## Verbs > ### Subjunctive > #### Imperfect subjunctive",
+        "path": [
+          "## Verbs",
+          "### Subjunctive",
+          "#### Imperfect subjunctive"
+        ],
+        "similarity": 1.0,
+        "content": "Today, the two forms of the imperfect subjunctive – for example, \"hubiese\" and \"hubiera\", from \"haber\" – are largely interchangeable.*  The -se form derives (as in most Romance languages) from the Latin pluperfect subjunctive, while the -ra form derives from the Latin pluperfect indicative. The use of one or the other is largely a matter of personal taste and dialect. Many only use the -ra forms in speech, but vary between the two in writing.  Many may spontaneously use either, or even prefer the rarer -se forms. The imperfect subjunctive is formed for basically the same reasons as the present subjunctive, but is used for other tenses and time frames."
+      }
+    ]
+  }
+}

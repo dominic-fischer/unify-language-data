@@ -14,4 +14,5 @@ with open(outfile, "w", encoding="utf-8") as f:
             f.write(d["content"])
             f.write("\n\n")
         f.write("- " * 50)
+        f.write("\n\n")
         

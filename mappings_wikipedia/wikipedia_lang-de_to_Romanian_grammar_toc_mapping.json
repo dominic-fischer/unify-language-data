@@ -1,0 +1,676 @@
+{
+  "schemas\\lang-de\\FORMAT_adjective.txt": {
+    "strategy": "lexical",
+    "term_used": "adjective",
+    "topic_terms": [
+      "adjective"
+    ],
+    "matches": [
+      {
+        "full": "## Articles > ### Article appended to adjectives",
+        "path": [
+          "## Articles",
+          "### Article appended to adjectives"
+        ],
+        "similarity": 1.0,
+        "content": "When a noun is determined by an adjective, the normal word order is noun + adjective, and the article (definite or indefinite) is appended to the noun. However, the word order adjective + noun is also possible, mostly used for emphasis on the adjective. Then, the article and the case marker, if any, are applied to the adjective instead:\n\nNoun + adjective (normal order):\nun student bun (a good student);\nstudentul bun (the good student);\nunui student bun (to a good student);\nstudentului bun (to the good student).\nAdjective + noun (reversed order):\nun bun student (a good student);\nbunul student (the good student);\nunui bun student (to a good student);\nbunului student (to the good student)."
+      },
+      {
+        "full": "## Adjectives",
+        "path": [
+          "## Adjectives"
+        ],
+        "similarity": 1.0,
+        "content": "Romanian adjectives determine the quality of things. They can only fulfill the syntactical functions of attribute and of adjectival complement, which in Romanian is called nume predicativ (nominal predicative)."
+      },
+      {
+        "full": "## Adjectives > ### Adjective inflection",
+        "path": [
+          "## Adjectives",
+          "### Adjective inflection"
+        ],
+        "similarity": 1.0,
+        "content": "Adjectives in Romanian inflect for number and gender (and for case in the feminine singular genitive/dative). Most adjectives have distinct forms for all combinations (especially those with the basic form ending in consonants, or -u), some that distinguish gender only in the singular (often ending in -g or -c or in a diphthong), others that do not distinguish gender (usually ending in -e), and a few that distinguish neither gender nor number (often colors, or loanwords).\nAdjectives such as amar (\"bitter, rude\"), curat (\"clean\") inflect for both gender and number, having four distinct forms:\n\n## Adjectives > ### Adjective inflection > #### Table 7\n\n<pre>```\n| Unnamed: 0   | Singular   | Plural   |\n|:-------------|:-----------|:---------|\n| Masculine    | amar       | amari    |\n| Neuter       | amar       | amare    |\n| Feminine     | amară      | amare    |\n```</pre>\n\n\nAdjectives such as lung (\"long\"), mic (\"small\"), nou (\"new\") inflect for gender in the singular only, showing -i in plural forms:\n\n## Adjectives > ### Adjective inflection > #### Table 8\n\n<pre>```\n| Unnamed: 0   | Singular   | Plural   |\n|:-------------|:-----------|:---------|\n| Masculine    | lung       | lungi    |\n| Neuter       | lung       | lungi    |\n| Feminine     | lungă      | lungi    |\n```</pre>\n\n\nAdjectives such as verde (\"green\"), mare (\"big\"), moale (\"soft\") only inflect for number:\n\n## Adjectives > ### Adjective inflection > #### Table 9\n\n<pre>```\n| Unnamed: 0   | Singular   | Plural   |\n|:-------------|:-----------|:---------|\n| Masculine    | verde      | verzi    |\n| Neuter       | verde      | verzi    |\n| Feminine     | verde      | verzi    |\n```</pre>\n\n\nBorrowed adjectives such as oranj (\"orange\") is called invariable, having just one inflected form. \n\n## Adjectives > ### Adjective inflection > #### Table 10\n\n<pre>```\n| Adjective   |\n|:------------|\n| oranj       |\n```</pre>\n\n\nAdjectives that have more than one inflected form are called variable."
+      },
+      {
+        "full": "## Adjectives > ### Adjective syntax",
+        "path": [
+          "## Adjectives",
+          "### Adjective syntax"
+        ],
+        "similarity": 1.0,
+        "content": "Syntactical functions of the adjective can be:\n\nAttribute, in case it defines a noun, pronoun or numeral. (e.g.: The blond boy is here. Băiatul blond este aici.)\nAdjectival complement, in case it defines a copulative verb. (e.g.: The boy is blond. Băiatul este blond.)"
+      },
+      {
+        "full": "## Adjectives > ### Degrees of comparison",
+        "path": [
+          "## Adjectives",
+          "### Degrees of comparison"
+        ],
+        "similarity": 1.0,
+        "content": "An adjective also can have degrees of comparison.\n\nPositive Degree (frumos, beautiful)\nComparative Degree:\nOf equality (la fel de frumos, as beautiful as)\nOf inequality (note that the following degrees are written as \"comparative of superiority/inferiority\", not as \"comparative of inequality of superiority/inferiority\")\nOf superiority (mai frumos, more beautiful)\nOf inferiority (mai puțin frumos, less beautiful)\nSuperlative Degree:\nRelative Superlative\nOf superiority (cel mai frumos, the most beautiful)\nOf inferiority (cel mai puțin frumos, the least beautiful)\nAbsolute Superlative (foarte frumos, very beautiful)\nOf superiority (foarte frumos, translated as \"very beautiful\")\nOf inferiority (foarte puțin frumos, roughly translated as \"very little beautiful\"). This form is not used very much, though, as antonyms can be used (foarte puțin frumos becomes foarte urât, \"very little beautiful\" becomes \"very ugly\")"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_adverb.txt": {
+    "strategy": "lexical",
+    "term_used": "adverb",
+    "topic_terms": [
+      "adverb"
+    ],
+    "matches": [
+      {
+        "full": "## Adverbs",
+        "path": [
+          "## Adverbs"
+        ],
+        "similarity": 1.0,
+        "content": "In Romanian, adverbs usually determine verbs (but, could also modify a clause or an entire sentence) by adding a qualitative description to the action. Romanian adverbs are invariant and identical to the corresponding adjective in its masculine singular form. An exception is the adjective-adverb pair bun-bine (\"good\" (masculine singular) – \"well\").\nSome examples are\n\nBăieții sunt jucători buni. – The boys are good players. (adjective)\nBăieții joacă bine. – The boys play well. (adverb)\nCântecul acesta este frumos. – This song is beautiful. (adjective)\nCântăreața cântă frumos. – The singer sings beautifully. (adverb)"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_agreement_concord_syntax.txt": {
+    "strategy": "lexical",
+    "term_used": "syntax",
+    "topic_terms": [
+      "agreement",
+      "concord",
+      "syntax"
+    ],
+    "matches": [
+      {
+        "full": "## Adjectives > ### Adjective syntax",
+        "path": [
+          "## Adjectives",
+          "### Adjective syntax"
+        ],
+        "similarity": 1.0,
+        "content": "Syntactical functions of the adjective can be:\n\nAttribute, in case it defines a noun, pronoun or numeral. (e.g.: The blond boy is here. Băiatul blond este aici.)\nAdjectival complement, in case it defines a copulative verb. (e.g.: The boy is blond. Băiatul este blond.)"
+      },
+      {
+        "full": "## Phrase syntax",
+        "path": [
+          "## Phrase syntax"
+        ],
+        "similarity": 1.0,
+        "content": "Romanian has terminology and rules for phrase syntax, which describes the way simple sentences relate to one another within a single complex sentence. There are many functions a simple sentence may take, their number usually being determined by the number of predicates. It is also noteworthy that Romanian terminology for the terms simple sentence, complex sentence, and phrase is somewhat counterintuitive. The Romanian term propoziție means as much as simple sentence (or clause). To describe a complex sentence (or compound sentence), Romanian uses the word frază, which can cause confusion with the English word phrase, which describes not a complex sentence, but a grouping of words. In consequence, Romanian doesn't have terms for the English noun phrase, or verb phrase, preferring the more commonly understood term predicate for the latter. The former has no formal equivalent in Romanian.\nSimple sentences can be of two types: main clauses and subordinate clauses"
+      },
+      {
+        "full": "## Phrase syntax > ### Main clause",
+        "path": [
+          "## Phrase syntax",
+          "### Main clause"
+        ],
+        "similarity": 1.0,
+        "content": "The main clause, within a complex sentence, does not rely on another sentence to be fully understood. In other words, it has stand-alone meaning. The following example has the verb phrase underlined.\nExample:\n\nAm văzut copiii din curtea școlii.\nI have seen the children in the school courtyard.\nEven though this sentence is long, it is still composed of a single simple sentence, which is a main clause."
+      },
+      {
+        "full": "## Phrase syntax > ### Subordinate clause",
+        "path": [
+          "## Phrase syntax",
+          "### Subordinate clause"
+        ],
+        "similarity": 1.0,
+        "content": "A subordinate clause cannot have a stand-alone meaning. It relies on a main clause to give it meaning. It usually determines or defines an element of another clause, be it a main clause, or a subordinate one. The following example has the verb phrase underlined, and the element of relation, which is to say, the relative pronoun used to link the two sentences, in bold. The sentences are also separated and numbered.\nExample:\n\nAm văzut copiii 1/ care sunt în curtea școlii. 2/\nI have seen the children 1/ who are in the school courtyard. 2/\nThere are also subordinate clauses other than the relative clause, which is an attributive clause, since it determines a noun, pronoun or numeral, and not a verb phrase. Here is a list of examples illustrating some of the remaining cases:\nDirect Object Clause (propoziție subordonată completivă directă):\n\nÎnțeleg 1/ ce zice profesoara. 2/\nI understand 1/ what the teacher is saying. 2/\nIndirect Object Clause (propoziție subordonată completivă indirectă):\n\nMă gândesc 1/ la ce spune profesoara. 2/\nI am thinking  1/ about what the teacher is saying. 2/\nSubject Clause (propoziție subordonată subiectivă):\n\nCeea ce zice profesoara, 1/ e corect. 2/\nWhat the teacher is saying, 1/ is true. 2/\nLocal Circumstantial Object Clause (propoziție subordonată completivă circumstanțială de loc):\n\nMă văd cu Ionuț 1/ unde (mi-)a propus el. 2/\nI am meeting Johnny 1/ where he proposed (to me). 2/"
+      },
+      {
+        "full": "## Phrase syntax > ### Clauses introduced by coordinating conjunctions",
+        "path": [
+          "## Phrase syntax",
+          "### Clauses introduced by coordinating conjunctions"
+        ],
+        "similarity": 1.0,
+        "content": "Some conjunctions are called coordinating because they do not define the type of clause introduced. Rather, they coordinate an existing clause with another, making the new clause of the same type as the other one. The coordinating conjunctions are of four types (note that the list is not exhaustive):\n\nThe copulative conjunctions are: și (and), nici (neither), and precum și (as well as).\nThe adversative conjunctions are: dar/însă/ci (but) and iar (on the other hand).\nThe disjunctive conjunctions are: sau/ori/fie (or/either).\nThe conclusive conjunctions are: deci/așadar (thus), în concluzie (in conclusion), and prin urmare (therefore).\nAn example of two main clauses (1, 2) linked together by a coordinative conjunction (bold) is:\n\nAna este o fată 1/ și Ion este un băiat. 2/\nAna is a girl, 1/ and Ion is a boy. 2/\nTwo subordinate clauses (2, 3) can also be joined to the same end:\n\nV-am spus despre băiatul 1/ care este la mine în clasă, 2/ și care este foarte bun la matematică. 3/\nI have told you about the boy 1/ who is in my class, 2/ and who is very good in mathematics. 3/\nThe same effect of two main clauses (1, 2) being tied together can also be achieved via juxtaposition of the sentences using a comma:\n\nAm păzit palatul, 1/ palatul era și foarte greu de păzit. 2/\nI guarded the palace, 1/ the palace was very hard to guard, too. 2/"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_clauses_syntax.txt": {
+    "strategy": "lexical",
+    "term_used": "clauses",
+    "topic_terms": [
+      "clauses",
+      "syntax"
+    ],
+    "matches": [
+      {
+        "full": "## Phrase syntax > ### Clauses introduced by coordinating conjunctions",
+        "path": [
+          "## Phrase syntax",
+          "### Clauses introduced by coordinating conjunctions"
+        ],
+        "similarity": 1.0,
+        "content": "Some conjunctions are called coordinating because they do not define the type of clause introduced. Rather, they coordinate an existing clause with another, making the new clause of the same type as the other one. The coordinating conjunctions are of four types (note that the list is not exhaustive):\n\nThe copulative conjunctions are: și (and), nici (neither), and precum și (as well as).\nThe adversative conjunctions are: dar/însă/ci (but) and iar (on the other hand).\nThe disjunctive conjunctions are: sau/ori/fie (or/either).\nThe conclusive conjunctions are: deci/așadar (thus), în concluzie (in conclusion), and prin urmare (therefore).\nAn example of two main clauses (1, 2) linked together by a coordinative conjunction (bold) is:\n\nAna este o fată 1/ și Ion este un băiat. 2/\nAna is a girl, 1/ and Ion is a boy. 2/\nTwo subordinate clauses (2, 3) can also be joined to the same end:\n\nV-am spus despre băiatul 1/ care este la mine în clasă, 2/ și care este foarte bun la matematică. 3/\nI have told you about the boy 1/ who is in my class, 2/ and who is very good in mathematics. 3/\nThe same effect of two main clauses (1, 2) being tied together can also be achieved via juxtaposition of the sentences using a comma:\n\nAm păzit palatul, 1/ palatul era și foarte greu de păzit. 2/\nI guarded the palace, 1/ the palace was very hard to guard, too. 2/"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_conditional_mood_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "verb",
+    "topic_terms": [
+      "conditional",
+      "mood",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs",
+        "path": [
+          "## Verbs"
+        ],
+        "similarity": 1.0,
+        "content": "As in all Romance languages, Romanian verbs are inflected according to: person, number, tense, mood and voice. The usual word order in sentences is SVO (Subject – Verb – Object). Romanian verbs are traditionally categorized into four large conjugation groups depending on the ending in the infinitive mood. The actual conjugation patterns for each group are multiple.\n\nFirst conjugation: verbs ending in –a (long infinitive in –are), such as a da, dare \"to give\", a cânta, cântare \"to sing\", including those ending in hiatus ea, such as a crea, creare \"to create\". Verbs ending orthographically in –chea and –ghea are also included here as their conjugation pattern matches this group, although the long infinitive ends in –ere: a veghea, veghere \"to ward\".\nSecond conjugation: verbs ending in –ea (long infinitive in stressed -ere), only when ea is a diphthong, such as a putea, putere \"can\", a cădea, cădere \"to fall\".\nThird conjugation: verbs ending in –e (long infinitive in unstressed –ere), such as a vinde, vindere \"to sell\", a crede, credere \"to believe\".\nFourth conjugation: verbs ending in –i (long infinitive in –ire), such as a veni, venire \"to come\",.\nFifth conjugation:verbs ending in -î (long infinitive in -âre), such as a hotărî, hotărâre, \"to decide\"."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_constituents_syntax.txt": {
+    "strategy": "lexical",
+    "term_used": "syntax",
+    "topic_terms": [
+      "constituents",
+      "syntax"
+    ],
+    "matches": [
+      {
+        "full": "## Adjectives > ### Adjective syntax",
+        "path": [
+          "## Adjectives",
+          "### Adjective syntax"
+        ],
+        "similarity": 1.0,
+        "content": "Syntactical functions of the adjective can be:\n\nAttribute, in case it defines a noun, pronoun or numeral. (e.g.: The blond boy is here. Băiatul blond este aici.)\nAdjectival complement, in case it defines a copulative verb. (e.g.: The boy is blond. Băiatul este blond.)"
+      },
+      {
+        "full": "## Phrase syntax",
+        "path": [
+          "## Phrase syntax"
+        ],
+        "similarity": 1.0,
+        "content": "Romanian has terminology and rules for phrase syntax, which describes the way simple sentences relate to one another within a single complex sentence. There are many functions a simple sentence may take, their number usually being determined by the number of predicates. It is also noteworthy that Romanian terminology for the terms simple sentence, complex sentence, and phrase is somewhat counterintuitive. The Romanian term propoziție means as much as simple sentence (or clause). To describe a complex sentence (or compound sentence), Romanian uses the word frază, which can cause confusion with the English word phrase, which describes not a complex sentence, but a grouping of words. In consequence, Romanian doesn't have terms for the English noun phrase, or verb phrase, preferring the more commonly understood term predicate for the latter. The former has no formal equivalent in Romanian.\nSimple sentences can be of two types: main clauses and subordinate clauses"
+      },
+      {
+        "full": "## Phrase syntax > ### Main clause",
+        "path": [
+          "## Phrase syntax",
+          "### Main clause"
+        ],
+        "similarity": 1.0,
+        "content": "The main clause, within a complex sentence, does not rely on another sentence to be fully understood. In other words, it has stand-alone meaning. The following example has the verb phrase underlined.\nExample:\n\nAm văzut copiii din curtea școlii.\nI have seen the children in the school courtyard.\nEven though this sentence is long, it is still composed of a single simple sentence, which is a main clause."
+      },
+      {
+        "full": "## Phrase syntax > ### Subordinate clause",
+        "path": [
+          "## Phrase syntax",
+          "### Subordinate clause"
+        ],
+        "similarity": 1.0,
+        "content": "A subordinate clause cannot have a stand-alone meaning. It relies on a main clause to give it meaning. It usually determines or defines an element of another clause, be it a main clause, or a subordinate one. The following example has the verb phrase underlined, and the element of relation, which is to say, the relative pronoun used to link the two sentences, in bold. The sentences are also separated and numbered.\nExample:\n\nAm văzut copiii 1/ care sunt în curtea școlii. 2/\nI have seen the children 1/ who are in the school courtyard. 2/\nThere are also subordinate clauses other than the relative clause, which is an attributive clause, since it determines a noun, pronoun or numeral, and not a verb phrase. Here is a list of examples illustrating some of the remaining cases:\nDirect Object Clause (propoziție subordonată completivă directă):\n\nÎnțeleg 1/ ce zice profesoara. 2/\nI understand 1/ what the teacher is saying. 2/\nIndirect Object Clause (propoziție subordonată completivă indirectă):\n\nMă gândesc 1/ la ce spune profesoara. 2/\nI am thinking  1/ about what the teacher is saying. 2/\nSubject Clause (propoziție subordonată subiectivă):\n\nCeea ce zice profesoara, 1/ e corect. 2/\nWhat the teacher is saying, 1/ is true. 2/\nLocal Circumstantial Object Clause (propoziție subordonată completivă circumstanțială de loc):\n\nMă văd cu Ionuț 1/ unde (mi-)a propus el. 2/\nI am meeting Johnny 1/ where he proposed (to me). 2/"
+      },
+      {
+        "full": "## Phrase syntax > ### Clauses introduced by coordinating conjunctions",
+        "path": [
+          "## Phrase syntax",
+          "### Clauses introduced by coordinating conjunctions"
+        ],
+        "similarity": 1.0,
+        "content": "Some conjunctions are called coordinating because they do not define the type of clause introduced. Rather, they coordinate an existing clause with another, making the new clause of the same type as the other one. The coordinating conjunctions are of four types (note that the list is not exhaustive):\n\nThe copulative conjunctions are: și (and), nici (neither), and precum și (as well as).\nThe adversative conjunctions are: dar/însă/ci (but) and iar (on the other hand).\nThe disjunctive conjunctions are: sau/ori/fie (or/either).\nThe conclusive conjunctions are: deci/așadar (thus), în concluzie (in conclusion), and prin urmare (therefore).\nAn example of two main clauses (1, 2) linked together by a coordinative conjunction (bold) is:\n\nAna este o fată 1/ și Ion este un băiat. 2/\nAna is a girl, 1/ and Ion is a boy. 2/\nTwo subordinate clauses (2, 3) can also be joined to the same end:\n\nV-am spus despre băiatul 1/ care este la mine în clasă, 2/ și care este foarte bun la matematică. 3/\nI have told you about the boy 1/ who is in my class, 2/ and who is very good in mathematics. 3/\nThe same effect of two main clauses (1, 2) being tied together can also be achieved via juxtaposition of the sentences using a comma:\n\nAm păzit palatul, 1/ palatul era și foarte greu de păzit. 2/\nI guarded the palace, 1/ the palace was very hard to guard, too. 2/"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_derivation-formation_morphology.txt": {
+    "strategy": "embedding",
+    "term_used": null,
+    "topic_terms": [
+      "derivation",
+      "formation",
+      "morphology"
+    ],
+    "matches": [
+      {
+        "full": "## Pronouns > ### Demonstrative pronouns > #### Pronouns of differentiation and identity",
+        "path": [
+          "## Pronouns",
+          "### Demonstrative pronouns",
+          "#### Pronouns of differentiation and identity"
+        ],
+        "similarity": 0.3318229913711548,
+        "content": "These pronouns describe objects either different from an aforementioned object or the same:\n\n## Pronouns > ### Demonstrative pronouns > #### Pronouns of differentiation and identity > ##### Table 19\n\n<pre>```\n| Unnamed: 0_level_0 + Unnamed: 0_level_1   | Pronoun of Differentiation + Singular   | Pronoun of Differentiation + Plural   | Pronoun of Identity + Singular   | Pronoun of Identity + Plural   |\n|:------------------------------------------|:----------------------------------------|:--------------------------------------|:---------------------------------|:-------------------------------|\n| Masculine                                 | celălalt                                | ceilalți                              | același                          | aceiași                        |\n| Neuter                                    | celălalt                                | celelalte                             | același                          | aceleași                       |\n| Feminine                                  | cealaltă                                | celelalte                             | aceeași                          | aceleași                       |\n```</pre>"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_determiners-articles_noun.txt": {
+    "strategy": "lexical",
+    "term_used": "articles",
+    "topic_terms": [
+      "determiners",
+      "articles",
+      "noun"
+    ],
+    "matches": [
+      {
+        "full": "## Articles",
+        "path": [
+          "## Articles"
+        ],
+        "similarity": 1.0,
+        "content": ""
+      },
+      {
+        "full": "## Articles > ### Definite article",
+        "path": [
+          "## Articles",
+          "### Definite article"
+        ],
+        "similarity": 1.0,
+        "content": "An often cited peculiarity of Romanian, which it shares with Aromanian, Megleno-Romanian, and Istro-Romanian, is that, unlike all other Romance languages, the definite articles are usually attached to the end of the noun as enclitics (as in  Albanian, Bulgarian, Macedonian and North Germanic languages) instead of being placed in front (See Balkan sprachbund). These enclitic definite articles are believed to have been formed, as in other Romance languages, from Latin demonstrative pronouns. The table below shows the generally accepted etymology of the Romanian definite article.\n\n## Articles > ### Definite article > #### Table 4\n\n<pre>```\n| Unnamed: 0_level_0 + Unnamed: 0_level_1   | Masculine + Singular                                                   | Masculine + Plural               | Feminine + Singular                           | Feminine + Plural                                        |\n|:------------------------------------------|:-----------------------------------------------------------------------|:---------------------------------|:----------------------------------------------|:---------------------------------------------------------|\n| Nominative Accusative                     | Lat. acc. illum  → Rom. -ul → -l, -le, -ul                             | Lat. nom. illī  → Rom. -l'i → -i | Lat. acc. illam  → Rom. -euă → -eau → -a      | Lat. nom. illae  → Rom. -le                              |\n| Genitive Dative                           | Late Lat. dat. illui, influenced by cui and vulgar illaei  → Rom. -lui | Lat. gen. illōrum  → Rom. -lor   | Lat. dat. illī, influenced by cui  → Rom. -ei | Lat. gen. illōrum (gender distinction lost)  → Rom. -lor |\n```</pre>\n\n\nExamples:\n\nMasculine nouns (singular, nominative/accusative):\ncodru – codrul ('forest' – 'the forest');\npom – pomul ('tree' – 'the tree');\nfrate – fratele ('brother' – 'the brother');\ntată – tatăl ('father' – 'the father').\nNeuter nouns (singular, nominative/accusative):\nteatru – teatrul ('theater' – 'the theater');\nloc – locul ('place' – 'the place');\nFeminine nouns (singular, nominative/accusative):\ncasă – casa (house – the house);\nfloare – floarea (flower – the flower);\ncutie – cutia (box – the box);\nstea – steaua (star – the star);"
+      },
+      {
+        "full": "## Articles > ### Indefinite article",
+        "path": [
+          "## Articles",
+          "### Indefinite article"
+        ],
+        "similarity": 1.0,
+        "content": "The Romanian indefinite article, unlike the definite article, is placed before the noun, and has likewise derived from Latin:\n\n## Articles > ### Indefinite article > #### Table 5\n\n<pre>```\n| Unnamed: 0_level_0 + Unnamed: 0_level_1   | Masculine + Singular                         | Masculine + Plural             | Feminine + Singular                            | Feminine + Plural                                       |\n|:------------------------------------------|:---------------------------------------------|:-------------------------------|:-----------------------------------------------|:--------------------------------------------------------|\n| Nominative Accusative                     | Lat. acc. ūnum  → Rom. un                    | Lat. nescio quid  → Rom. niște | Lat. acc. ūnam  → Rom. o                       | Lat. nescio quid  → Rom. niște                          |\n| Genitive Dative                           | Lat. dat. ūnī, infl. by cui[13]  → Rom. unui | Lat. gen. ūnōrum  → Rom. unor  | Lat. gen./dat. ūnae, infl. by cui  → Rom. unei | Lat. gen. ūnōrum (gender distinction lost)  → Rom. unor |\n```</pre>\n\n\n(The Latin phrase nescio quid means \"I don't know what\".)\nNouns in the vocative case cannot be determined by an indefinite article.\nExamples of indefinite article usage:\n\nMasculine:\nnominative/accusative: singular un copil (a child) – plural niște copii ([some] children);\ngenitive/dative: singular unui copil (of/to a child) – plural unor copii (of/to [some] children);\nNeuter:\nnominative/accusative: singular un loc (a place) – plural niște locuri ([some] places);\ngenitive/dative: singular unui loc (of/to a place) – plural unor locuri (of/to [some] places);\nFeminine:\nnominative/accusative: singular o masă (a table) – plural niște mese ([some] tables);\ngenitive/dative: singular unei mese (of/to a table) – plural unor mese (of/to [some] tables);"
+      },
+      {
+        "full": "## Articles > ### Article appended to adjectives",
+        "path": [
+          "## Articles",
+          "### Article appended to adjectives"
+        ],
+        "similarity": 1.0,
+        "content": "When a noun is determined by an adjective, the normal word order is noun + adjective, and the article (definite or indefinite) is appended to the noun. However, the word order adjective + noun is also possible, mostly used for emphasis on the adjective. Then, the article and the case marker, if any, are applied to the adjective instead:\n\nNoun + adjective (normal order):\nun student bun (a good student);\nstudentul bun (the good student);\nunui student bun (to a good student);\nstudentului bun (to the good student).\nAdjective + noun (reversed order):\nun bun student (a good student);\nbunul student (the good student);\nunui bun student (to a good student);\nbunului student (to the good student)."
+      },
+      {
+        "full": "## Articles > ### Demonstrative article",
+        "path": [
+          "## Articles",
+          "### Demonstrative article"
+        ],
+        "similarity": 1.0,
+        "content": "The demonstrative article is used to put emphasis on the relative superlative of adjectives. The forms are cel and celui (m. sg.), cea and celei (f. sg.), cei and celor (m. pl.) and cele and celor (f. pl.)."
+      },
+      {
+        "full": "## Articles > ### Genitival article",
+        "path": [
+          "## Articles",
+          "### Genitival article"
+        ],
+        "similarity": 1.0,
+        "content": "There are situations in Romanian when the noun in the genitive requires the presence of the so-called genitival (or possessive) article (see for example the section \"Genitive\" in \"Romanian nouns\"), somewhat similar to the English preposition of, for example in a map of China. In Romanian this becomes o hartă a Chinei, where \"a\" is the genitival article. The table below shows how the genitival articles depend on gender and number.\n\n## Articles > ### Genitival article > #### Table 6\n\n<pre>```\n| 0        | 1         | 2      | 3        |\n|:---------|:----------|:-------|:---------|\n| nan      | Masculine | Neuter | Feminine |\n| Singular | al        | al     | a        |\n| Plural   | ai        | ale    | ale      |\n```</pre>\n\n\nThe genitival article also has genitive/dative forms, which are used only with a possessive pronoun. They are: alui (m. sg.), alei (f. sg.), and alor (pl., both genders). These forms are rarely used—especially the singular ones—and the sentences are usually rephrased to avoid them."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_futureTense_tense_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "verb",
+    "topic_terms": [
+      "future tense",
+      "tense",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs",
+        "path": [
+          "## Verbs"
+        ],
+        "similarity": 1.0,
+        "content": "As in all Romance languages, Romanian verbs are inflected according to: person, number, tense, mood and voice. The usual word order in sentences is SVO (Subject – Verb – Object). Romanian verbs are traditionally categorized into four large conjugation groups depending on the ending in the infinitive mood. The actual conjugation patterns for each group are multiple.\n\nFirst conjugation: verbs ending in –a (long infinitive in –are), such as a da, dare \"to give\", a cânta, cântare \"to sing\", including those ending in hiatus ea, such as a crea, creare \"to create\". Verbs ending orthographically in –chea and –ghea are also included here as their conjugation pattern matches this group, although the long infinitive ends in –ere: a veghea, veghere \"to ward\".\nSecond conjugation: verbs ending in –ea (long infinitive in stressed -ere), only when ea is a diphthong, such as a putea, putere \"can\", a cădea, cădere \"to fall\".\nThird conjugation: verbs ending in –e (long infinitive in unstressed –ere), such as a vinde, vindere \"to sell\", a crede, credere \"to believe\".\nFourth conjugation: verbs ending in –i (long infinitive in –ire), such as a veni, venire \"to come\",.\nFifth conjugation:verbs ending in -î (long infinitive in -âre), such as a hotărî, hotărâre, \"to decide\"."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_imperative_mood_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "verb",
+    "topic_terms": [
+      "imperative",
+      "mood",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs",
+        "path": [
+          "## Verbs"
+        ],
+        "similarity": 1.0,
+        "content": "As in all Romance languages, Romanian verbs are inflected according to: person, number, tense, mood and voice. The usual word order in sentences is SVO (Subject – Verb – Object). Romanian verbs are traditionally categorized into four large conjugation groups depending on the ending in the infinitive mood. The actual conjugation patterns for each group are multiple.\n\nFirst conjugation: verbs ending in –a (long infinitive in –are), such as a da, dare \"to give\", a cânta, cântare \"to sing\", including those ending in hiatus ea, such as a crea, creare \"to create\". Verbs ending orthographically in –chea and –ghea are also included here as their conjugation pattern matches this group, although the long infinitive ends in –ere: a veghea, veghere \"to ward\".\nSecond conjugation: verbs ending in –ea (long infinitive in stressed -ere), only when ea is a diphthong, such as a putea, putere \"can\", a cădea, cădere \"to fall\".\nThird conjugation: verbs ending in –e (long infinitive in unstressed –ere), such as a vinde, vindere \"to sell\", a crede, credere \"to believe\".\nFourth conjugation: verbs ending in –i (long infinitive in –ire), such as a veni, venire \"to come\",.\nFifth conjugation:verbs ending in -î (long infinitive in -âre), such as a hotărî, hotărâre, \"to decide\"."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_negation_syntax.txt": {
+    "strategy": "lexical",
+    "term_used": "syntax",
+    "topic_terms": [
+      "negation",
+      "syntax"
+    ],
+    "matches": [
+      {
+        "full": "## Adjectives > ### Adjective syntax",
+        "path": [
+          "## Adjectives",
+          "### Adjective syntax"
+        ],
+        "similarity": 1.0,
+        "content": "Syntactical functions of the adjective can be:\n\nAttribute, in case it defines a noun, pronoun or numeral. (e.g.: The blond boy is here. Băiatul blond este aici.)\nAdjectival complement, in case it defines a copulative verb. (e.g.: The boy is blond. Băiatul este blond.)"
+      },
+      {
+        "full": "## Phrase syntax",
+        "path": [
+          "## Phrase syntax"
+        ],
+        "similarity": 1.0,
+        "content": "Romanian has terminology and rules for phrase syntax, which describes the way simple sentences relate to one another within a single complex sentence. There are many functions a simple sentence may take, their number usually being determined by the number of predicates. It is also noteworthy that Romanian terminology for the terms simple sentence, complex sentence, and phrase is somewhat counterintuitive. The Romanian term propoziție means as much as simple sentence (or clause). To describe a complex sentence (or compound sentence), Romanian uses the word frază, which can cause confusion with the English word phrase, which describes not a complex sentence, but a grouping of words. In consequence, Romanian doesn't have terms for the English noun phrase, or verb phrase, preferring the more commonly understood term predicate for the latter. The former has no formal equivalent in Romanian.\nSimple sentences can be of two types: main clauses and subordinate clauses"
+      },
+      {
+        "full": "## Phrase syntax > ### Main clause",
+        "path": [
+          "## Phrase syntax",
+          "### Main clause"
+        ],
+        "similarity": 1.0,
+        "content": "The main clause, within a complex sentence, does not rely on another sentence to be fully understood. In other words, it has stand-alone meaning. The following example has the verb phrase underlined.\nExample:\n\nAm văzut copiii din curtea școlii.\nI have seen the children in the school courtyard.\nEven though this sentence is long, it is still composed of a single simple sentence, which is a main clause."
+      },
+      {
+        "full": "## Phrase syntax > ### Subordinate clause",
+        "path": [
+          "## Phrase syntax",
+          "### Subordinate clause"
+        ],
+        "similarity": 1.0,
+        "content": "A subordinate clause cannot have a stand-alone meaning. It relies on a main clause to give it meaning. It usually determines or defines an element of another clause, be it a main clause, or a subordinate one. The following example has the verb phrase underlined, and the element of relation, which is to say, the relative pronoun used to link the two sentences, in bold. The sentences are also separated and numbered.\nExample:\n\nAm văzut copiii 1/ care sunt în curtea școlii. 2/\nI have seen the children 1/ who are in the school courtyard. 2/\nThere are also subordinate clauses other than the relative clause, which is an attributive clause, since it determines a noun, pronoun or numeral, and not a verb phrase. Here is a list of examples illustrating some of the remaining cases:\nDirect Object Clause (propoziție subordonată completivă directă):\n\nÎnțeleg 1/ ce zice profesoara. 2/\nI understand 1/ what the teacher is saying. 2/\nIndirect Object Clause (propoziție subordonată completivă indirectă):\n\nMă gândesc 1/ la ce spune profesoara. 2/\nI am thinking  1/ about what the teacher is saying. 2/\nSubject Clause (propoziție subordonată subiectivă):\n\nCeea ce zice profesoara, 1/ e corect. 2/\nWhat the teacher is saying, 1/ is true. 2/\nLocal Circumstantial Object Clause (propoziție subordonată completivă circumstanțială de loc):\n\nMă văd cu Ionuț 1/ unde (mi-)a propus el. 2/\nI am meeting Johnny 1/ where he proposed (to me). 2/"
+      },
+      {
+        "full": "## Phrase syntax > ### Clauses introduced by coordinating conjunctions",
+        "path": [
+          "## Phrase syntax",
+          "### Clauses introduced by coordinating conjunctions"
+        ],
+        "similarity": 1.0,
+        "content": "Some conjunctions are called coordinating because they do not define the type of clause introduced. Rather, they coordinate an existing clause with another, making the new clause of the same type as the other one. The coordinating conjunctions are of four types (note that the list is not exhaustive):\n\nThe copulative conjunctions are: și (and), nici (neither), and precum și (as well as).\nThe adversative conjunctions are: dar/însă/ci (but) and iar (on the other hand).\nThe disjunctive conjunctions are: sau/ori/fie (or/either).\nThe conclusive conjunctions are: deci/așadar (thus), în concluzie (in conclusion), and prin urmare (therefore).\nAn example of two main clauses (1, 2) linked together by a coordinative conjunction (bold) is:\n\nAna este o fată 1/ și Ion este un băiat. 2/\nAna is a girl, 1/ and Ion is a boy. 2/\nTwo subordinate clauses (2, 3) can also be joined to the same end:\n\nV-am spus despre băiatul 1/ care este la mine în clasă, 2/ și care este foarte bun la matematică. 3/\nI have told you about the boy 1/ who is in my class, 2/ and who is very good in mathematics. 3/\nThe same effect of two main clauses (1, 2) being tied together can also be achieved via juxtaposition of the sentences using a comma:\n\nAm păzit palatul, 1/ palatul era și foarte greu de păzit. 2/\nI guarded the palace, 1/ the palace was very hard to guard, too. 2/"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_noun.txt": {
+    "strategy": "lexical",
+    "term_used": "noun",
+    "topic_terms": [
+      "noun"
+    ],
+    "matches": [
+      {
+        "full": "## Nouns",
+        "path": [
+          "## Nouns"
+        ],
+        "similarity": 1.0,
+        "content": ""
+      },
+      {
+        "full": "## Nouns > ### Gender",
+        "path": [
+          "## Nouns",
+          "### Gender"
+        ],
+        "similarity": 1.0,
+        "content": "Romanian nouns are categorized into three genders: masculine, feminine, and neuter. The neuter behaves like the masculine in the singular and the feminine in the plural, unlike the neuter in Latin which had distinct forms. Nouns which in their dictionary form (singular, nominative, with no article) end in a consonant or the vowel/semivowel -u are mostly masculine or neuter; if they end in -ă or -a they are usually feminine. In the plural, the ending -i corresponds generally to masculine nouns, whereas feminine and neuter nouns often end in -e. In synchronic terms, Romanian neuter nouns can also be analysed as \"ambigeneric\", that is as being masculine in the singular and feminine in the plural (see below) and even in diachronic terms certain linguists have argued that this pattern, as well as that of case differentiation, was in a sense \"re-invented\" rather than a \"direct\" continuation of the Latin neuter. However, most noun genders correspond to Latin categorization, such as first declension which remained feminine. Similarly third declension nouns retained the gender from Latin, neuter included, most likely reinforced by the Latin plural form -ores which gave the feminine plural -uri in Romanian. Second declension nouns were reanalysed on their semantic characteristic (cervus >cerb \"stag\" remained masculine but campus >câmp  \"field\" became neuter). As for the fourth declension, the nouns were analysed in regards to their plural endings as the declension collapsed into the second, being reassigned as neutral based on the -ores plural form. The change of gender can thus be explained by syncretism and homophony.\nExamples:\n\nMasculine: om ('man, human being'), bou ('ox'), copac ('tree');\nNeuter: drum ('road'), cadou ('present, gift'), exemplu ('example');\nFeminine: bunică ('grandmother'), carte ('book'), cafea ('coffee').\nFor nouns designating people the grammatical gender can only be masculine or feminine, and is strictly determined by the biological sex, no matter the phonetics of the noun. For example, nouns like tată (father) and popă (priest) are masculine as they refer to male people, although phonetically they are similar to typical feminine nouns.\nFor native speakers, the general rule for determining a noun's gender relies on the \"one-two\" test, which consists in inflecting the noun to both the singular and the plural, together with the numbers one and two. Depending on the gender, the numbers will have different forms for each of the three genders: masculine nouns will be un-doi; feminine nouns, o-două; neuter nouns, un-două.\n\nMasculine: un om, doi oameni ('one human being', 'two human beings'), un iepure, doi iepuri ('one rabbit', 'two rabbits'). In this case both un and doi are in their masculine forms.\nFeminine: o fată, două fete ('one girl', 'two girls'), o pasăre, două păsări ('one bird', 'two birds'). In this case both o and două are in their feminine forms.\nNeuter: un corp, două corpuri ('one body', 'two bodies'), un sertar, două sertare ('one drawer', 'two drawers'). In this case un is in its masculine form while două is in its feminine form. This is the only case in which the two numbers have different genders.\nRomanian numbers generally have a single form regardless of the gender of the determined noun. Exceptions are the numbers un/o ('one') doi/două ('two') and all the numbers made up of two or more digits when the last digit is 1 or 2; these have masculine and feminine forms. In Romanian there is no gender-neutral form for numbers, adjectives or other noun determiners."
+      },
+      {
+        "full": "## Nouns > ### Number",
+        "path": [
+          "## Nouns",
+          "### Number"
+        ],
+        "similarity": 1.0,
+        "content": "Romanian has two grammatical numbers: singular and plural. Morphologically, the plural form is built by adding specific endings to the singular form. For example, nominative nouns without the definite article form the plural by adding one of the endings -i, -uri, -e, or -le. The plural formation mechanism, often involving other changes in the word structure, is an intrinsic property of each noun and has to be learned together with it.\nExamples:\n\n-i: pom – pomi ('tree'), cal – cai ('horse'), tată – tați ('father'), barcă – bărci ('boat');\n-uri: tren – trenuri ('train'), treabă – treburi ('job, task'), cort – corturi ('tent');\n-e: pai – paie ('straw'), masă – mese ('table, meal'), teatru – teatre ('theater'), muzeu – muzee ('museum');\n-le: stea – stele ('star'), cafea – cafele ('coffee'), pijama – pijamale ('pajama')."
+      },
+      {
+        "full": "## Nouns > ### Case",
+        "path": [
+          "## Nouns",
+          "### Case"
+        ],
+        "similarity": 1.0,
+        "content": "Romanian has inherited three cases from Latin: nominative/accusative, dative/genitive and vocative. Morphologically, the nominative and the accusative are identical in nouns; similarly, the genitive and the dative share the same form (these pairs are distinct in the personal pronouns, however). The vocative is less used as it is normally restricted to nouns designating people or things which are commonly addressed directly. Additionally, nouns in the vocative often borrow the nominative form even when there is a distinct vocative form available.\nThe genitive-dative form can be derived from the nominative. For feminine nouns the form used in the dative/genitive singular is most often identical to the nominative plural, for example o carte – unei cărți – două cărți (a book – of/to a book – two books).\nIf the noun is determined by a determiner other than the definite article (an indefinite article, a demonstrative, an indefinite quantifier), then the genitive-dative affixes are applied to this determiner, not to the noun, for example un băiat – unui băiat ('a boy' – 'of/to a boy'). Similarly, if the noun is determined by the definite article (an enclitic in Romanian, see that section), the genitive-dative mark is added at the end of the noun together with the article, for example băiatul – băiatului ('the boy' – 'of/to the boy'), cartea – cărții ('the book' – 'of/to the book'). Masculine proper names designating people form the genitive-dative by placing the article lui before the noun: lui Brâncuși ('of/to Brâncuși'); the same applies to feminine names only when they don't have a typically feminine ending: lui Carmen.\nIn usual genitival phrases such as numele trandafirului ('the name of the rose'), the genitive is only recognized by the specific ending (-lui in this example) and no other words are necessary. However, in other situations, usually if the noun modified by the genitive attribute is indefinite, the genitival article is required, as for example in câteva opere ale scriitorului ('some of the writer's works').\nRomanian dative phrases exhibit clitic doubling similar to that in Spanish, in which the noun in the dative is doubled by a pronoun. The position of this pronoun in the sentence depends on the mood and tense of the verb. For example, in the sentence Le dau un cadou părinților ('I give a present to [my] parents'), the pronoun le doubles the noun părinților without bringing any additional information.\nAs specified above, the vocative case in Romanian has a special form for most nouns. The tendency in contemporary Romanian is to use the nominative forms, however. The traditional vocative is retained in speech, however, especially in informal speech, or by people living in the countryside. It is seen as a mark of unrefined speech by the majority of city-dwellers, who refrain from its usage. The forms of the vocative are as follows. (Note that the vocative does not have both definite and indefinite forms. The following rules are to be applied for the indefinite form of the nouns):\n\nSingular feminine nouns and proper names ending in an unstressed -ă/-a take the ending -o e.g. fată → fato ('girl!'). Some popular vocative forms are different, though: Maria → Mărie! ('Mary!').\nSingular feminine nouns ending in an unstressed -e take the ending -eo e.g. punte → punteo! ('bridge!'). Sometimes, the e is dropped altogether.\nSingular feminine nouns ending in a stressed -a take the ending -auo e.g. nuia → nuiauo! ('stick!').\nSingular masculine and neuter nouns ending in a consonant take the ending -ule e.g. băiat → băiatule! ('boy!'). The vocative for animate nouns is sometimes formed as if the noun were a proper name: băiat → băiete! (see below).\nSingular masculine and neuter nouns ending in unstressed -e/-ă take no extra ending (-Ø) e.g. frate → frate! ('brother!').\nMasculine proper names take the ending -e e.g. Ștefan → Ștefane! ('Stephen!'). Some words also experience some change in their vowels (Ion → Ioane! 'John!').\nAll plural nouns take the ending -lor e.g. mere → merelor! ('apples!').\nHere are some examples of nouns completely inflected.\n\n## Nouns > ### Case > #### Table 1\n\n<pre>```\n| ('Unnamed: 0_level_0', 'Unnamed: 0_level_1', 'Unnamed: 0_level_2')   | ('Without a definite article', 'Masculine', 'Singular')   | ('Without a definite article', 'Masculine', 'Plural')   | ('Without a definite article', 'Feminine', 'Singular')   | ('Without a definite article', 'Feminine', 'Plural')   | ('Without a definite article', 'Neuter', 'Singular')   | ('Without a definite article', 'Neuter', 'Plural')   |\n|:---------------------------------------------------------------------|:----------------------------------------------------------|:--------------------------------------------------------|:---------------------------------------------------------|:-------------------------------------------------------|:-------------------------------------------------------|:-----------------------------------------------------|\n| Nominative Accusative                                                | băiat [bəˈjat]                                            | băieți [bəˈjet͡sʲ]                                      | mamă [ˈmamə]                                             | mame [ˈmame]                                           | ou [ow]                                                | ouă [ˈowə]                                           |\n| Genitive Dative                                                      | băiat [bəˈjat]                                            | băieți [bəˈjet͡sʲ]                                      | mame [ˈmame]                                             | mame [ˈmame]                                           | ou [ow]                                                | ouă [ˈowə]                                           |\n```</pre>\n\n\n## Nouns > ### Case > #### Table 2\n\n<pre>```\n| ('Unnamed: 0_level_0', 'Unnamed: 0_level_1', 'Unnamed: 0_level_2')   | ('With a definite article', 'Masculine', 'Singular')   | ('With a definite article', 'Masculine', 'Plural')   | ('With a definite article', 'Feminine', 'Singular')   | ('With a definite article', 'Feminine', 'Plural')   | ('With a definite article', 'Neuter', 'Singular')   | ('With a definite article', 'Neuter', 'Plural')   |\n|:---------------------------------------------------------------------|:-------------------------------------------------------|:-----------------------------------------------------|:------------------------------------------------------|:----------------------------------------------------|:----------------------------------------------------|:--------------------------------------------------|\n| Nominative Accusative                                                | băiatul [bəˈjatul]                                     | băieții [bəˈjet͡sij]                                 | mama [ˈmama]                                          | mamele [ˈmamele]                                    | oul [ˈo.ul]                                         | ouăle [ˈowəle]                                    |\n| Genitive Dative                                                      | băiatului [bəˈjatuluj]                                 | băieților [bəˈjet͡silor]                             | mamei [ˈmamej]                                        | mamelor [ˈmamelor]                                  | oului [ˈo.uluj]                                     | ouălor [ˈowəlor]                                  |\n```</pre>\n\n\n## Nouns > ### Case > #### Table 3\n\n<pre>```\n| Unnamed: 0_level_0 + Unnamed: 0_level_1   | Masculine + Singular                 | Masculine + Plural       | Feminine + Singular   | Feminine + Plural   | Neuter + Singular   | Neuter + Plural   |\n|:------------------------------------------|:-------------------------------------|:-------------------------|:----------------------|:--------------------|:--------------------|:------------------|\n| Vocative                                  | băiatule/băiete [bəˈjatule, bəˈjete] | băieților [bəˈjet͡silor] | mamo [ˈmamo]          | mamelor [ˈmamelor]  | oule [ˈo.ule]       | ouălor [ˈowəlor]  |\n```</pre>"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_passive_voice_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "verb",
+    "topic_terms": [
+      "passive",
+      "voice",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs",
+        "path": [
+          "## Verbs"
+        ],
+        "similarity": 1.0,
+        "content": "As in all Romance languages, Romanian verbs are inflected according to: person, number, tense, mood and voice. The usual word order in sentences is SVO (Subject – Verb – Object). Romanian verbs are traditionally categorized into four large conjugation groups depending on the ending in the infinitive mood. The actual conjugation patterns for each group are multiple.\n\nFirst conjugation: verbs ending in –a (long infinitive in –are), such as a da, dare \"to give\", a cânta, cântare \"to sing\", including those ending in hiatus ea, such as a crea, creare \"to create\". Verbs ending orthographically in –chea and –ghea are also included here as their conjugation pattern matches this group, although the long infinitive ends in –ere: a veghea, veghere \"to ward\".\nSecond conjugation: verbs ending in –ea (long infinitive in stressed -ere), only when ea is a diphthong, such as a putea, putere \"can\", a cădea, cădere \"to fall\".\nThird conjugation: verbs ending in –e (long infinitive in unstressed –ere), such as a vinde, vindere \"to sell\", a crede, credere \"to believe\".\nFourth conjugation: verbs ending in –i (long infinitive in –ire), such as a veni, venire \"to come\",.\nFifth conjugation:verbs ending in -î (long infinitive in -âre), such as a hotărî, hotărâre, \"to decide\"."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_pastTense_tense_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "verb",
+    "topic_terms": [
+      "past tense",
+      "tense",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs",
+        "path": [
+          "## Verbs"
+        ],
+        "similarity": 1.0,
+        "content": "As in all Romance languages, Romanian verbs are inflected according to: person, number, tense, mood and voice. The usual word order in sentences is SVO (Subject – Verb – Object). Romanian verbs are traditionally categorized into four large conjugation groups depending on the ending in the infinitive mood. The actual conjugation patterns for each group are multiple.\n\nFirst conjugation: verbs ending in –a (long infinitive in –are), such as a da, dare \"to give\", a cânta, cântare \"to sing\", including those ending in hiatus ea, such as a crea, creare \"to create\". Verbs ending orthographically in –chea and –ghea are also included here as their conjugation pattern matches this group, although the long infinitive ends in –ere: a veghea, veghere \"to ward\".\nSecond conjugation: verbs ending in –ea (long infinitive in stressed -ere), only when ea is a diphthong, such as a putea, putere \"can\", a cădea, cădere \"to fall\".\nThird conjugation: verbs ending in –e (long infinitive in unstressed –ere), such as a vinde, vindere \"to sell\", a crede, credere \"to believe\".\nFourth conjugation: verbs ending in –i (long infinitive in –ire), such as a veni, venire \"to come\",.\nFifth conjugation:verbs ending in -î (long infinitive in -âre), such as a hotărî, hotărâre, \"to decide\"."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_presentTense_tense_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "verb",
+    "topic_terms": [
+      "present tense",
+      "tense",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs",
+        "path": [
+          "## Verbs"
+        ],
+        "similarity": 1.0,
+        "content": "As in all Romance languages, Romanian verbs are inflected according to: person, number, tense, mood and voice. The usual word order in sentences is SVO (Subject – Verb – Object). Romanian verbs are traditionally categorized into four large conjugation groups depending on the ending in the infinitive mood. The actual conjugation patterns for each group are multiple.\n\nFirst conjugation: verbs ending in –a (long infinitive in –are), such as a da, dare \"to give\", a cânta, cântare \"to sing\", including those ending in hiatus ea, such as a crea, creare \"to create\". Verbs ending orthographically in –chea and –ghea are also included here as their conjugation pattern matches this group, although the long infinitive ends in –ere: a veghea, veghere \"to ward\".\nSecond conjugation: verbs ending in –ea (long infinitive in stressed -ere), only when ea is a diphthong, such as a putea, putere \"can\", a cădea, cădere \"to fall\".\nThird conjugation: verbs ending in –e (long infinitive in unstressed –ere), such as a vinde, vindere \"to sell\", a crede, credere \"to believe\".\nFourth conjugation: verbs ending in –i (long infinitive in –ire), such as a veni, venire \"to come\",.\nFifth conjugation:verbs ending in -î (long infinitive in -âre), such as a hotărî, hotărâre, \"to decide\"."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_pronoun.txt": {
+    "strategy": "lexical",
+    "term_used": "pronoun",
+    "topic_terms": [
+      "pronoun"
+    ],
+    "matches": [
+      {
+        "full": "## Pronouns",
+        "path": [
+          "## Pronouns"
+        ],
+        "similarity": 1.0,
+        "content": ""
+      },
+      {
+        "full": "## Pronouns > ### Personal pronouns",
+        "path": [
+          "## Pronouns",
+          "### Personal pronouns"
+        ],
+        "similarity": 1.0,
+        "content": "Personal pronouns come in four different cases, depending on their usage in the phrase."
+      },
+      {
+        "full": "## Pronouns > ### Personal pronouns > #### Nominative case",
+        "path": [
+          "## Pronouns",
+          "### Personal pronouns",
+          "#### Nominative case"
+        ],
+        "similarity": 1.0,
+        "content": "There are eight personal pronouns (pronume personale) in Romanian:\n\n## Pronouns > ### Personal pronouns > #### Nominative case > ##### Table 11\n\n<pre>```\n| Unnamed: 0    | Unnamed: 1    | Singular   | Plural   |\n|:--------------|:--------------|:-----------|:---------|\n| First person  | First person  | eu         | noi      |\n| Second person | Second person | tu         | voi      |\n| Third person  | Masc.         | el         | ei       |\n| Third person  | Fem.          | ea         | ele      |\n```</pre>\n\n\nThe pronouns above are those in the nominative case. They are usually omitted in Romanian unless it is necessary to disambiguate the meaning of a sentence. Usually, the verb ending provides information about the subject. The feminine forms of plural pronouns are used only for groups of persons or items of exclusively female gender. If the group contains elements of both genders, the masculine form is used. Pronouns in the vocative case in Romanian, which is used for exclamations, or summoning, also take the forms of the nominative case."
+      },
+      {
+        "full": "## Pronouns > ### Personal pronouns > #### Accusative case",
+        "path": [
+          "## Pronouns",
+          "### Personal pronouns",
+          "#### Accusative case"
+        ],
+        "similarity": 1.0,
+        "content": "The accusative forms of the pronouns come in two forms: a stressed and an unstressed form:\n\n## Pronouns > ### Personal pronouns > #### Accusative case > ##### Table 12\n\n<pre>```\n| Unnamed: 0_level_0 + Unnamed: 0_level_1   | Unnamed: 1_level_0 + Unnamed: 1_level_1   | Singular + Stressed   | Singular + Unstressed   | Plural + Stressed   | Plural + Unstressed   |\n|:------------------------------------------|:------------------------------------------|:----------------------|:------------------------|:--------------------|:----------------------|\n| First person                              | First person                              | (pe) mine             | mă                      | (pe) noi            | ne                    |\n| Second person                             | Second person                             | (pe) tine             | te                      | (pe) voi            | vă                    |\n| Third person                              | Masc.                                     | (pe) el               | îl                      | (pe) ei             | îi                    |\n| Third person                              | Fem.                                      | (pe) ea               | o                       | (pe) ele            | le                    |\n```</pre>\n\n\nThe stressed form of the pronoun is used (in phrases that are not inverted) after the verb while the unstressed form is employed before the verb. Romanian requires both forms of a pronoun to be present in a sentence if a relative clause is employed, which also reverses the order of the forms (stressed before unstressed). Otherwise, the stressed form is usually left out, the only exception being its usage for adding emphasis to the pronoun.\n\nÎl văd – I see him/it (a statement of fact)\nÎl văd pe el – I see him (It is him that I see, and no other)\nFata pe care o văd – The girl whom I see"
+      },
+      {
+        "full": "## Pronouns > ### Personal pronouns > #### Dative case",
+        "path": [
+          "## Pronouns",
+          "### Personal pronouns",
+          "#### Dative case"
+        ],
+        "similarity": 1.0,
+        "content": "The dative forms of the pronouns:\n\n## Pronouns > ### Personal pronouns > #### Dative case > ##### Table 13\n\n<pre>```\n| Unnamed: 0_level_0 + Unnamed: 0_level_1   | Unnamed: 1_level_0 + Unnamed: 1_level_1   | Singular + Stressed   | Singular + Unstressed   | Plural + Stressed   | Plural + Unstressed   |\n|:------------------------------------------|:------------------------------------------|:----------------------|:------------------------|:--------------------|:----------------------|\n| First person                              | First person                              | mie                   | îmi                     | nouă                | ne                    |\n| Second person                             | Second person                             | ție                   | îți                     | vouă                | vă                    |\n| Third person                              | Masc.                                     | lui                   | îi                      | lor                 | le                    |\n| Third person                              | Fem.                                      | ei                    | îi                      | lor                 | le                    |\n```</pre>"
+      },
+      {
+        "full": "## Pronouns > ### Personal pronouns > #### Genitive case",
+        "path": [
+          "## Pronouns",
+          "### Personal pronouns",
+          "#### Genitive case"
+        ],
+        "similarity": 1.0,
+        "content": "The genitive forms of the pronouns (also called possessive pronouns, pronume posesive):\n\n## Pronouns > ### Personal pronouns > #### Genitive case > ##### Table 14\n\n<pre>```\n| ('Unnamed: 0_level_0', 'Unnamed: 0_level_1', 'Unnamed: 0_level_2')   | ('Unnamed: 1_level_0', 'Unnamed: 1_level_1', 'Unnamed: 1_level_2')   | ('Unnamed: 2_level_0', 'Unnamed: 2_level_1', 'Unnamed: 2_level_2')   | ('Unnamed: 3_level_0', 'Unnamed: 3_level_1', 'Unnamed: 3_level_2')   | ('Possessed', 'Singular', 'Masculine')   | ('Possessed', 'Singular', 'Neuter')   | ('Possessed', 'Singular', 'Feminine')   | ('Possessed', 'Plural', 'Masculine')   | ('Possessed', 'Plural', 'Neuter')   | ('Possessed', 'Plural', 'Feminine')   |\n|:---------------------------------------------------------------------|:---------------------------------------------------------------------|:---------------------------------------------------------------------|:---------------------------------------------------------------------|:-----------------------------------------|:--------------------------------------|:----------------------------------------|:---------------------------------------|:------------------------------------|:--------------------------------------|\n| Possessor                                                            | Singular                                                             | First person                                                         | First person                                                         | al meu                                   | al meu                                | a mea                                   | ai mei                                 | ale mele                            | ale mele                              |\n| Possessor                                                            | Singular                                                             | Second person                                                        | Second person                                                        | al tău                                   | al tău                                | a ta                                    | ai tăi                                 | ale tale                            | ale tale                              |\n| Possessor                                                            | Singular                                                             | Third person                                                         | Masc.                                                                | al lui                                   | al lui                                | a lui                                   | ai lui                                 | ale lui                             | ale lui                               |\n| Possessor                                                            | Singular                                                             | Third person                                                         | Fem.                                                                 | al ei                                    | al ei                                 | a ei                                    | ai ei                                  | ale ei                              | ale ei                                |\n| Possessor                                                            | Plural                                                               | First person                                                         | First person                                                         | al nostru                                | al nostru                             | a noastră                               | ai noștri                              | ale noastre                         | ale noastre                           |\n| Possessor                                                            | Plural                                                               | Second person                                                        | Second person                                                        | al vostru                                | al vostru                             | a voastră                               | ai voștri                              | ale voastre                         | ale voastre                           |\n| Possessor                                                            | Plural                                                               | Third person                                                         | Third person                                                         | al lor                                   | al lor                                | a lor                                   | ai lor                                 | ale lor                             | ale lor                               |\n| Plural                                                               | nan                                                                  | nan                                                                  | nan                                                                  | nan                                      | nan                                   | nan                                     | nan                                    | nan                                 | nan                                   |\n```</pre>\n\n\nThe genitive is retained in the third person. The pronoun, like Latin eius, eorum, inflects according to the possessor, not according to the possessed."
+      },
+      {
+        "full": "## Pronouns > ### Reflexive pronouns",
+        "path": [
+          "## Pronouns",
+          "### Reflexive pronouns"
+        ],
+        "similarity": 1.0,
+        "content": "These are the forms of the reflexive pronouns (pronume reflexive):\n\n## Pronouns > ### Reflexive pronouns > #### Table 15\n\n<pre>```\n| Unnamed: 0_level_0 + Unnamed: 0_level_1   | Accusative + Singular   | Accusative + Plural   | Dative + Singular   | Dative + Plural   |\n|:------------------------------------------|:------------------------|:----------------------|:--------------------|:------------------|\n| First person                              | pe mine / mă            | pe noi / ne           | mie / îmi           | nouă / ne         |\n| Second person                             | pe tine / te            | pe voi / vă           | ție / îți           | vouă / vă         |\n| Third person                              | pe sine / se            | pe sine / se          | sieși / își         | sieși / își       |\n```</pre>\n\n\nThe above reflexive pronouns are in the accusative and dative cases, and in both stressed / unstressed forms. As is made clear, the reflexive pronouns are identical to the personal pronouns, with the exception of the 3rd person, which has entirely new forms. The genitival forms of the reflexive pronouns are the same for the 1st and 2nd persons, but also differ in the 3rd person singular, which is al său. This is a direct continuation of Latin usage; Latin suus was used only when the possessor was the subject of the sentence."
+      },
+      {
+        "full": "## Pronouns > ### Polite pronouns",
+        "path": [
+          "## Pronouns",
+          "### Polite pronouns"
+        ],
+        "similarity": 1.0,
+        "content": "The polite pronouns (pronumele de politețe) are a way of addressing someone formally. They are normally used for interaction with strangers, or by children talking to adults whom they don't know well, or to teachers as a sign of respect. When used in the plural, the second person pronoun is a polite one, for use in formal occasions, or among unacquainted adults, whereas its singular forms are less polite.\nThe polite pronouns were derived from old Romanian phrases used for addressing the sovereign, such as Domnia Ta, Domnia Voastră, Domnia Lui (\"Your Majesty\", \"Your Majesty (plural)\", \"His Majesty\", literally \"Your Reign\", etc.). By means of vowel elision, domnia became shortened to dumnea. It should also be noted that mata, mătăluță and similar pronouns were considered polite pronouns in the past, but nowadays only rural communities use them (for example, between neighbours).\nThe polite pronouns all have the same forms in all cases (the only exception being dumneata, with the genitive/dative form of dumitale), and they exist only in the second and third person, due to their not being used to refer to oneself:\n\n## Pronouns > ### Polite pronouns > #### Table 16\n\n<pre>```\n| Unnamed: 0    | Unnamed: 1    | Singular              | Plural                          |\n|:--------------|:--------------|:----------------------|:--------------------------------|\n| Second person | Second person | dumneata, domnia ta   | dumneavoastră, domniile voastre |\n| Third person  | Masc.         | dumnealui, domnia lui | dumnealor, domniile lor         |\n| Third person  | Fem.          | dumneaei, domnia ei   | dumnealor, domniile lor         |\n| Third person  | nan           | nan                   | nan                             |\n| Third person  | nan           | nan                   | nan                             |\n```</pre>\n\n\nA peculiarity of Romanian among Romance languages is the development of an intermediary level of politeness created with the aid of Old Romanian dânsul/dânsa, a variant of the personal pronoun el/ea, formed from the preposition de and the focal particle îns, itself from the Latin pronoun IPSE. Together with the singular second person polite pronoun it expresses a minimum of politeness, but higher than personal pronouns:\n\n## Pronouns > ### Polite pronouns > #### Table 17\n\n<pre>```\n| Unnamed: 0             | Personal   | Intermediary     | Polite               |\n|:-----------------------|:-----------|:-----------------|:---------------------|\n| Second person singular | tu         | dumneata         | dumneavoastră        |\n| Third person singular  | el / ea    | dânsul / dânsa   | dumnealui / dumneaei |\n| Third person plural    | ei / ele   | dânșii / dânsele | dumnealor            |\n```</pre>"
+      },
+      {
+        "full": "## Pronouns > ### Demonstrative pronouns",
+        "path": [
+          "## Pronouns",
+          "### Demonstrative pronouns"
+        ],
+        "similarity": 1.0,
+        "content": "There are many demonstrative pronouns (pronume demonstrative) in Romanian. They are classified as pronume de apropiere, pronume de depărtare, pronume de diferențiere, pronume de identitate, which mean, respectively, pronouns of proximity, pronouns of remoteness, pronouns of differentiation, and pronouns of identity."
+      },
+      {
+        "full": "## Pronouns > ### Demonstrative pronouns > #### Pronouns of proximity and remoteness",
+        "path": [
+          "## Pronouns",
+          "### Demonstrative pronouns",
+          "#### Pronouns of proximity and remoteness"
+        ],
+        "similarity": 1.0,
+        "content": "These pronouns describe objects which are either close to the speaker, or farther away from the speaker (formal register/informal register):\n\n## Pronouns > ### Demonstrative pronouns > #### Pronouns of proximity and remoteness > ##### Table 18\n\n<pre>```\n| Unnamed: 0_level_0 + Unnamed: 0_level_1   | Pronoun of Proximity + Singular   | Pronoun of Proximity + Plural   | Pronoun of Remoteness + Singular   | Pronoun of Remoteness + Plural   |\n|:------------------------------------------|:----------------------------------|:--------------------------------|:-----------------------------------|:---------------------------------|\n| Masculine                                 | acesta/ăsta                       | aceștia/ăștia                   | acela/ăla                          | aceia/ăia                        |\n| Neuter                                    | acesta/ăsta                       | acestea/ăstea                   | acela/ăla                          | acelea/alea                      |\n| Feminine                                  | aceasta/asta                      | acestea/ăstea                   | aceea/aia                          | acelea/alea                      |\n```</pre>"
+      },
+      {
+        "full": "## Pronouns > ### Demonstrative pronouns > #### Pronouns of differentiation and identity",
+        "path": [
+          "## Pronouns",
+          "### Demonstrative pronouns",
+          "#### Pronouns of differentiation and identity"
+        ],
+        "similarity": 1.0,
+        "content": "These pronouns describe objects either different from an aforementioned object or the same:\n\n## Pronouns > ### Demonstrative pronouns > #### Pronouns of differentiation and identity > ##### Table 19\n\n<pre>```\n| Unnamed: 0_level_0 + Unnamed: 0_level_1   | Pronoun of Differentiation + Singular   | Pronoun of Differentiation + Plural   | Pronoun of Identity + Singular   | Pronoun of Identity + Plural   |\n|:------------------------------------------|:----------------------------------------|:--------------------------------------|:---------------------------------|:-------------------------------|\n| Masculine                                 | celălalt                                | ceilalți                              | același                          | aceiași                        |\n| Neuter                                    | celălalt                                | celelalte                             | același                          | aceleași                       |\n| Feminine                                  | cealaltă                                | celelalte                             | aceeași                          | aceleași                       |\n```</pre>"
+      },
+      {
+        "full": "## Pronouns > ### Intensive pronouns",
+        "path": [
+          "## Pronouns",
+          "### Intensive pronouns"
+        ],
+        "similarity": 1.0,
+        "content": "The intensive pronouns and adjectives are used for emphasis.\n\n## Pronouns > ### Intensive pronouns > #### Table 20\n\n<pre>```\n| ('Unnamed: 0_level_0', 'Unnamed: 0_level_1', 'Unnamed: 0_level_2')   | ('Intensive pronoun', 'Singular', 'Masculine')   | ('Intensive pronoun', 'Singular', 'Neuter')   | ('Intensive pronoun', 'Singular', 'Feminine')   | ('Intensive pronoun', 'Plural', 'Masculine')   | ('Intensive pronoun', 'Plural', 'Neuter')   | ('Intensive pronoun', 'Plural', 'Feminine')   |\n|:---------------------------------------------------------------------|:-------------------------------------------------|:----------------------------------------------|:------------------------------------------------|:-----------------------------------------------|:--------------------------------------------|:----------------------------------------------|\n| First Person                                                         | însumi (myself)                                  | însumi (myself)                               | însămi (myself)                                 | înșine (ourselves)                             | însene (ourselves)                          | însene (ourselves)                            |\n| Second Person                                                        | însuți (yourself)                                | însuți (yourself)                             | însăți (yourself)                               | înșivă (yourself)                              | însevă (yourself)                           | însevă (yourself)                             |\n| Third Person                                                         | însuși (himself)                                 | însuși (himself)                              | însăși (herself)                                | înșiși (themselves)                            | înseși (themselves)                         | înseși (themselves)                           |\n```</pre>"
+      },
+      {
+        "full": "## Pronouns > ### Relative and interrogative pronouns",
+        "path": [
+          "## Pronouns",
+          "### Relative and interrogative pronouns"
+        ],
+        "similarity": 1.0,
+        "content": "Pronumele relative și interogative, the two types of pronouns are identical in form but differ in usage. The relative pronouns are used to connect relative clauses to their main clause, but interrogative pronouns are used to form questions. The interrogative pronouns are usually written out with a question mark after them to differentiate them from their relative counterparts.\nThese are the most common relative/interrogative pronouns:\n\n## Pronouns > ### Relative and interrogative pronouns > #### Table 21\n\n<pre>```\n| 0                   | 1    | 2                 | 3     | 4          | 5          | 6                                        |\n|:--------------------|:-----|:------------------|:------|:-----------|:-----------|:-----------------------------------------|\n| Relative Pronoun    | cine | (a/al/ai/ale) cui | care  | pe care    | ce         | (a/al/ai/ale) cărui(a)/cărei(a)/căror(a) |\n| English translation | who  | (whose), to whom  | which | which/whom | which/whom | (whose), to whom                         |\n```</pre>"
+      },
+      {
+        "full": "## Pronouns > ### Negative and indefinite pronouns",
+        "path": [
+          "## Pronouns",
+          "### Negative and indefinite pronouns"
+        ],
+        "similarity": 1.0,
+        "content": "Pronumele negative și nehotărâte, these two types of pronouns are used to express negation, as well as indefinite concepts. There are many indefinite pronouns, but only a limited number of negative pronouns.\nThe most common indefinite pronouns are:\n\n## Pronouns > ### Negative and indefinite pronouns > #### Table 22\n\n<pre>```\n| 0                   | 1    | 2   | 3        | 4          | 5               | 6           | 7      |\n|:--------------------|:-----|:----|:---------|:-----------|:----------------|:------------|:-------|\n| Indefinite Pronoun  | mult | tot | unul/una | altul/alta | atât            | puțin/nițel | destul |\n| English translation | much | all | one      | other      | so much/as much | a little    | enough |\n```</pre>\n\n\nThe most common negative pronouns are:\n\n## Pronouns > ### Negative and indefinite pronouns > #### Table 23\n\n<pre>```\n| 0                   | 1              | 2            | 3                | 4                       |\n|:--------------------|:---------------|:-------------|:-----------------|:------------------------|\n| Negative Pronoun    | nimeni/nimenea | nimic/nimica | niciunul/niciuna | niciunui(a)/niciunei(a) |\n| English translation | nobody         | nothing      | none             | to none (of none)       |\n```</pre>"
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_reported-indirect_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "verb",
+    "topic_terms": [
+      "reported",
+      "indirect",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs",
+        "path": [
+          "## Verbs"
+        ],
+        "similarity": 1.0,
+        "content": "As in all Romance languages, Romanian verbs are inflected according to: person, number, tense, mood and voice. The usual word order in sentences is SVO (Subject – Verb – Object). Romanian verbs are traditionally categorized into four large conjugation groups depending on the ending in the infinitive mood. The actual conjugation patterns for each group are multiple.\n\nFirst conjugation: verbs ending in –a (long infinitive in –are), such as a da, dare \"to give\", a cânta, cântare \"to sing\", including those ending in hiatus ea, such as a crea, creare \"to create\". Verbs ending orthographically in –chea and –ghea are also included here as their conjugation pattern matches this group, although the long infinitive ends in –ere: a veghea, veghere \"to ward\".\nSecond conjugation: verbs ending in –ea (long infinitive in stressed -ere), only when ea is a diphthong, such as a putea, putere \"can\", a cădea, cădere \"to fall\".\nThird conjugation: verbs ending in –e (long infinitive in unstressed –ere), such as a vinde, vindere \"to sell\", a crede, credere \"to believe\".\nFourth conjugation: verbs ending in –i (long infinitive in –ire), such as a veni, venire \"to come\",.\nFifth conjugation:verbs ending in -î (long infinitive in -âre), such as a hotărî, hotărâre, \"to decide\"."
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_subjunctive-conjunctive_mood_verb.txt": {
+    "strategy": "lexical",
+    "term_used": "verb",
+    "topic_terms": [
+      "subjunctive",
+      "conjunctive",
+      "mood",
+      "verb"
+    ],
+    "matches": [
+      {
+        "full": "## Verbs",
+        "path": [
+          "## Verbs"
+        ],
+        "similarity": 1.0,
+        "content": "As in all Romance languages, Romanian verbs are inflected according to: person, number, tense, mood and voice. The usual word order in sentences is SVO (Subject – Verb – Object). Romanian verbs are traditionally categorized into four large conjugation groups depending on the ending in the infinitive mood. The actual conjugation patterns for each group are multiple.\n\nFirst conjugation: verbs ending in –a (long infinitive in –are), such as a da, dare \"to give\", a cânta, cântare \"to sing\", including those ending in hiatus ea, such as a crea, creare \"to create\". Verbs ending orthographically in –chea and –ghea are also included here as their conjugation pattern matches this group, although the long infinitive ends in –ere: a veghea, veghere \"to ward\".\nSecond conjugation: verbs ending in –ea (long infinitive in stressed -ere), only when ea is a diphthong, such as a putea, putere \"can\", a cădea, cădere \"to fall\".\nThird conjugation: verbs ending in –e (long infinitive in unstressed –ere), such as a vinde, vindere \"to sell\", a crede, credere \"to believe\".\nFourth conjugation: verbs ending in –i (long infinitive in –ire), such as a veni, venire \"to come\",.\nFifth conjugation:verbs ending in -î (long infinitive in -âre), such as a hotărî, hotărâre, \"to decide\"."
+      }
+    ]
+  }
+}

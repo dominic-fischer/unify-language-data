@@ -5,7 +5,7 @@ import re
 import json
 from pathlib import Path
 from typing import List, Dict, Any, Tuple
-from run_gpt_Embedder import SectionEmbedder
+from Embedder import SectionEmbedder
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
@@ -421,9 +421,12 @@ def strip_table_suffix(full: str) -> str:
 # Main entry point
 # ---------------------------------------------------------------------------
 
-def main() -> None:
+def main(lang, source) -> None:
     # 1. Load the Italian grammar plaintext file
-    grammar_path = "data/wikipedia/outfiles/Italian_grammar_plaintext_structured_w_tables.txt"
+    if source == "docx":
+        lang = f"BANTU_{lang}_NEW"
+
+    grammar_path = f"data/{source}/outfiles/{lang}_plaintext_structured_w_tables.txt"
     with open(grammar_path, encoding="utf8") as f:
         full_text = f.read()
 
@@ -469,7 +472,7 @@ def main() -> None:
                 print(f"    - {m['full']}")
 
     # 6. Optionally dump mapping to JSON (comment out if not needed)
-    out_path = "lang-de_to_italian_toc_mapping.json"
+    out_path = f"mappings_{source}/{source}_lang-de_to_{lang}_toc_mapping.json"
     serializable = {}
 
     for fn, data in mapping.items():
@@ -506,4 +509,18 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    lang = [("Chewa_language", "wikipedia"),
+        ("French_grammar", "wikipedia"),
+        ("Italian_grammar", "wikipedia"),
+        ("Portuguese_grammar", "wikipedia"),
+        ("Romanian_grammar", "wikipedia"),
+        ("Shona_language", "wikipedia"),
+        ("Spanish_grammar", "wikipedia"),
+        ("Swahili_grammar", "wikipedia"),
+        ("Zulu_grammar", "wikipedia"),
+        ("Chichewa", "docx"),
+        ("ChiShona", "docx"),
+        ("isiZulu", "docx"),
+        ("KiSwahili", "docx")]
+    for (l, source) in lang:
+        main(l, source)
