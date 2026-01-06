@@ -1,0 +1,53 @@
+Past:
+  Features:
+    pt-Tense-type:
+    - pt-praeteritum
+    - pt-imperfect
+    - pt-mais-que-perfeito
+    - pt-futuro
+    - pt-condicional
+    - pt-subjuntivo_presente
+    - pt-subjuntivo_preterito
+    - pt-subjuntivo_futuro
+  Rules:
+    pt-Tense-type_pt-praeteritum:
+      applies: {pt-Tense-type: pt-praeteritum}
+      pattern: "regular past tense: _stem_ + endings for -ar, -er, -ir verbs"
+      examples:
+      - "cantámos"
+      - "cantamos"
+    pt-Tense-type_pt-imperfect:
+      applies: {pt-Tense-type: pt-imperfect}
+      pattern: "imperfect past: _stem_ + imperfect endings"
+      examples:
+      - "cantávamos"
+    pt-Tense-type_pt-mais-que-perfeito:
+      applies: {pt-Tense-type: pt-mais-que-perfeito}
+      pattern: "pluperfect: _stem_ + endings indicating anteriority"
+      examples:
+      - "cantáramos"
+    pt-Tense-type_pt-futuro:
+      applies: {pt-Tense-type: pt-futuro}
+      pattern: "future: _stem_ + endings"
+      examples:
+      - "cantaremos"
+    pt-Tense-type_pt-condicional:
+      applies: {pt-Tense-type: pt-condicional}
+      pattern: "conditional: cantaríamos"
+      examples:
+      - "cantaríamos"
+    pt-Tense-type_pt-subjuntivo_presente:
+      applies: {pt-Tense-type: pt-subjuntivo_presente}
+      pattern: "present subjunctive: que cantemos"
+      examples:
+      - "que cantemos"
+    pt-Tense-type_pt-subjuntivo_preterito:
+      applies: {pt-Tense-type: pt-subjuntivo_preterito}
+      pattern: "preterite subjunctive: se cantássemos"
+      examples:
+      - "se cantássemos"
+    pt-Tense-type_pt-subjuntivo_futuro:
+      applies: {pt-Tense-type: pt-subjuntivo_futuro}
+      pattern: "future subjunctive: se cantarmos"
+      examples:
+      - "se cantarmos"

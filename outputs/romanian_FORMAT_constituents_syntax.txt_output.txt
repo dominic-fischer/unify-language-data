@@ -1,0 +1,13 @@
+Constituents:
+  Features:
+    u-Part-of-Speech: [u-adj]
+  Rules:
+    u-Part-of-Speech_u-adj:
+      applies: {u-Part-of-Speech: u-adj}
+      patterns:
+        - pattern: "[Determiner] Noun [Adjective]"
+          examples:
+            - "Băiatul blond"
+        - pattern: "[Subject] [Copula] [Adjective]"
+          examples:
+            - "Băiatul este blond"

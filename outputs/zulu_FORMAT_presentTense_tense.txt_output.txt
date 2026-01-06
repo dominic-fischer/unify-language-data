@@ -1,0 +1,27 @@
+Features:
+  u-Person: [u-1, u-2, u-3]
+  u-Number: [u-sg, u-pl]
+  u-Tense: [u-prs]
+
+Negation:
+  applies: { x-Negation-type: x-clause }
+  note: "Regular negation."
+  examples:
+  - "Akahambi."
+  - "Akangisizi."
+
+Usage:
+  Zu-Present:
+    applies: { u-Tense: u-prs }
+    note: "The present tense is the default tense for present reference. It corresponds to the English simple present or continuous present."
+    examples:
+    - "Uyahamba."
+    - "Uyangisiza namhlanje."
+
+Rules:
+  U-Tense_u-prs:
+    applies: { u-Tense: u-prs }
+    pattern: "_subject_prefix_ ya _verb_root_"
+    examples:
+    - "Uyahamba."
+    - "Uyangisiza namhlanje."

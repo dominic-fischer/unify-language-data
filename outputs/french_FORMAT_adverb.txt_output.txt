@@ -1,0 +1,21 @@
+Adverbs:
+  Features:
+    u-Part-of-Speech:
+      - u-adv
+    x-Process:
+      - x-suffixation
+      - x-base-form
+  Rules:
+    x-Process_x-suffixation:
+      applies: {x-Process: x-suffixation}
+      pattern: "adverbs formed by adding -ment to the feminine form of adjectives"
+      examples:
+        - "ancien → anciennement"
+        - "grand → grandement"
+        - "lent → lentement"
+        - "malaisé → malaisément"
+    x-Process_x-base-form:
+      applies: {x-Process: x-base-form}
+      pattern: "lexical adverb base form"
+      examples:
+        - "bien"

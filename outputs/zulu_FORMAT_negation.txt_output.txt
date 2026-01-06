@@ -1,0 +1,17 @@
+Negation:
+  Features:
+    x-Negation-type: [x-clause, x-constituent]
+
+  Rules:
+    x-Negation-type_x-constituent:
+      applies: {x-Negation-type: x-constituent}
+      patterns:
+        - pattern: "Kennsilbe nga (Objektsilbe) Verbstamm auf -i"
+          examples:
+            - "Ngicela ninganginiki isinkwa."
+          note: "Negation of a clause with an object using Kennsilbe (V) + nga + (Objektsilbe) + verb stem ending in -i."
+        - pattern: "A- ka - reduplizierter Verbstamm"
+          examples:
+            - "Akahambihamba."
+          note: "Negation of a verb with reduplication using the 3rd person singular Kennsilbe 'ka-'."
+

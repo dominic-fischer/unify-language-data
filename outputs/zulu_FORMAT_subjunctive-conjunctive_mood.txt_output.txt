@@ -1,0 +1,33 @@
+Subjunctive:
+  Features:
+    u-Mood:
+      - u-sbjv
+    u-Tense:
+      - u-prs
+      - u-pst
+    u-Person:
+      - u-1
+      - u-2
+      - u-3
+    u-Number:
+      - u-pl
+      - u-sg
+  Usage:
+    sbjv-present:
+      applies: {u-Mood: u-sbjv, u-Tense: u-prs}
+      examples:
+        - "Ngicela ningiphe isinkwa."
+      note: "Zulu present subjunctive; used for polite requests."
+    sbjv-pst:
+      applies: {u-Mood: u-sbjv, u-Tense: u-pst}
+      examples:
+        - "Wayefuna ngimnike isinkwa."
+      note: "Zulu past subjunctive form."
+  Rules:
+    u-Mood_u-sbjv:
+      applies: { u-Mood: u-sbjv }
+      patterns:
+        - pattern: "present_subjunctive_pattern"
+        - pattern: "past_subjunctive_pattern"
+  Notes:
+    - "Subjunctive in Zulu expresses hypothetical situations, wishes and requests. There are present and past subjunctive forms."

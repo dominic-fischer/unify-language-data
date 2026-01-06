@@ -1,0 +1,29 @@
+Pronoun:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+    u-Gender: [u-masc, u-fem]
+    x-Pronoun-type:
+    - x-pers
+    x-Form-type: [x-standalone, x-clitic]
+  Rules:
+    x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers}
+      forms:
+      - features: {u-Person: u-1, u-Number: u-sg, u-Case: u-nom}
+        form: "io"
+      - features: {u-Person: u-2, u-Number: u-sg, u-Case: u-nom}
+        form: "tu"
+      - features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-nom}
+        form: "lui"
+      - features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-nom}
+        form: "lei"
+      - features: {u-Person: u-1, u-Number: u-pl, u-Case: u-nom}
+        form: "noi"
+      - features: {u-Person: u-2, u-Number: u-pl, u-Case: u-nom}
+        form: "voi"
+      - features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc, u-Case: u-nom}
+        form: "loro"
+      - features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem, u-Case: u-nom}
+        form: "loro"

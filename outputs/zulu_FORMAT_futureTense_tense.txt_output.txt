@@ -1,0 +1,12 @@
+Future:
+  Features:
+    u-Tense: [u-immed, u-rmt]
+
+  Rules:
+    U-Tense_u-immed:
+      applies: { u-Tense: "u-immed" }
+      pattern: "Affirmative Immediate: [subj1]zo(ku)[obj]...a; Negative Immediate: a[subj2]zu(ku)[obj]...a"
+
+    U-Tense_u-rmt:
+      applies: { u-Tense: "u-rmt" }
+      pattern: "Affirmative Distant: [subj1]yo(ku)[obj]...a; Negative Distant: a[subj2]yu(ku)[obj]...a"

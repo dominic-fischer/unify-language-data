@@ -1,0 +1,39 @@
+Pronoun:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+    u-Deixis: [u-prox, u-remt]
+    x-Pronoun-type:
+    - x-dem
+    - x-pers
+    x-Form-type: [x-standalone, x-clitic]
+  Rules:
+    x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers}
+      forms:
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-nom}, form: "je"}
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc}, form: "me"}
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-nom}, form: "tu"}
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-acc}, form: "te"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-nom}, form: "il"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-nom}, form: "elle"}
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-nom}, form: "nous"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-nom}, form: "vous"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc, u-Case: u-nom}, form: "ils"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem, u-Case: u-nom}, form: "elles"}
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc}, form: "me"}
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-acc}, form: "te"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-acc}, form: "le"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-acc}, form: "la"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-acc}, form: "les"}
+    x-Pronoun-type_x-dem:
+      applies: {x-Pronoun-type: x-dem}
+      forms:
+      - {features: {u-Deixis: u-prox, u-Number: u-sg, u-Case: u-nom}, form: "celui"}
+      - {features: {u-Deixis: u-prox, u-Number: u-sg, u-Case: u-nom}, form: "celle"}
+      - {features: {u-Deixis: u-remt, u-Number: u-sg, u-Case: u-nom}, form: "celui-là"}
+      - {features: {u-Deixis: u-remt, u-Number: u-sg, u-Case: u-nom}, form: "celle-là"}
+      - {features: {u-Deixis: u-prox, u-Number: u-pl, u-Case: u-nom}, form: "ceux"}
+      - {features: {u-Deixis: u-prox, u-Number: u-pl, u-Case: u-nom}, form: "celles"}

@@ -1,0 +1,19 @@
+Clauses:
+  Features:
+    x-Word-order: [x-V2, x-Vfinal, x-V1]
+  Rules:
+    x-Word-order_x-V2:
+      applies: { x-Word-order: x-V2 }
+      patterns:
+        - pattern: "... S V O ..."
+          examples:
+            - "Mi amigo escribió el libro"
+          note: "Declarative order with the verb in second position (SVO)."
+        - pattern: "... V S O ..."
+          examples:
+            - "Hace pocos años escribió mi amigo un libro"
+          note: "Verb-initial ordering after a temporal phrase (VSO)."
+        - pattern: "... O V S ..."
+          examples:
+            - "El libro lo escribió mi amigo"
+          note: "Object-Verb-Subject order (OVS)."

@@ -1,0 +1,32 @@
+Adjective:
+  Features:
+    u-Part-of-Speech:
+    - u-adj
+    u-Case:
+    - u-nom
+    u-Number:
+    - u-sg
+    - u-pl
+  Rules:
+    u-Part-of-Speech_u-adj:
+      applies: { u-Part-of-Speech: u-adj }
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: { 'u-Case': 'u-nom', 'u-Number': 'u-sg' }
+          form: "-ncane"
+        - features: { 'u-Case': 'u-nom', 'u-Number': 'u-sg' }
+          form: "-khulu"
+        - features: { 'u-Case': 'u-nom', 'u-Number': 'u-sg' }
+          form: "-de"
+        - features: { 'u-Case': 'u-nom', 'u-Number': 'u-sg' }
+          form: "-sha"
+        - features: { 'u-Case': 'u-nom', 'u-Number': 'u-sg' }
+          form: "-dala"
+        - features: { 'u-Case': 'u-nom', 'u-Number': 'u-sg' }
+          form: "-hle"
+        - features: { 'u-Case': 'u-nom', 'u-Number': 'u-sg' }
+          form: "-bi"
+        - features: { 'u-Case': 'u-nom', 'u-Number': 'u-sg' }
+          form: "-nye"
+        - features: { 'u-Case': 'u-nom', 'u-Number': 'u-sg' }
+          form: "-ningi"

@@ -1,0 +1,98 @@
+Past:
+  Features:
+    u-Tense:
+      - u-pst
+    u-Aspect:
+      - u-pfv
+      - u-ipfv
+  Rules:
+    u-Tense_u-pst__u-Aspect_u-pfv:
+      applies: { u-Tense: "u-pst", u-Aspect: "u-pfv" }
+      patterns:
+        - pattern: "_stem_ + -ar (preterite) endings"
+          endings:
+            - features: { u-Person: ["u-1"], u-Number: ["u-sg"], u-Tense: ["u-pst"], u-Aspect: ["u-pfv"] }
+              form: "é"
+            - features: { u-Person: ["u-2"], u-Number: ["u-sg"], u-Tense: ["u-pst"], u-Aspect: ["u-pfv"] }
+              form: "aste"
+            - features: { u-Person: ["u-3"], u-Number: ["u-sg"], u-Tense: ["u-pst"], u-Aspect: ["u-pfv"] }
+              form: "ó"
+            - features: { u-Person: ["u-1"], u-Number: ["u-pl"], u-Tense: ["u-pst"], u-Aspect: ["u-pfv"] }
+              form: "amos"
+            - features: { u-Person: ["u-2"], u-Number: ["u-pl"], u-Tense: ["u-pst"], u-Aspect: ["u-pfv"] }
+              form: "asteis"
+            - features: { u-Person: ["u-3"], u-Number: ["u-pl"], u-Tense: ["u-pst"], u-Aspect: ["u-pfv"] }
+              form: "aron"
+        - pattern: "_stem_ + -er (preterite) endings"
+          endings:
+            - features: { u-Person: ["u-1"], u-Number: ["u-sg"], u-Tense: ["u-pst"], u-Aspect: ["u-pfv"] }
+              form: "í"
+            - features: { u-Person: ["u-2"], u-Number: ["u-sg"], u-Tense: ["u-pst"], u-Aspect: ["u-pfv"] }
+              form: "iste"
+            - features: { u-Person: ["u-3"], u-Number: ["u-sg"], u-Tense: ["u-pst"], u-Aspect: ["u-pfv"] }
+              form: "ió"
+            - features: { u-Person: ["u-1"], u-Number: ["u-pl"], u-Tense: ["u-pst"], u-Aspect: ["u-pfv"] }
+              form: "imos"
+            - features: { u-Person: ["u-2"], u-Number: ["u-pl"], u-Tense: ["u-pst"], u-Aspect: ["u-pfv"] }
+              form: "isteis"
+            - features: { u-Person: ["u-3"], u-Number: ["u-pl"], u-Tense: ["u-pst"], u-Aspect: ["u-pfv"] }
+              form: "ieron"
+        - pattern: "_stem_ + -ir (preterite) endings"
+          endings:
+            - features: { u-Person: ["u-1"], u-Number: ["u-sg"], u-Tense: ["u-pst"], u-Aspect: ["u-pfv"] }
+              form: "í"
+            - features: { u-Person: ["u-2"], u-Number: ["u-sg"], u-Tense: ["u-pst"], u-Aspect: ["u-pfv"] }
+              form: "iste"
+            - features: { u-Person: ["u-3"], u-Number: ["u-sg"], u-Tense: ["u-pst"], u-Aspect: ["u-pfv"] }
+              form: "ió"
+            - features: { u-Person: ["u-1"], u-Number: ["u-pl"], u-Tense: ["u-pst"], u-Aspect: ["u-pfv"] }
+              form: "imos"
+            - features: { u-Person: ["u-2"], u-Number: ["u-pl"], u-Tense: ["u-pst"], u-Aspect: ["u-pfv"] }
+              form: "isteis"
+            - features: { u-Person: ["u-3"], u-Number: ["u-pl"], u-Tense: ["u-pst"], u-Aspect: ["u-pfv"] }
+              form: "eron"
+    u-Tense_u-pst__u-Aspect_u-ipfv:
+      applies: { u-Tense: "u-pst", u-Aspect: "u-ipfv" }
+      patterns:
+        - pattern: "_stem_ + -ar (imperfect) endings"
+          endings:
+            - features: { u-Person: ["u-1"], u-Number: ["u-sg"], u-Tense: ["u-pst"], u-Aspect: ["u-ipfv"] }
+              form: "aba"
+            - features: { u-Person: ["u-2"], u-Number: ["u-sg"], u-Tense: ["u-pst"], u-Aspect: ["u-ipfv"] }
+              form: "abas"
+            - features: { u-Person: ["u-3"], u-Number: ["u-sg"], u-Tense: ["u-pst"], u-Aspect: ["u-ipfv"] }
+              form: "aba"
+            - features: { u-Person: ["u-1"], u-Number: ["u-pl"], u-Tense: ["u-pst"], u-Aspect: ["u-ipfv"] }
+              form: "ábamos"
+            - features: { u-Person: ["u-2"], u-Number: ["u-pl"], u-Tense: ["u-pst"], u-Aspect: ["u-ipfv"] }
+              form: "abais"
+            - features: { u-Person: ["u-3"], u-Number: ["u-pl"], u-Tense: ["u-pst"], u-Aspect: ["u-ipfv"] }
+              form: "aban"
+        - pattern: "_stem_ + -er (imperfect) endings"
+          endings:
+            - features: { u-Person: ["u-1"], u-Number: ["u-sg"], u-Tense: ["u-pst"], u-Aspect: ["u-ipfv"] }
+              form: "ía"
+            - features: { u-Person: ["u-2"], u-Number: ["u-sg"], u-Tense: ["u-pst"], u-Aspect: ["u-ipfv"] }
+              form: "ías"
+            - features: { u-Person: ["u-3"], u-Number: ["u-sg"], u-Tense: ["u-pst"], u-Aspect: ["u-ipfv"] }
+              form: "ía"
+            - features: { u-Person: ["u-1"], u-Number: ["u-pl"], u-Tense: ["u-pst"], u-Aspect: ["u-ipfv"] }
+              form: "íamos"
+            - features: { u-Person: ["u-2"], u-Number: ["u-pl"], u-Tense: ["u-pst"], u-Aspect: ["u-ipfv"] }
+              form: "íais"
+            - features: { u-Person: ["u-3"], u-Number: ["u-pl"], u-Tense: ["u-pst"], u-Aspect: ["u-ipfv"] }
+              form: "ían"
+        - pattern: "_stem_ + -ir (imperfect) endings"
+          endings:
+            - features: { u-Person: ["u-1"], u-Number: ["u-sg"], u-Tense: ["u-pst"], u-Aspect: ["u-ipfv"] }
+              form: "ía"
+            - features: { u-Person: ["u-2"], u-Number: ["u-sg"], u-Tense: ["u-pst"], u-Aspect: ["u-ipfv"] }
+              form: "ías"
+            - features: { u-Person: ["u-3"], u-Number: ["u-sg"], u-Tense: ["u-pst"], u-Aspect: ["u-ipfv"] }
+              form: "ía"
+            - features: { u-Person: ["u-1"], u-Number: ["u-pl"], u-Tense: ["u-pst"], u-Aspect: ["u-ipfv"] }
+              form: "íamos"
+            - features: { u-Person: ["u-2"], u-Number: ["u-pl"], u-Tense: ["u-pst"], u-Aspect: ["u-ipfv"] }
+              form: "íais"
+            - features: { u-Person: ["u-3"], u-Number: ["u-pl"], u-Tense: ["u-pst"], u-Aspect: ["u-ipfv"] }
+              form: "ían"

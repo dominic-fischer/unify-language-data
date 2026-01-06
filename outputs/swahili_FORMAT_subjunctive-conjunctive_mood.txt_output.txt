@@ -1,0 +1,13 @@
+Subjunctive:
+  Features:
+    u-Mood:
+    - u-sbjv
+  Rules:
+    u-Mood_u-sbjv:
+      applies:
+        "u-Mood": "u-sbjv"
+      patterns:
+        - pattern: "[SUBJ]___e"
+        - pattern: "[SUBJ]si___e"
+        - pattern: "[SUBJ]___"
+        - pattern: "[SUBJ]si___"

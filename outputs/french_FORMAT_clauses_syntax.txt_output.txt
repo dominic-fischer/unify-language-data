@@ -1,0 +1,15 @@
+Clauses:
+  Features:
+    x-Clausetype: [x-main]
+  Rules:
+    x-Clausetype_x-main:
+      applies: { x-Clausetype: x-main }
+      forms:
+        - features: { x-Clausetype: x-main }
+          form: "il y a"
+        - features: { x-Clausetype: x-main }
+          form: "il y aura"
+        - features: { x-Clausetype: x-main }
+          form: "il y avait"
+        - features: { x-Clausetype: x-main }
+          form: "il y aurait"

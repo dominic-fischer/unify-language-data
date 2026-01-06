@@ -1,0 +1,15 @@
+Clauses:
+  Features:
+    x-Clausetype: [x-main]
+    x-Word-order: [x-V2]
+
+  Rules:
+    x-Clausetype_x-main__x-Word-order_x-V2:
+      applies: {x-Clausetype: x-main, x-Word-order: x-V2}
+      pattern: "... Vfin-2 ..."
+      examples:
+        - "Davide è arrivato in ufficio."
+        - "Davide è arrivato in ufficio?"
+        - "Perché Davide è arrivato in ufficio?"
+        - "Chi è arrivato in ufficio?"
+      note: "Finite verb in second position; first slot (Vorfeld) can host subject, object, or adverbial."

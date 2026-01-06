@@ -1,0 +1,16 @@
+Imperative:
+  Features:
+    u-Person: [u-2]
+    u-Number: [u-sg]
+
+  Negation:
+    examples:
+    - "não cantes!"
+
+  Rules:
+    u-Number_u-sg__u-Person_u-2:
+      applies: {u-Number: u-sg, u-Person: u-2}
+      pattern: "_stem_ + a"
+      examples:
+      - "canta!"
+      note: "positive imperative singular for -ar verbs"

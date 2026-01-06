@@ -1,0 +1,18 @@
+DerivationalMorphology:
+  Features:
+    u-Part-of-Speech:
+    - u-n
+    x-Process: [x-prefixation, x-suffixation, x-compounding, x-conversion]
+    u-Gender:
+    - u-fem
+    - u-masc
+    u-Number:
+    - u-pl
+  Rules:
+    u-Number_u-pl__u-Part-of-Speech_u-n:
+      applies: {u-Number: u-pl, u-Part-of-Speech: u-n}
+      patterns:
+      - pattern: "_stem_ + s"
+        note: "plural for nouns ending in a vowel"
+      - pattern: "_stem_ + es"
+        note: "plural for nouns ending in n, r or z"

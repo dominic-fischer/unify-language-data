@@ -1,0 +1,27 @@
+Future:
+  Features:
+    u-Tense: ["u-fut"]
+    "u-Person":
+    - "u-1"
+    - "u-2"
+    - "u-3"
+    "u-Number":
+    - "u-pl"
+    - "u-sg"
+  Rules:
+    u-Tense_u-fut:
+      applies: {"u-Tense": ["u-fut"]}
+      pattern: "infinitive stem (remove final 'e') + future endings (-ò, -ai, -à, -emo, -ete, -anno)"
+      endings:
+      - features: {"u-Person": ["u-1"], "u-Number": ["u-sg"]}
+        form: "ò"
+      - features: {"u-Person": ["u-2"], "u-Number": ["u-sg"]}
+        form: "ai"
+      - features: {"u-Person": ["u-3"], "u-Number": ["u-sg"]}
+        form: "à"
+      - features: {"u-Person": ["u-1"], "u-Number": ["u-pl"]}
+        form: "emo"
+      - features: {"u-Person": ["u-2"], "u-Number": ["u-pl"]}
+        form: "ete"
+      - features: {"u-Person": ["u-3"], "u-Number": ["u-pl"]}
+        form: "anno"

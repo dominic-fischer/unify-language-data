@@ -1,0 +1,48 @@
+Negation:
+  Features:
+    x-Negation-type: ["x-constituent", "x-clause"]
+
+  Rules:
+    x-Negation-type_x-constituent:
+      applies: {x-Negation-type: x-constituent}
+      patterns:
+        - pattern: "Rien n'est + [ADJ/NP]"
+          examples:
+            - "Rien n'est certain."
+          note: "Subject negation with ne; dit before être in predicative clause"
+        - pattern: "Personne n'est + [V/PP]"
+          examples:
+            - "Personne n'est arrivé."
+          note: "Subject negation with ne; dit before être"
+
+    x-Negation-type_x-clause:
+      applies: {x-Negation-type: x-clause}
+      patterns:
+        - pattern: "ne + [fin verb] + pas"
+          examples:
+            - "Je ne sais pas."
+            - "Il ne fume pas."
+        - pattern: "ne + [fin verb] + jamais"
+          examples:
+            - "Il ne fume jamais."
+        - pattern: "ne + [fin verb] + plus"
+          examples:
+            - "Il ne fume plus."
+        - pattern: "ne + rien"
+          examples:
+            - "Je ne sais rien."
+            - "Elle n'a rien bu."
+        - pattern: "ne + personne"
+          examples:
+            - "Nous n'avons vu personne."
+        - pattern: "ne + avoir/être + aucun/aucune + [N]"
+          examples:
+            - "Je n'ai aucune idée."
+        - pattern: "ne + que + NP"
+          examples:
+            - "Vous ne mangez que des légumes ?"
+        - pattern: "expletive ne in subordinate clause (fear/doubt/avoidance)"
+          examples:
+            - "J'ai peur que cela ne se reproduise."
+            - "Il est arrivé avant que nous n'ayons commencé."
+            - "Ils sont plus nombreux que tu ne le crois."

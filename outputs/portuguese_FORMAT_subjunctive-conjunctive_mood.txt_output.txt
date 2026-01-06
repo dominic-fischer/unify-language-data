@@ -1,0 +1,16 @@
+Subjunctive:
+  Features:
+    u-Mood: [u-sbjv]
+    u-Tense: [u-prs, u-pst, u-fut]
+  Rules:
+    u-Mood_u-sbjv__u-Tense_u-prs:
+      applies: { u-Mood: u-sbjv, u-Tense: u-prs }
+      pattern: "_present_subjunctive_form_"
+    u-Mood_u-sbjv__u-Tense_u-pst:
+      applies: { u-Mood: u-sbjv, u-Tense: u-pst }
+      pattern: "_past_subjunctive_form_"
+    u-Mood_u-sbjv__u-Tense_u-fut:
+      applies: { u-Mood: u-sbjv, u-Tense: u-fut }
+      pattern: "_future_subjunctive_form_"
+  Notes:
+    - 'The future subjunctive is an uncommon feature among Indo-European languages. It is used in adverbial subordinate clauses, usually introduced by se ("if") or quando ("when"), or in adjectival subordinate clauses that express a neutral or expected condition for a present- or future-tense main clause.'

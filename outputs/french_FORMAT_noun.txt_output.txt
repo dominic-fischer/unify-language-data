@@ -1,0 +1,17 @@
+Noun:
+  Features:
+    u-Gender: [u-masc, u-fem]
+    u-Number: [u-sg, u-pl]
+  Rules:
+    u-Number_u-pl:
+      applies: {u-Number: u-pl}
+      pattern: "_stem_ + _ending_"
+      endings:
+      - features: {u-Number: u-sg}
+        form: ""
+      - features: {u-Number: u-pl}
+        form: "s"
+      examples:
+      - "un livre → des livres"
+  Notes:
+  - "Regular plural formation with -s; irregular plurals exist (aïeul → aïeux; ciel → cieux; œil → yeux; bœuf → bœufs; œuf → œufs; os → os)."

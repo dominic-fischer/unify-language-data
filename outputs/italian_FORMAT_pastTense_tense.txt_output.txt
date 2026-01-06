@@ -1,0 +1,24 @@
+Past:
+  Features:
+    u-Tense:
+    - u-ipfv
+    - u-pst
+  Notes:
+  - "In Italian, compound tenses expressing perfect aspect are formed with either auxiliary avere ('to have') for transitive verbs and some intransitive verbs and with essere ('to be') for the remaining intransitive verbs, plus the past participle. Progressive aspect is rendered by verb stare plus the gerund. The prospective aspect is formed with stare plus the preposition per and the infinitive. The passive voice of transitive verbs is formed with essere in the perfective and prospective aspects, with venire in the progressive or habitual aspect, and with either essere or venire in the perfective aspects: Il cancello è stato appena aperto. (\"The gate has just been opened.\") Il cancello sta per essere aperto (\"The gate is about to be opened.\") Il cancello sta venendo aperto in questo momento. (\"The gate is being opened right now.\") Il cancello viene aperto ogni giorno. (\"The gate is opened every day.\") Il cancello fu/venne aperto in fretta. (\"The gate was quickly opened.\") For
+    the perfect tenses of intransitive verbs a reliable rule cannot be given, although a useful rule of thumb is that if a verb's past participle can take on adjectival value, essere is used, otherwise avere. Also, reflexive verbs and unaccusative verbs use essere (typically non-agentive verbs of motion and change of state, i.e. involuntary actions such as cadere ('to fall') or morire ('to die'))."
+  Rules:
+    u-Tense_u-ipfv_u-pst:
+      applies: {u-Tense: [u-ipfv, u-pst]}
+      patterns:
+      - pattern: "Imperfetto: regular endings in indicative mood (e.g., -avo, -avi, -ava, -avamo, -avate, -avano)"
+        examples:
+        - "u-ipfv: Io facevo"
+        - "u-ipfv: Io lavoravo"
+      - pattern: "Passato remoto: simple past endings (e.g., -ai, -asti, -ò, -ammo, -aste, -arono)"
+        examples:
+        - "u-pst: Feci"
+        - "u-pst: Fece"
+      - pattern: "Passato prossimo: avere/essere (present finite) + participio passato"
+        examples:
+        - "Ho fatto"
+        - "È andato"

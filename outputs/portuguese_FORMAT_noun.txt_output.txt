@@ -1,0 +1,21 @@
+Noun:
+  Features:
+    u-Gender: [u-masc, u-fem]
+    u-Number: [u-sg, u-pl]
+  Rules:
+    u-Gender_u-masc__u-Number_u-pl:
+      applies: { u-Gender: u-masc, u-Number: u-pl }
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: { u-Number: u-sg }
+          form: ""
+        - features: { u-Number: u-pl }
+          form: "s"
+    u-Gender_u-fem__u-Number_u-pl:
+      applies: { u-Gender: u-fem, u-Number: u-pl }
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: { u-Number: u-sg }
+          form: ""
+        - features: { u-Number: u-pl }
+          form: "s"

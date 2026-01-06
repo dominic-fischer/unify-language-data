@@ -1,0 +1,21 @@
+Clauses:
+  Features:
+    x-Clausetype: [x-main, x-subordinate]
+    x-Word-order:
+    - x-V2
+    - x-Vfinal
+
+  Rules:
+    x-Clausetype_x-main__x-Word-order_x-V2:
+      applies: {x-Clausetype: x-main, x-Word-order: x-V2}
+      pattern: "... Vfin-2 ..."
+      examples:
+      - "Ana este o fată, și Ion este un băiat."
+      note: "Coordinated main clauses; finite verb in second position; the first slot can host subject, object, or adverbial."
+
+    x-Clausetype_x-subordinate__x-Word-order_x-Vfinal:
+      applies: {x-Clausetype: x-subordinate, x-Word-order: x-Vfinal}
+      pattern: "... Vfin-final"
+      examples:
+      - "V-am spus despre băiatul care este la mine în clasă, și care este foarte bun la matematică."
+      note: "Subordinate clauses; finite verb placed at the end."

@@ -1,0 +1,106 @@
+Imperative:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Number: [u-sg, u-pl]
+    u-Mood: [u-imp]
+  Rules:
+    u-Number_u-sg__u-Person_u-2:
+      applies:
+        u-Number: u-sg
+        u-Person: u-2
+      forms:
+        - features:
+            u-Mood: [u-imp]
+            u-Number: [u-sg]
+            u-Person: [u-2]
+          form: "parla"
+        - features:
+            u-Mood: [u-imp]
+            u-Number: [u-sg]
+            u-Person: [u-2]
+          form: "temi"
+        - features:
+            u-Mood: [u-imp]
+            u-Number: [u-sg]
+            u-Person: [u-2]
+          form: "parti"
+    u-Number_u-sg__u-Person_u-3:
+      applies:
+        u-Number: u-sg
+        u-Person: u-3
+      forms:
+        - features:
+            u-Mood: [u-imp]
+            u-Number: [u-sg]
+            u-Person: [u-3]
+          form: "parli"
+        - features:
+            u-Mood: [u-imp]
+            u-Number: [u-sg]
+            u-Person: [u-3]
+          form: "temi"
+        - features:
+            u-Mood: [u-imp]
+            u-Number: [u-sg]
+            u-Person: [u-3]
+          form: "parta"
+    u-Number_u-pl__u-Person_u-1:
+      applies:
+        u-Number: u-pl
+        u-Person: u-1
+      forms:
+        - features:
+            u-Mood: [u-imp]
+            u-Number: [u-pl]
+            u-Person: [u-1]
+          form: "parliamo"
+        - features:
+            u-Mood: [u-imp]
+            u-Number: [u-pl]
+            u-Person: [u-1]
+          form: "temiamo"
+        - features:
+            u-Mood: [u-imp]
+            u-Number: [u-pl]
+            u-Person: [u-1]
+          form: "partiamo"
+    u-Number_u-pl__u-Person_u-2:
+      applies:
+        u-Number: u-pl
+        u-Person: u-2
+      forms:
+        - features:
+            u-Mood: [u-imp]
+            u-Number: [u-pl]
+            u-Person: [u-2]
+          form: "parlate"
+        - features:
+            u-Mood: [u-imp]
+            u-Number: [u-pl]
+            u-Person: [u-2]
+          form: "temete"
+        - features:
+            u-Mood: [u-imp]
+            u-Number: [u-pl]
+            u-Person: [u-2]
+          form: "partite"
+    u-Number_u-pl__u-Person_u-3:
+      applies:
+        u-Number: u-pl
+        u-Person: u-3
+      forms:
+        - features:
+            u-Mood: [u-imp]
+            u-Number: [u-pl]
+            u-Person: [u-3]
+          form: "parlino"
+        - features:
+            u-Mood: [u-imp]
+            u-Number: [u-pl]
+            u-Person: [u-3]
+          form: "temano"
+        - features:
+            u-Mood: [u-imp]
+            u-Number: [u-pl]
+            u-Person: [u-3]
+          form: "partano"

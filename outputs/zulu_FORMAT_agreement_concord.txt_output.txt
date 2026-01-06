@@ -1,0 +1,25 @@
+Agreement:
+  Features:
+    u-Person:
+      - u-0
+      - u-1
+      - u-2
+      - u-3
+    u-Number:
+      - u-sg
+      - u-pl
+  Rules:
+    Subject_concord:
+      applies: { "u-Person": "subj1" }
+      pattern: "Verbal stem prefixed by a subject concord that marks the subject class; prefixes attach to the verb stem (e.g., ngi-, u-, si-, ni-, …) to indicate person and number."
+      examples:
+        - "Ngiyambona."
+        - "Sihamba manje."
+      note: "Subject concords are used on the verb to encode subject information in most tenses; the object concord remains optional."
+    Object_concord:
+      applies: { "u-Valency": "transitive" }
+      pattern: "Object concord prefixes may attach after the subject concord and before the verb stem, matching the object noun class and optionally marking definiteness."
+      examples:
+        - "Ngimnika isipho."
+        - "Siyabona lo muntu."
+      note: "Object concord is optional even when an explicit object follows the verb."

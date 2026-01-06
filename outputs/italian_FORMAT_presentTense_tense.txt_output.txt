@@ -1,0 +1,11 @@
+Present:
+  Features:
+    u-Mood: [u-ind]
+    u-Tense: [u-prs]
+  Rules:
+    u-Mood_u-ind__u-Tense_u-prs:
+      applies: { u-Mood: u-ind, u-Tense: u-prs }
+      pattern: "_stem_ + _ending_"
+      examples:
+        - "faccio"
+      note: "Present indicative (indicativo presente) in Italian. Uses a simple stem + ending pattern; example: 'faccio'."

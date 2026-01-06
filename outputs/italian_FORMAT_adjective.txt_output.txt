@@ -1,0 +1,48 @@
+Adjective:
+  Features:
+    u-Gender:
+    - u-masc
+    - u-fem
+    u-Number:
+    - u-sg
+    - u-pl
+    u-Comparison:
+    - u-cmpr
+    - u-sprl
+    - u-ab
+  Rules:
+    u-Comparison_u-cmpr:
+      applies: {u-Comparison: u-cmpr}
+      pattern: "più _stem_"
+      examples:
+      - "alto → più alto"
+      - "grande → più grande"
+    u-Comparison_u-sprl:
+      applies: {u-Comparison: u-sprl}
+      pattern: "il più _stem_"
+      endings:
+      - {features: {u-Gender: u-masc, u-Number: u-sg}, form: "o"}
+      - {features: {u-Gender: u-masc, u-Number: u-pl}, form: "i"}
+      - {features: {u-Gender: u-fem, u-Number: u-sg}, form: "a"}
+      - {features: {u-Gender: u-fem, u-Number: u-pl}, form: "e"}
+      examples:
+      - "alto → il più alto"
+      - "alta → la più alta"
+    u-Comparison_u-ab:
+      applies: {u-Comparison: u-ab}
+      pattern: "molto _stem_"
+      examples:
+      - "sporco → molto sporco"
+      - "buono → molto buono"
+      note: "Absolute/superlative formed with molto or issimo"
+    u-Gender_u-masc__u-Number_u-sg:
+      applies: {u-Gender: u-masc, u-Number: u-sg}
+      pattern: "_stem_ + _ending_"
+      endings:
+      - {features: {u-Gender: u-masc, u-Number: u-sg}, form: "o"}
+      - {features: {u-Gender: u-masc, u-Number: u-pl}, form: "i"}
+      - {features: {u-Gender: u-fem, u-Number: u-sg}, form: "a"}
+      - {features: {u-Gender: u-fem, u-Number: u-pl}, form: "e"}
+      note: "Adjectives inflect for gender and number with endings -o/-i/-a/-e"
+  Notes:
+  - "Adjectives are inflected for gender and number; placement before or after the noun is flexible; typically after the noun unless described by common classes (beauty, age, goodness, size)."

@@ -1,0 +1,17 @@
+Adverbs:
+  Features:
+    x-Process:
+    - x-adj-as-adv
+  Rules:
+    x-Process_x-adj-as-adv:
+      applies: {x-Process: x-adj-as-adv}
+      patterns:
+      - pattern: "adjective stem reused as adverb (uninflected)"
+        examples:
+        - "frumos → frumos"
+        - "rapid → rapid"
+        note: "regular adverb formation; bun → bine is irregular"
+      - forms:
+        - features: {}
+          form: "bine"
+          note: "irregular adverb form of bun"

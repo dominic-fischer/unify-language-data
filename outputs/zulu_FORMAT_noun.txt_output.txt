@@ -1,0 +1,11 @@
+Noun:
+  Features:
+    u-Number: ["u-sg", "u-pl"]
+  Rules:
+    Noun_u-Number_u-sg:
+      applies: { u-Number: "u-sg" }
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features:
+            u-Number: "u-pl"
+          form: ""

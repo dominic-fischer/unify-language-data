@@ -1,0 +1,60 @@
+Features:
+  u-Tense: [u-pst]
+  u-Aktionsart: [u-pct]
+  u-Aspect: [u-ipfv, u-pfv]
+  u-Person: [u-1, u-2, u-3]
+  u-Number: [u-sg, u-pl]
+
+Rules:
+  u-Tense_u-pst__u-Aktionsart_u-pct:
+    applies: { u-Tense: u-pst, u-Aktionsart: u-pct }
+    endings:
+      - features: { u-Person: u-1, u-Number: u-sg }
+        form: "é"
+      - features: { u-Person: u-2, u-Number: u-sg }
+        form: "aste"
+      - features: { u-Person: u-3, u-Number: u-sg }
+        form: "ó"
+      - features: { u-Person: u-1, u-Number: u-pl }
+        form: "amos"
+      - features: { u-Person: u-2, u-Number: u-pl }
+        form: "asteis"
+      - features: { u-Person: u-3, u-Number: u-pl }
+        form: "aron"
+    Notes:
+      - "Endings for regular -ar preterite."
+
+  u-Tense_u-pst__u-Aspect_u-ipfv:
+    applies: { u-Tense: u-pst, u-Aspect: u-ipfv }
+    endings:
+      - features: { u-Person: u-1, u-Number: u-sg }
+        form: "aba"
+      - features: { u-Person: u-2, u-Number: u-sg }
+        form: "abas"
+      - features: { u-Person: u-3, u-Number: u-sg }
+        form: "aba"
+      - features: { u-Person: u-1, u-Number: u-pl }
+        form: "ábamos"
+      - features: { u-Person: u-2, u-Number: u-pl }
+        form: "abais"
+      - features: { u-Person: u-3, u-Number: u-pl }
+        form: "aban"
+      - features: { u-Person: u-1, u-Number: u-sg }
+        form: "ía"
+      - features: { u-Person: u-2, u-Number: u-sg }
+        form: "ías"
+      - features: { u-Person: u-3, u-Number: u-sg }
+        form: "ía"
+      - features: { u-Person: u-1, u-Number: u-pl }
+        form: "íamos"
+      - features: { u-Person: u-2, u-Number: u-pl }
+        form: "íais"
+      - features: { u-Person: u-3, u-Number: u-pl }
+        form: "ían"
+    Notes:
+      - "Imperfect endings; 1st and 3rd person singular share the same form; -er/-ir share endings."
+    # Examples from source data
+    Notes:
+      - "Yo era cómico en el pasado."
+      - "Usted comía mucho."
+      - "Ellos escuchaban la radio."
