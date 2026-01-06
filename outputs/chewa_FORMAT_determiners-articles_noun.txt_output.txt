@@ -1,0 +1,27 @@
+Determiner:
+  Features:
+    u-Definiteness:
+    - u-def
+    u-Animacy: [u-anim]
+    u-Number:
+    - u-pl
+
+  Rules:
+    u-Definiteness_u-def:
+      applies: {u-Definiteness: u-def}
+      forms:
+      - features: {u-Animacy: u-anim, u-Number: u-sg}
+        form: "munthu uyu"
+      - features: {u-Animacy: u-anim, u-Number: u-sg}
+        form: "munthu uyo"
+      - features: {u-Animacy: u-anim, u-Number: u-sg}
+        form: "munthu uno"
+      - features: {u-Animacy: u-anim, u-Number: u-sg}
+        form: "munthu uja"
+    u-Number_u-pl:
+      applies: {u-Number: u-pl}
+      forms:
+      - features: {u-Animacy: u-anim, u-Number: u-pl}
+        form: "anthu awa"
+      - features: {u-Animacy: u-anim, u-Number: u-pl}
+        form: "anthu awo"

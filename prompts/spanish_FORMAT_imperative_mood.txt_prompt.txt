@@ -2,12 +2,7 @@ SYSTEM PROMPT:
 You are an expert in the spanish language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
 
 USER PROMPT:
-You are a linguist tasked with normalizing grammatical descriptions for the language spanish.
-
-The data you receive comes from multiple sources and relates to the following topics:
-imperative, mood.
-
-Your goal is to transform the data into a structure that satisfies the constraints specified in the validation schema provided.
+You are a linguist that specialises in distilling linguistic information. Your goal is to transform the data into a structure that satisfies the constraints specified in the validation schema provided.
 
 VALIDATION SCHEMA (structure and headings must be followed exactly):
 {
@@ -155,7 +150,7 @@ VALIDATION SCHEMA (structure and headings must be followed exactly):
 The schema consists of RULES, each applying to a specific grammatical FEATURE and its ATTRIBUTE.
 Each Rule must contain:
 - A name: built by joining feature-attribute pairs with an underscore, and a double underscore between different pairs.
-- the 'applies' field: specifies to which feature-attribute pair the rule applies.
+- the 'applies' field: specifies to which feature-attribute pair the rule applies. Note that no two rules should have the same 'applies' field. In that case, the two rules should be combined to form one with a 'patterns' field.
 - either a field 'pattern' or 'patterns' or 'forms':
    - a 'pattern' is a string-like template
    - 'patterns' is a list of sub-patterns, that each contain either 'pattern' or 'forms', and may include 'examples', 'notes' or 'endings.
@@ -169,18 +164,19 @@ INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
 - Rephrase content where necessary, but do NOT add new facts.
 - Merge overlapping information into a single coherent description.
-- Ignore any information that is not relevant to the topic(s): imperative, mood.
 - Preserve the hierarchy and ordering of the reference schema.
+- Ignore any information that is not relevant to the topic at hand.
 
 FEATURES AND THEIR VALUES:
-- Feature names and values are prefixed with either u-, x- or es-.
+- Feature names and values are prefixed with either u-, x- or the language's abbreviation as a prefix.
+- Use the language prefix ONLY for language-specific features and values.
 - Use the prefix "u-" for UniMorph features and values.
 - Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
-- Use the language prefix "es-" ONLY for language-specific features and values.
 - When multiple representations are possible, prefer:
   1) UniMorph ("u-") features,
   2) then custom ("x-") features,
-  3) and only then language-specific ("spanish-") features.
+  3) and only then language-specific features.
+
 - Do NOT invent new features if an appropriate UniMorph feature exists.
 
 Below are the features for reference:
@@ -496,6 +492,22 @@ CUSTOM FEATURES AND VALUES:
   ]
 }
 
+OUTPUT FORMAT CONSTRAINTS:
+- Output ONLY the synthesized schema.
+- The output must be in a human-readable, YAML-like text format (as in the example).
+- The output is NOT JSON.
+- The structure, keys, nesting, and values must correspond exactly to the provided validation schema.
+- The output must be directly convertible to valid JSON without adding, removing, or reinterpreting information.
+- Do NOT include empty objects or sections unless they are required by the schema.
+- Do NOT include explanations, comments, or metadata.
+- Do not take content from the example; it only illustrates the format.
+
+
+You are a now tasked with normalizing grammatical descriptions for the language spanish according to the guidelines outlined above.
+
+The data you receive comes from multiple sources and relates to the following topics:
+imperative, mood.
+
 SOURCE DATA:
 Source 1:
 In Spain, colloquially, the infinitive is used instead of the normative imperative for vosotros. This is not accepted in the normative language.
@@ -509,6 +521,7 @@ In Spain, colloquially, the infinitive is used instead of the normative imperati
 
 
 EXAMPLE OUTPUT (for German):
+Use this ONLY as an illustration of the format, do NOT copy any content from it.
 Imperative:
   Features:
     u-Person: [u-1, u-2, u-3]
@@ -551,15 +564,5 @@ Imperative:
       - "gehen Sie!"
       note: "polite form, direct imperative singular"
 
-
-OUTPUT FORMAT CONSTRAINTS:
-- Output ONLY the synthesized schema.
-- The output must be in a human-readable, YAML-like text format (as in the example).
-- The output is NOT JSON.
-- The structure, keys, nesting, and values must correspond exactly to the provided validation schema.
-- The output must be directly convertible to valid JSON without adding, removing, or reinterpreting information.
-- Do NOT include empty objects or sections unless they are required by the schema.
-- Do NOT include explanations, comments, or metadata.
-- Do not take content from the example; it only illustrates the format.
 
 

@@ -1,0 +1,22 @@
+Negation:
+  Features:
+    x-Negation-type: [x-clause, x-constituent]
+
+  Rules:
+    x-Negation-type_x-constituent:
+      applies: {x-Negation-type: x-constituent}
+      patterns:
+        - pattern: "Si- prefix negates a constituent; -i is dropped before vowel-initial following syllable"
+          examples:
+            - "Si-ndi-ku-funa."
+            - "S-a-ku-funa."
+          note: "Elision of -i from the Si- prefix when the following syllable begins with a vowel."
+
+    x-Negation-type_x-clause:
+      applies: {x-Negation-type: x-clause}
+      patterns:
+        - pattern: "Clause negation with Si- prefix; if the following syllable starts with a vowel, the -i is dropped (Si- -> S-)"
+          examples:
+            - "Si-ndi-ku-funa."
+            - "S-a-ku-funa."
+          note: "Negates the entire clause; elision of -i before a vowel in the following syllable."

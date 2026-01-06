@@ -1,0 +1,19 @@
+Agreement:
+  Features:
+  - x-Domain:
+    - x-subject-verb
+    - x-besitzsilbe
+  Rules:
+    x-Domain_x-subject-verb:
+      applies: { x-Domain: x-subject-verb }
+      pattern: "subject concord prefix on the verb marks subject person and number; the prefix precedes the verb stem"
+      examples:
+      - "Va-nhu va-no-enda mu-sango."
+      note: "Kennsilbe (subject concord) attaches to the verb; the verb agrees with the subject"
+    x-Domain_x-besitzsilbe:
+      applies: { x-Domain: x-besitzsilbe }
+      pattern: "possessive suffix on a noun indicates possessor; base form ends with -a; with nouns it typically ends with -e"
+      examples:
+      - "mwana we-vabereki"
+      - "mwana we-ungwaru"
+      note: "Besitzsilbe expresses possession; genitive relationship in noun phrases"

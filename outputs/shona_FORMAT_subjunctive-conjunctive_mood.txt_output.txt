@@ -1,0 +1,14 @@
+Subjunctive:
+  Features:
+    u-Mood:
+      - u-sbjv
+
+  Rules:
+    u-Mood_u-sbjv:
+      applies: { u-Mood: u-sbjv }
+      patterns:
+        - pattern: "kuti _clause_"
+          examples:
+            - "Wir möchten, dass Du zu uns kommst."
+            - "Tinoda kuti muuye kunzvimbo yedu."
+          note: "Nach 'kuti' im Sinne von sodass/damit"

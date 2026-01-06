@@ -1,0 +1,13 @@
+Adjective:
+  Features:
+    x-Process:
+    - x-base-form
+  Rules:
+    x-Process_x-base-form:
+      applies:
+        x-Process: x-base-form
+      forms:
+        - features:
+            x-Process: x-base-form
+          form: "m-_stem_"
+          note: "Inflecting adjectives use concord prefixes; class 1 uses the prefix m-; other classes use corresponding prefixes."

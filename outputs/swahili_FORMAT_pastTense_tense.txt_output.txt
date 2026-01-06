@@ -1,0 +1,34 @@
+Past:
+  Features:
+    u-Tense:
+      - u-pst
+  Rules:
+    u-Tense_u-pst:
+      applies:
+        u-Tense:
+          - u-pst
+      forms:
+        - features:
+            u-Tense:
+              - u-pst
+          form: "[SUBJ]li___a"
+        - features:
+            u-Tense:
+              - u-pst
+          form: "[SUBJ]liku___a"
+        - features:
+            u-Tense:
+              - u-pst
+          form: "[SUBJ]li___"
+        - features:
+            u-Tense:
+              - u-pst
+          form: "[NEG.SUBJ]ku___a"
+        - features:
+            u-Tense:
+              - u-pst
+          form: "[NEG.SUBJ]ku[OBJ]___a"
+        - features:
+            u-Tense:
+              - u-pst
+          form: "[NEG.SUBJ]ku___"

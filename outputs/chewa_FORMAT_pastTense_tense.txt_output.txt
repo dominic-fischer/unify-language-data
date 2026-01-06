@@ -1,0 +1,36 @@
+Past:
+  Features:
+    u-Tense:
+    - "u-pst"
+    u-Aspect:
+    - "u-hab"
+    - "u-ipfv"
+    - "u-prog"
+  Rules:
+    u-Aspect_u-prog__u-Tense_u-pst:
+      applies: {u-Tense: ["u-pst"], u-Aspect: ["u-prog"]}
+      forms:
+      - features:
+          u-Tense: ["u-pst"]
+          u-Aspect: ["u-prog"]
+          u-Person: ["u-1"]
+          u-Number: ["u-sg"]
+        form: "Ndi- ná- thandíza"
+    u-Aspect_u-ipfv__u-Tense_u-pst:
+      applies: {u-Tense: ["u-pst"], u-Aspect: ["u-ipfv"]}
+      forms:
+      - features:
+          u-Tense: ["u-pst"]
+          u-Aspect: ["u-ipfv"]
+          u-Person: ["u-1"]
+          u-Number: ["u-sg"]
+        form: "Sí-ndí- na- thandíz- e"
+    u-Aspect_u-hab__u-Tense_u-pst:
+      applies: {u-Tense: ["u-pst"], u-Aspect: ["u-hab"]}
+      forms:
+      - features:
+          u-Tense: ["u-pst"]
+          u-Aspect: ["u-hab"]
+          u-Person: ["u-1"]
+          u-Number: ["u-sg"]
+        form: "Ndi-ma-thándiza"

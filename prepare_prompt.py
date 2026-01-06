@@ -7,7 +7,8 @@ import json
 from pathlib import Path
 
 grammar_schema_text = Path("testing_validation/ref_schemas/grammar_schema.json").read_text(encoding="utf-8")
-unimorph_schema_text = Path("testing_validation/ref_schemas/unimorph_schema.json").read_text(encoding="utf-8")
+unimorph_schema_text = Path("testing_validation/ref_schemas/unimorph_schema.json").read_text(encoding="utf-8")     
+custom_schema_text = Path("testing_validation/ref_schemas/custom_schema.json").read_text(encoding="utf-8")
 
 langs = ["chewa", "shona", "swahili", "zulu", "french", "italian", "portuguese", "romanian", "spanish"]
 langs_w_abbrevs = {
@@ -78,16 +79,10 @@ for lang, mapping_file_paths in langs_w_files.items():
             if match_prompt == "":
                 # write an empty file to outputs
                 continue
-            
-            custom_schema_text = Path("testing_validation/ref_schemas/custom_schema.json").read_text(encoding="utf-8")
 
-            prompt = (
-                f"You are a linguist tasked with normalizing grammatical descriptions for the language {lang}.\n\n"
-
-                f"The data you receive comes from multiple sources and relates to the following topics:\n"
-                f"{', '.join(topic_terms)}.\n\n"
-
-                "Your goal is to transform the data into a structure that satisfies the constraints specified in the validation schema provided.\n\n"
+            # 1) Stable prefix: keep this EXACTLY identical across requests for caching benefits
+            prompt_prefix = (
+                "You are a linguist that specialises in distilling linguistic information. Your goal is to transform the data into a structure that satisfies the constraints specified in the validation schema provided.\n\n"
 
                 "VALIDATION SCHEMA (structure and headings must be followed exactly):\n"
                 f"{grammar_schema_text}\n\n"
@@ -96,8 +91,8 @@ for lang, mapping_file_paths in langs_w_files.items():
 
                 "Each Rule must contain:\n"
                 "- A name: built by joining feature-attribute pairs with an underscore, and a double underscore between different pairs.\n"
-                "- the 'applies' field: specifies to which feature-attribute pair the rule applies.\n"
-                "- either a field 'pattern' or 'patterns' or 'forms':\n" 
+                "- the 'applies' field: specifies to which feature-attribute pair the rule applies. Note that no two rules should have the same 'applies' field. In that case, the two rules should be combined to form one with a 'patterns' field.\n"
+                "- either a field 'pattern' or 'patterns' or 'forms':\n"
                 "   - a 'pattern' is a string-like template\n"
                 "   - 'patterns' is a list of sub-patterns, that each contain either 'pattern' or 'forms', and may include 'examples', 'notes' or 'endings.\n"
                 "   - 'forms' is a list of specific word forms. It must contain 'features' and either 'form' or 'pattern'. It may also include a 'note' field.\n"
@@ -111,18 +106,18 @@ for lang, mapping_file_paths in langs_w_files.items():
                 "- Use ONLY the information present in the provided data.\n"
                 "- Rephrase content where necessary, but do NOT add new facts.\n"
                 "- Merge overlapping information into a single coherent description.\n"
-                f"- Ignore any information that is not relevant to the topic(s): {', '.join(topic_terms)}.\n"
-                "- Preserve the hierarchy and ordering of the reference schema.\n\n"
+                "- Preserve the hierarchy and ordering of the reference schema.\n"
+                "- Ignore any information that is not relevant to the topic at hand.\n\n"
 
                 "FEATURES AND THEIR VALUES:\n"
-                f"- Feature names and values are prefixed with either u-, x- or {langs_w_abbrevs[lang]}-.\n"
+                f"- Feature names and values are prefixed with either u-, x- or the language's abbreviation as a prefix.\n"
+                f"- Use the language prefix ONLY for language-specific features and values.\n"
                 "- Use the prefix \"u-\" for UniMorph features and values.\n"
                 "- Use the prefix \"x-\" for custom (non-UniMorph, cross-linguistic) features and values.\n"
-                f"- Use the language prefix \"{langs_w_abbrevs[lang]}-\" ONLY for language-specific features and values.\n"
                 "- When multiple representations are possible, prefer:\n"
                 "  1) UniMorph (\"u-\") features,\n"
                 "  2) then custom (\"x-\") features,\n"
-                f"  3) and only then language-specific (\"{lang}-\") features.\n"
+                f"  3) and only then language-specific features.\n\n"
                 "- Do NOT invent new features if an appropriate UniMorph feature exists.\n\n"
 
                 "Below are the features for reference:\n"
@@ -130,12 +125,6 @@ for lang, mapping_file_paths in langs_w_files.items():
                 f"{unimorph_schema_text}\n\n"
                 "CUSTOM FEATURES AND VALUES:\n"
                 f"{custom_schema_text}\n\n"
-
-                "SOURCE DATA:\n"
-                f"{match_prompt}\n\n"
-
-                "EXAMPLE OUTPUT (for German):\n"
-                f"{reference_content}\n\n"
 
                 "OUTPUT FORMAT CONSTRAINTS:\n"
                 "- Output ONLY the synthesized schema.\n"
@@ -145,8 +134,26 @@ for lang, mapping_file_paths in langs_w_files.items():
                 "- The output must be directly convertible to valid JSON without adding, removing, or reinterpreting information.\n"
                 "- Do NOT include empty objects or sections unless they are required by the schema.\n"
                 "- Do NOT include explanations, comments, or metadata.\n"
-                "- Do not take content from the example; it only illustrates the format.\n\n"
+                "- Do not take content from the example; it only illustrates the format.\n\n\n"
             )
+
+            # 2) Per-file suffix: this is the part that changes per input file / run
+            prompt_suffix = (
+                f"You are a now tasked with normalizing grammatical descriptions for the language {lang} according to the guidelines outlined above.\n\n"
+
+                f"The data you receive comes from multiple sources and relates to the following topics:\n"
+                f"{', '.join(topic_terms)}.\n\n"
+
+                "SOURCE DATA:\n"
+                f"{match_prompt}\n\n"
+
+                "EXAMPLE OUTPUT (for German):\n"
+                "Use this ONLY as an illustration of the format, do NOT copy any content from it.\n"
+                f"{reference_content}\n\n"
+            )
+
+            prompt = prompt_prefix + prompt_suffix
+
 
 
             # save sys_prompt and prompt to a file for later use

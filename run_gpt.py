@@ -62,15 +62,7 @@ for lang in langs:
         print(f"\tOutput saved to {save_dir}/{save_filename}")
         output_filepath = os.path.join(save_dir, save_filename)
 
-        with log_path.open("a", encoding="utf-8") as log:
-            for cmd in [
-                [sys.executable, "testing_validation/_validate_grammar.py", output_filepath],
-                [sys.executable, "testing_validation/_validate_grammar_extended.py", output_filepath, "--fix"],
-                [sys.executable, "testing_validation/_validate_features.py", output_filepath],
-            ]:
-                subprocess.run(
-                    cmd,
-                    stdout=log,        # or subprocess.DEVNULL if you only want errors
-                    stderr=log,
-                    check=False,
-                )
+# run the validation scripts
+subprocess.run([sys.executable, "testing_validation/_validate_grammar.py", save_dir])
+subprocess.run([sys.executable, "testing_validation/_validate_grammar_extended.py", save_dir, "--fix"])
+subprocess.run([sys.executable, "testing_validation/_validate_features.py", save_dir])

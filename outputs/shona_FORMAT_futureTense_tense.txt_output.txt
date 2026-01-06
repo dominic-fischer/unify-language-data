@@ -1,0 +1,26 @@
+Future:
+  Features:
+    u-Tense: [u-fut]
+
+  Negation:
+    applies: { x-Negation-type: [ x-clause ] }
+    note: "Regular negation."
+    examples:
+      - "Ndichange ndisiri mudzidzisi."
+
+  Rules:
+    u-Tense_u-fut:
+      applies: { u-Tense: [u-fut] }
+      forms:
+        - features:
+            u-Tense: [u-fut]
+            u-Person: [u-1]
+          form: "Ndichange ndiri mudzidzisi."
+        - features:
+            u-Tense: [u-fut]
+            u-Person: [u-1]
+          form: "Ndichave mudzidzisi."
+        - features:
+            u-Tense: [u-fut]
+            u-Person: [u-1]
+          form: "Ndichange ndisiri mudzidzisi."

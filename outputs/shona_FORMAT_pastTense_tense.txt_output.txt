@@ -1,0 +1,14 @@
+Past:
+  Features:
+    u-Tense:
+      - u-pst
+  Rules:
+    u-Tense_u-pst:
+      applies: {u-Tense: [u-pst]}
+      forms:
+        - features: {}
+          form: "Ndakanga ndiri mudzidzisi."
+        - features: {}
+          form: "Ndaive mudzidzisi."
+        - features: {}
+          form: "Ndakanga ndisiri mudzidzisi."

@@ -1,0 +1,22 @@
+Negation:
+  Features:
+    x-Negation-type: [x-clause, x-constituent]
+
+  Rules:
+    x-Negation-type_x-constituent:
+      applies: {x-Negation-type: x-constituent}
+      patterns:
+        - pattern: "Usinipe mkate!"
+          examples:
+            - "Usinipe mkate!"
+          note: "imperative negation with object"
+
+        - pattern: "Si mzuri"
+          examples:
+            - "Si mzuri"
+          note: "negation of nominal adjective"
+
+        - pattern: "Anakimbia bila kasi"
+          examples:
+            - "Anakimbia bila kasi"
+          note: "negation of adverbial phrase"

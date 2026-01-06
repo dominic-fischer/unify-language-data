@@ -1,0 +1,12 @@
+Features:
+  u-Tense: [u-prs]
+  u-Definiteness: [u-def, u-indf]
+  u-Person: [u-1, u-2, u-3]
+  u-Number: [u-sg, u-pl]
+Rules:
+  u-Tense_u-prs__u-Definiteness_u-def:
+    applies: { "u-Tense": "u-prs", "u-Definiteness": "u-def" }
+    pattern: "[SUBJ]na___a"
+  u-Tense_u-prs__u-Definiteness_u-indf:
+    applies: { "u-Tense": "u-prs", "u-Definiteness": "u-indf" }
+    pattern: "[SUBJ[a]]a___a"

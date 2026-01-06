@@ -1,0 +1,27 @@
+U-PERSON_u-1:
+  Features:
+    u-Person:
+    - u-1
+    u-Number:
+    - u-sg
+  Rules:
+    U-PERSON_u-1:
+      applies: { u-Person: u-1 }
+      pattern: "finite verb with 1st person singular subject prefix ni- before the verb stem (e.g., Ninaenda)."
+      examples:
+      - "Ninaenda."
+      note: "1st person singular concord ni-"
+
+U-PERSON_u-2:
+  Features:
+    u-Person:
+    - u-2
+    u-Number:
+    - u-sg
+  Rules:
+    U-PERSON_u-2:
+      applies: { u-Person: u-2 }
+      pattern: "finite verb with 2nd person singular subject prefix u- before the verb stem (e.g., Unaenda)."
+      examples:
+      - "Unaenda."
+      note: "2nd person singular concord u-"

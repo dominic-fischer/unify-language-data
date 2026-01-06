@@ -1,0 +1,11 @@
+Future:
+  Features:
+    u-Tense: ["u-fut"]
+    u-Person: ["u-1"]
+  Rules:
+    u-Tense_u-fut:
+      applies: { u-Tense: ["u-fut"] }
+      pattern: "subject-prefix + (ká|dzá) + verb-stem"
+      examples:
+        - "Ndi-ka-dzá-fika"
+        - "Ndi-ká-gula"

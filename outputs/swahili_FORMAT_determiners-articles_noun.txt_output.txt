@@ -1,0 +1,12 @@
+Determiner:
+  Features: {}
+  Rules:
+    R1_Demonstrative_forms:
+      applies: {}
+      forms:
+        - features: {}
+          form: "huyu"
+        - features: {}
+          form: "yule"
+        - features: {}
+          form: "huyo"

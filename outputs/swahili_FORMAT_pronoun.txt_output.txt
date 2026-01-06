@@ -1,0 +1,32 @@
+Pronoun:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Number: [u-sg, u-pl]
+    x-Pronoun-type: [x-pers, x-refl, x-dem, x-poss, x-int, x-rel]
+    x-Form-type: [x-standalone, x-clitic]
+  Rules:
+    x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers}
+      forms:
+        - { features: { "u-Person": "u-1", "u-Number": "u-sg" }, form: "mimi" }
+        - { features: { "u-Person": "u-2", "u-Number": "u-sg" }, form: "wewe" }
+        - { features: { "u-Person": "u-3", "u-Number": "u-sg" }, form: "yeye" }
+        - { features: { "u-Person": "u-1", "u-Number": "u-pl" }, form: "sisi" }
+        - { features: { "u-Person": "u-2", "u-Number": "u-pl" }, form: "ninyi" }
+        - { features: { "u-Person": "u-3", "u-Number": "u-pl" }, form: "wao" }
+    x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss}
+      forms:
+        - { features: { "u-Person": "u-1", "u-Number": "u-sg" }, form: "angu" }
+        - { features: { "u-Person": "u-2", "u-Number": "u-sg" }, form: "ako" }
+        - { features: { "u-Person": "u-3", "u-Number": "u-sg" }, form: "ake" }
+        - { features: { "u-Person": "u-1", "u-Number": "u-pl" }, form: "etu" }
+        - { features: { "u-Person": "u-2", "u-Number": "u-pl" }, form: "enu" }
+        - { features: { "u-Person": "u-3", "u-Number": "u-pl" }, form: "ao" }
+    x-Pronoun-type_x-dem:
+      applies: {x-Pronoun-type: x-dem}
+      forms:
+        - { features: { "u-Number": "u-sg", "u-Deixis": "u-prox" }, form: "huyu" }
+        - { features: { "u-Number": "u-sg", "u-Deixis": "u-remt" }, form: "yule" }
+        - { features: { "u-Number": "u-pl", "u-Deixis": "u-prox" }, form: "hawa" }
+        - { features: { "u-Number": "u-pl", "u-Deixis": "u-remt" }, form: "wale" }

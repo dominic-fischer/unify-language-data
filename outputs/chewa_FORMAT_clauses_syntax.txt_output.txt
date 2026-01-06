@@ -1,0 +1,26 @@
+Clauses:
+  Features:
+    x-Clausetype: [x-subordinate]
+    u-Tense: [u-prs, u-pst, u-fut]
+
+  Rules:
+    u-Tense_u-prs__x-Clausetype_x-subordinate:
+      applies: {x-Clausetype: x-subordinate, u-Tense: u-prs}
+      pattern: "... tonal change marks dependent present ..."
+      examples:
+      - "á-kú-gúla"
+      note: "Dependent clause marked by tone on the first syllable; present tense example."
+
+    u-Tense_u-pst__x-Clausetype_x-subordinate:
+      applies: {x-Clausetype: x-subordinate, u-Tense: u-pst}
+      pattern: "... tonal change marks dependent past ..."
+      examples:
+      - "ndí-tá-gúla"
+      note: "Past dependent clause; example provided."
+
+    u-Tense_u-fut__x-Clausetype_x-subordinate:
+      applies: {x-Clausetype: x-subordinate, u-Tense: u-fut}
+      pattern: "... tonal change marks dependent future ..."
+      examples:
+      - "ndi-ka-dzá-gula"
+      note: "Future dependent clause; example provided."

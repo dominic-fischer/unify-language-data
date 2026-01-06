@@ -1,0 +1,31 @@
+Conditionals:
+  Features:
+    u-Tense: [u-pst, u-prs]
+    u-Mood: [u-cond]
+    x-Clausetype: [x-protasis, x-apodosis]
+  Negation:
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
+    examples:
+    - "Dai ndi-sina kuva no-mwana, ndi-nga-dai ndi-sina kufara."
+  Rules:
+    u-Tense_u-pst__x-Clausetype_x-protasis:
+      applies: {u-Tense: u-pst, x-Clausetype: x-protasis}
+      forms:
+      - features: {}
+        form: "Dai nda-ka-zvara mwana, ndi-nga-dai nda-ka-fara."
+    u-Tense_u-pst__x-Clausetype_x-apodosis:
+      applies: {u-Tense: u-pst, x-Clausetype: x-apodosis}
+      forms:
+      - features: {}
+        form: "Dai nda-ka-zvara mwana, ndi-nga-dai nda-ka-fara."
+    u-Tense_u-prs__x-Clausetype_x-protasis:
+      applies: {u-Tense: u-prs, x-Clausetype: x-protasis}
+      forms:
+      - features: {}
+        form: "(Kana) ndi-ka-siya ndi-no/cha/nga-rasika."
+    u-Tense_u-prs__x-Clausetype_x-apodosis:
+      applies: {u-Tense: u-prs, x-Clausetype: x-apodosis}
+      forms:
+      - features: {}
+        form: "(Kana) ndi-ka-siya ndi-no/cha/nga-rasika."

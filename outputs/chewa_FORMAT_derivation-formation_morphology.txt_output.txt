@@ -1,0 +1,14 @@
+DerivationalMorphology:
+  Features:
+    u-Part-of-Speech:
+    - u-v
+    x-Process:
+    - x-prefixation
+  Rules:
+    u-Part-of-Speech_u-v__x-Process_x-prefixation:
+      applies: {u-Part-of-Speech: u-v, x-Process: x-prefixation}
+      patterns:
+      - pattern: "ka- + _stem_"
+      - pattern: "tu- + _stem_"
+      Notes:
+      - "Diminutive affixes ka- (singular) and tu- (plural) may attach to the stem or to an existing prefix."

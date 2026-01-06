@@ -1,0 +1,10 @@
+Imperative:
+  Features:
+    u-Mood: [u-imp]
+  Rules:
+    u-Mood_u-imp:
+      applies: { u-Mood: u-imp }
+      pattern: "_stem_ + (-ni)!"
+      examples:
+        - "thandiza!"
+      note: "Base imperative form; optional -ni ending in some forms"
