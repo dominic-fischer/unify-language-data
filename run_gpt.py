@@ -13,11 +13,13 @@ log_path = Path("validation_errors.log")
 with open("api.key", "r") as f:
     api_key = f.read().strip()
 
+used_model = "gpt-5.2"
+
 client = OpenAI(api_key=api_key)
 langs = ["chewa", "shona", "swahili", "zulu", "french", "italian", "portuguese", "romanian", "spanish"]
 schema_dir = "schemas/"
 schema_de_dir = schema_dir + "lang-de/"
-save_dir = f"outputs"
+save_dir = f"outputs_{used_model}"
 
 for lang in langs:
     for current_file in os.listdir(schema_de_dir):
@@ -45,7 +47,7 @@ for lang in langs:
         prompt = sections[1].strip()
 
         response = client.chat.completions.create(
-            model="gpt-5-nano",
+            model=used_model,
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": prompt}
