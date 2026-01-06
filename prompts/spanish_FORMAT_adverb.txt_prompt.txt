@@ -1,0 +1,260 @@
+SYSTEM PROMPT:
+You are an expert in the spanish language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language spanish.
+
+The data you receive comes from multiple sources and relates to the following topics:
+adverb.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or es-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "spanish-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("spanish-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Spanish adverbs work much like their English counterparts, e.g. muy ("very"), poco ("a little"), lejos ("far"), mucho ("much, a lot"), casi ("almost"), etc.  To form adverbs from adjectives, the adverbial suffix -mente is added to the feminine singular of the adjective, whether or not it differs from the masculine singular. Thus:
+
+claro ("clear", m. sg.) → clara (f. sg.) → claramente ("clearly")
+rápido ("fast, rapid", m. sg.) → rápida (f. sg.) → rápidamente ("fast, quickly, rapidly")
+natural ("natural", m. & f. sg.) → naturalmente ("naturally")
+triste ("sad", m. & f. sg.) → tristemente ("sadly")
+audaz ("bold", m. & f. sg.) → audazmente ("boldly")
+The adjectives bueno ("good") and malo ("bad") have irregular adverbial forms: bien ("well") and mal ("badly"), respectively.
+As in English, some adverbs are identical to their adjectival counterparts.  Thus words such as temprano ("early"), lento ("slow"), and hondo ("deep") can also mean "early" (as in English, as in "He arrived early") "slowly", and "deeply", respectively.
+In series of consecutive adverbs that would each end in -mente on their own, the -mente is dropped from all but the final adverb, and the others are left as if they were adjectives in the feminine singular. Thus:
+
+rápida y fácilmente = "quickly and easily"
+lenta, cuidosa, y duchamente = "slowly, carefully, and skillfully"
+parcial o completamente = "partially or completely"
+There are also a wide variety of adverbial phrases in Spanish, such as a menudo ("often"), en todas partes ("everywhere"), de repente ("suddenly"), por fin ("finally"), and sin embargo ("however, nevertheless").
+As with adjectives, the comparative of adverbs is formed by placing más ("more") or menos ("less") before the adverb.  Thus más temprano ("earlier"), más rápidamente ("faster, quicker, more quickly"), menos interesantemente ("less interestingly"), etc. The superlative is formed by placing the neuter article lo before the comparative, although it is generally used with an additional qualifier phrase such as que puedas ("that you can") or de todos ("of all"): lo más rápidamente que puedas ("as quickly as you can", lit. "the most quickly that you can"), lo más interesantemente de todos ("most interestingly of all"), lo menos claramente de ellos ("the least clearly of them"), etc. As with their corresponding adjectival forms,  bien ("well") and mal ("badly") have irregular comparative forms (mejor ("better") and peor ("worse")), and más and menos are the comparatives of mucho ("much, a lot") and poco ("a little"), respectively.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Adverbs:
+  Features:
+    u-Comparison: [u-cmpr, u-sprl, u-rl, u-ab]
+    x-Process: [x-base-form, x-adj-as-adv, x-complex, x-modification]
+
+  Rules:
+    x-Process_x-base-form:
+      applies: {x-Process: x-base-form}
+      pattern: "lexical base form"
+      examples: 
+      - "gestern"
+      - "oft"
+      - "bald"
+
+    x-Process_x-adj-as-adv:
+      applies: {x-Process: x-adj-as-adv}
+      pattern: "adjective stem reused as adverb (uninflected)"
+      examples: 
+      - "schnell → schnell"
+      - "laut → laut"
+      note: "form identical to adjective"
+
+    x-Process_x-complex:
+      applies: {x-Process: x-complex}
+      pattern: "compound or prepositional phrase functioning adverbially"
+      examples: 
+      - "trotzdem"
+      - "auf einmal"
+      - "von selbst"
+      - "immerhin"
+      note: "not productive prefixation; historical compounds or fixed expressions. No comparative or superlative."
+
+    x-Process_x-modification:
+      applies: {x-Process: x-modification}
+      pattern: "degree/modality particles modifying adverb"
+      examples: 
+      - "sehr schnell"
+      - "zu spät"
+      - "gar nicht"
+      note: "no comparative or superlative."
+
+    u-Comparison_u-cmpr:
+      applies: {u-Comparison: u-cmpr}
+      pattern: "_stem_ + er"
+      examples: 
+      - "schnell → schneller"
+
+    u-Comparison_u-sprl_u-ab:
+      applies: {u-Comparison: [u-sprl, u-ab]}
+      pattern: "am _stem_ + sten"
+      examples: 
+      - "schnell → am schnellsten"
+
+    u-Comparison_u-sprl_u-rl:
+      applies: {u-Comparison: [u-sprl, u-rl]}
+      pattern: "Determiner _stem_ + ste"
+      examples:
+      - "schnell → schnellste"
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

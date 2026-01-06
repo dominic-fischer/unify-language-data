@@ -1,0 +1,278 @@
+SYSTEM PROMPT:
+You are an expert in the spanish language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language spanish.
+
+The data you receive comes from multiple sources and relates to the following topics:
+pronoun.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or es-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "spanish-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("spanish-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Spanish pronouns fall into the same broad categories as English pronouns do: personal, demonstrative, interrogative, relative, and possessive. The personal pronouns–those that vary in form according to whether they represent the first, second, or third grammatical person–include a variety of second-person forms that differ not only according to number (singular or plural), but also according to formality or the social relation between speakers. Additionally, these second-person forms vary according to geographical region. Because the form of a conjugated verb reflects the person and number of its subject, subject pronouns are usually omitted, except where they are felt to be needed for emphasis or disambiguation.
+
+The third-person direct-object and indirect-object pronouns exhibit variation from region to region, from one individual to another, and even within the language of single individuals. The Real Academia Española prefers an "etymological" usage, one in which the indirect object function is carried by le (regardless of gender), and the direct object function is carried by la or lo (according to the gender of the antecedent, and regardless of its animacy).
+The Academy also condones the use of le as a direct object form for masculine, animate antecedents (i.e. male humans). Deviations from these approved usages are named leísmo (for the use of le as a direct object), and laísmo and loísmo (for the use of la and lo as indirect objects). The object pronoun variation is studied in detail by García & Otheguy (1977).
+Here are some examples for this:
+
+Leísmo: Le miraron (They saw him/her/it). Normative: lo miraron or la miraron depending on the gender of the object.
+Laísmo: La dijeron que se callara (They told her to shut up). Normative: Le dijeron que se callara. The person who is told something is an indirect object in Spanish, and the substituting pronoun is the same for both genders.
+Loísmo: Lo dijeron que se callara (They told him to shut up). Normative: Le dijeron que se callara. See above.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Pronoun:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+    u-Deixis: [u-prox, u-remt]
+    x-Pronoun-type: [x-pers, x-refl, x-dem, x-poss, x-int, x-rel]
+    x-Form-type: [x-standalone, x-clitic]
+
+  Rules:
+    x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers}
+      forms:
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-nom}, form: "ich"}
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc}, form: "mich"}
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-dat}, form: "mir"}
+
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-nom}, form: "du"}
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-acc}, form: "dich"}
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-dat}, form: "dir"}
+
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-nom}, form: "er"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-acc}, form: "ihn"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-dat}, form: "ihm"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-nom}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-acc}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-dat}, form: "ihr"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-nom}, form: "es"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-acc}, form: "es"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-dat}, form: "ihm"}
+
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-nom}, form: "wir"}
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-acc}, form: "uns"}
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-dat}, form: "uns"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-nom}, form: "ihr"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-acc}, form: "euch"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-dat}, form: "euch"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-nom}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-acc}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-dat}, form: "ihnen"}
+
+    x-Pronoun-type_x-refl:
+      applies: {x-Pronoun-type: x-refl}
+      pattern: "pronouns in accusative/dative case"
+      note: "only in acc/dat, used obligatorily with reflexive verbs"
+
+    x-Pronoun-type_x-dem:
+      applies: {x-Pronoun-type: x-dem}
+      forms:
+      - {features: {u-Deixis: u-prox}, pattern: "dies- + {def-determiner-endings}", note: "proximal demonstrative"}
+      - {features: {u-Deixis: u-remt}, pattern: "jen- + {def-determiner-endings}", note: "remote demonstrative"}
+
+    x-Pronoun-type_x-int:
+      applies: {x-Pronoun-type: x-int}
+      patterns:
+      - forms:
+        - {features: {u-Case: u-nom, u-Gender: u-masc}, form: "wer"}
+        - {features: {u-Case: u-nom, u-Gender: u-fem}, form: "wer"}
+        - {features: {u-Case: u-nom, u-Gender: u-neut}, form: "was"}
+        - {features: {u-Case: u-acc, u-Gender: u-masc}, form: "wen"}
+        - {features: {u-Case: u-acc, u-Gender: u-fem}, form: "wen"}
+        - {features: {u-Case: u-acc, u-Gender: u-neut}, form: "was"}
+        - {features: {u-Case: u-dat}, form: "wem"}
+        - {features: {u-Case: u-gen}, form: "wessen"}
+      - {pattern: "welch- + {def-determiner-endings}"}
+
+    x-Pronoun-type_x-rel:
+      applies: {x-Pronoun-type: x-rel}
+      patterns:
+      - {pattern: "{determiner} (exceptions in gen. sg.)", note: "gen. sg. m./n. dessen, f. deren"}
+      - {pattern: "welch- + {def-determiner-endings}", note: "archaic/literary; no genitive forms, replaced by dessen/deren"}
+    x-Form-type_x-standalone__x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss, x-Form-type: x-standalone}
+      pattern: "_stem_ + _bare-adj-endings_"
+      note: "the stems are: mein-, dein-, sein-, ihr-, unser-, euer-, Ihr-"
+
+    x-Form-type_x-clitic__x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss, x-Form-type: x-clitic}
+      pattern: "_stem_ + _indef-determiner-endings_"
+      note: "the stems are: mein-, dein-, sein-, ihr-, unser-, euer-, Ihr-"
+
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

@@ -1,0 +1,324 @@
+SYSTEM PROMPT:
+You are an expert in the spanish language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language spanish.
+
+The data you receive comes from multiple sources and relates to the following topics:
+negation, syntax.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or es-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "spanish-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("spanish-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Spanish unmarked word order for affirmative declarative sentences is subject-verb-object (SVO); however, as in other Romance languages, in practice, word order is more variable, with topicalization and focus being the primary factors in the selection of a particular order. Verb-subject-object (VSO), verb-object-subject (VOS), and object-verb-subject (OVS) are also relatively common, while other orders are very uncommon outside of poetry.
+Thus, to simply say, "My friend wrote the book", one would say (SVO):
+
+Mi amigo escribió el libro
+Although bare VSO and VOS are somewhat rare in declarative independent clauses, they are quite common in sentences in which something other than the subject or direct object functions as the focus. For example:
+
+Hace pocos años escribió mi amigo un libro or Hace pocos años escribió un libro mi amigo = "A few years ago, my friend wrote a book"
+Ayer vio mi madre a mi amigo y le preguntó por su libro or Ayer vio a mi amigo mi madre y le preguntó por su libro = "Yesterday, my mother saw my friend and asked him about his book"
+In many dependent clauses, the verb is placed before the subject (and thus often VSO or VOS) to avoid placing the verb in final position:
+
+Este es el libro que escribió mi amigo, but rarely Este es el libro que mi amigo escribió = "This is the book that my friend wrote"
+A sentence in which the direct object is the topic or "theme" (old information), while the subject is part of the comment, or "rheme" (new information), often assumes OVS order. In this case the direct object noun phrase is supplemented with the appropriate direct object pronoun; for example:
+
+El libro lo escribió mi amigo
+Because subject pronouns are often dropped, one will often see sentences with a verb and direct object but no explicitly stated subject.
+In questions, VSO is usual (though not obligatory):
+
+¿Escribió mi amigo el libro? = "Did my friend write the book?"
+Yes/no questions, regardless of constituent order, are generally distinguished from declarative sentences by context and intonation.
+
+A cleft sentence is one formed with the copular verb (generally with a dummy pronoun like "it" as its subject), plus a word that "cleaves" the sentence, plus a subordinate clause. They are often used to put emphasis on a part of the sentence. Here are some examples of English sentences and their cleft versions:
+
+"I did it." → "It was I who did it" or more colloquially "It was me that did it."
+"You will stop smoking through willpower." → "It is through willpower that you will stop smoking."
+Spanish does not usually employ such a structure in simple sentences. The translations of sentences like these can be readily analyzed as being normal sentences containing relative pronouns. Spanish is capable of expressing such concepts without a special cleft structure thanks to its flexible word order.
+For example, if we translate a cleft sentence such as "It was Juan who lost the keys", we get Fue Juan el que perdió las llaves. Whereas the English sentence uses a special structure, the Spanish one does not. The verb fue has no dummy subject, and the pronoun el que is not a cleaver but a nominalising relative pronoun meaning "the [male] one that".  Provided we respect the pairings of "el que" and "las llaves", we can play with the word order of the Spanish sentence without affecting its structure – although each permutation would, to a native speaker, give a subtly different shading of emphasis.
+For example, we can say Juan fue el que perdió las llaves ("Juan was the one who lost the keys") or El que perdió las llaves fue Juan ("The one who lost the keys was Juan").  As can be seen from the translations, if this word order is chosen, English stops using the cleft structure (there is no more dummy "it" and a nominalising relative is used instead of the cleaving word) whilst in Spanish no words have changed.
+Here are some examples of such sentences:
+
+Fue Juan el que perdió las llaves = "It was John who lost the keys"
+Son sólo tres días los que te quedan = "It is only three days that you have left"
+Seré yo quien se lo diga = "It will be I who tells him"
+Son pocos los que vienen y se quedan = lit. "There are few who come and stay"
+Note that it is ungrammatical to try to use just que to cleave such sentences as in English, but using quien in singular or quienes in plural is grammatical.
+
+*Fue Juan que perdió las llaves (incorrect)
+Fue Juan quien perdió las llaves (correct)
+When prepositions come into play, things become complicated.  Structures unambiguously identifiable as cleft sentences are used. The verb ser introduces the stressed element and then there is a nominaliser. Both of these are preceded by the relevant preposition. For example:
+
+Fue a mí a quien le dio permiso = "It was me to whom he gave permission", lit. "It was to me to whom he gave permission"
+Es para nosotros para quienes se hizo esto = "It is us for whom this was made", lit. "It is for us for whom this was made"
+Es por eso por lo que lo hice = "That is why I did it", more literally: "It is because of that that I did it", or completely literally: "It is because of that because of which I did it"
+Es así como se debe hacer = "It is this way that it must be done", lit. "It is this way how it must be done" (como replaces longer expressions such as la forma en que)
+This structure is quite wordy, and is therefore often avoided by not using a cleft sentence at all. Emphasis is conveyed just by word order and stressing with the voice (indicated here within bolding):
+
+Me dio permiso a mí = "He gave permission to me"
+Se hizo esto para nosotros = "This was done for us"
+Por eso lo hice = "I did it because of that"
+Se debe hacer así = "It must be done this way"
+In casual speech, the complex cleaving pronoun is often reduced to que, just as it is reduced to "that" in English.
+
+Es para nosotros que se hizo esto
+Es por eso que lo hice
+Fue a mí que le dio permiso (preferred: a quien)
+Es así que se debe hacer (preferred: como)
+In the singular, the subordinate clause can agree either with the relative pronoun or with the subject of the main sentence, though the latter is seldom used. However, in the plural, only agreement with the subject of the main sentence is acceptable. Therefore:
+
+Singular
+Yo fui el que me lo bebí = "I was the one who drank it" (agreement with subject of main sentence)
+Yo fui el que se lo bebió (preferred form with same meaning, agreement with el que)
+La que lo sé soy yo = "I am the one who knows" (agreement with subject of main sentence)
+La que lo sabe soy yo = (preferred form with same meaning, agreement with la que)
+Plural
+Somos los únicos que no tenemos ni un centavo para apostar = "We are the only ones who do not have even a cent to bet" (agreement with subject of main sentence) (from dialogue of the Gabriel García Márquez novel El coronel no tiene quien le escriba)
+Vosotras sois las que lo sabéis = "You girls are the ones who know" (agreement with subject of main sentence)
+
+Clitics are a necessary part of syntactic form and representation in Spanish. Defining a specific syntactic role of a clitic in Spanish is cumbersome, as they are used in a variety of ways. Syntactic approaches to this common element have attempted to find a universal way of handling them. For example, all languages are capable of having subjects, objects, and verbs, so a universal methodology to handling word order, whether SVO, VSO, or OSV, is imperative for a multilingual and universal syntactic representation system to work. As such, there has been great discussion and investigation in the literature for that particular word order element. Clitics, on the other hand, have been given relatively less thought and investigation, particularly an inquiry into an uncomplicated approach in their syntactic distribution. Clitics offer a myriad of functional roles depending upon the language in question, further complicating the situation.
+Spanish is a diasporic language which also experiences diachronic variation. While Spanish is said to generally have flexible or "free" word order, others such as Pountain assert that the syntax is heavily influenced by topic and comment identification.
+
+The syntactic role of the clitic se and its forms in Spanish has undergone much debate within the research with no obvious conclusion. Part of the difficulty stems from the variable role se and its other forms play with regard to the contextual grammar. Some syntacticians have aptly termed the clitic se as "paradigmatic" in reference to the complexity and variance of se features and functions. It is utilized in a variety of Spanish grammar contexts, including the following forms: reflexive pronoun, reciprocal pronoun, replacive pronoun (direct and indirect object), intrinsic pronoun (without the pronoun, the structure is ungrammatical), "derivational" pronoun, and "stylistic" pronoun. Further, se is used in addition with certain intransitive verbs, in reflexive-passive constructions, and in impersonal constructions.
+As a class, clitics have such a variety of grammatical functions that they are not always pronominal, anaphoric or related to verbal arguments. Syntactically, they are most often found in non-argument benefactive theta-roles, in formation of passive, in formation of middle voice, and with a completive meaning. They can take the form of either phrasal constituents or words with an independent syntactic structure.
+Despite se being grammatically diverse in Spanish grammatical application, it does certain specific roles. Zagona, author of a comprehensive Spanish syntax textbook, has extensively outlined form and function in depth, stating that:
+
+[sic] the only true subject clitic in Spanish is "impersonal" se "one".
+The impersonal form is clearly defined as it does not double and uses only the third person singular verb form as in the impersonal form example here:
+
+Zagona also notes that, generally, oblique phrases do not allow for a double clitic, yet some verbs of motion are formed with double clitics:
+
+Imperatives in Spanish do not require the use of clitics, but when they are used, a specific word order must be followed. With an affirmative verb, the clitic succeeds the verb. However, in a negative command, word order alters in that the clitic precedes the verb. Another review of sentence positions of se in various grammatical constructions offers the following example, demonstrating imperative differences thus:
+
+With continuous verbs, the clitic can precede the auxiliary verb or follow the participle, as in (1a) and (1b):
+
+The clitic cannot follow a past or passive participle, as in (2b):
+
+Specific issues arise in clitic use and syntactic representation in terms of animacy. The Spanish language does not explicitly demonstrate in its grammar whether an object, either direct or indirect, refers to an animate or inanimate object. Therefore, the use of two clitics is common, although not always required. In this way, clitics can be doubled or "redundant" when two instances occur within the same phrase. Double clitics are found in instances of phrases with both direct accusative case objects and indirect dative objects in this way:
+
+Regarding clitic doubling in Spanish, Ordóñez has suggested a "cluster" versus "split" formation, weighing consideration of the double clitic as a single unit (cluster) or a separable unit (split). The syntactic approach maintains a left-dislocation for the clitics while sustaining a separation from the verb. In the cluster model, both clitics are two adjacent constituents whereas the split model, one clitic has been split from the other, appearing higher on the syntactic tree. Both are still under the same c-command of the left branch but are no longer sisters to each other. Ordóñez suggests that when clitics are sisters, they may not even be considered constituents in the syntax. The hypothesis includes a requirement that a non-third person clitic is located higher on a tree than the third person clitic.
+In fact, clitic climbing is a common feature in Romance languages with designation of clitics as unbound morphemes where the clitic "climbs" to adjoin the verb in a higher position. This widely discussed theory has involved raising of the clitic se as an unaccusative because of the lack of external argument in the grammar structure. The object clitic begins in the subject position of the verb, moving up to attach to the verb via adjunction on the left. Another theory is the "base-generation" which considers clitics to be affixes. However, both approaches fail when there is clitic doubling.
+
+As recently as 2021, Cuervo has suggested that, for clitic doubling, the solution is considering the dative clitic to be the head of an Applicative Phrase with care taken in identifying whether the form is proclitic or enclitic. Cuervo addresses the difference by positing the following: if the process is proclitic, there is climbing; if the process is enclitic, there is no climbing. Thus, the determining factor for syntactic presentation is the type of verbal phrase.
+Bradley illustrates some inflexible constructions, mainly when two third-person pronouns are within the same sentence and the indirect object must be expressed via se:
+
+Ya                   se                     lo                     he mandado
+already            CL(Nom.)       CL(Acc.)         sent-presperf
+"I have already sent it"
+In such cases, one solution is to use the particle a followed by an infinitive verb when the clitic precedes an auxiliary verb, as in the example provided below:
+
+Nos                  vamos              a          acostar
+CL(Nom.)       go-1.pres.        to         go to bed
+"We are going to bed"
+The clitic is not attached to the infinitive verb; instead, it is in subject position. Grammatically, attachment to the verb occurs with a non-finite or a main conjugated verb. The clitic adjoins the verb and undergoes head movement to check its features.
+Additional structures for direct and indirect objects have been suggested. Other views include the use of AgrS and AgrO for Spanish when clitics are involved. Daussá states that se can block features as it travels attached to the appropriate verb form from the feature geometry which alters the nodes.
+Daussá’s realization of syntactic structure presents a solution for the paradigmatic issue of se using AgrO and AgrS. This model includes a Determiner Phrase that is nominative with verbal agreement in both person and number. Romain has also offered a thorough examination of the various theories, concluding that se is part of a Determiner Phrase. While there had been some postulation that clitics are heads of their own phrases, there has not been much support given to those claims.
+Even more recently, Lewandowski has focused on one function in the use of se with reflexive verbs, the completive, wherein with specific verbs the clitic denotes a completion of an action. Lewandowski has proposed an interconnected functionality for the Spanish reflexive pronoun, representing this concept via a cluster map indicating semantic, pragmatic, and grammatical functions. His discussion has centered around the "polyfunctionality" of se and how best to syntactically handle this issue, perhaps by not separating the syntax from morphology. Another recent view is that there are two syntactic formations: first, that se is a probe for A-movement which results in a paradigmatic se and second, that non-paradigmatic se is represented by third person singular. This cross-referencing of syntax and morphology overlapping with a communicative stylistic approach has been suggested in the past.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Negation:
+  Features:
+    x-Negation-type: [x-clause, x-constituent]
+
+  Rules:
+    x-Negation-type_x-constituent:
+      applies: {x-Negation-type: x-constituent}
+      patterns: 
+        - pattern: "nicht + constituent"
+          examples: 
+          - "Er rennt nicht heute"
+          - "Nicht das Essen, sondern die Getränke hat er bezahlt"
+          note: "focuses on constituent rather than whole sentence"
+        - pattern: "kein + noun"
+          examples: 
+          - "Ich habe keinen Hund gesehen"
+          note: "negates indefinite noun phrase; inflected like indefinite determiner"
+
+    x-Negation-type_x-clause:
+      applies: {x-Negation-type: x-clause}
+      patterns: 
+      - pattern: "(...) finite/main verb (...) nicht (...) (final verb cluster)"
+        examples: 
+        - "Er will den Kuchen nicht essen"
+        - "Er rennt heute nicht"
+        note: "Negated main clauses."
+      - pattern: "main clause with Vfin, subordinating conjunction (...) nicht (...) final verb cluster"
+        examples: 
+        - "Er geht nach Hause, weil er nicht in der Schule bleiben will"
+        - "..., weil er in der Schule jeden Tag nicht gut aufpasst"
+        - "..., weil er in der Schule nicht jeden Tag gut aufpasst"
+        note: "Negated subclauses."
+      note: "If the entire sentence is to be negated, 'nicht' goes as far to the end as possible, but before the final verb cluster/the constituent it is supposed to negate. Note that for main- and subclauses, the principle of negation (finite/main verb - negation - final verb cluster) stays the same, apart from the subordinating conjunction intervening."
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

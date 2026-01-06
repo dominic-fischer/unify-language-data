@@ -1,0 +1,384 @@
+SYSTEM PROMPT:
+You are an expert in the portuguese language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language portuguese.
+
+The data you receive comes from multiple sources and relates to the following topics:
+adjective.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or pt-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "portuguese-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("portuguese-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Adjectives normally follow the nouns that they modify. Thus "white house" is casa branca, and "green fields" is campos verdes; the reverse order (branca casa, verdes campos) is generally limited to poetic language.
+However, some adjectives—such as bom ("good"), belo ("nice"), and grande ("great", "big")—often precede the noun. Indeed, some of these have rather different meanings depending on position: compare um grande homem "a great man", vs. um homem grande "a big man".
+Adjectives are routinely inflected for gender and number, according to a few basic patterns, much like those for nouns, as in the following table:
+
+## Adjectives > ### Table 4
+
+<pre>```
+| singular + masc.   | singular + fem.   | plural + masc.   | plural + fem.   | meaning        |
+|:-------------------|:------------------|:-----------------|:----------------|:---------------|
+| branco             | branca            | brancos          | brancas         | "white"        |
+| francês            | francesa          | franceses        | francesas       | "French"       |
+| motor              | motriz            | motores          | motrizes        | "motorised"    |
+| grandão            | grandona          | grandões         | grandonas       | "rather big"   |
+| conservador        | conservadora      | conservadores    | conservadoras   | "conservative" |
+| europeu            | europeia          | europeus         | europeias       | "European"     |
+| verde              | verde             | verdes           | verdes          | "green"        |
+| superior           | superior          | superiores       | superiores      | "superior"     |
+| feliz              | feliz             | felizes          | felizes         | "happy"        |
+| central            | central           | centrais         | centrais        | "central"      |
+| civil              | civil             | civis            | civis           | "futile"       |
+| fácil              | fácil             | fáceis           | fáceis          | "easy"         |
+| azul               | azul              | azuis            | azuis           | "blue"         |
+```</pre>
+
+
+A feminine adjective ending in -eia may correspond either to a masculine adjective ending in -eu (e.g. europeu, europeia) or to one ending in -eio (e.g. feio, feia).
+Although, some adjectives are invariable, usually the ones whose singular form ending is -s, and a few colour adjectives, generally the compound ones, as in the table below:
+
+## Adjectives > ### Table 5
+
+<pre>```
+| singular + masc.   | singular + fem.   | plural + masc.   | plural + fem.   | meaning       |
+|:-------------------|:------------------|:-----------------|:----------------|:--------------|
+| simples            | simples           | simples          | simples         | "simple"      |
+| reles              | reles             | reles            | reles           | "lousy"       |
+| azul-claro         | azul-claro        | azul-claro       | azul-claro      | "light blue"  |
+| laranja            | laranja           | laranja          | laranja         | "orange"      |
+| verde-oliva        | verde-oliva       | verde-oliva      | verde-oliva     | "olive green" |
+| ultravioleta       | ultravioleta      | ultravioleta     | ultravioleta    | "ultraviolet" |
+```</pre>
+
+
+The adjectives for "good" and "bad" are irregular:
+
+## Adjectives > ### Table 6
+
+<pre>```
+| singular + masc.   | singular + fem.   | plural + masc.   | plural + fem.   | meaning   |
+|:-------------------|:------------------|:-----------------|:----------------|:----------|
+| bom                | boa               | bons             | boas            | "good"    |
+| mau                | má                | maus             | más             | "bad"     |
+```</pre>
+
+
+Comparison of adjectives is regularly expressed in analytic form using the adverb mais: mais alto (do) que = "higher than", o mais alto "the highest". Most adjectives have—in addition to their positive, comparative, and superlative forms—a so-called "absolute superlative" form (sometimes called "elative"), which enhances the meaning of the adjective without explicitly comparing it (lindo, "beautiful"; muito lindo or lindíssimo, "very beautiful"), it can appear in both analytic or synthetic form.
+
+## Adjectives > ### Table 7
+
+<pre>```
+| Positive         | Comparative                | Superlative                      | Analytic absolute superlative   | Synthetic absolute superlative   |
+|:-----------------|:---------------------------|:---------------------------------|:--------------------------------|:---------------------------------|
+| belo "pretty"    | mais belo "prettier"       | o mais belo "the prettiest"      | muito belo "very pretty"        | belíssimo "very pretty"          |
+| caro "expensive" | mais caro "more expensive" | o mais caro "the most expensive" | muito caro "very expensive"     | caríssimo "very expensive"       |
+```</pre>
+
+
+A few adjectives (besides mais itself) have suppletive comparative/superlative forms:
+
+## Adjectives > ### Table 8
+
+<pre>```
+| Positive        | Comparative     | Absolute superlative   | Superlative            |
+|:----------------|:----------------|:-----------------------|:-----------------------|
+| bom "good"      | melhor "better" | ótimo "very good"      | o melhor "the best"    |
+| mau "bad"       | pior "worse"    | péssimo "very bad"     | o pior "the worst"     |
+| pequeno "small" | menor "smaller" | mínimo "very small"    | o menor "the smallest" |
+| grande "big"    | maior "bigger"  | máximo "very big"      | o maior "the biggest"  |
+```</pre>
+
+Estou tonta = "I'm dizzy"
+Sou tonta = "I'm silly"
+É sujo = "It's dirty" (i.e. "It's a dirty place" — characteristic)
+Está sujo = "It's dirty" (i.e. "(right now) The place is dirty" — state)
+É aberta = "She's open" (i.e. "She's an open sort of person" — characteristic)
+Está aberta = "It's open" (probably referring to a door or window — state)
+Ele é triste = "He is sad" (i.e. gloomy — characteristic)
+(Ele) Está triste = "He is sad" (i.e. feeling down — state)
+Como és? / Como você é? = "What are you like?" (i.e. "describe yourself" — characteristics)
+Como estás? / Como você está? = "How are you?" (i.e. "how are you doing?" — state)
+With adjectives of appearance ("beautiful", etc.), ser means "to be", and estar means "to look".
+
+Que linda ela é! = "Wow, she's so beautiful" (characteristic)
+Que linda ela está! = "Wow, she's looking so beautiful" (state)
+As in Spanish, the states of life and death are expressed with estar: Está vivo ("He is alive"). Está morto ("He is dead").
+Ser is used with adjectives of fundamental belief (Não sou católico, "I'm not Catholic"), nationality (És português, "You are Portuguese"), sex/gender (É homem, "He's a man"), intelligence (Somos espertos, "We are smart"), etc.
+Católico can also be used with estar, in which case it takes on a figurative meaning:
+
+Eu não estou muito católico = "I'm not feeling very dependable/trustworthy" (possibly ill or drunk).
+O tempo hoje não está muito católico = "The weather's not very nice today."
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Adjective:
+  Features:
+    u-Comparison: [u-cmpr, u-sprl]
+    u-Definiteness: [u-def, u-indf, u-nspec]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+    u-Number: [u-sg, u-pl]
+    u-Gender: [u-masc, u-fem, u-neut]
+
+  Rules:
+    u-Comparison_u-cmpr:
+      applies: {u-Comparison: u-cmpr}
+      pattern: "_stem_ + er"
+      note: "often with umlaut"
+      examples: 
+      - "schön → schöner"
+
+    u-Comparison_u-sprl:
+      applies: {u-Comparison: u-sprl}
+      pattern: "am _stem_ + sten"
+      examples: 
+      - "schön → am schönsten"
+      - "besser → am besten"
+
+    u-Definiteness_u-def:
+      applies: {u-Definiteness: u-def}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-masc}, form: "e"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-fem}, form: "e"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-neut}, form: "e"}
+        - {features: {u-Case: u-nom, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-masc}, form: "en"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-fem}, form: "e"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-neut}, form: "e"}
+        - {features: {u-Case: u-acc, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-dat, u-Number: u-sg}, form: "en"}
+        - {features: {u-Case: u-dat, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-gen, u-Number: u-sg}, form: "en"}
+        - {features: {u-Case: u-gen, u-Number: u-pl}, form: "en"}
+      examples: 
+      - "schön → der schöne Hund"
+      - "schön → die schöne Katze"
+      note: "also called 'weak'; adjective endings are reduced, since the definite determiner already shows case/gender/number"
+
+    u-Definiteness_u-indf:
+      applies: {u-Definiteness: u-indf}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-masc}, form: "er"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-fem}, form: "e"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-neut}, form: "es"}
+        - {features: {u-Case: u-nom, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-masc}, form: "en"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-fem}, form: "e"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-neut}, form: "es"}
+        - {features: {u-Case: u-acc, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-dat, u-Number: u-sg}, form: "en"}
+        - {features: {u-Case: u-dat, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-gen, u-Number: u-sg}, form: "en"}
+        - {features: {u-Case: u-gen, u-Number: u-pl}, form: "en"}
+      examples: 
+      - "schön → ein schöner Hund"
+      - "schön → eine schöne Katze"
+      note: "also called 'mixed'; adjective endings supply the missing case/gender/number features not marked on the determiner"
+
+    u-Definiteness_u-nspec:
+      applies: {u-Definiteness: u-nspec}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-masc}, form: "er"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-fem}, form: "e"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-neut}, form: "es"}
+        - {features: {u-Case: u-nom, u-Number: u-pl}, form: "e"}
+
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-masc}, form: "en"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-fem}, form: "e"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-neut}, form: "es"}
+        - {features: {u-Case: u-acc, u-Number: u-pl}, form: "e"}
+
+        - {features: {u-Case: u-dat, u-Number: u-sg, u-Gender: u-masc}, form: "em"}
+        - {features: {u-Case: u-dat, u-Number: u-sg, u-Gender: u-fem}, form: "er"}
+        - {features: {u-Case: u-dat, u-Number: u-sg, u-Gender: u-neut}, form: "em"}
+        - {features: {u-Case: u-dat, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-gen, u-Number: u-sg, u-Gender: u-masc}, form: "en"}
+        - {features: {u-Case: u-gen, u-Number: u-sg, u-Gender: u-fem}, form: "er"}
+        - {features: {u-Case: u-gen, u-Number: u-sg, u-Gender: u-neut}, form: "en"}
+        - {features: {u-Case: u-gen, u-Number: u-pl}, form: "er"}
+      examples: 
+      - "schön → schöner Mann"
+      - "schön → schöne Frau"
+      note: "also called 'strong'; adjective endings show the full case/gender/number set, like definite articles"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

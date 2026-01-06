@@ -1,0 +1,355 @@
+SYSTEM PROMPT:
+You are an expert in the portuguese language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language portuguese.
+
+The data you receive comes from multiple sources and relates to the following topics:
+pronoun.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or pt-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "portuguese-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("portuguese-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Pronouns are often inflected for gender and number, although many have irregular inflections.
+Personal pronouns are inflected according to their syntactic role. They have three main types of forms: for the subject, for the object of a verb, and for the object of a preposition. In the third person, a distinction is also made between simple direct objects, simple indirect objects, and reflexive objects.
+Possessive pronouns are identical to possessive adjectives. They are inflected to agree with the gender of the possessed being or object.
+
+Demonstratives have the same three-way distinction as place adverbs:
+
+este lápis – "this pencil" (near me)
+esse lápis – "that pencil" (near you)
+aquele lápis – "that pencil" (over there, away from both of us)
+In colloquial Brazilian Portuguese, esse is often used interchangeably with este when there is no need to make a distinction. This distinction is usually only made in formal writing or by people with more formal education, or simply to emphasize the fact that it is near, as in esta sexta! ("next Friday!").
+The demonstratives, like the articles, form contractions with certain preceding prepositions: de + este = deste ("of this"), de + esse = desse ("of that"), em + aquilo = naquilo ("in that thing"), a + aquela = àquela ("to that").
+
+## Personal pronouns and possessives > ### Demonstratives > #### Table 15
+
+<pre>```
+| preposition   | demonstrative pronoun + Unnamed: 1_level_1   | demonstrative pronoun + Unnamed: 2_level_1   | demonstrative pronoun + Unnamed: 3_level_1   | demonstrative pronoun + Unnamed: 4_level_1   | demonstrative pronoun + Unnamed: 5_level_1   | demonstrative pronoun + Unnamed: 6_level_1   | demonstrative pronoun + Unnamed: 7_level_1   | demonstrative pronoun + Unnamed: 8_level_1   | demonstrative pronoun + Unnamed: 9_level_1   | demonstrative pronoun + Unnamed: 10_level_1   | demonstrative pronoun + Unnamed: 11_level_1   | demonstrative pronoun + Unnamed: 12_level_1   | demonstrative pronoun + Unnamed: 13_level_1   | demonstrative pronoun + Unnamed: 14_level_1   | demonstrative pronoun + Unnamed: 15_level_1   |
+|:--------------|:---------------------------------------------|:---------------------------------------------|:---------------------------------------------|:---------------------------------------------|:---------------------------------------------|:---------------------------------------------|:---------------------------------------------|:---------------------------------------------|:---------------------------------------------|:----------------------------------------------|:----------------------------------------------|:----------------------------------------------|:----------------------------------------------|:----------------------------------------------|:----------------------------------------------|
+| este          | esta                                         | estes                                        | estas                                        | isto                                         | esse                                         | essa                                         | esses                                        | essas                                        | isso                                         | aquele                                        | aquela                                        | aqueles                                       | aquelas                                       | aquilo                                        | nan                                           |
+| de            | deste                                        | desta                                        | destes                                       | destas                                       | disto                                        | desse                                        | dessa                                        | desses                                       | dessas                                       | disso                                         | daquele                                       | daquela                                       | daqueles                                      | daquelas                                      | daquilo                                       |
+| em            | neste                                        | nesta                                        | nestes                                       | nestas                                       | nisto                                        | nesse                                        | nessa                                        | nesses                                       | nessas                                       | nisso                                         | naquele                                       | naquela                                       | naqueles                                      | naquelas                                      | naquilo                                       |
+| a             | -                                            | -                                            | -                                            | -                                            | -                                            | -                                            | -                                            | -                                            | -                                            | -                                             | àquele                                        | àquela                                        | àqueles                                       | àquelas                                       | àquilo                                        |
+```</pre>
+
+
+Demonstrative adjectives are identical to demonstrative pronouns: e.g. aquele carro "that car", and aquele "that one."
+
+The indefinite pronouns todo, toda, todos, todas are followed by the definite article when they mean "the whole". Otherwise, articles and indefinite pronouns are mutually exclusive within a noun phrase.
+In the demonstratives and in some indefinite pronouns, there is a trace of the neuter gender of Latin. For example, todo and esse are used with masculine referents, toda and essa with feminine ones, and tudo and isso  when there is no definite referent. Thus todo livro "every book" and todo o livro "the whole book"; toda salada "every salad" and toda a salada "the whole salad"; and tudo "everything"; etc.:
+
+## Indefinite pronouns > ### Table 16
+
+<pre>```
+| Indefinite pronouns    | singular + masc.   | singular + fem.   | plural + masc.   | plural + fem.   | neuter1                                                                    |
+|:-----------------------|:-------------------|:------------------|:-----------------|:----------------|:---------------------------------------------------------------------------|
+| "this", "these"        | este               | esta              | estes            | estas           | isto ("this thing", "this idea")                                           |
+| "that", "those" (near) | esse               | essa              | esses            | essas           | isso ("that thing", "that idea")                                           |
+| "that", "those" (far)  | aquele             | aquela            | aqueles          | aquelas         | aquilo ("that thing", "that idea")                                         |
+| "some"                 | algum              | alguma            | alguns           | algumas         | algo ("something") alguém ("someone", "somebody")                          |
+| "any"                  | qualquer           | qualquer          | quaisquer        | quaisquer       | qualquer coisa ("anything") qualquer um ("anyone", "any [one]", "anybody") |
+| "no", "none"           | nenhum             | nenhuma           | nenhuns          | nenhumas        | nada ("nothing") ninguém ("no one", "nobody")                              |
+| "every", "all"         | todo               | toda              | todos            | todas           | tudo ("everything")                                                        |
+| "another", "other"2    | outro              | outra             | outros           | outras          | outra coisa ("another thing") outrem ("another person")                    |
+```</pre>
+
+
+1 For purposes of agreement, these neuter pronouns take masculine modifiers (except for tudo isto, tudo isso, and tudo aquilo).
+2 Archaic, prefereble to use um outro, uma outra, uns outros, umas outras, uma outra coisa and uma outra pessoa respectively.
+Just like the articles, they form contractions with certain preceding prepositions
+
+## Indefinite pronouns > ### Table 17
+
+<pre>```
+| indefinite pronoun   | preposition + Unnamed: 1_level_1   | preposition + Unnamed: 2_level_1   | preposition + Unnamed: 3_level_1   |
+|:---------------------|:-----------------------------------|:-----------------------------------|:-----------------------------------|
+| de                   | em                                 | a                                  | nan                                |
+| este                 | deste                              | neste                              | -                                  |
+| esta                 | desta                              | nesta                              | -                                  |
+| estes                | destes                             | nestes                             | -                                  |
+| estas                | destas                             | nestas                             | -                                  |
+| isto                 | disto                              | nisto                              | -                                  |
+| esse                 | desse                              | nesse                              | -                                  |
+| essa                 | dessa                              | nessa                              | -                                  |
+| esses                | desses                             | nesses                             | -                                  |
+| essas                | dessas                             | nessas                             | -                                  |
+| isso                 | disso                              | nisso                              | -                                  |
+| aquele               | daquele                            | naquele                            | àquele                             |
+| aquela               | daquela                            | naquela                            | àquela                             |
+| aqueles              | daqueles                           | naqueles                           | àqueles                            |
+| aquelas              | daquelas                           | naquelas                           | àquelas                            |
+| aquilo               | daquilo                            | naquilo                            | àquilo                             |
+| algum1               | dalgum                             | nalgum                             | àlgum                              |
+| alguma1              | dalguma                            | nalguma                            | àlguma                             |
+| alguns1              | dalguns                            | nalguns                            | àlguns                             |
+| algumas1             | dalgumas                           | nalgumas                           | àlgumas                            |
+| algo1                | dalgo                              | nalgo                              | àlgo                               |
+| alguém1              | dalguém                            | nalguém                            | àlguém                             |
+| outro1               | doutro                             | noutro                             | -                                  |
+| outra1               | doutra                             | noutra                             | -                                  |
+| outros1              | doutros                            | noutros                            | -                                  |
+| outras1              | doutras                            | noutras                            | -                                  |
+| outra coisa1         | doutra coisa                       | noutra coisa                       | -                                  |
+| outrem1              | doutrem                            | noutrem                            | -                                  |
+```</pre>
+
+
+1Colloquial or poetic contractions.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Pronoun:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+    u-Deixis: [u-prox, u-remt]
+    x-Pronoun-type: [x-pers, x-refl, x-dem, x-poss, x-int, x-rel]
+    x-Form-type: [x-standalone, x-clitic]
+
+  Rules:
+    x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers}
+      forms:
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-nom}, form: "ich"}
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc}, form: "mich"}
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-dat}, form: "mir"}
+
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-nom}, form: "du"}
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-acc}, form: "dich"}
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-dat}, form: "dir"}
+
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-nom}, form: "er"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-acc}, form: "ihn"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-dat}, form: "ihm"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-nom}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-acc}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-dat}, form: "ihr"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-nom}, form: "es"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-acc}, form: "es"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-dat}, form: "ihm"}
+
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-nom}, form: "wir"}
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-acc}, form: "uns"}
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-dat}, form: "uns"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-nom}, form: "ihr"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-acc}, form: "euch"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-dat}, form: "euch"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-nom}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-acc}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-dat}, form: "ihnen"}
+
+    x-Pronoun-type_x-refl:
+      applies: {x-Pronoun-type: x-refl}
+      pattern: "pronouns in accusative/dative case"
+      note: "only in acc/dat, used obligatorily with reflexive verbs"
+
+    x-Pronoun-type_x-dem:
+      applies: {x-Pronoun-type: x-dem}
+      forms:
+      - {features: {u-Deixis: u-prox}, pattern: "dies- + {def-determiner-endings}", note: "proximal demonstrative"}
+      - {features: {u-Deixis: u-remt}, pattern: "jen- + {def-determiner-endings}", note: "remote demonstrative"}
+
+    x-Pronoun-type_x-int:
+      applies: {x-Pronoun-type: x-int}
+      patterns:
+      - forms:
+        - {features: {u-Case: u-nom, u-Gender: u-masc}, form: "wer"}
+        - {features: {u-Case: u-nom, u-Gender: u-fem}, form: "wer"}
+        - {features: {u-Case: u-nom, u-Gender: u-neut}, form: "was"}
+        - {features: {u-Case: u-acc, u-Gender: u-masc}, form: "wen"}
+        - {features: {u-Case: u-acc, u-Gender: u-fem}, form: "wen"}
+        - {features: {u-Case: u-acc, u-Gender: u-neut}, form: "was"}
+        - {features: {u-Case: u-dat}, form: "wem"}
+        - {features: {u-Case: u-gen}, form: "wessen"}
+      - {pattern: "welch- + {def-determiner-endings}"}
+
+    x-Pronoun-type_x-rel:
+      applies: {x-Pronoun-type: x-rel}
+      patterns:
+      - {pattern: "{determiner} (exceptions in gen. sg.)", note: "gen. sg. m./n. dessen, f. deren"}
+      - {pattern: "welch- + {def-determiner-endings}", note: "archaic/literary; no genitive forms, replaced by dessen/deren"}
+    x-Form-type_x-standalone__x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss, x-Form-type: x-standalone}
+      pattern: "_stem_ + _bare-adj-endings_"
+      note: "the stems are: mein-, dein-, sein-, ihr-, unser-, euer-, Ihr-"
+
+    x-Form-type_x-clitic__x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss, x-Form-type: x-clitic}
+      pattern: "_stem_ + _indef-determiner-endings_"
+      note: "the stems are: mein-, dein-, sein-, ihr-, unser-, euer-, Ihr-"
+
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

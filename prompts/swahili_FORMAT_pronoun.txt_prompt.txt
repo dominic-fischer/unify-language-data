@@ -1,0 +1,402 @@
+SYSTEM PROMPT:
+You are an expert in the swahili language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language swahili.
+
+The data you receive comes from multiple sources and relates to the following topics:
+pronoun.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or sw-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "swahili-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("swahili-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Die Personalprononima sind im Swahili für Subjekt und Objekt identisch und lauten:
+
+## Das Nomen > ### Pronomina > #### Personalpronomina > ##### Table 26
+
+<pre>```
+| 0         | 1     | 2              | 3     |
+|:----------|:------|:---------------|:------|
+| ich       | mimi  | mit mir        | nami  |
+| Du/Sie    | wewe  | mit Dir        | nawe  |
+| er/sie/es | yeye  | mit ihm/ihr    | naye  |
+|           |       |                |       |
+| wir       | sisi  | mit uns        | nasi  |
+| ihr       | ninyi | mit Euch/Ihnen | nanyi |
+| sie       | wao   | mit ihnen      | nao   |
+```</pre>
+
+
+
+## Das Nomen > ### Pronomina > #### Possessivpronomina > ##### Table 30
+
+<pre>```
+| 0        | 1                  | 2    |
+|:---------|:-------------------|:-----|
+|          | Vorsilbe           |      |
+| mein     | Besitzsilbe        | -ngu |
+| Dein     | Besitzsilbe        | -ko  |
+| sein/ihr | Besitzsilbe        | -ke  |
+|          |                    |      |
+| unser    | Besitzsilbe auf -e | -tu  |
+| euer/Ihr | Besitzsilbe auf -e | -nu  |
+| ihr      | Besitzsilbe        | -o   |
+```</pre>
+
+Relativkonstruktionen können auf zwei Arten gebildet werden:
+
+amba – Eigenschaftssilbe
+
+## Das Nomen > ### Pronomina > #### Relativpronomina > ##### Table 27
+
+<pre>```
+| 0                                                | 1                                                        |
+|:-------------------------------------------------|:---------------------------------------------------------|
+| Der Mann, den ich gesehen habe, ist weggegangen. | Mwanaume ambaye ni-li-(m)-ona a-me-ondoka.               |
+|                                                  | Mann er(1)-welcher ich-Vgh.-ihn-sehen er-Perf.-weggehen. |
+```</pre>
+
+
+Kennsilbe – li – Eigenschaftssilbe – Verbstamm
+
+## Das Nomen > ### Pronomina > #### Relativpronomina > ##### Table 28
+
+<pre>```
+| 0                                                | 1                                         |
+|:-------------------------------------------------|:------------------------------------------|
+| Der Mann, den ich gesehen habe, ist weggegangen. | Mwanaume ni-li-ye-(m)-ona a-me-ondoka.    |
+|                                                  | Mann ich-Vgh.-ihn-sehen er-Perf.-weggehen |
+```</pre>
+
+
+Beachte: Letztere ist dieselbe Konstruktion wie bei Adjektiven!
+
+Bei ersterer Konstruktion wird normal das Verb negiert. Die Negation der zweiten Konstruktion kann mit folgendem Sprichwort veranschaulicht werden: «-si-» ersetzt «-li-».
+
+## Das Nomen > ### Pronomina > #### Relativpronomina > ##### Table 29
+
+<pre>```
+| 0                                                                | 1                                                         |
+|:-----------------------------------------------------------------|:----------------------------------------------------------|
+| Wie sollen Dich Chillis, die du nicht gegessen hast, verbrennen? | Pilipili u-si-zo-kula za-ku-washia-ni?                    |
+| (Was ich nicht weiss, macht mich nicht heiss.)                   | Chilis du-nicht-von(5)-essen sie(Präs.)-dich-brennen-wie? |
+```</pre>
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Table 22
+
+<pre>```
+| 0   | 1           | 2          | 3                               | 4                   |
+|:----|:------------|:-----------|:--------------------------------|:--------------------|
+|     | Deutsch     | Swahili    | Bildung                         | Ausnahmen           |
+| I   | Dieses Kind | mtoto huyu | h – Kennsilbenvokal – Kennsilbe | Klasse 1/2 Sg. huyu |
+| II  | Jenes Kind  | mtoto yule | Kennsilbe – le                  | Klasse 1/2 Sg. yule |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+Pronouns behave in many ways like nouns, having both plural and singular forms, being present in the full range of noun classes but no inflection for case, meaning that, for instance, there is no difference between we and us, which are both sisi.
+
+Personal pronouns occur in two forms: an independent form, which is used as a word alone, and a combining stem, which is used when combined with words such as na "with, and" and ndi- "it is". The independent form consists, in all cases except for wao, of a reduplication of a syllable. Nyinyi, however, may alternatively be dissimilated to ninyi.  These pronouns also have a separate genitive (possessive) stem, which is the combining stem that is used when a genitive prefix is added.
+
+## Pronouns > ### Personal pronouns > #### Table 15
+
+<pre>```
+| Class   | Independent   | Combining suffix   | Genitive suffix   | "all"          |
+|:--------|:--------------|:-------------------|:------------------|:---------------|
+| 1S      | mimi          | -mi                | -angu             | —              |
+| 2S      | wewe          | -we                | -ako              | —              |
+| 3S      | yeye          | -ye                | -ake              | —              |
+| 1PL     | sisi          | -si                | -etu              | (sisi) sote    |
+| 2PL     | nyinyi, ninyi | -nyi               | -enu              | (nyinyi) nyote |
+| 3PL     | wao           | -o                 | -ao               | (wao) wote     |
+```</pre>
+
+
+Note that the sex/gender of referents is not distinguished, with yeye capable of meaning either "he" or "she". These pronouns are, however, restricted to use with animate referents, i.e. people or animals, so it does not generally mean it. The genitive form -ake has no such restriction and may mean "his", "hers" or "its" depending on context. The genitive -ake is also used instead of -ao to mean "their" when the referent is inanimate. When the referent is animate, as is most typical, -ao is used.
+The genitive (or possessive) forms are given prefixes corresponding to the class of the possessed noun which precedes it as shown in the table in the section on the genitive -a, for example kitabu changu "my book", vitabu vyangu "my books", jina lako "your name", majina yao "their names". 
+Swahili is a pro-drop language. As the verb usually already includes prefixes to indicate the subject and object, personal pronouns are not strictly needed, and are mostly used for emphasis. The exceptions to this include cases when the copula ni (or its negative counterpart si) is used, as well as with the habitual form of the verb, which lacks subject prefixes.
+In informal speech, when pronouns are unstressed, they may appear in a reduced form, such as mi or mie for mimi, we or wee for wewe etc. This mainly occurs when the pronoun is not added only for emphasis, but is needed (e.g. mi ni "I am", informally), and this also frequently occurs where the first person singular subject prefix ni- is dropped in casual speech before -na-. For example, standard (mimi) ninajua "I know" often occurs as (mi) najua in spoken Swahili.
+
+Each noun class has a corresponding reference pronoun (or combining pronoun) which is a single syllable that never stands alone but may be suffixed on certain other words such as na and ndi- where it can be thought of as meaning "it" (singular classes), "they", "them" (plural classes) or "here", "there" etc. for the locative classes. For all noun classes other than class 1, the reference pronoun is formed by suffixing -o to the verbal concord with sound changes such as the disappearance of u and a, the transformation of i to y when alone or preceded by v, the palatalisation of ki to ch etc.
+The reference pronouns are added to specific slots in relative verb forms and thus may be glossed as either REL "relative" or REF "reference". The independent relative pronouns, equivalent to English relative pronouns (that, which, who(m)) and relative adverbs (where, when, how) are formed by attaching the reference pronouns to amba-.
+
+## Pronouns > ### Reference and relative pronouns > #### Table 16
+
+<pre>```
+|   Class | Class.1   | Reference / Combining Pronoun   | Relative Pronoun   |
+|--------:|:----------|:--------------------------------|:-------------------|
+|       1 | m-        | -ye                             | ambaye             |
+|       2 | wa-       | -o                              | ambao              |
+|       3 | m-        | -o                              | ambao              |
+|       4 | mi-       | -yo                             | ambayo             |
+|       5 | ji-       | -lo                             | ambalo             |
+|       6 | ma-       | -yo                             | ambayo             |
+|       7 | ki-       | -cho                            | ambacho            |
+|       8 | vi-       | -vyo                            | ambavyo            |
+|       9 | N-        | -yo                             | ambayo             |
+|      10 | N-        | -zo                             | ambazo             |
+|      11 | u-        | -o                              | ambao              |
+|      14 | u-        | -o                              | ambao              |
+|      15 | ku-       | -ko                             | ambako             |
+|      16 | -ni/pa-   | -po                             | ambapo             |
+|      17 | -ni/ku-   | -ko                             | ambako             |
+|      18 | -ni/m-    | -mo                             | ambamo             |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Pronoun:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+    u-Deixis: [u-prox, u-remt]
+    x-Pronoun-type: [x-pers, x-refl, x-dem, x-poss, x-int, x-rel]
+    x-Form-type: [x-standalone, x-clitic]
+
+  Rules:
+    x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers}
+      forms:
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-nom}, form: "ich"}
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc}, form: "mich"}
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-dat}, form: "mir"}
+
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-nom}, form: "du"}
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-acc}, form: "dich"}
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-dat}, form: "dir"}
+
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-nom}, form: "er"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-acc}, form: "ihn"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-dat}, form: "ihm"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-nom}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-acc}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-dat}, form: "ihr"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-nom}, form: "es"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-acc}, form: "es"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-dat}, form: "ihm"}
+
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-nom}, form: "wir"}
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-acc}, form: "uns"}
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-dat}, form: "uns"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-nom}, form: "ihr"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-acc}, form: "euch"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-dat}, form: "euch"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-nom}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-acc}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-dat}, form: "ihnen"}
+
+    x-Pronoun-type_x-refl:
+      applies: {x-Pronoun-type: x-refl}
+      pattern: "pronouns in accusative/dative case"
+      note: "only in acc/dat, used obligatorily with reflexive verbs"
+
+    x-Pronoun-type_x-dem:
+      applies: {x-Pronoun-type: x-dem}
+      forms:
+      - {features: {u-Deixis: u-prox}, pattern: "dies- + {def-determiner-endings}", note: "proximal demonstrative"}
+      - {features: {u-Deixis: u-remt}, pattern: "jen- + {def-determiner-endings}", note: "remote demonstrative"}
+
+    x-Pronoun-type_x-int:
+      applies: {x-Pronoun-type: x-int}
+      patterns:
+      - forms:
+        - {features: {u-Case: u-nom, u-Gender: u-masc}, form: "wer"}
+        - {features: {u-Case: u-nom, u-Gender: u-fem}, form: "wer"}
+        - {features: {u-Case: u-nom, u-Gender: u-neut}, form: "was"}
+        - {features: {u-Case: u-acc, u-Gender: u-masc}, form: "wen"}
+        - {features: {u-Case: u-acc, u-Gender: u-fem}, form: "wen"}
+        - {features: {u-Case: u-acc, u-Gender: u-neut}, form: "was"}
+        - {features: {u-Case: u-dat}, form: "wem"}
+        - {features: {u-Case: u-gen}, form: "wessen"}
+      - {pattern: "welch- + {def-determiner-endings}"}
+
+    x-Pronoun-type_x-rel:
+      applies: {x-Pronoun-type: x-rel}
+      patterns:
+      - {pattern: "{determiner} (exceptions in gen. sg.)", note: "gen. sg. m./n. dessen, f. deren"}
+      - {pattern: "welch- + {def-determiner-endings}", note: "archaic/literary; no genitive forms, replaced by dessen/deren"}
+    x-Form-type_x-standalone__x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss, x-Form-type: x-standalone}
+      pattern: "_stem_ + _bare-adj-endings_"
+      note: "the stems are: mein-, dein-, sein-, ihr-, unser-, euer-, Ihr-"
+
+    x-Form-type_x-clitic__x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss, x-Form-type: x-clitic}
+      pattern: "_stem_ + _indef-determiner-endings_"
+      note: "the stems are: mein-, dein-, sein-, ihr-, unser-, euer-, Ihr-"
+
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

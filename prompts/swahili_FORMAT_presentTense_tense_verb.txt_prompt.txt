@@ -1,0 +1,312 @@
+SYSTEM PROMPT:
+You are an expert in the swahili language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language swahili.
+
+The data you receive comes from multiple sources and relates to the following topics:
+present tense, tense, verb.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or sw-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "swahili-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("swahili-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+## Das Verb > ### Zeiten und Modi > #### Gegenwart > ##### Table 48
+
+<pre>```
+| 0                  | 1                          | 2                  |
+|:-------------------|:---------------------------|:-------------------|
+|                    | Positiv                    | Negativ            |
+| Präsens            | SUBJ – na – Stamm          | NEGSUBJ – Stamm -i |
+|                    | Ni – na – enda             | Si – endi          |
+|                    | *oft verkürzt zu Na - enda |                    |
+| Präsens indefinit  | SUBJ – a – Stamm           | NEGSUBJ – Stamm -i |
+|                    | Na – enda                  | Si – endi          |
+| Präsens Gewohnheit | hu – Stamm                 | NEGSUBJ – Stamm -i |
+|                    | hu – enda                  | Si – endi          |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+There are two present tenses in Swahili. These are sometimes termed the "definite present" (with -na-) and the "indefinite present" (with -a-). In modern, standard Swahili, however, there is no great difference in meaning between these two forms as the "indefinite present" is more or less obsolete and rarely used other than its frequent appearance in media headlines. A distinction between these two forms is not made in the negative, with both forms being negated the same way.
+
+## Verbs > ### Tenses, aspects and moods > #### Present tenses > ##### Table 28: Formation of the present tense
+
+<pre>```
+| Unnamed: 0                             | Common Verb         | Short Verb          | Loan verb          |
+|:---------------------------------------|:--------------------|:--------------------|:-------------------|
+| "definite present"                     | [SUBJ]na___a        | [SUBJ]naku___a      | [SUBJ]na___        |
+| "definite present"                     | [SUBJ]na[OBJ]___a   | [SUBJ]na[OBJ]___a   | [SUBJ]na[OBJ]___   |
+| "indefinite present" (almost obsolete) | [SUBJ[a]]a___a      | [SUBJ[a]]a___a      | [SUBJ[a]]a___      |
+| "indefinite present" (almost obsolete) | [SUBJ[a]]a[OBJ]___a | [SUBJ[a]]a[OBJ]___a | [SUBJ[a]]a[OBJ]___ |
+| negative present                       | [NEG.SUBJ]___i      | [NEG.SUBJ]___i      | [NEG.SUBJ]___      |
+| negative present                       | [NEG.SUBJ][OBJ]___i | [NEG.SUBJ][OBJ]___i | [NEG.SUBJ][OBJ]___ |
+```</pre>
+
+
+In informal Swahili, it is very common for the first person singular concord ni- to collapse into the -na- of the definite present tense marker and become inaudible (and unwritten). The distinction between the "definite" and "indefinite" present tense forms appears to vanish in the first person as both begin with a na-, however short verbs retain their -ku- extension in the -na- tense and lose it in the -a- tense, allowing this distinction to still be felt, such as in (ni)nakula "I eat", in the -na- present tense, versus nala "I eat", in the -a- present tense.
+
+## Verbs > ### Tenses, aspects and moods > #### Present tenses > ##### Table 29: Examples ("definite", "indefinite", negative)
+
+<pre>```
+| Verb    | Example                                                | Notes                                                              |
+|:--------|:-------------------------------------------------------|:-------------------------------------------------------------------|
+| -enda   | Anakwenda. "She goes" / "She's going."                 | (Anaenda is also used.)                                            |
+| -enda   | Aenda. "She goes."                                     | nan                                                                |
+| -enda   | Haendi. "She doesn't go." / "She isn't going."         | nan                                                                |
+| -la     | (Ni)nakula. "I eat." / "I am eating."                  | Short verb: -ku- prevents -na- from being stressed                 |
+| -la     | Nala. "I eat."                                         | Short verb: -a- has no problem taking stress.                      |
+| -la     | Sili. "I'm not eating." / "I don't eat."               | Short verb: si-, like all subject/object prefixes, can take stress |
+| -andika | Unaandika. "You write." / "You are writing."           | nan                                                                |
+| -andika | Waandika. "You write."                                 | May also mean "They write." U- + a- = wa-; wa- + -a- = wa-         |
+| -andika | Huandiki. "You don't write." / "You aren't writing."   | nan                                                                |
+| -jibu   | Tunajibu. "We answer" / "We are answering."            | nan                                                                |
+| -jibu   | Twajibu. "We answer."                                  | nan                                                                |
+| -jibu   | Hatujibu. "We don't answer." / "We are not answering." | Loan verb, no -a suffix to be changed to -i.                       |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Present:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Number: [u-sg, u-pl]
+    de-Verbclass: [de-weak, de-strong, de-irregular]
+    de-Tense-type: [de-praesens, de-praesens-progressive]
+
+  Negation:
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
+    examples:
+    - "Ich weiß nicht."
+    - "Er isst den Kuchen nicht."
+
+  Usage:
+    de-praesens:
+      applies: {u-Aspect: [u-ipfv, u-hab, u-iter]}
+      note: "The simple present is the unmarked tense for present reference. It encodes ongoing situations (u-ipfv), habitual actions (u-hab), and repeated or iterative actions (u-iter). It can also be used for near-future reference in context."
+      examples:
+      - "u-ipfv: Ich lese gerade ein Buch."
+      - "u-hab: Er geht jeden Tag zur Arbeit."
+      - "u-iter: Er ruft immer wieder an."
+    de-praesens-progressive:
+      applies: {u-Aspect: [u-prog, u-ipfv]}
+      note: "The 'am'-progressive is a colloquial construction used mainly in spoken German. It highlights that an action is ongoing (u-prog), and often overlaps functionally with the simple present as an imperfective marker (u-ipfv). Less common in formal registers."
+      examples:
+      - "u-prog: Ich bin am Lesen."
+      - "u-ipfv: Er ist am Arbeiten."
+
+  Rules:
+    de-Tense-type_de-praesens__de-Verbclass_de-weak:
+      applies: {de-Verbclass: de-weak, de-Tense-type: de-praesens}
+      pattern: "_stem_ + _ending_"
+      endings:
+      - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}     # ich mache
+      - {features: {u-Person: u-2, u-Number: u-sg}, form: "st"}    # du machst
+      - {features: {u-Person: u-3, u-Number: u-sg}, form: "t"}     # er macht
+      - {features: {u-Person: u-1, u-Number: u-pl}, form: "en"}    # wir machen
+      - {features: {u-Person: u-2, u-Number: u-pl}, form: "t"}     # ihr macht
+      - {features: {u-Person: u-3, u-Number: u-pl}, form: "en"}    # sie machen
+      examples:
+      - "lemma: 'machen', stem: 'mach-'"
+
+    de-Tense-type_de-praesens__de-Verbclass_de-strong:
+      applies: {de-Verbclass: de-strong, de-Tense-type: de-praesens}
+      pattern: "_stem/alteredStem_ + _ending_"
+      endings:
+      - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}     # ich sehe
+      - {features: {u-Person: u-2, u-Number: u-sg}, form: "st"}    # du siehst
+      - {features: {u-Person: u-3, u-Number: u-sg}, form: "t"}     # er sieht
+      - {features: {u-Person: u-1, u-Number: u-pl}, form: "en"}    # wir sehen
+      - {features: {u-Person: u-2, u-Number: u-pl}, form: "t"}     # ihr seht
+      - {features: {u-Person: u-3, u-Number: u-pl}, form: "en"}    # sie sehen
+      note: "Stem vowel alternation occurs in 2sg and 3sg"
+      examples:
+      - "lemma: 'sehen', stem: 'seh-', altered stem: 'sieh-'"
+
+    de-Tense-type_de-praesens__de-Verbclass_de-irregular:
+      applies: {de-Verbclass: de-irregular, de-Tense-type: de-praesens}
+      pattern: "suppletive forms"
+      examples:
+      - "sein → ich bin, du bist, er ist"
+      - "haben → ich habe, du hast, er hat"
+      - "wissen → ich weiß, du weißt, er weiß"
+
+    de-Tense-type_de-praesens-progressive:
+      applies: {de-Tense-type: de-praesens-progressive}
+      pattern: "{sein (finite)} + am + Infinitiv"
+      examples:
+      - "ich bin am Arbeiten"
+      - "er ist am Lesen"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

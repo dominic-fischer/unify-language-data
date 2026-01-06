@@ -1,0 +1,505 @@
+SYSTEM PROMPT:
+You are an expert in the swahili language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language swahili.
+
+The data you receive comes from multiple sources and relates to the following topics:
+adverb.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or sw-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "swahili-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("swahili-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Im Swahili gibt es – im Gegensatz zu anderen Bantusprachen – sehr viele Adjektive, die nicht von Nomen oder Verben abgeleitet sind. Dies sind die «echten» Adjektive. Zudem gibt es echte Adjektive, die arabischen Ursprungs sind.
+
+Bei den anderen Adjektiven lassen sich gewisse Gruppen bilden, die in ihrer Bildung übereinstimmen.
+
+Besitzsilbe (-a entfällt) – enye – Nomen
+
+Ausnahme: Klasse 1/2 Sg. mwenye
+
+## Adjektive & Adverben > ### Adjektive > #### Nominale Adjektive > ##### Table 91
+
+<pre>```
+| 0                                | 1                       |
+|:---------------------------------|:------------------------|
+| Er ist ein intelligenter Mensch. | Ndiye mtu mwenye akili. |
+| Intelligenz                      | akili                   |
+```</pre>
+
+bila + Nomen
+
+## Adjektive & Adverben > ### Adjektive > #### Nominale Adjektive > ##### Verneinung > ###### Table 92
+
+<pre>```
+| 0                                 | 1                         |
+|:----------------------------------|:--------------------------|
+| Er ist kein respektvoller Mensch. | Yeye ni mtu bila heshima. |
+| Respekt                           | heshima                   |
+```</pre>
+
+Kennsilbe – li – Eigenschaftssilbe – Verbstamm
+
+## Adjektive & Adverben > ### Adjektive > #### Verbale Adjektive > ##### Table 93
+
+<pre>```
+| 0                                        | 1                                 |
+|:-----------------------------------------|:----------------------------------|
+| Das geschlossene Fenster ist zerbrochen. | Dirisha lililofungwa limevunjika. |
+| Schliessen                               | funga                             |
+```</pre>
+
+
+Beache: Relativkonstruktion!
+
+Für die Verneinung wird -li- durch -si- ersetzt:
+
+## Adjektive & Adverben > ### Adjektive > #### Verbale Adjektive > ##### Verneinung > ###### Table 94
+
+<pre>```
+| 0                                              | 1                                 |
+|:-----------------------------------------------|:----------------------------------|
+| Das nicht geschlossene Fenster ist zerbrochen. | Dirisha lisilofungwa limevunjika. |
+```</pre>
+
+Echte Adjektive nutzen die Adjektivsilbe (I oder II, je nachdem, mit welcher Art von Buchstaben sie beginnen) zur Angleichung. Die wichtigsten sind hier aufgeführt.
+
+## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive > ##### Table 95
+
+<pre>```
+| 0                | 1        | 2                | 3             | 4             |
+|:-----------------|:---------|:-----------------|:--------------|:--------------|
+| Adjektiv Deutsch | Vorsilbe | Adjektiv Swahili | Nomen Swahili | Nomen Deutsch |
+```</pre>
+
+## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive > ##### Qualitativ > ###### Table 96
+
+<pre>```
+| 0                       | 1                | 2        | 3                 | 4                  |
+|:------------------------|:-----------------|:---------|:------------------|:-------------------|
+| schmal, dünn            | Adjektivsilbe II | -embamba |                   |                    |
+| alt (Menschen)          | Adjektivsilbe I  | -zee     |                   |                    |
+| neu                     | Adjektivsilbe I  | -pya     |                   |                    |
+| schmutzig               | Adjektivsilbe I  | -chafu   | uchafi            | Dreck              |
+| leer                    | Adjektivsilbe I  | -tupu    |                   |                    |
+| kurz, klein             | Adjektivsilbe I  | -fupi    |                   |                    |
+| lang, gross, hoch, tief | Adjektivsilbe I  | -refu    | urefu             | Länge, Höhe, Tiefe |
+| breit, weit             | Adjektivsilbe I  | -pana    | upana             | Breite             |
+| hart, stur              | Adjektivsilbe I  | -shupavu |                   |                    |
+| gross, wichtig          | Adjektivsilbe I  | -kubwa   | makubwa (nur Pl.) | Wichtigkeit        |
+|                         |                  |          | ukubwa            | Grösse             |
+|                         |                  |          | mkubwa            | Manager, Leader    |
+```</pre>
+
+## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive > ##### Sinnlich wahrnehmbar > ###### Table 97
+
+<pre>```
+| 0               | 1                | 2       | 3              | 4            |
+|:----------------|:-----------------|:--------|:---------------|:-------------|
+| süss            | Adjektivsilbe I  | -tamu   | utamu          | Süsse        |
+| bitter, sauer   | Adjektivsilbe I  | -chungu |                |              |
+| schwer          | Adjektivsilbe I  | -zito   | uzito          | Gewicht      |
+| rot             | Ajektivsilbe II  | -ekundu |                |              |
+| weiss, hell     | Adjektivsilbe II | -eupe   |                |              |
+| dunkel, schwarz | Adjektivsilbe II | -eusi   | weusi (<ueusi) | Dunkelheit   |
+| krank           | Adjektivsilbe I  | -gonjwa |                |              |
+| gesund          | Adjektivsilbe I  | -zima   |                |              |
+| trocken         | Adjektivslibe I  | -kavu   | ukame          | Dürre, Wüste |
+| feucht, nass    | Adjektivsilbe I  | -nyevu  | unyevu         | Feuchtigkeit |
+| ruhig           | Adjektivsilbe I  | -tulivu | utulivu        | Ruhe         |
+```</pre>
+
+## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive > ##### Quantitativ > ###### Table 98
+
+<pre>```
+| 0                  | 1                | 2       | 3   | 4   |
+|:-------------------|:-----------------|:--------|:----|:----|
+| wenig/-e           | Adjektivsilbe I  | -chache |     |     |
+| viel/-e            | Adjektivsilbe II | -ingi   |     |     |
+| andere/r/s, einige | Adjektivsilbe II | -ingine |     |     |
+```</pre>
+
+## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive > ##### Subjektiv > ###### Table 99
+
+<pre>```
+| 0                             | 1                | 2           | 3           | 4                            |
+|:------------------------------|:-----------------|:------------|:------------|:-----------------------------|
+| geizig                        | Adjektivsilbe I  | -bahili     | ubahili     | Geiz                         |
+| neutral, objektiv             | Adjektivsilbe II | -adilifu    | uadilifu    | Neutralität, Aufrichtigkeit  |
+| gierig, geizig                | Adjektivsilbe I  | -choyo      | uchoyo      | Gier                         |
+| grausam, heiss, scharf, stark | Adjektivsilbe I  | -kali       | ukali       | Strenge, Wut                 |
+| einfach, schnell              | Adjektivsilbe II | -epesi      |             |                              |
+| gut, nett                     | Adjektivsilbe I  | -ema        |             |                              |
+| lustig                        | Adjektivsilbe I  | -cheshi     |             |                              |
+| schlecht, böse                | Adjektivsilbe I  | -baya       | ubaya       | Schlechtigkeit, Hässlichkeit |
+| schön, gut, lecker            | Adjektivsilbe I  | -zuri       | uzuri       | Schönheit, Güte              |
+| schwierig                     | Adjektivsilbe I  | -gumu       |             |                              |
+| vor-/umsichtig                | Adjektivsilbe II | -angalifu   |             |                              |
+| bescheiden                    | Adjektivsilbe I  | -nyenyekevu | unyenyekevu | Bescheidenheit               |
+```</pre>
+
+Einige Adjektive, häufig arabischen Ursprung, sind unveränderlich und werden nicht angeglichen. Wichtige Adjektive sind:
+
+## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive > ##### Unveränderliche Adjektive > ###### Table 100
+
+<pre>```
+| 0                     | 1                | 2               | 3              |
+|:----------------------|:-----------------|:----------------|:---------------|
+| Adjektiv Deutsch      | Adjektiv Swahili | Nomen Swahili   | Nomen Deutsch  |
+| arm                   | maskini          |                 |                |
+| beste/r/s             | bora             |                 |                |
+| billig, einfach       | rahisi           |                 |                |
+| fertig, abgeschlossen | tayari           |                 |                |
+| grosszügig            | karimu           | ukarimu         | Grosszügigkeit |
+| heiss, warm           | joto             |                 |                |
+| kalt                  | baridi           | baridi, ubaridi |                |
+| langsam               | polepole         |                 |                |
+| schnell               | haraka           |                 |                |
+| lebendig, existent    | hai              |                 |                |
+| nackt                 | uchi             | uchi            | Nacktheit      |
+| normal                | pepe             |                 |                |
+| offen                 | wazi             |                 |                |
+| reich                 | tajiri           |                 |                |
+| sauber, rein          | safi             |                 |                |
+| schwach               | dhaifu           |                 |                |
+| stark                 | imara            | imara           | Kraft, Stärke  |
+| taub                  | ziwi             | kiziwi, vi-     | Taube/r        |
+| teuer                 | ghali            |                 |                |
+| weich                 | laini            |                 |                |
+```</pre>
+
+ni + (ggf.) angeglichenes Adjektiv
+
+Si + (ggf.) angeglichenes Adjektiv
+
+## Adjektive & Adverben > ### Adjektive > #### Weitere Adjektive > ##### Table 101
+
+<pre>```
+| 0           | 1           | 2       |
+|:------------|:------------|:--------|
+| alt (Dinge) | Besitzsilbe | -zamani |
+```</pre>
+
+Die Zahlwörter im Swahili sind eher kompliziert, weshalb im alltäglichen Sprachgebrauch die englischen Zahlen häufig gebraucht werden. Zumindest bis zehn oder gar hundert lohnt es sich aber sicherlich, die Zahlen zu kennen.
+
+## Adjektive & Adverben > ### Adjektive > #### Zahlwörter > ##### Table 102
+
+<pre>```
+| 0                 | 1                 | 2                          | 3                 | 4                 | 5                 |
+|:------------------|:------------------|:---------------------------|:------------------|:------------------|:------------------|
+| Kardinalzahlen DE | Kardinalzahlen SW | Kardinalzahlen SW          | Kardinalzahlen SW | Ordnungszahlen SW | Ordnungszahlen SW |
+| eins              | Adjektivsilbe     | -moja                      | Besitzsilbe       | Besitzsilbe       | -kwanza           |
+| zwei              | …                 | -mbili (N!, -wili)         | …                 | …                 | -pili             |
+| drei              | …                 | -tatu                      | …                 | …                 | -tatu             |
+| vier              | …                 | -nne                       | …                 | …                 | …                 |
+| fünf              | …                 | -tano                      | …                 | …                 | …                 |
+| sechs             | -                 | sita                       | …                 | …                 | …                 |
+| sieben            | …                 | saba                       | …                 | …                 | …                 |
+| acht              | -                 | -nane                      | …                 | …                 | …                 |
+| neun              | -                 | tisa                       | …                 | …                 | …                 |
+| zehn              | -                 | kumi na -moja              | …                 | …                 | kumi              |
+| elf               | …                 | kumi na -mbili (N!, -wili) | …                 | …                 | kumi na moja      |
+| zwölf             | …                 | …                          | …                 | …                 | …                 |
+| zwanzig           | -                 | ishirini                   | …                 | …                 | ishirini          |
+| einundzwanzig     | …                 | ishirini na -moja          |                   |                   |                   |
+| …                 | …                 | …                          |                   |                   |                   |
+| dreissig          | -                 | thelathini                 |                   |                   |                   |
+| vierzig           | -                 | arobaini                   |                   |                   |                   |
+| fünfzig           | -                 | hamsini                    |                   |                   |                   |
+| sechzig           | -                 | sitini                     |                   |                   |                   |
+| siebzig           | -                 | sabini                     |                   |                   |                   |
+| achtzig           | -                 | themanini                  |                   |                   |                   |
+| neunzig           | -                 | tisini                     |                   |                   |                   |
+| hundert           | -                 | mia moja                   |                   |                   |                   |
+| hunderteins       | …                 | mia moja na -moja          |                   |                   |                   |
+| …                 | …                 | …                          |                   |                   |                   |
+| zweihundert       | -                 | mia mbili                  |                   |                   |                   |
+| …                 | …                 | …                          |                   |                   |                   |
+| tausend           | -                 | elfu                       |                   |                   |                   |
+| zweitausend       | -                 | elfu mbili                 |                   |                   |                   |
+```</pre>
+
+Adverben sind im Grunde genommen Adjektive, die jedoch nicht an Subjekte, sondern an Verben angeglichen werden müssen. Das geschieht mithilfe der Silbe «vi-».
+
+kwa – Nomen
+
+## Adjektive & Adverben > ### Adverben > #### Nominale Adverben > ##### Table 103
+
+<pre>```
+| 0                 | 1                   |
+|:------------------|:--------------------|
+| Er rennt schnell. | Anakimbia kwa kasi. |
+| Schnelligkeit     | kasi                |
+```</pre>
+
+bila – Nomen
+
+## Adjektive & Adverben > ### Adverben > #### Nominale Adverben > ##### Verneinung > ###### Table 104
+
+<pre>```
+| 0                       | 1                    |
+|:------------------------|:---------------------|
+| Er rennt nicht schnell. | Anakimbia bila kasi. |
+```</pre>
+
+Genau wie bei den Nomen, der (substantivierte) Infinitiv ersetzt das Nomen.
+
+vi – echtes Adjektiv
+
+## Adjektive & Adverben > ### Adverben > #### Adjektivische Adverben > ##### Table 105
+
+<pre>```
+| 0                   | 1                      |
+|:--------------------|:-----------------------|
+| Wir machen das gut. | Tunafanya hiki vizuri. |
+```</pre>
+
+Siehe unter Adverben.
+
+Adverben arabischer Adjektive können eins zu eins übernommen werden.
+
+## Adjektive & Adverben > ### Adverben > #### Sonstige > ##### Table 106
+
+<pre>```
+| 0                      | 1                       |
+|:-----------------------|:------------------------|
+| Der schnelle Fuchs     | Mbweha haraka           |
+| Füchse rennen schnell. | Mbweha hukimbia haraka. |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+Yet another construction which makes up for the paucity of true adjectives in Swahili is the ornative construction using -enye. Some examples of adjectival phrases with -enye include -enye nguvu "strong" (with strength), -enye nywele fupi "short-haired" (having short hair), and -enye senta moja "concentric" (having one centre). The forms of -enye as well as some more examples of use can be seen here.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Adverbs:
+  Features:
+    u-Comparison: [u-cmpr, u-sprl, u-rl, u-ab]
+    x-Process: [x-base-form, x-adj-as-adv, x-complex, x-modification]
+
+  Rules:
+    x-Process_x-base-form:
+      applies: {x-Process: x-base-form}
+      pattern: "lexical base form"
+      examples: 
+      - "gestern"
+      - "oft"
+      - "bald"
+
+    x-Process_x-adj-as-adv:
+      applies: {x-Process: x-adj-as-adv}
+      pattern: "adjective stem reused as adverb (uninflected)"
+      examples: 
+      - "schnell → schnell"
+      - "laut → laut"
+      note: "form identical to adjective"
+
+    x-Process_x-complex:
+      applies: {x-Process: x-complex}
+      pattern: "compound or prepositional phrase functioning adverbially"
+      examples: 
+      - "trotzdem"
+      - "auf einmal"
+      - "von selbst"
+      - "immerhin"
+      note: "not productive prefixation; historical compounds or fixed expressions. No comparative or superlative."
+
+    x-Process_x-modification:
+      applies: {x-Process: x-modification}
+      pattern: "degree/modality particles modifying adverb"
+      examples: 
+      - "sehr schnell"
+      - "zu spät"
+      - "gar nicht"
+      note: "no comparative or superlative."
+
+    u-Comparison_u-cmpr:
+      applies: {u-Comparison: u-cmpr}
+      pattern: "_stem_ + er"
+      examples: 
+      - "schnell → schneller"
+
+    u-Comparison_u-sprl_u-ab:
+      applies: {u-Comparison: [u-sprl, u-ab]}
+      pattern: "am _stem_ + sten"
+      examples: 
+      - "schnell → am schnellsten"
+
+    u-Comparison_u-sprl_u-rl:
+      applies: {u-Comparison: [u-sprl, u-rl]}
+      pattern: "Determiner _stem_ + ste"
+      examples:
+      - "schnell → schnellste"
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

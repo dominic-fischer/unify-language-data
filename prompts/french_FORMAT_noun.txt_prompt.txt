@@ -1,0 +1,308 @@
+SYSTEM PROMPT:
+You are an expert in the french language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language french.
+
+The data you receive comes from multiple sources and relates to the following topics:
+noun.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or fr-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "french-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("french-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+The pronoun varies in gender (masculine or feminine), in number (singular or plural), and sometimes also in person. It always takes on the meaning of the word or group of words it replaces (the reference). This function is expressed by its name: pro-noun meaning that which is “for,” “put in the place of” a noun.
+Its meaning also depends on the extralinguistic context (when the pronoun is a deictic), or on the textual context (depending on whether the pronoun is an anaphoric or a cataphoric one). The meaning of the cataphoric pronoun “this one,” on the other hand, depends either on the context or on the word to which it refers.
+The syntactic characteristics of the pronoun are identical to those of the noun, which the pronoun can replace in the sentence.
+
+Every French noun has a grammatical gender, either masculine or feminine. The grammatical gender of a noun referring to a human usually corresponds to the noun's natural gender (i.e., its referent's sex or gender). For such nouns, there will very often be one noun of each gender, with the choice of noun being determined by the natural gender of the person described; for example, a male singer is un chanteur, while a female singer is either une chanteuse (a pop singer) or une cantatrice (an opera singer). A plural noun that refers to both males and females is masculine. In some cases, the two nouns are identical in form, with the difference only being marked in neighbouring words (due to gender agreement; see below); a Catholic man is un catholique, while a Catholic woman is une catholique. Nonetheless, there are some such nouns that retain their grammatical gender regardless of natural gender; personne 'person' is always feminine, while (at least in "standard" French) professeur 'teacher' is always masculine. In Canadian French, une professeure is the standard feminine form, which is becoming more and more common in European French.
+A noun's gender is not perfectly predictable from its form, but there are some trends. As a very broad trend, nouns ending in -e tend to be feminine (e.g., une étoile 'a star', une voiture 'a car'), while the rest tend to be masculine (e.g., un ballon 'a balloon', un stylo 'a pen'), but it sometimes can be the opposite. More consistently, some endings, such as -sion, -tion, -aison, -ité and -logie occur almost exclusively with feminine nouns, while others, such as -aire, -isme, -ème and -ège occur almost exclusively with masculine ones. Many nouns ending in -e preceded by double consonants are also masculine (e.g. un cadre, un arbre, un signe, un meuble). Nonetheless, a noun that seems masculine judging by its ending might actually be feminine e.g., la peau 'the skin', une dent 'a tooth' or vice versa e.g., le coude 'the elbow', un squelette 'a skeleton' are masculine. Noun clauses are masculine.
+A very small number of nouns can be used either in masculine or feminine gender with the same meaning (e.g., après-midi 'afternoon'). Often one gender is preferred over the other. Some (very rare) nouns change gender according to the way they are used: the words amour 'love' and délice 'pleasure' are masculine in singular and feminine in plural; the word orgue 'organ' is masculine, but when used emphatically in plural to refer to a church organ it becomes feminine (les grandes orgues); the plural noun gens 'people' changes gender in a very unusual way, being usually masculine but triggering feminine agreement when certain adjectives precede the word.
+Other nouns change meaning depending on which grammatical gender they are used in. For example, le critique (masculine) refers to a critic, while la critique (feminine) means criticism; le livre refers to a book, while la livre means the pound (in the sense of both weight and currency). Similarly, le voile means "veil", whereas la voile means "sail".
+The vocabulary of French includes many homophones, i.e., pairs of words with different spellings but the same pronunciation. Grammatical gender, however, may serve to distinguish some of these. For example, le pot 'the pot' and la peau 'the skin' are both pronounced [po] but disagree in gender.
+
+As in English, nouns inflect for number.
+Orthographically, the plural is usually formed from the singular by adding the letter -s (cf. maison > maisons 'houses'). Nouns ending in -au, -eu, and -ou often take the ending -x instead (cf. jeu > jeux 'games'). However, the endings -s and -x are in most cases not pronounced, meaning that in speech the plural form of a noun generally has the same pronunciation as the singular. Nouns that end in -s, -x or -z in the singular are left unchanged in the plural in both pronunciation and spelling (cf. croix > croix 'crosses', both pronounced [kʁwa]).
+Liaison between a plural noun and a following adjective is one case where the plural ending -s or -x may be pronounced: des fenêtres ouvertes [dɛ fənɛtʁəz‿uvɛʁt] ("open windows"). However, this form of liaison usually only appears in careful formal speech (for example by newsreaders). In most everyday speech singular and plural forms of most nouns are therefore homophonous in all contexts.
+In spoken French, the plurality of most nouns is marked not on the form of the noun itself but by a preceding article or determiner (cf. la maison [la mɛzɔ̃] 'the house' > les maisons [le mɛzɔ̃] 'the houses'; mon frère [mɔ̃ fʁɛːʁ] 'my brother' > mes frères [me fʁɛːʁ] 'my brothers').
+French nouns whose spoken plural forms are distinguished from the singular include most of those ending in -al, whose plural form is -aux (cf. cheval [ʃəval] > chevaux [ʃəvo] 'horses'), as well as a few nouns ending in -ail that also follow this pattern (cf. travail [tʁavaj] > travaux [tʁavo] 'works'). Three nouns form completely irregular plurals: aïeul [ajœl] > aïeux [ajø] 'ancestors' (but aïeuls [ajœl] 'grandfathers'); ciel [sjɛl] > cieux [sjø] 'heavens' (but des ciels de lit 'bed canopies'); and œil [œj] > yeux [jø] 'eyes' (but des œils-de-bœuf 'oculi' (round windows), des œils-de-perdrix 'calluses' (on the feet)). Three other nouns have regular plurals in spelling but have irregular pronunciations: bœuf [bœf] > bœufs [bø] 'oxen, cattle'; œuf [œf] > œufs [ø] 'eggs'; and os [ɔs] > os [o] 'bones'.
+As with English, most uncountable nouns are grammatically treated as singular, though some are plural, such as les mathématiques 'mathematics'; some nouns that are uncountable in English are countable in French, such as une information 'a piece of information'.
+
+Nouns in French are not inflected for any other grammatical categories. (However, personal pronouns are inflected for case and person; see below.)
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Noun:
+  Features:
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+    de-Declension: [de-strong, de-weak, de-plural-en, de-plural-e, de-plural-er, de-plural-s]
+
+  Rules:
+    de-Declension_de-plural-e__u-Gender_u-fem:
+      applies: {de-Declension: de-plural-e, u-Gender: u-fem}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "e"
+          note: "often with Umlaut"
+      examples: 
+      - "eine Nacht → Nächte"
+      note: "feminine nouns with plural -e, often umlauted"
+
+    de-Declension_de-plural-en__u-Gender_u-fem:
+      applies: {de-Declension: de-plural-en, u-Gender: u-fem}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "en"
+      examples: 
+      - "eine Frau → Frauen"
+      note: "default feminine pattern; plural in -(e)n"
+
+    de-Declension_de-plural-er__u-Gender_u-neut:
+      applies: {de-Declension: de-plural-er, u-Gender: u-neut}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "es"
+        - features: {u-Number: u-pl}
+          form: "er"
+          note: "often with Umlaut"
+      examples: 
+      - "ein Kind → Kinder"
+      note: "common neuter plural type; Umlaut frequent"
+
+    de-Declension_de-plural-s__u-Gender_u-neut:
+      applies: {de-Declension: de-plural-s, u-Gender: u-neut}
+      pattern: "_stem_ + s"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "s"
+      examples: 
+      - "ein Auto → Autos"
+      note: "loanwords and abbreviations; plural in -s"
+
+    de-Declension_de-strong__u-Gender_u-masc:
+      applies: {de-Declension: de-strong, u-Gender: u-masc}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "es"
+        - features: {u-Number: u-pl, u-Case: u-nom}
+          form: "e"
+        - features: {u-Number: u-pl, u-Case: u-acc}
+          form: "e"
+        - features: {u-Number: u-pl, u-Case: u-dat}
+          form: "en"
+        - features: {u-Number: u-pl, u-Case: u-gen}
+          form: "e"
+      examples: 
+      - "ein Hund → Hunde"
+
+    de-Declension_de-weak__u-Gender_u-masc:
+      applies: {de-Declension: de-weak, u-Gender: u-masc}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: "e"   # Junge
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: "en"  # Jungen
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: "en"
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "en"
+        - features: {u-Number: u-pl}
+          form: "en"  # Jungen
+      examples: 
+      - "ein Junge → Jungen"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

@@ -1,0 +1,347 @@
+SYSTEM PROMPT:
+You are an expert in the romanian language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language romanian.
+
+The data you receive comes from multiple sources and relates to the following topics:
+determiners, articles, noun.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or ro-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "romanian-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("romanian-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+An often cited peculiarity of Romanian, which it shares with Aromanian, Megleno-Romanian, and Istro-Romanian, is that, unlike all other Romance languages, the definite articles are usually attached to the end of the noun as enclitics (as in  Albanian, Bulgarian, Macedonian and North Germanic languages) instead of being placed in front (See Balkan sprachbund). These enclitic definite articles are believed to have been formed, as in other Romance languages, from Latin demonstrative pronouns. The table below shows the generally accepted etymology of the Romanian definite article.
+
+## Articles > ### Definite article > #### Table 4
+
+<pre>```
+| Unnamed: 0_level_0 + Unnamed: 0_level_1   | Masculine + Singular                                                   | Masculine + Plural               | Feminine + Singular                           | Feminine + Plural                                        |
+|:------------------------------------------|:-----------------------------------------------------------------------|:---------------------------------|:----------------------------------------------|:---------------------------------------------------------|
+| Nominative Accusative                     | Lat. acc. illum  → Rom. -ul → -l, -le, -ul                             | Lat. nom. illī  → Rom. -l'i → -i | Lat. acc. illam  → Rom. -euă → -eau → -a      | Lat. nom. illae  → Rom. -le                              |
+| Genitive Dative                           | Late Lat. dat. illui, influenced by cui and vulgar illaei  → Rom. -lui | Lat. gen. illōrum  → Rom. -lor   | Lat. dat. illī, influenced by cui  → Rom. -ei | Lat. gen. illōrum (gender distinction lost)  → Rom. -lor |
+```</pre>
+
+
+Examples:
+
+Masculine nouns (singular, nominative/accusative):
+codru – codrul ('forest' – 'the forest');
+pom – pomul ('tree' – 'the tree');
+frate – fratele ('brother' – 'the brother');
+tată – tatăl ('father' – 'the father').
+Neuter nouns (singular, nominative/accusative):
+teatru – teatrul ('theater' – 'the theater');
+loc – locul ('place' – 'the place');
+Feminine nouns (singular, nominative/accusative):
+casă – casa (house – the house);
+floare – floarea (flower – the flower);
+cutie – cutia (box – the box);
+stea – steaua (star – the star);
+
+The Romanian indefinite article, unlike the definite article, is placed before the noun, and has likewise derived from Latin:
+
+## Articles > ### Indefinite article > #### Table 5
+
+<pre>```
+| Unnamed: 0_level_0 + Unnamed: 0_level_1   | Masculine + Singular                         | Masculine + Plural             | Feminine + Singular                            | Feminine + Plural                                       |
+|:------------------------------------------|:---------------------------------------------|:-------------------------------|:-----------------------------------------------|:--------------------------------------------------------|
+| Nominative Accusative                     | Lat. acc. ūnum  → Rom. un                    | Lat. nescio quid  → Rom. niște | Lat. acc. ūnam  → Rom. o                       | Lat. nescio quid  → Rom. niște                          |
+| Genitive Dative                           | Lat. dat. ūnī, infl. by cui[13]  → Rom. unui | Lat. gen. ūnōrum  → Rom. unor  | Lat. gen./dat. ūnae, infl. by cui  → Rom. unei | Lat. gen. ūnōrum (gender distinction lost)  → Rom. unor |
+```</pre>
+
+
+(The Latin phrase nescio quid means "I don't know what".)
+Nouns in the vocative case cannot be determined by an indefinite article.
+Examples of indefinite article usage:
+
+Masculine:
+nominative/accusative: singular un copil (a child) – plural niște copii ([some] children);
+genitive/dative: singular unui copil (of/to a child) – plural unor copii (of/to [some] children);
+Neuter:
+nominative/accusative: singular un loc (a place) – plural niște locuri ([some] places);
+genitive/dative: singular unui loc (of/to a place) – plural unor locuri (of/to [some] places);
+Feminine:
+nominative/accusative: singular o masă (a table) – plural niște mese ([some] tables);
+genitive/dative: singular unei mese (of/to a table) – plural unor mese (of/to [some] tables);
+
+When a noun is determined by an adjective, the normal word order is noun + adjective, and the article (definite or indefinite) is appended to the noun. However, the word order adjective + noun is also possible, mostly used for emphasis on the adjective. Then, the article and the case marker, if any, are applied to the adjective instead:
+
+Noun + adjective (normal order):
+un student bun (a good student);
+studentul bun (the good student);
+unui student bun (to a good student);
+studentului bun (to the good student).
+Adjective + noun (reversed order):
+un bun student (a good student);
+bunul student (the good student);
+unui bun student (to a good student);
+bunului student (to the good student).
+
+The demonstrative article is used to put emphasis on the relative superlative of adjectives. The forms are cel and celui (m. sg.), cea and celei (f. sg.), cei and celor (m. pl.) and cele and celor (f. pl.).
+
+There are situations in Romanian when the noun in the genitive requires the presence of the so-called genitival (or possessive) article (see for example the section "Genitive" in "Romanian nouns"), somewhat similar to the English preposition of, for example in a map of China. In Romanian this becomes o hartă a Chinei, where "a" is the genitival article. The table below shows how the genitival articles depend on gender and number.
+
+## Articles > ### Genitival article > #### Table 6
+
+<pre>```
+| 0        | 1         | 2      | 3        |
+|:---------|:----------|:-------|:---------|
+| nan      | Masculine | Neuter | Feminine |
+| Singular | al        | al     | a        |
+| Plural   | ai        | ale    | ale      |
+```</pre>
+
+
+The genitival article also has genitive/dative forms, which are used only with a possessive pronoun. They are: alui (m. sg.), alei (f. sg.), and alor (pl., both genders). These forms are rarely used—especially the singular ones—and the sentences are usually rephrased to avoid them.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Determiner:
+  Features:
+    u-Definiteness: [u-def, u-indf]
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+
+  Rules:
+    u-Definiteness_u-def:
+      applies: {u-Definiteness: u-def}
+      forms:
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-nom}
+          form: "der"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-acc}
+          form: "den"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-dat}
+          form: "dem"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-gen}
+          form: "des"
+
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-nom}
+          form: "die"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-acc}
+          form: "die"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-dat}
+          form: "der"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-gen}
+          form: "der"
+
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-nom}
+          form: "das"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-acc}
+          form: "das"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-dat}
+          form: "dem"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-gen}
+          form: "des"
+
+        - features: {u-Number: u-pl, u-Case: u-nom}
+          form: "die"
+        - features: {u-Number: u-pl, u-Case: u-acc}
+          form: "die"
+        - features: {u-Number: u-pl, u-Case: u-dat}
+          form: "den"
+        - features: {u-Number: u-pl, u-Case: u-gen}
+          form: "der"
+
+    u-Definiteness_u-indf:
+      applies: {u-Definiteness: u-indf}
+      forms:
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-nom}
+          form: "ein"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-acc}
+          form: "einen"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-dat}
+          form: "einem"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-gen}
+          form: "eines"
+
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-nom}
+          form: "eine"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-acc}
+          form: "eine"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-dat}
+          form: "einer"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-gen}
+          form: "einer"
+
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-nom}
+          form: "ein"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-acc}
+          form: "ein"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-dat}
+          form: "einem"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-gen}
+          form: "eines"
+      note: "no plural indefinite"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

@@ -1,0 +1,398 @@
+SYSTEM PROMPT:
+You are an expert in the zulu language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language zulu.
+
+The data you receive comes from multiple sources and relates to the following topics:
+pronoun.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or zu-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "zulu-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("zulu-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Die Personalprononima sind im Zulu für Subjekt und Objekt identisch und lauten:
+
+## Das Nomen > ### Pronomina > #### Personalpronomina > ##### Table 15
+
+<pre>```
+| 0         | 1     | 2              | 3     |
+|:----------|:------|:---------------|:------|
+| ich       | mina  | mit mir        | nami  |
+| Du        | wena  | mit Dir        | nawe  |
+| er/sie/es | yena  | mit ihm/ihr    | naye  |
+|           |       |                |       |
+| wir       | thina | mit uns        | nathi |
+| ihr/Sie   | nina  | mit Euch/Ihnen | nani  |
+| sie       | bona  | mit ihnen      | nabo  |
+```</pre>
+
+
+Es gilt, Erwachsene stets in der zweiten Person plural anzusprechen. Der Singular gilt im normalen Sprachgebrauch als unhöflich und wird nur gegenüber Kindern oder klar rangniedereren Personen angewandt.
+
+
+
+## Das Nomen > ### Pronomina > #### Possessivpronomina > ##### Table 17
+
+<pre>```
+| 0        | 1                         | 2     |
+|:---------|:--------------------------|:------|
+|          | Vorsilbe                  |       |
+| mein     | Besitzsilbe               | -mi   |
+| Dein     | Besitzsilbe               | -kho  |
+| sein/ihr | Besitzsilbe               | -khe  |
+|          |                           |       |
+| unser    | Besitzsilbe (-a entfällt) | -ethu |
+| euer/Ihr | Besitzsilbe (-a entfällt) | -enyu |
+| ihr      | Besitzsilbe               | -bo   |
+```</pre>
+
+Relativkonstruktionen sind zur Abwechslung sehr simpel: Man setzt lediglich ein «e-» vor die darauffolgende Verbform.
+
+## Das Nomen > ### Pronomina > #### Relativpronomina > ##### Table 16
+
+<pre>```
+| 0                                                | 1                                               |
+|:-------------------------------------------------|:------------------------------------------------|
+| Der Mann, den ich gesehen habe, ist weggegangen. | Indoda e-ngi-yi-bon-ile i-hamb-ile.             |
+|                                                  | Mann welcher-ich-ihn-sehen-Perf. er-gehen-Perf. |
+```</pre>
+
+Wie im Deutschen unterscheidet man im Zulu zwischen zwei verschiedenen Demonstrativpronomina. Wie im Deutschen werden im Zulu die Demonstrativpronomina vor das zugehörige Nomen gesetzt.
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Table 12
+
+<pre>```
+| 0   | 1             | 2    | 3                             | 4              |
+|:----|:--------------|:-----|:------------------------------|:---------------|
+|     | Deutsch       | Zulu | Bildung                       | Ausnahmen      |
+| I   | Dieser Mensch | lo   | l- + Eigenschaftssilbe        |                |
+| II  | Jener Mensch  | lowo | l- + Eigenschaftssilbe auf -o | -wo nach -o/-a |
+|     |               |      |                               | -yo nach -e    |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+Pronouns behave in many ways like nouns, having locative, possessive and copulative forms. They differ, however, in that they have one form for each possible class they can refer to.
+The locative form of pronouns is formed like it is for class 1 or 2 nouns, using the prefix ku- and no suffix. The possessive forms are the same as for nouns. The copulative form always uses the identifying prefix yi-.
+
+Personal pronouns occur in two forms: an independent form, which is used as a word alone, and a combining stem, which is used whenever a prefix is added. The independent form consists of the combining stem with na added at the end. Some pronouns also have a separate possessive stem, which is the combining stem that is used when a possessive prefix is added.
+
+## Pronouns > ### Personal pronouns > #### Table 4: Zulu personal pronouns
+
+<pre>```
+| Class     | Independent   | Combining stem   | Possessive stem   |
+|:----------|:--------------|:-----------------|:------------------|
+| 1st sing. | miná          | -mi              | -mi               |
+| 2nd sing. | wená          | -we              | -kho              |
+| 1st plur. | thiná         | -thi             | -íthú             |
+| 2nd plur. | niná          | -ni              | -ínú              |
+| 1, 1a     | yená          | -ye              | -khé              |
+| 2, 2a     | boná          | -bo              | -bó               |
+| 3         | woná          | -wo              | -wó               |
+| 4         | yoná          | -yo              | -yó               |
+| 5         | loná          | -lo              | -ló               |
+| 6         | woná          | -wo              | -wó               |
+| 7         | soná          | -so              | -só               |
+| 8         | zoná          | -zo              | -zó               |
+| 9         | yoná          | -yo              | -yó               |
+| 10        | zoná          | -zo              | -zó               |
+| 11        | loná          | -lo              | -ló               |
+| 14        | boná          | -bo              | -bó               |
+| 15        | khoná         | -kho             | -khó              |
+| 17        | khoná         | -kho             | -khó              |
+```</pre>
+
+
+The forms mina, wena, thina and nina mean "I", "you" (singular), "we" and "you" (plural) respectively. The class 1 and 2 forms are used as third-person pronouns, with yena meaning "he" or "she" and bona meaning "they". All class forms, including classes 1 and 2, mean "it" or "they" when referring to a thing of a particular class. For example, yona can refer to inja (class 9), while wona can refer to amanzi (class 6). The class 17 pronoun khona serves as a neutral pronoun, indifferent to class.
+Note that outside of the first- and second-person singular, the possessive stem has an underlying high tone. Since the possessive prefix also has an underlying high tone, the combined high-high tone surfaces as a falling-low pattern, just like in nouns of the HH tone class. In the first- and second-person singular, only the possessive prefix is high-toned, so the resulting surface pattern is simply high-low.
+Zulu is a pro-drop language. As the verb already includes prefixes to indicate the subject and object, personal pronouns are not strictly needed, and are mostly used for emphasis.
+
+The demonstrative pronouns in Zulu occur in three types:
+
+Proximal ("this"), referring to something near the speaker. It is formed by prefixing the relative concord with l.
+Distal ("that"), referring to something not near the speaker. It is formed by replacing the final vowel of the proximal demonstrative with o (with an additional consonant (semi-vowels w or y) inserted for single-syllable forms).
+Remote ("yonder"), referring to something far from both speaker and listener, but within sight. It is formed by suffixing yā or yana to the proximal demonstrative (after changing the final -o of the Distal form to -a).
+There is one pronoun for each noun class that may be pointed to. As with the personal pronouns, class 17 is a neutral class.
+
+## Pronouns > ### Demonstrative pronouns > #### Table 5: Zulu demonstrative pronouns
+
+<pre>```
+| Class   | Proximal   | Distal   | Remote              |
+|:--------|:-----------|:---------|:--------------------|
+| 1, 1a   | ló, lóna   | lówo     | lowayā́, lowayána   |
+| 2, 2a   | lába       | lábo     | labayā́, labayána   |
+| 3       | ló, lóna   | lówo     | lowayā́, lowayána   |
+| 4       | lé, léna   | léyo     | leyayā́, leyayána   |
+| 5       | léli       | lélo     | leliyā́, leliyána   |
+| 6       | lá, lána   | láwo     | lawayā́, lawayána   |
+| 7       | lési       | léso     | lesiyā́, lesiyána   |
+| 8       | lézi       | lézo     | leziyā́, leziyána   |
+| 9       | lé, léna   | léyo     | lēyā́, lēyána       |
+| 10      | lézi       | lézo     | leziyā́, leziyána   |
+| 11      | lólu       | lólo     | loluyā́, loluyána   |
+| 14      | lóbu       | lóbo     | lobuyā́, lobuyána   |
+| 15      | lókhu      | lókho    | lokhuyā́, lokhuyána |
+| 17      | lókhu      | lókho    | lokhuyā́, lokhuyána |
+```</pre>
+
+
+The longer forms are used especially when the demonstrative stands alone at the end of a sentence. The single-syllable forms lá, lé and ló remain stressed on the final syllable when prefixes are attached. The remote demonstratives in -yā́ likewise have final stress. For classes 4, and 9 the Remote form is usually shortened to the less cumbersome leya as shown for class 9 in the above table.
+The demonstratives may stand alone, as true pronouns, but may also be used in combination with a noun, much like "this" and "that" in English. The demonstrative may either precede or follow a noun. If it precedes, the noun appears in the simple form, while if it follows, the noun is in the full form.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Pronoun:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+    u-Deixis: [u-prox, u-remt]
+    x-Pronoun-type: [x-pers, x-refl, x-dem, x-poss, x-int, x-rel]
+    x-Form-type: [x-standalone, x-clitic]
+
+  Rules:
+    x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers}
+      forms:
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-nom}, form: "ich"}
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc}, form: "mich"}
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-dat}, form: "mir"}
+
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-nom}, form: "du"}
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-acc}, form: "dich"}
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-dat}, form: "dir"}
+
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-nom}, form: "er"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-acc}, form: "ihn"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-dat}, form: "ihm"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-nom}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-acc}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-dat}, form: "ihr"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-nom}, form: "es"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-acc}, form: "es"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-dat}, form: "ihm"}
+
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-nom}, form: "wir"}
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-acc}, form: "uns"}
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-dat}, form: "uns"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-nom}, form: "ihr"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-acc}, form: "euch"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-dat}, form: "euch"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-nom}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-acc}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-dat}, form: "ihnen"}
+
+    x-Pronoun-type_x-refl:
+      applies: {x-Pronoun-type: x-refl}
+      pattern: "pronouns in accusative/dative case"
+      note: "only in acc/dat, used obligatorily with reflexive verbs"
+
+    x-Pronoun-type_x-dem:
+      applies: {x-Pronoun-type: x-dem}
+      forms:
+      - {features: {u-Deixis: u-prox}, pattern: "dies- + {def-determiner-endings}", note: "proximal demonstrative"}
+      - {features: {u-Deixis: u-remt}, pattern: "jen- + {def-determiner-endings}", note: "remote demonstrative"}
+
+    x-Pronoun-type_x-int:
+      applies: {x-Pronoun-type: x-int}
+      patterns:
+      - forms:
+        - {features: {u-Case: u-nom, u-Gender: u-masc}, form: "wer"}
+        - {features: {u-Case: u-nom, u-Gender: u-fem}, form: "wer"}
+        - {features: {u-Case: u-nom, u-Gender: u-neut}, form: "was"}
+        - {features: {u-Case: u-acc, u-Gender: u-masc}, form: "wen"}
+        - {features: {u-Case: u-acc, u-Gender: u-fem}, form: "wen"}
+        - {features: {u-Case: u-acc, u-Gender: u-neut}, form: "was"}
+        - {features: {u-Case: u-dat}, form: "wem"}
+        - {features: {u-Case: u-gen}, form: "wessen"}
+      - {pattern: "welch- + {def-determiner-endings}"}
+
+    x-Pronoun-type_x-rel:
+      applies: {x-Pronoun-type: x-rel}
+      patterns:
+      - {pattern: "{determiner} (exceptions in gen. sg.)", note: "gen. sg. m./n. dessen, f. deren"}
+      - {pattern: "welch- + {def-determiner-endings}", note: "archaic/literary; no genitive forms, replaced by dessen/deren"}
+    x-Form-type_x-standalone__x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss, x-Form-type: x-standalone}
+      pattern: "_stem_ + _bare-adj-endings_"
+      note: "the stems are: mein-, dein-, sein-, ihr-, unser-, euer-, Ihr-"
+
+    x-Form-type_x-clitic__x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss, x-Form-type: x-clitic}
+      pattern: "_stem_ + _indef-determiner-endings_"
+      note: "the stems are: mein-, dein-, sein-, ihr-, unser-, euer-, Ihr-"
+
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

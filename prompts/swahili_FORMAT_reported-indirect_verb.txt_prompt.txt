@@ -1,0 +1,2140 @@
+SYSTEM PROMPT:
+You are an expert in the swahili language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language swahili.
+
+The data you receive comes from multiple sources and relates to the following topics:
+reported, indirect, verb.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or sw-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "swahili-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("swahili-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Die Zeiten folgen dem S T R O V E Muster (s. Wikipedia). Es handelt sich dabei um:
+
+Subj – Temp (Asp) – Rel – Obj – Verb – End. Es können alle besetzt sein, müssen aber nicht:
+
+## Das Verb > ### Zeiten und Modi > #### Table 35
+
+<pre>```
+| 0    | 1          | 2   | 3   | 4    | 5   | 6                       |
+|:-----|:-----------|:----|:----|:-----|:----|:------------------------|
+| Subj | Temp (Asp) | Rel | Obj | Verb | End |                         |
+| Ni-  | li-        | po- | ku- | pik- | ia  | “When I cooked for you” |
+| Si-  | ku-        | ye- | mw- | ona  |     | “whom I did not see”    |
+| Tu-  | me-sha-    |     |     | kula |     | “We have already eaten” |
+```</pre>
+
+## Das Verb > ### Zeiten und Modi > #### Zeiten und Modi - Übersichtsdarstellung > ##### Table 36
+
+<pre>```
+| 0                          | 1                                  | 2                                |
+|:---------------------------|:-----------------------------------|:---------------------------------|
+| Vergangenheit              | Positiv                            | Negativ                          |
+| Plusquamperfekt            | SUBJ – li – kuwa SUBJ – me – Stamm | SUBJ – kuwa NEGSUBJ – ja – Stamm |
+|                            | Ni – li – kuwa ni – me – kula      | Ni – li – kuwa Si – ja – kula    |
+|                            |                                    | NEGSUBJ – kuwa SUBJ – me – Stamm |
+|                            |                                    | Si – kuwa ni – me – kula         |
+| Imperfekt                  | SUBJ – li – kuwa SUBJ – ki – Stamm | SUBJ – kuwa NEGSUBJ – Stamm      |
+|                            | A – li – kuwa a – ki – la          | A – li – kuwa Ha – li            |
+|                            |                                    | NEGSUBJ – kuwa SUBJ – ki – Stamm |
+|                            |                                    | Ha – kuwa a – ki – kula          |
+| Präteritum                 | SUBJ – li – Stamm                  | NEGSUBJ – ku – Stamm             |
+|                            | Ni – li – enda                     | Si – kw – enda                   |
+| Present Perfect            | SUBJ – me – Stamm                  | NEGSUBJ – ja – Stamm             |
+|                            | Tu – me – ondoka                   | Hatu – ja – ondoka               |
+| Present Perfect continuous | SUBJ – me – kuwa Subj – ki – Stamm | SUBJ – me – kuwa NEGSUBJ – Stamm |
+|                            | Wa – me – kuwa wa – ki – jaribu    | Wa – me – kuwa Hawa - jaribu     |
+|                            |                                    | NEGSUBJ – kuwa SUBJ – me – Stamm |
+|                            |                                    | Hawa – kuwa Wa – me – jaribu     |
+```</pre>
+
+
+## Das Verb > ### Zeiten und Modi > #### Zeiten und Modi - Übersichtsdarstellung > ##### Table 37
+
+<pre>```
+| 0                  | 1                  | 2                  |
+|:-------------------|:-------------------|:-------------------|
+| Gegenwart          | Positiv            | Negativ            |
+| Präsens            | SUBJ – na – Stamm  | NEGSUBJ – Stamm -i |
+|                    | Ni – na – enda     | Si – endi          |
+| Präsens indefinit  | SUBJ – a – Stamm   | NEGSUBJ – Stamm -i |
+|                    | Na – enda          | Si – endi          |
+| Präsens Gewohnheit | hu – Stamm         | NEGSUBJ – Stamm -i |
+|                    | hu – enda          | Si – endi          |
+```</pre>
+
+
+## Das Verb > ### Zeiten und Modi > #### Zeiten und Modi - Übersichtsdarstellung > ##### Table 38
+
+<pre>```
+| 0             | 1                                  | 2                                     |
+|:--------------|:-----------------------------------|:--------------------------------------|
+| Zukunft       | Positiv                            | Negativ                               |
+| Futur         | SUBJ – ta – Stamm                  | NEGSUBJ – ta – Stamm                  |
+|               | wa – ta – kula                     | hawa – ta – kula                      |
+| Futur perfekt | SUBJ – ta – kuwa SUBJ – me – Stamm | SUBJ – ta – kuwa NEGSUBJ – ja – Stamm |
+|               | M – ta – kuwa M – me – shaza       | M – ta – kuwa Ham – ja – shaza        |
+|               |                                    | NEGSUBJ – ta – kuwa SUBJ – me – Stamm |
+|               |                                    | Si – ta – kuwa Ni – me – shaza        |
+```</pre>
+
+
+## Das Verb > ### Zeiten und Modi > #### Zeiten und Modi - Übersichtsdarstellung > ##### Table 39
+
+<pre>```
+| 0                | 1                    | 2                       |
+|:-----------------|:---------------------|:------------------------|
+|                  | Positiv              | Negativ                 |
+| Irrealis Present | SUBJ – nge – Stamm   | SUBJ – singe – Stamm    |
+|                  | U – nge – enda       | u – singe – enda        |
+|                  |                      | NEGSUBJ – nge – Stamm   |
+|                  |                      | hau – nge – enda        |
+| Irrealis Past    | SUBJ – ngali – Stamm | SUBJ – singali – Stamm  |
+|                  | U – ngali – enda     | u – singali – enda      |
+|                  |                      | NEGSUBJ – ngali – Stamm |
+|                  |                      | hau – ngali – enda      |
+```</pre>
+
+
+## Das Verb > ### Zeiten und Modi > #### Zeiten und Modi - Übersichtsdarstellung > ##### Table 40
+
+<pre>```
+| 0                                         | 1                 | 2       |
+|:------------------------------------------|:------------------|:--------|
+| Partizipielle Zeiten                      | Positiv           | Negativ |
+| «Situationell» / gleichzeitig, Partizip I | SUBJ – ki – Stamm | -       |
+|                                           | Ni – ki – enda    |         |
+| Konsekutiv Vergangenheit                  | SUBJ – ka – Stamm | -       |
+|                                           | Ni – ka – enda    |         |
+```</pre>
+
+
+## Das Verb > ### Zeiten und Modi > #### Zeiten und Modi - Übersichtsdarstellung > ##### Table 41
+
+<pre>```
+| 0                  | 1                        | 2                        |
+|:-------------------|:-------------------------|:-------------------------|
+|                    | Positiv                  | Negativ                  |
+| Imperativ Singular | Stamm / OBJ – Stamm -e   | SUBJ – si – Stamm -e     |
+|                    | Angalia! / Ni – angalie! | U – si –( ni –) angalie! |
+|                    |                          | M – si –( ni –) angalie! |
+|                    |                          | Ni – si – ende           |
+| Imperativ Plural   | Stamm -e – ni            | SUBJ – si – Stamm -e     |
+|                    | Angalieni!               | U – si –( ni –) angalie! |
+|                    |                          | M – si –( ni –) angalie! |
+|                    |                          | Ni – si – ende           |
+| Subjunktiv         | SUBJ – Stamm -e          | SUBJ – si – Stamm -e     |
+|                    | Ni – ende                | U – si –( ni –) angalie! |
+|                    |                          | M – si –( ni –) angalie! |
+|                    |                          | Ni – si – ende           |
+```</pre>
+
+Die allgemeine Vorsilbe für die Verneinung ist ha – Kennsilbe. Bei allen drei Personen des Singulars der Klasse 1/2 gibt es jedoch Änderung. Da wird dies ersetzt ersetzt durch:
+
+Klasse 1/2 erste Person Sg.: si-	(anstelle von ha – ni)
+
+Klasse 1/2 zweite Person Sg.: hu-	(anstelle von ha – u)
+
+Klasse 1/2 dritte Person Sg.: ha-	(anstelle von ha – a)
+
+Verneinungen, wo diese Änderung ins Spiel kommt, kennzeichnen wir mit [V].
+
+## Das Verb > ### Zeiten und Modi > #### Vergangenheit > ##### Table 42
+
+<pre>```
+| 0                          | 1                                  | 2                                |
+|:---------------------------|:-----------------------------------|:---------------------------------|
+|                            | Positiv                            | Negativ                          |
+| Plusquamperfekt            | SUBJ – li – kuwa SUBJ – me – Stamm | SUBJ – kuwa NEGSUBJ – ja – Stamm |
+|                            | Ni – li – kuwa ni – me – kula      | Ni – li – kuwa Si – ja – kula    |
+|                            |                                    | NEGSUBJ – kuwa SUBJ – me – Stamm |
+|                            |                                    | Si – kuwa ni – me – kula         |
+| Imperfekt                  | SUBJ – li – kuwa SUBJ – ki – Stamm | SUBJ – kuwa NEGSUBJ – Stamm      |
+|                            | A – li – kuwa a – ki – la          | A – li – kuwa Ha – li            |
+|                            |                                    | NEGSUBJ – kuwa SUBJ – ki – Stamm |
+|                            |                                    | Ha – kuwa Ha – ki – kula         |
+| Präteritum                 | SUBJ – li – Stamm                  | NEGSUBJ – ku – Stamm             |
+|                            | Ni – li – enda                     | Si – kw – enda                   |
+| Present Perfect            | SUBJ – me – Stamm                  | NEGSUBJ – ja – Stamm             |
+|                            | Tu – me – ondoka                   | Hatu – ja – ondoka               |
+| Present Perfect continuous | SUBJ – me – kuwa Subj – ki – Stamm | SUBJ – me – kuwa NEGSUBJ – Stamm |
+|                            | Wa – me – kuwa wa – ki – jaribu    | Wa – me – kuwa Hawa - jaribu     |
+|                            |                                    | NEGSUBJ – kuwa SUBJ – me – Stamm |
+|                            |                                    | Hawa – kuwa Wa – me – jaribu     |
+```</pre>
+
+
+## Das Verb > ### Zeiten und Modi > #### Vergangenheit > ##### Table 43
+
+<pre>```
+| 0                                         | 1                 | 2       |
+|:------------------------------------------|:------------------|:--------|
+| Partizipielle Zeiten                      | Positiv           | Negativ |
+| «Situationell» / gleichzeitig, Partizip I | SUBJ – ki – Stamm | -       |
+|                                           | Ni – ki – enda    |         |
+| Konsekutiv Vergangenheit                  | SUBJ – ka – Stamm | -       |
+|                                           | Ni – ka – enda    |         |
+```</pre>
+
+Bei zusammengesetzten Zeiten setzt erste Teil den zeitlichen Hintergrund, der zweite das Zeitverhältnis. Es wird normalerweise das Hauptverb verneint. Das Hilfsverb kuwa kann jedoch negiert werden, um die Negation zu betonen, z. B. wenn es einer bejahenden Voraussetzung widerspricht.
+
+-me-
+
+-mesha-: «schon»
+
+## Das Verb > ### Zeiten und Modi > #### Vergangenheit > ##### Present Perfect > ###### Table 44
+
+<pre>```
+| 0             | 1                                          |
+|:--------------|:-------------------------------------------|
+| A-me-penda.   | Sie hat geliebt (..und ist jetzt traurig). |
+| A-mesha-fika. | Sie ist schon (bereits) angekommen.        |
+```</pre>
+
+Nebst der Verneinung des relativen Perfekts findet diese Zeitform eine Verwendung in der Zeitenabfolge.
+
+Ha – Kennsilbe – ja – Verbstamm
+
+## Das Verb > ### Zeiten und Modi > #### Vergangenheit > ##### Present Perfect > ###### Verneinung [V] – die «noch-nicht-Zeitform» > ####### Table 45
+
+<pre>```
+| 0            | 1                            |
+|:-------------|:-----------------------------|
+| Ha-ja-penda. | Sie ist noch nicht verliebt. |
+```</pre>
+
+Bei mehreren Aktionen in der Vergangenheit nimmt das erste Verb das normale Vergangenheitsinfix -li-, die nachfolgenden -ka-:
+
+-ka-
+
+## Das Verb > ### Zeiten und Modi > #### Vergangenheit > ##### Mehrere Aktionen – Narratives Perfekt > ###### Table 46
+
+<pre>```
+| 0                                                             | 1                                                                                 |
+|:--------------------------------------------------------------|:----------------------------------------------------------------------------------|
+| Ni-li-m-piga simu, ni-ka-tembea kwake, ni-ka-fanya kila kitu. | Ich habe sie angerufen, ich bin zu ihr gegangen, ich habe alles (mögliche) getan. |
+| Tulicheza soka tukashinda.                                    | Wir haben Fussball gespielt und gewonnen.                                         |
+```</pre>
+
+
+Eine zweite Möglichkeit ist, die Verben folgendermassen zu verbinden:
+
+na + Infinitiv
+
+## Das Verb > ### Zeiten und Modi > #### Vergangenheit > ##### Mehrere Aktionen – Narratives Perfekt > ###### Table 47
+
+<pre>```
+| 0                           | 1                                         |
+|:----------------------------|:------------------------------------------|
+| Tulicheza soka na kushinda. | Wir haben Fussball gespielt und gewonnen. |
+```</pre>
+
+## Das Verb > ### Zeiten und Modi > #### Gegenwart > ##### Table 48
+
+<pre>```
+| 0                  | 1                          | 2                  |
+|:-------------------|:---------------------------|:-------------------|
+|                    | Positiv                    | Negativ            |
+| Präsens            | SUBJ – na – Stamm          | NEGSUBJ – Stamm -i |
+|                    | Ni – na – enda             | Si – endi          |
+|                    | *oft verkürzt zu Na - enda |                    |
+| Präsens indefinit  | SUBJ – a – Stamm           | NEGSUBJ – Stamm -i |
+|                    | Na – enda                  | Si – endi          |
+| Präsens Gewohnheit | hu – Stamm                 | NEGSUBJ – Stamm -i |
+|                    | hu – enda                  | Si – endi          |
+```</pre>
+
+## Das Verb > ### Zeiten und Modi > #### Futur > ##### Table 49
+
+<pre>```
+| 0             | 1                                  | 2                                     |
+|:--------------|:-----------------------------------|:--------------------------------------|
+|               | Positiv                            | Negativ                               |
+| Futur         | SUBJ – ta – Stamm                  | NEGSUBJ – ta – Stamm                  |
+|               | wa – ta – kula                     | hawa – ta – kula                      |
+| Futur perfekt | SUBJ – ta – kuwa SUBJ – me – Stamm | SUBJ – ta – kuwa NEGSUBJ – ja – Stamm |
+|               | M – ta – kuwa M – me – shaza       | M – ta – kuwa Ham – ja – shaza        |
+|               |                                    | NEGSUBJ – ta – kuwa SUBJ – me – Stamm |
+|               |                                    | Si – ta – kuwa Ni – me – shaza        |
+```</pre>
+
+Der Infinitiv beginnt stets mit ku- und kann substantiviert werden. Die Bedeutung eines Verbs ist lediglich in seinem Stamm enthalten.
+
+## Das Verb > ### Infinitiv > #### Table 50
+
+<pre>```
+| 0                         | 1                |
+|:--------------------------|:-----------------|
+| gehen/das Gehen, der Gang | kwenda (ku-enda) |
+```</pre>
+
+
+Verneint wird der Infinitiv, indem man ein -to- oder -toku- zwischenschiebt:
+
+## Das Verb > ### Infinitiv > #### Table 51
+
+<pre>```
+| 0                            | 1            |
+|:-----------------------------|:-------------|
+| nicht gehen, das Nicht-Gehen | kuto(kw)enda |
+```</pre>
+
+## Das Verb > ### Konditional > #### Table 52
+
+<pre>```
+| 0                | 1                    | 2                       |
+|:-----------------|:---------------------|:------------------------|
+|                  | Positiv              | Negativ                 |
+| Irrealis Present | SUBJ – nge – Stamm   | SUBJ – singe – Stamm    |
+|                  | U – nge – enda       | u – singe – enda        |
+|                  |                      | NEGSUBJ – nge – Stamm   |
+|                  |                      | hau – nge – enda        |
+| Irrealis Past    | SUBJ – ngali – Stamm | SUBJ – singali – Stamm  |
+|                  | U – ngali – enda     | u – singali – enda      |
+|                  |                      | NEGSUBJ – ngali – Stamm |
+|                  |                      | hau – ngali – enda      |
+```</pre>
+
+Affirmativ: -ngali- … -(si)ngali-
+
+## Das Verb > ### Konditional > #### Unmöglich – vergangen > ##### Table 53
+
+<pre>```
+| 0                                                             | 1                                            |
+|:--------------------------------------------------------------|:---------------------------------------------|
+| Wenn ich dahingegangen wäre, wären meine Eltern froh gewesen. | Ningalienda huko wazazi wangu wangalifurahi. |
+```</pre>
+
+
+Verneinung: -singali- … -(si)ngali-
+
+## Das Verb > ### Konditional > #### Unmöglich – vergangen > ##### Table 54
+
+<pre>```
+| 0                                                                      | 1                                                                               |
+|:-----------------------------------------------------------------------|:--------------------------------------------------------------------------------|
+| Wenn wir nicht dahingegangen wären, wären meine Eltern wütend gewesen. | Tusingalienda huko wazazi wangu wangalikasirika.                                |
+|                                                                        | Wir-nicht-wären(Vgh.)-gehen dort Eltern von(1)-mir sie-wären(Vgh.)-wütend-sein. |
+```</pre>
+
+Affirmativ: -ki-
+
+Man nutzt die partizipielle Zeit der Gleichzeitigkeit
+
+## Das Verb > ### Konditional > #### Möglich – wahrscheinlich > ##### Table 55
+
+<pre>```
+| 0                                           | 1                                      |
+|:--------------------------------------------|:---------------------------------------|
+| Wenn ich dahingehe, sind meine Eltern froh. | Nikienda huko wazazi wangu wanafurahi. |
+```</pre>
+
+
+Verneinung: ikiwa + Verneinte Verbform / -sipo-
+
+## Das Verb > ### Konditional > #### Möglich – wahrscheinlich > ##### Table 56
+
+<pre>```
+| 0                                                    | 1                                              |
+|:-----------------------------------------------------|:-----------------------------------------------|
+| Wenn wir nicht dahingehen, sind meine Eltern wütend. | Tusipoenda huko wazazi wangu wanakasirika.     |
+|                                                      | Ikiwa hatuendi huko wazazi wangu wanakasirika. |
+```</pre>
+
+Affirmativ: -nge- … -(si)nge-
+
+## Das Verb > ### Konditional > #### Möglich – unwahrscheinlich > ##### Table 57
+
+<pre>```
+| 0                                                     | 1                                        |
+|:------------------------------------------------------|:-----------------------------------------|
+| Falls ich dahingehen sollte, wären meine Eltern froh. | Ningeenda huko wazazi wangu wangefurahi. |
+```</pre>
+
+
+Verneinung: -singe- … -(si)nge-
+
+## Das Verb > ### Konditional > #### Möglich – unwahrscheinlich > ##### Table 58
+
+<pre>```
+| 0                                                             | 1                                            |
+|:--------------------------------------------------------------|:---------------------------------------------|
+| Falls wir nicht dahingehen sollte, wären meine Eltern wütend. | Tusingeenda huko wazazi wangu wangekasirika. |
+```</pre>
+
+
+
+## Das Verb > ### Zeitverhältnisse > #### Gleichzeitigkeit > ##### Table 59
+
+<pre>```
+| 0                                         | 1                 | 2       |
+|:------------------------------------------|:------------------|:--------|
+| Partizipielle Zeiten                      | Positiv           | Negativ |
+| «Situationell» / gleichzeitig, Partizip I | SUBJ – ki – Stamm | -       |
+|                                           | Ni – ki – enda    |         |
+```</pre>
+
+
+Gleichzeitigkeit wird mithilfe des Partizip Präsens -ki- oder aber dem Infix -po- (wenn) ausgedrückt. Zusätzlich kann «wakati» (Zeit, während) als Wort eingefügt werden, ersetzt die Konstruktion aber nicht.
+
+## Das Verb > ### Zeitverhältnisse > #### Gleichzeitigkeit > ##### Table 60
+
+<pre>```
+| 0                                        | 1                              |
+|:-----------------------------------------|:-------------------------------|
+| Wir sahen sie, als sie ankamen.          | Tuliwaona (wakati) walipofika. |
+| Wir werden sie sehen, wenn sie ankommen. | Tutawaona (wakati) watapofika. |
+| Wir werden sie ankommen(d) sehen.        | Tutawaona (wakati) wakifika.   |
+```</pre>
+
+Vorzeitigkeit wird mithilfe von «baada» (nachdem) ausgedrückt. Folgt ein Nomen oder ein substantiviertes Verb, so wird «baada ya» benutzt. Diese Konstruktion ist gängiger, also ein konjugiertes Verb zu nutzen..
+
+## Das Verb > ### Zeitverhältnisse > #### Vorzeitigkeit > ##### Table 61
+
+<pre>```
+| 0                                            | 1                               |
+|:---------------------------------------------|:--------------------------------|
+| Nachdem ich angekommen war, ass ich mit Dir. | Baada ya kufika, nilikula nawe. |
+| Nachdem ich ankomme, esse ich mit Dir.       | Baada nimefika nakula nawe.     |
+```</pre>
+
+Vorzeitigkeit wird mithilfe von «kabla» (bevor) ausgedrückt. Auf dieses Wort folgt dabei stets die Negation des Resultativen Perfekts, also die «noch-nicht-Zeitform». Folgt ein Nomen oder ein substantiviertes Verb, so wird «kabla ya» benutzt.
+
+## Das Verb > ### Zeitverhältnisse > #### Nachzeitigkeit > ##### Table 62
+
+<pre>```
+| 0                                                  | 1                               |
+|:---------------------------------------------------|:--------------------------------|
+| Bevor ich gegangen bin, habe ich mit Dir gegessen. | Kabla sijaondoka nilikula nawe. |
+| Vor der Abreise esse ich mit Dir.                  | Kabla ya kuondoka nakula nawe.  |
+```</pre>
+
+Im Unterschied zum Indikativ enden Verben im Subjunktiv auf «-e». Er wird benutzt:
+
+Bei höflichen Aufforderungen und Wünschen
+
+## Das Verb > ### Subjunktiv > #### Table 63
+
+<pre>```
+| 0                         | 1                        |
+|:--------------------------|:-------------------------|
+| Reich mir bitte das Brot. | Tafadhali (u)nipe mkate. |
+```</pre>
+
+
+nach Verben des Wünschens, des Wollens und der Aufforderung
+
+## Das Verb > ### Subjunktiv > #### Table 64
+
+<pre>```
+| 0                                   | 1                              |
+|:------------------------------------|:-------------------------------|
+| Wir möchten, dass Du zu uns kommst. | Tungependa uje nyumbani kwetu. |
+```</pre>
+
+
+Nach «ili» (sodass/damit) und allgemein in Sätzen mit diesem Sinn
+
+## Das Verb > ### Subjunktiv > #### Table 65
+
+<pre>```
+| 0                                          | 1                                          |
+|:-------------------------------------------|:-------------------------------------------|
+| Wir gehen heute, sodass wir bald ankommen. | Tunaondoka leo (ili) tufike huko karibuni. |
+```</pre>
+
+Die Verneinung wird gebildet, indem man ein -si- zwischenfügt:
+
+## Das Verb > ### Subjunktiv > #### Verneinung > ##### Table 66
+
+<pre>```
+| 0                                                | 1                                        |
+|:-------------------------------------------------|:-----------------------------------------|
+| Wir gehen heute, sodass wir nicht spät ankommen. | Tunaondoka leo (ili) tusichelewe kufika. |
+|                                                  | chelewa = verspätet sein                 |
+```</pre>
+
+
+
+Wünsche, höfliche Aufforderungen oder bitten werden mit dem Subjunktiv vorgebracht. Sie unterscheiden sich nur in der Endung vom Indikativ und dadurch, dass sie keine Zeitsilbe tragen.
+
+## Das Verb > ### Wünsche, Aufforderungen, Befehle > #### Wünsche und höfliche Aufforderungen > ##### Table 67
+
+<pre>```
+| 0                                         | 1                        |
+|:------------------------------------------|:-------------------------|
+| Du gibst mir das Brot.                    | Unanipa mkate.           |
+| Könntest Du mir (bitte) das Brot reichen? | (Tafadhali) Unipe mkate? |
+```</pre>
+
+
+Alternativ kann man das Subjekt weglassen und mit dem Objekt beginnen.
+
+## Das Verb > ### Wünsche, Aufforderungen, Befehle > #### Wünsche und höfliche Aufforderungen > ##### Table 68
+
+<pre>```
+| 0                            | 1                     |
+|:-----------------------------|:----------------------|
+| Reich(t) mir bitte das Brot. | Tafadhali nipe mkate. |
+```</pre>
+
+Verneinte höfliche Aufforderungen werden mit dem verneinten Subjunktiv gebildet:
+
+Kennsilbe – si – Objektsilbe – Verbstamm auf -e
+
+## Das Verb > ### Wünsche, Aufforderungen, Befehle > #### Wünsche und höfliche Aufforderungen > ##### Verneinung > ###### Table 69
+
+<pre>```
+| 0                               | 1              |
+|:--------------------------------|:---------------|
+| (Bitte) gib mir das Brot nicht! | Usinipe mkate! |
+```</pre>
+
+## Das Verb > ### Wünsche, Aufforderungen, Befehle > #### Imperativ > ##### Table 70
+
+<pre>```
+| 0                  | 1                        | 2                        |
+|:-------------------|:-------------------------|:-------------------------|
+|                    | Positiv                  | Negativ                  |
+| Imperativ Singular | Stamm / OBJ – Stamm -e   | SUBJ – si – Stamm -e     |
+|                    | Angalia! / Ni – angalie! | U – si –( ni –) angalie! |
+|                    |                          | M – si –( ni –) angalie! |
+|                    |                          | Ni – si – ende           |
+| Imperativ Plural   | Stamm -e – ni            | SUBJ – si – Stamm -e     |
+|                    | Angalieni!               | U – si –( ni –) angalie! |
+|                    |                          | M – si –( ni –) angalie! |
+|                    |                          | Ni – si – ende           |
+| Subjunktiv         | SUBJ – Stamm -e          | SUBJ – si – Stamm -e     |
+|                    | Ni – ende                | U – si –( ni –) angalie! |
+|                    |                          | M – si –( ni –) angalie! |
+|                    |                          | Ni – si – ende           |
+```</pre>
+
+
+Beachte:
+
+Die Änderung auf -e im Plural wird nur bei Verbstämmen auf -a angewandt.
+
+Der Imperativ besitzt keine eigene Verneinung und nutzt die des Subjunktivs
+
+Bei kurzen Verben wird anstelle des Verbstamms der ganze Infinitiv genutzt.
+
+## Das Verb > ### Wünsche, Aufforderungen, Befehle > #### Imperativ > ##### Table 71
+
+<pre>```
+| 0                 | 1              |
+|:------------------|:---------------|
+| Kunywa! Kunyweni! | Trink! Trinkt! |
+```</pre>
+
+## Das Verb > ### Wünsche, Aufforderungen, Befehle > #### Imperativ > ##### Unregelmässige Formen > ###### Table 72
+
+<pre>```
+| 0      | 1       | 2               | 3         |
+|:-------|:--------|:----------------|:----------|
+| kuja   | kommen  | njoo!/njooni!   | komm(t)!  |
+| kwenda | gehen   | nenda!/nendeni! | geh(t)!   |
+| kuleta | bringen | lete!/leteni!   | bring(t)! |
+```</pre>
+
+
+Reflexive Verben, also solche mit der Objektsilbe «-ji-», enden im Imperativ Singular auf -e.
+
+## Das Verb > ### Wünsche, Aufforderungen, Befehle > #### Imperativ > ##### Unregelmässige Formen > ###### Table 73
+
+<pre>```
+| 0       | 1      | 2                   | 3        |
+|:--------|:-------|:--------------------|:---------|
+| jifunza | lernen | jifunze!/jifunzeni! | lern(t)! |
+```</pre>
+
+Das Verb für «sein» im Swahili ist «kuwa». Es wird genauso wie ein normales Verb in Vergangenheit mit -li- und in der Zukunft mit -ta- gebeugt. Auch die Verneinung läuft analog.
+
+## Das Verb > ### Sein > #### Table 74
+
+<pre>```
+| 0                            | 1                     |
+|:-----------------------------|:----------------------|
+| Die Bäume waren nicht gross. | Miti haikuwa mikubwa. |
+| Ich werde Lehrer sein.       | Nitakuwa mwalimu.     |
+```</pre>
+
+
+Im Präsens wird oft das unveränderliche «ni» verwendet. Die Verneinung ist ebenso einfach: da wird das unveränderliche «si» verwendet. Für Personen werden hier stets die vollen Personalpronomen verwendet.
+
+## Das Verb > ### Sein > #### Table 75
+
+<pre>```
+| 0                      | 1               |
+|:-----------------------|:----------------|
+| Der Baum ist klein.    | Mti ni mdogo.   |
+| Wir sind keine Lehrer. | Sisi si walimu. |
+```</pre>
+
+Betontes Sein oder Nicht-Sein wird mithilfe von ndi-/si- und der Eigenschaftssilbe ausgedrückt.
+
+## Das Verb > ### Sein > #### Betontes Sein > ##### Table 76
+
+<pre>```
+| 0                         | 1                          |
+|:--------------------------|:---------------------------|
+| Dies ist der kleine Baum. | Ndiyo mti mdogo.           |
+| Ich hab das nicht getan!  | Simi ambaye amefanya hivi! |
+```</pre>
+
+
+
+Unpersönliches (und unbetontes) Sein wird im Präsens mit «ndi» und «si» gebildet.
+
+## Das Verb > ### Sein > #### Unpersönliches Sein > ##### Mit Nomen > ###### Table 77
+
+<pre>```
+| 0                         | 1             |
+|:--------------------------|:--------------|
+| Es ist ein kleiner Baum.  | Ni mti mdogo. |
+| Es ist kein kleiner Baum. | Si mti mdogo. |
+```</pre>
+
+
+In den anderen Zeiten nutzt man ganz normal die Kennsilbe des Nomens.
+
+## Das Verb > ### Sein > #### Unpersönliches Sein > ##### Mit Nomen > ###### Table 78
+
+<pre>```
+| 0                         | 1                  |
+|:--------------------------|:-------------------|
+| Es war ein kleiner Baum.  | Ulikuwa mit mdogo. |
+| Es war kein kleiner Baum. | Hukuwa mit mdogo.  |
+```</pre>
+
+Hierfür nutzt man das unpersönliche «i-» (Klasse 9/10) als Kennsilbe, und bildet ansonsten ganz normale Verbformen.
+
+## Das Verb > ### Sein > #### Unpersönliches Sein > ##### Mit Adjektiven > ###### Table 79
+
+<pre>```
+| 0                      | 1              |
+|:-----------------------|:---------------|
+| Es ist schön geworden. | Imekuwa nzuri. |
+| Es wird schön werden.  | Itakuwa nzuri. |
+```</pre>
+
+«Haben» wird im Swahili mit «kuwa na» (sein mit) umschrieben. Die Bildung funktioniert dabei genau gleich wie «sein», nur, dass eben stets dass «na» angehängt wird.
+
+## Das Verb > ### Haben > #### Table 80
+
+<pre>```
+| 0                               | 1                       |
+|:--------------------------------|:------------------------|
+| Die Bäume hatten keine Blätter. | Miti haikuwa na majani. |
+| Ich werde einen Lehrer haben.   | Nitakuwa na mwalimu.    |
+```</pre>
+
+
+Im Präsens wird die Konstruktion etwas vereinfacht und lautet:
+
+Kennsilbe – na
+
+## Das Verb > ### Haben > #### Table 81
+
+<pre>```
+| 0                             | 1               |
+|:------------------------------|:----------------|
+| Sie haben einen kleinen Baum. | Wana mti mdogo. |
+```</pre>
+
+
+Die Verneinung funktioniert normal mit ha – Kennsilbe, wobei die Verneinungsregel [V] angewandt wird (si-, hu-, ha- für die drei Personen im Singular).
+
+## Das Verb > ### Haben > #### Table 82
+
+<pre>```
+| 0                       | 1              |
+|:------------------------|:---------------|
+| Wir haben keine Lehrer. | Hatuna walimu. |
+| Du hast keinen Lehrer.  | Huna mwalimu.  |
+```</pre>
+
+Modalverben funktionieren im Swahili gleich wie im Deutschen. Sie können:
+
+Alleine stehen
+
+Vor einem Infinitiv stehen
+
+Das Verb «müssen», «kuwa lazima» (nötig sein, lazima (Klasse 9/10) = Nötigkeit) wird im Swahili speziell ausgedrückt. Auf die konjugierte Form folgt der Subjunktiv:
+
+## Das Verb > ### Modalverben > #### Table 83
+
+<pre>```
+| 0                            | 1                   |
+|:-----------------------------|:--------------------|
+| Ni lazima nifanye hivi.      | Ich muss das tun.   |
+| Ilikuwa lazima nifanye hivi. | Ich musste das tun. |
+```</pre>
+
+
+
+Um Verben in ihrer Bedeutung zu verändern, werden folgende Nachsilben an das Verbende angefügt.
+
+## Das Verb > ### Verbmodifikatoren > #### Nachsilben > ##### Table 84
+
+<pre>```
+| 0                   | 1                                                                |
+|:--------------------|:-----------------------------------------------------------------|
+| -esha, -isha        | Transitivität: Jemanden etwas tun lassen, jmdn. zu etwas zwingen |
+| Mlinichelewesha.    | Du hast mich aufgehalten (verspätet).                            |
+| chelewa = spät sein |                                                                  |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikatoren > #### Nachsilben > ##### Table 85
+
+<pre>```
+| 0           | 1                           |
+|:------------|:----------------------------|
+| -wa         | Passivität                  |
+| Niliitwa.   | Jene Dinge wurden erledigt. |
+| ita = rufen |                             |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikatoren > #### Nachsilben > ##### Table 86
+
+<pre>```
+| 0              | 1                               |
+|:---------------|:--------------------------------|
+| -na            | Gegenseitigkeit: (mit-)einander |
+| Tunapendana.   | Wir lieben einander.            |
+| penda = lieben |                                 |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikatoren > #### Nachsilben > ##### Table 87
+
+<pre>```
+| 0              | 1                                  |
+|:---------------|:-----------------------------------|
+| -(l)ia, -(l)ea | Kausalität, Apllikativität: für    |
+| Nilimsomea.    | Ich las ihm vor (ich las für ihn). |
+| soma = lesen   |                                    |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikatoren > #### Nachsilben > ##### Table 88
+
+<pre>```
+| 0                 | 1                                       |
+|:------------------|:----------------------------------------|
+| -ika, -eka        | Passivität: Beschreibung eines Zustands |
+| Vinaoneka vizuri. | Es sieht gut aus (Die Dinge …).         |
+| ona = sehen       |                                         |
+```</pre>
+
+Um ein Verb ins Passiv zu setzen, wird ein «-w-» vor das Schluss-a gesetzt (siehe unter Nachsilben). Das Wörtchen «von» (z.B. ich wurde von ihm gefragt.) wird durch «na» ausgedrückt.
+
+## Das Verb > ### Verbmodifikatoren > #### Passiv > ##### Table 89
+
+<pre>```
+| 0                                | 1                     |
+|:---------------------------------|:----------------------|
+| Ich wurde vom Lehrer geschlagen. | Nilipigwa na mwalimu. |
+```</pre>
+
+Reflexivität wird – unabhängig von der Person – mit dem Objektsilbe «ji» angezeigt.
+
+## Das Verb > ### Verbmodifikatoren > #### Reflexivität > ##### Table 90
+
+<pre>```
+| 0                           | 1                  |
+|:----------------------------|:-------------------|
+| Ich habe mich gefragt, ob … | Nilijiuliza kama … |
+```</pre>
+
+Kennsilbe – li – Eigenschaftssilbe – Verbstamm
+
+## Adjektive & Adverben > ### Adjektive > #### Verbale Adjektive > ##### Table 93
+
+<pre>```
+| 0                                        | 1                                 |
+|:-----------------------------------------|:----------------------------------|
+| Das geschlossene Fenster ist zerbrochen. | Dirisha lililofungwa limevunjika. |
+| Schliessen                               | funga                             |
+```</pre>
+
+
+Beache: Relativkonstruktion!
+
+Für die Verneinung wird -li- durch -si- ersetzt:
+
+## Adjektive & Adverben > ### Adjektive > #### Verbale Adjektive > ##### Verneinung > ###### Table 94
+
+<pre>```
+| 0                                              | 1                                 |
+|:-----------------------------------------------|:----------------------------------|
+| Das nicht geschlossene Fenster ist zerbrochen. | Dirisha lisilofungwa limevunjika. |
+```</pre>
+
+Genau wie bei den Nomen, der (substantivierte) Infinitiv ersetzt das Nomen.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+Like nouns, verbs are formed by adding prefixes to a basic stem. However, unlike the prefixes of nouns, verbal prefixes are not a fixed part of the verb, but indicate subject, object, tense, aspect, mood and other inflectional categories. Normally, verbs are cited in dictionaries in the stem form, often with a hyphen to indicate that prefixes are added, such as -sema "say", -andika "write", -la "eat". It is also possible to use the infinitive/gerund form which begins with ku- or, for a couple of verbs only, kw-, such as kusema "to say", kuandika "to write", kula "to eat".
+
+Prefixes are always attached in a fixed order; the object prefix always comes last, immediately before the verb stem, while the subject prefix comes before the object prefix. Most of the time, a tense, aspect, mood or polarity prefix may intervene between the subject and object prefix, or be placed before the subject prefix. A common mnemonic used by learners of Swahili for the order of parts of a verb is STROVE.
+
+Subject prefix
+TAM prefix (or usually Tense prefix)
+Relative prefix
+Object prefix
+Verb stem
+Extension(s) (meaning "derivative suffix(es)"), or, more broadly Ending (including also the inflectional suffixes -i and -e).
+In learner materials, all types of prefixes other than the subject prefixes are frequently referred to with the dated term "infix". The term infix, as used by linguists, would refer only to an affix that was inserted within the verbal root, not between the verbal root and another prefix, or between two other prefixes. Under the modern definition of the word, Swahili does not have infixes.
+Here is an example of a verb with all slots filled:
+
+Most of the time, verbs will not have all slots filled. Here are some other examples.
+
+There are a number of derivational suffixes (frequently termed 'extensions') which can be added to the end of verbs to derive new meanings, some of which have been shown above.
+
+There are three basic inflection groups which differ only very slightly from one another:
+
+common verbs
+short verbs
+loan verbs
+Common verbs are the largest group of verbs in Swahili. In their infinitive form, they consist of three or more syllables and end with -a. All verbs of native Bantu origin end with -a, including the short verbs mentioned below. Some examples of common verbs are kuanguka "to fall", kufanya "to do, to make", kuona "to see", kuwaza "to think", kusaidia "to help". The final -a is replaced with another vowel in certain grammatical contexts, becoming -i in the present negative, and -e in the subjunctive and imperative forms involving an object prefix. The plural address marker -ni also triggers this final -a to become -e.
+Short verbs are those which, in their infinitive form, consist of only two syllables, such as  kula "to eat", kunywa "to drink", kuja "to come", kupa "to give". The verbs kwenda "to go" and kwisha "to finish" may belong to this group, although it is also common for these verbs to be conjugated as common verbs (as kuenda and kuisha). Because the stems of most of these verbs, once the infinitive prefix ku- is removed, are monosyllabic, these are frequently termed monosyllabic verbs, however this is problematic as the final -a of Bantu verbs is often not considered to be part of the root (meaning that roots of many of these verbs consists of only a single consonant or consonant cluster, such as -p- "give"). Furthermore, when the final -a is considered part of the stem, this excludes -enda and -isha, which generally conjugate in a similar way to the other short verbs. The short verbs are all native Bantu verbs ending in -a and undergo the same -i and -e alterations as the common verbs. Additionally, they are characterised by the insertion (or retention) of the syllable -ku- in certain verb forms. This intrusive -ku-  (which may be glossed as EXT for "extension") prevents the penultimate stress from falling on certain TAM prefixes (-na-, -me-, -li-, -ta-, -sha-, -nge-, -ngeli-) and relative prefixes, which are inherently unable to be stressed. This -ku- disappears in verb forms where the stress is allowed to fall on a subject or object prefix, or on certain other TAM prefixes (-a-, hu-, -ki-, -ka-, -ku-, -si-). (The TAM prefix -ja- can be regarded as belonging to either group, depending on the speaker.) Because the initial stem vowel of -enda and -isha takes the stress, this explanation does not sufficiently fit, however it should suffice to say that the distribution of their -kw- extension, among speakers who use it, is identical to that of the -ku- extension in other short verbs.
+The Loan verbs, also frequently called "Arabic" verbs,  are those which do not end in -a in the infinitive. Not all verbs from Arabic are in this group, however, such as kusaidia, which is an Arabic loan which happens to end in -a and is thus conjugated as a common verb. Likewise, not all Loan verbs come from Arabic, such as kukisi "to kiss" and kuripoti "to report", which are from English. What these verbs share in common is that they are all loan-words and none of them end in -a. The consequence of this is that they do not take the suffixes -e and -i that the verbs ending in -a do, which occasionally results in ambiguity, such as in si-ku-sahau-Ø which could either mean:
+
+Both the subject and, when applicable, the object of the verb are indicated by prefixes or concords attached to the verb stem. Swahili is a pro-drop language: explicit personal pronouns are only used for emphasis, or with verb forms that do not indicate subject or object. When a noun is used as the subject or object, then the concord must match its class. Animate nouns (referring to a person or animal) are an exception and these occur with concords of the noun classes 1 (singular) or 2 (plural). The subject concord must always be present, except in the infinitive, habitual and imperative forms. The object concord is generally optional; although some sources maintain that it must always be used with animate objects, this appears not to be the case as counter-examples are commonplace. Whether it is used or not appears to have to do with animacy, specificity and definiteness as well as pragmatic considerations of emphasis.
+Six different forms of verbal concord exist.
+For the subject, there are both negative and positive forms, while there are only positive forms for objects. The negative subject concords are formed by prefixing the syllable ha- to the beginning, except for the irregular forms si- (instead of *hani-), hu- (instead of *hau-) and ha- (instead of *haa-) which are used, respectively, for first, second and third person singular animate subjects.
+Additionally, in (the third person singular of) noun class 1, the prefix yu- is used instead of a- as the subject of a locative copula. (This yu- can also be seen in the demonstratives.) The negative form of yu- is formed regularly, by appending the prefix ha-.
+Before the present 'indefinite' marker -a-, subject concords are shortened to just a consonant or consonant cluster in a similar manner to the prefix which occur on the genitive preposition -a.
+Object concords are generally the same as the positive subject concord, although there are a few exceptions for instances involving animate referents; 2nd person singular and plural, as well as 3rd person singular (class 1) all have different forms for subject and object concord.
+
+## Verbs > ### Subject and object concords > #### Table 21
+
+<pre>```
+| Unnamed: 0_level_0 + Person / Class   | Unnamed: 1_level_0 + Person / Class   | Positive + Subject Verb   | Positive + Subject Locative   | Positive + Object   | Positive + Subject before -a-   | Negative + Subject Verb   | Negative + Subject Locative   |
+|:--------------------------------------|:--------------------------------------|:--------------------------|:------------------------------|:--------------------|:--------------------------------|:--------------------------|:------------------------------|
+| 1st sing.                             | 1st sing.                             | ni-                       | ni-                           | ni-                 | n-                              | si-                       | si-                           |
+| 2nd sing.                             | 2nd sing.                             | u-                        | u-                            | ku-                 | w-                              | hu-                       | hu-                           |
+| 1st plur.                             | 1st plur.                             | tu-                       | tu-                           | tu-                 | tw-                             | hatu-                     | hatu-                         |
+| 2nd plur.                             | 2nd plur.                             | m(w)-                     | m(w)-                         | wa-                 | mw-                             | ham-                      | ham-                          |
+| 1                                     | m-                                    | a-                        | yu-                           | m(w)-               | —                               | ha-                       | hayu-                         |
+| 2                                     | wa-                                   | wa-                       | wa-                           | wa-                 | w-                              | hawa-                     | hawa-                         |
+| 3                                     | m-                                    | u-                        | u-                            | u-                  | w-                              | hau-                      | hau-                          |
+| 4                                     | mi-                                   | i-                        | i-                            | i-                  | y-                              | hai-                      | hai-                          |
+| 5                                     | ji-                                   | li-                       | li-                           | li-                 | l-                              | hali-                     | hali-                         |
+| 6                                     | ma-                                   | ya-                       | ya-                           | ya-                 | y-                              | haya-                     | haya-                         |
+| 7                                     | ki-                                   | ki-                       | ki-                           | ki-                 | ch-                             | haki-                     | haki-                         |
+| 8                                     | vi-                                   | vi-                       | vi-                           | vi-                 | vy-                             | havi-                     | havi-                         |
+| 9                                     | N-                                    | i-                        | i-                            | i-                  | y-                              | hai-                      | hai-                          |
+| 10                                    | N-                                    | zi-                       | zi-                           | zi-                 | z-                              | hazi-                     | hazi-                         |
+| 11                                    | u-                                    | u-                        | u-                            | u-                  | w-                              | hau-                      | hau-                          |
+| 14                                    | u-                                    | u-                        | u-                            | u-                  | w-                              | hau-                      | hau-                          |
+| 15                                    | ku-                                   | ku-                       | ku-                           | ku-                 | kw-                             | haku-                     | haku-                         |
+| 16                                    | -ni/pa-                               | pa-                       | pa-                           | pa-                 | p-                              | hapa-                     | hapa-                         |
+| 17                                    | -ni/ku-                               | ku-                       | ku-                           | ku-                 | kw-                             | haku-                     | haku-                         |
+| 18                                    | -ni/m-                                | m(u)-                     | m(u)-                         | m(u)-               | mw-                             | ham(u)-                   | ham(u)-                       |
+| reflexive                             | reflexive                             | —                         | —                             | ji-                 | —                               | —                         | —                             |
+```</pre>
+
+
+Examples:
+
+Tunakwenda sasa. "We are going now."
+Sisi tunakwenda sasa. "We are going now." (with emphasis)
+Ninamwona. "I see him/her."
+Ninamwona yeye. "I see him/her." (with emphasis)
+Ninampa zawadi. "I give him/her a gift."
+Because the 2nd person plural object prefix -wa- is the same as the object prefix for class 2 (3rd person plural object), a word such as ninawaona may ambiguously mean "I see you all" or "I see them." These two possibilities may be disambiguated by placing the pronoun after the verb: ninawaona ninyi / wao. Very frequently, however, the suffix -eni is appended to the verb to indicate that the second person plural is meant: ninawaoneni "I see you all."  This suffix causes the final a of Bantu verbs to shift to e. On loan verbs, this suffix is simply -ni. Some speakers use the prefix -ku- (otherwise indicating 2nd person singular) with the suffix -(e)ni, as in ninakuoneni "I see you all."
+The reflexive prefix only occurs as an object, and refers back to the subject of the sentence. It is equivalent to English forms like myself, yourself, himself and so on.
+
+ninajitetea "I defend myself"
+anajiona "he sees himself" (idiomatically, may mean: "he is conceited")
+
+The infinitive is a verbal noun, and belongs to the nominal class 15, which is reserved specifically for infinitives. It is marked by the prefix ku-. It may occur in the same contexts as other nouns and may, occasionally, even be derived into the locative classes by means of attaching the suffix -ni, as in kuangukani "in falling" (i.e. "while falling"). It corresponds to the English infinitive or gerund. Infinitives cannot take subject, relative or TAM prefixes, but they may take object prefixes.
+
+## Verbs > ### Infinitive > #### Table 22: Formation of the infinitive
+
+<pre>```
+| Unnamed: 0   | common verbs      | short verbs       | Loan verb        |
+|:-------------|:------------------|:------------------|:-----------------|
+| Affirmative  | ku___a            | ku___a            | ku___            |
+| Affirmative  | ku[OBJ]___a       | ku[OBJ]___a       | ku[OBJ]___       |
+| Negative     | kuto(ku)___a      | kutoku___a        | kuto(ku)___      |
+| Negative     | kuto(ku)[OBJ]___a | kuto(ku)[OBJ]___a | kuto(ku)[OBJ]___ |
+```</pre>
+
+
+The negative infinitive is derived from the verb kutoa "to subtract", "to not do", although it is rarely encountered in its full form for this use. The additional -ku- in brackets is the infinitive marker of the original verb, although it may be omitted as long as stress rules allow.
+
+## Verbs > ### Infinitive > #### Table 23: Examples
+
+<pre>```
+| Verb   | Affirmative infinitive                        | Negative infinitive                                                |
+|:-------|:----------------------------------------------|:-------------------------------------------------------------------|
+| -wa    | kuwa "to be, being"                           | kutokuwa "not to be, to not be, not being"                         |
+| -nywa  | kunywa "to drink, drinking"                   | kutokunywa "not to drink, to not drink, not drinking"              |
+| -nywa  | kuyanywa "to drink it, drinking it" (class 6) | kuto(ku)yanywa "not to drink it, to not drink it, not drinking it" |
+| -ona   | kuona "to see, seeing"                        | kuto(ku)ona "not to see, to not see, not seeing"                   |
+| -ona   | kumwona "to see her/him"                      | kuto(ku)mwona "not to see, to not see, not seeing her/him"         |
+| -fanya | kufanya "to do/make"                          | kuto(ku)fanya "not to do/make, to not do/make, not doing/making"   |
+| -sahau | kusahau "to forget"                           | kuto(ku)sahau "not to forget, to not forget, not forgetting"       |
+```</pre>
+
+For the sake of simplicity, the following verb forms may be referred to as "tenses" as they often are in learner materials, but many of these are not grammatical tenses in the technical sense but may instead be aspects or moods. All together, Tense, Aspect and Mood may be abbreviated as TAM.
+The following table shows a summary of TAM forms which will be discussed in further depth below. Brackets indicate optional elements and slashes indicate alternative elements of which either (but not both) may fill the same slot in the verb. The column labelled 'final vowel' is only relevant for "short" and "common verbs", with "loan verbs" remaining invariable here with the exception of the -ni suffix added to indicate 2nd person plural address. In any TAM form, when the object is 2nd person plural, this -(e)ni prefix may also occur, but this is not shown in this table.
+
+## Verbs > ### Tenses, aspects and moods > #### Table 24: Summary of TAM forms
+
+<pre>```
+| Unnamed: 0                              | Tense, Aspect, Mood         | Subject   | TAM         | Relative   | Object / Extension   | Verb STEM   | Final Vowel   | 2P   | Relative.1   |
+|:----------------------------------------|:----------------------------|:----------|:------------|:-----------|:---------------------|:------------|:--------------|:-----|:-------------|
+| Indicative Basic Tenses                 | Past                        | SUB       | -li-        | (REL)      | (OBJ) / EXT          | STEM        | -a            | —    | —            |
+| Indicative Basic Tenses                 | Past Negative               | NEG.SUB   | -ku-        | —          | (OBJ)                | STEM        | -a            | —    | —            |
+| Indicative Basic Tenses                 | Perfect                     | SUB       | -me-        | —          | (OBJ) / EXT          | STEM        | -a            | —    | —            |
+| Indicative Basic Tenses                 | Perfect Negative            | NEG.SUB   | -ja-        | —          | (OBJ) / (EXT)        | STEM        | -a            | —    | —            |
+| Indicative Basic Tenses                 | Present 'Definite'          | SUB       | -na-        | (REL)      | (OBJ) / EXT          | STEM        | -a            | —    | —            |
+| Indicative Basic Tenses                 | Present 'Indefinite'        | SUB[a]    | -a-         | —          | (OBJ)                | STEM        | -a            | —    | —            |
+| Indicative Basic Tenses                 | Present Habitual            | —         | hu-         | —          | (OBJ)                | STEM        | -a            | —    | —            |
+| Indicative Basic Tenses                 | Present Negative            | NEG.SUB   | —           | —          | (OBJ)                | STEM        | -i            | —    | —            |
+| Indicative Basic Tenses                 | Future                      | SUB       | -ta-        | (-ka-REL)  | (OBJ) / EXT          | STEM        | -a            | —    | —            |
+| Indicative Basic Tenses                 | Future Negative             | NEG.SUB   | -ta- / -to- | —          | (OBJ) / EXT          | STEM        | -a            | —    | —            |
+| Relative Forms                          | Tenseless Relative          | SUB       | —           | —          | (OBJ)                | STEM        | -a-           | —    | REL          |
+| Relative Forms                          | Tenseless Negative Relative | SUB       | -si-        | REL        | (OBJ)                | STEM        | -a            | —    | —            |
+| Contextual Tenses                       | Situational                 | SUB       | -ki-        | —          | (OBJ)                | STEM        | -a            | —    | —            |
+| Contextual Tenses                       | Consecutive                 | SUB       | -ka-        | —          | (OBJ)                | STEM        | -a            | —    | —            |
+| Irrealis                                | Irrealis Present            | SUB       | -nge-       | —          | (OBJ) / EXT          | STEM        | -a            | —    | —            |
+| Irrealis                                | Irrealis Present Negative 1 | SUB       | -singe-     | —          | (OBJ) / EXT          | STEM        | -a            | —    | —            |
+| Irrealis                                | Irrealis Present Negative 2 | NEG.SUB   | -nge-       | —          | (OBJ) / EXT          | STEM        | -a            | —    | —            |
+| Irrealis                                | Irrealis Past               | SUB       | -ngali-     | —          | (OBJ) / EXT          | STEM        | -a            | —    | —            |
+| Irrealis                                | Irrealis Past Negative 1    | SUB       | -singali-   | —          | (OBJ) / EXT          | STEM        | -a            | —    | —            |
+| Irrealis                                | Irrealis Past Negative 2    | NEG.SUB   | -ngali-     | —          | (OBJ) / EXT          | STEM        | -a            | —    | —            |
+| Imperatives and Subjunctives            | Imperative Singular (- OBJ) | —         | —           | —          | — / EXT              | STEM        | -a            | —    | —            |
+| Imperatives and Subjunctives            | Imperative Singular + OBJ   | —         | —           | —          | OBJ                  | STEM        | -e            | —    | —            |
+| Imperatives and Subjunctives            | Imperative Plural           | —         | —           | —          | (OBJ)                | STEM        | -e-           | -ni  | —            |
+| Imperatives and Subjunctives            | Subjunctive                 | SUB       | —           | —          | (OBJ)                | STEM        | -e            | —    | —            |
+| Imperatives and Subjunctives            | Subjunctive Negative        | SUB       | -si-        | —          | (OBJ)                | STEM        | -e            | —    | —            |
+| Expeditive Imperatives and Subjunctives | Expeditive Subjunctive      | SUB       | -ka-        | —          | (OBJ)                | STEM        | -e            | —    | —            |
+| Expeditive Imperatives and Subjunctives | Exp. Imperative Singular    | —         | ka-         | —          | (OBJ)                | STEM        | -e            | —    | —            |
+| Expeditive Imperatives and Subjunctives | Exp. Imperative Plural      | —         | ka-         | —          | (OBJ)                | STEM        | -e-           | -ni  | —            |
+```</pre>
+
+The imperative mood is used to issue direct commands. It can occur either alone or with an object prefix. The presence of an object prefix (including the reflexive ji-) causes the final -a of Bantu verbs to become -e. Note that the ji- prefix of reflexive verbs is an object prefix, meaning, for example, that the imperative of -jifunza "to learn" is jifunze "learn!" and not *jifunza.
+
+## Verbs > ### Tenses, aspects and moods > #### Imperative > ##### Table 25: Formation of the imperative
+
+<pre>```
+| Unnamed: 0   | Common verbs   | Short verbs   | Loan verb   |
+|:-------------|:---------------|:--------------|:------------|
+| Singular     | ___a           | ku___a        | ___         |
+| Singular     | [OBJ]___e      | [OBJ]___e     | [OBJ]___    |
+| Plural       | ___eni         | ku___eni      | ___ni       |
+| Plural       | [OBJ]___eni    | [OBJ]___eni   | [OBJ]___ni  |
+```</pre>
+
+
+The plural form, with the suffix -ni, is used when addressing multiple people.
+The following verbs have irregular imperatives, regular forms may be heard, particularly by non-native speakers and particularly in Kenya, and regular forms may be interpreted as less polite:
+
+kuja "to come": njoo (pl. njooni)
+kwenda "to go" : nenda (pl. nendeni)
+kuleta "to bring": lete (pl. leteni)
+The verb -acha may informally be given the imperative form wacha (pl. wacheni).
+Additionally, the verb kuwa "to be" has an irregular imperative form: iwe (pl. iweni), although this is rarely used and more frequently replaced by a regular imperative form kuwa (pl. kuweni) or used in the subjunctive ("polite imperative") form: uwe (pl. mwe).
+
+## Verbs > ### Tenses, aspects and moods > #### Imperative > ##### Table 26: Examples (singular then plural)
+
+<pre>```
+| Verb     | Alone                       | With object                             |
+|:---------|:----------------------------|:----------------------------------------|
+| -nywa    | Kunywa! Kunyweni! "Drink!"  | Yanywe! Yanyweni! "Drink it!" (class 6) |
+| -angalia | Angalia! Angalieni! "Look!" | Mwangalie! Mwangalieni! "Look at her!"  |
+| -saidia  | Saidia! Saidieni! "Help!"   | Nisaidie! Nisaidieni! "Help me!"        |
+| -jibu    | Jibu! Jibuni! "Answer!"     | Nijibu! Nijibuni! "Answer me!"          |
+| -jifunza | nan                         | Jifunze! Jifunzeni! "Learn!"            |
+```</pre>
+
+
+There is no actual negative imperative form. The equivalent is achieved with the negative subjunctive (as in Spanish). The formation of this is outlined below, but for the sake of completeness the negative equivalents of the above examples are given here.
+
+## Verbs > ### Tenses, aspects and moods > #### Imperative > ##### Table 27: Examples (singular then plural)
+
+<pre>```
+| Verb     | Alone                                 | With object                                       |
+|:---------|:--------------------------------------|:--------------------------------------------------|
+| -nywa    | Usinywe! Msinywe! "Don't drink!"      | Usiyanywe! Msiyanywe! "Don't drink it!" (class 6) |
+| -angalia | Usiangalie! Msiangalie! "Don't look!" | Usimwangalie! Msimwangalie! "Don't look at her!"  |
+| -saidia  | Usisaidie! Msisaidie! "Don't help!"   | Usinisaidie! Msinisaidie! "Don't help me!"        |
+| -jibu    | Usijibu! Msijibu! "Don't answer!"     | Usinijibu! Msinijibu! "Don't answer me!"          |
+| -jifunza | nan                                   | Usijifunze! Msijifunze! "Don't learn!"            |
+```</pre>
+
+
+The suffix -ni is used when the order is addressed to each of the people. When an order is given to any of the addressed persons the subjunctive mood is used.
+For instance when a load is meant to be carried, if it is heavy and all the people should help, Bebeni mzigo. When anyone could help carrying on their own Mbebe mzigo. When introducing people in a waiting room, Mkae hapa implies that all the people will be called together. Kaeni hapa implies that anyone could sit and they will be called one by one. The suffix -ni is thus the locative suffix which specifies that the order is given to everyone, distinctly in the time-space.
+
+There are two present tenses in Swahili. These are sometimes termed the "definite present" (with -na-) and the "indefinite present" (with -a-). In modern, standard Swahili, however, there is no great difference in meaning between these two forms as the "indefinite present" is more or less obsolete and rarely used other than its frequent appearance in media headlines. A distinction between these two forms is not made in the negative, with both forms being negated the same way.
+
+## Verbs > ### Tenses, aspects and moods > #### Present tenses > ##### Table 28: Formation of the present tense
+
+<pre>```
+| Unnamed: 0                             | Common Verb         | Short Verb          | Loan verb          |
+|:---------------------------------------|:--------------------|:--------------------|:-------------------|
+| "definite present"                     | [SUBJ]na___a        | [SUBJ]naku___a      | [SUBJ]na___        |
+| "definite present"                     | [SUBJ]na[OBJ]___a   | [SUBJ]na[OBJ]___a   | [SUBJ]na[OBJ]___   |
+| "indefinite present" (almost obsolete) | [SUBJ[a]]a___a      | [SUBJ[a]]a___a      | [SUBJ[a]]a___      |
+| "indefinite present" (almost obsolete) | [SUBJ[a]]a[OBJ]___a | [SUBJ[a]]a[OBJ]___a | [SUBJ[a]]a[OBJ]___ |
+| negative present                       | [NEG.SUBJ]___i      | [NEG.SUBJ]___i      | [NEG.SUBJ]___      |
+| negative present                       | [NEG.SUBJ][OBJ]___i | [NEG.SUBJ][OBJ]___i | [NEG.SUBJ][OBJ]___ |
+```</pre>
+
+
+In informal Swahili, it is very common for the first person singular concord ni- to collapse into the -na- of the definite present tense marker and become inaudible (and unwritten). The distinction between the "definite" and "indefinite" present tense forms appears to vanish in the first person as both begin with a na-, however short verbs retain their -ku- extension in the -na- tense and lose it in the -a- tense, allowing this distinction to still be felt, such as in (ni)nakula "I eat", in the -na- present tense, versus nala "I eat", in the -a- present tense.
+
+## Verbs > ### Tenses, aspects and moods > #### Present tenses > ##### Table 29: Examples ("definite", "indefinite", negative)
+
+<pre>```
+| Verb    | Example                                                | Notes                                                              |
+|:--------|:-------------------------------------------------------|:-------------------------------------------------------------------|
+| -enda   | Anakwenda. "She goes" / "She's going."                 | (Anaenda is also used.)                                            |
+| -enda   | Aenda. "She goes."                                     | nan                                                                |
+| -enda   | Haendi. "She doesn't go." / "She isn't going."         | nan                                                                |
+| -la     | (Ni)nakula. "I eat." / "I am eating."                  | Short verb: -ku- prevents -na- from being stressed                 |
+| -la     | Nala. "I eat."                                         | Short verb: -a- has no problem taking stress.                      |
+| -la     | Sili. "I'm not eating." / "I don't eat."               | Short verb: si-, like all subject/object prefixes, can take stress |
+| -andika | Unaandika. "You write." / "You are writing."           | nan                                                                |
+| -andika | Waandika. "You write."                                 | May also mean "They write." U- + a- = wa-; wa- + -a- = wa-         |
+| -andika | Huandiki. "You don't write." / "You aren't writing."   | nan                                                                |
+| -jibu   | Tunajibu. "We answer" / "We are answering."            | nan                                                                |
+| -jibu   | Twajibu. "We answer."                                  | nan                                                                |
+| -jibu   | Hatujibu. "We don't answer." / "We are not answering." | Loan verb, no -a suffix to be changed to -i.                       |
+```</pre>
+
+The habitual verb form is unusual in that it does not allow subject prefixes to appear on it. The prefix hu- is added to the beginning of the verb and short verbs do not need their -ku- extension.
+
+## Verbs > ### Tenses, aspects and moods > #### Habitual > ##### Table 30: Formation of the habitual
+
+<pre>```
+| Unnamed: 0      | Common Verb   | Short Verb    | Loan verb    |
+|:----------------|:--------------|:--------------|:-------------|
+| positive future | hu([OBJ])___a | hu([OBJ])___a | hu([OBJ])___ |
+```</pre>
+
+
+The habitual indicates repeated, habitual occurrence of an action (habitual aspect) or something occurring as a timeless general rule (gnomic aspect). Because subject prefixes are absent, personal pronouns are very frequently used to indicate the subject.
+
+The habitual aspect with hu- is often replaced by the present with -na- in everyday use, the sisi hunywa of the above example then being replaced with tunakunywa. In order to maintain the habitual meaning, the word huwa (the habitual form of kuwa "to be") may precede the verb, such as Huwa tunakunywa. This may be regarded as an example of a compound tense, however because of the invariability of huwa, it may also be regarded simply as an adverb with the meaning "habitually".
+In the informal speech of some regions, speakers instead make frequent use of the non-standard habitual suffix -ga or -nga, which has entered Swahili from other Bantu languages spoken in East Africa, giving forms such as tunakunywaga or tunakunywanga for "we habitually drink". These suffixes mean either the performance of an action as a habit or that it occurs "once in a while", as these examples show:
+
+Umewahi kwenda Morogoro? "Have you ever been to Morogoro?"
+→ Naendaga "Yeah, I go there (habitually/from time to time).
+Wee unacheza ngoma? "You do you dance to traditional music?" (Wee is an informal form of wewe.)
+→ Nachezaga "Yeah, I do."
+→ Sichezagi "No, I don't."
+Although there are many ways in which the habitual aspect with hu- is avoided in informal speech, it is, however, very commonly used in proverbs dealing with eternal truisms.
+
+In generalisations about the habits of groups of people, speakers often synecdochically pair a singular subject with a verb taking the hu- prefix. Mtanzania hulala uchi "A Tanzanian sleeps naked." ("Tanzanians sleep naked.") Informally, however, the present tense with -na- may be used in this way as well: Mfaransa anakula chura, "A French person eats frogs." ("French people eat frogs.") Pointing out an eagle hovering above a hamlet, Yule mtu anakula kuku, "That type of guy eats chicken."
+
+The past tense is used in Swahili to talk about actions or states in the past, whether in the near or the distant past. It is formed with the prefix -li-. Its negative equivalent is formed with the negative subject prefix plus -ku-. The positive tense marker -li- cannot take stress and triggers the use of the extension -ku- (or -kw-) where necessary.  The negative tense marker -ku- can take stress, meaning that an additional -ku- extension is not needed.
+
+## Verbs > ### Tenses, aspects and moods > #### Past > ##### Table 31: Formation of the past tense
+
+<pre>```
+| Unnamed: 0    | Common Verb           | Short Verb            | Loan verb            |
+|:--------------|:----------------------|:----------------------|:---------------------|
+| positive past | [SUBJ]li___a          | [SUBJ]liku___a        | [SUBJ]li___          |
+| positive past | [SUBJ]li[OBJ]___a     | [SUBJ]li[OBJ]___a     | [SUBJ]li[OBJ]___     |
+| negative past | [NEG.SUBJ]ku___a      | [NEG.SUBJ]ku___a      | [NEG.SUBJ]ku___      |
+| negative past | [NEG.SUBJ]ku[OBJ]___a | [NEG.SUBJ]ku[OBJ]___a | [NEG.SUBJ]ku[OBJ]___ |
+```</pre>
+
+
+## Verbs > ### Tenses, aspects and moods > #### Past > ##### Table 32: Examples
+
+<pre>```
+| Verb    | Example                         | Notes                                                                                     |
+|:--------|:--------------------------------|:------------------------------------------------------------------------------------------|
+| -enda   | Alikwenda. "She went."          | Alienda is also used.                                                                     |
+| -enda   | Hakwenda. "She didn't go."      | The -kw- marks the negative past and cannot be dropped. Hakuenda may also be encountered. |
+| -la     | Nilikula. "I ate."              | Short verb: -ku- prevents -li- from being stressed                                        |
+| -la     | Sikula. "I didn't eat."         | The -ku- marks the negative past and cannot be dropped.                                   |
+| -andika | Uliandika. "You wrote."         | nan                                                                                       |
+| -andika | Hukuandika. "You didn't write." | nan                                                                                       |
+| -jibu   | Tulijibu. "We answered."        | nan                                                                                       |
+| -jibu   | Hatukujibu. "We didn't answer." | nan                                                                                       |
+```</pre>
+
+The perfect indicates an action or situation which occurred in the past, similarly to the past tense, however the focus of the utterance is on the relevance of this past action to the present moment. For example, the word nimepika "I have cooked" describes a past action with present relevance (i.e. the food is ready now) whereas nilipika "I cooked" describes a past action with no implication of any relevance to the present (the food may have been eaten long ago, or not).
+The perfect is formed in the positive with the prefix -me-. The negative is formed with the negative subject prefix plus -ja-. As with the present and past tenses, the positive present marker -me- cannot take the word stress and triggers the appearance of the -ku- extension in short verbs, but the negative marker -ja- is able to be stressed. Some speakers may use the extension -ku- with -ja-.
+Some sources describe the -ja- form as containing more of an implication of "not yet" than a simple negation of the -me- form, however the word bado "still", "not yet" may be used to indicate this explicitly where necessary.
+
+## Verbs > ### Tenses, aspects and moods > #### Perfect > ##### Table 33: Formation of the perfect tense
+
+<pre>```
+| Unnamed: 0       | Common Verb           | Short Verb            | Loan verb            |
+|:-----------------|:----------------------|:----------------------|:---------------------|
+| positive perfect | [SUBJ]me___a          | [SUBJ]meku___a        | [SUBJ]me___          |
+| positive perfect | [SUBJ]me[OBJ]___a     | [SUBJ]me[OBJ]___a     | [SUBJ]me[OBJ]___     |
+| negative perfect | [NEG.SUBJ]ja___a      | [NEG.SUBJ]ja(ku)___a  | [NEG.SUBJ]ja___      |
+| negative perfect | [NEG.SUBJ]ja[OBJ]___a | [NEG.SUBJ]ja[OBJ]___a | [NEG.SUBJ]ja[OBJ]___ |
+```</pre>
+
+
+## Verbs > ### Tenses, aspects and moods > #### Perfect > ##### Table 34: Examples
+
+<pre>```
+| Verb    | Example                            | Notes                                              |
+|:--------|:-----------------------------------|:---------------------------------------------------|
+| -enda   | Amekwenda. "She has gone/been."    | Ameenda is also used.                              |
+| -enda   | Hajaenda. "She hasn't gone/been."  | nan                                                |
+| -la     | Nimekula. "I have eaten."          | Short verb: -ku- prevents -me- from being stressed |
+| -la     | Sijala. "I haven't eaten."         | Sijakula may also be encountered.                  |
+| -andika | Umeandika. "You have written."     | nan                                                |
+| -andika | Hujaandika. "You haven't written." | nan                                                |
+| -jibu   | Tumejibu. "We have answered."      | nan                                                |
+| -jibu   | Hatujajibu. "We haven't answered." | nan                                                |
+```</pre>
+
+
+Inchoative verbs, such as kuchoka "to get tired", which describe the entering of a state, are used in the perfect to indicate being in the state in question. Compare for example: ninachoka "I am becoming tired"; nimechoka "I have become tired", i.e. "I am tired." For more information and examples, see the section on inchoative verbs below.
+Some speakers may replace the sequence of prefixes a-me- with ka- with more or less the same meaning. This may derive from the consecutive tense marker.
+
+## Verbs > ### Tenses, aspects and moods > #### Perfect > ##### Table 35
+
+<pre>```
+| 0                                                                                                                         | 1   | 2                                                                                                                      |
+|:--------------------------------------------------------------------------------------------------------------------------|:----|:-----------------------------------------------------------------------------------------------------------------------|
+| Paka wangu amepotea.paka(CL9)cat(s)catw-anguCL1-GEN.1Smya-me-pote(a)CL1-PRF-get.losts/he-has-gotten-lost"My cat is lost." | ↔   | Paka wangu kapotea.paka(CL9)cat(s)catw-anguCL1-GEN.1Smyka-pote(a)CL1.PRF-get.losts/he-has-gotten-lost"My cat is lost." |
+```</pre>
+
+The anterior marker -sha- (or sometimes -kwisha-) is a relatively new TAM marker that derives diachronically from the verb kwisha "to finish, to run out". It is most commonly (and perhaps least controversially) used directly after the perfect marker -me-. It often imparts the meaning of "already", emphasising the completeness of the action.
+
+The anterior marker -sha- is also used with other TAM markers, simply sitting after them within the TAM slot. It may also on occasion be used on its own, with a function more or less equivalent to the perfect -me-. These uses may not be regarded as standard Swahili. It is frequently used with the situational marker -ki- where it indicates a situation in which the action has been completed.
+
+The future tense is formed in Swahili with the prefix -ta-. The negative form is indicated simply by using the negative subject prefix, with -ta- being used here as well. A number of speakers, however, use -to- in the negative future. This may be derived by analogy from the -to- of the negative infinitive, and may also disambiguate between positive and negative where the only difference otherwise would be an h- at the beginning of the negative word. For example, atakuja "s/he will come" vs. hatakuja "s/he will not come" (or hatokuja). Because second language speakers in many areas have trouble with pronouncing and distinguishing /h/, the optional change from -ta- to -to- in the negative can provide a failsafe indication when a negative meaning is intended.
+-Ta- (and likewise -to-) cannot take the word stress whether in positive or negative and thus causes the appearance of the -ku- extension in short verbs.
+
+## Verbs > ### Tenses, aspects and moods > #### Future > ##### Table 36: Formation of the future tense
+
+<pre>```
+| Unnamed: 0                | Common Verb           | Short Verb            | Loan verb            |
+|:--------------------------|:----------------------|:----------------------|:---------------------|
+| positive future           | [SUBJ]ta___a          | [SUBJ]taku___a        | [SUBJ]ta___          |
+| positive future           | [SUBJ]ta[OBJ]___a     | [SUBJ]ta[OBJ]___a     | [SUBJ]ta[OBJ]___     |
+| negative future (usual)   | [NEG.SUBJ]ta___a      | [NEG.SUBJ]taku___a    | [NEG.SUBJ]ta___      |
+| negative future (usual)   | [NEG.SUBJ]ta[OBJ]___a | [NEG.SUBJ]ta[OBJ]___a | [NEG.SUBJ]ta[OBJ]___ |
+| negative future (variant) | [NEG.SUBJ]to___a      | [NEG.SUBJ]toku___a    | [NEG.SUBJ]to___      |
+| negative future (variant) | [NEG.SUBJ]to[OBJ]___a | [NEG.SUBJ]to[OBJ]___a | [NEG.SUBJ]to[OBJ]___ |
+```</pre>
+
+
+## Verbs > ### Tenses, aspects and moods > #### Future > ##### Table 37: Examples
+
+<pre>```
+| Verb    | Example                        | Notes                                              |
+|:--------|:-------------------------------|:---------------------------------------------------|
+| -enda   | Atakwenda. "She will go."      | Ataenda is also used.                              |
+| -enda   | Hatakwenda. "She won't go."    | Hataenda is also used.                             |
+| -la     | Nitakula. "I will eat."        | Short verb: -ku- prevents -ta- from being stressed |
+| -la     | Sitakula. "I won't eat."       | Short verb: -ku- prevents -ta- from being stressed |
+| -andika | Utaandika. "You will write."   | nan                                                |
+| -andika | Hutaandika. "You won't write." | nan                                                |
+| -jibu   | Tutajibu. "We will answer."    | nan                                                |
+| -jibu   | Hatutajibu. "We won't answer." | nan                                                |
+```</pre>
+
+The subjunctive (sometimes referred to as an optative) expresses hypothetical situations, wishes and requests. It is also used as a complement to certain auxiliary verbs and conjunctions. The subjunctive is indicated by the lack of any Tense-Aspect-Mood prefix and the change of the final -a, where present, to -e-. The class of loan verbs, which do not end in -a, do not undergo this change and the subjunctive form is made by simply omitting any tense marker. The negative subjunctive is indicated by adding the syllable -si- into the tense slot, with the positive subject prefix being used rather than the negative.
+
+## Verbs > ### Tenses, aspects and moods > #### Subjunctive > ##### Table 38: Formation of the subjunctive
+
+<pre>```
+| Unnamed: 0           | Common Verb       | Short Verb        | Loan verb        |
+|:---------------------|:------------------|:------------------|:-----------------|
+| positive subjunctive | [SUBJ]___e        | [SUBJ]___e        | [SUBJ]___        |
+| positive subjunctive | [SUBJ][OBJ]___e   | [SUBJ][OBJ]___e   | [SUBJ][OBJ]___   |
+| negative subjunctive | [SUBJ]si___e      | [SUBJ]si___e      | [SUBJ]si___      |
+| negative subjunctive | [SUBJ]si[OBJ]___e | [SUBJ]si[OBJ]___e | [SUBJ]si[OBJ]___ |
+```</pre>
+
+
+## Verbs > ### Tenses, aspects and moods > #### Subjunctive > ##### Table 39: Examples
+
+<pre>```
+| Verb    | Example                                                                                                     |
+|:--------|:------------------------------------------------------------------------------------------------------------|
+| -enda   | Aende. "He should go." / "... him to go" / "... that he go"                                                 |
+| -enda   | Asiende. "He shouldn't go." / "... him not to go" / "... that he not go"                                    |
+| -la     | Nile. "I should eat." / "... me to eat" / "... that I eat"                                                  |
+| -la     | Nisile. "I shouldn't eat." / "... me not to eat" / "... that I not eat"                                     |
+| -andika | Uandike. "You should write." / "... you to write" / "... that you write"                                    |
+| -andika | Usiandike. "Don't write!" / "You shouldn't write." / "... you not to write" / "... that you not write"      |
+| -sahau  | Tusahau. "Let's forget!" / "We should forget." / "... us to forget" / "... that we forget"                  |
+| -sahau  | Tusisahau. "Let's not forget." / "We shouldn't forget." / "... us not to forget" / "... that we not forget" |
+```</pre>
+
+
+The subjunctive is frequently used following the equivalents of modal verbs, verbs indicating wishes, suggestions, recommendations and other constructions.
+
+## Verbs > ### Tenses, aspects and moods > #### Subjunctive > ##### Table 40
+
+<pre>```
+| 0                                                                                                                                                      | 1   | 2                                                                                                                                                                       |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:----|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Nilimwambia aende.ni-li-mw-ambi(a)1S.SBJ-PST-3S.ANIM.OBJ-tella-end(a)-e3S.ANIM.SBJ-go-SBJV"I told her/him to go." / "I told her/him she/he should go." | ↔   | Nilimwambia asiende.ni-li-mw-ambi(a)1S.SBJ-PST-3S.ANIM.OBJ-tella-si-end(a)-e3S.ANIM.SBJ-NEG-go-SBJV"I told her/him not to go." / "I told her/him she/he should not go." |
+```</pre>
+
+
+## Verbs > ### Tenses, aspects and moods > #### Subjunctive > ##### Table 41
+
+<pre>```
+| 0                                                                                                                  | 1   | 2                                                                                                                               |
+|:-------------------------------------------------------------------------------------------------------------------|:----|:--------------------------------------------------------------------------------------------------------------------------------|
+| Tutawaomba wakae.tu-ta-wa-omb(a)1P.SBJ-FUT-3P.ANIM.OBJ-requestwa-ka(a)-e3P.ANIM-sit-SBJV"We will ask them to sit." | ↔   | Tutawaomba wasikae.tu-ta-wa-omb(a)1P.SBJ-FUT-3P.ANIM.OBJ-requestwa-si-ka(a)-e3P.ANIM-NEG-sit-SBJV"We will ask them not to sit." |
+```</pre>
+
+
+## Verbs > ### Tenses, aspects and moods > #### Subjunctive > ##### Table 42
+
+<pre>```
+| 0                                                                                      | 1   | 2                                                                                                 | 3   | 4                                                                                                   |
+|:---------------------------------------------------------------------------------------|:----|:--------------------------------------------------------------------------------------------------|:----|:----------------------------------------------------------------------------------------------------|
+| Ninataka uje.ni-na-tak(a)1P.SBJ-PRES-wantu-j(a)-e2S.SBJ-come-SBJV"I want you to come." | ↔   | Sitaki uje.si-tak(a)-iNEG.1P.SBJ-want-NEG.PRESu-j(a)-e2S.SBJ-come-SBJV"I don't want you to come." | ↔   | Ninataka usije.ni-na-tak(a)1P.SBJ-PRES-wantu-si-j(a)-e2S.SBJ-NEG-come-SBJV"I want you not to come." |
+```</pre>
+
+
+The verb kutaka and such verbs expressing wishes or intentions like kutegemea to intend are usually followed by the subjunctive even when the subject is the same in both propositions; Nataka niende sokoni I want to go to the market. Mtoto alipewa kitabu asome  The child was given a book so that he could study. Sisi tunategemea tuende picha usiku We've planned to go to the theatre (movies) tonight. It applies when there a possibility of influencing the factors encountered in the context. If there is nothing to do about the context then the infinitive is used.
+
+Wale watu wanataka kutawala dunia Those people want to rule the world.
+Nataka kukojoa I want to piss
+Anataka kufa  He wants to die (He's going to die)
+Wale wageni wanataka kuondoka The guests want to leave
+Compare with: Nataka nikojolee chooni  I want to piss in the toilet. Walitaka waondoke mapema They wanted to leave early (and they didn't wake up) Walitaka kuondoka mapema They wanted to leave early (and the road was flooded)
+An equivalent of "must" or "have to" is formed with ni lazima "it is necessary", or simply lazima "necessarily" followed by the subjunctive. 
+
+## Verbs > ### Tenses, aspects and moods > #### Subjunctive > ##### Table 43
+
+<pre>```
+| 0                                                                                                                    | 1   | 2                                                                                                                                 | 3   | 4                                                                                                                                     |
+|:---------------------------------------------------------------------------------------------------------------------|:----|:----------------------------------------------------------------------------------------------------------------------------------|:----|:--------------------------------------------------------------------------------------------------------------------------------------|
+| (Ni) lazima ulale(ni)(COP)lazimanecessaryu-lal-e2S.SBJ-sleep-SBJV"You must sleep." "It is necessary that you sleep." | ↔   | Si lazima ulalesiNEG.COPlazimanecessarilyu-lal-e2S.SBJ-sleep-SBJV"You don't have to sleep." "It is not necessary that you sleep." | ↔   | (Ni) lazima usilale(ni)(COP)lazimanecessaryu-si-lal-e2S.SBJ-NEG-sleep-SBJV"You must not sleep." "It is necessary that you not sleep." |
+```</pre>
+
+
+The subjunctive may be used on its own with a second person subject as a more polite alternative to an imperative. As there is no negative imperative, forms beginning with usi- and msi- may also be interpreted as such.
+
+## Verbs > ### Tenses, aspects and moods > #### Subjunctive > ##### Table 44
+
+<pre>```
+| 0                                                       | 1   | 2                                                                                   | 3   | 4                                                                                     |
+|:--------------------------------------------------------|:----|:------------------------------------------------------------------------------------|:----|:--------------------------------------------------------------------------------------|
+| Toka.Ø-tok(a)-ØIMP-got.out-2S.SBJ"Go away." "Get lost." | ↔   | Utoke.u-tok(a)-e2S.SBJ-go.out-SBJV"You should go away!" "Can you (please) go away!" | ↔   | Usitoke.u-si-tok(a)-e2S.SBJ-not-go.out-SBJV"Don't go away!" "You should not go away!" |
+```</pre>
+
+The situational, simultaneous or conditional tense is formed with the TAM prefix -ki-. This prefix may take stress and thus the extension -ku- does not appear with short verbs in the situational verb form.
+There is, strictly speaking, no negative form of the situational, however, in conditional sentences, the relative verb form using -sipo- is quite close in meaning to a negative equivalent of -ki- and it will be given here as it may prove helpful. Note that the -ku- extension does appear with -sipo- as the -po-, like all relative syllables, is unable to be stressed.
+
+## Verbs > ### Tenses, aspects and moods > #### Situational > ##### Table 45: Formation of the situational
+
+<pre>```
+| Unnamed: 0                              | Common Verb         | Short Verb          | Loan verb          |
+|:----------------------------------------|:--------------------|:--------------------|:-------------------|
+| positive situational                    | [SUBJ]ki___a        | [SUBJ]ki___a        | [SUBJ]ki___        |
+| positive situational                    | [SUBJ]ki[OBJ]___a   | [SUBJ]ki[OBJ]___a   | [SUBJ]ki[OBJ]___   |
+| negative situational (conditional only) | [SUBJ]sipo___a      | [SUBJ]sipoku___a    | [SUBJ]sipo___      |
+| negative situational (conditional only) | [SUBJ]sipo[OBJ]___a | [SUBJ]sipo[OBJ]___a | [SUBJ]sipo[OBJ]___ |
+```</pre>
+
+
+The situational verb form is used to indicate a simultaneous action or situation of subordinate importance that provides the temporal or contextual background for the main verb in the sentence. It is somewhat equivalent to the English conjunctions "if" and "when", but it also forms the equivalent of adverbial participle clauses. If needed for clarity or emphasis, a word meaning if, such as kama, ikiwa or endapo may be added to the beginning of the clause (which allows the speaker to choose a different TAM marker). The word ikiwa is itself the situational form of the verb -wa "to be", with the class 9 subject prefix i-, literally meaning on its own essentially "if it is".
+
+The situational may appear in compound progressive tenses.
+
+The consecutive or narrative tense is formed with the TAM prefix -ka-. This prefix may take stress and thus the extension -ku- does not appear with short verbs in this form.
+
+## Verbs > ### Tenses, aspects and moods > #### Consecutive > ##### Table 46: Formation of the consecutive
+
+<pre>```
+| Unnamed: 0           | Common Verb       | Short Verb        | Loan verb        |
+|:---------------------|:------------------|:------------------|:-----------------|
+| positive consecutive | [SUBJ]ka___a      | [SUBJ]ka___a      | [SUBJ]ka___      |
+| positive consecutive | [SUBJ]ka[OBJ]___a | [SUBJ]ka[OBJ]___a | [SUBJ]ka[OBJ]___ |
+```</pre>
+
+
+The consecutive tense is mainly used with the past tense -li- in narrating a sequence of events whereby -li- is used for the first verb and -ka- for subsequent verbs. It roughly carries the meaning "and then" and makes the use of na "and" or halafu / kisha "then" essentially redundant. Where context is clearly past, a narrative may also be begun with -ka-.
+
+There is, strictly speaking, no negative form of the consecutive, however the negative subjunctive may occasionally be used for this purpose.
+
+The consecutive marker -ka- may combine with the final -e of the subjunctive mood to form the expeditous.
+
+## Verbs > ### Tenses, aspects and moods > #### Expeditous > ##### Table 47: Formation of the expeditous
+
+<pre>```
+| Unnamed: 0          | Common Verb       | Short Verb        | Loan verb        |
+|:--------------------|:------------------|:------------------|:-----------------|
+| positive expeditous | [SUBJ]ka___e      | [SUBJ]ka___e      | [SUBJ]ka___      |
+| positive expeditous | [SUBJ]ka[OBJ]___e | [SUBJ]ka[OBJ]___e | [SUBJ]ka[OBJ]___ |
+```</pre>
+
+
+The expeditous verb form is essentially the same as the subjunctive in meaning except with the added meaning of "and" or "then" introduced by the consecutive marker -ka-.
+
+The word akawe in the above sentence could also be replaced with ili awe "in order that he be" or simply the subjunctive awe "that he be" (or "(for him) to be" in more natural contemporary English), but the -ka- added to this word emphasises his becoming an ambassador immediately following his being dispatched.
+The expeditous verb form is frequently used with imperatives (and "polite imperatives" in the subjunctive), again indicating roughly "and then".
+
+The subject prefix may be dropped when used with the imperative.
+
+There are two irrealis verb forms, one which may be called "present irrealis" (marked by -nge-) and one which may be called "past irrealis" (marked by -ngali-). The standard means of forming the negative is to use -si- in the TAM slot, forming -singe- and -singali-. Some speakers, however, particularly in speech influenced by southern dialects, negate the irrealis verb forms instead by using the negative subject concords.
+
+## Verbs > ### Tenses, aspects and moods > #### Irrealis > ##### Table 48: Formation of the present irrealis
+
+<pre>```
+| Unnamed: 0                          | Common Verb            | Short Verb             | Loan verb             |
+|:------------------------------------|:-----------------------|:-----------------------|:----------------------|
+| positive present irrealis           | [SUBJ]nge___a          | [SUBJ]ngeku___a        | [SUBJ]nge___          |
+| positive present irrealis           | [SUBJ]nge[OBJ]___a     | [SUBJ]nge[OBJ]___a     | [SUBJ]nge[OBJ]___     |
+| negative present irrealis           | [SUBJ]singe___a        | [SUBJ]singeku___a      | [SUBJ]singe___        |
+| negative present irrealis           | [SUBJ]singe[OBJ]___a   | [SUBJ]singe[OBJ]___a   | [SUBJ]singe[OBJ]___   |
+| negative present irrealis (variant) | [NEG.SUBJ]nge___a      | [NEG.SUBJ]ngeku___a    | [NEG.SUBJ]nge___      |
+| negative present irrealis (variant) | [NEG.SUBJ]nge[OBJ]___a | [NEG.SUBJ]nge[OBJ]___a | [NEG.SUBJ]nge[OBJ]___ |
+```</pre>
+
+
+## Verbs > ### Tenses, aspects and moods > #### Irrealis > ##### Table 49: Formation of the past irrealis
+
+<pre>```
+| Unnamed: 0                       | Common Verb              | Short Verb               | Loan verb               |
+|:---------------------------------|:-------------------------|:-------------------------|:------------------------|
+| positive past irrealis           | [SUBJ]ngali___a          | [SUBJ]ngaliku___a        | [SUBJ]ngali___          |
+| positive past irrealis           | [SUBJ]ngali[OBJ]___a     | [SUBJ]ngali[OBJ]___a     | [SUBJ]ngali[OBJ]___     |
+| negative past irrealis           | [SUBJ]singali___a        | [SUBJ]singaliku___a      | [SUBJ]singali___        |
+| negative past irrealis           | [SUBJ]singali[OBJ]___a   | [SUBJ]singali[OBJ]___a   | [SUBJ]singali[OBJ]___   |
+| negative past irrealis (variant) | [NEG.SUBJ]ngali___a      | [NEG.SUBJ]ngaliku___a    | [NEG.SUBJ]ngali___      |
+| negative past irrealis (variant) | [NEG.SUBJ]ngali[OBJ]___a | [NEG.SUBJ]ngali[OBJ]___a | [NEG.SUBJ]ngali[OBJ]___ |
+```</pre>
+
+
+Both the irrealis forms are used to discuss hypothetical situations, generally within conditional sentences. Both the protasis (if-clause) and apodosis (then-clause) may have an identical structure with the protasis appearing first. In order to disambiguate or emphasise, such as if the clauses are in the reverse order, a word for "if" (kama, ikiwa, endapo) may precede the protasis.
+
+In the usage of many speakers, the distinction between the present and past irrealis forms is somewhat blurred so that the final example above may commonly be spoken as "(Kama) ningejua hiyo, nisingekuja hapa." which, speaking strictly, could be interpreted as "If I knew that I would not come here."
+
+There are five verb templates which can be used to create relative clauses. The three simple tenses PAST, PRESENT and FUTURE may only be relativised in their positive sense. In addition to these, there is a tenseless positive form and a tenseless negative form. For all other verb forms, relative clauses must be formed by a periphrastic relative using amba-.
+The following table shows the structure of the verb templates, notably the positioning of the relative morpheme, here labelled "REL". Note in the following table that the marker for the future tense is -taka- with a following relative morpheme, rather than the simple -ta- which occurs otherwise.
+
+## Verbs > ### Relative verb forms > #### Table 50
+
+<pre>```
+| Tense, Aspect, Mood   | Tense, Aspect, Mood.1   | Subject   | TAM    | Relative   | Object / Extension   | Verb STEM   | Final Vowel   | Relative.1   |
+|:----------------------|:------------------------|:----------|:-------|:-----------|:---------------------|:------------|:--------------|:-------------|
+| Tensed                | Past Positive           | SUB       | -li-   | REL        | (OBJ) / EXT          | STEM        | -a            | —            |
+| Tensed                | Present Positive        | SUB       | -na-   | REL        | (OBJ) / EXT          | STEM        | -a            | —            |
+| Tensed                | Future Positive         | SUB       | -taka- | REL        | (OBJ) / EXT          | STEM        | -a            | —            |
+| Tenseless             | Positive                | SUB       | —      | —          | (OBJ)                | STEM        | -a-           | REL          |
+| Tenseless             | Negative                | SUB       | -si-   | REL        | (OBJ)                | STEM        | -a            | —            |
+```</pre>
+
+
+The relative morpheme takes one of many forms to indicate the class of its referent. The relative morpheme for each class is identical to its combining pronominal form which appears with na- and ndi-. Aside from class 1, the form of each can be achieved by placing o (the so-called "o of reference")
+
+## Verbs > ### Relative verb forms > #### Table 51
+
+<pre>```
+|   Class | Relative Morpheme   |
+|--------:|:--------------------|
+|       1 | -ye                 |
+|       2 | -o                  |
+|       3 | -o                  |
+|       4 | -yo                 |
+|       5 | -lo                 |
+|       6 | -yo                 |
+|       7 | -cho                |
+|       8 | -vyo                |
+|       9 | -yo                 |
+|      10 | -zo                 |
+|      11 | -o                  |
+|      14 | -o                  |
+|      15 | -ko                 |
+|      16 | -po                 |
+|      17 | -ko                 |
+|      18 | -mo                 |
+```</pre>
+
+
+The tenseless relative form is used when expressing a general meaning or a habit: Wakao hapa The ones who (usually) sit here. Usiache mbachao kwa msala ujao Don't leave a rotten mat for a (nice) praying mat which may come (A bird in your hand is better that two birds in the bush). Kitabu hichi ndicho nikitafutacho This the book I look around (I've been seeking for ages). It is also used in some copula Kitabu nilicho nacho The book I am with (the book which is with me).
+The tensed aspect is connected to a specific time either in the present, the future or in the past. Therefore it is used with a definite past -li- and not with the recent past -me-. The relative is the same expressing the subject (who) or the object (that, which).
+
+Kitu kilichonipendeza The thing which pleased me
+Kitu nilichokipenda The thing I liked
+Chagua matunda yale yaliyoiva Choose the fruit the ones which are ripe.
+Chagua yale uliyoweka pembeni Choose the ones you put aside.
+"Kituo kinachofuata Faya" The next stop (which follows) is Fire.
+Yule aliyekuja sasa hivi kashaondoka The one who came at the moment has gone already.
+Wanaokaa hapa wazee The ones who are seated here are the Elders.
+The periphrastic relative amba- was coined a hundred years ago by foreigners who did not like much the affix -o- and its nuances. It is nowadays widely spread in big cities like Dar, the north, and in the medias like the radio and the television. In many villages it is understood but not used. Amba- is followed by a suffix with the same agreements listed above.
+
+Kiswahili ni lugha ambayo inaweza kusanya makabila Swahili is a language which can gather the tribes.
+Mimi mtu ambaye anapenda utamaduni I'm a guy who likes traditional features.
+Basi ambalo linachelewa sana The bus which is always late.
+
+In most languages with a verbal copula, the equivalent of the verb 'to be', it is this verb that exhibits the most irregularity and the most diversity of form. Swahili is no exception. Outside of the present tense, the Swahili verb -wa (infinitive kuwa) is almost entirely regular, inflecting as other short verbs do. In the present tense, however, there is a distinction made between a copular of essence versus a copula of state or location. This is similar to the distinction between ser and estar in Spanish and Portuguese, however, in Swahili, this distinction largely vanishes outside of the present tense. There are also irregular relativised forms for the present tense as well as an irregular unique continuative form.
+
+
+
+The invariable copula ni is used, in the present tense, to express that two noun phrases (the subject and complement) refer to one and the same referent:
+
+Mimi ni Bahati. "I am Bahati."
+Dunia ni sayari tunapoishi. "Earth is the planet we live on."
+It is also used to express membership of a class (a subset relationship):
+
+Wao ni wanasayansi. "They are scientists."
+Jua ni nyota. "The sun is a star."
+Miti ni mimea mikubwa. "Trees are large plants."
+It may also introduce an adjective or equivalent phrase describing a relatively permanent characteristic.
+
+Babake ni mrefu sana. "Her father is very tall."
+Mji huyu ni mdogo. "This town is small."
+Misuli yako ni kama chuma. Your muscles are like steel.
+The negative form si can be used in all the same situations with a negative meaning:
+
+Wewe si Bahati. "You are not Bahati."
+Jua si sayari. "The sun is not a planet."
+Pomboo si wadogo. "Dolphins are not small."
+Because ni and si do not provide any information about the subject, personal pronouns, usually only necessary for emphasis, frequently appear. Compare the typical use of irregular present tense with that of the entirely regular past tense where the subject prefixes make personal pronouns redundant and used only for emphasis.
+
+## Verbs > ### 'To be' > #### Essence > ##### Invariable copula > ###### Table 52
+
+<pre>```
+| Unnamed: 0_level_0 + Number   | Unnamed: 1_level_0 + Person   | Present + Positive   | Present + Negative   | Past + Positive   | Past + Negative       |
+|:------------------------------|:------------------------------|:---------------------|:---------------------|:------------------|:----------------------|
+| Singular                      | 1st                           | miminiI am           | mimisiI am not       | nilikuwaI was     | sikuwaI was not       |
+| Singular                      | 2nd                           | weweniyou are        | wewesiyou are not    | ulikuwayou were   | hukuwayou were not    |
+| Singular                      | 3rd                           | yeyenis/he is        | yeyesis/he is not    | alikuwas/he was   | hakuwas/he was not    |
+| Plural                        | 1st                           | sisiniwe are         | sisisiwe are not     | tulikuwawe were   | hatukuwawe were not   |
+| Plural                        | 2nd                           | nyinyiniyou are      | nyinyisiyou are not  | mlikuwayou were   | hamkuwayou were not   |
+| Plural                        | 3rd                           | waonithey are        | waosithey are not    | walikuwathey were | hawakuwathey were not |
+```</pre>
+
+
+A sentence begun with ni or si without an overtly marked pronoun is typically translated with the subject "it" in English. With plural context, "they" may be meant.
+
+Ni asubuhi sasa. "It's morning now."
+Ni vigumu kulala. "It's difficult to fall asleep."
+Ni wanene sana. "They're very fat."
+On occasion, the invariable copula may follow regular forms of kuwa in other tenses. In the following example, the ni could also be left out.
+
+The emphatic or focusing copula ndi- places its subject in focus, emphasising that it is that particular referent and not another. The emphatic copula takes suffixes matching the person and noun class of the referent. These suffixes are the same as those which combine with na. In the first and second persons, the third person suffixes are frequently used.
+
+## Verbs > ### 'To be' > #### Essence > ##### Emphatic copula > ###### Table 53
+
+<pre>```
+| Person / Class   | Positive     | Negative       | Translation                          |
+|:-----------------|:-------------|:---------------|:-------------------------------------|
+| 1st sing.        | ndimi, ndiye | simi, siye     | "it is (not) I"                      |
+| 2nd sing.        | ndiwe, ndiye | siwe, siye     | "it is (not) you"                    |
+| 1st plur.        | ndisi, ndio  | sio, (sisi)[a] | "it is (not) we"                     |
+| 2nd plur.        | ndinyi, ndio | sinyi, sio     | "it is (not) you"                    |
+| 1                | ndiye        | siye           | "it is (not) s/he"                   |
+| 2                | ndio         | sio            | "it is (not) they"                   |
+| 3                | ndio         | sio            | "it is (not) it"                     |
+| 4                | ndiyo        | siyo           | "it is (not) they"                   |
+| 5                | ndilo        | silo           | "it is (not) it"                     |
+| 6                | ndiyo        | siyo           | "it is (not) they"                   |
+| 7                | ndicho       | sicho          | "it is (not) it"                     |
+| 8                | ndivyo       | sivyo          | "it is (not) they", "it is (not) so" |
+| 9                | ndiyo        | siyo           | "it is (not) it"                     |
+| 10               | ndizo        | sizo           | "it is (not) they"                   |
+| 11               | ndio         | sio            | "it is (not) it"                     |
+| 14               | ndio         | sio            | "it is (not) it"                     |
+| 15               | ndiko        | siko           | "it is (not) it"                     |
+| 16               | ndipo        | sipo           | "it is (not) (t)here"                |
+| 17               | ndiko        | siko           | "it is (not) around (t)here"         |
+| 18               | ndimo        | simo           | "it is (not) in (t)here"             |
+```</pre>
+
+
+Forms of the emphatic copula are frequently equivalent to a definite phrase in translation and are followed by relative verb forms as in the following example:
+
+Compare the above with the non-emphatic version of the same sentence:
+
+Location is indicated in the present tense by prefixing the subject concord to one of the locative clitics -po, -ko and -mo. The class 1 subject concord a- (negative: ha-) is however replaced with yu- (negative: hayu-).
+The three clitics, -po, -ko and -mo correspond to the locative classes 16, 17 and 18 respectively and indicate "definite", "indefinite" and "internal" location respectively. For example, wapo means essentially "they are here/there", wako means "they are around here/there" and wamo means "they are in here/there".
+
+## Verbs > ### 'To be' > #### Location > ##### Table 54
+
+<pre>```
+| Unnamed: 0_level_0 + Person / Class   | Positive + Definite   | Positive + Indefinite   | Positive + Internal   | Negative + Definite   | Negative + Indefinite   | Negative + Internal   |
+|:--------------------------------------|:----------------------|:------------------------|:----------------------|:----------------------|:------------------------|:----------------------|
+| 1st sing.                             | nipo                  | niko                    | nimo                  | sipo                  | siko                    | simo                  |
+| 2nd sing.                             | upo                   | uko                     | umo                   | hupo                  | huko                    | humo                  |
+| 1st plur.                             | tupo                  | tuko                    | tumo                  | hatupo                | hatuko                  | hatumo                |
+| 2nd plur.                             | mpo                   | mko                     | mmo                   | hampo                 | hamko                   | hammo                 |
+| 1                                     | yupo                  | yuko                    | yumo                  | hayupo                | hayuko                  | hayumo                |
+| 2                                     | wapo                  | wako                    | wamo                  | hawapo                | hawako                  | hawamo                |
+| 3                                     | upo                   | uko                     | umo                   | haupo                 | hauko                   | haumo                 |
+| 4                                     | ipo                   | iko                     | imo                   | haipo                 | haiko                   | haimo                 |
+| 5                                     | lipo                  | liko                    | limo                  | halipo                | haliko                  | halimo                |
+| 6                                     | yapo                  | yako                    | yamo                  | hayapo                | hayako                  | hayamo                |
+| 7                                     | kipo                  | kiko                    | kimo                  | hakipo                | hakiko                  | hakimo                |
+| 8                                     | vipo                  | viko                    | vimo                  | havipo                | haviko                  | havimo                |
+| 9                                     | ipo                   | iko                     | imo                   | haipo                 | haiko                   | haimo                 |
+| 10                                    | zipo                  | ziko                    | zimo                  | hazipo                | haziko                  | hazimo                |
+| 11                                    | upo                   | uko                     | umo                   | haupo                 | hauko                   | haumo                 |
+| 14                                    | upo                   | uko                     | umo                   | haupo                 | hauko                   | haumo                 |
+| 15                                    | kupo                  | kuko                    | kumo                  | hakupo                | hakuko                  | hakumo                |
+| 16                                    | papo                  | pako                    | pamo                  | hapapo                | hapako                  | hapamo                |
+| 17                                    | kupo                  | kuko                    | kumo                  | hakupo                | hakuko                  | hakumo                |
+| 18                                    | mpo                   | mko                     | mmo                   | hampo                 | hamko                   | hammo                 |
+```</pre>
+
+
+Under a very strict prescriptive viewpoint, the classes should not be mixed, for instance nipo hapa "I am here" is regarded as correct but niko hapa "I am here" is regarded as incorrect. There is, however, a broad tendency for many speakers to prefer forms with -ko over the other forms, such that niko hapa is very common.
+
+Temporary states of being are frequently expressed as if they were locations, generally with the -ko clitic. In older forms of Swahili, this -ko was generally absent, with the subject prefix appearing as a standalone word for the copula. Nowadays, this short form is less usual although it is still frequently encountered in common phrases such as U hali gani? ('How are you?', literally 'You are in what condition?')
+
+Note that the standalone form of the 2nd person plural prefix m- is not *m but mu.
+
+In the present tense, relative forms of the copula are formed with the subject prefix, the stem -li- in the positive and -si- in the negative, and the suffixed relative marker for the required noun class. In other tenses, relatives are formed regularly from the word kuwa.
+
+## Verbs > ### 'To be' > #### Relative forms > ##### Table 55
+
+<pre>```
+| Person / Class   | Positive   | Negative   | Translation                                           |
+|:-----------------|:-----------|:-----------|:------------------------------------------------------|
+| 1st sing.        | niliye     | nisiye     | "(I) who is/am (not)"                                 |
+| 2nd sing.        | uliye      | usiye      | "(you) who is/are (not)"                              |
+| 1st plur.        | tulio      | tusio      | "(we) who are (not)"                                  |
+| 2nd plur.        | mlio       | msio       | "(you) who are (not)"                                 |
+| 1                | aliye      | asiye      | "(he/she) who is (not)"                               |
+| 2                | walio      | wasio      | "(they) who are (not)"                                |
+| 3                | ulio       | usio       | "which is (not)"                                      |
+| 4                | iliyo      | isiyo      | "which are (not)"                                     |
+| 5                | lililo     | lisilo     | "which is (not)"                                      |
+| 6                | yaliyo     | yasiyo     | "which are/is (not)"                                  |
+| 7                | kilicho    | kisicho    | "which is (not)"                                      |
+| 8                | vilivyo    | visivyo    | "which are (not)"                                     |
+| 9                | iliyo      | isiyo      | "which is (not)"                                      |
+| 10               | zilizo     | zisizo     | "which are (not)"                                     |
+| 11               | ulio       | usio       | "which is (not)"                                      |
+| 14               | ulio       | usio       | "which is (not)"                                      |
+| 15               | kuliko     | kusiko     | "which is (not)"                                      |
+| 16               | palipo     | pasipo     | "which is (not)", "where there is/are (not)"          |
+| 17               | kuliko     | kusiko     | "which is (not)", "where there is/are (not)"          |
+| 18               | mlimo      | msimo      | "which is (not)", "where there is/are (not) in there" |
+```</pre>
+
+
+The locative clitics -po, -ko and -mo may also be attached to the end of these words as needed.
+
+The continuative is a special verb form unique to the verb "to be", meaning "is still", "are still" or "am still". It is formed by attaching the subject prefix to the suffix -ngali.
+
+## Verbs > ### 'To be' > #### Continuative > ##### Table 56
+
+<pre>```
+| Person / Class   | Positive   | Translation            |
+|:-----------------|:-----------|:-----------------------|
+| 1st sing.        | ningali    | "I am still"           |
+| 2nd sing.        | ungali     | "you are still"        |
+| 1st plur.        | tungali    | "we are still"         |
+| 2nd plur.        | mngali     | "you are still"        |
+| 1                | angali     | "he/she is still"      |
+| 2                | wangali    | "they are still"       |
+| 3                | ungali     | "it is still"          |
+| 4                | ingali     | "they are still"       |
+| 5                | lingali    | "it is still"          |
+| 6                | yangali    | "they are still"       |
+| 7                | kingali    | "it is still"          |
+| 8                | vingali    | "they are still"       |
+| 9                | ingali     | "it is still"          |
+| 10               | zingali    | "they are still"       |
+| 11               | ungali     | "it is still"          |
+| 14               | ungali     | "it is still"          |
+| 15               | kungali    | "it [action] is still" |
+| 16               | pangali    | "it [place] is still"  |
+| 17               | kungali    | "it [place] is still"  |
+| 18               | mngali     | "it [place] is still"  |
+```</pre>
+
+
+The continuous form of the copula is frequently used as in conjunction with other verbs both before and afterwards.
+
+The locative clitics -po, -ko and -mo can be added to the end of the continuative forms.
+
+There is no dedicated verb meaning 'to have'. Its equivalent is kuwa na, literally 'to be with', using the comitative preposition na. In the present tense, however, kuwa na has special contractions, whereby the subject prefix is attached directly onto -na. Note that kuwa na has an existential meaning when the subject is in a locative class.
+
+## Verbs > ### 'To have' > #### Table 57
+
+<pre>```
+| Person / Class   | Positive   | Negative   | Translation                           |
+|:-----------------|:-----------|:-----------|:--------------------------------------|
+| 1st sing.        | nina       | sina       | "I have" / "I don't have"             |
+| 2nd sing.        | una        | huna       | "you have" / "you don't have"         |
+| 1st plur.        | tuna       | hatuna     | "we have" / "we don't have"           |
+| 2nd plur.        | mna        | hamna      | "you have" / "you don't have"         |
+| 1                | ana        | hana       | "he/she has" / "he/she doesn't have"  |
+| 2                | wana       | hawana     | "they have" / "they don't have"       |
+| 3                | una        | hauna      | "it has" / "it doesn't have"          |
+| 4                | ina        | haina      | "they have" / "they don't have"       |
+| 5                | lina       | halina     | "it has" / "it doesn't have"          |
+| 6                | yana       | hayana     | "they have" / "they don't have"       |
+| 7                | kina       | hakina     | "it has" / "it doesn't have"          |
+| 8                | vina       | havina     | "they have" / "they don't have"       |
+| 9                | ina        | haina      | "it has" / "it doesn't have"          |
+| 10               | zina       | hazina     | "they have" / "they don't have"       |
+| 11               | una        | hauna      | "it has" / "it doesn't have"          |
+| 14               | una        | hauna      | "it has" / "it doesn't have"          |
+| 15               | kuna       | hakuna     | "it [action] has" / "it doesn't have" |
+| 16               | pana       | hapana     | "there is/are (no) ... there"         |
+| 17               | kuna       | hakuna     | "there is/are (no)"                   |
+| 18               | mna        | hamna      | ""there is/are (no) ... in there"     |
+```</pre>
+
+
+Kuwa na is declined regularly in every tense, mood and aspect other than the present. Note that it is then always written and pronounced with the na separate from the verb.
+
+When the subject is one of the locative classes, kuwa na has an existential meaning, equivalent to "there is/are/was" etc. in English.
+
+* Note that this phrase, made famous by the movie The Lion King, was originally only used in certain areas and may now be regarded as a somewhat clichéd phrase used more by tourists than by Swahili speakers themselves. The following phrase is a more widely used equivalent.
+
+When the object of kuwa na is pronominal, it is present as a referential suffix attached to na. The forms of this suffix are identical to the relative markers and are given outlined as combining forms here. Occasionally these may be used in conjunction with a following noun for special emphasis.
+
+When kuwa na forms a relative clause and the object is relativised, the relative suffix appears on the relative form of kuwa (or alternatively on the relative pronoun amba-) and the identical referential suffix appears on na-.
+
+The verb kuwa "to be" may be used as an auxiliary verb in order to shift the temporal reference of other verb forms out of the present. Both the auxiliary and the main verb are finite verbs and this necessitates a repetition of the subject prefix, as can be seen from the examples below.
+
+The equivalent of perfect tenses (other than present perfect) can be formed by a non-present form of kuwa followed by the present perfect -me- ("have done"), the perfect anterior -mesha- ("have already done") or the negative perfect -ja- ("have not (yet) done") verb forms. 
+
+ 
+ 
+
+As in the previous example, it is usually the main verb that is negated. The auxiliary verb kuwa can be negated, however, in order to emphasise the negation, such as when contradicting an affirmative presupposition. 
+
+Compound tenses showing anteriority are frequently used with inchoative verbs in order to indicate static states at times other than the present.
+
+Outside of the present tense, the equivalent of the continuous aspect can be formed by a non-present form of kuwa "to be" followed by either the situational verb form with -ki-, the present tense with -na- or its negative form with -i. 
+
+ 
+ 
+
+As with the compound tenses of anteriority, negation applied to the auxiliary kuwa is frequently used to contradict affirmative presuppositions, as shown in the following examples.
+
+These compound tenses with  may also be used to talk about habitual actions at times other than the present, extending their meaning beyond that of a continuous or a progressive and towards that of an imperfective.
+
+
+
+A large number of Swahili verbs indicate the process of entering a state. For example, the verbs kulewa ("to get drunk"), kuchoka ("to become tired") and kuchelewa ("to become late") describe the respective changes to state from "not drunk" to "drunk", from "not tired" to "tired" and from "not late" to "late". These may be regarded as inherently inchoative verbs. There is, however, no equivalent stative verb for each one that would describe being in the state of having completed that process, i.e. "to be [state]". Stative meanings such as "be drunk", "be tired" and "be late" are formed by using these inchoative verbs with the perfect marker -me- (or, in the negative, -ja-). Many words which are present in English as adjectives have no corresponding adjective in Swahili and are expressed by means of inchoative verbs.
+
+## Verbs > ### Inchoative verbs > #### Table 58: Examples
+
+<pre>```
+| Base verb   | Inchoative                                                 | Stative                                                                       |
+|:------------|:-----------------------------------------------------------|:------------------------------------------------------------------------------|
+| -fa         | Anakufa. "He dies / is dying."                             | Amekufa. "He is dead." ( = "He has died.")                                    |
+| -choka      | Ninachoka. "I become / am becoming tired."                 | Nimechoka. "I am tired." ( = "I have become tired.")                          |
+| -vaa        | Tunavaa viatu. "We put / are putting on shoes."            | Tumevaa viatu. "We are wearing shoes." ( = "We have put on shoes.")           |
+| -kasirikia  | Ananikasirikia. "He gets / is getting angry with me."      | Amenikasirikia. "He is angry with me." (= "He has become angry with me.")     |
+| -jaa        | Bafu inajaa. "The bath fills / is filling up."             | Bafu imejaa. "The bath is full." (= "The bath has filled up.")                |
+| -funguliwa  | Mlango unafunguliwa. "The door is (being) opened."         | Mlango umefunguliwa. "The door is open." (= "The door has been opened.")      |
+| -iva        | Chakula kinaiva. "The food cooks / is cooking."            | Chakula kimeiva. "The food is cooked."                                        |
+| -simama     | Wanasimama. "They get / stand / are getting up."           | Wamesimama. "They are standing up / on their feet." (= "They have stood up.") |
+| -keti       | Anaketi. "She sits / is (in the process of) sitting down." | Ameketi. "She is sitting down / seated." (= "She has sat down.")              |
+```</pre>
+
+
+When using inchoative verbs, compound tenses must be used to talk about states occurring at times other than the present.
+
+## Verbs > ### Inchoative verbs > #### Table 59
+
+<pre>```
+| Base verb   | Inchoative                                 | Stative                                                                                   |
+|:------------|:-------------------------------------------|:------------------------------------------------------------------------------------------|
+| -lala       | Wanalala "They fall / are falling asleep." | Wamelala. "They are asleep / sleeping." ( = "They have fallen asleep.")                   |
+| -lala       | Walilala. "They fell asleep."              | Walikuwa wamelala. "They were asleep / sleeping." ( = "They had fallen asleep.")          |
+| -lala       | Watalala. "They will fall asleep."         | Watakuwa wamelala. "They will be asleep / sleeping." ( = "They will have fallen asleep.") |
+| -amka       | Ninaamka "I wake / am waking up."          | Nimeamka. "I am awake." ( = "I have woken up.")                                           |
+| -amka       | Niliamka. "I woke up."                     | Nilikuwa nimeamka. "I was awake." ( = "I had woken up.")                                  |
+| -amka       | Nitaamka. "I will wake up."                | Nitakuwa nimeamka. "I will be awake." ( = "I will have woken up.")                        |
+| -fa         | Wanakufa "They die / are dying."           | Wamekufa. "They are dead." ( = "They have died.")                                         |
+| -fa         | Walikufa. "They died."                     | Walikuwa wamekufa. "They were dead." ( = "They had died.")                                |
+| -fa         | Watakufa. "They will die."                 | Watakuwa wamekufa. "They will be dead." ( = "They will have died.")                       |
+```</pre>
+
+New verbs are readily created from simple verbs by attaching various suffixes (often called extensions) to the stem to get different shades of meaning by altering grammatical voice. Note that the final -a of common and short verbs only appears at the very end of the verb and is dropped before any suffixes. All of these derivational suffixes, in turn, also contain the final -a, which is dropped when additional suffixes (both derivational and inflectional) are appended.
+
+The reciprocal suffix -ana adds the meaning "each other" to the verb.
+
+-penda "to love" → -pendana "to love each other"
+-andikia "to write to" → -andikiana "to write to each other"
+-pata "to get, receive" → -patana "to reconcile"
+-piga "to hit" → -pigana "to fight", "to hit each other"
+-tii "to obey" → -tiiana "to obey each other"
+The subject of a reciprocal verb is generally plural, however a singular subject may be used, often followed by na and an additional referent.
+
+The applicative suffix, frequently called the 'prepositional extension' in learning resources, adds one of various meanings to a verb usually represented by a preposition in English such as "to", "for", "in", "with" or even "from". The form of the applicative suffix varies, depending on vowel harmony and the reappearance of the /l/ which disappeared from an older stage of Swahili between the final two vowels.  
+
+## Verbs > ### Derived verbs > #### Applicative > ##### Table 60: Applicative suffix on common verbs:
+
+<pre>```
+| Unnamed: 0                                   | Consonant-final root (Consonant + -a)   | Vowel-final root (Vowel + -a)   |
+|:---------------------------------------------|:----------------------------------------|:--------------------------------|
+| Preceding syllable has /a/, /i/, /u/ or /m̩/ | -ia                                     | -lia                            |
+| Preceding syllable has /e/ or /o/            | -ea                                     | -lea                            |
+```</pre>
+
+
+-andika "to write" → -andikia "to write to"
+-zungumza "to converse" → -zungumzia "to converse about", "to discuss"
+-nunua "to buy" → -nunulia "to buy for"
+-soma "to read" → -somea "to read to/for"
+-kojoa "to urinate" → -kojolea "to urinate on/in/against"
+Loan verbs usually form their applicative forms by removing their final vowel and replacing it with either -ia or -ea according to the same rules.
+
+-rudi "to return" → -rudia "to return to"
+-samehe "to forgive" → -samehea "to forgive (sb.) for (sb.)"
+-hesabu "to count", "to consider" → -hesabia "to count for", "to ascribe"
+
+The causative suffix is added to verbs to indicate a person or thing causing another person or thing to perform the action of the original verb. There are a few ways in which causatives are formed. The most common and productive causative suffix is -isha, which follows the same rules of vowel harmony as the applicative suffix.
+
+## Verbs > ### Derived verbs > #### Causative > ##### Table 61: Causative suffix on common verbs:
+
+<pre>```
+| Unnamed: 0                                   | Consonant-final root (Consonant + -a)   | Vowel-final root (Vowel + -a)   |
+|:---------------------------------------------|:----------------------------------------|:--------------------------------|
+| Preceding syllable has /a/, /i/, /u/ or /m̩/ | -isha                                   | -lisha                          |
+| Preceding syllable has /e/ or /o/            | -esha                                   | -lesha                          |
+```</pre>
+
+
+-hama "to move (away)" → -hamisha "to banish; transfer; displace"
+-chelewa "to be late" → -chelewesha "to delay; make late"
+-soma "to read; study" → -somesha "to teach"
+-kopa "to borrow" → -kopesha "to lend"
+-weza "to be able" → -wezesha "to enable"
+-enda "to go" → -endesha "to make go; drive (a vehicle)"
+-vaa "to put on (clothes); dress (oneself)" → -valisha "to dress (somebody else)"
+-ongea "to speak" → -ongelesha "to make speak"
+Short verbs have no preceding vowel so have to be learnt individually.
+
+-fa "to die" → -fisha "to put to death; kill; destroy"; cf. the underived verb -ua "to kill"
+-la "to eat" → -lisha "to feed (someone/something)"
+-nywa "to drink" → -nywesha "to give (someone/something) water to drink"
+Loan verbs, except those ending in -au, remove their final vowel before adding these suffixes.
+
+-fahamu "to understand" → -fahamisha "to make understand"
+-rudi "to return; go back; come back" → -rudisha "to return (something); give back; bring back"
+-tii "to obey" → -tiisha "to make obey; subdue; dominate; subjugate"
+-furahi "to become happy" → -furahisha "to make happy; gladden"
+-starehe "to relax" → -starehesha "to entertain; put at ease"
+-sahau "to forget" → -sahaulisha "to make forget"
+These suffixes may also be added to adjectives and nouns to create causative verbs from them.
+
+imara "strong" (adjective) → -imarisha "to strengthen (something); fortify"
+-fupi "short" (adjective) → -fupisha "to shorten (something)"
+tayari "ready" (adjective) → -tayarisha "to prepare (something); to make ready"
+bora "better" (adjective) → -boresha "to improve (something); to make better"
+safi "clean" (adjective) → -safisha "to clean (something)"
+sababu "cause; reason" (noun) → -sababisha "to cause"
+lazima "obligation" (noun) → -lazimisha "to force; compel"
+orodha "list" (noun) → -orodhesha "to list; to make a list"
+huzuni "sadness" (noun) → -huzunisha "to make sad; sadden"
+hakika "certainty" (noun) → -hakikisha "to make sure; make certain; assure"
+There is a less common causative suffix -iza or -eza which appears with some words. Often there is more than one derivation from the same word, sometimes with different meanings.
+
+-penda "to like; love" → -pendeza "to please; be nice; be attractive"; cf. -pendesha "to cause to like/love"
+-lipa "to pay" → -lipiza "to take vengeance/revenge on; to make (somebody) pay (figuratively)"; cf. -lipisha "to charge a fee; to make (somebody) pay (literally)"
+There is another means of deriving causative verbs and which results from an earlier -y- in the language. This -y- suffix combined with consonants and changed their pronunciation, palatalising or "softening" them. The following table outlines the common sound changes.
+
+## Verbs > ### Derived verbs > #### Causative > ##### Table 62
+
+<pre>```
+| consonant   | becomes:   |
+|:------------|:-----------|
+| -t-         | -sh-       |
+| -k-         | -sh-       |
+| -l-         | -z-        |
+| -n-         | -ny-       |
+| -p-         | -fy-       |
+| -w-         | -vy-       |
+```</pre>
+
+
+In many cases, more than one of these suffixes may be used to derive different verbs from a single verb, formed by various means. In some cases, such as with -onyesha "to show", two causative suffixes may appear together.
+
+-ona "to see" → -onya "to warn"; cf. -onyesha "to show" (also: -onesha)
+-ogopa "to fear; be afraid/scared of" → -ogofya "to frighten; to be scary"; cf. -ogopesha "to frighten; to be scary" (no difference in meaning)
+-pona "to heal; to get better; to recover" (intransitive) → -ponya "to heal (somebody); to make recover"; cf. -ponyesha "to heal (somebody); to make recover" (no difference in meaning)
+-pita "to pass" → -pisha "to give way; make room for; allow to pass"; cf. -pitisha "to make pass"
+-lala "to lie down; fall asleep" → -laza "to house; provide with accommodation; lay sb. down; admit (somebody to hospital)"; cf. -lalisha "to put (somebody) to bed"
+-lewa "to get drunk/inebriated" → -levya "to intoxicate" (of a drug); cf. -lewesha "to get (somebody) drunk"
+Verbs that end with -ka very frequently exchange this to -sha to form the causative, however this is much less common when the preceding syllable contains e or i.
+
+-amka "to wake up" (oneself) → -amsha "to wake (somebody) up"
+-chemka "to boil" (intransitive) → -chemsha "to boil (something); to make boil" (the m in this word is syllabic, derived from earlier "-mu-", so the e does not belong to the preceding syllable)
+-waka "to shine, to catch fire" → -washa "to set on fire; light; switch on; start (e.g. a car)"
+-choka "to become tired" → -chosha "to tire; be tiring; be tiresome; be boring"
+-kumbuka "to remember" → -kumbusha "to remind"
+-andika "to write" → -andikisha "to make write"
+-cheka "to laugh" → -chekesha "to make laugh; amuse; be funny"
+Because most of the word-final sequences of more than one vowel come from the deletion of an l that was present in an earlier stage of the language (and often preserved in many dialects and related languages), many verbs which today end in a sequence of two vowels are made by (removing the final -a) and adding -za. This -z- results from the palatalisation ("softening") process outlined above. which was applied to the -l- in these verbs. The -l- was subsequently lost but the -z- was not.
+
+-tangaa "to become widely known" → -tangaza "to announce; proclaim; publicise"
+-kataa "to refuse" → -kataza "to forbid"; cf. -katalisha "to make (somebody) refuse"
+-tembea "to (go for a) walk" → -tembeza "to take for a walk; to walk (e.g. a dog)"
+-kimbia "to run (away from)" → -kimbiza "to chase (away); pursue"
+-jaa "to fill; become full" → -jaza "to fill; make full"
+
+The passive suffix is generally -wa.  
+
+-jenga "to build" (whence Jenga) → -jengwa "to be built"
+-sema "to say" → -semwa "to be said"
+-danganya "to deceive" → -danganywa "to be deceived"
+Verb stems that end with l or either of the semivowels w or y (but not ny as that is a single consonant written with two letters, as illustrated by -danganywa above) take a suffix -iwa; if the preceding syllable contains e or o, it will be -ewa instead.
+
+-pwaya "to pound" → -pwayiwa "to be pounded"
+-chovya "to immerse" → -chovyewa "to be immersed"
+-doya "to investigate" → -doyewa "to be investigated"
+-gawa "to share; divide" → -gawiwa "to be shared; be divided"
+-tawala "to govern; rule" → -tawaliwa "to be governed; be ruled"
+Verbs whose ending in one of the front vowels plus a, (i.e. the sequences -ea and -ia) usually simply add -wa. 
+
+-ambia "to tell (someone)" → -ambiwa "to be told" (of someone)
+-tegemea "to rely on" → -tegemewa "to be relied on"
+-zuia "to prevent" → -zuiwa "to be prevented"
+A few words of this group, however, add -lewa (after an e) or -liwa (after i).
+
+-tia "to put in" → -tiliwa "to be put in"
+-lea "to bring up; raise" → -lelewa "to be brought up, raised"
+-pokea "to receive" → -pokewa / -pokelewa "to be received" (both alternatives possible)
+As Swahili does not distinguish between the sequences /ua/ and /uwa/ or /oa/ and /owa/, the passive ending -wa would be inaudible after /o/ or /u/, so the -liwa and -lewa endings are used here instead. 
+
+-oa "to get married" (of a man) → -olewa "to get married" (of a woman)
+-toa "to emit; publish; add; subtract; remove" → -tolewa "to be emitted; be published; be added; be subtracted; removed" (These verbs are auto-antonyms!)
+-nunua "to buy" → -nunuliwa "to be bought"
+Note that the verb -ua "to kill" has an irregular passive form: -uawa, although the regular -uliwa is occasionally used.
+The Kiunguja dialect, specifically the variant of it spoken in Zanzibar City, which has been made the standard dialect, goes a step further than many other dialects, requiring also that all verbs ending in -aa be passivised with the suffix -liwa even though the difference between /ɑɑ/ and /ɑwɑ/ is perfectly distinct.
+
+-zaa "to give birth to; sire" → -zaliwa "to be born" (dialectically also -zawa)
+-vaa "to put on (clothing)" → -valiwa "to be put on"
+-kaa "to sit; stay; reside" → -kaliwa "to be inhabited; be occupied; be settled; be sat upon; be stayed in"
+The short verbs have passive forms that must be learnt separately. In each case, the passive form is one syllable longer and falls into the category of common verbs and thus does not receive the extension -ku- anywhere in its conjugation.
+
+-la "to eat" → -liwa "to be eaten"
+-nywa "to drink" → -nywewa "to be drunk"
+-pa "to give to" → -pewa "to be given; to receive"
+-nya "to shit; drop (rain)" → -nyewa "to be shat; be dropped"
+-cha "to fear; revere" → -chiwa "to be feared; revered"
+Most loan-verbs simply add -wa.
+
+-hitaji "to need" → -hitajiwa "to be needed"
+-kodi "to rent; hire" → -kodiwa "to be rented; be hired"
+-samehe "to forgive" → -samehewa "to be forgiven"
+-dai "to claim" → -daiwa "to be claimed"
+If a loan-verb ends with a consonant followed by -u, this u becomes an i 
+
+-laumu "to blame" → -laumiwa "to be blamed"
+-jaribu "to try" → -jaribiwa "to be tried"
+Loan-verbs which end in -au add -liwa
+
+-sahau "to forget" → -sahauliwa "to be forgotten"
+Verbs ending in -uu lose one u and replace it with -liwa.
+
+-nukuu "to copy; transcribe; transliterate" → -nuku-liwa "to be copied; be transcribed; be transliterated"
+The agent in a sentence with a passive verb does not need to be included in the sentence. The passive verb, however, does explicitly allude to the existence of an agent, in contrast to the mediopassive below. When the agent is included in the sentence, it is introduced by the preposition na, which is here the equivalent of the English "by", although in other contexts it is more usually equivalent to "and" or "with".
+
+The mediopassive suffix is added to a transitive verb in order to promote its object to the role of subject without the implication of an agent. The form of the suffix involved ends in -ka and generally the harmonic i or e before it, although this may be dropped in verbs with a vowel final root; alternatively, the lost l of final vowel combinations may reappear and act as a buffer for the harmonic i or e. 
+
+## Verbs > ### Derived verbs > #### Mediopassive > ##### Table 63: Mediopassive suffix on common verbs
+
+<pre>```
+| Unnamed: 0                                   | Consonant-final root (Consonant + -a)   | Vowel-final root (Vowel + -a)   |
+|:---------------------------------------------|:----------------------------------------|:--------------------------------|
+| Preceding syllable has /a/, /i/, /u/ or /m̩/ | -ika                                    | -ka, -lika                      |
+| Preceding syllable has /e/ or /o/            | -eka                                    | -ka, -leka                      |
+```</pre>
+
+
+-vunja "to break (something)" → -vunjika "to break" (intransitive)
+-pika "to cook (something)" → -pikika "to cook" (intransitive)
+-elewa "to understand (something)" → -eleweka "to be understood"
+-sikia "to hear" → -sikika "to be heard; be audible"
+-kaa "to sit; stay; inhabit" → -kalika "to be inhabited; be inhabitable"
+-zoea "to get used to; grow accustomed to" → -zoelika "to become customary"
+As with the other derivational suffixes (or "extensions"), loan verbs generally lose their final vowel before adding -ika or -eka according to vowel harmony rules. The exceptions are those ending in -au which use -lika.
+
+-haribu "to spoil (something); ruin; destroy" → -haribika "to spoil; get spoiled; get ruined; get destroyed"
+-sahau "to forget" → -sahaulika "to become forgotten"
+-kebehi "to ridicule; make fun of" → -kebehika "to get ridiculed; get made fun of"
+In learner materials, the mediopassive suffix generally erroneously described as the "stative extension" despite the fact that the resulting verbs do not generally fulfil the requirements stative: namely that they describe unchanging states. For example, the mediopassive verb -vunjika "to break; go to pieces" contrasts with its source verb -vunja "to break; make go to pieces", not in the quality of being either stative or dynamic — both are dynamic, describing a process that changes over time — but in that the subject of -vunjika is equivalent to the object of -vunja, and the subject of -vunja is completely absent from a clause with -vunjika. In this respect, mediopassive verbs are the same as passive verbs, however they are distinguished by their incompatibility with any mention of an agent. Compare the following three examples.
+
+Active transitive verb (dynamic)
+
+Passive transitive verb (dynamic)
+
+Mediopassive verb (dynamic)
+
+Mediopassive verbs often have the appearance of being stative when used in the perfect. However, this is a function of the perfect, which focuses on the present relevance of a past action, rather than a function of the mediopassive itself. For example, the sentence "Dirisha limevunjika" means either "The window has broken," or "The window is broken." What is being said is that the window broke in the past, but that the effects of this action are still relevant in the present. The verb itself, -vunjika, does not describe the state of being broken, but rather the dynamic process of changing from "whole; intact" to "broken; in pieces". The perfect -me- here indicates that one is concerned with the state after the dynamic process.
+
+The reversive form of a verb indicates a reversal of the action of the original verb. The reversive suffix is no longer productive in modern Swahili, but still exists in a number of verbs that are now lexicalized. The suffix takes the form -u- or, after a syllable containing o, -o- before the final -a.
+Examples:
+
+‑funga "to close/shut" → ‑fungua "to open" (e.g. a door)
+‑fumba "to close/shut" → ‑fumbua "to open" (e.g. eyes)
+‑panga "to arrange" → ‑pangua "to disarrange"
+‑jenga "to build" → ‑jengua "to tear down"
+‑shona "to sew" → ‑shonoa "to unsew, remove stitches"
+
+Suffixes can be stacked upon each other to make quite long verb stems with specific meanings. The passive suffix must always be last in Swahili.
+
+-andika "to write"
+→ -andikwa "to be written"
+-andika "to write"
+→ -andikisha "to cause to write"
+→ -andikishwa "to be caused to write"
+-andika "to write"
+→ -andikia "to write to"
+→ -andikiwa "to be written to"
+-andika "to write"
+→ -andikia "to write to"
+→ -andikiana "to write to each other"
+→ -andikianisha "to cause to write to each other"
+→ -andikianishwa "to be caused to write to each other"
+Here is another rather more implausible example:
+
+-la "to eat"
+→ -lika "to be edible"
+→ -likia "to be edible to"
+→ -likiana "to be edible to each other"
+→ -likianisha "to cause to be edible to each other"
+→ -likianishwa "to be caused to be edible to each other"
+
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+ReportedSpeech:
+  Features:
+    u-Evidentiality: [u-fh, u-quot]
+    u-Interrogativity: [u-decl, u-int, x-excl]
+    u-Tense: [u-prs, u-pst, u-fut]
+
+  Notes:
+  - "The tense of the subordinate clause remains unchanged unless the reporting verb is in the past, in which case the reported tense is adjusted relative to it as outlined."
+  - "In either case, though, mood changes: Subjunctive I is the mood of reporting, Subjunctive II if forms coincide"
+  - "Using 'dass' will trigger the inversion, as the sentence then becomes a subclause."
+
+  Negation:
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
+    examples:
+    - "Er sagte, er wolle den Kuchen nicht essen."
+
+  Rules:
+    u-Evidentiality_u-fh:
+      applies: {u-Evidentiality: u-fh}
+      pattern: "quote + _reporting verb_"
+      example: "Er sagte: 'Ich komme morgen.'"
+      note: "quotation preserves original tense/mood exactly"
+
+    u-Evidentiality_u-quot__u-Interrogativity_u-int:
+      applies: {u-Evidentiality: u-quot, u-Interrogativity: u-int}
+      pattern: "_reporting verb_ + ob/wh-word + {clause in Subjunctive I (present/perfect/future)}"
+      example: "Er fragte, ob er morgen komme."
+      note: "yes/no questions use 'ob', wh-questions use wh-word; tense follows same system as u-decls (pres, past, fut)"
+
+    u-Evidentiality_u-quot__u-Interrogativity_x-excl:
+      applies: {u-Evidentiality: u-quot, u-Interrogativity: x-excl}
+      pattern: "_reporting verb_ + wie/was für + {clause in Subjunctive I (present/perfect/future)}"
+      example: "Er sagte, wie schön es sei!"
+      note: "exclamatives follow the same tense distinctions as u-decls."
+    u-Evidentiality_u-quot__u-Interrogativity_u-decl__u-Tense_u-prs:
+      applies: {u-Evidentiality: u-quot, u-Interrogativity: u-decl, u-Tense: u-prs}
+      pattern: "_reporting verb_ + dass/Ø + {clause in Subjunctive I (present)}"
+      examples:
+      - "Er sagte, er komme morgen."
+      - "Er sagte, dass er morgen komme."
+
+    u-Evidentiality_u-quot__u-Interrogativity_u-decl__u-Tense_u-pst:
+      applies: {u-Evidentiality: u-quot, u-Interrogativity: u-decl, u-Tense: u-pst}
+      pattern: "_reporting verb_ + dass/Ø + {clause in Subjunctive I (perfect)}"
+      example: "Er sagte, er sei gestern angekommen."
+
+    u-Evidentiality_u-quot__u-Interrogativity_u-decl__u-Tense_u-fut:
+      applies: {u-Evidentiality: u-quot, u-Interrogativity: u-decl, u-Tense: u-fut}
+      pattern: "_reporting verb_ + dass/Ø + {clause in Subjunctive I (future)}"
+      example: "Er sagte, er werde morgen kommen."
+      note: "reported future"
+
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

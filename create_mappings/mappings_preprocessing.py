@@ -148,7 +148,7 @@ def build_term_pattern(term: str) -> re.Pattern:
     pattern = re.compile(rf"(?i)(?<![A-Za-z]){term_escaped}")
     return pattern
 
-def extract_topic_terms_from_filename(path: str) -> List[str]:
+def extract_topic_terms_from_filename(path: str, source: str) -> List[str]:
     """
     Extract ordered topic terms, keeping camelCase as a single multi-word token.
 
@@ -184,6 +184,43 @@ def extract_topic_terms_from_filename(path: str) -> List[str]:
         else:
             final_terms.append(part.lower())
 
+    if source == "docx":
+        final_terms = german_equiv_lookup(final_terms)
+    return final_terms
+
+def german_equiv_lookup(terms: List[str]) -> List[str]:
+    """
+    Map English topic terms to German equivalents where possible.
+    """
+    lookup = {
+        "adjective": "adjektiv",
+        "verbs": "verben",
+        "agreement": "angleichung",
+        "past tense": "vergangenheit",
+        "conditional": "konditional",
+        "mood": "modus",
+        "constituents": "konstituenten",
+        "morphology": "morphologie",
+        "determiners": "artikel",
+        "future tense": ["zukunft", "futur"],
+        "imperative": "imperativ",
+        "passive": "passiv",
+        "past tense": "vergangenheit",
+        "present tense": ["gegenwart", "präsens"],
+        "pronoun": "pronomen",
+        "reported": "indirekt",
+        "subjunctive": "konjunktiv"}
+        
+    # add the equivalents after the original term, keep the original term
+    final_terms = []
+    for term in terms:
+        final_terms.append(term)
+        if term in lookup:
+            equiv = lookup[term]
+            if isinstance(equiv, list):
+                final_terms.extend(equiv)
+            else:
+                final_terms.append(equiv)
     return final_terms
 
 def list_format_files(base_path: str = "schemas/lang-de") -> List[str]:
@@ -199,6 +236,7 @@ def list_format_files(base_path: str = "schemas/lang-de") -> List[str]:
     return sorted(files)
 
 def find_sections_for_file(
+    source: str,
     path: str,
     sections: List[Dict[str, Any]],
     embedder: SectionEmbedder,
@@ -220,7 +258,7 @@ def find_sections_for_file(
         "matches": [section_dict, ...]
     }
     """
-    terms = extract_topic_terms_from_filename(path)
+    terms = extract_topic_terms_from_filename(path, source)
     full_topic = " ".join(terms)
 
     term_used, lex_matches = lexical_match_for_terms_in_order(terms, sections)
@@ -247,6 +285,7 @@ def find_sections_for_file(
     }
 
 def map_files_to_toc(
+    source: str,
     base_path: str,
     sections: List[Dict[str, Any]],
     embedder: SectionEmbedder,
@@ -260,6 +299,7 @@ def map_files_to_toc(
     mapping: Dict[str, Dict[str, Any]] = {}
     for path in list_format_files(base_path):
         mapping[path] = find_sections_for_file(
+            source=source,
             path=path,
             sections=sections,
             embedder=embedder,
@@ -450,6 +490,7 @@ def main(lang, source) -> None:
     # 4. Build mapping for all German format files
     base_schema_path = "schemas/lang-de"
     mapping = map_files_to_toc(
+        source=source,
         base_path=base_schema_path,
         sections=sections,
         embedder=embedder,

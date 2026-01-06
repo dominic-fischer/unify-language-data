@@ -1,0 +1,457 @@
+SYSTEM PROMPT:
+You are an expert in the romanian language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language romanian.
+
+The data you receive comes from multiple sources and relates to the following topics:
+pronoun.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or ro-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "romanian-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("romanian-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Personal pronouns come in four different cases, depending on their usage in the phrase.
+
+There are eight personal pronouns (pronume personale) in Romanian:
+
+## Pronouns > ### Personal pronouns > #### Nominative case > ##### Table 11
+
+<pre>```
+| Unnamed: 0    | Unnamed: 1    | Singular   | Plural   |
+|:--------------|:--------------|:-----------|:---------|
+| First person  | First person  | eu         | noi      |
+| Second person | Second person | tu         | voi      |
+| Third person  | Masc.         | el         | ei       |
+| Third person  | Fem.          | ea         | ele      |
+```</pre>
+
+
+The pronouns above are those in the nominative case. They are usually omitted in Romanian unless it is necessary to disambiguate the meaning of a sentence. Usually, the verb ending provides information about the subject. The feminine forms of plural pronouns are used only for groups of persons or items of exclusively female gender. If the group contains elements of both genders, the masculine form is used. Pronouns in the vocative case in Romanian, which is used for exclamations, or summoning, also take the forms of the nominative case.
+
+The accusative forms of the pronouns come in two forms: a stressed and an unstressed form:
+
+## Pronouns > ### Personal pronouns > #### Accusative case > ##### Table 12
+
+<pre>```
+| Unnamed: 0_level_0 + Unnamed: 0_level_1   | Unnamed: 1_level_0 + Unnamed: 1_level_1   | Singular + Stressed   | Singular + Unstressed   | Plural + Stressed   | Plural + Unstressed   |
+|:------------------------------------------|:------------------------------------------|:----------------------|:------------------------|:--------------------|:----------------------|
+| First person                              | First person                              | (pe) mine             | mă                      | (pe) noi            | ne                    |
+| Second person                             | Second person                             | (pe) tine             | te                      | (pe) voi            | vă                    |
+| Third person                              | Masc.                                     | (pe) el               | îl                      | (pe) ei             | îi                    |
+| Third person                              | Fem.                                      | (pe) ea               | o                       | (pe) ele            | le                    |
+```</pre>
+
+
+The stressed form of the pronoun is used (in phrases that are not inverted) after the verb while the unstressed form is employed before the verb. Romanian requires both forms of a pronoun to be present in a sentence if a relative clause is employed, which also reverses the order of the forms (stressed before unstressed). Otherwise, the stressed form is usually left out, the only exception being its usage for adding emphasis to the pronoun.
+
+Îl văd – I see him/it (a statement of fact)
+Îl văd pe el – I see him (It is him that I see, and no other)
+Fata pe care o văd – The girl whom I see
+
+The dative forms of the pronouns:
+
+## Pronouns > ### Personal pronouns > #### Dative case > ##### Table 13
+
+<pre>```
+| Unnamed: 0_level_0 + Unnamed: 0_level_1   | Unnamed: 1_level_0 + Unnamed: 1_level_1   | Singular + Stressed   | Singular + Unstressed   | Plural + Stressed   | Plural + Unstressed   |
+|:------------------------------------------|:------------------------------------------|:----------------------|:------------------------|:--------------------|:----------------------|
+| First person                              | First person                              | mie                   | îmi                     | nouă                | ne                    |
+| Second person                             | Second person                             | ție                   | îți                     | vouă                | vă                    |
+| Third person                              | Masc.                                     | lui                   | îi                      | lor                 | le                    |
+| Third person                              | Fem.                                      | ei                    | îi                      | lor                 | le                    |
+```</pre>
+
+The genitive forms of the pronouns (also called possessive pronouns, pronume posesive):
+
+## Pronouns > ### Personal pronouns > #### Genitive case > ##### Table 14
+
+<pre>```
+| ('Unnamed: 0_level_0', 'Unnamed: 0_level_1', 'Unnamed: 0_level_2')   | ('Unnamed: 1_level_0', 'Unnamed: 1_level_1', 'Unnamed: 1_level_2')   | ('Unnamed: 2_level_0', 'Unnamed: 2_level_1', 'Unnamed: 2_level_2')   | ('Unnamed: 3_level_0', 'Unnamed: 3_level_1', 'Unnamed: 3_level_2')   | ('Possessed', 'Singular', 'Masculine')   | ('Possessed', 'Singular', 'Neuter')   | ('Possessed', 'Singular', 'Feminine')   | ('Possessed', 'Plural', 'Masculine')   | ('Possessed', 'Plural', 'Neuter')   | ('Possessed', 'Plural', 'Feminine')   |
+|:---------------------------------------------------------------------|:---------------------------------------------------------------------|:---------------------------------------------------------------------|:---------------------------------------------------------------------|:-----------------------------------------|:--------------------------------------|:----------------------------------------|:---------------------------------------|:------------------------------------|:--------------------------------------|
+| Possessor                                                            | Singular                                                             | First person                                                         | First person                                                         | al meu                                   | al meu                                | a mea                                   | ai mei                                 | ale mele                            | ale mele                              |
+| Possessor                                                            | Singular                                                             | Second person                                                        | Second person                                                        | al tău                                   | al tău                                | a ta                                    | ai tăi                                 | ale tale                            | ale tale                              |
+| Possessor                                                            | Singular                                                             | Third person                                                         | Masc.                                                                | al lui                                   | al lui                                | a lui                                   | ai lui                                 | ale lui                             | ale lui                               |
+| Possessor                                                            | Singular                                                             | Third person                                                         | Fem.                                                                 | al ei                                    | al ei                                 | a ei                                    | ai ei                                  | ale ei                              | ale ei                                |
+| Possessor                                                            | Plural                                                               | First person                                                         | First person                                                         | al nostru                                | al nostru                             | a noastră                               | ai noștri                              | ale noastre                         | ale noastre                           |
+| Possessor                                                            | Plural                                                               | Second person                                                        | Second person                                                        | al vostru                                | al vostru                             | a voastră                               | ai voștri                              | ale voastre                         | ale voastre                           |
+| Possessor                                                            | Plural                                                               | Third person                                                         | Third person                                                         | al lor                                   | al lor                                | a lor                                   | ai lor                                 | ale lor                             | ale lor                               |
+| Plural                                                               | nan                                                                  | nan                                                                  | nan                                                                  | nan                                      | nan                                   | nan                                     | nan                                    | nan                                 | nan                                   |
+```</pre>
+
+
+The genitive is retained in the third person. The pronoun, like Latin eius, eorum, inflects according to the possessor, not according to the possessed.
+
+These are the forms of the reflexive pronouns (pronume reflexive):
+
+## Pronouns > ### Reflexive pronouns > #### Table 15
+
+<pre>```
+| Unnamed: 0_level_0 + Unnamed: 0_level_1   | Accusative + Singular   | Accusative + Plural   | Dative + Singular   | Dative + Plural   |
+|:------------------------------------------|:------------------------|:----------------------|:--------------------|:------------------|
+| First person                              | pe mine / mă            | pe noi / ne           | mie / îmi           | nouă / ne         |
+| Second person                             | pe tine / te            | pe voi / vă           | ție / îți           | vouă / vă         |
+| Third person                              | pe sine / se            | pe sine / se          | sieși / își         | sieși / își       |
+```</pre>
+
+
+The above reflexive pronouns are in the accusative and dative cases, and in both stressed / unstressed forms. As is made clear, the reflexive pronouns are identical to the personal pronouns, with the exception of the 3rd person, which has entirely new forms. The genitival forms of the reflexive pronouns are the same for the 1st and 2nd persons, but also differ in the 3rd person singular, which is al său. This is a direct continuation of Latin usage; Latin suus was used only when the possessor was the subject of the sentence.
+
+The polite pronouns (pronumele de politețe) are a way of addressing someone formally. They are normally used for interaction with strangers, or by children talking to adults whom they don't know well, or to teachers as a sign of respect. When used in the plural, the second person pronoun is a polite one, for use in formal occasions, or among unacquainted adults, whereas its singular forms are less polite.
+The polite pronouns were derived from old Romanian phrases used for addressing the sovereign, such as Domnia Ta, Domnia Voastră, Domnia Lui ("Your Majesty", "Your Majesty (plural)", "His Majesty", literally "Your Reign", etc.). By means of vowel elision, domnia became shortened to dumnea. It should also be noted that mata, mătăluță and similar pronouns were considered polite pronouns in the past, but nowadays only rural communities use them (for example, between neighbours).
+The polite pronouns all have the same forms in all cases (the only exception being dumneata, with the genitive/dative form of dumitale), and they exist only in the second and third person, due to their not being used to refer to oneself:
+
+## Pronouns > ### Polite pronouns > #### Table 16
+
+<pre>```
+| Unnamed: 0    | Unnamed: 1    | Singular              | Plural                          |
+|:--------------|:--------------|:----------------------|:--------------------------------|
+| Second person | Second person | dumneata, domnia ta   | dumneavoastră, domniile voastre |
+| Third person  | Masc.         | dumnealui, domnia lui | dumnealor, domniile lor         |
+| Third person  | Fem.          | dumneaei, domnia ei   | dumnealor, domniile lor         |
+| Third person  | nan           | nan                   | nan                             |
+| Third person  | nan           | nan                   | nan                             |
+```</pre>
+
+
+A peculiarity of Romanian among Romance languages is the development of an intermediary level of politeness created with the aid of Old Romanian dânsul/dânsa, a variant of the personal pronoun el/ea, formed from the preposition de and the focal particle îns, itself from the Latin pronoun IPSE. Together with the singular second person polite pronoun it expresses a minimum of politeness, but higher than personal pronouns:
+
+## Pronouns > ### Polite pronouns > #### Table 17
+
+<pre>```
+| Unnamed: 0             | Personal   | Intermediary     | Polite               |
+|:-----------------------|:-----------|:-----------------|:---------------------|
+| Second person singular | tu         | dumneata         | dumneavoastră        |
+| Third person singular  | el / ea    | dânsul / dânsa   | dumnealui / dumneaei |
+| Third person plural    | ei / ele   | dânșii / dânsele | dumnealor            |
+```</pre>
+
+There are many demonstrative pronouns (pronume demonstrative) in Romanian. They are classified as pronume de apropiere, pronume de depărtare, pronume de diferențiere, pronume de identitate, which mean, respectively, pronouns of proximity, pronouns of remoteness, pronouns of differentiation, and pronouns of identity.
+
+These pronouns describe objects which are either close to the speaker, or farther away from the speaker (formal register/informal register):
+
+## Pronouns > ### Demonstrative pronouns > #### Pronouns of proximity and remoteness > ##### Table 18
+
+<pre>```
+| Unnamed: 0_level_0 + Unnamed: 0_level_1   | Pronoun of Proximity + Singular   | Pronoun of Proximity + Plural   | Pronoun of Remoteness + Singular   | Pronoun of Remoteness + Plural   |
+|:------------------------------------------|:----------------------------------|:--------------------------------|:-----------------------------------|:---------------------------------|
+| Masculine                                 | acesta/ăsta                       | aceștia/ăștia                   | acela/ăla                          | aceia/ăia                        |
+| Neuter                                    | acesta/ăsta                       | acestea/ăstea                   | acela/ăla                          | acelea/alea                      |
+| Feminine                                  | aceasta/asta                      | acestea/ăstea                   | aceea/aia                          | acelea/alea                      |
+```</pre>
+
+These pronouns describe objects either different from an aforementioned object or the same:
+
+## Pronouns > ### Demonstrative pronouns > #### Pronouns of differentiation and identity > ##### Table 19
+
+<pre>```
+| Unnamed: 0_level_0 + Unnamed: 0_level_1   | Pronoun of Differentiation + Singular   | Pronoun of Differentiation + Plural   | Pronoun of Identity + Singular   | Pronoun of Identity + Plural   |
+|:------------------------------------------|:----------------------------------------|:--------------------------------------|:---------------------------------|:-------------------------------|
+| Masculine                                 | celălalt                                | ceilalți                              | același                          | aceiași                        |
+| Neuter                                    | celălalt                                | celelalte                             | același                          | aceleași                       |
+| Feminine                                  | cealaltă                                | celelalte                             | aceeași                          | aceleași                       |
+```</pre>
+
+The intensive pronouns and adjectives are used for emphasis.
+
+## Pronouns > ### Intensive pronouns > #### Table 20
+
+<pre>```
+| ('Unnamed: 0_level_0', 'Unnamed: 0_level_1', 'Unnamed: 0_level_2')   | ('Intensive pronoun', 'Singular', 'Masculine')   | ('Intensive pronoun', 'Singular', 'Neuter')   | ('Intensive pronoun', 'Singular', 'Feminine')   | ('Intensive pronoun', 'Plural', 'Masculine')   | ('Intensive pronoun', 'Plural', 'Neuter')   | ('Intensive pronoun', 'Plural', 'Feminine')   |
+|:---------------------------------------------------------------------|:-------------------------------------------------|:----------------------------------------------|:------------------------------------------------|:-----------------------------------------------|:--------------------------------------------|:----------------------------------------------|
+| First Person                                                         | însumi (myself)                                  | însumi (myself)                               | însămi (myself)                                 | înșine (ourselves)                             | însene (ourselves)                          | însene (ourselves)                            |
+| Second Person                                                        | însuți (yourself)                                | însuți (yourself)                             | însăți (yourself)                               | înșivă (yourself)                              | însevă (yourself)                           | însevă (yourself)                             |
+| Third Person                                                         | însuși (himself)                                 | însuși (himself)                              | însăși (herself)                                | înșiși (themselves)                            | înseși (themselves)                         | înseși (themselves)                           |
+```</pre>
+
+Pronumele relative și interogative, the two types of pronouns are identical in form but differ in usage. The relative pronouns are used to connect relative clauses to their main clause, but interrogative pronouns are used to form questions. The interrogative pronouns are usually written out with a question mark after them to differentiate them from their relative counterparts.
+These are the most common relative/interrogative pronouns:
+
+## Pronouns > ### Relative and interrogative pronouns > #### Table 21
+
+<pre>```
+| 0                   | 1    | 2                 | 3     | 4          | 5          | 6                                        |
+|:--------------------|:-----|:------------------|:------|:-----------|:-----------|:-----------------------------------------|
+| Relative Pronoun    | cine | (a/al/ai/ale) cui | care  | pe care    | ce         | (a/al/ai/ale) cărui(a)/cărei(a)/căror(a) |
+| English translation | who  | (whose), to whom  | which | which/whom | which/whom | (whose), to whom                         |
+```</pre>
+
+Pronumele negative și nehotărâte, these two types of pronouns are used to express negation, as well as indefinite concepts. There are many indefinite pronouns, but only a limited number of negative pronouns.
+The most common indefinite pronouns are:
+
+## Pronouns > ### Negative and indefinite pronouns > #### Table 22
+
+<pre>```
+| 0                   | 1    | 2   | 3        | 4          | 5               | 6           | 7      |
+|:--------------------|:-----|:----|:---------|:-----------|:----------------|:------------|:-------|
+| Indefinite Pronoun  | mult | tot | unul/una | altul/alta | atât            | puțin/nițel | destul |
+| English translation | much | all | one      | other      | so much/as much | a little    | enough |
+```</pre>
+
+
+The most common negative pronouns are:
+
+## Pronouns > ### Negative and indefinite pronouns > #### Table 23
+
+<pre>```
+| 0                   | 1              | 2            | 3                | 4                       |
+|:--------------------|:---------------|:-------------|:-----------------|:------------------------|
+| Negative Pronoun    | nimeni/nimenea | nimic/nimica | niciunul/niciuna | niciunui(a)/niciunei(a) |
+| English translation | nobody         | nothing      | none             | to none (of none)       |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Pronoun:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+    u-Deixis: [u-prox, u-remt]
+    x-Pronoun-type: [x-pers, x-refl, x-dem, x-poss, x-int, x-rel]
+    x-Form-type: [x-standalone, x-clitic]
+
+  Rules:
+    x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers}
+      forms:
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-nom}, form: "ich"}
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc}, form: "mich"}
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-dat}, form: "mir"}
+
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-nom}, form: "du"}
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-acc}, form: "dich"}
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-dat}, form: "dir"}
+
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-nom}, form: "er"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-acc}, form: "ihn"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-dat}, form: "ihm"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-nom}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-acc}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-dat}, form: "ihr"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-nom}, form: "es"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-acc}, form: "es"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-dat}, form: "ihm"}
+
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-nom}, form: "wir"}
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-acc}, form: "uns"}
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-dat}, form: "uns"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-nom}, form: "ihr"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-acc}, form: "euch"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-dat}, form: "euch"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-nom}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-acc}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-dat}, form: "ihnen"}
+
+    x-Pronoun-type_x-refl:
+      applies: {x-Pronoun-type: x-refl}
+      pattern: "pronouns in accusative/dative case"
+      note: "only in acc/dat, used obligatorily with reflexive verbs"
+
+    x-Pronoun-type_x-dem:
+      applies: {x-Pronoun-type: x-dem}
+      forms:
+      - {features: {u-Deixis: u-prox}, pattern: "dies- + {def-determiner-endings}", note: "proximal demonstrative"}
+      - {features: {u-Deixis: u-remt}, pattern: "jen- + {def-determiner-endings}", note: "remote demonstrative"}
+
+    x-Pronoun-type_x-int:
+      applies: {x-Pronoun-type: x-int}
+      patterns:
+      - forms:
+        - {features: {u-Case: u-nom, u-Gender: u-masc}, form: "wer"}
+        - {features: {u-Case: u-nom, u-Gender: u-fem}, form: "wer"}
+        - {features: {u-Case: u-nom, u-Gender: u-neut}, form: "was"}
+        - {features: {u-Case: u-acc, u-Gender: u-masc}, form: "wen"}
+        - {features: {u-Case: u-acc, u-Gender: u-fem}, form: "wen"}
+        - {features: {u-Case: u-acc, u-Gender: u-neut}, form: "was"}
+        - {features: {u-Case: u-dat}, form: "wem"}
+        - {features: {u-Case: u-gen}, form: "wessen"}
+      - {pattern: "welch- + {def-determiner-endings}"}
+
+    x-Pronoun-type_x-rel:
+      applies: {x-Pronoun-type: x-rel}
+      patterns:
+      - {pattern: "{determiner} (exceptions in gen. sg.)", note: "gen. sg. m./n. dessen, f. deren"}
+      - {pattern: "welch- + {def-determiner-endings}", note: "archaic/literary; no genitive forms, replaced by dessen/deren"}
+    x-Form-type_x-standalone__x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss, x-Form-type: x-standalone}
+      pattern: "_stem_ + _bare-adj-endings_"
+      note: "the stems are: mein-, dein-, sein-, ihr-, unser-, euer-, Ihr-"
+
+    x-Form-type_x-clitic__x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss, x-Form-type: x-clitic}
+      pattern: "_stem_ + _indef-determiner-endings_"
+      note: "the stems are: mein-, dein-, sein-, ihr-, unser-, euer-, Ihr-"
+
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

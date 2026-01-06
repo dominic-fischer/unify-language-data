@@ -1,0 +1,484 @@
+SYSTEM PROMPT:
+You are an expert in the zulu language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language zulu.
+
+The data you receive comes from multiple sources and relates to the following topics:
+determiners, articles, noun.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or zu-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "zulu-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("zulu-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+The Zulu noun consists of two essential parts: the prefix and the stem. Nouns are grouped into noun classes based on the prefix they have, with each class having a number. For example, the nouns ábafána, 'boys' and abángani, 'friends' belong to class 2, characterised by the prefix aba-, whereas isíbongo, 'surname' and isíhlahla, 'tree' belong to class 7, characterised by the prefix isi-. The numbers are based on the classes reconstructed for Proto-Bantu, and have corresponding classes in the other Bantu languages. Therefore, classes that are missing in Zulu create a gap in the numbering, as is the case with the missing classes 12, 13 and 16, as well as those above 17.
+The prefix occurs in two forms: the full form and the simple or short form. The full form includes an initial vowel, called the augment, while this vowel is dropped in the simple form. The two forms have different grammatical functions, as detailed below.
+
+## Noun classes > ### Table 1: Zulu noun classes
+
+<pre>```
+| Class   | Full prefix   | Simple prefix   | Common semantic content                                    | Example                               |
+|:--------|:--------------|:----------------|:-----------------------------------------------------------|:--------------------------------------|
+| 1       | um(u)-[a]     | m(u)-[a]        | Human beings                                               | umúntu, 'person'                      |
+| 2       | aba-, abe-[b] | ba-, be-[b]     | Regular plural of class 1                                  | abántu, 'people'                      |
+| 1a      | u-            | –               | Proper names, kinship terms, personifications              | úbabá, '(my) father'                  |
+| 2a      | ō-            | bō-             | Regular plural of class 1a                                 | ṓbabá, '(my) fathers'                 |
+| 3       | um(u)-[a]     | m(u)-[a]        | plant, body part, river                                    | uḿlenze, 'leg'                        |
+| 4       | imi-          | mi-             | Regular plural of class 3                                  | imílenze, 'legs'                      |
+| 5       | ī-, ili-      | li-             | Fruit, body part, ethnicity/race (member), loanwords       | ī́qandá, 'egg'                        |
+| 6       | ama-          | ma-             | Regular plural of class 5.                                 | amáqandá, 'eggs'                      |
+| 7       | isi-          | si-             | Object, body part, kind of person, custom/culture/language | isícebi, 'rich person'                |
+| 8       | izi-          | zi-             | Regular plural of class 7                                  | izicêbi, 'rich people'                |
+| 9       | in-[c]        | n-[c]           | Animal                                                     | înjá, 'dog'                           |
+| 10      | izin-[c]      | zin-[c]         | Regular plural of class 9 and 11                           | ízinjá, 'dogs', izimpâphé, 'feathers' |
+| 11      | ū-, ulu-      | lu-             | Long/thin object                                           | ū́phaphé, 'feather'                   |
+| 14      | ubu-          | bu-             | Abstract concept                                           | ubúhlalú, 'bead(s)'                   |
+| 15      | uku-          | ku-             | Infinitive                                                 | ukúkhanya, 'light'                    |
+| 17      | uku-          | ku-             | Relics, locatives, unspecified class                       | úkúdlá, 'food / right hand side'      |
+```</pre>
+
+
+Every class is inherently singular or plural. Odd-numbered classes are singular, even-numbered classes are plural, with the exception of class 14 which is also singular in meaning. The plural of a noun is normally formed by switching it to the next higher class. Thus, the plural of class 1 umuntu, 'person' is class 2 abantu, 'people'. For class 11 nouns, the plural is class 10. Classes 14, 15 and 17 usually have no plural at all, but in rare instances class 6 is used to form a plural for these nouns.
+The class of the noun determines the forms of other parts of speech such as verbs and adjectives. These other parts of speech receive their own prefix, matching in class with the noun, though the prefixes themselves are not quite the same:
+
+umfana omkhulu, 'big boy'
+isihlahla esikhulu, 'large tree'
+In terms of meaning, groups of similar nouns tend to belong to similar noun classes. For example, names and surnames are only found in class 1a. Nouns for people, including agent nouns, are commonly in class 1, while animals are often in class 9. Abstract nouns are often in class 14, loanwords in classes 9 and 5, and infinitives of verbs and nouns derived from them in class 15. These are only guidelines and there are exceptions in every single class.
+
+Every noun stem (without the prefix) has an inherent tone pattern, where each syllable is inherently high (H) or low (L). For example, the stem -ntu of the noun umúntu has the pattern L (a single low-toned syllable) while the stem -fúbá of the noun ísifûba has an underlying HH pattern (two high-toned syllables). There are several rules which act to modify the underlying tones to produce the final tone pattern that is actually used in speech. Thus, the spoken tones may differ quite strikingly from the underlying tones. This is already evident in the example of ísifûba, where an underlying HH pattern is actually pronounced as FL (falling-low).
+The prefixes of nouns also have an inherent tone pattern, but this is the same for all nouns and noun classes. The simple prefix has a single L tone, except for class 9 where the simple prefix does not consist of any syllables. The full prefix has an underlying HL pattern (the simple prefix has L, the augment has H), but the single-syllable prefixes of class 5, 9 and 11 have only H. Again, the underlying pattern may be modified by one or more tone rules, as seen in ubúntu, where the underlying prefix is úbu- but surfaces as ubú-.
+The following tone rules apply to nouns:
+
+Prefix spread: If the penultimate (2nd last) syllable of the prefix is high-toned while the first syllable of the noun stem is low-toned, the high tone spreads rightward to the end of the prefix.
+H-spread: The last high tone in a word, if it occurs before the antepenultimate (3rd last) syllable, will spread rightward to the antepenultimate syllable. If the stem contains no high tones, this rule may apply to a high tone in the prefix as well, causing it to spread onto the stem.
+Phrase-final HH: Where the penultimate (2nd last) syllable is lengthened phrase-finally, if the last two syllables of a word are HH, then if...
+both syllables belong to the stem, they become FL (falling-low).
+the former belongs to a one-syllable prefix while the latter belongs to the stem, they become FH (falling-high).
+Left deletion: In a sequence of high tones that resulted from the spreading rules, all but the last high tone are deleted and replaced by low tones. Any high tones in the stem immediately preceding the last high or falling tone are also deleted, even if they are inherent rather than the result of spreading.
+Tone displacement: As described under Zulu phonology.
+Tone dissimilation: Any remaining word-final HH pattern becomes HL.
+These rules are ordered, so that for example the prefix-spread rule applies before the left deletion rule: even if the left deletion rule deletes a high tone from the first syllable of the stem, the prefix spread rule will still operate as though it were still present. Thus, the application of the prefix spread rule can reveal the underlying tone of the first stem syllable. Moreover, the final two syllables are generally not modified by any of the rules, so that the underlying tones are usually readily apparent there. An exception applies for HH in the last two syllables: either the phrase-final HH rule will convert them to FL, the left deletion rule will delete the first H, giving LH, or the tone dissimilation rule will convert it into HL.
+Note that the combination of the spreading rules and the left deletion rule gives the impression of high tone "shifting" rightwards. However, chronologically, these are two separate processes, and some other Nguni languages (e.g. certain Xhosa dialects) have the spreading rules but not the deletion rule.
+The following table shows examples of underlying tone patterns, and the surface patterns that result after application of the rules. The hyphen indicates the boundary between the prefix and the noun stem; the tones of the prefix are shown before the hyphen, those of the noun stem itself after it.
+
+## Noun classes > ### Tone of nouns > #### Table 2
+
+<pre>```
+| Tone pattern + One syllable   | Underlying form + One syllable   | Prefix spread + One syllable   | H-spread + One syllable   | Phrase-final HH + One syllable   | Left deletion + One syllable   | Tone displacement + One syllable   | Tone dissimilation + One syllable   |
+|:------------------------------|:---------------------------------|:-------------------------------|:--------------------------|:---------------------------------|:-------------------------------|:-----------------------------------|:------------------------------------|
+| L                             | úmu-ntu                          | úmú-ntu                        | nan                       | nan                              | umú-ntu                        | nan                                | nan                                 |
+| L                             | ín-dlu                           | nan                            | nan                       | nan                              | nan                            | nan                                | nan                                 |
+| H                             | úmu-thí                          | nan                            | nan                       | nan                              | nan                            | nan                                | nan                                 |
+| H                             | ín-já                            | nan                            | nan                       | în-já ín-já                      | nan                            | nan                                | în-já ín-ja                         |
+| Two syllables                 | Two syllables                    | Two syllables                  | Two syllables             | Two syllables                    | Two syllables                  | Two syllables                      | Two syllables                       |
+| LL                            | ísi-hlahla                       | ísí-hlahla                     | nan                       | nan                              | isí-hlahla                     | nan                                | nan                                 |
+| LL                            | ín-doda                          | nan                            | nan                       | nan                              | nan                            | nan                                | nan                                 |
+| LL                            | ízin-yoni                        | ízín-yoni                      | nan                       | nan                              | izín-yoni                      | izin-yôni izin-yóni                | nan                                 |
+| LL                            | ízin-doda                        | ízín-doda                      | nan                       | nan                              | izín-doda                      | nan                                | nan                                 |
+| HL                            | ísi-báya                         | nan                            | nan                       | nan                              | nan                            | nan                                | nan                                 |
+| HL                            | ín-sízwa                         | nan                            | nan                       | nan                              | nan                            | nan                                | nan                                 |
+| LH                            | ísi-kathí                        | ísí-kathí                      | nan                       | nan                              | isí-kathí                      | nan                                | nan                                 |
+| LH                            | ízi-kathí                        | ízí-kathí                      | nan                       | nan                              | izí-kathí                      | izi-kâthí izi-káthí                | izi-kâthí izi-káthi                 |
+| LH                            | ín-komó                          | nan                            | nan                       | nan                              | nan                            | nan                                | nan                                 |
+| HH                            | úm-fází                          | nan                            | nan                       | úm-fâzi úm-fází                  | úm-fâzi úm-fazí                | nan                                | nan                                 |
+| HH                            | ín-kósí                          | nan                            | nan                       | ín-kôsi ín-kósí                  | ín-kôsi ín-kosí                | nan                                | nan                                 |
+| Three syllables               | Three syllables                  | Three syllables                | Three syllables           | Three syllables                  | Three syllables                | Three syllables                    | Three syllables                     |
+| LLL                           | ín-dodana                        | nan                            | ín-dódana                 | nan                              | in-dódana                      | nan                                | nan                                 |
+| LLL                           | ízin-dodana                      | ízín-dodana                    | ízín-dódana               | nan                              | izin-dódana                    | nan                                | nan                                 |
+| HLL                           | ín-yákatho                       | nan                            | nan                       | nan                              | nan                            | nan                                | nan                                 |
+| LHL                           | ísi-kashána                      | ísí-kashána                    | nan                       | nan                              | isí-kashána                    | nan                                | nan                                 |
+| LHL                           | ízi-kashána                      | ízí-kashána                    | nan                       | nan                              | izí-kashána                    | izi-káshána                        | nan                                 |
+| HHL                           | ísi-fázáne                       | nan                            | nan                       | nan                              | ísi-fazáne                     | nan                                | nan                                 |
+| LLH                           | [example needed]                 | nan                            | nan                       | nan                              | nan                            | nan                                | nan                                 |
+| HLH                           | [example needed]                 | nan                            | nan                       | nan                              | nan                            | nan                                | nan                                 |
+| LHH                           | [example needed]                 | nan                            | nan                       | nan                              | nan                            | nan                                | nan                                 |
+| HHH                           | úm-sébénzí                       | nan                            | nan                       | úm-sébênzi úm-sébénzí            | úm-sebênzi úm-sebenzí          | nan                                | nan                                 |
+| Four syllables                | Four syllables                   | Four syllables                 | Four syllables            | Four syllables                   | Four syllables                 | Four syllables                     | Four syllables                      |
+| LLLL                          | ú-dokotela                       | nan                            | ú-dókótela                | nan                              | u-dokótela                     | nan                                | nan                                 |
+| HLLL                          | [example needed]                 | nan                            | nan                       | nan                              | nan                            | nan                                | nan                                 |
+| LHLL                          | [example needed]                 | nan                            | nan                       | nan                              | nan                            | nan                                | nan                                 |
+| HLHH                          | ín-góqokází                      | nan                            | nan                       | ín-góqokâzi ín-góqokází          | ín-góqokâzi ín-góqokazí        | ín-goqókâzi ín-goqókazí            | nan                                 |
+| HHLL                          | úm-fázázana                      | nan                            | nan                       | nan                              | úm-fazázana                    | nan                                | nan                                 |
+| LHHH                          | ín-tombázáné                     | nan                            | nan                       | ín-tombázâne ín-tombázáné        | ín-tombazâne ín-tombazané      | nan                                | nan                                 |
+| LHHH                          | ízin-tombázáné                   | ízín-tombázáné                 | nan                       | ízín-tombázâne ízín-tombázáné    | izín-tombazâne izín-tombazané  | izin-tómbazâne izin-tómbazané      | nan                                 |
+```</pre>
+
+
+These rules combined can often lead to ambiguity as to the underlying tones, especially with longer stems and with class 9 prefixes. For example, the surface-form ínhlamvukâzi could reflect HHLL or LHLL, where the falling tone would be the result of tone displacement, and the first high tone lost due to left deletion. But HHHH, LHHH or LLHH are also possible, with a falling-low final pattern due to phrase-final HH rather than tone displacement. Even HLLL would be possible, with H-spread followed by left deletion and tone displacement creating the falling tone. In this particular case, the noun is known to derive from ínhlâmvu, with a HH pattern, but that still leaves both HHLL and HHHH as possibilities.
+
+The full form, including the initial augment, is the default form of the noun. It is used in most circumstances, such as in the role of the subject or object of a verb. The simple form has more specific uses. These include:
+
+As a vocative, directly addressing someone or something.
+Babá, ngisîze!, 'Father, help me!'
+When the noun is preceded by a demonstrative.
+ló muntu, 'this person'
+When the noun is followed by the interrogative adjectives -phí "which?" or -ní "what kind of?".
+muntu muphí?, 'which person?'
+muntu muní?, 'what kind of person?'
+With the particle sa- "like".
+After a negative verb, when the meaning is indefinite, i.e. translatable with a word such as "any".
+Angibóni bantu, 'I don't see any people', contrasting with Angibóni abántu, 'I don't see the people'.
+When the negative of the so-called "associative copulative" is formed.
+Angin̤anjá, 'I don't have any dog', contrasting with Ngin̤ênjá, 'I have a dog', in which the e reflects the combination of the final a of the copulative and the noun's augment i.
+In a negative sentence, with an indefinite possessive modifying the object.
+In a relative clause, when the relative concord is prefixed to a possessive form, i.e. with "whose" as a relative.
+In a phrase which acts as a synonym of a preceding pronoun.
+Thiná, bantu,..., 'We, the people,...'
+
+The locative is a noun form that indicates a location associated with the noun. It can translate to a variety of English prepositions, such as "in", "at", "on", "to" or "from", and is thus quite general in meaning. The locative is formed in two different ways, depending on the class of the noun.
+For nouns in class 1(a) or 2(a), which include all proper names of people, the locative is formed by prefixing kú- to the noun, dropping the augment. The prefix has a high tone like the augment, so the tone pattern of the word does not change. For example:
+
+umúntu, 'person' → kumúntu, 'at/on/to/from etc. the person'
+abántu, 'people' → kubántu, 'at/on/to/from etc. the people'
+úbabá, 'father' → kúbabá, 'at/on/to/from etc. father'
+ṓbabá, 'fathers' → kṓbabá, 'at/on/to/from etc. fathers' (u + o gives o)
+u-Okthoba, 'October' → ku-Okthoba, 'in October'
+For nouns that are not in class 1 or 2, the locative is formed by replacing the augment of the noun with e-, or with o- with class 11 nouns. For most nouns -ini is also suffixed, which causes various changes to the final vowel of the stem. The additional stem syllable also changes the tone pattern.
+
+a + ini → eni
+e + ini → eni
+i + ini → ini
+o + ini → weni
+u + ini → wini
+Some examples:
+
+uḿlenze, 'leg' → emlénzeni, 'on the leg'
+îsó, 'eye' → êswéni, 'in the eye'
+ámánzi, 'water' → émánzini, 'in the water'
+índlebé, 'ear' → éndlebéni, 'in the ear'
+ínkungú, 'fog' → énkungwíni, 'in the fog'
+ū́phahla, 'roof' → ōpháhleni, 'on the roof'
+Some nouns have locative forms without the suffix, using just the prefix. This includes most nouns for place names, but also a few regular nouns:
+
+îGóli, 'Johannesburg' → êGóli, 'in Johannesburg'
+îndlé, 'the wild' → êndlé, 'in the wild'
+îkhânda, 'head' → êkhânda, 'on the head'
+îkhâya, 'home' → êkhâya, 'at home'
+úbusûku, 'night' → ébusûku, 'at night'
+ínyákatho, 'north' → ényákatho, 'in the north'
+
+The possessive form is similar to the genitive case of some other languages. It indicates the possessor, or a more general association, and corresponds in meaning to the English preposition "of". It is placed after the noun that is possessed, and receives a special possessive prefix that agrees with the preceding noun's class. For example:
+
+ū́phahla lwéndlu, 'the roof of the house'
+ámasôndo êbhási, 'the wheels of the bus'
+úkushísa kwoḿlilo, 'the heat of the fire'
+The possessive prefix is formed from the subject concord of verbs (see the verbs section), plus á. When the possessive prefix is attached to a noun of class 1a (the possessor is class 1a, not the thing possessed), an additional k is infixed, and the subject concord is dropped altogether when it consists of only a vowel.
+
+## Noun classes > ### Possessive > #### Table 3: Zulu possessive prefixes
+
+<pre>```
+| Class   | Prefix   | Prefix + class 1a   |
+|:--------|:---------|:--------------------|
+| 1, 1a   | wá-      | ká-                 |
+| 2, 2a   | bá-      | baká-               |
+| 3       | wá-      | ká-                 |
+| 4       | yá-      | ká-                 |
+| 5       | lá-      | liká-               |
+| 6       | á-       | ká-                 |
+| 7       | sá-      | siká-               |
+| 8       | zá-      | ziká-               |
+| 9       | yá-      | ká-                 |
+| 10      | zá-      | ziká-               |
+| 11      | lwá-     | luká-               |
+| 14      | bá-      | buká-               |
+| 15      | kwá-     | kuká-               |
+| 17      | kwá-     | kuká-               |
+```</pre>
+
+
+The vowel of the prefix coalesces with any initial vowel of the noun, as follows:
+
+a + a → a
+a + e → e
+a + i → e
+a + o → o
+a + u → o
+For instance: Isilwane sethu, 'Our animal': formed by sá- (possessive prefix of the class 7 noun isilwane, 'animal') and -íthú (possessive stem of the first person plural personal pronoun).
+With nouns not in class 1a, the possessive prefix can be attached to either the full form or the simple form of the noun. When attached to the simple form, it has an indefinite meaning, like "of any", used with negative verbs. The full form is used in other cases. For example:
+
+angidlánga úkudlá kwênjá, 'I didn't eat the food of the dog' / 'I didn't eat the dog's food'
+angidlánga úkudlá kwânjá, 'I didn't eat the food of any dog' / 'I didn't eat any dog's food'
+With nouns in class 1a, the prefix, extended with ka, is always attached to the simple form.
+The possessive form can be extended into a substantive form. It is created by prefixing á-, é- or ó- to the possessive, depending on the noun prefix of the possessed's class: a is used when the possessed noun's prefix begins with a, e when it begins with i, o when it begins with u. In class 6, áw- is prefixed.
+
+índlu yómzingéli, 'the hunter's house' → éyómzingéli, 'the hunter's (one)'
+īkhompyutha likábabá, 'father's computer' → élikábabá, 'father's (one)'
+
+The copulative form of a noun expresses identity, and has a meaning similar to the English copula be. However, it is a noun form rather than a verb, so no verb is needed, at least in the present tense. The copulative is formed by prefixing the so-called "identifying prefix", which takes three different forms:
+
+ng- if the noun begins with a, e, o or u
+y̤- if the noun begins with i
+w̤- for class 11 nouns
+By itself, the copulative form means "it is" or "it is a/the", such as:
+
+ngumama, 'it's my mother, it's a/the mother'
+y̤intómbazâne, 'it's a girl'
+w̤ūphâhla lwéndlu, 'it's the roof of the house'
+When a noun is equated with something else, the copulative is prefixed with a subject concord (see the verbs section) that matches the subject that the noun is equated with. The subject may or may not be explicitly stated, as usual for verbs. Thus:
+
+ínja iy̤isílwane, 'a dog is an animal'
+īkati liy̤isílwane, 'a cat is an animal'
+nginguḿfâzi, 'I am a woman'
+unguḿngani kamama, 'he/she is my mother's friend'
+However, when the two things being equated have the same noun class, the subject concord is left out:
+
+umúntu ngumúntu ngabántu, 'a person is a person through (other) people'
+The substantive possessive forms of a noun also have a copulative of their own. They are formed and used in the same way as for the base noun, and always use the prefix ng-.
+
+y̤índlu yómzingéli, 'it's the hunter's house' → ngéyómzingéli, 'it's the hunter's (one)'
+y̤īkhompyutha kábabá, 'it's father's computer' → ngelíkábabá, 'it's father's (one)'
+To express the negative of the copula, corresponding to English "is not" and similar, the prefix a- is added to the subject concord of the existing copulative. The subject concord must therefore always be present; the prefix cannot be added to the bare copulative.
+
+angiy̤isílwane, 'I am not an animal'
+awunguḿngani wámi, 'he/she is not my friend'
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Determiner:
+  Features:
+    u-Definiteness: [u-def, u-indf]
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+
+  Rules:
+    u-Definiteness_u-def:
+      applies: {u-Definiteness: u-def}
+      forms:
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-nom}
+          form: "der"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-acc}
+          form: "den"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-dat}
+          form: "dem"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-gen}
+          form: "des"
+
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-nom}
+          form: "die"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-acc}
+          form: "die"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-dat}
+          form: "der"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-gen}
+          form: "der"
+
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-nom}
+          form: "das"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-acc}
+          form: "das"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-dat}
+          form: "dem"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-gen}
+          form: "des"
+
+        - features: {u-Number: u-pl, u-Case: u-nom}
+          form: "die"
+        - features: {u-Number: u-pl, u-Case: u-acc}
+          form: "die"
+        - features: {u-Number: u-pl, u-Case: u-dat}
+          form: "den"
+        - features: {u-Number: u-pl, u-Case: u-gen}
+          form: "der"
+
+    u-Definiteness_u-indf:
+      applies: {u-Definiteness: u-indf}
+      forms:
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-nom}
+          form: "ein"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-acc}
+          form: "einen"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-dat}
+          form: "einem"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-gen}
+          form: "eines"
+
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-nom}
+          form: "eine"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-acc}
+          form: "eine"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-dat}
+          form: "einer"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-gen}
+          form: "einer"
+
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-nom}
+          form: "ein"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-acc}
+          form: "ein"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-dat}
+          form: "einem"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-gen}
+          form: "eines"
+      note: "no plural indefinite"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

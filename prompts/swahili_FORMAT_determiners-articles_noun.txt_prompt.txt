@@ -1,0 +1,334 @@
+SYSTEM PROMPT:
+You are an expert in the swahili language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language swahili.
+
+The data you receive comes from multiple sources and relates to the following topics:
+determiners, articles, noun.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or sw-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "swahili-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("swahili-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Determiners in Swahili are capable of being used adjectivally (with a noun) or pronominally (standing in for an absent noun). The inflection of Swahili determiners resembles that of verbs.
+
+There are no articles in Swahili. A word such as kitabu "book" may be taken to mean either "the book" or "a book" depending on context. 
+If a distinction must be made, demonstratives or adjectives may be used to provide various shades of meaning such as kitabu hicho "that (aforementioned) book", kitabu kimoja "one book", kitabu fulani "some (particular) book", kitabu chochote "any book (at all)". 
+A verbal object prefix may also be used in conjunction with a nominal object and this is more frequent when a definite reading is preferred.
+
+Nitaleta kikombe kesho. "I will bring a cup tomorrow."
+Nitakileta kikombe kesho "I will bring the cup tomorrow."
+An effect similar to a definite article may be achieved by the use of a medial demonstrative (before or after the noun) or a distal demonstrative (placed before the noun or before any following adjectives). These are not quite equivalent to demonstrative articles in languages where article use is obligatory as these demonstratives merely serve to highlight that the referent has already been mentioned and are thus a little more emphatic than a true definite article.
+
+Nita(ki)leta hicho kikombe kesho. "I will bring the/that (aforementioned) cup tomorrow."
+Nita(ki)leta kikombe hicho kesho. "I will bring the/that (aforementioned) cup tomorrow."
+Nita(ki)leta kile kikombe kesho "I will bring the/that (aforementioned) cup tomorrow."
+
+The demonstratives in Swahili may be used either as adjectives, with a noun, or as pronouns, standing alone. They occur in three types:
+
+Proximal ("this, these"), referring to something near the speaker. It is formed by prefixing the verbal concord with hV- where "V" stands for a vowel identical to the vowel of the next syllable.
+Distal ("that, those"), referring to something far from both speaker and listener. It is formed by suffixing -le to the verbal concord.
+Medial/Referential ("the aforementioned"), referring to something that has been previously mentioned. It may also occasionally be used to refer to something nearer to the listener than the speaker. It is formed by replacing the final syllable of the proximal demonstrative with the appropriate reference pronoun for the noun class.
+
+## Determiners > ### Demonstratives > #### Table 17
+
+<pre>```
+|   Class | Class.1   | Proximal   | Distal   | Medial / Referential   |
+|--------:|:----------|:-----------|:---------|:-----------------------|
+|       1 | m-        | huyu       | yule     | huyo                   |
+|       2 | wa-       | hawa       | wale     | hao                    |
+|       3 | m-        | huu        | ule      | huo                    |
+|       4 | mi-       | hii        | ile      | hiyo                   |
+|       5 | ji-       | hili       | lile     | hilo                   |
+|       6 | ma-       | haya       | yale     | hayo                   |
+|       7 | ki-       | hiki       | kile     | hicho                  |
+|       8 | vi-       | hivi       | vile     | hivyo                  |
+|       9 | N-        | hii        | ile      | hiyo                   |
+|      10 | N-        | hizi       | zile     | hizo                   |
+|      11 | u-        | huu        | ule      | huo                    |
+|      14 | u-        | huu        | ule      | huo                    |
+|      15 | ku-       | huku       | kule     | huko                   |
+|      16 | -ni/pa-   | hapa       | pale     | hapo                   |
+|      17 | -ni/ku-   | huku       | kule     | huko                   |
+|      18 | -ni/m-    | humu       | mle      | humo                   |
+```</pre>
+
+
+The demonstratives may stand alone, as pronouns, but may also be used adjectivally in combination with a noun, much like "this" and "that" in English. The demonstrative generally follows the noun but it can also precede it for emphasis. Before a noun, it often takes on a slightly more article-like role, as explained above.
+
+The words -ote "all", -o-ote "any", -pi "which" and -enyewe "-self", "-selves", appear with prefixes following the verbal inflection pattern. In older texts, -o-ote was frequently written as two words (e.g. yo yote, vyo vyote) however it is now more frequently written together. For the sake of comparison, the following table also includes the genitive and ornative prepositions -a and -enye as well as the verbal subject prefixes for each class. Note that class 1 has the most irregularity and diversity of form.
+
+## Determiners > ### Other determiners > #### Table 18
+
+<pre>```
+|   Class | Determiners + -ote "all"[5]   | Determiners + -o-ote "any"   | Determiners + -pi "which"[5]   | Determiners + -enyewe "self", "selves"   | Prepositions + -a "of"   | Prepositions + -enye "having"   | Verbal Prefix + Subject   |
+|--------:|:------------------------------|:-----------------------------|:-------------------------------|:-----------------------------------------|:-------------------------|:--------------------------------|:--------------------------|
+|       1 | —                             | yeyote                       | yupi                           | mwenyewe                                 | wa                       | mwenye                          | a- / yu-                  |
+|       2 | wote [a]                      | wowote                       | wepi [b] ( / wapi[6])          | wenyewe                                  | wa                       | wenye                           | wa-                       |
+|       3 | wote                          | wowote                       | upi                            | wenyewe                                  | wa                       | wenye                           | u-                        |
+|       4 | yote                          | yoyote                       | ipi                            | yenyewe                                  | ya                       | yenye                           | i-                        |
+|       5 | lote                          | lolote                       | lipi                           | lenyewe                                  | la                       | lenye                           | li-                       |
+|       6 | yote                          | yoyote                       | yapi                           | yenyewe                                  | ya                       | yenye                           | ya-                       |
+|       7 | chote                         | chochote                     | kipi                           | chenyewe                                 | cha                      | chenye                          | ki-                       |
+|       8 | vyote                         | vyovyote                     | vipi [c]                       | vyenyewe                                 | vya                      | vyenye                          | vi-                       |
+|       9 | yote                          | yoyote                       | ipi                            | yenyewe                                  | ya                       | yenye                           | i-                        |
+|      10 | zote                          | zozote                       | zipi                           | zenyewe                                  | za                       | zenye                           | zi-                       |
+|      11 | wote                          | wowote                       | upi                            | wenyewe                                  | wa                       | wenye                           | u-                        |
+|      14 | wote                          | wowote                       | upi                            | wenyewe                                  | wa                       | wenye                           | u-                        |
+|      15 | kote / kwote                  | kokote / kwokwote            | kupi                           | kwenyewe                                 | kwa                      | kwenye                          | ku-                       |
+|      16 | pote                          | popote                       | wapi [d] ( / papi[6])          | penyewe                                  | pa                       | penye                           | pa-                       |
+|      17 | kote / kwote                  | kokote / kwokwote            | kupi                           | kwenyewe                                 | kwa                      | kwenye                          | ku-                       |
+|      18 | mote / mwote                  | momote / mwomwote            | mpi [7]                        | mwenyewe                                 | mwa                      | mwenye                          | m(u)-                     |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Determiner:
+  Features:
+    u-Definiteness: [u-def, u-indf]
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+
+  Rules:
+    u-Definiteness_u-def:
+      applies: {u-Definiteness: u-def}
+      forms:
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-nom}
+          form: "der"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-acc}
+          form: "den"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-dat}
+          form: "dem"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-gen}
+          form: "des"
+
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-nom}
+          form: "die"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-acc}
+          form: "die"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-dat}
+          form: "der"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-gen}
+          form: "der"
+
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-nom}
+          form: "das"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-acc}
+          form: "das"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-dat}
+          form: "dem"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-gen}
+          form: "des"
+
+        - features: {u-Number: u-pl, u-Case: u-nom}
+          form: "die"
+        - features: {u-Number: u-pl, u-Case: u-acc}
+          form: "die"
+        - features: {u-Number: u-pl, u-Case: u-dat}
+          form: "den"
+        - features: {u-Number: u-pl, u-Case: u-gen}
+          form: "der"
+
+    u-Definiteness_u-indf:
+      applies: {u-Definiteness: u-indf}
+      forms:
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-nom}
+          form: "ein"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-acc}
+          form: "einen"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-dat}
+          form: "einem"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-gen}
+          form: "eines"
+
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-nom}
+          form: "eine"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-acc}
+          form: "eine"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-dat}
+          form: "einer"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-gen}
+          form: "einer"
+
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-nom}
+          form: "ein"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-acc}
+          form: "ein"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-dat}
+          form: "einem"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-gen}
+          form: "eines"
+      note: "no plural indefinite"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

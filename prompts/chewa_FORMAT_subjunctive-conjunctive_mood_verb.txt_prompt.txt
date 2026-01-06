@@ -1,0 +1,1427 @@
+SYSTEM PROMPT:
+You are an expert in the chewa language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language chewa.
+
+The data you receive comes from multiple sources and relates to the following topics:
+subjunctive, conjunctive, mood, verb.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or ny-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "chewa-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("chewa-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Die Zeitformen im Chichewa können in ferne Vergangenheit, jüngste Vergangenheit, Gegenwart, nahe Zukunft und ferne Zukunft unterteilt werden. Die Grenze zwischen nahen und fernen Zeitformen ist jedoch nicht exakt. Fernzeitformen können nicht für Ereignisse von heute verwendet werden, während Nahzeitformen für Ereignisse verwendet werden können, die früher oder später als heute stattfinden.
+
+Das Chichewa-Zeitsystem enthält auch aspektuelle Unterscheidungen. Mit Ausnahme des Present Simple sind fast alle Zeitformen im Chichewa entweder perfektiv (z. B. "I went") oder imperfektiv (z. B. "I was going", "I used to go"). Nur im Präsens gibt es eine Unterscheidung zwischen habituell ("I usually go") und progressiv ("I am going now").
+
+Eine weitere aspektuelle Unterscheidung im Chichewa ist die zwischen Perfekt und Vergangenheit («Past»). Das Perfekt impliziert, dass das Ergebnis einer vergangenen Handlung auch in der Gegenwart gilt, z. B. "er ist gekommen (und ist immer noch hier)". Die Vergangenheitsformen im Chichewa sind in der Regel diskontinuierlich, z. B. "er kam (und ist jetzt gegangen)". Die Unterscheidung zwischen einer Zeitform und einer anderen erfolgt im Chichewa zum einen durch die Änderung des Zeitmarkers, der ein Infix wie -ku-, -na-, -ma- usw. ist, das an das Verb angehängt wird, und zum anderen durch die Betonung. Oft haben zwei verschiedene Zeitformen, wie z. B. ndimapíta "i was going" und ndímapíta "i usually go", denselben Zeitmarker, unterscheiden sich aber durch ihr Tonmuster. Die Tonhöhen ändern sich, es bleibt aber stets die zweitletzte Silbe betont!
+
+Zusammengesetzte Zeitformen gibt es im Chichewa auch, um komplexere Bedeutungen auszudrücken, z. B. ndimatí ndipité "i was about to go" oder ndakhala ndíkúpíta "i have been going".
+
+Neben den gewöhnlichen Zeitformen gibt es in Chichewa auch Zeitformen, die eine Verpflichtung ("ich sollte gehen"), eine Möglichkeit ("ich könnte gehen") und eine Beharrlichkeit ("ich gehe noch") ausdrücken. Es gibt auch Zeitformen mit Bedeutungen wie "während ich gehe", "nachdem ich gegangen war", "bevor ich ging" sowie eine Reihe von Zeitformen mit Konditionalsätzen, die "wenn..." bedeuten, z. B. "wenn ich gehe", "wenn ich gegangen wäre", "wenn ich gehen würde" und so weiter.
+
+Tempora oder Übersetzungen werden hier auf Englisch angegeben, da das englisch Tempussystem im Vergleich zum Deutschen reicher ist und so den Bedeutungen mehr entspricht.
+
+Nach dem Tempuszeichen können ein oder mehrere Aspektzeichen angefügt werden, die als Infixe die Bedeutung des Tempus verändern. Es gibt vier gebräuchliche Aspektmarker, die, wenn sie kombiniert werden, in der Regel in dieser Reihenfolge hinzugefügt werden: -ma-, -ka-, -dza-, -ngo-.
+
+-Ma- kann als eigenständiges Zeitinfix dienen, um das Imperfekt zu bilden: Ndimathándiza "I was helping" (mit Ton auf der Silbe nach -ma-)
+
+Es kann auch an andere Zeitformen oder an den Infinitiv angehängt werden, um den Aspekt zu habitualisieren:
+
+U-sa-chíte "don't do" vs. u-sa-má-chíté "don't keep on doing"[11]
+
+Ndi-ka-gula "if I buy" vs. ndi-ka-má-gúlá "whenever I buy"[12]
+
+Ku-thándiza "to help" vs. ku-má-thandíza "to help regularly"
+
+…
+
+Es wird weder mit dem Perfekt noch mit einer der Zeitformen mit -na-/-da- kombiniert, da diese Zeitformen im Aspekt immer perfektiv sind.
+
+In Kombination mit dem Near Future bildet es das Contingent Future (siehe unten): mwína á-ká-ndi-thandiza. "Vielleicht wird er mir helfen (wenn ich ihn bitte)." Wir behandeln -ka- in diesem Fall aber als eigenständiges Zeitinfix (analog zu -ma-), da es funktionell als solches dient.
+
+Die Bedeutung von -ka- ist normalerweise "gehen und...": a-dá-ká-gula pétulo "he went and bought petrol". Manchmal kann es auch "gehen, um zu …" bedeuten: ti-dzá-pemphera "wir werden beten" vs. ti-dzá-ká-pemphera "wir werden gehen, um zu beten"
+
+Das Infix -dza- hat verschiedene Bedeutungen. Die erste Bedeutung ist "komm und...": dza-oné-ni! " come and see!" Mit einem Infinitiv oder Konjunktiv nach einem Verb des Kommens kann es "kommen, um zu“ bedeuten: ku-thándiza "to help" vs. nda-bwera ku-dzá-thandizá "I came to (come) help".
+
+Die zweite Bedeutung ist oder "zu einem späteren Zeitpunkt, in der Zukunft": zi-ka-dá-mú-vuta "It would have caused him problems" vs. zi-ka-dá-dzá-mú-vuta "It would have caused him problems later", oder wörtlicher: "It would have come to cause him problems"
+
+In Kombination mit dem Near Future wird daraus das Remote Future: ndí-dzá-thandiza "ich werde helfen" (morgen oder später). Wie bei -ka- werden wir -dza- als eigenständiges Zeitinfix behandeln.
+
+Der Aspektmarker -ngo- bedeutet "nur". Der Ton geht auf die Silbe nach -ngo-, und der Endvokal ist immer -a, nie -e: Ndimafúna "I wanted", vs. Ndimángofúna „I just wanted“.
+
+SUBJekt – TEMPus – (ASPekt –) (OBJekt – )VERB (– ENDung)
+
+Eine Anmerkung zur Verneinung: Wird die Verneinung mit «Si-» gebildet, so entfällt das «-i» des «Si-«, wenn die darauffolgende Kennsilbe mit einem Vokal beginnt.
+
+## Das Verb > ### Zeitformen > #### Negation > ##### Table 19
+
+<pre>```
+| 0               | 1                  |
+|:----------------|:-------------------|
+| Si-ndi-ku-funa. | Ich will nicht.    |
+| S-a-ku-funa.    | Er/sie will nicht. |
+```</pre>
+
+Continuous: Der Effekt der Handlung ist immer noch gültig
+
+Discontinuous: Der Effekt der Handlung ist nicht mehr gültig
+
+## Das Verb > ### Zeitformen > #### Vergangenheit > ##### Table 20
+
+<pre>```
+| 0                                         | 1       | 2     | 3        | 4   | 5                                          |
+|:------------------------------------------|:--------|:------|:---------|:----|:-------------------------------------------|
+|                                           | SUBJ    | TEMP  | VERB     | END |                                            |
+| Past remote (continuous)                  | Ndi-    | ná-   | thandíza |     | I helped.                                  |
+| Past remote (continuous)                  | Sí-ndí- | na-   | thandíz- | e   | I did not help.                            |
+| Past recent (discountinuous)              | Ndi-    | na-   | thándiza |     | I helped just now (but not anymore).       |
+| Past recent (discountinuous)              | Si-ndi- | na-   | thandíz- | e   | I have not helped yet.                     |
+| Imperfect remote                          | Ndi-    | nká-  | thandíza |     | I was helping / I used to help.            |
+| Imperfect remote                          | Sí-ndí- | nká - | thandíza |     | I was not helping / I did not use to help. |
+| Past habitual / Imperfect (discontinuous) | Ndi-    | ma-   | thándiza |     | I was helping / I used to help.            |
+| Past habitual / Imperfect (discontinuous) | Sí-ndí- | ma-   | thándiza |     | I was not helping / I did not use to help. |
+```</pre>
+
+
+Wie bei allen Zeitstufen können auch hier Aspektsinfixe eingefügt werden, sofern sie nicht mit dem intrinsischen Aspekt konkurrieren (e.g., imperfektives -ma- mit einer Perfektzeitform). Häufig ist u.a.:
+
+## Das Verb > ### Zeitformen > #### Vergangenheit > ##### Table 21
+
+<pre>```
+| 0              | 1    | 2    | 3   | 4        | 5               |
+|:---------------|:-----|:-----|:----|:---------|:----------------|
+|                | SUBJ | TEMP | ASP | VERB     |                 |
+| Past remote GO | Ndi- | ná-  | ká- | thandiza | I went to help. |
+```</pre>
+
+
+Das Past Perfect oder Plusquamperfekt bilden wir mit einer zusammengesetzen Zeitform:
+
+## Das Verb > ### Zeitformen > #### Vergangenheit > ##### Table 22
+
+<pre>```
+| 0            | 1    | 2    | 3    | 4    | 5      | 6        | 7   | 8                     |
+|:-------------|:-----|:-----|:-----|:-----|:-------|:---------|:----|:----------------------|
+|              | SUBJ | TEMP | VERB | SUBJ | TEMP   | VERB     | END |                       |
+| Past Perfect | Ndi- | ná-  | li   | ndí- | tá-    | thándiza |     | I had helped.         |
+| Past Perfect | Ndi- | ná-  | li   | ndí- | sa-na- | thandíz- | e   | I had not yet helped. |
+```</pre>
+
+## Das Verb > ### Zeitformen > #### Präsens > ##### Table 23
+
+<pre>```
+| 0                            | 1       | 2     | 3        | 4   | 5                                     |
+|:-----------------------------|:--------|:------|:---------|:----|:--------------------------------------|
+|                              | SUBJ    | TEMP  | VERB     | END |                                       |
+| Present Perfect (continuous) | Nda-    |       | thandiza |     | I have helped.                        |
+| Present Perfect (continuous) | Si-ndi- | na-   | thandíz- | e   | I have not helped yet.                |
+| Present continuous           | Ndi-    | ku-   | thándiza |     | I am helping.                         |
+| Present continuous           | Sí-ndí- | ku-   | thándiza |     | I am not helping.                     |
+| Present habitual             | Ndí-    | ma-   | thandíza |     | I usually help.                       |
+| Present habitual             | Sí-ndí- | (má-) | thandiza |     | I do not usually help / I never help. |
+```</pre>
+
+
+Auch hier können Aspektsinfixe eingefügt werden:
+
+## Das Verb > ### Zeitformen > #### Präsens > ##### Table 24
+
+<pre>```
+| 0                        | 1    | 2   | 3    | 4        | 5   | 6                            |
+|:-------------------------|:-----|:----|:-----|:---------|:----|:-----------------------------|
+| Present Perfect JUST     | Nda- |     | ngo- | thándiza |     | I have just helped.          |
+| Present continuous HABIT | Ndi- | ku- | má-  | thandíza |     | I am usually/always helping. |
+```</pre>
+
+
+Das englische Present Perfect continuous bilden wir mit einer zusammengesetzten Zeitform. Ebenso ein habituelles Present Perfect, bei dem eine Handlung zu einem gewissen Zeitpunkt wiederholt bereits abgeschlossen ist.
+
+## Das Verb > ### Zeitformen > #### Präsens > ##### Table 25
+
+<pre>```
+| 0                        | 1    | 2    | 3      | 4    | 5      | 6        | 7   | 8                          |
+|:-------------------------|:-----|:-----|:-------|:-----|:-------|:---------|:----|:---------------------------|
+|                          | SUBJ | TEMP | VERB   | SUBJ | TEMP   | VERB     | END |                            |
+| Pres. Perfect continuous | Nda- |      | -khala | ndi- | kú-    | thándiza |     | I have been helping.       |
+| Pres. Perfect habitual   | Ndí- | ma-  | khála  | ndi- | tá-    | thándiza |     | I usually have helped.     |
+| Pres. Perfect habitual   | Ndí- | ma-  | khála  | ndí- | sa-na- | thandíz- | e   | I usually have not helped. |
+```</pre>
+
+## Das Verb > ### Zeitformen > #### Futur > ##### Table 26
+
+<pre>```
+| 0                        | 1       | 2    | 3        | 4   | 5                             |
+|:-------------------------|:--------|:-----|:---------|:----|:------------------------------|
+|                          | SUBJ    | TEMP | VERB     | END |                               |
+| Future near              | Ndí-    |      | thandiza |     | I will help.                  |
+| Future near              | Si-ndi- |      | thandíza |     | I will not help.              |
+| Future near imperfective | Ndí-    | zi-  | thandíza |     | I will be helping.            |
+| Future near imperfective | Si-ndi- | zí-  | thandíza |     | I will not be helping.        |
+| Futur remote             | Ndi-    | dzá- | thandiza |     | I am going to help.           |
+| Futur remote             | Si-ndi- | dza- | thandíza |     | I am not/never going to help. |
+| Futur contingent         | Ndi-    | ká-  | thandiza |     | I might help.                 |
+| Futur contingent         | Si-ndi- | ka-  | thandíza |     | I might not help.             |
+```</pre>
+
+
+In der Zukunft werden perfektive Zeiten zusammengesetzt gebildet:
+
+## Das Verb > ### Zeitformen > #### Futur > ##### Table 27
+
+<pre>```
+| 0                     | 1    | 2    | 3     | 4    | 5      | 6        | 7   | 8                                  |
+|:----------------------|:-----|:-----|:------|:-----|:-------|:---------|:----|:-----------------------------------|
+|                       | SUBJ | TEMP | VERB  | SUBJ | TEMP   | VERB     | END |                                    |
+| Future near Perfect   | Ndí- |      | khala | ndí- | tá-    | thándiza |     | I will have helped.                |
+| Future near Perfect   | Ndí- |      | khala | ndí- | sa-na- | thandíz- | e   | I will not have yet helped.        |
+| Future remote Perfect | Ndi- | dzá- | khala | ndí- | tá-    | thándiza |     | I am going to have helped.         |
+| Future remote Perfect | Ndi- | dzá- | khala | ndí- | sa-na- | thandíz- | e   | I am not going to have yet helped. |
+```</pre>
+
+
+Die folgenden mit Aspektinfix gebildeten Futurzeitformen beziehen sich alle auf die ferne Zukunft.
+
+## Das Verb > ### Zeitformen > #### Futur > ##### Table 28
+
+<pre>```
+| 0                               | 1    | 2    | 3    | 4        | 5                                   |
+|:--------------------------------|:-----|:-----|:-----|:---------|:------------------------------------|
+|                                 | SUBJ | TEMP | ASP  | VERB     |                                     |
+| Future remote imperfective COME | Ndí- | zi-  | dza- | thandíza | I will be helping regularly.        |
+| Future remote imperfective GO   | Ndí- | zi-  | ka-  | thandíza | I will be going to help regularly.  |
+| Present habitual FUTURE         | Ndí- | ma-  | dza- | thandíza | It will usually happen that I help. |
+| Futur remote GO                 | Ndi- | dzá- | ká-  | thandiza | I am going to go and help.          |
+```</pre>
+
+## Das Verb > ### Zeitformen > #### Konditional > ##### Table 29
+
+<pre>```
+| 0                             | 1    | 2           | 3       | 4        | 5                            |
+|:------------------------------|:-----|:------------|:--------|:---------|:-----------------------------|
+|                               | SUBJ | TEMP        | ASP     | VERB     |                              |
+| Konditional Past              | Ndí- | ka-na-      |         | thandíza | If I had helped, …           |
+| Konditional Habit             | Ndi- | ka-         | má-     | thandíza | Whenever I (used to) help, … |
+| Konditional                   | Ndi- | ka- (/chi-) |         | thandiza | If I help, …                 |
+| Konditional Futur             | Ndi- | ka-         | dzá-    | thandiza | If I were going to help, …   |
+| Konditional Future continuous | Ndi- | ka-         | má-dza- | thandíza | If ever I were helping, …    |
+```</pre>
+
+
+Die negativen Konditonale brauchen «ku-panda» ‘nicht haben’ als Hilfsverb:
+
+## Das Verb > ### Zeitformen > #### Konditional > ##### Table 30
+
+<pre>```
+| 0                     | 1    | 2      | 3    | 4     | 5    | 6        | 7                              |
+|:----------------------|:-----|:-------|:-----|:------|:-----|:---------|:-------------------------------|
+|                       | SUBJ | VERB   | ASP  | VERB  | SUBJ | VERB     |                                |
+| Konditional Past NEG  | Ndi- | ka-na- |      | panda | ku-  | thándiza | If I did not help, …           |
+| Konditional NEG       | Ndi- | ka-    |      | panda | ku-  | thándiza | If i do not help, …            |
+| Konditional Futur NEG | Ndi- | ka-    | dzá- | panda | ku-  | thándiza | If I were not going to help, … |
+```</pre>
+
+Konditionalsätze haben im Bedingungssatz einen Konditional, im Hauptsatz einen Potential (für Vergangenes), ein Präsens oder ein Futur. Untenstehend finden sich einige Beispiele; andere Bildungen sind aber auch möglich:
+
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Vergangenheit > ####### Table 31
+
+<pre>```
+| 0                                             | 1                                                            |
+|:----------------------------------------------|:-------------------------------------------------------------|
+| Ndí-ka-da-khála ndi mwana ndi-ka-dá-kondwera. | Wenn ich ein Kind gehabt hätte, hätte ich mich sehr gefreut. |
+```</pre>
+
+Der Konditional Präsens selbst kann in mehrere Unterarten aufgeteilt werden:
+
+Gewohnheit: -kama- … -ma-
+
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Gegenwart > ####### Table 32
+
+<pre>```
+| 0                                                     | 1                                         |
+|:------------------------------------------------------|:------------------------------------------|
+| Ndi-ka-má-ku-óna-ni ndí-ma-kondwéra.                  | Ich freue mich immer, wenn ich Dich sehe. |
+| Ich-wenn-Gewohnheit-dich-sehen ich-Gewohnheit-freuen. |                                           |
+```</pre>
+
+
+Wahrscheinlich: -ka- …
+
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Gegenwart > ####### Table 33
+
+<pre>```
+| 0                                                | 1                                                                                         |
+|:-------------------------------------------------|:------------------------------------------------------------------------------------------|
+| Ndi-ka-fika kunyumba ndí-komana ndi banja langa. | Wenn ich nach Hause komme, treffe ich meine Familie an/werde ich meine Familie antreffen. |
+```</pre>
+
+
+Möglich: -ka- … -ka-
+
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Gegenwart > ####### Table 34
+
+<pre>```
+| 0                                   | 1                                                              |
+|:------------------------------------|:---------------------------------------------------------------|
+| Ndi-ka-fika kunyumba ndi-ká-komana  | Wenn ich nach Hause komme, könnte ich meine Familie antreffen. |
+| ndi banja langa.                    |                                                                |
+```</pre>
+
+-kadza- … -ka/dza-
+
+Je nach Bedeutung («Kommen-und-Tun» oder «Gehen-und-Tun») wird im zweiten Teilsatz «-ka-» oder «-dza-» gewählt.
+
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Zukunft > ####### Table 35
+
+<pre>```
+| 0                                       | 1                                                        |
+|:----------------------------------------|:---------------------------------------------------------|
+| Ndi-ka-dzá-fika kunyumba ndi-dzá-samba. | Wenn/Falls ich Hause komme, werde ich mich waschen.      |
+| Ndi-ka-dzá-fika kwanu ndi-ká-puma.      | Wenn/Falls ich bei Dir ankomme, werde ich mich ausruhen. |
+```</pre>
+
+Eine weitere – und vielleicht einfachere – Möglichkeit der Bildung von Konditionalsätzen ist die Verwendung von «ngati» (falls). Ein Vorteil ist, dass man dadurch im Präsens und Futur die Negation einfach bilden, indem man das Verb negiert.
+
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Weitere Bildungsmöglichkeit und Verneinung > ####### Table 36
+
+<pre>```
+| 0                                                     | 1                                                     |
+|:------------------------------------------------------|:------------------------------------------------------|
+| Solange ich nicht gehe, bin ich noch da.              | Ngati sindisíya ndilipo.                              |
+| Wenn ich nicht gehen werde, werde ich noch dort sein. | Ngati si-ndi-dza-siya ndi-dza-khala-be uko.           |
+|                                                       | Wenn Nicht-ich-Fut.-verlasse ich-Fut.-sein-noch dort. |
+```</pre>
+
+
+Einzig in der Vergangenheit muss man die Konstruktion modifizieren und die oben beschrieben negativen Konditionale nutzen:
+
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Weitere Bildungsmöglichkeit und Verneinung > ####### Table 37
+
+<pre>```
+| 0                                                             | 1                                                                  |
+|:--------------------------------------------------------------|:-------------------------------------------------------------------|
+| Wenn ich nicht gegangen wäre, wäre ich nicht erfreut gewesen. | Ndí-ka-na-pánda kupita, sí-ndí-ka-ná-kondwa.                       |
+|                                                               | Ich-wenn-Vgh.-nicht-haben gehen, nicht-ich-wenn-Vgh.-haben Freude. |
+```</pre>
+
+
+Diese Konstruktion kann man auch für Präsens und Futur nutzen; teils wird ihr aber die einfachere Konstruktion mit «ngati» vorgezogen.
+
+## Das Verb > ### Zeitformen > #### Subjunktiv > ##### Table 38
+
+<pre>```
+| 0           | 1       | 2    | 3        | 4   | 5                                           |
+|:------------|:--------|:-----|:---------|:----|:--------------------------------------------|
+|             | SUBJ    | TEMP | VERB     | END |                                             |
+| Subjunctive | Ndi-    |      | thandiz- | é   | I should help. / (that…) I may help         |
+| Subjunctive | Ndi-sa- |      | thandíz- | e   | I should not help. / (that…) I may not help |
+```</pre>
+
+
+Verschiedene Aspektinfixe ändern die Bedeutung leicht, zur Negation kann hier einfach -sa- nach dem Subjekt eingefügt werden.
+
+## Das Verb > ### Zeitformen > #### Subjunktiv > ##### Table 39
+
+<pre>```
+| 0                     | 1    | 2   | 3    | 4        | 5   | 6                             |
+|:----------------------|:-----|:----|:-----|:---------|:----|:------------------------------|
+| Subjunctive GO        | Ndi- |     | ká-  | thandiz- | é   | (so that…) I may go and help. |
+| Subjunctive COME      | Ndi- |     | dzá- | thandiz- | é   | (so that…) I may help later.  |
+| Subjunctive NEG HABIT | Ndi- |     | má-  | thandiz- | é   | I should keep on helping.     |
+```</pre>
+
+Im Unterschied zum Indikativ enden Verben im Subjunktiv auf «-e». Er wird benutzt:
+
+Bei höflichen Aufforderungen und Wünschen
+
+## Das Verb > ### Zeitformen > #### Subjunktiv > ##### Anwendungsgebiete > ###### Table 40
+
+<pre>```
+| 0                         | 1                  |
+|:--------------------------|:-------------------|
+| Reich mir bitte das Brot. | Mundipatse mkhate. |
+```</pre>
+
+
+Nach «kuti» («dass») nach Verben des Wünschens, des Wollens und der Aufforderung
+
+## Das Verb > ### Zeitformen > #### Subjunktiv > ##### Anwendungsgebiete > ###### Table 41
+
+<pre>```
+| 0                                   | 1                               |
+|:------------------------------------|:--------------------------------|
+| Wir möchten, dass Du zu uns kommst. | Tikufuna (kuti) mubwere kwathu. |
+```</pre>
+
+
+Nach «kuti» im Sinne von sodass/damit
+
+## Das Verb > ### Zeitformen > #### Subjunktiv > ##### Anwendungsgebiete > ###### Table 42
+
+<pre>```
+| 0                                                   | 1                                   |
+|:----------------------------------------------------|:------------------------------------|
+| Wir gehen heute, sodass wir bald ankommen.          | Tipita lero kuti tifike posachedwa. |
+| Wir gehen heute, sodass wir nicht zu spät ankommen. | Tipita lero kuti tisachedwe.        |
+```</pre>
+
+
+Sind Formen wie «könnte» oder «würde» enthalten, so ist zusätzlich das modale Infix «-nga-» dabei.
+
+## Das Verb > ### Zeitformen > #### Subjunktiv > ##### Anwendungsgebiete > ###### Table 43
+
+<pre>```
+| 0                         | 1               |
+|:--------------------------|:----------------|
+| Könnten wir morgen gehen? | Tingapite mawa? |
+```</pre>
+
+## Das Verb > ### Zeitformen > #### Imperativ > ##### Table 44
+
+<pre>```
+| 0                       | 1       | 2    | 3        | 4      | 5                             |
+|:------------------------|:--------|:-----|:---------|:-------|:------------------------------|
+|                         | SUBJ    | TEMP | VERB     | END    |                               |
+| Imperative              |         |      | thandiza | (-ni)! | Help! (Sg./Pl.)               |
+| Imperative              | O/Mu-sa |      | thandiz- | e!     | Do not help! (Sg./Pl.)        |
+| Immediate Imperative    | Ta-     |      | thándiza | (-ni)! | Help now(, please)! (Sg./Pl.) |
+| Imperfective Imperative | Zi-     |      | thandíza | (-ni)! | Keep on helping! (Sg./Pl.)    |
+```</pre>
+
+
+Wird das Objekt beim Imperativ vorangestellt, liegt eine Subjunktivform vor:
+
+## Das Verb > ### Zeitformen > #### Imperativ > ##### Table 45
+
+<pre>```
+| 0         | 1    | 2    | 3    | 4        | 5             | 6                         |
+|:----------|:-----|:-----|:-----|:---------|:--------------|:--------------------------|
+|           | SUBJ | TEMP | OBJ  | VERB     | END           |                           |
+| Imperativ |      |      | Ndi- | thándíz- | é (-ni) (-ko) | Help me! (Sg./Pl./please) |
+```</pre>
+
+
+Zudem werden häufig Aspektinfixe zusammen mit dem Imperativ verwendet:
+
+## Das Verb > ### Zeitformen > #### Imperativ > ##### Table 46
+
+<pre>```
+| 0              | 1     | 2     | 3    | 4        | 5       | 6                        |
+|:---------------|:------|:------|:-----|:---------|:--------|:-------------------------|
+|                | SUBJ- | TEMP- | ASP- | VERB     | END     |                          |
+| Imperativ GO   |       |       | Ka-  | thandiz- | é (-ni) | Go and help! (Sg./Pl.)   |
+| Imperativ COME |       |       | Dza- | thandiz- | é (-ni) | Come and help! (Sg./Pl.) |
+| Imperativ JUST | I-    |       | ngo- | bwéra    | (-ni)   | Just help! (Sg./Pl.)     |
+```</pre>
+
+## Das Verb > ### Zeitformen > #### Infinitiv > ##### Table 47
+
+<pre>```
+| 0            | 1      | 2    | 3        | 4   | 5           |
+|:-------------|:-------|:-----|:---------|:----|:------------|
+|              | SUBJ   | TEMP | VERB     | END |             |
+| Infinitiv    | ku-    |      | thándiza |     | to help     |
+| Infintiv NEG | ku-sa- |      | thandíza |     | to not help |
+```</pre>
+
+
+## Das Verb > ### Zeitformen > #### Infinitiv > ##### Table 48
+
+<pre>```
+| 0                | 1    | 2    | 3    | 4        | 5   | 6                 |
+|:-----------------|:-----|:-----|:-----|:---------|:----|:------------------|
+|                  | SUBJ | TEMP | ASP  | VERB     | END |                   |
+| Infinitive HABIT | ku-  |      | má-  | thandíza |     | to help regularly |
+| Infinitive COME  | ku-  |      | dzá- | thandiza |     | to come to help   |
+|                  |      |      |      |          |     | to help later     |
+| Infinitive GO    | ku-  |      | ká-  | thandiza |     | to go and help    |
+```</pre>
+
+Wie im deutschen können auch im Chichewa Verben kombiniert werden. Die geschieht ganz einfach: Das konjugierte Verb nimmt die Form eines Hilfsverbs an, darauf folgt der Infinitiv.
+
+## Das Verb > ### Zeitformen > #### Infinitiv > ##### Verben kombinieren > ###### Table 49
+
+<pre>```
+| 0                            | 1                    |
+|:-----------------------------|:---------------------|
+| Wir beeilen uns, anzukommen. | Tikufulumira kufika. |
+```</pre>
+
+Modalverben funktionieren im Chichewa gleich wie im Deutschen. Sie können:
+
+Alleine stehen
+
+Vor einem Infinitiv stehen
+
+Beachtenswert sind die beiden Infixe «-zi-» (müssen) und «-nga-», die anstelle der Verben «kuyenera» (müssen) und «kutha»/«kukhoza» (können) genutzt werden können.
+
+Letztere ist der Indikator für den Potenzial, den potenziellen modus also. Demzufolge kann -nga- auch die Bedeutung der Modalverben dürfen, können, Subj.: «würden», «könnten» annehmen.
+
+Die beiden modalen Infixe ersetzen in einer Verbform die Zeitsilbe:
+
+## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Table 50
+
+<pre>```
+| 0                                          | 1                                        |
+|:-------------------------------------------|:-----------------------------------------|
+| Ich kann alleine nach Hause gehen.         | Ndingayenda ndekha kunyumba.             |
+|                                            | Ndimatha/-khoza kuyenda ndekha kunyumba. |
+| Ich muss (immer) alleine nach Hause gehen. | Ndiziyenda ndekha kunyumba.              |
+|                                            | Ndi-ku/ma-yenera ndekha kunyumba         |
+```</pre>
+
+
+Wird «-nga-» verneint, so endet es auf «-e». Eine mögliche Erklärung dafür ist die Unsicherheit, die sich durch das «nicht-Können» einschleicht und die das Subjunktiv-e kenntlich macht.
+
+## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Table 51
+
+<pre>```
+| 0                                              | 1                          |
+|:-----------------------------------------------|:---------------------------|
+| Ich kann meine Haare schneiden.                | Ndingameta tsitsi langa.   |
+| Ich kann (könnte) meine Haare nicht schneiden. | Sindingamete tsitsi langa. |
+```</pre>
+
+## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Potential > ###### Table 52
+
+<pre>```
+| 0              | 1       | 2      | 3        | 4   | 5                           |
+|:---------------|:--------|:-------|:---------|:----|:----------------------------|
+|                | SUBJ    | TEMP   | VERB     | END |                             |
+| Potential      | Ndi-    | nga-   | thandiz- | e   | I can/could/might help.     |
+| Potential      | Si-ndi- | ngá-   | thandíz- | e   | I can/could/might not help. |
+| Potential Past | Ndi-    | ka-ná- | thandiza |     | I would have helped         |
+| Potential Past | Sí-ndí- | ka-ná- | thandiza |     | I would not have helped     |
+```</pre>
+
+
+Das Futur in der Vergangenheit ist eigentlich eine Vergangenheitszeitform mit einem Aspektinfix, da die Zeitform dadurch aber potentiell wird, ist sie in dieser Spalte aufgeführt.
+
+## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Potential > ###### Table 53
+
+<pre>```
+| 0                    | 1    | 2      | 3    | 4        | 5                               |
+|:---------------------|:-----|:-------|:-----|:---------|:--------------------------------|
+| Potential Past HABIT | Ndi- | ka-ná- | ma-  | thandíza | I would have been helping.      |
+| Potential Past COME  | Ndi- | ka-ná- | dzá- | thandiza | I would have helped later.      |
+| Future in the past   | Ndi- | ma-    | dzá- | thandiza | I was going to / about to help. |
+```</pre>
+
+
+Das Futur in der Vergangenheit kann alternativ auch mit dem Hilfsverb kuti + Subjunktiv gebildet werden:
+
+## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Potential > ###### Table 54
+
+<pre>```
+| 0                  | 1    | 2    | 3    | 4    | 5   | 6        | 7   | 8                    |
+|:-------------------|:-----|:-----|:-----|:-----|:----|:---------|:----|:---------------------|
+|                    | SUBJ | TEMP | VERB | SUBJ | ASP | VERB     | END |                      |
+| Future in the past | Ndi- | ma-  | tí   | Ndi- | ká- | thandiz- | e   | I was going to help. |
+```</pre>
+
+## Das Verb > ### Zeitformen > #### Modale Zeiten > ##### Nessessitativ > ###### Table 55
+
+<pre>```
+| 0             | 1       | 2    | 3        | 4   | 5                                               |
+|:--------------|:--------|:-----|:---------|:----|:------------------------------------------------|
+|               | SUBJ    | TEMP | VERB     | END |                                                 |
+| Necessitative | Ndi-    | zí-  | thandíza |     | I must (always) help. / I should be helping.    |
+| Necessitative | Ndi-sa- | má-  | thandíz- | e   | I must never help. / I should never be helping. |
+```</pre>
+
+Partizipialsätze haben keine bestimmte Zeitform. Die Zeitform wird durch das Verb im Hauptsatz angegeben
+
+## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ##### Table 56
+
+<pre>```
+| 0                | 1       | 2    | 3      | 4        | 5   | 6                                 |
+|:-----------------|:--------|:-----|:-------|:---------|:----|:----------------------------------|
+|                  | SUBJ    | TEMP | ASP    | VERB     | END |                                   |
+| Gleichzeitigkeit | Ndí-    | kú-  |        | thándiza |     | While i am/was/will be helping, … |
+| Nachzeitigkeit   | Ndí-    | tá-  | (ngo-) | thándiza |     | (Right) After helping, …          |
+| Vorzeitigkeit    | Ndí-sa- | na-  |        | thandíz- | e   | Before/since helping, …           |
+```</pre>
+
+-sana-…-e
+
+## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ###### Vorzeitigkeit > ####### Table 57
+
+<pre>```
+| 0                                               | 1                                                                |
+|:------------------------------------------------|:-----------------------------------------------------------------|
+| Ndí-sa-na-lów-e ndi-na-samba manja.             | Bevor ich reingekommen bin, habe ich mir die Hände gewaschen.    |
+| Ndí-ma-sámba manja ndí-sa-na-lówe.              | Bevor ich reinkomme, wasche ich mir die Hände.                   |
+| Ndi-dzá-khala kusukulu ndí-sa-na-fíke kunyumba. | Ich werde in der Schule sein, bevor ich nach Hause kommen werde. |
+```</pre>
+
+-ku-
+
+Pamene, pomwe oder po- (1.Sg./Pl.)
+
+## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ###### Gleichzeitigkeit > ####### Table 58
+
+<pre>```
+| 0                                                 | 1                                                                             |
+|:--------------------------------------------------|:------------------------------------------------------------------------------|
+| Ndí-kú-yénda ndi-na-óna munthu á-kú-kwéra mténgo. | Während ich am Laufen war, sah ich einen Mann, während er einen Baum erklomm. |
+```</pre>
+
+
+«Pamene» und «pomwe» sind beides Relativkonstruktionen mit de Silbe «pa» die einen exakten örtlichen oder – in diesem Fall – zeitlichen Aspekt ausdrückt. Die Verkürzung zu «po-» kann lediglich mit der 1. Person benutzt werden, da die Bedeutung des Verbs sonst nicht mehr eindeutig bestimmbar sein würde.
+
+## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ###### Gleichzeitigkeit > ####### Table 59
+
+<pre>```
+| 0                                    | 1                                                 |
+|:-------------------------------------|:--------------------------------------------------|
+| Po-tinafika anthu onse anasonkhana.  | Als wir ankamen, strömten alle Menschen zusammen, |
+| Pamene/Pomwe akucheza akutanganidwa. | Solange sie sprechen, sind sie beschäftigt.       |
+```</pre>
+
+«-Ta-» bildet das logische Gegenstück zu «-sana…-e». Es ist ebenfalls unveränderlich und kann in allen Zeiten benutzt werden.
+
+## Das Verb > ### Zeitformen > #### Partizipielle Zeiten > ###### Nachzeitigkeit > ####### Table 60
+
+<pre>```
+| 0                                          | 1                                                                   |
+|:-------------------------------------------|:--------------------------------------------------------------------|
+| Ndí-tá-sámba manja ndinalowa               | Nachdem ich mir die Hände gewaschen hatte, trat ich ein.            |
+| Ndí-tá-khála kusukulu ndidzafika kunyumba. | Nachdem ich in der Schule gewesen bin, werde ich nach Hause kommen. |
+```</pre>
+
+Relativsätze werden mit einem hohen Ton auf dem Subjektmarker versehen:
+
+a-nga-tí-fotokozere "sie können es uns erklären"
+
+(améné) á-nga-ti-fotokozére "der uns das erklären kann"
+
+Nicht alle Zeitformen ändern ihr Tonmuster in einem Relativsatz. Negative Zeitformen ändern sich nicht, und die positiven Zeitformen, die bereits auf der ersten Silbe einen Ton haben, ändern sich nicht.
+
+Weitere Beispiele:
+
+Chaká chatha. „Das Jahr ist zu Ende gegangen“
+
+Chaká chátha. "Letztes Jahr (wörtlich: das Jahr, das zu Ende gegangen ist)"
+
+Wakhálá pampando. „Er hat sich auf den Stuhl gesetzt“
+
+Wákhálá pampando ndi ndaní? "Der auf dem Stuhl sitzt, ist wer?"
+
+Angachite chiyani? „Was kann er tun?“
+
+Palíbe chomwé ángachíte. "Es gibt nichts, was er tun kann."
+
+Mchemwalí wáké anáfa bwanji? „Wie ist seine Schwester gestorben?“
+
+Sákudzíwa chomwé chínamúpha mchemwalí wákéyo."Er weiß nicht, was seine Schwester getötet hat."
+
+
+
+Im Präsens werden viele Konstruktion des Seins mit «ndi» ausgedrückt. Insbesondere sind dies solche, die im Deutschen unpersönliche Subjekte wie «es, dies, das» beinhalten, permanente Zustände oder Identitäten. Bei Konstruktionen, die mit «es» übersetzt werden, verändert sich «ndi» nicht.
+
+## Das Verb > ### Sein > #### «ndi» > ##### Table 61
+
+<pre>```
+| 0           | 1            |
+|:------------|:-------------|
+| Es ist gut! | Ndi zabwino! |
+```</pre>
+
+
+Ist das Subjekt im Deutschen ein Demonstrativpronomen, so kann das «ndi» an sein Nomen angeglichen werden, indem man ihm das Demonstrativpronomen II (Jene/r/s) anhängt. Der Anfangsvokal geht dabei verloren.
+
+## Das Verb > ### Sein > #### «ndi» > ##### Table 62
+
+<pre>```
+| 0                   | 1            |
+|:--------------------|:-------------|
+| Das ist eine Lüge!  | Ndi bodza!   |
+| Dies ist eine Lüge! | Ndilo bodza! |
+```</pre>
+
+
+Werden Besitzverhältnisse ausgedrückt, so wird ebenfalls «ndi» eingesetzt, wobei es unveränderlich bleibt.
+
+## Das Verb > ### Sein > #### «ndi» > ##### Table 63
+
+<pre>```
+| 0                          | 1                                              |
+|:---------------------------|:-----------------------------------------------|
+| Der Stift hier ist meiner. | Cho-lemb-era ichi ndi cha-nga.                 |
+|                            | Von(4)-schreiben-für dieser(4) ist von(4)-mir. |
+```</pre>
+
+
+Sind Personen Subjekte und Identitäten werden ausgedrückt, so wird «ndi» verwendet und gleicht sich durch Anhängen des Personalpronomens an. Wiederum entfällt der Anfangsvokal.
+
+## Das Verb > ### Sein > #### «ndi» > ##### Table 64
+
+<pre>```
+| 0                    | 1             |
+|:---------------------|:--------------|
+| Ich bin ein Tourist. | Ndine mlendo. |
+```</pre>
+
+Das Gegenstückt zum Sein bildet «si», das Nicht-Sein. Es kann in jeglichen unpersönlichen Konstruktionen «ndi» ersetzen und somit die Bedeutung ins Gegenteil umkehren.
+
+## Das Verb > ### Sein > #### Verneinung – «si» > ##### Table 65
+
+<pre>```
+| 0                   | 1           |
+|:--------------------|:------------|
+| Das ist nicht gut.  | Si zabwino. |
+| Das ist keine Lüge. | Si bodza.   |
+```</pre>
+
+
+Bei den persönlichen Identitätsverhaltnissen wird das «si» vor dem Verb angefügt.
+
+## Das Verb > ### Sein > #### Verneinung – «si» > ##### Table 66
+
+<pre>```
+| 0                     | 1               |
+|:----------------------|:----------------|
+| Ich bin kein Tourist. | Sindine mlendo. |
+```</pre>
+
+Jegliche anderen Konstruktionen werden mit den Verben «kuli» und «kukhala» gebildet. Beachtenswert ist hierbei folgendes:
+
+Im Präsens entfällt für «kuli» die Präsens-Zeitsilbe «ku»:
+
+## Das Verb > ### Sein > #### «kuli» und «kukhala» > ##### Table 67
+
+<pre>```
+| 0                    | 1                        |
+|:---------------------|:-------------------------|
+| Ich bin beschäftigt. | ndili wotanganidwa.      |
+|                      | ndikukhala wotanganidwa. |
+```</pre>
+
+
+Nebst dem Präsens wird «kuli» nur im Perfekt benutzt.
+
+Für die Verneinung wird das bereits bekannte «si» an den Verbanfang gestellt:
+
+## Das Verb > ### Sein > #### Verneinung – «si-» > ##### Table 68
+
+<pre>```
+| 0                          | 1                          |
+|:---------------------------|:---------------------------|
+| Ich bin nicht beschäftigt. | Sindili wotanganidwa.      |
+|                            | Sindikukhala wotanganidwa. |
+```</pre>
+
+«Ndi» und «si» werden verwendet, wenn der unpersönliche Ausdruck im Präsens steht und danach ein Nomen folgt oder ein Wort, das wie ein Nomen behandelt wird (z.B. Personen(-namen)). Steht der Satz nicht im Präsens, so nutzt man die Kennsilbe des Klasse des Nomens.
+
+## Das Verb > ### Sein > #### Unpersönliche Ausdrücke > ##### Table 69
+
+<pre>```
+| 0                | 1                  |
+|:-----------------|:-------------------|
+| Es ist ein Mann. | Ndi mwamuna.       |
+| Es war ein Mann. | Anali mwamuna.     |
+|                  | Er-Vgh.-sein Mann. |
+```</pre>
+
+
+Wie aber übersetzt man Ausdrücke wie: «Es ist dunkel geworden.» ?
+
+Hierfür nutzt man das unpersönliche «ku-» als Kennsilbe, das dem Infinitiv entspricht, und bildet ansonsten ganz normale Verbformen.
+
+## Das Verb > ### Sein > #### Unpersönliche Ausdrücke > ##### Table 70
+
+<pre>```
+| 0                                | 1                                       |
+|:---------------------------------|:----------------------------------------|
+| Es ist sehr dunkel.              | Kuda kwambiri.                          |
+|                                  | Es-dunkel-sein sehr.                    |
+| Es ist dunkel geworden.          | Kwada.                                  |
+| Es wird bald dunkel werden/sein. | Kudzada posachedwa.                     |
+|                                  | Es-Fut.-dunkel-sein bei-ohne-verspäten. |
+```</pre>
+
+«Haben» wird im Chichewa mit «sein mit» umschrieben. Dies geschieht entweder mit «kuli» oder «kukhala». Die Konstruktion ist dabei folgendermassen:
+
+Kennsilbe – Zeitsilbe – li/khala ndi
+
+Für die Verneinung gibt es zwei Möglichkeiten:
+
+Kennsilbe – Zeitsilbe – li – be
+
+Kennsilbe – Zeitsilbe – khala popanda
+
+«Kupanda» bedeutet «nicht haben», «popanda» demzufolge «nicht habend».
+
+## Das Verb > ### Haben > #### Verneinung > ##### Table 71
+
+<pre>```
+| 0                   | 1                            |
+|:--------------------|:-----------------------------|
+| Ich habe kein Auto. | Ndilibe galimoto.            |
+|                     | Ndimakhala popanda galimoto. |
+```</pre>
+
+
+
+Wird der Stamm eines Verbs wiederholt, so drückt dies Kontinuität oder Wiederholung aus:
+
+## Das Verb > ### Verbmodifikationen > #### Reduplikation > ##### Table 72
+
+<pre>```
+| 0                             | 1                                         |
+|:------------------------------|:------------------------------------------|
+| Ndikuyesa kusewera mpila.     | Ich versuche gerade, Fussball zu spielen. |
+| Ndimayesayesa kusewera mpila. | Ich übe stets, Fussball zu spielen.       |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikationen > #### Reduplikation > ##### Table 73
+
+<pre>```
+| 0                               | 1                                  |
+|:--------------------------------|:-----------------------------------|
+| Timayenda kusukulu masiku onse. | Wir gehen jeden Tag in die Schule. |
+| Timayendayenda kawirikawiri.    | Wir gehen oft spazieren.           |
+```</pre>
+
+Um Verben in ihrer Bedeutung zu verändern, werden folgende Nachsilbe an das Verbende angefügt. Als Beispiel soll hier «kuona» (sehen) dienen.
+
+Als Faustregel gilt für alle aufgeführte Silben ausser «-na» folgendes:
+
+Zweitletzter Vokal ein a/i/u: «i» wird der Nachsilbe vorangestellt
+
+Zweitletzter Vokal ein e/o: «e» wird der Nachsilbe vorangestellt
+
+Insbesondere bei einsilbigen Verben gibt es Ausnahmen zu dieser Regel.
+
+## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 74
+
+<pre>```
+| 0                      | 1                             |
+|:-----------------------|:------------------------------|
+| Adzaona nyama zambiri. | Sie werden viele Tiere sehen. |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 75
+
+<pre>```
+| 0                                  | 1                                        |
+|:-----------------------------------|:-----------------------------------------|
+| -tsa                               | Transitivität: Jemanden etwas tun lassen |
+| Ndi-mu-on-etsa mabhuku anga.       | Ich lasse ihn meine Bücher sehen.        |
+| Ich-ihn-sehen-machen Bücher meine. | Ich zeige ihm meine Bücher.              |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 76
+
+<pre>```
+| 0                    | 1                                        |
+|:---------------------|:-----------------------------------------|
+| -ka                  | Passivität: Beschreibung eines Zustandes |
+| Zimaoneka zokongola. | Es sieht gut aus.                        |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 77
+
+<pre>```
+| 0             | 1                          |
+|:--------------|:---------------------------|
+| -na           | Gegenseitigkeit: einander  |
+| Tionana mawa. | Wir sehen einander morgen. |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 78
+
+<pre>```
+| 0                                 | 1                                        |
+|:----------------------------------|:-----------------------------------------|
+| -ra                               | Kausalität: für                          |
+| Ndidzaonera zochitika bwinobwino. | Ich die Situation sorgfältig beobachten. |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 79
+
+<pre>```
+| 0                      | 1                                    |
+|:-----------------------|:-------------------------------------|
+| -be                    | Beständigkeit: immer noch            |
+| Ndikuaonabe njovu izi. | Ich sehe diese Elefanten immer noch. |
+```</pre>
+
+
+Beachte: Mit dem Verb kuli «sein» bedeutet -be «nicht haben», deshalb braucht man für «immer noch» eine andere Konstruktion: Ndi-ka-da-li mphunzitsi «Ich bin immer noch Lehrer.»
+
+## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 80
+
+<pre>```
+| 0               | 1                                 |
+|:----------------|:----------------------------------|
+| -dwa            | Passivität                        |
+| Ndaonedwa nawo. | Ich bin von ihnen gesehen worden. |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikationen > #### Nachsilben > ##### Table 81
+
+<pre>```
+| 0                  | 1                                               |
+|:-------------------|:------------------------------------------------|
+| -nso               | Wiederholung, Parallelität: ebenfalls, abermals |
+| Ndaonedwanso nawo. | Ich bin ebenfalls von ihnen gesehen worden.     |
+|                    | Ich bin abermals von ihnen gesehen worden.      |
+```</pre>
+
+Für die Bildung: siehe unter Nachsilben.
+
+Der Täter (dt. «von») wird im Chichewa durch «ndi», «mit», gekennzeichnet. Dabei kommt es zur Kontraktion (siehe unter Mehrere Aktionen und Vermeidung von Wiederholungen
+
+Führt jemand mehrere Aktionen hintereinander aus, so wird oft der Infinitiv anstelle der zweiten Verbform verwendet.
+
+Zusätzlich kann «ndi + ku» zu «n’ku»/«naku» verkürzt werden («ku» sowohl als Objekt- als auch als Zeitsilbe).
+
+## Das Verb > ### Verbmodifikationen > #### Passiv > ##### Table 82
+
+<pre>```
+| 0                                       | 1                                                    |
+|:----------------------------------------|:-----------------------------------------------------|
+| Ich werde zu Dir kommen und Dir helfen. | Ndi-dza-bwera kwa inu ndi ndi-dza-ku-thandiza-ni. -> |
+|                                         | Ich-Fut.-kommen zu Dir und ich-Fut.-Dir-helfen-höfl. |
+|                                         | Ndidzabwera kwa inu n’ku-dza-ku-thandiza-ni.         |
+```</pre>
+
+
+Bem.: Ohne das angehängte -ni kann der Satz folgendes heissen:
+
+## Das Verb > ### Verbmodifikationen > #### Passiv > ##### Table 83
+
+<pre>```
+| 0                                                 | 1                                       |
+|:--------------------------------------------------|:----------------------------------------|
+| Ich werde zu Dir kommen und helfen.               | Ndidzabwera kwa inu nakuthandiza.       |
+| Ich werde zu Dir kommen und Dir (-> Kind) helfen. | Ich-Fut.-kommen zu Dir und-Inf.-helfen. |
+|                                                   | Ich-Fut.-kommen zu Dir und-Dir-helfen.  |
+```</pre>
+
+Betonung: wó-chéza, yó-kóngola
+
+Einsilbig: 	Besitzsilbe – Grundform
+
+## Adjektive & Adverben > ### Adjektive > #### Verbale Adjektive > ##### Table 86
+
+<pre>```
+| 0                                 | 1                    |
+|:----------------------------------|:---------------------|
+| Er ist ein dunkelhäutiger Mensch. | Ndiye munthu wakuda. |
+| dunkel/schwarz sein               | kuda                 |
+```</pre>
+
+
+Mehrsilbig: 	Eigenschaftssilbe – Verbstamm
+
+## Adjektive & Adverben > ### Adjektive > #### Verbale Adjektive > ##### Table 87
+
+<pre>```
+| 0                             | 1                     |
+|:------------------------------|:----------------------|
+| Er ist ein redseliger Mensch. | Ndiye munthu wocheza. |
+| sich unterhalten              | cheza                 |
+```</pre>
+
+Die Verneinung nutzt den negativen Infinitiv, der sich durch ein «-sa-» vor dem Verbstamm auszeichnet.
+
+Eigenschaftssilbe – sa-
+
+Verbstamm
+
+## Adjektive & Adverben > ### Adjektive > #### Verbale Adjektive > ##### Verneinung > ###### Table 88
+
+<pre>```
+| 0                                  | 1                       |
+|:-----------------------------------|:------------------------|
+| Er ist kein dunkelhäutiger Mensch. | Ndiye munthu wosada.    |
+| Er ist kein redseliger Mensch.     | Ndiye munthu wosacheza. |
+```</pre>
+
+mo-
+
+## Adjektive & Adverben > ### Adverben > #### Verbale Adverben > ##### Table 97
+
+<pre>```
+| 0                 | 1                       |
+|:------------------|:------------------------|
+| Er rennt schnell. | Akuthamanga mofulumira. |
+| kufulumira        | pressieren              |
+```</pre>
+
+mo – sa-
+
+## Adjektive & Adverben > ### Adverben > #### Verbale Adverben > ##### Verneinung > ###### Table 98
+
+<pre>```
+| 0                       | 1                         |
+|:------------------------|:--------------------------|
+| Er rennt nicht schnell. | Akuthamanga mosafulumira. |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+Tenses in Chichewa are differentiated in two ways, by their tense-marker (or tense-infix), and by their tonal pattern. Sometimes two tenses have the same tense-marker and differ in their tonal pattern alone. In the following examples, the tense-marker is underlined:
+
+ndi-ku-gúla 'I am buying'
+ndí-ma-gúla 'I usually buy'
+ndi-ma-gúla 'I was buying', 'I used to buy'
+ndí-dzá-gula 'I will buy (tomorrow or in future)'
+ndí-ká-gula 'I will buy (when I get there)'
+One tense has no tense-marker:
+
+ndí-gula 'I will buy (soon)'
+Tenses can be modified further by adding certain other infixes, called 'aspect-markers', after the tense-marker. These are -má- 'always, usually' -ká- 'go and', -dzá 'come and' or 'in future', and -ngo- 'only', 'just'. These infixes can also be used on their own, as tense-markers in their own right (compare the use of -ma- and -dza- in the list of tenses above). For example:
+
+ndi-ku-má-gúlá 'I am always buying'
+ndi-ná-ká-gula 'I went and bought'
+ndí-má-ngo-gúla 'I just usually buy'
+Compound tenses, such as the following, are also found in Chichewa:
+
+nd-a-khala ndí-kú-gúla 'I have been buying'
+
+Chichewa verbs (with the exception of the imperative mood and infinitive) begin with a prefix agreeing grammatically with the subject. This prefix is referred to by some grammarians as the 'subject-marker'.
+
+(ife) ti-ku-píta 'we are going'
+mténgo w-a-gwa (for *u-a-gwa) 'the tree has fallen'
+The subject-marker can be:
+
+Personal: ndi- 'I', u- 'you (singular)', a- 'he, she', ti- 'we', mu- 'you (plural or polite)', a- 'they'; 'he/she (respectful or polite). (In the perfect tense, the subject-marker for 'he, she' is w-: w-a-pita 'he has gone'.)
+Impersonal: a- (class 1, 2 or 6), u- (class 3 or 14), i- (class 4 or 9), li- (class 5), etc.
+Locative: ku-, pa-, mu-
+An example of a locative subject-marker is:
+
+m'madzí muli nsómba 'in the water there are fish'
+Both the 2nd and the 3rd person plural pronouns and subject-markers are used respectfully to refer to a single person:
+
+mukupíta 'you are going' (plural or respectful)
+apita 'they have gone' or 'he/she has gone' (respectful)
+Except in the perfect tense, the 3rd person subject marker when used of people is the same whether singular or plural. So in the present tense the 3rd person subject-marker is a-:
+
+akupíta 'he/she is going'
+akupíta 'they are going', 'he/she is going' (respectful)
+But in the perfect tense wa- (singular) contrasts with a- (plural or respectful):
+
+wapita 'he/she has gone'
+apita 'they have gone', 'he/she has gone' 
+
+## Verbs > ### Subject-marker > #### Table 2
+
+<pre>```
+| 0        | 1        |
+|:---------|:---------|
+| Person   | Mchewa   |
+| People   | Achewa   |
+| Language | Chichewa |
+```</pre>
+
+(respectful)
+When the subject is a noun not in class 1, the appropriate class prefix is used even if referring to a person:
+
+mfúmu ikupíta 'the chief is going' (class 9)
+tianá tikupíta 'the babies are going' (class 13)
+
+An object-marker can also optionally be added to the verb; if one is added it goes immediately before the verb-stem. The 2nd person plural adds -ni after the verb:
+
+ndí-ma-ku-kónda 'I love you' (ndi = 'I', ku = 'you')
+ndí-ma-ku-kónda-ni 'I love you' (plural or formal)
+The object-marker can be:
+
+Personal: -ndi- 'me', -ku- 'you', -mu- or -m'- 'him, her', -ti- 'us', -wa- or -a- 'them', 'him/her (polite)'.
+Impersonal: -mu- (class 1), -wa- (class 2), -u- (class 3 or 14), etc.
+Locative: e.g. m'nyumbá mu-ku-mú-dzíwa 'you know the inside of the house'; but usually a locative suffix is used instead: nd-a-oná-mo 'I have seen inside it'
+Reflexive: -dzi- 'himself', 'herself', 'themselves', 'myself', etc.
+When used with a toneless verb tense such as the perfect, the object-marker has a high tone, but in some tenses such as the present habitual, the tone is lost:
+
+nd-a-mú-ona 'I have seen him'
+ndí-ma-mu-óna 'I usually see him'
+With the imperative or subjunctive, the tone of the object-marker goes on the syllable following it, and the imperative ending changes to -e:
+
+ndi-pátse-ni mpungá 'could you give me some rice?'
+ndi-thándízé-ni! 'help me!'
+mu-mu-thándízé 'you should help him'
+
+Chewa has a large number of tenses, some of which differ in some respects from the tenses met with in European languages. The distinction between one tense and another is made partly by the use of infixes, such as -na- and -ku-, and partly by the intonation of the verb, since each tense has its own particular tonal pattern.
+
+There are five time-frames (remote past, near past, present, near future, and remote future). The distinction between near and remote tenses is not exact. The remote tenses are not used of events of today or last night, but the near tenses can sometimes be used of events of earlier or later than today:
+
+ndi-ná-gula 'I bought (yesterday or some days ago)' (remote perfect)
+nd-a-gula 'I have bought (today)' (perfect)
+ndi-ku-gúla 'I am buying (now)' (present)
+ndí-gula 'I'll buy (today)' (near future)
+ndi-dzá-gula 'I'll buy (tomorrow or later)' (remote future)
+
+Another distinction is between perfect and past. The two perfect tenses imply that the event described had an outcome which still obtains now. The two past tenses usually imply that the result of the action has been reversed in some way:
+Recent time (today):
+
+nd-a-gula 'I have bought it' (and still have it) (Perfect)
+ndi-na-gúla 'I bought it (but no longer have it)' (Recent Past)
+Remote time (yesterday or earlier):
+
+ndi-ná-gula or ndi-dá-gula 'I bought it' (and still have it) (Remote Perfect)
+ndí-ná-a-gúla or ndí-dá-a-gúla 'I bought it (but no longer have it)' (Remote Past)
+When used in narrating a series of events, however, these implications are somewhat relaxed: the Remote Perfect is used for narrating earlier events, and the Recent Past for narrating events of today.
+
+Another important distinction in Chewa is between perfective and imperfective aspect. Imperfective tenses are used for situations, events which occur regularly, or events which are temporarily in progress:
+
+ndi-nká-gúlá 'I used to buy', 'I was buying (a long time ago)'
+ndi-ma-gúla 'I was buying (today)', 'I used to buy (a long time ago)'
+ndí-zi-dza-gúla 'I will be buying (regularly)'
+In the present tense only, there is a further distinction between habitual and progressive:
+
+ndí-ma-gúla 'I buy (regularly)'
+ndi-ku-gúla 'I am buying (currently)'
+
+One future tense not found in European languages is the -ká- future, which 'might presuppose an unspoken conditional clause':
+
+ndí-ká-gula 'I will buy' (if I go there, or when I get there)
+There are also various subjunctive and potential mood tenses, such as:
+
+ndi-gulé 'I should buy'
+ndi-zí-gúlá 'I should be buying'
+ndi-dzá-gúlé 'I should buy (in future)'
+ndi-nga-gule 'I can buy'
+ndi-kadá-gula 'I would have bought'
+
+Negative tenses, if they are main verbs, are made with the prefix sí-. They differ in intonation from the positive tenses. The negative of the -ná- tense has the ending -e instead of -a:
+
+sí-ndí-gula 'I don't buy'
+sí-ndi-na-gúle 'I didn't buy'
+Tenses which mean 'will not' or 'have not yet' have a single tone on the penultimate syllable:
+
+si-ndi-dza-gúla 'I won't buy'
+si-ndi-na-gúle 'I haven't bought (it) yet'
+Infinitives, participial verbs, and the subjunctive make their negative with -sa-, which is added after the subject-prefix instead of before it. They similarly have a single tone on the penultimate syllable:
+
+ndi-sa-gúle 'I should not buy'
+ku-sa-gúla 'not to buy'
+
+The tenses used in certain kinds of dependent clauses (such as relative clauses and some types of temporal clauses) differ from those used in main clauses. Dependent verbs often have a tone on the first syllable. Sometimes this change of tone alone is sufficient to show that the verb is being used in a dependent clause. Compare for example:
+
+a-ku-gúla 'he is buying'
+á-kú-gúla 'when he is buying' or 'who is buying'
+Other commonly used dependent tenses are the following:
+
+ndí-tá-gúla 'after I bought/buy'
+ndí-sa-na-gúle 'before I bought/buy'
+There is also a series of tenses using a toneless -ka- meaning 'when' of 'if', for example:
+
+ndi-ka-gula 'when/if I buy'
+ndi-ka-dzá-gula 'if in future I buy'
+ndi-ka-má-gúlá 'whenever I buy'
+ndí-ka-da-gúla 'if I had bought'
+
+After the verb stem one or more extensions may be added. The extensions modify the meaning of the verb, for example:
+
+gul-a 'buy'
+gul-ir-a 'buy for' or 'buy with' (applicative)
+gul-ir-an-a 'buy for one another' (applicative + reciprocal)
+gul-ik-á 'get bought', 'be for sale' (stative)
+gul-its-a 'cause to get bought, i.e. sell' (causative)
+gul-its-idw-a 'be sold (by someone)' (causative + passive)
+The extensions -ul-/-ol- and its intransitive form -uk-/-ok- are called 'reversive'. They give meanings such as 'open', 'undo', 'unstick', 'uncover':
+
+tseg-ul-a 'open (something)'
+tseg-uk-á 'become open'
+thy-ol-a 'break something off'
+thy-ok-á 'get broken off'
+mas-ul-a 'undo, loosen'
+mas-uk-á 'become loose, relaxed'
+Most extensions, apart from the reciprocal -an- 'one another', have two possible forms, e.g. -ir-/-er-, -idw-/-edw-, -its-/-ets-, -iz-/-ez-, -ul-/-ol-, -uk-/-ok-. The forms with i and u are used when the verb stem has a, i, or u. u can also follow e:
+
+kan-ik-á 'fail to happen'
+phik-ir-a 'cook for someone'
+gul-its-a 'sell'
+sungun-ul-a 'melt (transitive)'
+tseg-ul-a 'open'
+The forms with e are used if the verb stem is monosyllabic or has an e or o in it:
+
+dy-er-a 'eat with'
+bwer-ez-a 'repeat'
+chok-er-a 'come from'
+Extensions with o are used only with a monosyllabic stem or one with o:
+
+thy-ok-á 'get broken off'
+ton-ol-a 'remove grains of corn from the cob'
+The extension -its-, -ets- with a low tone is causative, but when it has a high tone it is intensive. The high tone is heard on the final syllable of the verb:
+
+yang'an-its-its-á 'look carefully'
+yes-ets-á 'try hard'
+The applicative -ir-, -er- can also sometimes be intensive, in which case it has a high tone:
+
+pit-ir-ir-á 'carry on, keep going'
+Verbs with -ik-, -ek-, -uk-, -ok- when they have a stative or intransitive meaning also usually have a high tone:
+
+chit-ik-á 'happen'
+sungun-uk-á 'melt (intransitive), get melted'
+However, there are some low-toned exceptions such as on-ek-a 'seem' or nyam-uk-a 'set off'.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Subjunctive:
+  Features:
+    de-Tense-type: [de-subj-I, de-subj-II]
+    u-Tense: [u-prs, u-pst, u-fut]
+
+  Negation:
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
+    examples:
+    - "Ich persönlich würde das nicht jeden Tag tun."
+
+  Usage:
+    de-subj-I:
+      applies: {u-Evidentiality: u-quot}
+      examples:
+        - "u-quot: Er sagte, er sei krank."
+        - "u-quot: Die Zeitung berichtet, die Preise stiegen weiter."
+      note: "Subjunctive I (Konjunktiv I) is primarily used for indirect/reported speech, especially in formal registers (newspapers, academic writing). It marks distancing of the speaker from the truth of the proposition."
+
+    de-subj-II:
+      applies: {u-Mood: u-irr, u-Politeness: u-pol}
+      examples:
+        - "u-irr: Wenn ich Zeit hätte, käme ich vorbei."
+        - "u-irr: An deiner Stelle würde ich das nicht tun."
+        - "u-pol: Ich hätte gern einen Kaffee."
+        - "u-pol: Könnten Sie mir bitte helfen?"
+      note: "Subjunctive II (Konjunktiv II) expresses counterfactuality, unreality, or politeness. In modern usage, synthetic forms survive mostly in a few verbs (sein, haben, modals), while the würde + infinitive construction dominates otherwise."
+
+  Rules:
+    de-Tense-type_de-subj-I__u-Tense_u-prs:
+      applies: {de-Tense-type: de-subj-I, u-Tense: u-prs}
+      pattern: "_present stem_ + _endings_"
+      endings:
+      - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}       # ich habe
+      - {features: {u-Person: u-2, u-Number: u-sg}, form: "est"}     # du habest
+      - {features: {u-Person: u-3, u-Number: u-sg}, form: "e"}       # er habe
+      - {features: {u-Person: u-1, u-Number: u-pl}, form: "en"}      # wir haben
+      - {features: {u-Person: u-2, u-Number: u-pl}, form: "et"}      # ihr habet
+      - {features: {u-Person: u-3, u-Number: u-pl}, form: "en"}      # sie haben
+      examples:
+      - "Er sagte, er ginge bald."
+
+    de-Tense-type_de-subj-I__u-Tense_u-pst:
+      applies: {de-Tense-type: de-subj-I, u-Tense: u-pst}
+      pattern: "haben/sein in Subjunctive I + past participle"
+      examples:
+      - "Er hat gesagt, er sei gegangen."
+
+    de-Tense-type_de-subj-I__u-Tense_u-fut:
+      applies: {de-Tense-type: de-subj-I, u-Tense: u-fut}
+      pattern: "werden in Subjunctive I + infinitive"
+      examples:
+      - "Er sagte, er werde gehen."
+
+    de-Tense-type_de-subj-II__u-Tense_u-prs:
+      applies: {de-Tense-type: de-subj-II, u-Tense: u-prs}
+      patterns:
+      - pattern: "_preterite stem (ablaut/umlaut)_ + _endings_"
+        endings:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}        # ich ginge
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "est"}      # du gingest
+        - {features: {u-Person: u-3, u-Number: u-sg}, form: "e"}        # er ginge
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "en"}       # wir gingen
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "et"}       # ihr ginget
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "en"}       # sie gingen
+        examples:
+        - "ich ginge"
+      - pattern: "würde (Konjunktiv II) + infinitive"
+        examples:
+        - "ich würde gehen"
+        note: "dominant form for most verbs in modern usage"
+
+    de-Tense-type_de-subj-II__u-Tense_u-pst:
+      applies: {de-Tense-type: de-subj-II, u-Tense: u-pst}
+      pattern: "hätte/wäre (Konjunktiv II) + past participle"
+      examples:
+      - "ich hätte gesagt, ich wäre gegangen"
+      note: "used for counterfactuals about the past"
+
+    de-Tense-type_de-subj-II__u-Tense_u-fut:
+      applies: {de-Tense-type: de-subj-II, u-Tense: u-fut}
+      pattern: "würde (Konjunktiv II) + past participle + haben/sein infinitive"
+      examples:
+      - "ich würde gegangen sein"
+      note: "rare; equivalent to Future II under subjunctive"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

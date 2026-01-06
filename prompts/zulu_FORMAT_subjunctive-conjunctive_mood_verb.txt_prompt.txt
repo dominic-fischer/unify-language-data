@@ -1,0 +1,902 @@
+SYSTEM PROMPT:
+You are an expert in the zulu language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language zulu.
+
+The data you receive comes from multiple sources and relates to the following topics:
+subjunctive, conjunctive, mood, verb.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or zu-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "zulu-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("zulu-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Die allgemeine Vorsilbe für die Verneinung im Zulu ist «A-». Im gewissen Zeiten jedoch nimm die sehr versatile Silbe «-nga-», manchmal sogar in Kombination mit «A-», die Aufgabe der Negation wahr.
+
+Bei der Verwendung der Kennsilbe gibt es in der Negation eine minimale Veränderung: Diejenige der 3. Person Sg., d.h. der Singular der Klasse 1/2, lauten nun: -ka-. Wir kennezeichnen diese Kennsilbe so: «Kennsilbe (V)».
+
+## Das Verb > ### Zeiten > #### Eigenheiten der Verneinung > ##### Table 20
+
+<pre>```
+| 0                      | 1              |
+|:-----------------------|:---------------|
+| Sie läuft herum.       | Uhambahamba.   |
+| Sie läuft nicht herum. | Akahambihamba. |
+```</pre>
+
+
+Eine zweite spezielle Gegebenheit wird aus selbigem Beispiel klar: Bei reduplizierten Verbstämmen wird nur der erste Verbstamm, falls die Verneinung der vorliegenden Zeit das verlangt, zu -i verändert.
+
+Gewisse Zeiten im Zulu nutzen die Personen-Besitzsilben als Indikatoren für die Vergangenheit. Diese lauten: nga-, wa-, wa-, sa-, na-, ba-
+
+## Das Verb > ### Zeiten > #### Personen-Besitzsilbe > ##### Table 21
+
+<pre>```
+| 0       | 1       |
+|:--------|:--------|
+| Positiv | Negativ |
+```</pre>
+
+## Das Verb > ### Zeiten > #### Plusquamperfekt > ##### Table 22
+
+<pre>```
+| 0                                   | 1                                                    |
+|:------------------------------------|:-----------------------------------------------------|
+| Besitzsilbe – Kennsilbe – Verbstamm | Besitzsilbe – Kennsilbe (V) – nga – Verbstamm auf -i |
+| Nga-ngi-funda.                      | Nga-ngi-nga-fundi.                                   |
+| Ich hatte gelesen.                  | Ich hatte nicht gelesen.                             |
+```</pre>
+
+## Das Verb > ### Zeiten > #### Imperfekt > ##### Table 23
+
+<pre>```
+| 0                                                                            | 1                                                                            | 2                                                                            |
+|:-----------------------------------------------------------------------------|:-----------------------------------------------------------------------------|:-----------------------------------------------------------------------------|
+| be – Kennsilbe                                                               | be – Kennsilbe (V) – nga – Verbstamm auf -i                                  | be – Kennsilbe (V) – nga – Verbstamm auf -i                                  |
+| Ausnahmen: Klasse 1/2 Sg.: ube-, Klasse 1/2 Pl.: bebe., Klasse 5/6 Pl.: abe- | Ausnahmen: Klasse 1/2 Sg.: ube-, Klasse 1/2 Pl.: bebe., Klasse 5/6 Pl.: abe- | Ausnahmen: Klasse 1/2 Sg.: ube-, Klasse 1/2 Pl.: bebe., Klasse 5/6 Pl.: abe- |
+| Be-ngi-funda.                                                                | Be-ngi-nga-fundi.                                                            |                                                                              |
+| Umuntu u-be-thola umhlaba. engl                                              | Umuntu u-be-nga-tholi umhlaba.                                               |                                                                              |
+| engl. “I have been reading.”                                                 | engl. “I have not been reading.”                                             |                                                                              |
+| engl. “The human has been discovering earth.”                                | engl. “The human has not been discovering earth.”                            |                                                                              |
+```</pre>
+
+## Das Verb > ### Zeiten > #### Perfekt > ##### Table 24
+
+<pre>```
+| 0                       | 1                                   |
+|:------------------------|:------------------------------------|
+| Besitzsilbe – Verbstamm | A – Kennsilbe (V) – Verbstamm – nga |
+| Nga-thenga inja.        | A-ngi-thenga-nga inja.              |
+| Ich kaufte einen Hund.  | Ich habe keinen Hund gekauft.       |
+```</pre>
+
+## Das Verb > ### Zeiten > #### Resultatives Perfekt > ##### Table 25
+
+<pre>```
+| 0                                                 | 1                                       |
+|:--------------------------------------------------|:----------------------------------------|
+| Kennsilbe – Verbstamm auf -e bzw. -ile (Satzende) | Verneinung des Perfekts                 |
+| Umalume u-boph-e inja.                            | Umalume a-ka-bopha-nga inja.            |
+| Umalume u-hamb-ile.                               | Umaluma a-ka-hamba-nga                  |
+| Der Onkel hat den Hund angeleint.                 | Der Onkel hat den Hund nicht angeleint. |
+| Der Onkel ist gegangen.                           | Der Onkel ist nicht gegangen.           |
+```</pre>
+
+## Das Verb > ### Zeiten > #### Präsens > ##### Table 26
+
+<pre>```
+| 0                                       | 1                                             |
+|:----------------------------------------|:----------------------------------------------|
+| -                                       | A – Kennsilbe (V) – Verbstamm auf -i          |
+| Si-funda izincwadi eziningi.            | A-si-fundi izincwadi eziningi.                |
+| Wir lesen (grundsätzlich) viele Bücher. | Wir lesen (grundsätzlich) nicht viele Bücher. |
+```</pre>
+
+## Das Verb > ### Zeiten > #### Präsens Verlaufsform > ##### Table 27
+
+<pre>```
+| 0                          | 1                            |
+|:---------------------------|:-----------------------------|
+| -ya-                       | Verneinung reguläres Präsens |
+| Si-ya-funda incwadi.       | A-si-fundi incwadi           |
+| Wir lesen gerade ein Buch. | Wir lesen nicht ein Buch.    |
+```</pre>
+
+Nahes Futur wird mit -zo- gebildet, fernes Futur mit -yo-.
+
+## Das Verb > ### Zeiten > #### Futur > ##### Table 28
+
+<pre>```
+| 0            | 1                                    |
+|:-------------|:-------------------------------------|
+| -zo- / - yo- | A – Kennsilbe (V) – zu – Verbstamm   |
+|              | Ngeke – Kennsilbe – Verbstamm auf -e |
+```</pre>
+
+
+## Das Verb > ### Zeiten > #### Futur > ##### Table 29
+
+<pre>```
+| 0                                  | 1                                    |
+|:-----------------------------------|:-------------------------------------|
+| Si-zo/yo-funda izincwadi eziningi. | A-si-zu/yu-funda izincwadi eziningi. |
+|                                    | Ngeke sifunde izincwadi eziningi.    |
+| Wir werden viele Bücher lesen.     | Wir werden nicht viele Bücher lesen. |
+```</pre>
+
+Der Infinitiv beginnt stets mit ku- und kann substantiviert werden. Die Bedeutung eines Verbs ist lediglich in seinem Stamm enthalten.
+
+## Das Verb > ### Infinitiv > #### Table 30
+
+<pre>```
+| 0                         | 1        |
+|:--------------------------|:---------|
+| gehen/das Gehen, der Gang | ukuhamba |
+```</pre>
+
+
+Verneint wird der Infinitiv, indem ein -nga- zwischengeschoben und die Endung auf -i geändert wird:
+
+## Das Verb > ### Infinitiv > #### Table 31
+
+<pre>```
+| 0                 | 1           |
+|:------------------|:------------|
+| (das) nicht-gehen | ukungahambi |
+```</pre>
+
+Das Verb für «sein» im Zulu ist «ukuba». Dieses Verb funktioniert ganz normal wie andere Verben auch, nur leider wird es selten und nur im bestimmten Konstruktionen benutzt. Viel häufiger sind drei Infixe, die je nach Anfangsbuchstaben des nachfolgenden Nomens zum Einsatz kommen.
+
+-ng- vor Nomen mit A-, O-, U-
+
+## Das Verb > ### Sein > #### Table 32
+
+<pre>```
+| 0                  | 1           |
+|:-------------------|:------------|
+| Wir sind Menschen. | Singabantu. |
+```</pre>
+
+
+-y- vor Nomen mit E-, I-
+
+## Das Verb > ### Sein > #### Table 33
+
+<pre>```
+| 0                   | 1            |
+|:--------------------|:-------------|
+| Wir sind Touristen. | Siyisihambi. |
+```</pre>
+
+
+-s- vor Ortsangaben
+
+## Das Verb > ### Sein > #### Table 34
+
+<pre>```
+| 0                       | 1             |
+|:------------------------|:--------------|
+| Wir sind in der Schule. | Sisesikoleni. |
+```</pre>
+
+
+Die Anwendung dieser drei Infixe des Seins gilt für alle Zeitformen. Der einzige hier nicht behandelte Fall, in dem im Deutschen das Verb «sein» benutzt wird, die prädikativen Adjektive (z.B. «ich bin blöd») wird im Kapitel «Adjektive» erläutert.
+
+Unpersönliche Sein-Konstruktionen, also solche, die im Deutschen unpersönliche Subjekte wie «es, dies, das» beinhalten, gehören der Klasse 8 (Substantivierte Verben an) und nutzen deren Silben.
+
+## Das Verb > ### Sein > #### Unpersönliches Sein > ##### Table 35
+
+<pre>```
+| 0                  | 1                 |
+|:-------------------|:------------------|
+| Das ist eine Lüge! | Lokhu kungamanga! |
+| Das war eine Lüge. | Kwakungamanga.    |
+```</pre>
+
+Für die Vergangenheit des Verbs «sein» kann man entweder das Imperfekt oder das Plusquamperfekt benutzen. Im Vergleich zu anderen Verben ist der einzige Unterschied, dass in der Verneinung die Silbe -nga- zu -nge- wird.
+
+## Das Verb > ### Sein > #### Vergangenheit > ##### Table 36
+
+<pre>```
+| 0                           | 1                  |
+|:----------------------------|:-------------------|
+| Wir waren nicht zuhause.    | Besingesekhaya.    |
+| Wir gingen nicht spazieren. | Besingahambihamba. |
+```</pre>
+
+Für die Gegenwart nutzt man die normale Präsenskonstruktion:
+
+## Das Verb > ### Sein > #### Gegenwart > ##### Table 37
+
+<pre>```
+| 0                        | 1            |
+|:-------------------------|:-------------|
+| Sie sind Menschen.       | Bangabantu.  |
+| Sie sind keine Menschen. | Abangabantu. |
+```</pre>
+
+In der Zukunft verwendet man «ukuba», und zwar genau gemäss der normalen Zukunfts-Zeitenbildung.
+
+## Das Verb > ### Sein > #### Zukunft > ##### Table 38
+
+<pre>```
+| 0                              | 1                    |
+|:-------------------------------|:---------------------|
+| Ich werde Lehrer werden.       | Ngizoba uthisha.     |
+| Ich werde nicht Lehrer werden. | Angizuba uthisha.    |
+|                                | Ngeke ngibe uthisha. |
+```</pre>
+
+Da wir gerade von den unpersönlichen Ausdrücken kommen, soll hier gezeigt werden, wie die restlichen unpersönlichen Ausdrücke gebildet werden. Die oben beschrieben Bildung wird verwendet, wenn danach ein Nomen folgt oder ein Wort, das wie ein Nomen behandelt wird (z.B. Personen(-namen)).
+
+Wie aber übersetzt man Ausdrücke wie: «Es ist dunkel geworden.» ?
+
+Analog nutzt man das unpersönliche «ku-» (Klasse 8) als Kennsilbe, und bildet ansonsten ganz normale Verbformen.
+
+## Das Verb > ### Sein > #### Weitere Unpersönliche Ausdrücke > ##### Table 39
+
+<pre>```
+| 0                                | 1                                      |
+|:---------------------------------|:---------------------------------------|
+| Es ist sehr dunkel.              | Kumnyama impela.                       |
+|                                  | Es-dunkel-sein sehr.                   |
+| Es ist dunkel geworden.          | Kumnyamile.                            |
+| Es wird bald dunkel werden/sein. | Kuzomnyama ngokushesha.                |
+|                                  | Es-Fut.-dunkel-sein mit-Schnelligkeit. |
+```</pre>
+
+«Haben» wird im Zulu mit «sein mit» umschrieben. Dies geschieht entweder mit «na» (mit), das gemäss der A-Regel angepasst wird. Die Bildung funktioniert dabei genau gleich wie «sein», nur, dass eben stets dass «na» angehängt wird.
+
+## Das Verb > ### Haben > #### Table 40
+
+<pre>```
+| 0                              | 1                 |
+|:-------------------------------|:------------------|
+| Ich werden einen Lehrer haben. | Ngizoba nothisha. |
+```</pre>
+
+
+Für die Verneinung wird ein «-nge-» vor das «-na-» gefügt:
+
+## Das Verb > ### Haben > #### Table 41
+
+<pre>```
+| 0                       | 1                 |
+|:------------------------|:------------------|
+| Ich hatte kein Zuhause. | Ngangingenekhaya. |
+```</pre>
+
+Modalverben funktionieren im Zulu gleich wie im Deutschen. Sie können:
+
+Alleine stehen
+
+Vor einem Infinitiv stehen
+
+Das Verb «müssen», «kufanele» (richtig sein) oder «kumele» (müssen), wird im Zulu speziell ausgedrückt. Auf den Infinitiv folgt der Subjunktiv:
+
+Kufanele/Kumele + Verbform im Subjunktiv
+
+## Das Verb > ### Modalverben > #### Table 42
+
+<pre>```
+| 0                       | 1                                     |
+|:------------------------|:--------------------------------------|
+| Kufanele sihambe manje. | Es wäre nötig, dass wir jetzt gingen. |
+|                         | ->Wir müssen jetzt gehen.             |
+```</pre>
+
+Speziell verhält es sich mit Sätzen, die im Deutsch mit «können», «dürfen» oder den (so nicht existierenden Verben) «könnten» und «würden» übersetzt werden. Dafür nutzt man im Zulu das Infix «-nga-». Es kennzeichnet den Potenzial, den potenziellen Modus also, und kann somit auch die Bedeutung von obigen Hilfsverben annehmen.
+
+## Das Verb > ### Modalverben > #### Potential > ##### Table 43
+
+<pre>```
+| 0                                                    | 1                          | 2                             |
+|:-----------------------------------------------------|:---------------------------|:------------------------------|
+| Ich gehe stets alleine nach Hause.                   | Ngihamba ngedwa ekhaya.    | Reguläre Zeitsilbe            |
+| Ich kann/darf/könnte/würde alleine nach Hause gehen. | Ngingahamba ngedwa ekhaya. | Modale Zeitsilbe -> Potential |
+```</pre>
+
+
+Verneinungen von Sätzen mit potenzieller Bedeutung funktioneren folgendermassen:
+
+Kennsilbe (V) – nge – Verbstamm auf -e
+
+## Das Verb > ### Modalverben > #### Potential > ##### Table 44
+
+<pre>```
+| 0                               | 1                   |
+|:--------------------------------|:--------------------|
+| Ich würde mir kein Auto kaufen. | Ngingethenge imoto. |
+```</pre>
+
+
+
+Um Verben in ihrer Bedeutung zu verändern, werden folgende Nachsilbe an das Verbende angefügt. Als Beispiel soll hier «enza» (tun, machen) dienen.
+
+Insbesondere bei einsilbigen Verben gibt es Ausnahmen zu dieser Regel.
+
+## Das Verb > ### Verbmodifikatoren > #### Nachsilben > ##### Table 45
+
+<pre>```
+| 0                                | 1                           |
+|:---------------------------------|:----------------------------|
+| Benza (Ba-enza) izinto eziningi. | Sie werden viele Dinge tun. |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikatoren > #### Nachsilben > ##### Table 46
+
+<pre>```
+| 0                                                 | 1                                                                |
+|:--------------------------------------------------|:-----------------------------------------------------------------|
+| -isa                                              | Transitivität: Jemanden etwas tun lassen, jmdn. zu etwas zwingen |
+| Ngi-ya-m-enz-isa izinto ezi-thile.                | Ich sorge dafür, dass er gewisse Dinge tut.                      |
+| Ich-Präs.-ihn-machen-machen Dinge von(4)-gewisse. |                                                                  |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikatoren > #### Nachsilben > ##### Table 47
+
+<pre>```
+| 0                   | 1                           |
+|:--------------------|:----------------------------|
+| -wa                 | Passivität                  |
+| Lezo zinto zenziwa. | Jene Dinge wurden erledigt. |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikatoren > #### Nachsilben > ##### Table 48
+
+<pre>```
+| 0                 | 1                               |
+|:------------------|:--------------------------------|
+| -na               | Gegenseitigkeit: (mit-)einander |
+| Lokhu sikwenzana. | Wir machen das zusammen.        |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikatoren > #### Nachsilben > ##### Table 49
+
+<pre>```
+| 0            | 1                       |
+|:-------------|:------------------------|
+| -ela         | Kausalität: für         |
+| Siyamenzela. | Wir machen das für sie. |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikatoren > #### Nachsilben > ##### Table 50
+
+<pre>```
+| 0                          | 1                                             |
+|:---------------------------|:----------------------------------------------|
+| -eka                       | Passivität: Beschreibung eines Zustands       |
+| Kungenzeka (Kunga-enzeka). | Es dürfte/sollte möglich sein.                |
+|                            | («nga» rutscht wegen der Potenzialität rein). |
+```</pre>
+
+Um ein Verb ins Passiv zu setzen, wird ein «-w-» vor das Schluss-a gesetzt (siehe unter Verbmodifikatoren
+
+Nachsilben). Das Wörtchen «von» (z.B. ich wurde von ihm gefragt.) wird durch -ng- (vor a-/e-/o-/u-)  bzw. -y- (vor -i) gekennzeichnet.
+
+Reflexivität wird – unabhängig von der Person – mit dem Objektsilbe «zi» angezeigt.
+
+## Das Verb > ### Reflexivität > #### Table 51
+
+<pre>```
+| 0                           | 1                  |
+|:----------------------------|:-------------------|
+| Ich habe mich gefragt, ob … | Ngazibuza ukuthi … |
+| Er schlägt sich selbst.     | Uyazishaya.        |
+```</pre>
+
+
+
+Partizipialformen werden verwendet, um Zeitverhältnisse auszudrücken. Sie nutzen eigene Kennsilbe, die Kennsilben des Partizips, gekennzeichnet durch «Kennsilbe (P)». Die unterscheiden sich aber nur in folgenden Klasse von der normalen Kennsilbe:
+
+Klasse 1/2 Sg.: e-
+
+Klasse 1/2 Pl.: be-
+
+Klasse 5/6 Pl.: e-
+
+Gegenwart
+
+Das Partizip der Gegenwart drückt Gleichzeitigkeit aus und wird folgendermassen gebildet:
+
+Affirmativ: Kennsilbe (P) – Verbstamm
+
+Verneinung: Kennsilbe (P) – nga – Verbstam auf -i
+
+Vergangenheit
+
+Das Partizip der Vergangenheit wird positiv für Nach- und negativ für Vorzeitigkeit verwendet:
+
+Affirmativ: Kennsilbe (P) – Verbstamm auf -e/-ile (am Satzende)
+
+Verneinung: Kennsilbe (P) – nga – ka – Verbstamm auf -i
+
+Vorzeitigkeit wird mit entweder mit dem negativen Partizip der Vergangenheit oder mit «ngaphambi kokuba» + Subj. gebildet, dass etwas bedeutet: «vor dem Geschehen (, dass …)»
+
+## Das Verb > ### Zeitverhältnisse > #### Vorzeitigkeit > ##### Table 52
+
+<pre>```
+| 0                                  | 1                                             |
+|:-----------------------------------|:----------------------------------------------|
+| Sambona engakahambi.               | Wir haben ihn gesehen, bevor er gegangen ist. |
+| Sizombona engakahambi.             | Wir werden ihn sehen, bevor er geht.          |
+| Sizombona ngaphambi kokuba ahambe. |                                               |
+```</pre>
+
+Gleichzeitigkeit wird ganz einfach mit dem Partizip Präsens und optional mit «ngesikhathi» (in der Zeit) oder «lapho/lapha» (wenn, als) gebildet.
+
+## Das Verb > ### Zeitverhältnisse > #### Gleichzeitigkeit > ##### Table 53
+
+<pre>```
+| 0                          | 1                                            |
+|:---------------------------|:---------------------------------------------|
+| Ngambona engasebenzi.      | Wir sahen ihn, als er nicht arbeitete.       |
+| Siyababona begijima.       | Wir sehen sie beim Rennen.                   |
+| Lapho befika sizobemukela. | Wenn sie ankommen, werden wir Sie begrüssen. |
+```</pre>
+
+Für die Vorzeitigkeit gibt es zwei Möglichkeit: Entweder parallel zur Nachzeitigkeit mit «emva kokuba», «nach dem Geschehen (, dass …) oder mit -se-
+
+emva kokuba + Partizip Vergangenheit
+
+Kennsilbe (P) – se – Verbstamm auf -e/-ile (am Satzende)	(-se- mit Partizip Vergangenheit)
+
+## Das Verb > ### Zeitverhältnisse > #### Nachzeitigkeit > ##### Table 54
+
+<pre>```
+| 0                               | 1                                                        |
+|:--------------------------------|:---------------------------------------------------------|
+| Simbone emva kokuba ehambile.   | Wir sahen ihn, nachdem er gegangen war.                  |
+| Simbone esehambile.             |                                                          |
+| Sizombona emva kokuba ehambile. | Wir werden ihn sehen, nachdem er gegangen ist/sein wird. |
+| Sizombona esehambile.           |                                                          |
+```</pre>
+
+Der Konditional im Zulu ist ziemlich vielfältig und es verhält sich schwierig, genaue Formen für die verschiedenen Zeiten festzuhalten. Deshalb wird hier ein pragmatischer und meist korrekter, sicherlich aber in jedem Fall funktionierender Ansatz gewählt.
+
+Konditionalsätze werden stets durch das Wörtchen «uma» (wenn, falls) eingeleitet.
+
+Beim Satzteil mit der Bedingung unterscheiden wir zwischen drei Situationen und ihren respektiven Konstruktionen. Der Satzteil mit der Bedingung ist
+
+unmöglich/vergangen:	Vergangenheitszeitform
+
+möglich:	Partizip (siehe Partizipien)
+
+wahrscheinlich:	Präsens oder Futur
+
+Auch beim Satzteil mit der Folge unterscheiden wir zwischen drei Situationen und ihren respektiven Konstruktionen. Der Satzteil mit der Folge ist
+
+unmöglich/vergangen:	ngabe + Subj.
+
+möglich:	Potential
+
+wahrscheinlich:	Präsens oder Futur
+
+Um die Verneinung zu bilden, müssen die zu verneinenden Satzteile ganz regulär verneint werden.
+
+Um dies zu veranschaulichen, sind hier ein paar Beispiele angefügt.
+
+## Das Verb > ### Konditional > #### Beispiele > ##### Table 55
+
+<pre>```
+| 0   | 1                                                 | 2                                  | 3    |
+|:----|:--------------------------------------------------|:-----------------------------------|:-----|
+| 1)  | ukube ngangazi                                    | ngabe ngajabula.                   | I.   |
+|     | ukube ngangingazi                                 | ngabe angijabulanga.               |      |
+|     | 	Wenn ich es gewusst hätte,                       | 	wäre ich glücklich gewesen.       |      |
+|     | 	Wenn ich es nicht gewusst hätte,                 | 	wäre ich nicht glücklich gewesen. |      |
+| 2)  | uma enemali                                       | angathenga imoto.                  | II.  |
+|     | uma engenamali                                    | angethenge imoto.                  |      |
+|     | 	Wenn er Geld hätte,                              | 	würde er ein Auto kaufen.         |      |
+|     | 	Wenn er kein Geld hätte,                         | 	würde er kein Auto kaufen.        |      |
+| 3)  | uma lina                                          | sizosala ekhaya.                   | III. |
+|     | uma lingani (Neg. Part.)/lingene (Neg. Potential) | ngeke sisale/asizusala ekhaya.     |      |
+|     | 	Wenn es regnet,                                  | 	werden wir drin bleiben.          |      |
+|     | 	Wenn es nicht regnet,                            | 	werden wir nicht drin bleiben.    |      |
+```</pre>
+
+Im Unterschied zum Indikativ enden Verben im Subjunktiv auf «-e». Er wird benutzt:
+
+Bei höflichen Aufforderungen und Wünschen
+
+## Das Verb > ### Subjunktiv > #### Table 56
+
+<pre>```
+| 0                         | 1                         |
+|:--------------------------|:--------------------------|
+| Reich mir bitte das Brot. | Ngicela ningiphe isinkwa. |
+```</pre>
+
+
+nach Verben des Wünschens, des Wollens und der Aufforderung
+
+## Das Verb > ### Subjunktiv > #### Table 57
+
+<pre>```
+| 0                                     | 1                         |
+|:--------------------------------------|:--------------------------|
+| Er wollte, dass ich ihm das brot gebe | Wayefuna ngimnike isinkwa |
+```</pre>
+
+
+Nach «ukuze»/«ukuthi» im Sinne von (so)dass/damit
+
+## Das Verb > ### Subjunktiv > #### Table 58
+
+<pre>```
+| 0                                          | 1                                      |
+|:-------------------------------------------|:---------------------------------------|
+| Wir gehen heute, sodass wir bald ankommen. | Siyahamba namuhla ukuze sifike maduze. |
+```</pre>
+
+
+Die Negation ist: Kennsilbe – nga – Verbstamm auf -i: Ubaba ufuna ukuthi ngingahambi lapho.
+
+
+
+Wünsche, höfliche Aufforderungen oder bitten werden mit dem Subjunktiv vorgebracht. Sie unterscheiden sich nur in der Endung vom Indikativ.
+
+## Das Verb > ### Wünsche, Aufforderungen, Befehle > #### Wünsche und höfliche Aufforderungen > ##### Table 59
+
+<pre>```
+| 0                                         | 1                           |
+|:------------------------------------------|:----------------------------|
+| Du gibst mir das Brot.                    | Ningipha isinkwa.           |
+| Könntest Du mir (bitte) das Brot reichen? | (Ngicela) ningiphe isinkwa. |
+```</pre>
+
+
+Alternativ kann man das Subjekt weglassen und mit dem Objekt beginnen. Dies ist etwas direkter, wobei im Plural ein «-ni» angehängt werden muss.
+
+## Das Verb > ### Wünsche, Aufforderungen, Befehle > #### Wünsche und höfliche Aufforderungen > ##### Table 60
+
+<pre>```
+| 0                          | 1                 |
+|:---------------------------|:------------------|
+| Reich mir bitte das Brot.  | Ngiphe isinkwa.   |
+| Reicht mir bitte das Brot. | Ngipheni isinkwa. |
+```</pre>
+
+Es gibt auch höfliche Aufforderungen, die von einem verneinten Verb herrühren.
+
+Kennsilbe – nga – (Objektsilbe) – Verbstamm auf -i
+
+## Das Verb > ### Wünsche, Aufforderungen, Befehle > #### Wünsche und höfliche Aufforderungen > ##### Verneinung > ###### Table 61
+
+<pre>```
+| 0                               | 1                               |
+|:--------------------------------|:--------------------------------|
+| (Bitte) gib mir das Brot nicht! | (Ngicela) ninganginiki isinkwa. |
+```</pre>
+
+Bei Befehlen wird unterschieden, ob man zu einer rangniedereren Person oder zu mehreren Personen respektive einer Respektsperson spricht.
+
+Rangniedriger und Sg.:	Verbstamm
+
+Ranghöher oder Pl.:	Verbstamm – ni
+
+Bei einsilbigen Verben wird ein «yi-» vor den Verbstamm gehängt.
+
+Mu – sa + Infinitiv
+
+Mu – sa – ni + Infinitiv
+
+Eigenschaftssilbe – Verbstamm
+
+## Adjektive & Adverben > ### Adjektive > #### Verbale Adjektive > ##### Table 64
+
+<pre>```
+| 0                              | 1                    |
+|:-------------------------------|:---------------------|
+| Das ist eine einfache Aufgabe. | lo ngumsebenza olula |
+| einfach sein                   | lula                 |
+```</pre>
+
+
+
+Infinitiv
+
+## Adjektive & Adverben > ### Adverben > #### Verbale Adverben > ##### Von Zustandsverben > ###### Table 73
+
+<pre>```
+| 0                     | 1                |
+|:----------------------|:-----------------|
+| Wir rannten weit weg. | Sabalekela kude. |
+| weit sein             | de               |
+```</pre>
+
+Genau wie bei den Nomen, der (substantivierte) Infinitiv ersetzt das Nomen.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+The subjunctive expresses hypothetical situations, wishes and requests. It is also used for consecutive action, and as a complement to certain auxiliary verbs and conjunctions. There are present and past subjunctive forms.
+
+## Verbs > ### Tenses and moods > #### Subjunctive > ##### Table 22: Formation of the subjunctive
+
+<pre>```
+| 0           | 1                   | 2                                                             |
+|:------------|:--------------------|:--------------------------------------------------------------|
+| nan         | Present             | Past                                                          |
+| Affirmative | [subj2][obj]...e    | [subj1]a[obj]...a                                             |
+| Negative    | [subj2]nga[obj]...i | a[subj1]anga[obj]...a [subj1]anga[obj]...a a[subj1]a[obj]...a |
+```</pre>
+
+
+Note that the affirmative past subjunctive is identical to the affirmative remote past, except that the infix -a- is short. In regular Zulu spelling, where vowel length is not marked, this distinction becomes invisible. The three alternative negative past forms are contracted to different degrees. The first form is the uncontracted form.
+
+## Verbs > ### Tenses and moods > #### Subjunctive > ##### Table 23: Examples
+
+<pre>```
+| Verb           | Example                                                         |
+|:---------------|:----------------------------------------------------------------|
+| -hámba         | Ngamtshela ahambe. "I told him he should go."                   |
+| -zama          | Woza lapha uzame futhi! "Come here and try it again!"           |
+| -hleka         | Umane ahleke. "He only laughs."                                 |
+| -gqoka, -hámba | Wāvuka wagqoka wahamba. "He woke up, dressed, and went out."    |
+| -bheka         | Wābaleka wangabheka emuva. "He ran away and did not look back." |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Subjunctive:
+  Features:
+    de-Tense-type: [de-subj-I, de-subj-II]
+    u-Tense: [u-prs, u-pst, u-fut]
+
+  Negation:
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
+    examples:
+    - "Ich persönlich würde das nicht jeden Tag tun."
+
+  Usage:
+    de-subj-I:
+      applies: {u-Evidentiality: u-quot}
+      examples:
+        - "u-quot: Er sagte, er sei krank."
+        - "u-quot: Die Zeitung berichtet, die Preise stiegen weiter."
+      note: "Subjunctive I (Konjunktiv I) is primarily used for indirect/reported speech, especially in formal registers (newspapers, academic writing). It marks distancing of the speaker from the truth of the proposition."
+
+    de-subj-II:
+      applies: {u-Mood: u-irr, u-Politeness: u-pol}
+      examples:
+        - "u-irr: Wenn ich Zeit hätte, käme ich vorbei."
+        - "u-irr: An deiner Stelle würde ich das nicht tun."
+        - "u-pol: Ich hätte gern einen Kaffee."
+        - "u-pol: Könnten Sie mir bitte helfen?"
+      note: "Subjunctive II (Konjunktiv II) expresses counterfactuality, unreality, or politeness. In modern usage, synthetic forms survive mostly in a few verbs (sein, haben, modals), while the würde + infinitive construction dominates otherwise."
+
+  Rules:
+    de-Tense-type_de-subj-I__u-Tense_u-prs:
+      applies: {de-Tense-type: de-subj-I, u-Tense: u-prs}
+      pattern: "_present stem_ + _endings_"
+      endings:
+      - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}       # ich habe
+      - {features: {u-Person: u-2, u-Number: u-sg}, form: "est"}     # du habest
+      - {features: {u-Person: u-3, u-Number: u-sg}, form: "e"}       # er habe
+      - {features: {u-Person: u-1, u-Number: u-pl}, form: "en"}      # wir haben
+      - {features: {u-Person: u-2, u-Number: u-pl}, form: "et"}      # ihr habet
+      - {features: {u-Person: u-3, u-Number: u-pl}, form: "en"}      # sie haben
+      examples:
+      - "Er sagte, er ginge bald."
+
+    de-Tense-type_de-subj-I__u-Tense_u-pst:
+      applies: {de-Tense-type: de-subj-I, u-Tense: u-pst}
+      pattern: "haben/sein in Subjunctive I + past participle"
+      examples:
+      - "Er hat gesagt, er sei gegangen."
+
+    de-Tense-type_de-subj-I__u-Tense_u-fut:
+      applies: {de-Tense-type: de-subj-I, u-Tense: u-fut}
+      pattern: "werden in Subjunctive I + infinitive"
+      examples:
+      - "Er sagte, er werde gehen."
+
+    de-Tense-type_de-subj-II__u-Tense_u-prs:
+      applies: {de-Tense-type: de-subj-II, u-Tense: u-prs}
+      patterns:
+      - pattern: "_preterite stem (ablaut/umlaut)_ + _endings_"
+        endings:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}        # ich ginge
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "est"}      # du gingest
+        - {features: {u-Person: u-3, u-Number: u-sg}, form: "e"}        # er ginge
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "en"}       # wir gingen
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "et"}       # ihr ginget
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "en"}       # sie gingen
+        examples:
+        - "ich ginge"
+      - pattern: "würde (Konjunktiv II) + infinitive"
+        examples:
+        - "ich würde gehen"
+        note: "dominant form for most verbs in modern usage"
+
+    de-Tense-type_de-subj-II__u-Tense_u-pst:
+      applies: {de-Tense-type: de-subj-II, u-Tense: u-pst}
+      pattern: "hätte/wäre (Konjunktiv II) + past participle"
+      examples:
+      - "ich hätte gesagt, ich wäre gegangen"
+      note: "used for counterfactuals about the past"
+
+    de-Tense-type_de-subj-II__u-Tense_u-fut:
+      applies: {de-Tense-type: de-subj-II, u-Tense: u-fut}
+      pattern: "würde (Konjunktiv II) + past participle + haben/sein infinitive"
+      examples:
+      - "ich würde gegangen sein"
+      note: "rare; equivalent to Future II under subjunctive"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

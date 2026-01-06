@@ -1,0 +1,325 @@
+SYSTEM PROMPT:
+You are an expert in the portuguese language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language portuguese.
+
+The data you receive comes from multiple sources and relates to the following topics:
+noun.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or pt-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "portuguese-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("portuguese-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Nouns are classified into two grammatical genders ("masculine" and "feminine") and are inflected for grammatical number (singular or plural). Adjectives and determiners (articles, demonstratives, possessives, and quantifiers) must be inflected to agree with the noun in gender and number. Many nouns can take diminutive or augmentative suffixes to express size, endearment, or deprecation.
+Portuguese does not inflect nouns to indicate their grammatical function or case, relying instead on the use of prepositions (simple and phrasal), on pleonastic objects, or on the context or word order. Personal pronouns, on the other hand, still maintain some vestiges of declension from the ancestor language, Latin.
+
+Most adjectives and demonstratives, and all articles must be inflected according to the gender and number of the noun they reference:
+
+esta bela casa branca ("this beautiful white house")
+este belo carro branco ("this beautiful white car")
+estas belas aves brancas ("these beautiful white birds")
+estes belos gatos brancos ("these beautiful white cats")
+The agreement rules apply also to adjectives used with copulas, e.g. o carro é branco ("the car is white") vs. a casa é branca ("the house is white").
+
+Portuguese nouns form their plurals by adding -s if the singular ends in a vowel, and -es if the singular ends in n, r or z. If the singular ends in s, then if the last syllable is stressed, the plural adds -es, and otherwise the plural is the same as the singular. Words ending in m change that m into ns, and words ending in l change that l  into -is (e.g. animal > animais). Before 1943, the plural of words that ended in l, was -es, so: Crystal -> Crystaes, Papel -> Papees. Words ending in ão vary in how they form their plurals: some replace  the ão with ães, others with ões, and others just add an -s like the other nouns ending in a vowel.
+
+Grammatical gender of inanimate entities is sometimes different from that used in sister languages: thus, for example, Portuguese árvore ("tree") and flor ("flower") are feminine, while Spanish árbol and Italian fiore are masculine; Portuguese mar ("sea") and mapa ("map") are masculine, while French mer and carte are feminine.
+In many cases, the gender and number of a noun can be deduced from its ending: the basic pattern is "-o" / "-os" for masculine singular and plural, "-a" / "-as" for feminine singular and plural. So, casa ("house"), mala ("suitcase"), pedra ("stone"), and inteligência ("intelligence") are feminine, while carro ("car"), saco ("bag"), tijolo ("brick"), and aborrecimento ("annoyance") are masculine. However, the complete rules are quite complex: for instance, nouns ending in -ção are usually feminine, except for augmentatives like bração ("big arm"). And there are many irregular exceptions. For words ending in other letters, there are few rules: flor ("flower"), gente ("folk"), nau ("ship"), maré ("tide") are feminine, while amor ("love"), pente ("comb"), pau ("stick"), café ("coffee") are masculine.
+On the other hand, the gender of some nouns, as well as of first- and second-person pronouns, is determined semantically by the sex or gender of the referent: esta estudante é nova, mas aquele estudante é velho ("this (female) student is new, but that (male) student is old";
+or eu sou brasileiro ("I am Brazilian", said by a man) and eu sou brasileira (the same, said by a woman). Honorific forms of address such as Vossa Excelência ("Your Excellency") exhibit noun/adjective agreement internally, but require agreement according to the gender of the referent for other modifiers, as in Vossa Excelência está atarefado ("Your Excellency is busy").
+Also, many animate masculine nouns have specific feminine derivative forms to indicate female sex or social gender: lobo ("wolf" or "male wolf", masculine gender) → loba ("she-wolf", feminine), conde ("count", m.) → condessa ("countess", f.), doutor ("doctor" or "male doctor", m.) → doutora ("female doctor", f.), ator ("actor", m.) → atriz ("actress", f.), etc. The feminine noun derivations should not be confused with the adjectival gender inflections, which use different (and more regular) rules.
+
+The Portuguese language makes abundant use of diminutives, which connote small size, endearment or insignificance. Diminutives are very commonly used in informal language.  On the other hand, most uses of diminutives are avoided in written and otherwise formal language.
+The most common diminutive endings are -inho and -inha, replacing -o and -a, respectively. Words with the stress on the last syllable generally have -zinho or -zinha added, such as café "coffee" and cafezinho "coffee served as a show of hospitality". In writing, a c (but not a ç) becomes qu in some words, like pouco ("few") and pouquinho ("very few"), in order to preserve the [k] pronunciation.
+
+Possible endings other than -inho(a) are:
+
+## Nouns > ### Diminutives and augmentatives > #### Table 3
+
+<pre>```
+| 0                                                                                                                    | 1                                                                                                              | 2                                                                                                      |
+|:---------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------|
+| -ito(a), e.g. copo/copito ("glass") -ico(a), e.g. burro/burrico ("donkey") -(z)ete, e.g. palácio/palacete ("palace") | -ote, e.g. saia/saiote ("skirt") -oto, e.g. lebre/lebroto ("hare/leveret") -ejo, e.g. lugar/lugarejo ("place") | -acho, e.g. rio/riacho ("river") -ola, e.g. aldeia/aldeola ("village") -el, e.g. corda/cordel ("rope") |
+```</pre>
+
+It is also possible to form a diminutive of a diminutive, e.g. "burriquito" (burro + -ico + -ito).
+Portuguese diminutive endings are often used not only with nouns but also with adjectives, e.g. tonto/tontinho ("silly" / "a bit silly"), or verde/verdinho ("green" / "nicely green") and occasionally with adverbs, e.g. depressa/depressinha ("quickly") and some other word classes, e.g. obrigadinho—diminutive for the interjection obrigado "thanks". Even the numeral um (one) can informally become unzinho.
+The most common augmentatives are the masculine -ão and the feminine -ona, although there are others, like -aço(a) e.g. mulher/mulheraça ("woman"); or -eirão, e.g. voz/vozeirão ("voice"), less frequently used. Sometimes the masculine augmentative can be applied to a feminine noun, which then becomes grammatically masculine, but with a feminine meaning, e.g. a mulher / o mulherão ("the woman" / "the big woman").
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Noun:
+  Features:
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+    de-Declension: [de-strong, de-weak, de-plural-en, de-plural-e, de-plural-er, de-plural-s]
+
+  Rules:
+    de-Declension_de-plural-e__u-Gender_u-fem:
+      applies: {de-Declension: de-plural-e, u-Gender: u-fem}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "e"
+          note: "often with Umlaut"
+      examples: 
+      - "eine Nacht → Nächte"
+      note: "feminine nouns with plural -e, often umlauted"
+
+    de-Declension_de-plural-en__u-Gender_u-fem:
+      applies: {de-Declension: de-plural-en, u-Gender: u-fem}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "en"
+      examples: 
+      - "eine Frau → Frauen"
+      note: "default feminine pattern; plural in -(e)n"
+
+    de-Declension_de-plural-er__u-Gender_u-neut:
+      applies: {de-Declension: de-plural-er, u-Gender: u-neut}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "es"
+        - features: {u-Number: u-pl}
+          form: "er"
+          note: "often with Umlaut"
+      examples: 
+      - "ein Kind → Kinder"
+      note: "common neuter plural type; Umlaut frequent"
+
+    de-Declension_de-plural-s__u-Gender_u-neut:
+      applies: {de-Declension: de-plural-s, u-Gender: u-neut}
+      pattern: "_stem_ + s"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "s"
+      examples: 
+      - "ein Auto → Autos"
+      note: "loanwords and abbreviations; plural in -s"
+
+    de-Declension_de-strong__u-Gender_u-masc:
+      applies: {de-Declension: de-strong, u-Gender: u-masc}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "es"
+        - features: {u-Number: u-pl, u-Case: u-nom}
+          form: "e"
+        - features: {u-Number: u-pl, u-Case: u-acc}
+          form: "e"
+        - features: {u-Number: u-pl, u-Case: u-dat}
+          form: "en"
+        - features: {u-Number: u-pl, u-Case: u-gen}
+          form: "e"
+      examples: 
+      - "ein Hund → Hunde"
+
+    de-Declension_de-weak__u-Gender_u-masc:
+      applies: {de-Declension: de-weak, u-Gender: u-masc}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: "e"   # Junge
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: "en"  # Jungen
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: "en"
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "en"
+        - features: {u-Number: u-pl}
+          form: "en"  # Jungen
+      examples: 
+      - "ein Junge → Jungen"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

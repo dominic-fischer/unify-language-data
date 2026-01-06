@@ -1,0 +1,268 @@
+SYSTEM PROMPT:
+You are an expert in the zulu language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language zulu.
+
+The data you receive comes from multiple sources and relates to the following topics:
+imperative, mood, verb.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or zu-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "zulu-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("zulu-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Bei Befehlen wird unterschieden, ob man zu einer rangniedereren Person oder zu mehreren Personen respektive einer Respektsperson spricht.
+
+Rangniedriger und Sg.:	Verbstamm
+
+Ranghöher oder Pl.:	Verbstamm – ni
+
+Bei einsilbigen Verben wird ein «yi-» vor den Verbstamm gehängt.
+
+Mu – sa + Infinitiv
+
+Mu – sa – ni + Infinitiv
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+The imperative is used to issue direct commands. It can occur either alone or with an object prefix.
+
+## Verbs > ### Tenses and moods > #### Imperative > ##### Table 12: Formation of the imperative
+
+<pre>```
+| 0        | 1          | 2           |
+|:---------|:-----------|:------------|
+| nan      | Alone      | With object |
+| Singular | (yi)...a   | [obj]...e   |
+| Plural   | (yi)...ani | [obj]...eni |
+```</pre>
+
+
+The plural form, with the suffix -ni, is used when addressing multiple people.
+The prefix yi- is used when the verb stem has only one syllable. A shortened form y- is used when the stem begins with a vowel (regardless of number of syllables). Exceptionally, the verb -za "to come" uses the prefix wo- instead, thus woza, wozani etc.
+
+## Verbs > ### Tenses and moods > #### Imperative > ##### Table 13: Examples
+
+<pre>```
+| Verb   | Alone                  | With object                                 |
+|:-------|:-----------------------|:--------------------------------------------|
+| -dlá   | Yidlá! Yidláni! "Eat!" | Yídle! Yidleni! "Eat it!" (class 4 or 9)    |
+| -enza  | Yenzá! Yenzáni! "Do!"  | Kwenze! Kwenzeni! "Do it!" (class 15 or 17) |
+| -síza  | Síza! Sizáni! "Help!"  | Ngisize! Ngisizeni! "Help me!"              |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Imperative:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Number: [u-sg, u-pl]
+
+  Negation:
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
+    examples: 
+    - "Geh doch nicht dahin!"
+
+  Rules:
+    u-Number_u-sg__u-Person_u-2:
+      applies: {u-Number: u-sg, u-Person: u-2}
+      pattern: "_stem_ + (optionally -e)"
+      examples: 
+      - "geh!"
+      - "mache!"
+      note: "direct imperative singular; -e ending optional in 2sg, often dropped in colloquial usage"
+
+    u-Number_u-pl__u-Person_u-1:
+      applies: {u-Number: u-pl, u-Person: u-1}
+      pattern: "_stem_ + en + wir"
+      examples: 
+      - "gehen wir!"
+      note: "inclusive 'let's…' construction"
+
+    u-Number_u-pl__u-Person_u-2:
+      applies: {u-Number: u-pl, u-Person: u-2}
+      pattern: "_stem_ + t"
+      examples: 
+      - "geht!"
+      - "macht!"
+      note: "direct imperative plural"
+
+    u-Number_u-pl__u-Person_u-3:
+      applies: {u-Number: u-pl, u-Person: u-3}
+      pattern: "infinitive + Sie!"
+      examples: 
+      - "gehen Sie!"
+      note: "polite form, direct imperative singular"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

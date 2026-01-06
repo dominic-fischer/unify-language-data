@@ -1,0 +1,262 @@
+SYSTEM PROMPT:
+You are an expert in the chewa language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language chewa.
+
+The data you receive comes from multiple sources and relates to the following topics:
+constituents, syntax.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or ny-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "chewa-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("chewa-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Vergangenheit > ####### Table 31
+
+<pre>```
+| 0                                             | 1                                                            |
+|:----------------------------------------------|:-------------------------------------------------------------|
+| Ndí-ka-da-khála ndi mwana ndi-ka-dá-kondwera. | Wenn ich ein Kind gehabt hätte, hätte ich mich sehr gefreut. |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+An object-marker can also optionally be added to the verb; if one is added it goes immediately before the verb-stem. The 2nd person plural adds -ni after the verb:
+
+ndí-ma-ku-kónda 'I love you' (ndi = 'I', ku = 'you')
+ndí-ma-ku-kónda-ni 'I love you' (plural or formal)
+The object-marker can be:
+
+Personal: -ndi- 'me', -ku- 'you', -mu- or -m'- 'him, her', -ti- 'us', -wa- or -a- 'them', 'him/her (polite)'.
+Impersonal: -mu- (class 1), -wa- (class 2), -u- (class 3 or 14), etc.
+Locative: e.g. m'nyumbá mu-ku-mú-dzíwa 'you know the inside of the house'; but usually a locative suffix is used instead: nd-a-oná-mo 'I have seen inside it'
+Reflexive: -dzi- 'himself', 'herself', 'themselves', 'myself', etc.
+When used with a toneless verb tense such as the perfect, the object-marker has a high tone, but in some tenses such as the present habitual, the tone is lost:
+
+nd-a-mú-ona 'I have seen him'
+ndí-ma-mu-óna 'I usually see him'
+With the imperative or subjunctive, the tone of the object-marker goes on the syllable following it, and the imperative ending changes to -e:
+
+ndi-pátse-ni mpungá 'could you give me some rice?'
+ndi-thándízé-ni! 'help me!'
+mu-mu-thándízé 'you should help him'
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Constituents:
+  Features:
+    x-Constituent: [x-NP, x-VP, x-AP, x-PP, x-AdvP, x-CP]
+
+  Rules:
+    x-Constituent_x-NP:
+      applies: {x-Constituent: x-NP}
+      pattern: "[Determiner] [AdjectivePhrase] Noun [PrepositionalPhrase] [RelativeClause] [PossessivePronoun]"
+      examples:
+        - "der große Hund"
+      note: "Determiner obligatory in singular count nouns, unless proper noun or bare plural"
+
+    x-Constituent_x-VP:
+      applies: {x-Constituent: x-VP}
+      pattern: "[Auxiliary] Verb [Object (NP/CP)] [AdverbPhrase] [PrepositionalPhrase] [SubordinateClause (CP)]"
+      examples:
+        - "hat den Hund gesehen"
+      note: "verb-second in main clauses, verb-final in subordinates"
+
+    x-Constituent_x-AP:
+      applies: {x-Constituent: x-AP}
+      pattern: "[DegreeMarker] Adjective [Complement (PP/CP)]"
+      examples:
+        - "sehr schön"
+      note: "adjective inflects for case/number/gender of NP"
+
+    x-Constituent_x-PP:
+      applies: {x-Constituent: x-PP}
+      pattern: "Preposition + NP [AdverbPhrase]"
+      examples:
+        - "mit dem Hund"
+      note: "preposition governs case (acc/dat/gen)"
+
+    x-Constituent_x-AdvP:
+      applies: {x-Constituent: x-AdvP}
+      pattern: "[DegreeMarker] Adverb"
+      examples:
+        - "sehr schnell"
+
+    x-Constituent_x-CP:
+      applies: {x-Constituent: x-CP}
+      pattern: "[Complementizer] Subject (NP) [Adverbials] VP"
+      examples:
+        - "dass er den Hund sieht"
+      note: "subordinate clauses require verb-final order"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

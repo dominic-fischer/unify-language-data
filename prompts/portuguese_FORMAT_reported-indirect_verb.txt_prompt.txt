@@ -1,0 +1,500 @@
+SYSTEM PROMPT:
+You are an expert in the portuguese language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language portuguese.
+
+The data you receive comes from multiple sources and relates to the following topics:
+reported, indirect, verb.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or pt-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "portuguese-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("portuguese-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Portuguese verbs are usually inflected to agree with the subject's grammatical person (with three values, 1 = I/we, 2 = thou/you, 3 = he/she/it/they) and grammatical number (singular or plural), and to express various attributes of the action, such as time (past, present, future); aspect (completed, interrupted, or continuing); subordination and conditionality; command; and more. As a consequence, a regular Portuguese verb stem can take over 50 distinct suffixes. (For comparison, regular verbs have about 40 distinct forms in Italian and about 30 in modern French.)
+
+Related article: Romance copula
+Portuguese has two main linking verbs: ser and estar (both translated "to be"). They developed from Latin SUM and STŌ, respectively (although the infinitive form ser actually comes from SEDĒRE). Most forms of ser come from SUM (infinitive ESSE).
+
+Estou tonta = "I'm dizzy"
+Sou tonta = "I'm silly"
+É sujo = "It's dirty" (i.e. "It's a dirty place" — characteristic)
+Está sujo = "It's dirty" (i.e. "(right now) The place is dirty" — state)
+É aberta = "She's open" (i.e. "She's an open sort of person" — characteristic)
+Está aberta = "It's open" (probably referring to a door or window — state)
+Ele é triste = "He is sad" (i.e. gloomy — characteristic)
+(Ele) Está triste = "He is sad" (i.e. feeling down — state)
+Como és? / Como você é? = "What are you like?" (i.e. "describe yourself" — characteristics)
+Como estás? / Como você está? = "How are you?" (i.e. "how are you doing?" — state)
+With adjectives of appearance ("beautiful", etc.), ser means "to be", and estar means "to look".
+
+Que linda ela é! = "Wow, she's so beautiful" (characteristic)
+Que linda ela está! = "Wow, she's looking so beautiful" (state)
+As in Spanish, the states of life and death are expressed with estar: Está vivo ("He is alive"). Está morto ("He is dead").
+Ser is used with adjectives of fundamental belief (Não sou católico, "I'm not Catholic"), nationality (És português, "You are Portuguese"), sex/gender (É homem, "He's a man"), intelligence (Somos espertos, "We are smart"), etc.
+Católico can also be used with estar, in which case it takes on a figurative meaning:
+
+Eu não estou muito católico = "I'm not feeling very dependable/trustworthy" (possibly ill or drunk).
+O tempo hoje não está muito católico = "The weather's not very nice today."
+
+The infinitive is used, as in English, as a nominal expression of an action or state at an unspecified time, and possibly with an indefinite or implicit subject, e.g. queremos cantar ("we would like to sing"), cantar é agradável (lit. "to sing is pleasant"). Many of its uses would be translated into English by the "-ing" nominal form, e.g. mesa para cortar ("cutting table"), cantar é bom ("singing is good"), trabalhe sem parar ("work without pausing").
+European Portuguese has the distinct feature of preferentially using the infinitive preceded by the preposition "a" in place of the gerund as the typical method of describing continuing action:
+
+Estou lendo.
+"I am reading." (Brazilian Portuguese)
+Estou a ler.
+"I am reading." (European Portuguese)
+Estavam dormindo.
+"They were sleeping." (Brazilian Portuguese)
+Estavam a dormir.
+"They were sleeping." (European Portuguese)
+The gerund "-ndo" form is still correct in European Portuguese and it is used colloquially in the Alentejo region, but relatively rare (although its adverbial uses and the other participle forms are not uncommon). On the other hand, the "a + infinitive" form is virtually nonexistent in Brazil, and is considered incorrect in Brazilian Portuguese, though it can be found in 19th-century literature.
+A distinctive trait of Portuguese grammar (shared with the Galician and Sardinian languages) is the existence of infinitive verb forms inflected according to the person and number of the subject:
+
+É melhor voltar, "It is better to go back" (impersonal) or "It is better [that] I go back"
+É melhor voltares, "It is better that you go back"
+É melhor voltarmos, "It is better that we go back"
+Depending on the context and intended sense, the personal infinitive may be forbidden, required, or optional.
+Personal infinitive sentences may often be used interchangeably with finite subordinate clauses. In these cases, finite clauses are usually associated with the more formal registers of the language.
+
+All Portuguese verbs in their infinitive form end in the letter r. Verbs are divided into three main conjugation classes according to the vowel in their infinitive ending:
+
+First conjugation: -ar
+Second conjugation: -er (also includes pôr and prefixed verbs in -por; see below)
+Third conjugation: -ir
+The exceptional verb pôr ("to put") is placed by many grammarians in the -er conjugation class, for historical reasons: in older language the infinitive was poer, derived from Latin PONERE. It is the basis for several derived, prefixed verbs, most of which correspond to English verbs in -pose (although some differ in meaning):
+
+## Verbs > ### Conjugation classes > #### Table 18
+
+<pre>```
+| 0                                                                                                                                                                                                                                                                                                                                                                                     | 2                                                                                                                                                                                                                                                                              |
+|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| antepor "to put before" (rare) apor "to place on or adjacent" (rare) compor "to compose" contrapor "to counterpose" decompor "to break down (analyze; or rot)" descompor "to disarrange, disturb" depor "to set aside; to depose (as a ruler); to testify (in court)" dispor (de) "to have at one’s disposal" expor "to expose; to expound" impor "to impose" interpor "to interpose" | justapor "to juxtapose" (rare) opor "to oppose" predispor "to predispose" pressupor "to assume" propor "to propose" recompor "to put back together, reformulate" repor "to reset, to put back, or to restore" sobrepor "to overlay" supor "to suppose" transpor "to transpose" |
+| antepor "to put before" (rare)                                                                                                                                                                                                                                                                                                                                                        | nan                                                                                                                                                                                                                                                                            |
+| apor "to place on or adjacent" (rare)                                                                                                                                                                                                                                                                                                                                                 | nan                                                                                                                                                                                                                                                                            |
+| compor "to compose"                                                                                                                                                                                                                                                                                                                                                                   | nan                                                                                                                                                                                                                                                                            |
+| contrapor "to counterpose"                                                                                                                                                                                                                                                                                                                                                            | nan                                                                                                                                                                                                                                                                            |
+| decompor "to break down (analyze; or rot)"                                                                                                                                                                                                                                                                                                                                            | nan                                                                                                                                                                                                                                                                            |
+| descompor "to disarrange, disturb"                                                                                                                                                                                                                                                                                                                                                    | nan                                                                                                                                                                                                                                                                            |
+| depor "to set aside; to depose (as a ruler); to testify (in court)"                                                                                                                                                                                                                                                                                                                   | nan                                                                                                                                                                                                                                                                            |
+| dispor (de) "to have at one’s disposal"                                                                                                                                                                                                                                                                                                                                               | nan                                                                                                                                                                                                                                                                            |
+| expor "to expose; to expound"                                                                                                                                                                                                                                                                                                                                                         | nan                                                                                                                                                                                                                                                                            |
+| impor "to impose"                                                                                                                                                                                                                                                                                                                                                                     | nan                                                                                                                                                                                                                                                                            |
+| interpor "to interpose"                                                                                                                                                                                                                                                                                                                                                               | nan                                                                                                                                                                                                                                                                            |
+| justapor "to juxtapose" (rare)                                                                                                                                                                                                                                                                                                                                                        | nan                                                                                                                                                                                                                                                                            |
+| opor "to oppose"                                                                                                                                                                                                                                                                                                                                                                      | nan                                                                                                                                                                                                                                                                            |
+| predispor "to predispose"                                                                                                                                                                                                                                                                                                                                                             | nan                                                                                                                                                                                                                                                                            |
+| pressupor "to assume"                                                                                                                                                                                                                                                                                                                                                                 | nan                                                                                                                                                                                                                                                                            |
+| propor "to propose"                                                                                                                                                                                                                                                                                                                                                                   | nan                                                                                                                                                                                                                                                                            |
+| recompor "to put back together, reformulate"                                                                                                                                                                                                                                                                                                                                          | nan                                                                                                                                                                                                                                                                            |
+| repor "to reset, to put back, or to restore"                                                                                                                                                                                                                                                                                                                                          | nan                                                                                                                                                                                                                                                                            |
+| sobrepor "to overlay"                                                                                                                                                                                                                                                                                                                                                                 | nan                                                                                                                                                                                                                                                                            |
+| supor "to suppose"                                                                                                                                                                                                                                                                                                                                                                    | nan                                                                                                                                                                                                                                                                            |
+| transpor "to transpose"                                                                                                                                                                                                                                                                                                                                                               | nan                                                                                                                                                                                                                                                                            |
+```</pre>
+
+
+## Verbs > ### Conjugation classes > #### Table 19
+
+<pre>```
+| 0                                                                   |
+|:--------------------------------------------------------------------|
+| antepor "to put before" (rare)                                      |
+| apor "to place on or adjacent" (rare)                               |
+| compor "to compose"                                                 |
+| contrapor "to counterpose"                                          |
+| decompor "to break down (analyze; or rot)"                          |
+| descompor "to disarrange, disturb"                                  |
+| depor "to set aside; to depose (as a ruler); to testify (in court)" |
+| dispor (de) "to have at one’s disposal"                             |
+| expor "to expose; to expound"                                       |
+| impor "to impose"                                                   |
+| interpor "to interpose"                                             |
+```</pre>
+
+
+## Verbs > ### Conjugation classes > #### Table 20
+
+<pre>```
+| 0                                            |
+|:---------------------------------------------|
+| justapor "to juxtapose" (rare)               |
+| opor "to oppose"                             |
+| predispor "to predispose"                    |
+| pressupor "to assume"                        |
+| propor "to propose"                          |
+| recompor "to put back together, reformulate" |
+| repor "to reset, to put back, or to restore" |
+| sobrepor "to overlay"                        |
+| supor "to suppose"                           |
+| transpor "to transpose"                      |
+```</pre>
+
+
+The unprefixed pôr has the circumflex accent to distinguish it from the preposition por.
+The -ar conjugation class is the largest of the three classes, and it is the only one open to neologisms, such as clicar ("to click" with a mouse).
+Each conjugation class has its own distinctive set of some 50 inflectional suffixes: cant/ar → cant/ou ("he sang"), vend/er → vend/eu ("he sold"), part/ir → part/iu ("he left"). Some suffixes undergo various regular adjustments depending on the final consonant of the stem, either in pronunciation, in spelling, or in both. Some verbal inflections also entail a shift in syllable stress:  'canto ("I sing"), can'tamos ("we sing"), canta'rei ("I will sing"). See Portuguese verb conjugation.
+Verbs with some irregular inflections number in the hundreds, with a few dozen of them being in common use. Some of the most frequent verbs are among the most irregular, including the auxiliaries ser ("to be"), haver ("there to be" or "to have"), ter ("to possess", "to have", "there to be" – in Brazilian Portuguese), ir ("to go").
+
+The gerund form of a verb always ends with -ndo. It is used to make compound tenses expressing continuing action, e.g. ele está cantando ("he is singing"), ele estava cantando ("he was singing"); or as an adverb, e.g. ele trabalha cantando ("he works while singing"). It is never inflected for person or number.
+In European Portuguese, the gerund is often replaced by the infinitive (preceded by "a") when used to express continuing action.
+The participle of regular verbs is used in compound verb tenses, as in ele havia cantado ("he had sung"). It can also be used as an adjective, and in this case it is inflected to agree with the noun's gender and number: um hino cantado ("a sung anthem", masculine singular), três árias cantadas ("three sung arias", feminine plural). Some verbs have two distinct forms (one regular, one irregular) for these two uses. Additionally, a few verbs have two different verbal participles, a regular one for the active voice, and an irregular one for the passive voice. An example is the verb matar (to kill): Bruto havia matado César ("Brutus had killed Cesar"), César foi morto por Bruto ("Cesar was killed by Brutus"). Regular participle forms always end with -ado, for first conjugation verbs, or with -ido, for second and third conjugation verbs.
+
+Grammarians usually classify the verbal inflections (i.e. the synthetic verb forms) into the following moods, tenses, and non-finite forms:
+
+indicative mood, used in the main clauses of declarative sentences:
+present tense: cantamos, "we sing"
+past tenses:
+preterite: cantámos (EP), cantamos (BP) "we sang"
+imperfect: cantávamos, "we were singing"
+pluperfect: cantáramos, "we had sung"
+future tense: cantaremos, "we will sing"
+conditional mood:
+conditional tense: cantaríamos, "we would sing"
+subjunctive mood used in certain subordinate clauses:
+present subjunctive: que cantemos, "that we sing"
+preterite subjunctive: se cantássemos, "if we sang"
+future subjunctive: se cantarmos, "if we sing/should we sing"
+imperative mood: used to express a command, advice, encouragement, etc.:
+positive: canta! "sing!"
+negative: não cantes! "don't sing!"
+verbals
+infinitives:
+impersonal: cantar, "to sing"
+personal: cantarmos, "for us to sing", "that we sing" or "our singing"
+participles:
+present participle: cantando "singing"
+past (or passive) participle: cantado "sung"
+The conditional tense is usually called "future of the past" in Brazilian grammars, whereas in Portugal it is usually classified as a separate "conditional mood". Portuguese grammarians call subjunctive "conjuntivo"; Brazilians call it "subjuntivo".
+Note that the synthetic future and conditional have largely disappeared from everyday speech.  The synthetic future is generally replaced by ir + infinitive (e.g. vou cantar "I will sing"), while the conditional is replaced either by the imperfect (especially in its modal use; se você me desse dinheiro, eu cantava "if you gave me money, I would sing") or by the imperfect of ir + infinitive (in its non-modal, "future of the past" usage; ele disse que ia cantar "he said that he would sing").  However, the synthetic future subjunctive is still in common use (e.g. se você for "if you should go").  The synthetic future and conditional of verbs with one-syllable infinitives also sometimes occur (e.g. será/seria "it will/would be" or in the compound tenses terá/teria sido "it will/would have been").
+In regular verbs, the personal infinitive is identical to the subjunctive future tense; but they are different in irregular verbs: quando formos ("when we go", subjunctive) versus é melhor irmos ("it is better that we go").
+There are also many compound tenses expressed with inflected forms of the auxiliary verbs ser and estar (variants of "to be"), haver and ter (variants of "to have").
+
+Portuguese has many compound verb tenses, consisting of an auxiliary verb (inflected in any of the above forms) combined with the gerund, participle or infinitive of the principal verb.
+The basic auxiliary verbs of Portuguese are ter, haver, ser, estar and ir. Thus, for example, "he had spoken" can be translated as ele havia falado or ele tinha falado.
+
+Tenses with ter/haver + past participle (compound tenses):
+
+Preterite perfect indicative – temos falado ("we have been speaking"; see "Preterite vs. present perfect" below). Haver is not used nowadays. This tense may also be equivalent to the simple preterite for some fixed expressions, such as Tenho dito/concluído.
+Pluperfect indicative – tínhamos/havíamos falado  ("we had spoken")
+Anterior pluperfect indicative – tivéramos/houvéramos falado ("we had spoken", literary use only)
+Future perfect indicative – teremos/haveremos falado ("we will have spoken")
+Conditional perfect – teríamos/haveríamos falado ("we would have spoken")
+Preterite perfect subjunctive – desde que tenhamos/hajamos falado ("provided that we have spoken")
+Pluperfect subjunctive – se/que tivéssemos/houvéssemos falado ("if/that we had spoken")
+Future perfect subjunctive – se/quando tivermos/houvermos falado ("if/when we have spoken")
+Personal perfect infinitive – termos/havermos falado ("for us to have spoken")
+With no inflection:
+
+Impersonal perfect infinitive – ter/haver falado ("to have spoken")
+Perfect gerund – tendo/havendo falado ("having spoken")
+
+In addition to the compound forms for completed past actions, Portuguese also retains a synthetic pluperfect: so, ele tinha falado and ele havia falado ("he had spoken") can also be expressed as ele falara. However, the simple (one-word) pluperfect is losing ground to the compound forms. While pluperfect forms like falara are generally understood, their use is limited mostly to some regions of Portugal and to written language. In Brazil, they are used nearly exclusively in the printed language, though even in that environment the -ra synthetic pluperfect has been losing ground to the compound form using tinha in the last decades.
+
+The simple past (or pretérito perfeito simples in Portuguese) is widely used, sometimes corresponding to the present perfect of English (this happens in many dialects of American Spanish, too).
+A present perfect also exists (normally called pretérito perfeito composto), but it has a very restricted use, denoting an action or a series of actions which began in the past and are expected to continue into the future, but will stop soon. For instance, the meaning of "Tenho tentado falar com ela" may be closer to "I have been trying to talk to her" than to "I have tried to talk to her", in some contexts.
+
+Portuguese originally constructed progressive tenses with a conjugated form of the verb "to be", followed by the gerund of the main verb, like English: e.g. Eu estou trabalhando "I am working" (cf. also the corresponding Italian phrase: (Io) sto lavorando). However, in European Portuguese an alternative construction has appeared, formed with the preposition a followed by the infinitive of the main verb: e.g. Eu estou a trabalhar. This has replaced the ancient syntax in central and northern Portugal. The gerund may also be replaced with a followed by the infinitive in less common verb phrases, such as Ele ficou lá, trabalhando / Ele ficou lá, a trabalhar "He stayed there, working". However, the construction with the gerund is still found in southern and insular Portugal and in Portuguese literature, and it is the rule in Brazil.
+
+estou falando or estou a falar ("I am speaking")
+estava falando/ a falar (imperfective: "I was speaking" [at the moment])
+estive falando/ a falar (perfective: "I was speaking [for a while]" / "I have been speaking" [for a while])
+estivera falando/ a falar ("I had been speaking")
+estarei falando/ a falar ("I will be speaking")
+esteja falando/ a falar ("[that] I/he/she be speaking"; or "am" or "is speaking")
+se estivesse falando/ a falar ("if I were speaking")
+quando estiver falando/ a falar ("when you are speaking" [in the future])
+estar falando/ a falar ("to be speaking")
+
+Tenses with ir + infinitive 
+
+vamos falar ("we will speak", "we are going to speak")
+íamos falar ("we were going to speak")
+iríamos falar ("we would speak", "we would be going to speak")
+In the spoken language, the construction ir + infinitive almost completely replaces the use of the synthetic future (e.g. vamos falar rather than falaremos).
+Tenses with multiple auxiliaries:
+
+teríamos estado falando/a falar ("we would have been speaking")
+tenho estado falando/a falar ("I have been speaking [until now]")
+
+An active clause with a transitive verb and direct object can be transformed into a passive clause much the same as is done in English:  the original object becomes the subject; the verb is replaced by ser (in the same mood and tense) followed by the past participle of the original verb; and the original subject may become an adverbial complement with the preposition por ("by"):
+
+O rato comeu o queijo ("The mouse ate the cheese")
+O queijo foi comido pelo rato ("The cheese was eaten by the mouse")
+Aquela senhora cantará a ária ("That lady will sing the aria")
+A ária será cantada por aquela senhora ("The aria will be sung by that lady")
+Se você cantasse a ária, ele ficaria ("If you were to sing the aria, he would stay")
+Se a ária fosse cantada por você, ele ficaria ("If the aria were to be sung by you, he would stay")
+As in Spanish, there is also—for third-person objects, and when the agent is not expressed—a "reflexive" passive, which uses the pronoun se:
+
+Fizeram-se planos e criaram-se esperanças. ("Plans were made and hopes were created.")
+The same construction extends to some intransitive verbs, in which case they are rendered "impersonal", in the sense that their subject is not expressed:
+
+Comeu-se, bebeu-se e bailou-se. ("There was eating, drinking, and dancing.")
+
+The Portuguese subjunctive mood is used mainly in certain kinds of subordinate clauses. There are three synthetic subjunctive inflections, conventionally called "present", "past" and "future". The rules of usage, in broad terms, are the following:
+
+The present subjunctive is used in clauses, often introduced with que ("that"), which express generally non-assertive notions, such as wishes, orders, possibilities, etc.:
+quero que cante, "I want her/him to sing"
+supondo que cante, "assuming that he/she will sing"
+ele será pago, cante ou não, "he will be paid, whether he sings or not"
+The past subjunctive is used for adverbial subordinate clauses, introduced with se ("if") or equivalent, that are conditions for a main cause in the conditional tense.
+se cantasse, seria famoso ("if he/she sang [if he/she were a singer], he/she would be famous")
+se cantasse, teríamos aplaudido ("if he/she had sung, we would have applauded")
+It is also used for noun clauses, introduced with que, that are the object of past wishes or commands:
+
+esperávamos que cantasse ("we hoped that he would sing")
+eu mandei que cantassem ("I ordered them to sing")
+The future subjunctive is an uncommon feature among Indo-European languages. It is used in adverbial subordinate clauses, usually introduced by se ("if") or quando ("when"), or in adjectival subordinate clauses that express a neutral or expected condition for a present- or future-tense main clause:
+se cantarmos, seremos pagos ("If we (should) sing, we will be paid")
+se cantarmos, ele fica ("If we (should) sing, he stays")
+quando cantarmos, ele escutará ("When we (should) sing, he will listen")
+Often, the option between indicative and subjunctive depends on whether the speaker does or does not endorse the proposition expressed by the subordinate clause:
+Admito que ele roubou a bicicleta. ("I admit that he stole the bicycle.")
+Admito que ele possa ter roubado a bicicleta. ("I admit that he could have stolen the bicycle.")
+In relative clauses, the option between indicative and subjunctive depends on whether the speaker does or does not identify a single object with the property expressed by the relative clause:
+Ando à procura de um cão que fala! ("I'm looking for a certain dog which can speak!")
+Ando à procura de um cão que fale! ("I'm looking for any dog that speaks!")
+More on the subjunctive mood in Portuguese can be found at Wikibooks: Variation of the Portuguese Verbs.
+
+Portuguese has many adjectives that consist of a verbal stem plus an ending in -nte, which are applied to nouns that perform the action of the verb; e.g. dançar ("to dance") ~ areia dançante ("dancing sand"), ferver ("to boil") ~ água fervente ("boiling water").
+However, those adjectives were not always derived from the corresponding Portuguese verbs. Most of them were directly derived from the accusatives of the present participles of Latin verbs, a form which was not retained by Portuguese. Thus, for example, Portuguese mutante ("changing", "varying") does not derive from the Portuguese verb mudar ("to change"), but directly from the Latin accusative present participle mutantem ("changing"). On the other hand, those pairs of words were eventually generalized by Portuguese speakers into a derivational rule, that is somewhat irregular and defective but still productive. So, for example, within the last 500 years we had the derivation pï'poka (Tupi for "to pop the skin") → pipoca (Portuguese for "popcorn") → pipocar ("to pop up all over") → pipocante ("popping up all over").
+Similar processes resulted in many other semi-regular derivational rules that turn verbs into words of other classes, as in the following examples:
+
+clicar ("to click") → clicável ("clickable")
+vender ("to sell") → vendedor ("seller")
+encantar ("to enchant") → encantamento ("enchantment")
+destilar ("to distill") → destilação ("distillation")
+The latter rule is quite productive, to the point that the pervasive -ção ending (derived from Latin -tione) is a visually striking feature of written Portuguese.
+
+A specific feature of Portuguese, unusual among the Romance languages, is the placement of pronominal suffixes between the verb stem and the tense/person inflection in future and conditional verb forms. In Brazilian Portuguese it is limited to extremely formal and mostly written style. It has been losing ground in European Portuguese as well:
+
+Ela levá-lo-ia ("She take-it-would" – "She would take it").
+Eles dar-no-lo-ão ("They give-us-it-will" – "They will give it to us").
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+ReportedSpeech:
+  Features:
+    u-Evidentiality: [u-fh, u-quot]
+    u-Interrogativity: [u-decl, u-int, x-excl]
+    u-Tense: [u-prs, u-pst, u-fut]
+
+  Notes:
+  - "The tense of the subordinate clause remains unchanged unless the reporting verb is in the past, in which case the reported tense is adjusted relative to it as outlined."
+  - "In either case, though, mood changes: Subjunctive I is the mood of reporting, Subjunctive II if forms coincide"
+  - "Using 'dass' will trigger the inversion, as the sentence then becomes a subclause."
+
+  Negation:
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
+    examples:
+    - "Er sagte, er wolle den Kuchen nicht essen."
+
+  Rules:
+    u-Evidentiality_u-fh:
+      applies: {u-Evidentiality: u-fh}
+      pattern: "quote + _reporting verb_"
+      example: "Er sagte: 'Ich komme morgen.'"
+      note: "quotation preserves original tense/mood exactly"
+
+    u-Evidentiality_u-quot__u-Interrogativity_u-int:
+      applies: {u-Evidentiality: u-quot, u-Interrogativity: u-int}
+      pattern: "_reporting verb_ + ob/wh-word + {clause in Subjunctive I (present/perfect/future)}"
+      example: "Er fragte, ob er morgen komme."
+      note: "yes/no questions use 'ob', wh-questions use wh-word; tense follows same system as u-decls (pres, past, fut)"
+
+    u-Evidentiality_u-quot__u-Interrogativity_x-excl:
+      applies: {u-Evidentiality: u-quot, u-Interrogativity: x-excl}
+      pattern: "_reporting verb_ + wie/was für + {clause in Subjunctive I (present/perfect/future)}"
+      example: "Er sagte, wie schön es sei!"
+      note: "exclamatives follow the same tense distinctions as u-decls."
+    u-Evidentiality_u-quot__u-Interrogativity_u-decl__u-Tense_u-prs:
+      applies: {u-Evidentiality: u-quot, u-Interrogativity: u-decl, u-Tense: u-prs}
+      pattern: "_reporting verb_ + dass/Ø + {clause in Subjunctive I (present)}"
+      examples:
+      - "Er sagte, er komme morgen."
+      - "Er sagte, dass er morgen komme."
+
+    u-Evidentiality_u-quot__u-Interrogativity_u-decl__u-Tense_u-pst:
+      applies: {u-Evidentiality: u-quot, u-Interrogativity: u-decl, u-Tense: u-pst}
+      pattern: "_reporting verb_ + dass/Ø + {clause in Subjunctive I (perfect)}"
+      example: "Er sagte, er sei gestern angekommen."
+
+    u-Evidentiality_u-quot__u-Interrogativity_u-decl__u-Tense_u-fut:
+      applies: {u-Evidentiality: u-quot, u-Interrogativity: u-decl, u-Tense: u-fut}
+      pattern: "_reporting verb_ + dass/Ø + {clause in Subjunctive I (future)}"
+      example: "Er sagte, er werde morgen kommen."
+      note: "reported future"
+
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

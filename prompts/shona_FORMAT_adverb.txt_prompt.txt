@@ -1,0 +1,519 @@
+SYSTEM PROMPT:
+You are an expert in the shona language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language shona.
+
+The data you receive comes from multiple sources and relates to the following topics:
+adverb.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or sn-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "shona-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("shona-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Im Chishona gibt es nur eine handvoll Adjektive, die nicht von Nomen oder Verben abgeleitet sind. Dabei lassen sich gewisse Gruppen bilden, die in ihrer Bildung übereinstimmen.
+
+Von Hauptwörtern: E-Besitzsilbe + Hauptwort
+
+## Adjektive & Adverben > ### Adjektive > #### Nominale Adjektive > ##### Table 66
+
+<pre>```
+| 0                                | 1                           |
+|:---------------------------------|:----------------------------|
+| Er ist ein respektvoller Mensch. | Ndiye munhu we ruremekedzo. |
+```</pre>
+
+Die Verneinung wird mit der Verneinung von «haben» gebildet:
+
+Kennsilbe – si – na + Nomen
+
+## Adjektive & Adverben > ### Adjektive > #### Nominale Adjektive > ##### Verneinung > ###### Table 67
+
+<pre>```
+| 0                                 | 1                              |
+|:----------------------------------|:-------------------------------|
+| Er ist kein respektvoller Mensch. | Ndiye munhu asina ruremekedzo. |
+```</pre>
+
+zva – ka – Verbstamm
+
+## Adjektive & Adverben > ### Adjektive > #### Verbale Adjektive > ##### Table 68
+
+<pre>```
+| 0                             | 1                |
+|:------------------------------|:-----------------|
+| Er ist ein redseliger Mensch. | mùnhu wakataura. |
+| sich unterhalten              | -taura           |
+```</pre>
+
+Die Verneinung entspricht der von nominalen Adjektiven, nur dass das Nomen durch das substantivierte Verb ersetzt wird.
+
+Kennsilbe – si – na + Infinitiv
+
+## Adjektive & Adverben > ### Adjektive > #### Verbale Adjektive > ##### Verneinung > ###### Table 69
+
+<pre>```
+| 0                             | 1                    |
+|:------------------------------|:---------------------|
+| Er ist ein redseliger Mensch. | mùnhu asina kutaura. |
+```</pre>
+
+Im Shona gibt es ungefähr 35 echte Adjektive, die mithilfe der Adjektivesilbe angeglichen werden. Hier werden die davon gebräuchlichen aufgeführt. Da diese grundsätzlich der Klassen-Vorsilbe entspricht, gibt es in den Klassen ohne eigene Vorsilbe Spezialformen.
+
+## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive > ##### Table 70
+
+<pre>```
+| 0   | 1             | 2              | 3              | 4               |
+|:----|:--------------|:---------------|:---------------|:----------------|
+|     | reguläre Form | Klasse 5 (Sg.) | Klasse 9 (Sg.) | Klasse 10 (Pl.) |
+```</pre>
+
+## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive > ##### Dimensionen > ###### Table 71
+
+<pre>```
+| 0             | 1              | 2            | 3            | 4            |
+|:--------------|:---------------|:-------------|:-------------|:-------------|
+| klein         | -diki          | diki         | diki         | diki         |
+| gross(-artig) | -kuru          | guru         | huru         | huru         |
+| kurz          | -pfupi         |              | pfupi        | pfupi        |
+| hoch          | -refu          |              | refu         | refu         |
+| dünn          | -tete          |              | nhete        | nhete        |
+| dick          | -hombe, -kobvu | hombe, gobvu | hombe, gobvu | hombe, gobvu |
+```</pre>
+
+## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive > ##### Qualitativ > ###### Table 72
+
+<pre>```
+| 0            | 1       | 2      | 3      | 4      |
+|:-------------|:--------|:-------|:-------|:-------|
+| roh          | -mbishi | mbishi | mbishi | mbishi |
+| feucht, nass | -nyoro  | nyoro  | nyoro  | nyoro  |
+| männlich     | -kono   | hono   | hono   | hono   |
+| weiblich     | -kadzi  | gadzi  | hadzi  | hadzi  |
+| schön        | -naku   | naku   | naku   | naku   |
+| lebendig     | -penyu  | mhenyu | mhenyu | mhenyu |
+```</pre>
+
+## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive > ##### Farbe > ###### Table 73
+
+<pre>```
+| 0       | 1       | 2      | 3      | 4      |
+|:--------|:--------|:-------|:-------|:-------|
+| weiss   | -chena  | jena   | chena  | chena  |
+| schwarz | -tema   | dema   | nhema  | nhema  |
+| rot     | -tsvuku | dzvuku | tsvuku | dzvuku |
+```</pre>
+
+## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive > ##### Alter > ###### Table 74
+
+<pre>```
+| 0   | 1               | 2     | 3     | 4     |
+|:----|:----------------|:------|:------|:------|
+| neu | -nyowani, -tsva | idzwa | itsva | itsva |
+```</pre>
+
+## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive > ##### Quantitativ > ###### Table 75
+
+<pre>```
+| 0      | 1       | 2   | 3   | 4      |
+|:-------|:--------|:----|:----|:-------|
+| wenige | -shoma  | -   | -   | shoma  |
+| viele  | -zhinji | -   | -   | zhinji |
+```</pre>
+
+## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive > ##### Zahlen > ###### Table 76
+
+<pre>```
+| 0      | 1          | 2    | 3    | 4         |
+|:-------|:-----------|:-----|:-----|:----------|
+| eins   | -mwe       | -mwe | -mwe | -         |
+| zwei   | -viri      | -    | -    | mbiri     |
+| drei   | -tatu      | -    | -    | nhatu     |
+| vier   | -ina       | -    | -    | ina       |
+| fünf   | -shanu     | -    | -    | shanu     |
+| sechs  | -tanhatu   | -    | -    | nhanhatu  |
+| sieben | -nomwe     | -    | -    | nomwe     |
+| acht   | -sere      | -    | -    | sere      |
+| neun   | -pfumbamwe | -    | -    | pfumbamwe |
+| zehn   | gumi       | -    | -    | gumi      |
+```</pre>
+
+Adjektive können auf zwei Arten gesteigert werden:
+
+-sa an Adjektivstamm angehängt
+
+Reduplikation des Adjektivstamms
+
+## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive > ##### Steigerung > ###### Table 77
+
+<pre>```
+| 0                     | 1                   |
+|:----------------------|:--------------------|
+| ein sehr grosser Baum | muti murefusa       |
+| sehr kleiner Mais     | chibage chidikidiki |
+```</pre>
+
+## Adjektive & Adverben > ### Adjektive > #### Weitere Adjektive > ##### Table 78
+
+<pre>```
+| 0            | 1                 | 2       |
+|:-------------|:------------------|:--------|
+| alleine, nur | Eigenschaftssilbe | -oga    |
+| alle         | Eigenschaftssilbe | -nse    |
+| gratis       | E-Besitzsilbe     | -mahara |
+```</pre>
+
+Zahlwörter werden wie echte Adjektive behandelt (siehe Echte Adjektive), also mit der Adjektivsilbe angeglichen.
+
+## Adjektive & Adverben > ### Adjektive > #### Zahlwörter > ##### Table 79
+
+<pre>```
+| 0                 | 1                | 2                      | 3                      | 4                | 5                |
+|:------------------|:-----------------|:-----------------------|:-----------------------|:-----------------|:-----------------|
+| Kardinalzahlen DE | Kardinalzahlen C | Kardinalzahlen C       | Ordnungszahlen C       | Ordnungszahlen C | Ordnungszahlen C |
+| eins              | Adjektivsilbe    | -mwe                   | -mwe                   | E-Besitzsilbe    | -kutanga         |
+| zwei              | …                | -viri                  | -viri                  | …                | -chipiri         |
+| drei              | …                | -tatu                  | -tatu                  | …                | -chitatu         |
+| vier              | …                | -ina                   | -ina                   | …                | -china           |
+| fünf              | …                | -shanu                 | -shanu                 | …                | -chishanu        |
+| sechs             | …                | -tanhatu               | -tanhatu               | …                | -chitanhatu      |
+| sieben            | …                | -nomwe                 | -nomwe                 | …                | -chinomwe        |
+| acht              | …                | -sere                  | -sere                  | …                | -chisere         |
+| neun              | …                | -pfumbamwe             | -pfumbamwe             | …                | -chipfumbamwe    |
+| zehn              | -                | gumi                   | gumi                   | …                | -gumi            |
+| elf               | …                | gumi ne -mwe           | gumi ne -mwe           | …                | -gumi nemumwe    |
+| zwölf             | …                | gumi ne -viri          | gumi ne -viri          | …                | -gumi neviri     |
+| …                 | …                | …                      | …                      | …                | …                |
+| zwanzig           | -                | makumi maviri          | makumi maviri          | …                | -makumi maviri   |
+| einundzwanzig     | …                | makumi maviri ne -mwe  | makumi maviri ne -mwe  |                  |                  |
+| zweiundzwanzig    | …                | makumi maviri ne -viri | makumi maviri ne -viri |                  |                  |
+| …                 | …                | …                      | …                      |                  |                  |
+| dreissig          | -                | makumi matatu          | makumi matatu          |                  |                  |
+| …                 | …                | …                      | …                      |                  |                  |
+| hundert           | -                | zana                   | zana                   |                  |                  |
+| hunderteins       | …                | zana ne -mwe           | zana ne -mwe           |                  |                  |
+| …                 | …                | …                      | …                      |                  |                  |
+| zweihundert       | -                | mazana maviri          | mazana maviri          |                  |                  |
+| …                 | …                | …                      | …                      |                  |                  |
+| tausend           | -                | churu                  | churu                  |                  |                  |
+| zweitausend       | -                | zviuru zviviri         | zviuru zviviri         |                  |                  |
+|                   |                  |                        |                        |                  |                  |
+```</pre>
+
+Wie bei den Adjektiven laufen nominale und verbale Adverben (aufgrund der Substantivierung) gleich (wobei die echten Adjektive kaum als Adverben verwendbar sind).
+
+ne + Nomen
+
+## Adjektive & Adverben > ### Adverben > #### Nominale Adverben > ##### Table 80
+
+<pre>```
+| 0                 | 1                 |
+|:------------------|:------------------|
+| Er lacht freudig. | Anoseka nemufaro. |
+```</pre>
+
+pasina + Nomen
+
+## Adjektive & Adverben > ### Adverben > #### Nominale Adverben > ##### Verneinung > ###### Table 81
+
+<pre>```
+| 0                  | 1                     |
+|:-------------------|:----------------------|
+| Er lacht freudlos. | Anoseka pasina mufaro |
+```</pre>
+
+ne + Infinitiv
+
+## Adjektive & Adverben > ### Adverben > #### Verbale Adverben > ##### Table 82
+
+<pre>```
+| 0                 | 1                        |
+|:------------------|:-------------------------|
+| Er rennt schnell. | Anomhanya nekukurumidza. |
+```</pre>
+
+pasina + Infinitiv
+
+## Adjektive & Adverben > ### Adverben > #### Verbale Adverben > ##### Verneinung > ###### Table 83
+
+<pre>```
+| 0                       | 1                             |
+|:------------------------|:------------------------------|
+| Er rennt nicht schnell. | Anomhanya pasina kukurumidza. |
+```</pre>
+
+Siehe unter Adverben.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+Noun classes (mupanda)
+Shona nouns are grouped by noun class (mupanda) based on:
+
+Meanings (Zvaanoreva) e.g. words found in class 1 and 2 describe a person: munhu ("person") is in mupanda 1 and musikana ("girl") is in mupanda 2.
+Prefix (Chivakashure) e.g. words in class 1 have prefix mu-, class 8 zvi-, class 10 dzi-, class 11 ru-, etc. Empty prefix units refer to words that do not require a prefix
+Singular and plural forms (Uwandu neushoma) e.g. words found in class 8 are plurals of class 7: zvikoro ("schools") in class 8 is the plural form of chikoro ("school") in class 7.
+Agreement (Sungawirirano) e.g. words in class 5 have accordance of the marker -ri- with pronouns and modifiers: garwe iri ("this crocodile"), dombo iri ("this stone"), gudo iri ("this baboon"); iri means 'this'.
+
+## Grammar > ### Table 5
+
+<pre>```
+| Noun class   | Noun class + Noun class.1   | Muenzaniso weIzwi ("word example")   | Word construction Prefix+body=word + Prefix   | Word construction Prefix+body=word + Body   | English translation   |
+|:-------------|:----------------------------|:-------------------------------------|:----------------------------------------------|:--------------------------------------------|:----------------------|
+| 1            | mu                          | mukomana                             | mu-                                           | -komana                                     | "boy"                 |
+| 1a           | –                           | baba                                 | nan                                           | -baba                                       | "father"              |
+| 2            | va                          | vakomana                             | va-                                           | -komana                                     | "boys"                |
+| 2a           | va                          | vasahwira                            | va-                                           | -sahwira                                    | "best friend"         |
+| 2a           | vana                        | vanatezvara                          | vana-                                         | -tezvara                                    | "father-in-law"       |
+| 2b           | a                           | atete                                | a-                                            | -tete                                       | "aunt"                |
+| 3            | mu                          | muti                                 | mu-                                           | -ti                                         | "tree"                |
+| 4            | mi                          | miti                                 | mi-                                           | -ti                                         | "trees"               |
+| 5            | ri                          | rize                                 | ri-                                           | -ze                                         | "scorpion"            |
+| 6            | ma                          | marize                               | ma-                                           | -ze                                         | "scorpions"           |
+| 7            | chi                         | chingwa                              | chi-                                          | -ngwa                                       | "bread"               |
+| 8            | zvi                         | zvingwa                              | zvi-                                          | -ngwa                                       | "bread"               |
+| 9            | i                           | imba                                 | i-                                            | -mba                                        | "house"               |
+| 10           | dzi                         | dzimba                               | dzi-                                          | -mba                                        | "houses"              |
+| 11           | ru                          | rwizi                                | ru-                                           | -izi                                        | "river"               |
+| 12           | ka                          | kambwa                               | ka-                                           | -mbwa                                       | "that little dog"     |
+| 13           | tu                          | tumbwa                               | tu-                                           | -mbwa                                       | "those little dogs"   |
+| 14           | u                           | upfu                                 | u-                                            | -pfu                                        | "mealie meal"         |
+| 15           | ku                          | kuenda                               | ku-                                           | -enda                                       | "going"               |
+| 16           | pa                          | pamba                                | pa-                                           | -mba                                        | "home"                |
+| 17           | ku                          | kumusha                              | ku-                                           | -musha                                      | "rural home"          |
+| 17a          | –                           | zasi                                 | nan                                           | -zasi                                       | "below"               |
+| 18           | mu                          | mumunda                              | mu-                                           | -munda                                      | "in the farm"         |
+| 19           | svi                         | svimbudzi                            | svi-                                          | -mbudzi                                     | "goat"                |
+| 21           | zi                          | zigomana                             | zi-                                           | -gomana                                     | "big boy"             |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Adverbs:
+  Features:
+    u-Comparison: [u-cmpr, u-sprl, u-rl, u-ab]
+    x-Process: [x-base-form, x-adj-as-adv, x-complex, x-modification]
+
+  Rules:
+    x-Process_x-base-form:
+      applies: {x-Process: x-base-form}
+      pattern: "lexical base form"
+      examples: 
+      - "gestern"
+      - "oft"
+      - "bald"
+
+    x-Process_x-adj-as-adv:
+      applies: {x-Process: x-adj-as-adv}
+      pattern: "adjective stem reused as adverb (uninflected)"
+      examples: 
+      - "schnell → schnell"
+      - "laut → laut"
+      note: "form identical to adjective"
+
+    x-Process_x-complex:
+      applies: {x-Process: x-complex}
+      pattern: "compound or prepositional phrase functioning adverbially"
+      examples: 
+      - "trotzdem"
+      - "auf einmal"
+      - "von selbst"
+      - "immerhin"
+      note: "not productive prefixation; historical compounds or fixed expressions. No comparative or superlative."
+
+    x-Process_x-modification:
+      applies: {x-Process: x-modification}
+      pattern: "degree/modality particles modifying adverb"
+      examples: 
+      - "sehr schnell"
+      - "zu spät"
+      - "gar nicht"
+      note: "no comparative or superlative."
+
+    u-Comparison_u-cmpr:
+      applies: {u-Comparison: u-cmpr}
+      pattern: "_stem_ + er"
+      examples: 
+      - "schnell → schneller"
+
+    u-Comparison_u-sprl_u-ab:
+      applies: {u-Comparison: [u-sprl, u-ab]}
+      pattern: "am _stem_ + sten"
+      examples: 
+      - "schnell → am schnellsten"
+
+    u-Comparison_u-sprl_u-rl:
+      applies: {u-Comparison: [u-sprl, u-rl]}
+      pattern: "Determiner _stem_ + ste"
+      examples:
+      - "schnell → schnellste"
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

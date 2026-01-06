@@ -1,0 +1,281 @@
+SYSTEM PROMPT:
+You are an expert in the french language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language french.
+
+The data you receive comes from multiple sources and relates to the following topics:
+negation, syntax.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or fr-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "french-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("french-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+French usually expresses negation in two parts, with the particle ne attached to the verb, and one or more negative words (connegatives) that modify the verb or one of its arguments. Negation encircles a conjugated verb with ne after the subject and the connegative after the verb, if the verb is finite or a gerund. However, both parts of the negation come before the targeted verb when it is in its infinitive form. For example:
+
+Je les ai pris 'I took them' → Je ne les ai pas pris 'I did not take them'
+Je voudrais regarder un film et m'endormir 'I would like to watch a movie and fall asleep' → Je voudrais regarder un film et ne pas m'endormir. 'I would like to watch a movie and not fall asleep'
+Other negative words used in combination with ne are:
+
+negative adverbs
+ne ... plus — not anymore, no longer
+ne ... jamais — never
+ne ... nulle part – nowhere
+ne ... guère — not much, hardly (literary)
+ne ... point / aucunement / nullement — not, not at all (literary)
+negative pronouns
+ne ... rien — nothing
+ne ... personne — nobody
+others
+(determiner) ne ... aucun — no/not any (also nul, literary)
+(restrictive particle) ne ... que — only
+Examples:
+
+Je ne sais pas. — I do not know.
+Il ne fume plus. — He does not smoke anymore.
+Nous n'avons vu personne. — We did not see anybody.
+Elle  n'a rien bu. — She didn't drink anything.
+Je n'ai aucune idée. — I have no idea.
+Vous ne mangez que des légumes ? — You only eat vegetables?
+The negative adverbs (and rien) follow finite verbs but precede infinitives (along with ne):
+
+Il prétend ne pas/ne jamais/ne rien fumer. — He claims not to smoke/to never smoke/to smoke nothing.
+Moreover, it is possible for rien and personne to be used as the subject of a sentence, which moves them to the beginning of the sentence (before the ne):
+
+Rien n'est certain. — Nothing is certain.
+Personne n'est arrivé. — Nobody came.
+Several negative words (other than pas) can appear in the same sentence, but the sentence is still usually interpreted as a simple negation. When another negative word occurs with pas, a double negation interpretation usually arises, but this construction is criticised.
+
+Elle n'a plus jamais rien dit à personne. — She never said anything else to anybody.
+Elle n'a pas vu personne. — She did not see nobody (i.e., she saw somebody).
+
+In colloquial French, it is common to drop the ne, although this can create some ambiguity with the ne ... plus construction when written down, as plus could mean either 'more' or 'not anymore'. Generally when plus is used to mean more, the final ⟨s⟩ is pronounced ([plys]), whereas it is never pronounced when used to mean 'not anymore' ([ply]).
+As an example, the informal sentence Il y en a plus could be pronounced with the final [s] ([il i ɑ̃n a plys, jɑ̃n a plys]) to mean "there is more", or it could be pronounced without it ([il i ɑ̃n a ply, jɑ̃n a ply]) to mean "there is none left".
+
+In certain, mostly literary constructions, ne can express negation by itself (without pas or another negative word). The four verbs that can use this construction are pouvoir ("to be able to"), savoir ("to know"), oser ("to dare"), and cesser ("to cease").
+
+(standard, ne + pas) Je n'ai pas pu venir. — "I was not able to come."
+(casual, pas only) J'ai pas pu venir. [same]
+(literary, ne only) Je n'ai pu venir. [same];cf. phrase Je ne sais quoi — "I do not know what [it is]" remaining in colloquial speech as a fossilized phrase
+
+In certain cases in formal French, the word ne can be used without signifying negation; the ne in such instances is known as expletive ne (French: ne explétif):
+
+J'ai peur que cela ne se reproduise. — "I am afraid that it might happen again."
+Il est arrivé avant que nous n'ayons commencé. — "He arrived before we started."
+Ils sont plus nombreux que tu ne le crois. — "There are more of them than you think."
+Expletive ne is found in finite subordinate clauses (never before an infinitive). It is characteristic of literary rather than colloquial style. In other registers French tends to not use any negation at all in such clauses, e.g., J'ai peur que cela se reproduise.
+The following contexts allow expletive ne
+
+the complement clause of verbs expressing fear or avoidance: craindre (to fear), avoir peur (to be afraid), empêcher (to prevent), éviter (to avoid)
+the complement clause of verbs expressing doubt or denial: douter (to doubt), nier (to deny)
+adverbial clauses introduced by the following expressions: avant que (before), à moins que (unless), de peur/crainte que (for fear that)
+comparative constructions expressing inequality: autre (other), meilleur (better), plus fort (stronger), moins intelligent (less intelligent), etc.
+
+As mentioned above, French expresses negation in two parts, the first with the particle ne attached to the verb and one or more negative words, which modify either the verb or one of its arguments. The participle ne comes before the verb in the sentence that is marked for tense and before any unstressed object pronouns that come before the verb. The location of the second part of the negation varies, however.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Negation:
+  Features:
+    x-Negation-type: [x-clause, x-constituent]
+
+  Rules:
+    x-Negation-type_x-constituent:
+      applies: {x-Negation-type: x-constituent}
+      patterns: 
+        - pattern: "nicht + constituent"
+          examples: 
+          - "Er rennt nicht heute"
+          - "Nicht das Essen, sondern die Getränke hat er bezahlt"
+          note: "focuses on constituent rather than whole sentence"
+        - pattern: "kein + noun"
+          examples: 
+          - "Ich habe keinen Hund gesehen"
+          note: "negates indefinite noun phrase; inflected like indefinite determiner"
+
+    x-Negation-type_x-clause:
+      applies: {x-Negation-type: x-clause}
+      patterns: 
+      - pattern: "(...) finite/main verb (...) nicht (...) (final verb cluster)"
+        examples: 
+        - "Er will den Kuchen nicht essen"
+        - "Er rennt heute nicht"
+        note: "Negated main clauses."
+      - pattern: "main clause with Vfin, subordinating conjunction (...) nicht (...) final verb cluster"
+        examples: 
+        - "Er geht nach Hause, weil er nicht in der Schule bleiben will"
+        - "..., weil er in der Schule jeden Tag nicht gut aufpasst"
+        - "..., weil er in der Schule nicht jeden Tag gut aufpasst"
+        note: "Negated subclauses."
+      note: "If the entire sentence is to be negated, 'nicht' goes as far to the end as possible, but before the final verb cluster/the constituent it is supposed to negate. Note that for main- and subclauses, the principle of negation (finite/main verb - negation - final verb cluster) stays the same, apart from the subordinating conjunction intervening."
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

@@ -1,0 +1,359 @@
+SYSTEM PROMPT:
+You are an expert in the french language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language french.
+
+The data you receive comes from multiple sources and relates to the following topics:
+derivation, formation, morphology.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or fr-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "french-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("french-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Broadly speaking, there are two types of questions; yes/no questions and information questions.
+
+In French there are four ways to form yes/no questions, each of which is typically associated with a different degree of formality.
+
+The simplest and most informal way to ask a yes/no question is by raising intonation at the end of a declarative sentence. This question formation structure is common in informal spoken French, but relatively uncommon in more formal spoken French or written French. Examples include:
+
+Elle va rester ici ? (Is she going to stay here?)
+Je peux mettre mes photos au mur ? (Can I put my photos on the wall?)
+
+Yes/no questions may also be formed by adding est-ce que to the beginning of a declarative sentence. This structure may be used in any style of French; formal, informal, spoken, or written.
+
+Est-ce qu'elle va rester ici ? (Is she going to stay here?)
+Est-ce que je peux mettre mes photos au mur ? (Can I put my photos on the wall?)
+
+Source:
+This is like adding "is it not?" to the end and it is pronounced [n‿ɛs pɑ].
+
+Tu es Jane, n'est-ce pas ?
+Tu parles anglais, n'est-ce pas ?
+
+Finally, yes/no questions may be formed by inverting the verb and the subject. This sentence structure is typically used in formal and written French. These questions may be formed in one of two ways, depending on whether the pronoun is stressed or unstressed. If the pronoun is unstressed, it changes places with the verb that it agrees with.
+
+Es-tu content ? (Are you happy?)
+This subject-verb inversion is similar to question formation in English, though in English the inversion may only occur with auxiliary verbs, while in French it may occur with all verbs.
+If the subject is anything other than an unstressed pronoun, an unstressed subject pronoun that agrees with the subject is added to the right of the verb.
+
+Pierre est-il content ? (Is Pierre happy?)
+Two additional notes on subject verb inversion in French. First, when the inversion results in the adjacency of two vowels ⟨t⟩ is inserted between them.
+
+T-insertion: A-t-il 17 ans ? (Is he 17?)
+Secondly, only the most formal French inverts the verb with 'je'. It has become more common, both in spoken and written French, to replace je with est-ce-que. For example, the following two sentences are ungrammatical in French.
+
+*Mens-je ? (Am I lying?)
+*Prends-je le bus ? (Am I taking the bus?)
+
+There are four ways to form information questions in French. Like yes/no questions, each form is associated with a different degree of formality.
+
+The simplest and generally most informal way to form an information question in French is by replacing a word in a declarative sentence with a question word or phrase and adding rising intonation to the end of the sentence. The question word or phrase may occur at the beginning or end of the sentence, depending on which word is being replaced, unlike in English, where the question word typically occurs at the start of the sentence.
+
+Declarative sentence – L'étudiant(e) téléphonera à son député demain. (The student will telephone his/her MP tomorrow.)
+L'étudiant(e) téléphonera à son député quand ? (When will the student telephone his/her MP?)
+Qui téléphonera à son député demain ? (Who will telephone his/her MP tomorrow?)
+
+Another common and informal way of forming information questions is by replacing an item in a declarative sentence by a question word or phrase then moving the question word or phrase to the front of the sentence.
+
+Qui vous avez vu ? (Who did you see?)
+À qui Marcel a écrit ? (Who did Marcel write to?)
+
+Another way to form a question in French is by following the steps outlined above in one and two, and in addition inserting est-ce que after the question word. This style of question formation may be used in all styles of French.
+
+Qui est-ce que vous avez vu ? (Who did you see?)
+À qui est-ce que Marcel a écrit ? (Who did Marcel write to?)
+
+Finally, information questions in French may be formed by following the steps outlined above in one and two and additionally, inverting the subject and verb. This is typically the most formal form of question formation and is found in written and formal spoken French. As in yes/no question formation, if the subject is an unstressed pronoun, it switches places with the verb:
+
+Qui avez-vous vu ? (Who did you see?)
+If the subject is anything other than an unstressed pronoun, an unstressed subject pronoun is added after the verb.
+
+Qui Robert a-t-il rencontré ? (Who did Robert meet?)
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+DerivationalMorphology:
+  Features:
+    u-Part-of-Speech: [u-n, u-v, u-adj, u-adv]
+    x-Process: [x-prefixation, x-suffixation, x-compounding, x-conversion]
+    u-Gender: [u-masc, u-fem, u-neut]
+
+  Rules:
+    u-Gender_u-fem__u-Part-of-Speech_u-n__x-Process_x-suffixation:
+      applies: {u-Gender: u-fem, u-Part-of-Speech: u-n, x-Process: x-suffixation}
+      patterns:
+        - pattern: "_stem_ + heit"
+          examples:
+          - "schön → Schönheit"
+          note: "forms abstract nouns denoting qualities"
+        - pattern: "_stem_ + keit"
+          examples:
+          - "tapfer → Tapferkeit"
+          note: "forms abstract nouns denoting qualities"
+        - pattern: "_stem_ + ung"
+          examples:
+          - "lesen → Lesung"
+          note: "action/result nouns"
+
+    u-Gender_u-neut__u-Part-of-Speech_u-n__x-Process_x-suffixation:
+      applies: {u-Gender: u-neut, u-Part-of-Speech: u-n, x-Process: x-suffixation}
+      patterns:
+        - pattern: "_stem_ + chen"
+          examples:
+          - "Hund → Hündchen"
+          note: "diminutive, always neuter, often umlaut"
+        - pattern: "_stem_ + lein"
+          examples:
+          - "Fräulein"
+          note: "diminutive, always neuter"
+
+    u-Part-of-Speech_u-n__x-Process_x-compounding:
+      applies: {u-Part-of-Speech: u-n, x-Process: x-compounding}
+      pattern: "Noun + Noun"
+      examples:
+      - "Tisch + Decke → Tischdecke"
+      note: "head-final; rightmost noun determines gender and meaning"
+
+    u-Gender_u-neut__u-Part-of-Speech_u-n__x-Process_x-conversion:
+      applies: {u-Part-of-Speech: u-n, u-Gender: u-neut, x-Process: x-conversion}
+      patterns:
+        - pattern: "Verb → Noun"
+          examples:
+          - "laufen → das Laufen"
+          note: "gerund-like; infinitive as neuter noun"
+        - pattern: "Adjective → Noun"
+          examples:
+          - "grün → das Grün"
+          note: "abstract quality, substance, or color"
+
+    u-Part-of-Speech_u-v__x-Process_x-prefixation:
+      applies: {u-Part-of-Speech: u-v, x-Process: x-prefixation}
+      patterns:
+        - pattern: "be- + _stem_"
+          examples:
+          - "sprechen → besprechen"
+          note: "adds transitivity, valency"
+        - pattern: "ver- + _stem_"
+          examples:
+          - "kaufen → verkaufen"
+          note: "change, error, destruction, completion"
+        - pattern: "zer- + _stem_"
+          examples:
+          - "brechen → zerbrechen"
+          note: "destruction/disintegration"
+        - pattern: "miss- + _stem_"
+          examples:
+          - "verstehen → missverstehen"
+          note: "negation/mis- prefix"
+
+    u-Part-of-Speech_u-v__x-Process_x-suffixation:
+      applies: {u-Part-of-Speech: u-v, x-Process: x-suffixation}
+      patterns:
+        - pattern: "_stem_ + ieren"
+          examples:
+          - "passen → passieren"
+          note: "productive for Latinate stems"
+        - pattern: "_stem_ + isieren"
+          examples:
+          - "modern → modernisieren"
+          note: "productive for Latinate stems"
+
+    u-Part-of-Speech_u-adj__x-Process_x-prefixation:
+      applies: {u-Part-of-Speech: u-adj, x-Process: x-prefixation}
+      patterns:
+        - pattern: "un- + _stem_"
+          examples:
+          - "glücklich → unglücklich"
+          note: "productive negation prefix"
+        - pattern: "in-/im-/ir-/il- + _stem_"
+          examples:
+          - "rational → irrational"
+          note: "Latinate negation prefix; assimilation to following consonant"
+
+    u-Part-of-Speech_u-adj__x-Process_x-suffixation:
+      applies: {u-Part-of-Speech: u-adj, x-Process: x-suffixation}
+      patterns:
+        - pattern: "_stem_ + lich"
+          examples:
+          - "Kind → kindlich"
+          note: "‘like’ or ‘characteristic of’"
+        - pattern: "_stem_ + bar"
+          examples:
+          - "essen → essbar"
+          note: "possibility or capability (‘-able’)"
+        - pattern: "_stem_ + ig"
+          examples:
+          - "Sonne → sonnig"
+          note: "possession or abundance"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

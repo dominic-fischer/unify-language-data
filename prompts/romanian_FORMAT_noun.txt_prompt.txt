@@ -1,0 +1,355 @@
+SYSTEM PROMPT:
+You are an expert in the romanian language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language romanian.
+
+The data you receive comes from multiple sources and relates to the following topics:
+noun.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or ro-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "romanian-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("romanian-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Romanian nouns are categorized into three genders: masculine, feminine, and neuter. The neuter behaves like the masculine in the singular and the feminine in the plural, unlike the neuter in Latin which had distinct forms. Nouns which in their dictionary form (singular, nominative, with no article) end in a consonant or the vowel/semivowel -u are mostly masculine or neuter; if they end in -ă or -a they are usually feminine. In the plural, the ending -i corresponds generally to masculine nouns, whereas feminine and neuter nouns often end in -e. In synchronic terms, Romanian neuter nouns can also be analysed as "ambigeneric", that is as being masculine in the singular and feminine in the plural (see below) and even in diachronic terms certain linguists have argued that this pattern, as well as that of case differentiation, was in a sense "re-invented" rather than a "direct" continuation of the Latin neuter. However, most noun genders correspond to Latin categorization, such as first declension which remained feminine. Similarly third declension nouns retained the gender from Latin, neuter included, most likely reinforced by the Latin plural form -ores which gave the feminine plural -uri in Romanian. Second declension nouns were reanalysed on their semantic characteristic (cervus >cerb "stag" remained masculine but campus >câmp  "field" became neuter). As for the fourth declension, the nouns were analysed in regards to their plural endings as the declension collapsed into the second, being reassigned as neutral based on the -ores plural form. The change of gender can thus be explained by syncretism and homophony.
+Examples:
+
+Masculine: om ('man, human being'), bou ('ox'), copac ('tree');
+Neuter: drum ('road'), cadou ('present, gift'), exemplu ('example');
+Feminine: bunică ('grandmother'), carte ('book'), cafea ('coffee').
+For nouns designating people the grammatical gender can only be masculine or feminine, and is strictly determined by the biological sex, no matter the phonetics of the noun. For example, nouns like tată (father) and popă (priest) are masculine as they refer to male people, although phonetically they are similar to typical feminine nouns.
+For native speakers, the general rule for determining a noun's gender relies on the "one-two" test, which consists in inflecting the noun to both the singular and the plural, together with the numbers one and two. Depending on the gender, the numbers will have different forms for each of the three genders: masculine nouns will be un-doi; feminine nouns, o-două; neuter nouns, un-două.
+
+Masculine: un om, doi oameni ('one human being', 'two human beings'), un iepure, doi iepuri ('one rabbit', 'two rabbits'). In this case both un and doi are in their masculine forms.
+Feminine: o fată, două fete ('one girl', 'two girls'), o pasăre, două păsări ('one bird', 'two birds'). In this case both o and două are in their feminine forms.
+Neuter: un corp, două corpuri ('one body', 'two bodies'), un sertar, două sertare ('one drawer', 'two drawers'). In this case un is in its masculine form while două is in its feminine form. This is the only case in which the two numbers have different genders.
+Romanian numbers generally have a single form regardless of the gender of the determined noun. Exceptions are the numbers un/o ('one') doi/două ('two') and all the numbers made up of two or more digits when the last digit is 1 or 2; these have masculine and feminine forms. In Romanian there is no gender-neutral form for numbers, adjectives or other noun determiners.
+
+Romanian has two grammatical numbers: singular and plural. Morphologically, the plural form is built by adding specific endings to the singular form. For example, nominative nouns without the definite article form the plural by adding one of the endings -i, -uri, -e, or -le. The plural formation mechanism, often involving other changes in the word structure, is an intrinsic property of each noun and has to be learned together with it.
+Examples:
+
+-i: pom – pomi ('tree'), cal – cai ('horse'), tată – tați ('father'), barcă – bărci ('boat');
+-uri: tren – trenuri ('train'), treabă – treburi ('job, task'), cort – corturi ('tent');
+-e: pai – paie ('straw'), masă – mese ('table, meal'), teatru – teatre ('theater'), muzeu – muzee ('museum');
+-le: stea – stele ('star'), cafea – cafele ('coffee'), pijama – pijamale ('pajama').
+
+Romanian has inherited three cases from Latin: nominative/accusative, dative/genitive and vocative. Morphologically, the nominative and the accusative are identical in nouns; similarly, the genitive and the dative share the same form (these pairs are distinct in the personal pronouns, however). The vocative is less used as it is normally restricted to nouns designating people or things which are commonly addressed directly. Additionally, nouns in the vocative often borrow the nominative form even when there is a distinct vocative form available.
+The genitive-dative form can be derived from the nominative. For feminine nouns the form used in the dative/genitive singular is most often identical to the nominative plural, for example o carte – unei cărți – două cărți (a book – of/to a book – two books).
+If the noun is determined by a determiner other than the definite article (an indefinite article, a demonstrative, an indefinite quantifier), then the genitive-dative affixes are applied to this determiner, not to the noun, for example un băiat – unui băiat ('a boy' – 'of/to a boy'). Similarly, if the noun is determined by the definite article (an enclitic in Romanian, see that section), the genitive-dative mark is added at the end of the noun together with the article, for example băiatul – băiatului ('the boy' – 'of/to the boy'), cartea – cărții ('the book' – 'of/to the book'). Masculine proper names designating people form the genitive-dative by placing the article lui before the noun: lui Brâncuși ('of/to Brâncuși'); the same applies to feminine names only when they don't have a typically feminine ending: lui Carmen.
+In usual genitival phrases such as numele trandafirului ('the name of the rose'), the genitive is only recognized by the specific ending (-lui in this example) and no other words are necessary. However, in other situations, usually if the noun modified by the genitive attribute is indefinite, the genitival article is required, as for example in câteva opere ale scriitorului ('some of the writer's works').
+Romanian dative phrases exhibit clitic doubling similar to that in Spanish, in which the noun in the dative is doubled by a pronoun. The position of this pronoun in the sentence depends on the mood and tense of the verb. For example, in the sentence Le dau un cadou părinților ('I give a present to [my] parents'), the pronoun le doubles the noun părinților without bringing any additional information.
+As specified above, the vocative case in Romanian has a special form for most nouns. The tendency in contemporary Romanian is to use the nominative forms, however. The traditional vocative is retained in speech, however, especially in informal speech, or by people living in the countryside. It is seen as a mark of unrefined speech by the majority of city-dwellers, who refrain from its usage. The forms of the vocative are as follows. (Note that the vocative does not have both definite and indefinite forms. The following rules are to be applied for the indefinite form of the nouns):
+
+Singular feminine nouns and proper names ending in an unstressed -ă/-a take the ending -o e.g. fată → fato ('girl!'). Some popular vocative forms are different, though: Maria → Mărie! ('Mary!').
+Singular feminine nouns ending in an unstressed -e take the ending -eo e.g. punte → punteo! ('bridge!'). Sometimes, the e is dropped altogether.
+Singular feminine nouns ending in a stressed -a take the ending -auo e.g. nuia → nuiauo! ('stick!').
+Singular masculine and neuter nouns ending in a consonant take the ending -ule e.g. băiat → băiatule! ('boy!'). The vocative for animate nouns is sometimes formed as if the noun were a proper name: băiat → băiete! (see below).
+Singular masculine and neuter nouns ending in unstressed -e/-ă take no extra ending (-Ø) e.g. frate → frate! ('brother!').
+Masculine proper names take the ending -e e.g. Ștefan → Ștefane! ('Stephen!'). Some words also experience some change in their vowels (Ion → Ioane! 'John!').
+All plural nouns take the ending -lor e.g. mere → merelor! ('apples!').
+Here are some examples of nouns completely inflected.
+
+## Nouns > ### Case > #### Table 1
+
+<pre>```
+| ('Unnamed: 0_level_0', 'Unnamed: 0_level_1', 'Unnamed: 0_level_2')   | ('Without a definite article', 'Masculine', 'Singular')   | ('Without a definite article', 'Masculine', 'Plural')   | ('Without a definite article', 'Feminine', 'Singular')   | ('Without a definite article', 'Feminine', 'Plural')   | ('Without a definite article', 'Neuter', 'Singular')   | ('Without a definite article', 'Neuter', 'Plural')   |
+|:---------------------------------------------------------------------|:----------------------------------------------------------|:--------------------------------------------------------|:---------------------------------------------------------|:-------------------------------------------------------|:-------------------------------------------------------|:-----------------------------------------------------|
+| Nominative Accusative                                                | băiat [bəˈjat]                                            | băieți [bəˈjet͡sʲ]                                      | mamă [ˈmamə]                                             | mame [ˈmame]                                           | ou [ow]                                                | ouă [ˈowə]                                           |
+| Genitive Dative                                                      | băiat [bəˈjat]                                            | băieți [bəˈjet͡sʲ]                                      | mame [ˈmame]                                             | mame [ˈmame]                                           | ou [ow]                                                | ouă [ˈowə]                                           |
+```</pre>
+
+
+## Nouns > ### Case > #### Table 2
+
+<pre>```
+| ('Unnamed: 0_level_0', 'Unnamed: 0_level_1', 'Unnamed: 0_level_2')   | ('With a definite article', 'Masculine', 'Singular')   | ('With a definite article', 'Masculine', 'Plural')   | ('With a definite article', 'Feminine', 'Singular')   | ('With a definite article', 'Feminine', 'Plural')   | ('With a definite article', 'Neuter', 'Singular')   | ('With a definite article', 'Neuter', 'Plural')   |
+|:---------------------------------------------------------------------|:-------------------------------------------------------|:-----------------------------------------------------|:------------------------------------------------------|:----------------------------------------------------|:----------------------------------------------------|:--------------------------------------------------|
+| Nominative Accusative                                                | băiatul [bəˈjatul]                                     | băieții [bəˈjet͡sij]                                 | mama [ˈmama]                                          | mamele [ˈmamele]                                    | oul [ˈo.ul]                                         | ouăle [ˈowəle]                                    |
+| Genitive Dative                                                      | băiatului [bəˈjatuluj]                                 | băieților [bəˈjet͡silor]                             | mamei [ˈmamej]                                        | mamelor [ˈmamelor]                                  | oului [ˈo.uluj]                                     | ouălor [ˈowəlor]                                  |
+```</pre>
+
+
+## Nouns > ### Case > #### Table 3
+
+<pre>```
+| Unnamed: 0_level_0 + Unnamed: 0_level_1   | Masculine + Singular                 | Masculine + Plural       | Feminine + Singular   | Feminine + Plural   | Neuter + Singular   | Neuter + Plural   |
+|:------------------------------------------|:-------------------------------------|:-------------------------|:----------------------|:--------------------|:--------------------|:------------------|
+| Vocative                                  | băiatule/băiete [bəˈjatule, bəˈjete] | băieților [bəˈjet͡silor] | mamo [ˈmamo]          | mamelor [ˈmamelor]  | oule [ˈo.ule]       | ouălor [ˈowəlor]  |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Noun:
+  Features:
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+    de-Declension: [de-strong, de-weak, de-plural-en, de-plural-e, de-plural-er, de-plural-s]
+
+  Rules:
+    de-Declension_de-plural-e__u-Gender_u-fem:
+      applies: {de-Declension: de-plural-e, u-Gender: u-fem}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "e"
+          note: "often with Umlaut"
+      examples: 
+      - "eine Nacht → Nächte"
+      note: "feminine nouns with plural -e, often umlauted"
+
+    de-Declension_de-plural-en__u-Gender_u-fem:
+      applies: {de-Declension: de-plural-en, u-Gender: u-fem}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "en"
+      examples: 
+      - "eine Frau → Frauen"
+      note: "default feminine pattern; plural in -(e)n"
+
+    de-Declension_de-plural-er__u-Gender_u-neut:
+      applies: {de-Declension: de-plural-er, u-Gender: u-neut}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "es"
+        - features: {u-Number: u-pl}
+          form: "er"
+          note: "often with Umlaut"
+      examples: 
+      - "ein Kind → Kinder"
+      note: "common neuter plural type; Umlaut frequent"
+
+    de-Declension_de-plural-s__u-Gender_u-neut:
+      applies: {de-Declension: de-plural-s, u-Gender: u-neut}
+      pattern: "_stem_ + s"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "s"
+      examples: 
+      - "ein Auto → Autos"
+      note: "loanwords and abbreviations; plural in -s"
+
+    de-Declension_de-strong__u-Gender_u-masc:
+      applies: {de-Declension: de-strong, u-Gender: u-masc}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "es"
+        - features: {u-Number: u-pl, u-Case: u-nom}
+          form: "e"
+        - features: {u-Number: u-pl, u-Case: u-acc}
+          form: "e"
+        - features: {u-Number: u-pl, u-Case: u-dat}
+          form: "en"
+        - features: {u-Number: u-pl, u-Case: u-gen}
+          form: "e"
+      examples: 
+      - "ein Hund → Hunde"
+
+    de-Declension_de-weak__u-Gender_u-masc:
+      applies: {de-Declension: de-weak, u-Gender: u-masc}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: "e"   # Junge
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: "en"  # Jungen
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: "en"
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "en"
+        - features: {u-Number: u-pl}
+          form: "en"  # Jungen
+      examples: 
+      - "ein Junge → Jungen"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

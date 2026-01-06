@@ -1,0 +1,449 @@
+SYSTEM PROMPT:
+You are an expert in the zulu language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language zulu.
+
+The data you receive comes from multiple sources and relates to the following topics:
+adverb.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or zu-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "zulu-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("zulu-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Im isiZulu gibt es nur eine handvoll Adjektive, die nicht von Nomen oder Verben abgeleitet sind. Dies sind die «echten» Adjektive. Bei den anderen lassen sich gewisse Gruppen bilden, die in ihrer Bildung übereinstimmen.
+
+Kennsilbe – na/ne/no – Nomen
+
+## Adjektive & Adverben > ### Adjektive > #### Nominale Adjektive > ##### Table 62
+
+<pre>```
+| 0                               | 1                  |
+|:--------------------------------|:-------------------|
+| Er ist ein freundlicher Mensch. | Ungumuntu unomusa. |
+| Freundlichkeit                  | umusa              |
+```</pre>
+
+Kennsilbe – nge – na/ne/no – Nomen
+
+## Adjektive & Adverben > ### Adjektive > #### Nominale Adjektive > ##### Verneinung > ###### Table 63
+
+<pre>```
+| 0                                | 1                     |
+|:---------------------------------|:----------------------|
+| Er ist kein freundlicher Mensch. | Ungumuntu ungenomusa. |
+```</pre>
+
+Eigenschaftssilbe – Verbstamm
+
+## Adjektive & Adverben > ### Adjektive > #### Verbale Adjektive > ##### Table 64
+
+<pre>```
+| 0                              | 1                    |
+|:-------------------------------|:---------------------|
+| Das ist eine einfache Aufgabe. | lo ngumsebenza olula |
+| einfach sein                   | lula                 |
+```</pre>
+
+Echte Adjektive nutzen die Adjektivsilbe zur Angleichung. Die wichtigsten sind hier aufgeführt.
+
+## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive > ##### Table 65
+
+<pre>```
+| 0                       | 1             | 2      |
+|:------------------------|:--------------|:-------|
+| klein, jung, wenig(e)   | Adjektivsilbe | -ncane |
+| gross, wichtig          | Adjektivsilbe | -khulu |
+| lang, hoch              | Adjektivsilbe | -de    |
+| neu                     | Adjektivsilbe | -sha   |
+| alt                     | Adjektivsilbe | -dala  |
+| schön, gut              | Adjektivsilbe | -hle   |
+| schlecht, hässlich      | Adjektivsilbe | -bi    |
+| andere/r/s, gewisse/r/s | Adjektivsilbe | -nye   |
+| viele                   | Adjektivsilbe | -ningi |
+```</pre>
+
+
+## Adjektive & Adverben > ### Adjektive > #### Echte Adjektive > ##### Table 66
+
+<pre>```
+| 0                | 1            |
+|:-----------------|:-------------|
+| Die schöne Katze | Ikati elihle |
+```</pre>
+
+Ist das Wort, dass man als prädikatives Adjektiv benutzen möchte,
+
+ein echtes Adjektiv, so entfällt der Anfangsvokal der Adjektivsilbe
+
+## Adjektive & Adverben > ### Adjektive > #### Prädikative Verwendung von Adjektiven > ##### Table 67
+
+<pre>```
+| 0                    | 1            |
+|:---------------------|:-------------|
+| Die Katze ist schön. | Ikati lihle. |
+```</pre>
+
+
+ein Verb, dass einen Zustand beschreibt, so nutzt man einfach die Kennsilbe
+
+## Adjektive & Adverben > ### Adjektive > #### Prädikative Verwendung von Adjektiven > ##### Table 68
+
+<pre>```
+| 0                        | 1                |
+|:-------------------------|:-----------------|
+| Die Aufgabe ist einfach. | Umsebenzi ulula. |
+```</pre>
+
+Prädikative Adjektivkonstruktionen können auch verneint werden. Dies folgt der folgenden Formel:
+
+a – Kennsilbe (V) – Prädikatives Adjektiv
+
+Ausnahme: In der Klasse 7/8 ändert sich die Kennsilbe (V) zu «-ka-».
+
+Auch Personen haben Eigenschaftssilbe, die für spezielle Adjektive gebraucht werden. Sie lauten:
+
+nge-, we-, ye-, so-, no-, bo-
+
+## Adjektive & Adverben > ### Adjektive > #### Weitere Adjektive > ##### Table 69
+
+<pre>```
+| 0                 | 1                 | 2    |
+|:------------------|:------------------|:-----|
+| alle, ganz, jeder | Eigenschaftssilbe | -nke |
+| alleine           | Eigenschaftssilbe | -dwa |
+```</pre>
+
+Die Zahlwörter im Zulu sind eher kompliziert, weshalb im alltäglichen Sprachgebrauch die englischen Zahlen häufig gebraucht werden. Zumindest bis zehn oder gar hundert lohnt es sich aber sicherlich, die Zahlen zu kennen.
+
+Interessant ist, dass die zahlen 1 – 5 echte Adjektive, die Zahlen 6 – 10 Hauptwörter der Klasse 7/8 sind und auch entsprechend behandelt werden.
+
+## Adjektive & Adverben > ### Adjektive > #### Zahlwörter > ##### Table 70
+
+<pre>```
+| 0                 | 1                | 2                       | 3                  | 4                |
+|:------------------|:-----------------|:------------------------|:-------------------|:-----------------|
+| Kardinalzahlen DE | Kardinalzahlen C | Kardinalzahlen C        | Ordnungszahlen C   | Ordnungszahlen C |
+| eins              | Adjektivsilbe    | -nye                    | Eigenschaftssilbe  | -kuqala          |
+| zwei              | …                | -bili                   | Besitzsilbe auf -e | -sibili          |
+| drei              | …                | -thathu                 | …                  | -sithathu        |
+| vier              | …                | -ne                     | …                  | …                |
+| fünf              | …                | -hlanu                  | …                  | …                |
+| sechs             | Kennsilbe – y    | -isithupha              | …                  | …                |
+| sieben            | …                | -isikhombisa            | …                  | …                |
+| acht              | …                | -isishiyagalombili      | …                  | …                |
+| neun              | …                | -isishiyagalolunye      | …                  | …                |
+| zehn              | …                | -ishumi                 | …                  | …                |
+| elf               | …                | -ishumi nanye           | …                  | …                |
+| zwölf             | …                | -ishumi nambili         | …                  | …                |
+| dreizehn          | …                | -ishumi nanthathu       | …                  | …                |
+| vierzehn          | …                | -ishumi nane            | …                  | …                |
+| fünfzehn          | …                | -ishumi nanhlanu        | …                  | …                |
+| sechzehn          | …                | -nesithuptha            | …                  | …                |
+| …                 | …                | …                       | …                  | …                |
+| zwanzig           | Kennsilbe – nga  | -mashumi amabili        | Besitzsilbe        | -mashumi amabili |
+| einundzwanzig     | Kennsilbe – nga  | -mashumi amabili nanye  |                    |                  |
+| …                 | …                | …                       |                    |                  |
+| fünfzig           | …                | -mashumi ayisithupha    |                    |                  |
+| …                 | …                | …                       |                    |                  |
+| hundert           | Kennsilbe – y    | -ikhulu                 |                    |                  |
+| hunderteins       | …                | -ikhulu nanye           |                    |                  |
+| …                 | …                | …                       |                    |                  |
+| zweihundert       | Kennsilbe – nga  | -makhulu amabili        |                    |                  |
+| …                 | …                | …                       |                    |                  |
+| tausend           | Kennsilbe – y    | inkulungwane            |                    |                  |
+| zweitausend       | Kennsilbe – y    | izinkulungwane ezimbili |                    |                  |
+```</pre>
+
+Adverben sind im Grunde genommen Adjektive, die jedoch nicht an Subjekte, sondern an Verben angeglichen werden müssen. Das geschieht mithilfe der Silbe «____», die u.a. für ein zeitliches «innerhalb» stehen kann, das hier Gleichzeitigkeit ausdrückt.
+
+nga/nge/ngo – Nomen
+
+## Adjektive & Adverben > ### Adverben > #### Nominale Adverben > ##### Table 71
+
+<pre>```
+| 0                 | 1                  |
+|:------------------|:-------------------|
+| Er rennt schnell. | Ugijima ngejubane. |
+| Schnelligkeit     | ijubane, ama-      |
+```</pre>
+
+Ngaphandle kwa/kwe/kwo – Nomen
+
+## Adjektive & Adverben > ### Adverben > #### Nominale Adverben > ##### Verneinung > ###### Table 72
+
+<pre>```
+| 0                       | 1                             |
+|:------------------------|:------------------------------|
+| Er rennt nicht schnell. | Ugijima ngaphandle kwejubane. |
+```</pre>
+
+
+
+Infinitiv
+
+## Adjektive & Adverben > ### Adverben > #### Verbale Adverben > ##### Von Zustandsverben > ###### Table 73
+
+<pre>```
+| 0                     | 1                |
+|:----------------------|:-----------------|
+| Wir rannten weit weg. | Sabalekela kude. |
+| weit sein             | de               |
+```</pre>
+
+Genau wie bei den Nomen, der (substantivierte) Infinitiv ersetzt das Nomen.
+
+ka – echtes Adjektiv
+
+## Adjektive & Adverben > ### Adverben > #### Adjektivische Adverben > ##### Table 74
+
+<pre>```
+| 0                 | 1                    |
+|:------------------|:---------------------|
+| Wir mach das gut. | Tiyenza kahle lokhu. |
+| schön, gut        | -hle                 |
+```</pre>
+
+Siehe unter Adverben.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+The term "adjective", as applied to Zulu and most other Bantu languages, usually applies only to a rather restricted set of words. However, in the wider sense, it can refer to any word that modifies a noun. The wider sense is used here. Adjectives in the stricter Bantu sense are referred to as "true adjectives" in this article.
+All adjectives have one thing in common: they all follow the noun they modify, and require some kind of prefix whose class matches the preceding noun. The different types of adjectives reflect the different prefixes that are used:
+
+"True" adjectives are prefixed with the adjective concord.
+Relatives are prefixed with the relative concord.
+Enumeratives use the enumerative concord.
+Adjectives have the same tone classes that nouns do.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Adverbs:
+  Features:
+    u-Comparison: [u-cmpr, u-sprl, u-rl, u-ab]
+    x-Process: [x-base-form, x-adj-as-adv, x-complex, x-modification]
+
+  Rules:
+    x-Process_x-base-form:
+      applies: {x-Process: x-base-form}
+      pattern: "lexical base form"
+      examples: 
+      - "gestern"
+      - "oft"
+      - "bald"
+
+    x-Process_x-adj-as-adv:
+      applies: {x-Process: x-adj-as-adv}
+      pattern: "adjective stem reused as adverb (uninflected)"
+      examples: 
+      - "schnell → schnell"
+      - "laut → laut"
+      note: "form identical to adjective"
+
+    x-Process_x-complex:
+      applies: {x-Process: x-complex}
+      pattern: "compound or prepositional phrase functioning adverbially"
+      examples: 
+      - "trotzdem"
+      - "auf einmal"
+      - "von selbst"
+      - "immerhin"
+      note: "not productive prefixation; historical compounds or fixed expressions. No comparative or superlative."
+
+    x-Process_x-modification:
+      applies: {x-Process: x-modification}
+      pattern: "degree/modality particles modifying adverb"
+      examples: 
+      - "sehr schnell"
+      - "zu spät"
+      - "gar nicht"
+      note: "no comparative or superlative."
+
+    u-Comparison_u-cmpr:
+      applies: {u-Comparison: u-cmpr}
+      pattern: "_stem_ + er"
+      examples: 
+      - "schnell → schneller"
+
+    u-Comparison_u-sprl_u-ab:
+      applies: {u-Comparison: [u-sprl, u-ab]}
+      pattern: "am _stem_ + sten"
+      examples: 
+      - "schnell → am schnellsten"
+
+    u-Comparison_u-sprl_u-rl:
+      applies: {u-Comparison: [u-sprl, u-rl]}
+      pattern: "Determiner _stem_ + ste"
+      examples:
+      - "schnell → schnellste"
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

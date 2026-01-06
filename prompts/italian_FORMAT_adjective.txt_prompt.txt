@@ -1,0 +1,447 @@
+SYSTEM PROMPT:
+You are an expert in the italian language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language italian.
+
+The data you receive comes from multiple sources and relates to the following topics:
+adjective.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or it-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "italian-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("italian-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Nouns have gender (masculine, feminine or, in many instances, both) and inflect in number (singular and plural). When a noun refers to people or animals with natural gender, grammatical gender typically corresponds. The gender each noun is written in is not arbitrary: because most nouns have a masculine and a feminine form, the form the given noun is written in could change the entire structure of the sentence. As in most other Romance languages, the historical neuter has merged with the masculine. A subgroup of these deriving from Latin's second declension are considered feminine in the plural. Subclauses and infinitives are masculine. Adjectives inflect for gender and number in patterns broadly similar to nouns.
+
+## Inflection of nouns and adjectives > ### Table 5: General noun and adjectival endings by number and gender
+
+<pre>```
+| Gender                                 | Singular          | Plural            | Example                                                                                |
+|:---------------------------------------|:------------------|:------------------|:---------------------------------------------------------------------------------------|
+| Masculine                              | -o                | -i                | il cappello nero, i cappelli neri ('the black hat(s)')                                 |
+| Feminine                               | -a                | -e                | la bella macchina, le belle macchine ('the beautiful car(s)')                          |
+| Masculine and feminine                 | -e                | -i                | il/la comandante intelligente, i/le comandanti intelligenti ('the smart commander(s)') |
+| Mixed (historically neuter)            | -o                | -a                | il lenzuolo leggero, le lenzuola leggere ('the light bed sheet(s)')                    |
+| Masculine                              | -a                | -i                | l'atleta entusiasta, gli atleti entusiasti ('the enthusiastic athlete(s)')             |
+| Feminine                               | -ie               | -ie               | la specie estinta, le specie estinte ('the extinct species')                           |
+| All nouns ending with a stressed vowel | singular = plural | singular = plural | la città, le città ('the city(-ies)')                                                  |
+| Non-integrated loanwords               | singular = plural | singular = plural | il/la manager trendy, i/le manager trendy ('the trendy manager(s)')                    |
+```</pre>
+
+
+In the last two examples, only the article carries information about gender and number.
+Most masculine words that end in -io pronounced as /jo/ drop the -o and thus end in -i in the plural: vecchio / vecchi ('old'), funzionario / funzionari ('functionary(-ies)'), esempio / esempi ('example(s)'), etc.
+The Italian hard and soft C and G phenomenon leads to certain peculiarities in spelling and pronunciation:
+
+Words in -cio and -gio form plurals in -ci and -gi, e.g. bacio / baci ('kiss(es)')
+Words in -cia and -gia have been a point of contention. According to a commonly employed rule, they:
+form plurals in -ce and -ge if the final letter before the suffix is a consonant: frangia, frange ('fringe(s)'); faccia, facce ('face(s)').
+form plurals in -cie and -gie if the final letter before the suffix is a vowel: camicia, camicie ('shirt(s)'); ciliegia, ciliegie ('cherry'/'cherries'). Note that the presence of an i in the plural ending has no impact on the pronunciation in this case.
+when the i is stressed, it always remains in plural: farmacia / farmacie ('chemist's shop(s)'), nevralgia / nevralgie ('neuralgia(s)').
+Words in -co and -go behave irregularly: for some words the plural form causes the hard consonant to become soft, and for others the consonant remains hard. "The grammarians are skeptical of any attempt at giving a ruling about this area." There are, however, certain rules of thumb:
+plurals are formed with -chi and -ghi if the last letter before the suffix is a consonant or a stressed vowel: fungo / funghi ('mushroom(s)'), stecco / stecchi ('stick(s)'), mago / maghi ('magician(s)'), fuoco / fuochi ('fire(s)')
+plurals are formed with -ci and -gi if the last letter before the suffix is an unstressed vowel: comico / comici ('comedian(s)'), medico / medici ('physician(s)')
+in words ending with -logo suffix, the plural is usually in -gi when -logo means 'expert' or 'student', corresponding to English -logist (e.g. archeologo / archeologi, 'archaeologist(s)'), while it is in -ghi when it means 'speech' or 'reasoning', corresponding often to English -logue/-log (e.g. catalogo / cataloghi, 'catalogue(s)').
+there are exceptions such as amico / amici ('friend(s)'), greco / greci ('Greek(s)'), valico / valichi ('mountain pass(es)'), carico / carichi ('cargo(s)').
+Words in -ca and -ga form plurals in -che and -ghe, e.g. amica / amiche ('female friend(s)')
+
+In Italian, an adjective can be placed before or after the noun. The unmarked placement for most adjectives (e.g. colours, nationalities) is after the noun, but this is reversed for a few common classes of adjective—those denoting beauty, age, goodness, and size are placed before the noun in the unmarked case, and after the noun for emphasis.
+Placing the adjective after the noun can alter its meaning or indicate restrictiveness of reference. If a noun has many adjectives, usually no more than one will be before the noun.
+
+un libro rosso = a red book (the unmarked case)
+un rosso libro = a book that is red (the marked case; it is especially important to the intended meaning that the book is red, as opposed to some other color)
+un buon uomo = a good man (the unmarked case)
+un uomo buono = a man who is good (the marked case; it is especially important to the intended meaning that he is good, the adjective is emphasized)
+Adjectives are inflected for gender and number:
+
+## Adjectives > ### Table 8
+
+<pre>```
+| Gender    | Grammatical number   | Case 1   | Case 2   |
+|:----------|:---------------------|:---------|:---------|
+| Masculine | Singular             | -o       | -e       |
+| Masculine | Plural               | -i       | -i       |
+| Feminine  | Singular             | -a       | -e       |
+| Feminine  | Plural               | -e       | -i       |
+```</pre>
+
+Italian has three degrees of comparison: comparative, relative superlative and absolute superlative.
+The comparative and relative superlative are formed with più ('more', 'most'); for instance:
+
+sono più alto di te ("I am taller than you")
+sono il più alto fra gli uomini ("I am the tallest of men")
+Vice versa when expressing inferiority, meno ('less, fewer') is used; for instance:
+
+sono il meno forte del campionato ("I am the least strong of the championship")
+tu sei meno alto di me ("You are less tall than me")
+Another comparative form is made with the word come ('as', 'like'); for instance:
+
+sono alto come te ("I am as tall as you")
+The absolute comparative is formed by placing troppo ('too') before the adjective; for instance: 
+
+sei troppo buono ("you are too good").
+The absolute superlative, derived from the Latin synthetic superlative in -issimus, is formed by adding -issimo to an adjective: intelligente ('intelligent'), intelligentissimo ('very intelligent'); sporco ('dirty') sporchissimo ('very dirty'). If the two letters before the last vowel are pr or br (e.g. aspro, celebre), the r is removed and -errimo is the suffix used (asperrimo, celeberrimo) ('very sour', 'very famous'). Another way to form the absolute superlative is to place either molto or assai ('very') before the adjective. For instance sporchissimo and molto sporco ('very dirty') are the same, although the form ending in issimo is usually perceived as more emphatic; that is, sporchissimo is dirtier than molto sporco.
+Some adjectives have irregular comparatives (although with regularly-formed variants also in common use), such as
+
+buono ('good'), migliore / più buono ('better' or 'best'), ottimo / buonissimo ('very good')
+cattivo ('bad'), peggiore / più cattivo ('worse' or 'worst'), pessimo / cattivissimo ('very bad')
+grande ('big'), maggiore / più grande ('bigger'), massimo / grandissimo ('very big')
+piccolo ('small'), minore / più piccolo ('smaller'), minimo / piccolissimo ('very small')
+
+With the exception of 3rd person plural loro ('their'), possessive adjectives, like articles, must agree with the gender and number of the noun they modify. Hence, mio zio ('my uncle'), but mia zia ('my aunt'). So depending on what is being modified, the possessive adjectives are:
+
+## Adjectives > ### Possessive adjectives > #### Table 9
+
+<pre>```
+| Person    | Masculine + Singular   | Masculine + Plural   | Feminine + Singular   | Feminine + Plural   |
+|:----------|:-----------------------|:---------------------|:----------------------|:--------------------|
+| 1st sing. | mio                    | miei                 | mia                   | mie                 |
+| 2nd sing. | tuo                    | tuoi                 | tua                   | tue                 |
+| 3rd sing. | suo                    | suoi                 | sua                   | sue                 |
+| 1st pl.   | nostro                 | nostri               | nostra                | nostre              |
+| 2nd pl.   | vostro                 | vostri               | vostra                | vostre              |
+| 3rd pl.   | loro                   | loro                 | loro                  | loro                |
+```</pre>
+
+
+In most cases the possessive adjective is used with an article, usually the definite article:
+
+## Adjectives > ### Possessive adjectives > #### Table 10
+
+<pre>```
+| 0                               | 1                            |
+|:--------------------------------|:-----------------------------|
+| Ho perso la mia penna.          | ("I have lost my pen.")      |
+| Mi piace il mio lavoro.         | ("I like my job.")           |
+| Hanno rubato la mia automobile! | ("They have stolen my car!") |
+```</pre>
+
+
+And sometimes with the indefinite article:
+
+## Adjectives > ### Possessive adjectives > #### Table 11
+
+<pre>```
+| 0                               | 1                                        |
+|:--------------------------------|:-----------------------------------------|
+| Un mio amico mi ha detto che... | ("A friend of mine told me that...")     |
+| Ho visto una sua foto.          | ("I have seen a photograph of him/her.") |
+| Luca è un mio amico.            | ("Luke is a friend of mine.")            |
+```</pre>
+
+
+The only exception is when the possessive refers to an individual family member (unless the family member is described or characterised in some way):
+
+## Adjectives > ### Possessive adjectives > #### Table 12
+
+<pre>```
+| 0                               | 1                                    |
+|:--------------------------------|:-------------------------------------|
+| Laura è mia sorella             | ("Laura is my sister.")              |
+| Ieri ho visto mia sorella Diana | ("I saw my sister Diana yesterday.") |
+| Questa penna è di mia zia.      | ("This pen is my aunt's.")           |
+```</pre>
+
+
+Mamma and papà (or babbo, in central Italy; 'mother' and 'father'), however, are usually used with the article.
+For emphasis, however, possessive adjectives are sometimes placed after the noun. This is usually after words such as colpa ('fault', 'sin'); casa ('house', 'home'); merito ('merit'); piacere ('pleasure'); or in nouns of address.
+
+## Adjectives > ### Possessive adjectives > #### Table 13
+
+<pre>```
+| 0                           | 1                                            |
+|:----------------------------|:---------------------------------------------|
+| È colpa sua.                | ("It is his/her fault.")                     |
+| Oh dio mio!                 | ("Oh, my god!")                              |
+| Arrivederci, amico mio!     | ("Goodbye, my friend!")                      |
+| Vorresti andare a casa mia? | ("Would you like to come over to my house?") |
+```</pre>
+
+
+If the antecedent of a third person possessive (being used as an object) is the subject of the sentence, proprio can be used instead of suo, although the usage of proprio is declining in spoken language:
+
+## Adjectives > ### Possessive adjectives > #### Table 14
+
+<pre>```
+| 0                                                                                     | 1                                                                           |
+|:--------------------------------------------------------------------------------------|:----------------------------------------------------------------------------|
+| Marco e Maria hanno discusso di filosofia. Marco ha scelto il proprio punto di vista. | ("Marco and Maria discussed philosophy. Marco took his own point of view.") |
+| Marco e Maria hanno discusso di filosofia. Marco ha scelto il suo punto di vista.     | ("Marco and Maria discussed philosophy. Marco took his/her point of view.") |
+```</pre>
+
+
+The first sentence is unambiguous and states that Marco took his own point of view, whereas the second sentence is ambiguous because it may mean that Marco took either his own or Maria's point of view.
+
+Italian originally had three degrees of demonstrative adjectives: questo (for items near or related to the first person speaker: 'this'), quello (for items near or related to an eventual third person: 'that'), and codesto (for items near or related to an eventual second person). The usage has undergone a simplification, including the meaning of codesto in quello, and only Tuscan speakers still use codesto. Its use is very rare in modern language, and the word has acquired a rather pejorative connotation.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Adjective:
+  Features:
+    u-Comparison: [u-cmpr, u-sprl]
+    u-Definiteness: [u-def, u-indf, u-nspec]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+    u-Number: [u-sg, u-pl]
+    u-Gender: [u-masc, u-fem, u-neut]
+
+  Rules:
+    u-Comparison_u-cmpr:
+      applies: {u-Comparison: u-cmpr}
+      pattern: "_stem_ + er"
+      note: "often with umlaut"
+      examples: 
+      - "schön → schöner"
+
+    u-Comparison_u-sprl:
+      applies: {u-Comparison: u-sprl}
+      pattern: "am _stem_ + sten"
+      examples: 
+      - "schön → am schönsten"
+      - "besser → am besten"
+
+    u-Definiteness_u-def:
+      applies: {u-Definiteness: u-def}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-masc}, form: "e"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-fem}, form: "e"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-neut}, form: "e"}
+        - {features: {u-Case: u-nom, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-masc}, form: "en"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-fem}, form: "e"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-neut}, form: "e"}
+        - {features: {u-Case: u-acc, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-dat, u-Number: u-sg}, form: "en"}
+        - {features: {u-Case: u-dat, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-gen, u-Number: u-sg}, form: "en"}
+        - {features: {u-Case: u-gen, u-Number: u-pl}, form: "en"}
+      examples: 
+      - "schön → der schöne Hund"
+      - "schön → die schöne Katze"
+      note: "also called 'weak'; adjective endings are reduced, since the definite determiner already shows case/gender/number"
+
+    u-Definiteness_u-indf:
+      applies: {u-Definiteness: u-indf}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-masc}, form: "er"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-fem}, form: "e"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-neut}, form: "es"}
+        - {features: {u-Case: u-nom, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-masc}, form: "en"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-fem}, form: "e"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-neut}, form: "es"}
+        - {features: {u-Case: u-acc, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-dat, u-Number: u-sg}, form: "en"}
+        - {features: {u-Case: u-dat, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-gen, u-Number: u-sg}, form: "en"}
+        - {features: {u-Case: u-gen, u-Number: u-pl}, form: "en"}
+      examples: 
+      - "schön → ein schöner Hund"
+      - "schön → eine schöne Katze"
+      note: "also called 'mixed'; adjective endings supply the missing case/gender/number features not marked on the determiner"
+
+    u-Definiteness_u-nspec:
+      applies: {u-Definiteness: u-nspec}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-masc}, form: "er"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-fem}, form: "e"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-neut}, form: "es"}
+        - {features: {u-Case: u-nom, u-Number: u-pl}, form: "e"}
+
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-masc}, form: "en"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-fem}, form: "e"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-neut}, form: "es"}
+        - {features: {u-Case: u-acc, u-Number: u-pl}, form: "e"}
+
+        - {features: {u-Case: u-dat, u-Number: u-sg, u-Gender: u-masc}, form: "em"}
+        - {features: {u-Case: u-dat, u-Number: u-sg, u-Gender: u-fem}, form: "er"}
+        - {features: {u-Case: u-dat, u-Number: u-sg, u-Gender: u-neut}, form: "em"}
+        - {features: {u-Case: u-dat, u-Number: u-pl}, form: "en"}
+
+        - {features: {u-Case: u-gen, u-Number: u-sg, u-Gender: u-masc}, form: "en"}
+        - {features: {u-Case: u-gen, u-Number: u-sg, u-Gender: u-fem}, form: "er"}
+        - {features: {u-Case: u-gen, u-Number: u-sg, u-Gender: u-neut}, form: "en"}
+        - {features: {u-Case: u-gen, u-Number: u-pl}, form: "er"}
+      examples: 
+      - "schön → schöner Mann"
+      - "schön → schöne Frau"
+      note: "also called 'strong'; adjective endings show the full case/gender/number set, like definite articles"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

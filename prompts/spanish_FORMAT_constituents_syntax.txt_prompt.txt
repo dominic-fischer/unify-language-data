@@ -1,0 +1,251 @@
+SYSTEM PROMPT:
+You are an expert in the spanish language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language spanish.
+
+The data you receive comes from multiple sources and relates to the following topics:
+constituents, syntax.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or es-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "spanish-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("spanish-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Spanish unmarked word order for affirmative declarative sentences is subject-verb-object (SVO); however, as in other Romance languages, in practice, word order is more variable, with topicalization and focus being the primary factors in the selection of a particular order. Verb-subject-object (VSO), verb-object-subject (VOS), and object-verb-subject (OVS) are also relatively common, while other orders are very uncommon outside of poetry.
+Thus, to simply say, "My friend wrote the book", one would say (SVO):
+
+Mi amigo escribió el libro
+Although bare VSO and VOS are somewhat rare in declarative independent clauses, they are quite common in sentences in which something other than the subject or direct object functions as the focus. For example:
+
+Hace pocos años escribió mi amigo un libro or Hace pocos años escribió un libro mi amigo = "A few years ago, my friend wrote a book"
+Ayer vio mi madre a mi amigo y le preguntó por su libro or Ayer vio a mi amigo mi madre y le preguntó por su libro = "Yesterday, my mother saw my friend and asked him about his book"
+In many dependent clauses, the verb is placed before the subject (and thus often VSO or VOS) to avoid placing the verb in final position:
+
+Este es el libro que escribió mi amigo, but rarely Este es el libro que mi amigo escribió = "This is the book that my friend wrote"
+A sentence in which the direct object is the topic or "theme" (old information), while the subject is part of the comment, or "rheme" (new information), often assumes OVS order. In this case the direct object noun phrase is supplemented with the appropriate direct object pronoun; for example:
+
+El libro lo escribió mi amigo
+Because subject pronouns are often dropped, one will often see sentences with a verb and direct object but no explicitly stated subject.
+In questions, VSO is usual (though not obligatory):
+
+¿Escribió mi amigo el libro? = "Did my friend write the book?"
+Yes/no questions, regardless of constituent order, are generally distinguished from declarative sentences by context and intonation.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Constituents:
+  Features:
+    x-Constituent: [x-NP, x-VP, x-AP, x-PP, x-AdvP, x-CP]
+
+  Rules:
+    x-Constituent_x-NP:
+      applies: {x-Constituent: x-NP}
+      pattern: "[Determiner] [AdjectivePhrase] Noun [PrepositionalPhrase] [RelativeClause] [PossessivePronoun]"
+      examples:
+        - "der große Hund"
+      note: "Determiner obligatory in singular count nouns, unless proper noun or bare plural"
+
+    x-Constituent_x-VP:
+      applies: {x-Constituent: x-VP}
+      pattern: "[Auxiliary] Verb [Object (NP/CP)] [AdverbPhrase] [PrepositionalPhrase] [SubordinateClause (CP)]"
+      examples:
+        - "hat den Hund gesehen"
+      note: "verb-second in main clauses, verb-final in subordinates"
+
+    x-Constituent_x-AP:
+      applies: {x-Constituent: x-AP}
+      pattern: "[DegreeMarker] Adjective [Complement (PP/CP)]"
+      examples:
+        - "sehr schön"
+      note: "adjective inflects for case/number/gender of NP"
+
+    x-Constituent_x-PP:
+      applies: {x-Constituent: x-PP}
+      pattern: "Preposition + NP [AdverbPhrase]"
+      examples:
+        - "mit dem Hund"
+      note: "preposition governs case (acc/dat/gen)"
+
+    x-Constituent_x-AdvP:
+      applies: {x-Constituent: x-AdvP}
+      pattern: "[DegreeMarker] Adverb"
+      examples:
+        - "sehr schnell"
+
+    x-Constituent_x-CP:
+      applies: {x-Constituent: x-CP}
+      pattern: "[Complementizer] Subject (NP) [Adverbials] VP"
+      examples:
+        - "dass er den Hund sieht"
+      note: "subordinate clauses require verb-final order"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

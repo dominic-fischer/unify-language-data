@@ -1,0 +1,308 @@
+SYSTEM PROMPT:
+You are an expert in the italian language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language italian.
+
+The data you receive comes from multiple sources and relates to the following topics:
+determiners, articles, noun.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or it-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "italian-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("italian-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Italian articles vary according to definiteness (definite, indefinite, and partitive), number, gender, and the initial sound of the subsequent word. Partitive articles compound the preposition di with the corresponding definite article, to express uncertain quantity. In the plural, they typically translate into English as 'few'; in the singular, typically as 'some'.
+
+## Articles > ### Table 2: Definite article
+
+<pre>```
+| Gender    | Number   | Article   | Usage                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+|:----------|:---------|:----------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Masculine | Singular | il        | Standard masculine singular definite article, used in all cases other than those detailed below.[1] Foreign words beginning with ⟨w⟩, pronounced /w/ or /v/, take il and not lo: il West /ˈwɛst/ (referring to the American Old West), il whisky /ˈwiski/, il Watt /ˈvat/, etc.[2]                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Masculine | Singular | lo        | Used before words with certain initial sounds: before ⟨s⟩ pronounced as /s/, /z/, or /ʃ/ followed by another consonant ("impure s", Italian: S (esse) complicata, S impura, or S preconsonantica) before self-geminating consonants:[3] ⟨z⟩, pronounced as /ts/ or /dz/; ⟨gn⟩; ⟨gli⟩; ⟨sci⟩ (or ⟨sh⟩ or ⟨ch⟩ in loan words, e.g. lo chef) pronounced as /ʃ/ before complex consonant clusters ⟨ps⟩, pronounced as /ps/ or /ss/; ⟨pn⟩ as /pn/ or /nn/; ⟨x⟩ as /ks/ or /ss/, ⟨mn⟩ as /mn/ or /nn/, etc., mostly foreign words before ⟨y⟩ or ⟨i⟩ pronounced as semivowel /j/, (e.g. foreign words such as lo yoghurt, and local words and scientific or geographical names such as lo iodio) |
+| Masculine | Singular | l'        | Used before words that begin with a vowel (l'amico) or ⟨uo⟩ /wɔ/ (l'uomo).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Masculine | Plural   | i         | Standard masculine plural definite article, used for plurals that take il in the singular: i cani (plural of il cane).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Masculine | Plural   | gli       | Corresponds to lo and l' in the singular: before vowels, pronounced /ʎ/ before the consonants listed for lo, pronounced /ʎi/ Il dio ('the god') has the irregular plural gli dei ('the gods').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Feminine  | Singular | la        | Standard form of the feminine singular definite article, used before consonants and before ⟨i⟩ when pronounced as semivowel /j/, e.g. la iarda.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Feminine  | Singular | l'        | As with l', used before any word that begins with a vowel, not including ⟨i⟩ when pronounced as the semivowel /j/.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| Feminine  | Plural   | le        | Standard form of the feminine plural definite article, never elided.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+```</pre>
+
+
+## Articles > ### Table 3: Indefinite article
+
+<pre>```
+| Gender    | Article   | Usage                                                                                                                                                                     |
+|:----------|:----------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Masculine | un        | Standard masculine singular indefinite article, used before vowels and simple consonants.                                                                                 |
+| Masculine | uno       | Used instead of un before "impure s", self-geminating consonants, and complex consonant clusters, following the same rules as lo vs. il above, for example: uno studente. |
+| Feminine  | una       | Standard feminine singular indefinite article.                                                                                                                            |
+| Feminine  | un'       | Used before any word that starts with a vowel, not including ⟨i⟩ when used as semivowel /j/.                                                                              |
+```</pre>
+
+
+## Articles > ### Table 4: Partitive article
+
+<pre>```
+| Gender    | Number   | Article   | Contraction of   |
+|:----------|:---------|:----------|:-----------------|
+| Masculine | Singular | del       | di + il          |
+| Masculine | Singular | dell'     | di + l'          |
+| Masculine | Singular | dello     | di + lo          |
+| Masculine | Plural   | dei       | di + i           |
+| Masculine | Plural   | degli     | di + gli         |
+| Feminine  | Singular | della     | di + la          |
+| Feminine  | Singular | dell'     | di + l'          |
+| Feminine  | Plural   | delle     | di + le          |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Determiner:
+  Features:
+    u-Definiteness: [u-def, u-indf]
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+
+  Rules:
+    u-Definiteness_u-def:
+      applies: {u-Definiteness: u-def}
+      forms:
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-nom}
+          form: "der"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-acc}
+          form: "den"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-dat}
+          form: "dem"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-gen}
+          form: "des"
+
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-nom}
+          form: "die"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-acc}
+          form: "die"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-dat}
+          form: "der"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-gen}
+          form: "der"
+
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-nom}
+          form: "das"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-acc}
+          form: "das"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-dat}
+          form: "dem"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-gen}
+          form: "des"
+
+        - features: {u-Number: u-pl, u-Case: u-nom}
+          form: "die"
+        - features: {u-Number: u-pl, u-Case: u-acc}
+          form: "die"
+        - features: {u-Number: u-pl, u-Case: u-dat}
+          form: "den"
+        - features: {u-Number: u-pl, u-Case: u-gen}
+          form: "der"
+
+    u-Definiteness_u-indf:
+      applies: {u-Definiteness: u-indf}
+      forms:
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-nom}
+          form: "ein"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-acc}
+          form: "einen"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-dat}
+          form: "einem"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-gen}
+          form: "eines"
+
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-nom}
+          form: "eine"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-acc}
+          form: "eine"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-dat}
+          form: "einer"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-gen}
+          form: "einer"
+
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-nom}
+          form: "ein"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-acc}
+          form: "ein"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-dat}
+          form: "einem"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-gen}
+          form: "eines"
+      note: "no plural indefinite"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

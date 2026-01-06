@@ -1,0 +1,315 @@
+SYSTEM PROMPT:
+You are an expert in the chewa language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language chewa.
+
+The data you receive comes from multiple sources and relates to the following topics:
+noun.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or ny-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "chewa-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("chewa-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+Chewa nouns are divided for convenience into a number of classes, which are referred to by the Malawians themselves by names such as "Mu-A-", but by Bantu specialists by numbers such as "1/2", corresponding to the classes in other Bantu languages. Conventionally, they are grouped into pairs of singular and plural. However, irregular pairings are also possible, especially with loanwords; for example, bánki 'bank', which takes the concords of class 9 in the singular, has a plural mabánki (class 6).
+When assigning nouns to a particular class, initially the prefix of the noun is used. Where there is no prefix, or where the prefix is ambiguous, the concords (see below) are used as a guide to the noun class. For example, katúndu 'possessions' is put in class 1, since it takes the class 1 demonstrative uyu 'this'.
+Some nouns belong to one class only, e.g. tomáto 'tomato(es)' (class 1), mowa 'beer' (class 3), malayá 'shirt(s)' (class 6), udzudzú 'mosquito(es)' (class 14), and do not change between singular and plural. Despite this, such words can still be counted if appropriate: tomáto muwíri 'two tomatoes', mowa uwíri 'two beers', malayá amódzi 'one shirt', udzudzú umódzi 'one mosquito'.
+Class 11 (Lu-) is not found in Chewa. Words like lumo 'razor' and lusó 'skill' are considered to belong to class 5/6 (Li-Ma-) and take the concords of that class.
+
+Mu-A- (1/2): munthu pl. anthu 'person'; mphunzitsi pl. aphunzitsi 'teacher'; mwaná pl. aná 'child'  (1a/2): galú pl. agalú 'dog'. Class 1a refers to nouns which have no m- prefix.  The plural a- is used only for humans and animals. It can also be used for respect, e.g. aphunzitsi áthu 'our teacher'  (1a/6): kíyi pl. makíyi 'key'; gúle pl. magúle 'dance'  (1a): tomáto 'tomato(es)'; katúndu 'luggage, furniture'; feteréza 'fertilizer' (no pl.)
+Mu-Mi- (3/4): mudzi pl. midzi 'village'; mténgo pl. miténgo 'tree'; moyo pl. miyoyo 'life'; msika pl. misika 'village'  (3): mowa 'beer'; móto 'fire'; bowa 'mushroom(s)' (no pl.)
+Li-Ma- (5/6): dzína pl. maína 'name'; vúto pl. mavúto 'problem'; khásu pl. makásu 'hoe'; díso pl. masó 'eye'  Often the first consonant is softened or omitted in the plural in this class.  (6): madzí 'water', mankhwála 'medicine', maló 'place' (no sg.)
+Chi-Zi- (7/8): chinthu pl. zinthu 'thing'; chaká pl. zaká 'year'  (7): chímanga 'maize'; chikóndi 'love' (no pl.)
+I-Zi- (9/10): nyumbá pl. nyumbá 'house'; mbúzi pl. mbúzi 'goat'  (10): ndevu 'beard'; ndíwo 'relish'; nzerú 'intelligence' (no sg.)  (9/6): bánki pl. mabánki 'bank'
+Ka-Ti- (12/13): kamwaná pl. tianá 'baby'; kanthu pl. tinthu 'small thing'  (12): kasamalidwe 'method of taking care'; kavinidwe 'way of dancing' (no pl.)  (13): tuló 'sleep' (no sg.)
+U-Ma- (14): usíku 'night time'; ulimi 'farming'; udzudzú 'mosquito(es)' (no pl.)  (14/6): utá pl. mautá 'bow'
+Infinitive class:
+
+Ku- (15): kuóna 'to see, seeing'
+Locative classes:
+
+Pa- (16): pakamwa 'mouth'
+Ku- (17): kukhosi 'neck'
+Mu- (18): mkamwa 'inside the mouth'
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Noun:
+  Features:
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+    de-Declension: [de-strong, de-weak, de-plural-en, de-plural-e, de-plural-er, de-plural-s]
+
+  Rules:
+    de-Declension_de-plural-e__u-Gender_u-fem:
+      applies: {de-Declension: de-plural-e, u-Gender: u-fem}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "e"
+          note: "often with Umlaut"
+      examples: 
+      - "eine Nacht → Nächte"
+      note: "feminine nouns with plural -e, often umlauted"
+
+    de-Declension_de-plural-en__u-Gender_u-fem:
+      applies: {de-Declension: de-plural-en, u-Gender: u-fem}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "en"
+      examples: 
+      - "eine Frau → Frauen"
+      note: "default feminine pattern; plural in -(e)n"
+
+    de-Declension_de-plural-er__u-Gender_u-neut:
+      applies: {de-Declension: de-plural-er, u-Gender: u-neut}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "es"
+        - features: {u-Number: u-pl}
+          form: "er"
+          note: "often with Umlaut"
+      examples: 
+      - "ein Kind → Kinder"
+      note: "common neuter plural type; Umlaut frequent"
+
+    de-Declension_de-plural-s__u-Gender_u-neut:
+      applies: {de-Declension: de-plural-s, u-Gender: u-neut}
+      pattern: "_stem_ + s"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "s"
+      examples: 
+      - "ein Auto → Autos"
+      note: "loanwords and abbreviations; plural in -s"
+
+    de-Declension_de-strong__u-Gender_u-masc:
+      applies: {de-Declension: de-strong, u-Gender: u-masc}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "es"
+        - features: {u-Number: u-pl, u-Case: u-nom}
+          form: "e"
+        - features: {u-Number: u-pl, u-Case: u-acc}
+          form: "e"
+        - features: {u-Number: u-pl, u-Case: u-dat}
+          form: "en"
+        - features: {u-Number: u-pl, u-Case: u-gen}
+          form: "e"
+      examples: 
+      - "ein Hund → Hunde"
+
+    de-Declension_de-weak__u-Gender_u-masc:
+      applies: {de-Declension: de-weak, u-Gender: u-masc}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: "e"   # Junge
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: "en"  # Jungen
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: "en"
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "en"
+        - features: {u-Number: u-pl}
+          form: "en"  # Jungen
+      examples: 
+      - "ein Junge → Jungen"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

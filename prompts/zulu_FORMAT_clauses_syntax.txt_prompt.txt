@@ -1,0 +1,305 @@
+SYSTEM PROMPT:
+You are an expert in the zulu language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language zulu.
+
+The data you receive comes from multiple sources and relates to the following topics:
+clauses, syntax.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or zu-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "zulu-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("zulu-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Im Unterschied zum Indikativ enden Verben im Subjunktiv auf «-e». Er wird benutzt:
+
+Bei höflichen Aufforderungen und Wünschen
+
+## Das Verb > ### Subjunktiv > #### Table 56
+
+<pre>```
+| 0                         | 1                         |
+|:--------------------------|:--------------------------|
+| Reich mir bitte das Brot. | Ngicela ningiphe isinkwa. |
+```</pre>
+
+
+nach Verben des Wünschens, des Wollens und der Aufforderung
+
+## Das Verb > ### Subjunktiv > #### Table 57
+
+<pre>```
+| 0                                     | 1                         |
+|:--------------------------------------|:--------------------------|
+| Er wollte, dass ich ihm das brot gebe | Wayefuna ngimnike isinkwa |
+```</pre>
+
+
+Nach «ukuze»/«ukuthi» im Sinne von (so)dass/damit
+
+## Das Verb > ### Subjunktiv > #### Table 58
+
+<pre>```
+| 0                                          | 1                                      |
+|:-------------------------------------------|:---------------------------------------|
+| Wir gehen heute, sodass wir bald ankommen. | Siyahamba namuhla ukuze sifike maduze. |
+```</pre>
+
+
+Die Negation ist: Kennsilbe – nga – Verbstamm auf -i: Ubaba ufuna ukuthi ngingahambi lapho.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+The subjunctive expresses hypothetical situations, wishes and requests. It is also used for consecutive action, and as a complement to certain auxiliary verbs and conjunctions. There are present and past subjunctive forms.
+
+## Verbs > ### Tenses and moods > #### Subjunctive > ##### Table 22: Formation of the subjunctive
+
+<pre>```
+| 0           | 1                   | 2                                                             |
+|:------------|:--------------------|:--------------------------------------------------------------|
+| nan         | Present             | Past                                                          |
+| Affirmative | [subj2][obj]...e    | [subj1]a[obj]...a                                             |
+| Negative    | [subj2]nga[obj]...i | a[subj1]anga[obj]...a [subj1]anga[obj]...a a[subj1]a[obj]...a |
+```</pre>
+
+
+Note that the affirmative past subjunctive is identical to the affirmative remote past, except that the infix -a- is short. In regular Zulu spelling, where vowel length is not marked, this distinction becomes invisible. The three alternative negative past forms are contracted to different degrees. The first form is the uncontracted form.
+
+## Verbs > ### Tenses and moods > #### Subjunctive > ##### Table 23: Examples
+
+<pre>```
+| Verb           | Example                                                         |
+|:---------------|:----------------------------------------------------------------|
+| -hámba         | Ngamtshela ahambe. "I told him he should go."                   |
+| -zama          | Woza lapha uzame futhi! "Come here and try it again!"           |
+| -hleka         | Umane ahleke. "He only laughs."                                 |
+| -gqoka, -hámba | Wāvuka wagqoka wahamba. "He woke up, dressed, and went out."    |
+| -bheka         | Wābaleka wangabheka emuva. "He ran away and did not look back." |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Clauses:
+  Features:
+    x-Clausetype: [x-main, x-subordinate, x-int-yes-no, x-int-wh, x-excl]
+    x-Word-order: [x-V2, x-Vfinal, x-V1]
+
+  Negation:
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
+    examples: 
+      - "Kommt er heute nicht?"
+      - "Heute kommt er nicht nach Hause."
+      - "Warum kommt er heute nicht nach Hause?"
+      - "Er kommt heute nicht, weil er nicht kommen will."
+
+  Rules:
+    x-Clausetype_x-main__x-Word-order_x-V2:
+      applies: {x-Clausetype: x-main, x-Word-order: x-V2}
+      pattern: "... Vfin-2 ..."
+      examples: 
+        - "Heute geht er nach Hause."
+        - "Er geht heute nach Hause."
+      note: "Finite verb in second position; first slot (Vorfeld) can host subject, object, or adverbial."
+
+    x-Clausetype_x-subordinate__x-Word-order_x-Vfinal:
+      applies: {x-Clausetype: x-subordinate, x-Word-order: x-Vfinal}
+      pattern: "... Vfin-final"
+      examples: 
+        - "weil er nach Hause geht"
+      note: "Introduced by subordinating conjunction; finite verb placed at end."
+
+    x-Clausetype_x-int-yes-no__x-Word-order_x-V1:
+      applies: {x-Clausetype: x-int-yes-no, x-Word-order: x-V1}
+      pattern: "Vfin-1 + subject + ...?"
+      examples: 
+        - "Geht er nach Hause?"
+      note: "Yes/no questions: finite verb in initial position."
+
+    x-Clausetype_x-int-wh__x-Word-order_x-V2:
+      applies: {x-Clausetype: x-int-wh, x-Word-order: x-V2}
+      pattern: "Wh-word + Vfin-2 + subject + …?"
+      examples: 
+        - "Wohin geht er?"
+      note: "Wh-questions: wh-element initial, finite verb in second position."
+
+    x-Clausetype_x-excl__x-Word-order_x-V1:
+      applies: {x-Clausetype: x-excl, x-Word-order: x-V1}
+      pattern: "Vfin-1 + subject + ...!"
+      examples:
+        - "Habe ich dir doch gesagt!"
+        - "Geh hinaus!"
+      note: "Imperatives are verb-initial, and so are the remaining exclamative main clauses: finite verb in initial position; express emphasis, surprise, or narrative style."
+
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

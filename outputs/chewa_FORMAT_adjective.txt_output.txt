@@ -1,0 +1,15 @@
+Adjective:
+  Features:
+    u-Number: [u-sg, u-pl]
+
+  Rules:
+    u-DoublePrefix_u-prefix:
+      applies: { "x-DoublePrefix": "true" }
+      pattern: "_Possessive + Number + stem"
+      examples:
+        - "mwaná wáḿkúlu"
+        - "aná áákúlu"
+        - "mwaná wámwámúna"
+        - "aná áámúna"
+        - "mwaná wáḿkázi"
+        - "aná áákázi"

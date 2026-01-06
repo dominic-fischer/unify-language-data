@@ -1,0 +1,305 @@
+SYSTEM PROMPT:
+You are an expert in the french language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language french.
+
+The data you receive comes from multiple sources and relates to the following topics:
+subjunctive, conjunctive, mood, verb.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or fr-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "french-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("french-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Verbs in French are conjugated to reflect the following information:
+
+a mood (indicative, imperative, subjunctive, or conditional)
+a tense (past, present, or future, though not all tenses can be combined with all moods)
+an aspect (perfective or imperfective)
+a voice (active, passive, or reflexive)
+Nonfinite forms (e.g., participles, gerunds, infinitives)
+Some of these features are combined into seven tense–aspect–mood combinations. The simple (one-word) forms are commonly referred to as the present, the simple past or preterite (past tense, perfective aspect), the imperfect (past tense, imperfective aspect), the future, the conditional, the present subjunctive, and the imperfect subjunctive. However, the simple past is rarely used in informal French, and the imperfect subjunctive is rarely used in modern French.
+Verbs in the finite moods (indicative, imperative, subjunctive, and conditional) are also conjugated to agree with their subjects in person (first, second, or third) and number (singular or plural). As in English, the subject must be included (except in the imperative mood); in other words, unlike other Romance languages, French is neither a null-subject nor a pro-drop language.
+Auxiliary verbs are combined with past participles of main verbs to produce compound tenses, including the compound past (passé composé). For most main verbs the auxiliary is (the appropriate form of) avoir ("to have"), but for reflexive verbs and certain intransitive verbs the auxiliary is a form of être ("to be"). The participle agrees with the subject when the auxiliary is être, and with a preceding direct object (if any) when the auxiliary is avoir. Forms of être are also used with the past participles of transitive verbs to form the passive voice.
+The imperative mood, which only has first-person plural and second-person singular and plural forms, usually has forms similar or identical to the corresponding ones in the present indicative.
+
+Finally, yes/no questions may be formed by inverting the verb and the subject. This sentence structure is typically used in formal and written French. These questions may be formed in one of two ways, depending on whether the pronoun is stressed or unstressed. If the pronoun is unstressed, it changes places with the verb that it agrees with.
+
+Es-tu content ? (Are you happy?)
+This subject-verb inversion is similar to question formation in English, though in English the inversion may only occur with auxiliary verbs, while in French it may occur with all verbs.
+If the subject is anything other than an unstressed pronoun, an unstressed subject pronoun that agrees with the subject is added to the right of the verb.
+
+Pierre est-il content ? (Is Pierre happy?)
+Two additional notes on subject verb inversion in French. First, when the inversion results in the adjacency of two vowels ⟨t⟩ is inserted between them.
+
+T-insertion: A-t-il 17 ans ? (Is he 17?)
+Secondly, only the most formal French inverts the verb with 'je'. It has become more common, both in spoken and written French, to replace je with est-ce-que. For example, the following two sentences are ungrammatical in French.
+
+*Mens-je ? (Am I lying?)
+*Prends-je le bus ? (Am I taking the bus?)
+
+Finally, information questions in French may be formed by following the steps outlined above in one and two and additionally, inverting the subject and verb. This is typically the most formal form of question formation and is found in written and formal spoken French. As in yes/no question formation, if the subject is an unstressed pronoun, it switches places with the verb:
+
+Qui avez-vous vu ? (Who did you see?)
+If the subject is anything other than an unstressed pronoun, an unstressed subject pronoun is added after the verb.
+
+Qui Robert a-t-il rencontré ? (Who did Robert meet?)
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Subjunctive:
+  Features:
+    de-Tense-type: [de-subj-I, de-subj-II]
+    u-Tense: [u-prs, u-pst, u-fut]
+
+  Negation:
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
+    examples:
+    - "Ich persönlich würde das nicht jeden Tag tun."
+
+  Usage:
+    de-subj-I:
+      applies: {u-Evidentiality: u-quot}
+      examples:
+        - "u-quot: Er sagte, er sei krank."
+        - "u-quot: Die Zeitung berichtet, die Preise stiegen weiter."
+      note: "Subjunctive I (Konjunktiv I) is primarily used for indirect/reported speech, especially in formal registers (newspapers, academic writing). It marks distancing of the speaker from the truth of the proposition."
+
+    de-subj-II:
+      applies: {u-Mood: u-irr, u-Politeness: u-pol}
+      examples:
+        - "u-irr: Wenn ich Zeit hätte, käme ich vorbei."
+        - "u-irr: An deiner Stelle würde ich das nicht tun."
+        - "u-pol: Ich hätte gern einen Kaffee."
+        - "u-pol: Könnten Sie mir bitte helfen?"
+      note: "Subjunctive II (Konjunktiv II) expresses counterfactuality, unreality, or politeness. In modern usage, synthetic forms survive mostly in a few verbs (sein, haben, modals), while the würde + infinitive construction dominates otherwise."
+
+  Rules:
+    de-Tense-type_de-subj-I__u-Tense_u-prs:
+      applies: {de-Tense-type: de-subj-I, u-Tense: u-prs}
+      pattern: "_present stem_ + _endings_"
+      endings:
+      - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}       # ich habe
+      - {features: {u-Person: u-2, u-Number: u-sg}, form: "est"}     # du habest
+      - {features: {u-Person: u-3, u-Number: u-sg}, form: "e"}       # er habe
+      - {features: {u-Person: u-1, u-Number: u-pl}, form: "en"}      # wir haben
+      - {features: {u-Person: u-2, u-Number: u-pl}, form: "et"}      # ihr habet
+      - {features: {u-Person: u-3, u-Number: u-pl}, form: "en"}      # sie haben
+      examples:
+      - "Er sagte, er ginge bald."
+
+    de-Tense-type_de-subj-I__u-Tense_u-pst:
+      applies: {de-Tense-type: de-subj-I, u-Tense: u-pst}
+      pattern: "haben/sein in Subjunctive I + past participle"
+      examples:
+      - "Er hat gesagt, er sei gegangen."
+
+    de-Tense-type_de-subj-I__u-Tense_u-fut:
+      applies: {de-Tense-type: de-subj-I, u-Tense: u-fut}
+      pattern: "werden in Subjunctive I + infinitive"
+      examples:
+      - "Er sagte, er werde gehen."
+
+    de-Tense-type_de-subj-II__u-Tense_u-prs:
+      applies: {de-Tense-type: de-subj-II, u-Tense: u-prs}
+      patterns:
+      - pattern: "_preterite stem (ablaut/umlaut)_ + _endings_"
+        endings:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}        # ich ginge
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "est"}      # du gingest
+        - {features: {u-Person: u-3, u-Number: u-sg}, form: "e"}        # er ginge
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "en"}       # wir gingen
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "et"}       # ihr ginget
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "en"}       # sie gingen
+        examples:
+        - "ich ginge"
+      - pattern: "würde (Konjunktiv II) + infinitive"
+        examples:
+        - "ich würde gehen"
+        note: "dominant form for most verbs in modern usage"
+
+    de-Tense-type_de-subj-II__u-Tense_u-pst:
+      applies: {de-Tense-type: de-subj-II, u-Tense: u-pst}
+      pattern: "hätte/wäre (Konjunktiv II) + past participle"
+      examples:
+      - "ich hätte gesagt, ich wäre gegangen"
+      note: "used for counterfactuals about the past"
+
+    de-Tense-type_de-subj-II__u-Tense_u-fut:
+      applies: {de-Tense-type: de-subj-II, u-Tense: u-fut}
+      pattern: "würde (Konjunktiv II) + past participle + haben/sein infinitive"
+      examples:
+      - "ich würde gegangen sein"
+      note: "rare; equivalent to Future II under subjunctive"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

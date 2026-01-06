@@ -1,0 +1,329 @@
+SYSTEM PROMPT:
+You are an expert in the italian language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language italian.
+
+The data you receive comes from multiple sources and relates to the following topics:
+conditional, mood, verb.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or it-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "italian-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("italian-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+## Verbs > ### Regular conjugation > #### Conditional mood > ##### Table 30
+
+<pre>```
+| Unnamed: 0_level_0 + Unnamed: 0_level_1   | Present + 1st Conj.                                  | Present + 2nd Conj.                                  | Present + 3rd Conj.                                  |
+|:------------------------------------------|:-----------------------------------------------------|:-----------------------------------------------------|:-----------------------------------------------------|
+| io                                        | parlerei                                             | temerei                                              | partirei                                             |
+| tu                                        | parleresti                                           | temeresti                                            | partiresti                                           |
+| egli, ella, esso/essa                     | parlerebbe                                           | temerebbe                                            | partirebbe                                           |
+| noi                                       | parleremmo                                           | temeremmo                                            | partiremmo                                           |
+| voi                                       | parlereste                                           | temereste                                            | partireste                                           |
+| essi/esse                                 | parlerebbero                                         | temerebbero                                          | partirebbero                                         |
+| nan                                       | Past = conditional of avere/essere + past participle | Past = conditional of avere/essere + past participle | Past = conditional of avere/essere + past participle |
+```</pre>
+
+
+As the table shows, verbs each take their own root from their class of verb: -are becomes -er-, -ere becomes -er-, and -ire becomes -ir-, the same roots as used in the future indicative tense. All verbs add the same ending to this root.
+Some verbs do not follow this pattern, but take irregular roots, these include:
+Andare ('to go') ~ Andr-, Avere ('to have') ~ Avr-, Bere ('to drink') ~ Berr-,
+Dare ('to give') ~ Dar-, Dovere ('to have to') ~ Dovr-, Essere ('to be') ~ Sar-,
+Fare ('to make/do') ~ Far-, Godere ('to enjoy') ~ Godr-, Potere ('to be able to') ~ Potr-,
+Rimanere ('to remain') ~ Rimarr-, Sapere ('to know') ~ Sapr-, Sedere ('to sit') ~ Sedr-,
+Stare ('to be/feel') ~ Star-, Tenere ('to hold') ~ Terr-, Vedere ('to see') ~ Vedr-,
+Venire ('to come') ~ Verr-, Vivere ('to live') ~ Vivr-, Volere ('to want') ~ Vorr- etc.
+The Italian conditional mood is a mood that refers to an action that is possible or probable, but is dependent upon a condition. Example:
+
+## Verbs > ### Regular conjugation > #### Conditional mood > ##### Table 31
+
+<pre>```
+| 0                                           | 1                                                |
+|:--------------------------------------------|:-------------------------------------------------|
+| Io andrei in spiaggia, ma fa troppo freddo. | ("I would go to the beach, but it is too cold.") |
+```</pre>
+
+
+It can be used in two tenses, the present, by conjugation of the appropriate verb, or the past, using the auxiliary conjugated in the conditional, with the past participle of the appropriate noun:
+
+## Verbs > ### Regular conjugation > #### Conditional mood > ##### Table 32
+
+<pre>```
+| 0                                                                                 | 1                                                                       |
+|:----------------------------------------------------------------------------------|:------------------------------------------------------------------------|
+| Mangerei un sacco adesso, se non stessi cercando di fare colpo su queste ragazze. | ("I would eat a lot now, if I were not trying to impress these girls.") |
+| Sarei andato in città, se avessi saputo che ci andavano loro.                     | ("I would have gone to the city, if I had known that they were going.") |
+```</pre>
+
+
+Many Italian speakers often use the imperfect instead of the conditional and subjunctive. Prescriptivists usually view this as incorrect, but it is frequent in colloquial speech and tolerated in all but high registers and in most writing:
+
+## Verbs > ### Regular conjugation > #### Conditional mood > ##### Table 33
+
+<pre>```
+| 0                                                                                    | 1                                                                                   |
+|:-------------------------------------------------------------------------------------|:------------------------------------------------------------------------------------|
+| Se lo sapevo, andavo in spiaggia                                                     | ("If I had known it, I would have gone to the beach.")                              |
+| Se Lucia non faceva quel segno, la risposta sarebbe probabilmente stata diversa.[25] | ("If Lucia had not made that sign, the answer would probably have been different.") |
+```</pre>
+
+
+The conditional can also be used in Italian to express "could", with the conjugated forms of potere ('to be able to'), "should", with the conjugated forms of dovere ('to have to'), or "would like", with the conjugated forms of volere ('want'):
+
+## Verbs > ### Regular conjugation > #### Conditional mood > ##### Table 34
+
+<pre>```
+| 0                                        | 1                                          |
+|:-----------------------------------------|:-------------------------------------------|
+| [Lui] potrebbe leggere un libro.         | ("He could read a book.")                  |
+| [Loro] dovrebbero andare a letto.        | ("They should go to bed.")                 |
+| Vorrei un bicchiere d'acqua, per favore. | ("I would like a glass of water, please.") |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Conditionals:
+  Features:
+    u-Tense: [u-prs, u-pst, u-fut]
+    u-Mood: [u-irr, u-real]
+    x-Clausetype: [x-protasis, x-apodosis]
+  Negation:
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
+    examples:
+    - "Auch wenn er nicht bald kommen sollte, gehen wir nicht ohne ihn."
+  Rules:
+    u-Tense_u-fut__x-Clausetype_x-protasis:
+      applies: {u-Tense: u-fut, x-Clausetype: x-protasis}
+      pattern: "{de-praesens}"
+      examples:
+      - "Wenn er kommt, ..."
+
+    u-Tense_u-fut__x-Clausetype_x-apodosis:
+      applies: {u-Tense: u-fut, x-Clausetype: x-apodosis}
+      pattern: "{de-futur-I}"
+      examples:
+      - "..., werden wir gehen."
+
+    u-Mood_u-real__u-Tense_u-prs__x-Clausetype_x-protasis:
+      applies: {u-Tense: u-prs, x-Clausetype: x-protasis, u-Mood: u-real}
+      pattern: "{de-praesens}"
+      examples:
+      - "wenn er kommt, ..."
+
+    u-Mood_u-real__u-Tense_u-prs__x-Clausetype_x-apodosis:
+      applies: {u-Tense: u-prs, x-Clausetype: x-apodosis, u-Mood: u-real}
+      pattern: "{de-praesens}/{de-futur-I}"
+      examples:
+      - "..., gehen wir."
+
+
+    u-Mood_u-irr__u-Tense_u-prs__x-Clausetype_x-protasis:
+      applies: {u-Tense: u-prs, x-Clausetype: x-protasis, u-Mood: u-irr}
+      patterns:
+      - pattern: "{de-konjunktiv-II} present (synthetic)"
+        examples:
+        - "Wenn er käme, ..."
+      - pattern: "{de-konjunktiv-II} present (periphrastic)"
+        examples:
+        - "Wenn er kommen würde, ..."
+        note: "dominant in modern usage"
+
+    u-Mood_u-irr__u-Tense_u-prs__x-Clausetype_x-apodosis:
+      applies: {u-Tense: u-prs, x-Clausetype: x-apodosis, u-Mood: u-irr}
+      patterns:
+      - pattern: "{de-konjunktiv-II} present (synthetic)"
+        examples:
+        - "..., gingen wir."
+        note: "less common in modern usage, survives with sein/haben/modals"
+      - pattern: "{de-konjunktiv-II} present (periphrastic)"
+        examples:
+        - "..., würden wir gehen."
+        note: "dominant in modern usage"
+
+
+    u-Mood_u-irr__u-Tense_u-pst__x-Clausetype_x-protasis:
+      applies: {u-Tense: u-pst, x-Clausetype: x-protasis, u-Mood: u-irr}
+      pattern: "{de-konjunktiv-II} past"
+      examples:
+      - "wenn er gegangen wäre, ..."
+
+    u-Mood_u-irr__u-Tense_u-pst__x-Clausetype_x-apodosis:
+      applies: {u-Tense: u-pst, x-Clausetype: x-apodosis, u-Mood: u-irr}
+      pattern: "{de-konjunktiv-II} past"
+      examples:
+      - "..., hätten wir gewonnen."
+
+    
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

@@ -1,0 +1,342 @@
+SYSTEM PROMPT:
+You are an expert in the swahili language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language swahili.
+
+The data you receive comes from multiple sources and relates to the following topics:
+imperative, mood, verb.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or sw-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "swahili-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("swahili-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+## Das Verb > ### Wünsche, Aufforderungen, Befehle > #### Imperativ > ##### Table 70
+
+<pre>```
+| 0                  | 1                        | 2                        |
+|:-------------------|:-------------------------|:-------------------------|
+|                    | Positiv                  | Negativ                  |
+| Imperativ Singular | Stamm / OBJ – Stamm -e   | SUBJ – si – Stamm -e     |
+|                    | Angalia! / Ni – angalie! | U – si –( ni –) angalie! |
+|                    |                          | M – si –( ni –) angalie! |
+|                    |                          | Ni – si – ende           |
+| Imperativ Plural   | Stamm -e – ni            | SUBJ – si – Stamm -e     |
+|                    | Angalieni!               | U – si –( ni –) angalie! |
+|                    |                          | M – si –( ni –) angalie! |
+|                    |                          | Ni – si – ende           |
+| Subjunktiv         | SUBJ – Stamm -e          | SUBJ – si – Stamm -e     |
+|                    | Ni – ende                | U – si –( ni –) angalie! |
+|                    |                          | M – si –( ni –) angalie! |
+|                    |                          | Ni – si – ende           |
+```</pre>
+
+
+Beachte:
+
+Die Änderung auf -e im Plural wird nur bei Verbstämmen auf -a angewandt.
+
+Der Imperativ besitzt keine eigene Verneinung und nutzt die des Subjunktivs
+
+Bei kurzen Verben wird anstelle des Verbstamms der ganze Infinitiv genutzt.
+
+## Das Verb > ### Wünsche, Aufforderungen, Befehle > #### Imperativ > ##### Table 71
+
+<pre>```
+| 0                 | 1              |
+|:------------------|:---------------|
+| Kunywa! Kunyweni! | Trink! Trinkt! |
+```</pre>
+
+## Das Verb > ### Wünsche, Aufforderungen, Befehle > #### Imperativ > ##### Unregelmässige Formen > ###### Table 72
+
+<pre>```
+| 0      | 1       | 2               | 3         |
+|:-------|:--------|:----------------|:----------|
+| kuja   | kommen  | njoo!/njooni!   | komm(t)!  |
+| kwenda | gehen   | nenda!/nendeni! | geh(t)!   |
+| kuleta | bringen | lete!/leteni!   | bring(t)! |
+```</pre>
+
+
+Reflexive Verben, also solche mit der Objektsilbe «-ji-», enden im Imperativ Singular auf -e.
+
+## Das Verb > ### Wünsche, Aufforderungen, Befehle > #### Imperativ > ##### Unregelmässige Formen > ###### Table 73
+
+<pre>```
+| 0       | 1      | 2                   | 3        |
+|:--------|:-------|:--------------------|:---------|
+| jifunza | lernen | jifunze!/jifunzeni! | lern(t)! |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+The imperative mood is used to issue direct commands. It can occur either alone or with an object prefix. The presence of an object prefix (including the reflexive ji-) causes the final -a of Bantu verbs to become -e. Note that the ji- prefix of reflexive verbs is an object prefix, meaning, for example, that the imperative of -jifunza "to learn" is jifunze "learn!" and not *jifunza.
+
+## Verbs > ### Tenses, aspects and moods > #### Imperative > ##### Table 25: Formation of the imperative
+
+<pre>```
+| Unnamed: 0   | Common verbs   | Short verbs   | Loan verb   |
+|:-------------|:---------------|:--------------|:------------|
+| Singular     | ___a           | ku___a        | ___         |
+| Singular     | [OBJ]___e      | [OBJ]___e     | [OBJ]___    |
+| Plural       | ___eni         | ku___eni      | ___ni       |
+| Plural       | [OBJ]___eni    | [OBJ]___eni   | [OBJ]___ni  |
+```</pre>
+
+
+The plural form, with the suffix -ni, is used when addressing multiple people.
+The following verbs have irregular imperatives, regular forms may be heard, particularly by non-native speakers and particularly in Kenya, and regular forms may be interpreted as less polite:
+
+kuja "to come": njoo (pl. njooni)
+kwenda "to go" : nenda (pl. nendeni)
+kuleta "to bring": lete (pl. leteni)
+The verb -acha may informally be given the imperative form wacha (pl. wacheni).
+Additionally, the verb kuwa "to be" has an irregular imperative form: iwe (pl. iweni), although this is rarely used and more frequently replaced by a regular imperative form kuwa (pl. kuweni) or used in the subjunctive ("polite imperative") form: uwe (pl. mwe).
+
+## Verbs > ### Tenses, aspects and moods > #### Imperative > ##### Table 26: Examples (singular then plural)
+
+<pre>```
+| Verb     | Alone                       | With object                             |
+|:---------|:----------------------------|:----------------------------------------|
+| -nywa    | Kunywa! Kunyweni! "Drink!"  | Yanywe! Yanyweni! "Drink it!" (class 6) |
+| -angalia | Angalia! Angalieni! "Look!" | Mwangalie! Mwangalieni! "Look at her!"  |
+| -saidia  | Saidia! Saidieni! "Help!"   | Nisaidie! Nisaidieni! "Help me!"        |
+| -jibu    | Jibu! Jibuni! "Answer!"     | Nijibu! Nijibuni! "Answer me!"          |
+| -jifunza | nan                         | Jifunze! Jifunzeni! "Learn!"            |
+```</pre>
+
+
+There is no actual negative imperative form. The equivalent is achieved with the negative subjunctive (as in Spanish). The formation of this is outlined below, but for the sake of completeness the negative equivalents of the above examples are given here.
+
+## Verbs > ### Tenses, aspects and moods > #### Imperative > ##### Table 27: Examples (singular then plural)
+
+<pre>```
+| Verb     | Alone                                 | With object                                       |
+|:---------|:--------------------------------------|:--------------------------------------------------|
+| -nywa    | Usinywe! Msinywe! "Don't drink!"      | Usiyanywe! Msiyanywe! "Don't drink it!" (class 6) |
+| -angalia | Usiangalie! Msiangalie! "Don't look!" | Usimwangalie! Msimwangalie! "Don't look at her!"  |
+| -saidia  | Usisaidie! Msisaidie! "Don't help!"   | Usinisaidie! Msinisaidie! "Don't help me!"        |
+| -jibu    | Usijibu! Msijibu! "Don't answer!"     | Usinijibu! Msinijibu! "Don't answer me!"          |
+| -jifunza | nan                                   | Usijifunze! Msijifunze! "Don't learn!"            |
+```</pre>
+
+
+The suffix -ni is used when the order is addressed to each of the people. When an order is given to any of the addressed persons the subjunctive mood is used.
+For instance when a load is meant to be carried, if it is heavy and all the people should help, Bebeni mzigo. When anyone could help carrying on their own Mbebe mzigo. When introducing people in a waiting room, Mkae hapa implies that all the people will be called together. Kaeni hapa implies that anyone could sit and they will be called one by one. The suffix -ni is thus the locative suffix which specifies that the order is given to everyone, distinctly in the time-space.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Imperative:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Number: [u-sg, u-pl]
+
+  Negation:
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
+    examples: 
+    - "Geh doch nicht dahin!"
+
+  Rules:
+    u-Number_u-sg__u-Person_u-2:
+      applies: {u-Number: u-sg, u-Person: u-2}
+      pattern: "_stem_ + (optionally -e)"
+      examples: 
+      - "geh!"
+      - "mache!"
+      note: "direct imperative singular; -e ending optional in 2sg, often dropped in colloquial usage"
+
+    u-Number_u-pl__u-Person_u-1:
+      applies: {u-Number: u-pl, u-Person: u-1}
+      pattern: "_stem_ + en + wir"
+      examples: 
+      - "gehen wir!"
+      note: "inclusive 'let's…' construction"
+
+    u-Number_u-pl__u-Person_u-2:
+      applies: {u-Number: u-pl, u-Person: u-2}
+      pattern: "_stem_ + t"
+      examples: 
+      - "geht!"
+      - "macht!"
+      note: "direct imperative plural"
+
+    u-Number_u-pl__u-Person_u-3:
+      applies: {u-Number: u-pl, u-Person: u-3}
+      pattern: "infinitive + Sie!"
+      examples: 
+      - "gehen Sie!"
+      note: "polite form, direct imperative singular"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

@@ -1,0 +1,444 @@
+SYSTEM PROMPT:
+You are an expert in the italian language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language italian.
+
+The data you receive comes from multiple sources and relates to the following topics:
+pronoun.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or it-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "italian-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("italian-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Italian features a sizeable set of pronouns. Personal pronouns are inflected for person, number, case, and, in the third person, gender. Literary subject pronouns also have a distinction between animate (egli, ella) and inanimate (esso, essa) antecedents, although this is lost in colloquial usage, where lui, lei, and loro are the most used forms for animate subjects, while no specific pronoun is employed for inanimate subjects (if needed, demonstrative pronouns such as questo or quello may be used). There is also the uninflected pronoun ciò, which is only used with abstract antecedents.
+Personal pronouns are normally omitted in the subject, as the conjugation is usually enough to determine the grammatical person. They are used when some emphasis is needed, e.g. sono italiano ('I am Italian') vs. io sono italiano ('I [specifically, as opposed to others] am Italian').
+The words ci, vi and ne act both as personal pronouns (respectively instrumental and genitive case) and clitic pro-forms for "there" (ci and vi, with identical meaning—as in c'è, ci sono, v'è, vi sono, ci vengo, etc.) and "from there" (ne—as in: è entrato in casa alle 10:00 e ne è uscito alle 11:00).
+
+## Pronouns > ### Table 15: Personal pronouns
+
+<pre>```
+| 0   | 1   | 2     | 3                                  | 4              | 5                   | 6                    | 7                  | 8                 | 9                 | 10               | 11                   | 12                 | 13                    |
+|:----|:----|:------|:-----------------------------------|:---------------|:--------------------|:---------------------|:-------------------|:------------------|:------------------|:-----------------|:---------------------|:-------------------|:----------------------|
+| nan | nan | nan   | Nominative                         | Genitive       | Genitive            | Dative               | Dative             | Dative            | Accusative        | Accusative       | Instrumental         | Instrumental       | Instrumental          |
+| nan | nan | nan   | Nominative                         | Clitic form[a] | Stressed form       | Clitic form I.[a][b] | Clitic form II.[c] | Stressed form     | Clitic form[a][d] | Stressed form[e] | Clitic form I.[a][f] | Clitic form II.[g] | Stressed form         |
+| sg. | 1st | 1st   | io                                 | —              | di me               | mi                   | me                 | a me              | mi                | me               | —                    | —                  | con me                |
+| sg. | 2nd | 2nd   | tu[h]                              | —              | di te               | ti                   | te                 | a te              | ti                | te               | —                    | —                  | con te                |
+| sg. | 3rd | m.    | egli, esso,[i] lui[j]              | ne             | di lui, di esso     | gli                  | glie-[k]           | a lui, a esso     | lo                | lui, esso        | ci                   | ce                 | con lui, con esso     |
+| sg. | 3rd | f.    | ella,[l] essa,[i] lei[j][l]        | ne             | di lei, di essa     | le                   | glie-[k]           | a lei, a essa     | la                | lei, essa        | ci                   | ce                 | con lei, con essa     |
+| sg. | 3rd | refl. | —                                  | ne             | di sé               | si                   | se                 | a sé              | si                | sé               | ci                   | ce                 | con sé                |
+| pl. | 1st | 1st   | noi                                | —              | di noi              | ci                   | ce                 | a noi             | ci                | noi              | —                    | —                  | con noi               |
+| pl. | 2nd | 2nd   | voi[h]                             | —              | di voi              | vi                   | ve                 | a voi             | vi                | voi              | —                    | —                  | con voi               |
+| pl. | 3rd | m.    | elli,[m] essi,[i][l] loro[j]       | ne             | di loro, di essi[n] | loro[o][p]           | loro[o][p]         | a loro, a essi[n] | li                | loro, essi[n]    | ci                   | ce                 | con loro, con essi[n] |
+| pl. | 3rd | f.    | elle,[m][l] esse,[i][l] loro[j][l] | ne             | di loro, di esse[n] | loro[o][p]           | loro[o][p]         | a loro, a esse[n] | le                | loro, esse[n]    | ci                   | ce                 | con loro, con esse[n] |
+| pl. | 3rd | refl. | —                                  | ne             | di sé               | si                   | se                 | a sé              | si                | sé               | ci                   | ce                 | con sé                |
+```</pre>
+
+
+## Pronouns > ### Table 16: Possessive pronouns
+
+<pre>```
+| 0   | 1   | 2         | 3        | 4         | 5        |
+|:----|:----|:----------|:---------|:----------|:---------|
+| nan | nan | Singular  | Singular | Plural    | Plural   |
+| nan | nan | Masculine | Feminine | Masculine | Feminine |
+| sg. | 1st | mio       | mia      | miei      | mie      |
+| sg. | 2nd | tuo       | tua      | tuoi      | tue      |
+| sg. | 3rd | suo       | sua      | suoi      | sue      |
+| pl. | 1st | nostro    | nostra   | nostri    | nostre   |
+| pl. | 2nd | vostro    | vostra   | vostri    | vostre   |
+| pl. | 3rd | loro      | loro     | loro      | loro     |
+```</pre>
+
+
+## Pronouns > ### Table 17: Relative pronouns[q]
+
+<pre>```
+| 0       | 1                      | 2              | 3             | 4              | 5             | 6             |
+|:--------|:-----------------------|:---------------|:--------------|:---------------|:--------------|:--------------|
+| nan     | Nominative/ Accusative | Genitive       | Genitive      | Dative         | Dative        | Instrumental  |
+| nan     | Clitic form[r]         | Clitic form[r] | Stressed form | Clitic form[r] | Stressed form | Stressed form |
+| sg./pl. | che                    | cui[s][t]      | di cui        | cui[u][t]      | a cui         | con cui       |
+```</pre>
+
+
+## Pronouns > ### Table 18: Local casepro-forms
+
+<pre>```
+| Locative, Lative[v] + Clitic form I.[a]   | Locative, Lative[v] + Clitic form II.   | Locative, Lative[v] + Stressed form   | Ablative[w] + Clitic form[a]   | Ablative[w] + Stressed form   |
+|:------------------------------------------|:----------------------------------------|:--------------------------------------|:-------------------------------|:------------------------------|
+| ci, vi                                    | ce, ve                                  | qui, qua / lì, là                     | ne                             | da qui, da qua / da lì, da là |
+```</pre>
+
+
+Notes:
+
+Although objects come after the verb as a rule, this is often not the case with a class of unstressed clitic pro-forms.
+Clitic pronouns are replaced with the stressed form for emphatic reasons. A somewhat similar situation is represented by the dative shift in English ditransitive verbs. Compare, for example, (emphasis in italic) "John gave a book to her" with "John gave her a book". In Italian these two different emphases map respectively to "John diede un libro a lei" (stressed form) and "John le diede un libro" (clitic form). Compared to English, Italian presents a richer set of cases.
+Clitic pronouns generally come before the verb, but in certain types of constructions, such as lo devo fare, they can also appear as enclitics (attached to the verb itself)—in this case, devo farlo. In the infinitive, gerund and, except with third-person courtesy forms, imperative moods clitic pronouns must always be compound to the suffix as enclitics (as in confessalo! [2p. sg.]/confessiamolo! [1p. pl.]/confessatelo! [2p. pl.], ricordandolo and mangiarlo).
+
+## Pronouns > ### Clitic pronouns > #### Table 19: Examples of clitic pronouns
+
+<pre>```
+| 0            | 1                                                    | 2                                                            |
+|:-------------|:-----------------------------------------------------|:-------------------------------------------------------------|
+| nan          | Italian                                              | English                                                      |
+| Genitive     | Non vedo Francesca, ma ne vedo la bicicletta.        | I don't see Francesca, but I see her bike (the bike of her). |
+| Dative       | Gli parlai per un'ora intera.                        | I spoke to him for a whole hour.                             |
+| Accusative   | La vedo.                                             | I see her.                                                   |
+| Instrumental | Sì! Lo conosco! Una volta ci giocai a pallacanestro! | Yes! I know him! Long ago I played basketball with him!      |
+```</pre>
+
+
+Other examples:
+
+## Pronouns > ### Clitic pronouns > #### Table 20
+
+<pre>```
+| 0                                                | 1                                    | 2                                              |
+|:-------------------------------------------------|:-------------------------------------|:-----------------------------------------------|
+| accusative                                       | Davide la lascia in ufficio.         | (David leaves it in the office.)               |
+| dative + accusative + nominative                 | Davide me la lascia.                 | (David leaves me it.)                          |
+| dative + accusative + nominative                 | Davide te ne lascia una.             | (David leaves (to) you one of them.)           |
+| accusative + nominative + dative                 | Davide la lascia a me.               | (David leaves it to me.)                       |
+| accusative + nominative + dative                 | Davide ne lascia una a te.           | (David leaves one of them (to) you.)           |
+| (subjunctive +) infinitive + dative + accusative | Davide potrebbe lasciargliene una.   | (David might leave one of them to him/her/it.) |
+| dative + accusative + subjunctive (+ infinitive) | Davide gliene potrebbe lasciare una. | (David might leave one of them to him/her/it.) |
+```</pre>
+
+
+(Compare with the similar use of objective pronouns and pro-forms in French and Catalan.)
+Finally, in the imperative mood, the objective pronouns come once again after the verb, but this time as a suffix:
+
+## Pronouns > ### Clitic pronouns > #### Table 21
+
+<pre>```
+| 0                                         | 1                                       | 2                                                 |
+|:------------------------------------------|:----------------------------------------|:--------------------------------------------------|
+| imperative + accusative                   | "Lasciala in ufficio!"                  | ("Leave it in the office!")                       |
+| imperative + dative + accusative          | "Lasciamela!"                           | ("Leave it to me!"/"Leave me it!")                |
+| (conditional +) infinitive + dative       | "Davide potrebbe lasciarla in ufficio." | (David might leave it in the office.)             |
+| negative imperative + dative + accusative | "Non lasciargliela!"                    | ("Do not leave it to/for him/her/it/them!")       |
+| imperative + dative + accusative          | "Davide dovrebbe lasciargliela."        | ("David should leave it to/for him/her/it/them.") |
+```</pre>
+
+
+Stressed forms of all four non-subject cases are used when emphasized (e.g. uccidi me, non lui ("kill me, not him"), dallo a lei ("give it to her"), lo farò con lui ("I'll do it with that"), etc.).
+In colloquial speech, form I. of the dative (mi, ti, gli, le, si, ci, vi) is often associated with the emphasized form of the dative (a me, a te, a lui, a lei, a sé, a noi, a voi, a loro) in such a way: a me mi danno un libro ("they give me a book"), a loro gli hanno venduto una casa ("they sold them a house"). Although widely used, this redundant usage is considered non-standard.
+
+In Italian it is possible to append more than one clitic to a single verb. In normal usage, two is the usual limit, although clusters of three can occasionally arise for some speakers, especially with impersonal constructs (e.g. Ce la si sente = "One feels up to it", or Nessuno ha ancora visto l'ultimo film di Woody Allen, quindi ce lo si vede tutti insieme! = "Nobody has watched the last Woody Allen movie yet, so we have to watch it together!"). Any two cases can be used together, except for accusative + genitive, and word order is strictly determined according to one of the following two patterns:
+
+When third-person non-reflexive accusative or genitive clitics are used, form II. of the other clitic is used, which always precedes it. Thus:
+
+For example:
+
+Ve lo dico già da ora: io non verrò! = "I already told you [pl.] (said it to you): I'm not coming!" (dative + accusative)
+Ce li ha già dati = "He/she/you already gave them to us" (dative + accusative)
+Ecco l'uomo di cui mi innamorai! Te ne ho portato la foto! = "Here's the man I fell in love with! I brought you the picture (of him)!" (dative + genitive)
+Vedresti Carla con una gonna lunga e un cappello? – Sì, ce la vedrei = "Could you imagine Carla with a long skirt and a hat? – Yes, I could imagine her with that" (instrumental + accusative)
+Riuscirai a trasportare abbastanza mele con quel piccolo furgoncino? – Uomo di poca fede! Ce ne trasporterò quintali! = "Will you be able to transport enough apples with such a small van? – Man of little faith! I'll transport quintals of them (with it)!" (instrumental + genitive)
+
+
+## Pronouns > ### Clitic pronouns > #### Combinations of clitics > ##### Table 22
+
+<pre>```
+| 1                         | 2              | 3        |
+|:--------------------------|:---------------|:---------|
+| me, te, glie-, se, ce, ve | lo, la, li, le | ne si[a] |
+```</pre>
+
+## Pronouns > ### Clitic pronouns > #### Combinations of clitics > ##### Table 23
+
+<pre>```
+| 1   | 2       | 3   | 4   | 5   | 6     |
+|:----|:--------|:----|:----|:----|:------|
+| mi  | gli, le | vi  | ti  | ci  | si[a] |
+```</pre>
+
+Otherwise, form I. is used for both clitics:
+
+Thus:
+
+Mi ti mostro senza veli = "I'm showing myself without veils to you" (accusative + dative)
+Ti si fece incontro = "He/she approached you (moved himself/herself to you)" (dative + accusative)
+[G]li ti darò nelle mani, perché in pezzi ti faccia come tu meriti = "I will deliver you to him, so that he will tear you to pieces as you deserve" (dative + accusative)
+Marco ha vinto! Che farà con tutti quei soldi? – Ci si pagherà l'Università = "Marco won! What's he going to do with all that money? – He'll use it to pay for college (pay for college for himself with it)" (instrumental + dative)
+Metti via quella pistola! Ti ci ammazzi! = "Put away that pistol! You'll use it to kill yourself (kill yourself with it)!" (accusative + instrumental)
+
+Clitic forms (except cui) before  a verbal form beginning with a  vowel (except when they are compound to the suffix) can be apocopated; apocopations are more common before verbal forms è, ho, hai, ha, hanno, abbia, and abbiano of verbs essere and avere, than when they are before verbal forms of other verbs, which are more rare, also apocopations of che are rare, while apocopation of cui is avoided due to phonetic ambiguities with words such as qua (homophone to cu'ha).
+Apocopation is not mandatory.
+Ci is graphically apocopated only in front of "e" and "i" (as in c'è and c'inserisco), but the "i" is graphically kept in front of other vowels (as in mi ci addentro), although in all cases it is pronounced /t͡ʃ/ (without the "i"); similarly gli is graphically apocopated only in front of "i" (as in gl'impongo) but not in front of other vowels (gli è dato sapere), although in all cases the "i" is never pronounced. The apocopated form of che is always pronounced /k/, even when otherwise common phonetic rules switch their pronunciations.
+
+## Pronouns > ### Clitic pronouns > #### Apocopated forms > ##### Table 24: Examples of apocopated forms
+
+<pre>```
+| clitic form                 | è[a]    | ho[b]    | hai[c]    | ha[d]    | abbiamo[e]    | avete[f]    | hanno[g]    |
+|:----------------------------|:--------|:---------|:----------|:---------|:--------------|:------------|:------------|
+| mi                          | m'è     | m'ho[h]  | m'hai     | m'ha     | —             | m'avete     | m'hanno     |
+| ti                          | t'è     | t'ho     | t'hai[h]  | t'ha     | t'abbiamo     | —           | t'hanno     |
+| gli                         | gli è   | gli ho   | gli hai   | gli ha   | gli abbiamo   | gli avete   | gli hanno   |
+| gliela/gliele/glieli/glielo | gliel'è | gliel'ho | gliel'hai | gliel'ha | gliel'abbiamo | gliel'avete | gliel'hanno |
+| la/le/li/lo                 | l'è     | l'ho     | l'hai     | l'ha     | l'abbiamo     | l'avete     | l'hanno     |
+| si                          | s'è     | —        | —         | s'ha     | —             | —           | s'hanno     |
+| ci                          | c'è     | ci ho    | ci hai    | ci ha    | ci abbiamo    | ci avete    | ci hanno    |
+| vi                          | v'è     | v'ho     | v'hai     | v'ha     | v'abbiamo     | v'avete     | v'hanno     |
+| che                         | ch'è    | ch'ho    | ch'hai    | ch'ha    | ch'abbiamo    | ch'avete    | ch'hanno    |
+```</pre>
+
+Italian makes use of the T–V distinction in second-person address. The second-person nominative pronoun is tu for informal use, and for formal use, the third-person form Lei (and historically Ella) has been used since the Renaissance. It is used like Sie in German, usted in Spanish, and vous in French. Lei was originally an object form of ella, which in turn referred to an honorific of the feminine gender such as la magnificenza tua/vostra ('Your Magnificence') or Vossignoria ('Your Lordship'), and by analogy, Loro came to be used as the formal plural. Previously, and in some Italian regions today (e.g. Campania), voi was used as the formal singular, like French vous. The pronouns lei (third-person singular), Lei (formal second-person singular), loro (third-person plural), and Loro (formal second-person plural) are pronounced the same but written as shown, and formal Lei and Loro take third-person conjugations. Formal Lei is invariable for gender (always feminine), but adjectives that modify it are not: one would say to a man La conosco ('I know you') but Lei è alto ('You are tall'). Formal Loro is variable for gender: Li conosco ('I know you [masc. pl.]') vs. Le conosco ('I know you [fem. pl.]'), etc. The formal plural is very rarely used in modern Italian; the unmarked form is widely used instead. For example: Gino, Lei è un bravo ingegnere. Marco, Lei è un bravo architetto. Insieme, voi sarete una gran bella squadra. ("Gino, you are a good engineer. Marco, you are a good architect. Together, you will make a very good team.").
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Pronoun:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+    u-Deixis: [u-prox, u-remt]
+    x-Pronoun-type: [x-pers, x-refl, x-dem, x-poss, x-int, x-rel]
+    x-Form-type: [x-standalone, x-clitic]
+
+  Rules:
+    x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers}
+      forms:
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-nom}, form: "ich"}
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc}, form: "mich"}
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-dat}, form: "mir"}
+
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-nom}, form: "du"}
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-acc}, form: "dich"}
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-dat}, form: "dir"}
+
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-nom}, form: "er"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-acc}, form: "ihn"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-dat}, form: "ihm"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-nom}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-acc}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-dat}, form: "ihr"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-nom}, form: "es"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-acc}, form: "es"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-dat}, form: "ihm"}
+
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-nom}, form: "wir"}
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-acc}, form: "uns"}
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-dat}, form: "uns"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-nom}, form: "ihr"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-acc}, form: "euch"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-dat}, form: "euch"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-nom}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-acc}, form: "sie"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-dat}, form: "ihnen"}
+
+    x-Pronoun-type_x-refl:
+      applies: {x-Pronoun-type: x-refl}
+      pattern: "pronouns in accusative/dative case"
+      note: "only in acc/dat, used obligatorily with reflexive verbs"
+
+    x-Pronoun-type_x-dem:
+      applies: {x-Pronoun-type: x-dem}
+      forms:
+      - {features: {u-Deixis: u-prox}, pattern: "dies- + {def-determiner-endings}", note: "proximal demonstrative"}
+      - {features: {u-Deixis: u-remt}, pattern: "jen- + {def-determiner-endings}", note: "remote demonstrative"}
+
+    x-Pronoun-type_x-int:
+      applies: {x-Pronoun-type: x-int}
+      patterns:
+      - forms:
+        - {features: {u-Case: u-nom, u-Gender: u-masc}, form: "wer"}
+        - {features: {u-Case: u-nom, u-Gender: u-fem}, form: "wer"}
+        - {features: {u-Case: u-nom, u-Gender: u-neut}, form: "was"}
+        - {features: {u-Case: u-acc, u-Gender: u-masc}, form: "wen"}
+        - {features: {u-Case: u-acc, u-Gender: u-fem}, form: "wen"}
+        - {features: {u-Case: u-acc, u-Gender: u-neut}, form: "was"}
+        - {features: {u-Case: u-dat}, form: "wem"}
+        - {features: {u-Case: u-gen}, form: "wessen"}
+      - {pattern: "welch- + {def-determiner-endings}"}
+
+    x-Pronoun-type_x-rel:
+      applies: {x-Pronoun-type: x-rel}
+      patterns:
+      - {pattern: "{determiner} (exceptions in gen. sg.)", note: "gen. sg. m./n. dessen, f. deren"}
+      - {pattern: "welch- + {def-determiner-endings}", note: "archaic/literary; no genitive forms, replaced by dessen/deren"}
+    x-Form-type_x-standalone__x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss, x-Form-type: x-standalone}
+      pattern: "_stem_ + _bare-adj-endings_"
+      note: "the stems are: mein-, dein-, sein-, ihr-, unser-, euer-, Ihr-"
+
+    x-Form-type_x-clitic__x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss, x-Form-type: x-clitic}
+      pattern: "_stem_ + _indef-determiner-endings_"
+      note: "the stems are: mein-, dein-, sein-, ihr-, unser-, euer-, Ihr-"
+
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

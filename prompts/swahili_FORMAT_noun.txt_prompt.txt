@@ -1,0 +1,464 @@
+SYSTEM PROMPT:
+You are an expert in the swahili language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language swahili.
+
+The data you receive comes from multiple sources and relates to the following topics:
+noun.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or sw-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "swahili-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("swahili-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+Swahili nouns are grouped into noun classes based on the prefix they have, with each class having a prescribed number. For example, the nouns wasichana "girls" and wasimamizi "overseers" belong to class 2, characterised by the prefix wa-, whereas kifuniko "lid, cover" and kisukari "diabetes" belong to class 7, characterised by the prefix ki-. The classes 5, 9 and 10 are frequently without any prefix, such as gari a class-6 noun meaning "car" and chupa, meaning "bottle" in class 9 and "bottles" in class 10. The numbers are based on the classes reconstructed for Proto-Bantu, and have corresponding classes in the other Bantu languages which can be identified by the same system of numbers. Therefore, classes that are missing in Swahili create a gap in the numbering, as is the case with classes above 18 as well as classes 12 and 13, which are absent in standard Swahili (although do frequently occur in non-standard varieties). Tables in this article are labelled not only with the traditional numbering system for Bantu languages but also a simple label based on noun morphology in order to make the tables more accessible to learners, who are generally taught labels for classes such as "ki/vi" instead of "7/8".
+When discussing Swahili noun classes, it is important to distinguish between (1) morphological noun classes as a quality of the noun themselves indicated by morphological features (generally prefixes), and (2) syntactic noun classes as an agreement (i.e. concord) paradigm affecting the use of other words in the sentence. Here, "noun class" is used with the former meaning. Morphological and syntactic noun classes often diverge, especially when it comes to nouns referring to people and animals which do not belong to the morphological noun class 1/2, signalled by m-wa. For more information, see concord.
+The following noun classes exist:
+
+## Nouns > ### Noun classes > #### Table 2
+
+<pre>```
+|   Class | Class + Class.1   | Prefix before... + consonant   | Prefix before... + vowel   | Example                      | Typical meaning                                      |
+|--------:|:------------------|:-------------------------------|:---------------------------|:-----------------------------|:-----------------------------------------------------|
+|       1 | m-                | m-[a]                          | mw-[a]                     | mtu "person"                 | Humans, animate / Singular                           |
+|       2 | wa-               | wa-                            | w(a)-[b]                   | watu "people"                | Humans, animate / Plural                             |
+|       3 | m-                | m-[a]                          | mw-[a]                     | mti "tree"                   | Plants, inanimate / Singular                         |
+|       4 | mi-               | mi-                            | my-                        | miti "trees"                 | Plants, inanimate / Plural                           |
+|       5 | ji-               | (ji-)[c]                       | (j-)[c]                    | jicho "eye"                  | Various / Singular                                   |
+|       6 | ma-               | ma-                            | ma-[d]                     | macho "eyes"                 | Various / Plural                                     |
+|       7 | ki-               | ki-                            | ch-/ki-[e]                 | kitabu "book"                | Various, diminutives, manner/way/language / Singular |
+|       8 | vi-               | vi-                            | vy-/vi-[e]                 | vitabu "books"               | Various, diminutives, manner/way/language / Plural   |
+|       9 | N-                | n-[f]                          | ny-                        | simba "lion"                 | Animals, inanimate / Singular                        |
+|      10 | N-                | n-[f]                          | ny-                        | simba "lions", funguo "keys" | Animals, inanimate / Plural                          |
+|      11 | u-                | u-                             | u-/uw-/w-[g]               | ufunguo "key"                | Things with an extended outline shape                |
+|      14 | u-                | u-                             | u-/uw-/w-[g]               | utu "humanity"               | Abstract nouns                                       |
+|      15 | ku-               | ku-                            | ku-/kw-[h]                 | kula "eating, consuming"     | Infinitives                                          |
+|      16 | -ni/pa-           | -[i]                           | -[i]                       | mahali "place"               | Locatives (proximal, exact)                          |
+|      17 | -ni/ku-           | -[i]                           | -[i]                       | mahali "place"               | Locatives (distal, approximate)                      |
+|      18 | -ni/m-            | -[i]                           | -[i]                       | mahali "place"               | Locatives (interior)                                 |
+```</pre>
+
+
+Every class up to 11 can be regarded as inherently singular or plural. Odd-numbered classes are singular, even-numbered classes are plural. The plural of a noun is normally formed by switching it to the next higher class. Thus, the plural of class 1 mtu "person" is class 2 watu "people". For class 11 nouns, the plural is in class 10. Class 14 usually has no plural at all, but in rare instances class 6 is used to form a plural for these nouns, for example ugonjwa "sickness, disease", magonjwa "diseases". Class 6 also contains a lot of nouns for liquids, such as maji "water", and other nouns derived from verbs such as mazungumzo "conversation(s)". Aside from these, there are some nouns in other classes that do not change class to indicate number, such as mchana "afternoon(s)", "daytime" (class 3), vita "war(s)" (class 8), usiku "night(s)" (class 14), and these can be shown as singular or plural only by surrounding context.
+In terms of meaning, groups of similar nouns tend to belong to similar noun classes. For example, nouns for people, including agent nouns, are commonly in classes 1/2, while animals are often in classes 9/10. Nouns describing plants are in class 3/4 and any fruit they produce will probably be in class 5/6. Abstract nouns are often in class 14, loanwords in classes 9/10 and 5/6. Many nouns for liquids are in class 6. Infinitives/gerunds of verbs are in class 15. Diminutives as well as the words for many man-made tools and languages are in class 7/8. These are only generalisations and there are exceptions in most classes.
+
+The class of the noun determines the forms of other parts of speech that relate to it, such as verbs, adjectives, etc. This process is called agreement or concord. These other parts of speech receive their own concordant prefixes (termed "concords" for short), generally matching in class with the noun, though the prefixes themselves are not always the same. In the examples below, the left and right sides of the table show sentences with a singular and then plural subject respectively.
+
+## Nouns > ### Concord > #### Table 3: Class 1/2:
+
+<pre>```
+| 0                                                                                                                  | 1   | 2                                                                                                                    |
+|:-------------------------------------------------------------------------------------------------------------------|:----|:---------------------------------------------------------------------------------------------------------------------|
+| Mwanaume mkubwa aliangukamwanaume(CL1)manmanm-kubwaCL1-bigbiga-li-anguk(a)CL1-PST-falls/he-fell"The big man fell." | ↔   | Wanaume wakubwa waliangukawanaume(CL2)menmenwa-kubwaCL2-bigbigwa-li-anguk(a)CL2-PST-fallthey-fell"The big men fell." |
+```</pre>
+
+
+## Nouns > ### Concord > #### Table 4: Class 7/8:
+
+<pre>```
+| 0                                                                                                                   | 1   | 2                                                                                                                        |
+|:--------------------------------------------------------------------------------------------------------------------|:----|:-------------------------------------------------------------------------------------------------------------------------|
+| Kitabu kikubwa kiliangukakitabu(CL7)bookbookki-kubwaCL7-bigbigki-li-anguk(a)CL7-PST-fallit-fell"The big book fell." | ↔   | Vitabu vikubwa viliangukavitabu(CL8)booksbooksvi-kubwaCL8-bigbigvi-li-anguk(a)CL8-PST-fallthey-fell"The big books fell." |
+```</pre>
+
+
+## Nouns > ### Concord > #### Table 5: Class 11/10:
+
+<pre>```
+| 0                                                                                                                                         | 1   | 2                                                                                                                                                   |
+|:------------------------------------------------------------------------------------------------------------------------------------------|:----|:----------------------------------------------------------------------------------------------------------------------------------------------------|
+| Uso mzuri unatosha.uso(CL11)facefacem-zuriCL11-beautifulbeautifulu-na-tosh(a)CL11-PRES-be.enoughit-is-enough"A beautiful face is enough." | ↔   | Nyuso nzuri zinatoshanyuso(CL10)facesfacesn-zuriCL10-beautifulbeautifulzi-na-tosh(a)CL10-PRES-be.enoughthey-are-enough"Beautiful faces are enough." |
+```</pre>
+
+
+Animate nouns (i.e. those referring to people or animals) which are not in classes 1/2 generally take the agreement prefixes (concords) from classes 1/2 as if they did belong to it.
+
+## Nouns > ### Concord > #### Table 6: Class 7/8 Animate:
+
+<pre>```
+| 0                                                                                                                                    | 1   | 2                                                                                                                                              |
+|:-------------------------------------------------------------------------------------------------------------------------------------|:----|:-----------------------------------------------------------------------------------------------------------------------------------------------|
+| Kifaru mkubwa alianguka.kifaru(CL7)rhinocerosrhinocerosm-kubwaCL1-bigbiga-li-anguk(a)CL1-PST-falls/he-fell"The big rhinoceros fell." | ↔   | Vifaru wakubwa walianguka.vifaru(CL8)rhinocerosesrhinoceroseswa-kubwaCL2-bigbigwa-li-anguk(a)CL2-PST-fallthey-fell"The big rhinoceroses fell." |
+```</pre>
+
+
+Animacy agreements can often distinguish different meanings of the same noun, such as ndege, which means "bird(s)" when animate and "aeroplane(s)" when inanimate.
+
+## Nouns > ### Concord > #### Table 7: Class 9/10 Animate:
+
+<pre>```
+| 0                                                                                                                | 1   | 2                                                                                                                        |
+|:-----------------------------------------------------------------------------------------------------------------|:----|:-------------------------------------------------------------------------------------------------------------------------|
+| Ndege mkubwa alianguka.ndege(CL9)birdbirdm-kubwaCL1-bigbiga-li-anguk(a)CL1-PST-falls/he-fell"The big bird fell." | ↔   | Ndege wakubwa walianguka.ndege(CL10)birdsbirdswa-kubwaCL2-bigbigwa-li-anguk(a)CL2-PST-fallthey-fell"The big birds fell." |
+```</pre>
+
+
+## Nouns > ### Concord > #### Table 8: Class 9/10 Inanimate:
+
+<pre>```
+| 0                                                                                                              | 1   | 2                                                                                                                        |
+|:---------------------------------------------------------------------------------------------------------------|:----|:-------------------------------------------------------------------------------------------------------------------------|
+| Ndege kubwa ilianguka.ndege(CL9)birdbirdN-kubwaCL9-bigbigi-li-anguk(a)CL9-PST-fallit-fell"The big plane fell." | ↔   | Ndege kubwa zilianguka.ndege(CL10)birdsbirdsN-kubwaCL10-bigbigzi-li-anguk(a)CL10-PST-fallthey-fell"The big planes fell." |
+```</pre>
+
+
+Animate nouns in classes 9/10 may exhibit a slight aberration from this pattern. The genitive pronominal forms -angu, -ako, -ake, -etu, -enu and -ao are frequently inflected with a group of nouns referring to close human relationships with their appropriate class 9/10 concords, regardless of the fact that they are animate (giving yangu, yako, yetu etc. in singular and zangu, zako, zetu etc. in plural). For some speakers, the same rule applies to the simple genitive preposition -a (giving ya in singular and za in plural), however for most speakers wa is used for all animate nouns regardless of number or class. Other parts of speech are unaffected by this exception.
+
+## Nouns > ### Concord > #### Table 9: Class 9/10 Animate:
+
+<pre>```
+| 0                                                                                                                                                      | 1                                                                                                 | 2                                                                                                                                                               |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Mama yetu mkubwa alianguka.mama(CL9)mothermothery-etuCL9-GEN.1Pourm-kubwaCL1-bigbiga-li-anguk(a)CL1-PST-falls/he-fell"Our (older maternal) aunt fell." | ↔                                                                                                 | Mama zetu wakubwa walianguka.mama(CL10)mothersmothersz-etuCL10-GEN.1Pourwa-kubwaCL2-bigbigwa-li-anguk(a)CL2-PST-fallthey-fell"Our (older maternal) aunts fell." |
+| Note: The phrase mama mkubwa, literally "big mother", refers to the elder sister of one's mother.                                                      | Note: The phrase mama mkubwa, literally "big mother", refers to the elder sister of one's mother. | Note: The phrase mama mkubwa, literally "big mother", refers to the elder sister of one's mother.                                                               |
+```</pre>
+
+
+## Nouns > ### Concord > #### Table 10: Class 9/10 Animate:
+
+<pre>```
+| 0                                                                                                                                                                                         | 1   | 2                                                                                                                                                                                                |
+|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Baba yangu wa kambo alianguka.baba(CL9)fatherfathery-anguCL9-GEN.1Smyw-aCL1-GENofkambonon.blood.relationshipnon-blood relationshipa-li-anguk(a)CL1-PST-falls/he fell"My stepfather fell." | ↔   | Baba zangu wa kambo walianguka.baba(CL10)fathersfathersz-anguCL10-GEN.1Smyw-aCL2-GENofkambonon.blood.relationshipnon-blood relationshipwa-li-anguk(a)CL2-PST-fallthey fell"My stepfathers fell." |
+```</pre>
+
+
+Nouns which follow this pattern of agreement include mama "mother(s)", baba "father(s)", ndugu "sibling(s)/relative(s)", kaka "(elder) brother(s)", dada "(elder) sister(s)", nyanya "grandmother(s)", bibi "grandmother(s)", babu "grandfather(s)", shangazi "paternal aunt(s)", shemeji "sister(s)/brother(s)-in-law", wifi "sister(s)-in-law", jamaa "relative(s)", rafiki "friend(s)", shoga "female friend of a woman", jirani "neighbour" and adui "enemy".
+Nouns of this group, such as rafiki "friend", may optionally take a plural prefix ma- as though belonging to class 5/6, although their concords remain the same mix of class 1/2 and 9/10.
+
+## Nouns > ### Concord > #### Table 11: Class 9/10 Animate:
+
+<pre>```
+| 0                                                                                                                                      | 1   | 2                                                                                                                                                            |
+|:---------------------------------------------------------------------------------------------------------------------------------------|:----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Rafiki yangu anaishi hapa.rafiki(CL9)friendfriendy-anguCL9-GEN.1Smya-na-ishiCL1-PRES-lives/he-liveshapaherehere"My friend lives here." | ↔   | (Ma)rafiki zangu wanaishi hapa.(ma)-rafiki(PL.CL6)-(CL10)friendfriendsz-anguCL10-GEN.1Smywa-na-ishiCL2-PRES-livethey-livehapaherehere"My friends live here." |
+```</pre>
+
+
+In addition, animals of classes 9/10 generally take class 1 agreement throughout the singular, but may take 10 agreement on pronominal genitive words in the plural.
+
+## Nouns > ### Concord > #### Table 12: Class 9/10 Animate:
+
+<pre>```
+| 0                                                                                                   | 1   | 2                                                                                                       |
+|:----------------------------------------------------------------------------------------------------|:----|:--------------------------------------------------------------------------------------------------------|
+| Ng'ombe wetu amekufa.ng'ombe(CL9)coww-etuCL1-GEN.1Pa-me-ku-f(a)CL1-PRF-EXT-diecow our s/he-has-died | ↔   | Ng'ombe zetu wamekufa.ng'ombe(CL10)cowsz-etuCL10-GEN.1Pwa-me-ku-f(a)CL2-PRF-EXT-die"Our cows are dead." |
+```</pre>
+
+
+## Nouns > ### Concord > #### Table 13: Class 9/10 Animate:
+
+<pre>```
+| 0                                                                                                                                      | 1   | 2                                                                                                                                                            |
+|:---------------------------------------------------------------------------------------------------------------------------------------|:----|:-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Rafiki yangu anaishi hapa.rafiki(CL9)friendfriendy-anguCL9-GEN.1Smya-na-ishiCL1-PRES-lives/he-liveshapaherehere"My friend lives here." | ↔   | (Ma)rafiki zangu wanaishi hapa.(ma)-rafiki(PL.CL6)-(CL10)friendfriendsz-anguCL10-GEN.1Smywa-na-ishiCL2-PRES-livethey-livehapaherehere"My friends live here." |
+```</pre>
+
+
+Another departure from the rule of animate nouns taking concords in classes 1/2 occurs on occasion with diminutives and augmentatives, whereby using concords of the class the noun belongs to (5/6 for augmentatives, 7/8 for diminutives) emphasises the diminution or augmentation.
+
+## Nouns > ### Concord > #### Table 14
+
+<pre>```
+| 0                                                                                                                                      | 1   | 2                                                                                                                                    |
+|:---------------------------------------------------------------------------------------------------------------------------------------|:----|:-------------------------------------------------------------------------------------------------------------------------------------|
+| Class 1 (neutral):                                                                                                                     | nan | Class 7 (diminutive):                                                                                                                |
+| Mpenzi wake anaishi hapa.mpenzi(CL1)loverw-akeCL1-GEN.3Sa-na-ishiCL1-PRES-livehapahere"His/her boyfriend/girlfriend/lover lives here." | ↔   | Kipenzi chake kinaishi hapa.kipenzi(CL7)loverch-akeCL7-GEN.3Ski-na-ishiCL7-PRES-livehapahere"His/her sweetheart/darling lives here." |
+```</pre>
+
+A locative noun is a derived noun that indicates a location associated with the base noun from which it is derived. The change in meaning can translate to a variety of English prepositions indicating location, such as "in", "at", "on", "to" or "from", and is thus quite general in meaning, with the exact meaning of the phrase generally being determined by the verb.
+The Arabic loan noun mahali "place" (and its variations: pahali, mahala and pahala) is the only noun which inherently belongs to the locative class. Other nouns can be made locative by adding the suffix -ni to the end, although this is not available for proper nouns referring to places, any animate nouns, recent loanwords and some other arbitrary nouns.
+Because locative nouns constitute three classes of their own, they cannot take the usual concords of the noun they have been derived from. The concords themselves show in which one of the locative classes the noun is being used. Class 16 is marked by concords based on pa- and indicates specific location. Class 17, with concords based on ku- indicates a more general location. Class 18 has concords based on mu- and indicates internal location.
+
+nyumba ya Rehema "Rehema's house" (class 9)
+nyumbani kwa Rehema "at/to/from Rehema's house" (class 17)
+chumba cha Daudi "Daudi's room" (class 7)
+chumbani mwa Daudi "in/into/out of Daudi's room" (class 18)
+
+The equivalent of compound words is usually formed using the genitive construction such as mpira wa kikapu "basketball" (literally "ball of basket"). This is similar to the compounding process found in many languages such as French fin de semaine "weekend" (literally "end of week").
+There are also many compounds which do not use the genitive preposition -a. In these cases, two (or more) nouns are simply placed side by side. This is the case of skilled workpersons such as fundi viatu (shoemaker), fundi baskeli (bicycle mechanics) and so on.
+The word order is the reverse of most compounds in English, with the head always preceding the modifiers in Swahili; in other words, the first noun describes what it is, and any subsequent noun narrows or specifies that description. For example, the class 9/10 noun punda "donkey(s)" is followed by the class 4 noun milia "stripes" to mean "zebra". Whereas in English, a hypothetical equivalent compound would place the noun for the stripes first and also require the singular: "stripe-donkey", the word for "donkey" appears first in Swahili.
+There is a good deal of variation among different authors as to whether the nouns are written together, hyphenated or separated and thus the word for "zebra(s)" may appear as any of pundamilia, punda-milia or punda milia.
+A few common compound words have irregular plural forms because number marking occurs on both elements. The word mwanamke "woman" becomes wanawake "women" in plural. Similarly, mwanamume "man" becomes wanaume "men" in plural, although the singular form mwanaume is also common. These two nouns are formed from the word mwana "son, daughter", which is commonly used in compounds to essentially mean "person", followed by the words mke "wife" (plural: wake) and mume "husband" (plural: waume) respectively.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Noun:
+  Features:
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+    de-Declension: [de-strong, de-weak, de-plural-en, de-plural-e, de-plural-er, de-plural-s]
+
+  Rules:
+    de-Declension_de-plural-e__u-Gender_u-fem:
+      applies: {de-Declension: de-plural-e, u-Gender: u-fem}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "e"
+          note: "often with Umlaut"
+      examples: 
+      - "eine Nacht → Nächte"
+      note: "feminine nouns with plural -e, often umlauted"
+
+    de-Declension_de-plural-en__u-Gender_u-fem:
+      applies: {de-Declension: de-plural-en, u-Gender: u-fem}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "en"
+      examples: 
+      - "eine Frau → Frauen"
+      note: "default feminine pattern; plural in -(e)n"
+
+    de-Declension_de-plural-er__u-Gender_u-neut:
+      applies: {de-Declension: de-plural-er, u-Gender: u-neut}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "es"
+        - features: {u-Number: u-pl}
+          form: "er"
+          note: "often with Umlaut"
+      examples: 
+      - "ein Kind → Kinder"
+      note: "common neuter plural type; Umlaut frequent"
+
+    de-Declension_de-plural-s__u-Gender_u-neut:
+      applies: {de-Declension: de-plural-s, u-Gender: u-neut}
+      pattern: "_stem_ + s"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "s"
+      examples: 
+      - "ein Auto → Autos"
+      note: "loanwords and abbreviations; plural in -s"
+
+    de-Declension_de-strong__u-Gender_u-masc:
+      applies: {de-Declension: de-strong, u-Gender: u-masc}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "es"
+        - features: {u-Number: u-pl, u-Case: u-nom}
+          form: "e"
+        - features: {u-Number: u-pl, u-Case: u-acc}
+          form: "e"
+        - features: {u-Number: u-pl, u-Case: u-dat}
+          form: "en"
+        - features: {u-Number: u-pl, u-Case: u-gen}
+          form: "e"
+      examples: 
+      - "ein Hund → Hunde"
+
+    de-Declension_de-weak__u-Gender_u-masc:
+      applies: {de-Declension: de-weak, u-Gender: u-masc}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: "e"   # Junge
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: "en"  # Jungen
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: "en"
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "en"
+        - features: {u-Number: u-pl}
+          form: "en"  # Jungen
+      examples: 
+      - "ein Junge → Jungen"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

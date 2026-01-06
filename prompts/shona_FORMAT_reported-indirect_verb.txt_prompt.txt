@@ -1,0 +1,923 @@
+SYSTEM PROMPT:
+You are an expert in the shona language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language shona.
+
+The data you receive comes from multiple sources and relates to the following topics:
+reported, indirect, verb.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or sn-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "shona-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("shona-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+## Das Verb > ### Zeiten – Übersicht > #### Table 19
+
+<pre>```
+| 0                  | 1              | 2                               | 3                 | 4                 |
+|:-------------------|:---------------|:--------------------------------|:------------------|:------------------|
+|                    | Positive       |                                 | Negative          |                   |
+| Past simple        | Nda-ka-funga   | I thought                       | ha-ndi-na kufunga | I did not think   |
+| Past continuous    | Nda-i-funga    | I was thinking / used to think. | ha-ndi-na kufunga | I did not think   |
+| Present perfect    | nda-funga      | I have thought.                 | ha-ndi-na kufunga | I did not think   |
+| Present simple     | ndi-no-funga   | I think                         | ha-ndi-fungi      | I do not think    |
+| Present continuous | ndi-ri kufunga | I am thinking                   | ha-ndi-si kufunga | I am not thinking |
+| Future             | ndi-cha-funga  | I will think                    | ha-ndi-cha-fungi  | I will not think  |
+```</pre>
+
+
+Beachte: Die Vergangenheitszeitformen nutzen die Besitzsilben als Kennsilbe. Für die Personen lauten diese: nda-, wa-, a-, ta-, ma-, va-
+
+Abgesehen von diesen Hauptzeiten gibt es viele weitere zusammengesetzte Zeiten.
+
+Das Hilfsverb setzt den Zeitrahmen
+
+Das Hauptverb das Zeitverhältnis
+
+Wie oben beschrieben ist die Verneinung im ChiShona oft zusammengesetzt. So kommt es vor, dass wir in der Verneinung dieser zusammengesetzten Zeiten oft dreiteilige Formen antreffen. In solchen dreiteiligen Formen wird die Verneinung des Hilfsverbs mit -si- anstatt ha- gebildet (e.g., ndisiri anstelle von handisi). Zeigt das Hauptverb Vorzeitigkeit an, so wird es mit dem Hilfsverb haben vernein, bei Gleichzeitigkeit oder Nachzeitigkeit mit sein.
+
+## Das Verb > ### Zeiten – Übersicht > #### Zusammengesetzte Zeiten > ##### Table 20
+
+<pre>```
+| 0                  | 1          | 2              | 3            | 4                        |
+|:-------------------|:-----------|:---------------|:-------------|:-------------------------|
+|                    | Hilfsverb  | P: Hauptverb   | N: Hauptverb |                          |
+|                    |            | N: Hilfsverb 2 |              |                          |
+| Past perfect       | Nda(ka)nga | Ndafunga       |              | I had thought            |
+| Past perfect       | Nda(ka)nga | Ndisina        | kufunga      | I had not thought        |
+| Past continuous    | Nda(ka)nga | Ndichifunga    |              | I was thinking           |
+| Past continuous    | Nda(ka)nga | ndisiri        | kufunga      | I was not thinking       |
+| Future in the past | Nda(ka)nga | Ndichafunga    |              | I was going to think     |
+| Future in the past | Nda(ka)nga | ndisiri        | kuzofunga    | I was not going to think |
+| Future continuous  | ndichange  | Ndichifunga    |              | I will be thinking       |
+| Future continuous  | Ndichange  | ndisiri        | kufunga      | I will not be thinking   |
+| Future perfect     | ndichange  | ndafunga       |              | I will have thought      |
+| Future perfect     | Ndichange  | ndisina        | kufunga      | I will not have thought  |
+```</pre>
+
+Der Infinitiv beginnt mit ku- und kann substantiviert werden. Die Bedeutung eines Verbs ist dem Stamm eigen.
+
+## Das Verb > ### Infinitiv > #### Table 21
+
+<pre>```
+| 0                         | 1      |
+|:--------------------------|:-------|
+| gehen/das Gehen, der Gang | kuenda |
+```</pre>
+
+
+Verneint wird der Infinitiv, indem ein -sa- zwischengeschoben wird:
+
+## Das Verb > ### Infinitiv > #### Table 22
+
+<pre>```
+| 0                 | 1        |
+|:------------------|:---------|
+| (das) nicht-gehen | kusaenda |
+```</pre>
+
+Wie im deutschen können auch im Shona Verben kombiniert werden. Die geschieht ganz einfach: Das konjugierte Verb nimmt die Form eines Hilfsverbs an, darauf folgt der Infinitiv.
+
+## Das Verb > ### Infinitiv > #### Verben kombinieren > ##### Table 23
+
+<pre>```
+| 0                            | 1                      |
+|:-----------------------------|:-----------------------|
+| Wir beeilen uns, anzukommen. | Tinokurumidza kusvika. |
+```</pre>
+
+
+
+Das eigentliche Verb für «sein» im Shona ist «kuri». Es trägt intrinsisch eine Präsens-Bedeutung, weshalb für alle nicht-Präsens-Zeiten Hilfskonstruktionen herhalten müssen. Im Präsens kommt «kuri» ohne Zeitsilbe aus.
+
+## Das Verb > ### Sein > #### Präsens > ##### Table 24
+
+<pre>```
+| 0                     | 1                       |
+|:----------------------|:------------------------|
+| Ich bin jetzt Lehrer. | Zvino ndiri mudzidzisi. |
+```</pre>
+
+
+Für die Verneinung wird das bereits bekannte «ha-» an den Verbanfang gestellt, wobei «-ri» zu «-si» wird:
+
+## Das Verb > ### Sein > #### Präsens > ##### Table 25
+
+<pre>```
+| 0                          | 1                         |
+|:---------------------------|:--------------------------|
+| Ich bin nicht mehr Lehrer. | Zvino handisi mudzidzisi. |
+```</pre>
+
+Das Infix «-nga-» kann für Potenzialität stehen, in diesem Fall aber als Platzhalter-Verbstamm, der mit den Zeitsilbe zusammen den zeitlichen Hintergrund darstellt. Mithilfe dieses Infixes und der Silben(-kombinationen) für die jeweiligen Zeiten bildet man die verschiedenen Zeiten des Verbs «sein».
+
+Anstelle des bekannten Verneinungspräfix «ha-» wird hier das Infix «-si-» genutzt. Zudem gibt es für die Ferne Vergangenheit – beim Affirmativ – eine zweite, etwas einfachere Bildungsmöglichkeit mit dem Stamm «va-» (sein) für Imperfekt und Futur.
+
+Ferne Vergangenheit:
+
+## Das Verb > ### Sein > #### Ferne Vergangenheit, nahe Vergangenheit, Futur > ##### Table 26
+
+<pre>```
+| 0                                            | 1                    | 2                            |
+|:---------------------------------------------|:---------------------|:-----------------------------|
+| Besitzsilbe – ka – nga + Kennsilbe – ri      | Ich war ein Lehrer.  | Ndakanga ndiri mudzidzisi.   |
+| Besitzsilbe – i – ve                         |                      | Ndaive mudzidzisi.           |
+| Besitzsilbe – ka – nga + Kennsilbe – si – ri | Ich war kein Lehrer. | Ndakanga ndisiri mudzidzisi. |
+```</pre>
+
+
+Nahe Vergangenheit:
+
+## Das Verb > ### Sein > #### Ferne Vergangenheit, nahe Vergangenheit, Futur > ##### Table 27
+
+<pre>```
+| 0                                       | 1                            | 2                          |
+|:----------------------------------------|:-----------------------------|:---------------------------|
+| Besitzsilbe – nga + Kennsilbe – ri      | Ich bin ein Lehrer gewesen.  | Ndanga ndiri mudzidzisi.   |
+| Besitzsilbe – nga + Kennsilbe – si – ri | Ich bin kein Lehrer gewesen. | Ndanga ndisiri mudzidzisi. |
+```</pre>
+
+
+Futur:
+
+## Das Verb > ### Sein > #### Ferne Vergangenheit, nahe Vergangenheit, Futur > ##### Table 28
+
+<pre>```
+| 0                                           | 1                           | 2                             |
+|:--------------------------------------------|:----------------------------|:------------------------------|
+| Kennsilbe – cha – nge + Kennsilbe – ri      | Ich werde ein Lehrer sein.  | Ndichange ndiri mudzidzisi.   |
+| Kennsilbe – cha – ve                        |                             | Ndichave mudzidzisi.          |
+| Kennsilbe – cha – nge + Kennsilbe – si – ri | Ich werde kein Lehrer sein. | Ndichange ndisiri mudzidzisi. |
+```</pre>
+
+Soll besondere Betonung auf dem Subjekt liegen, so wird «ndi» verwendet und gleicht sich durch Anhängen von Pronomen an. Dabei entfällt der Anfangsvokal.
+
+## Das Verb > ### Sein > #### Betonung des Subjekts > ##### Table 29
+
+<pre>```
+| 0                            | 1               |
+|:-----------------------------|:----------------|
+| Ich bin ein Tourist.         | Ndiri mushanyi. |
+| Ich bin es, der Tourist ist. | Ndini mushanyi. |
+```</pre>
+
+
+## Das Verb > ### Sein > #### Betonung des Subjekts > ##### Table 30
+
+<pre>```
+| 0                         | 1                         |
+|:--------------------------|:--------------------------|
+| Das ist (er,) mein Stift! | Ndicho chinyoreso changu! |
+```</pre>
+
+Im Präsens kommen einige Konstruktionen ohne zusätzliches Verbs aus. Insbesondere sind dies solche, die im Deutschen unpersönliche Subjekte wie «es, dies, das» beinhalten, permanente Zustände oder Identitäten.
+
+Dabei wird lediglich die ansonsten unbetonte Vorsilbe der Nomen betont.
+
+## Das Verb > ### Sein > #### Unpersönliches Sein > ##### Table 31
+
+<pre>```
+| 0                   | 1                       |
+|:--------------------|:------------------------|
+| ein Junge           | Mukomana                |
+| Es ist ein Junge.   | múkomana.               |
+| mein Stift          | chinyoreso changu       |
+| Das ist mein Stift! | Ichi chínyoreso changu! |
+```</pre>
+
+
+Bei Klassen ohne Klassenvorsilbe sowie bei Nomen mit unvollständiger Vorsilbe wird ein betontes ì- vorangestellt.
+
+## Das Verb > ### Sein > #### Unpersönliches Sein > ##### Table 32
+
+<pre>```
+| 0                              | 1                                                |
+|:-------------------------------|:-------------------------------------------------|
+| ein Pferd                      | bhiza (Klasse 5/6)                               |
+| Es ist ein Pferd.              | íbhiza.                                          |
+| ein Löwe/Löwen                 | shumba (Klasse 9/10)                             |
+| Es ist ein Löwe/es sind Löwen. | íshumba.                                         |
+| Wahrheit                       | chokwadi (Klasse 5/6; chi- > ch-  unvollständig) |
+| Das stimmt!                    | íchokwadi!                                       |
+```</pre>
+
+«Ndi» und «si» werden verwendet, wenn der unpersönliche Ausdruck im Präsens steht und danach ein Nomen folgt oder ein Wort, das wie ein Nomen behandelt wird (z.B. Personen(-namen)). Steht der Satz nicht im Präsens, so nutzt man die Kennsilbe des Klasse des Nomens.
+
+## Das Verb > ### Sein > #### Weitere Unpersönliche Ausdrücke > ##### Table 33
+
+<pre>```
+| 0                 | 1                   |
+|:------------------|:--------------------|
+| Es ist ein Junge. | Mùkomana.           |
+| Es war ein Mann.  | Aive mukomana.      |
+|                   | Er-Vgh.-sein Junge. |
+```</pre>
+
+
+Wie aber übersetzt man Ausdrücke wie: «Es ist dunkel geworden.» ?
+
+Hierfür nutzt man das unpersönliche «ku-» als Kennsilbe, das dem Infinitiv entspricht, und bildet ansonsten ganz normale Verbformen.
+
+## Das Verb > ### Sein > #### Weitere Unpersönliche Ausdrücke > ##### Table 34
+
+<pre>```
+| 0                                | 1                                 |
+|:---------------------------------|:----------------------------------|
+| Es ist sehr dunkel.              | Kusviba zvikuru.                  |
+|                                  | Es-dunkel-sein sehr.              |
+| Es ist dunkel geworden.          | Kwasviba.                         |
+| Es wird bald dunkel werden/sein. | Kuchada munguva pfupi.            |
+|                                  | Es-Fut.-dunkel-sein in-Zeit kurz. |
+```</pre>
+
+«Haben» wird im Shona mit «sein mit» umschrieben. Dies geschieht mithilfe von «na» bzw. «ne», was soviel wie «mit» bedeutet. Die Konstruktion wird dabei verkürzt: aus «ndiri ne», «ich bin mit», wird «ndine», «ich habe».
+
+Sämtliche Zeiten folgen dabei exakt der Bildung von «sein», nur, dass «-ri» durch «-ne» ersetzt wird.
+
+Ferne Vergangenheit:
+
+## Das Verb > ### Haben > #### Table 35
+
+<pre>```
+| 0                                            | 1                        | 2                            |
+|:---------------------------------------------|:-------------------------|:-----------------------------|
+| Besitzsilbe – ka – nga + Kennsilbe – ne      | Ich hatte einen Lehrer.  | Ndakanga ndine mudzidzisi.   |
+| Besitzsilbe – ka – nga + Kennsilbe – si – na | Ich hatte keinen Lehrer. | Ndakanga ndisina mudzidzisi. |
+```</pre>
+
+
+Nahe Vergangenheit:
+
+## Das Verb > ### Haben > #### Table 36
+
+<pre>```
+| 0                                       | 1                              | 2                          |
+|:----------------------------------------|:-------------------------------|:---------------------------|
+| Besitzsilbe – nga + Kennsilbe – ne      | Ich habe einen Lehrer gehabt.  | Ndanga ndine mudzidzisi.   |
+| Besitzsilbe – nga + Kennsilbe – si – na | Ich habe keinen Lehrer gehabt. | Ndanga ndisina mudzidzisi. |
+```</pre>
+
+
+Präsens:
+
+## Das Verb > ### Haben > #### Table 37
+
+<pre>```
+| 0                   | 1                      | 2                   |
+|:--------------------|:-----------------------|:--------------------|
+| Kennsilbe – ne      | Ich habe einen Lehrer. | Ndine mudzidzisi.   |
+| Ha – Kennsilbe – na | Ich bin keinen Lehrer. | Handina mudzidzisi. |
+```</pre>
+
+
+Futur:
+
+## Das Verb > ### Haben > #### Table 38
+
+<pre>```
+| 0                                           | 1                              | 2                             |
+|:--------------------------------------------|:-------------------------------|:------------------------------|
+| Kennsilbe – cha – nge + Kennsilbe – ne      | Ich werde einen Lehrer haben.  | Ndichange ndine mudzidzisi.   |
+| Kennsilbe – cha – nge + Kennsilbe – si – na | Ich werde keinen Lehrer haben. | Ndichange ndisina mudzidzisi. |
+```</pre>
+
+Modalverben funktionieren im Shona gleich wie im Deutschen. Sie können:
+
+Alleine stehen
+
+Vor einem Infinitiv stehen
+
+Speziell ist einzig «-nga-», das anstelle einer Zeitsilbe eingesetzt wird und «können», «dürfen» oder, im Subjunktiv, «würden» und «könnten» ausdrücken kann.
+
+Tatsächlich ist es aber der Indikator für den Potential, den potenziellen Modus also. Verneint werden kann es nicht, bzw. nutzt man dafür das Verb «kugona» (können).
+
+## Das Verb > ### Modalverben > #### Potential > ##### Table 39
+
+<pre>```
+| 0                                | 1                 | 2                            |
+|:---------------------------------|:------------------|:-----------------------------|
+| Ich gehe jetzt nach Hause.       | Ndinoenda kumba.  | Reguläre Zeitsilbe           |
+| Ich kann jetzt nach Hause gehen. | Ndingaenda kumba. | Modale Zeitsilbe ->Potential |
+```</pre>
+
+
+
+Die Reduplikation von Verbstämm impliziert Wiederholung oder Kontinuität.
+
+## Das Verb > ### Verbmodifikatoren > #### Reduplikation > ##### Table 40
+
+<pre>```
+| 0            | 1                     |
+|:-------------|:----------------------|
+| kufamba      | gehen                 |
+| kufambafamba | umher-/spazierengehen |
+```</pre>
+
+Um Verben in ihrer Bedeutung zu verändern, werden folgende Nachsilbe an das Verbende angefügt.
+
+## Das Verb > ### Verbmodifikatoren > #### Nachsilben > ##### Table 41
+
+<pre>```
+| 0                       | 1                                    |
+|:------------------------|:-------------------------------------|
+| Vachaona mhuka zhinji.  | Sie werden viele Tiere sehen.        |
+| Takashanda nguva dzose. | Wir haben die ganze Zeit gearbeitet. |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikatoren > #### Nachsilben > ##### Table 42
+
+<pre>```
+| 0                                          | 1                                          |
+|:-------------------------------------------|:-------------------------------------------|
+| -(t)sa/-dza                                | Transitivität: Jemanden etwas tun lassen   |
+| Taka-shand-isa tambo ne-banga.             | Wir haben ein Seil und ein Messer benutzt. |
+| Wir(Vgh.)-arbeiten-machen Seil und-Messer. |                                            |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikatoren > #### Nachsilben > ##### Table 43
+
+<pre>```
+| 0                        | 1                                        |
+|:-------------------------|:-----------------------------------------|
+| -eka/-ika                | Passivität: Beschreibung eines Zustandes |
+| Zviri kuoneka zvakanaka. | Es sieht gut aus.                        |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikatoren > #### Nachsilben > ##### Table 44
+
+<pre>```
+| 0                    | 1                          |
+|:---------------------|:---------------------------|
+| -na                  | Gegenseitigkeit: einander  |
+| Tichaonana mangwana. | Wir sehen einander morgen. |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikatoren > #### Nachsilben > ##### Table 45
+
+<pre>```
+| 0               | 1                     |
+|:----------------|:----------------------|
+| -ira/-era       | Kausalität: für       |
+| Anondishandira. | Er arbeitet für mich. |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikatoren > #### Nachsilben > ##### Table 46
+
+<pre>```
+| 0                      | 1                               |
+|:-----------------------|:--------------------------------|
+| -w- (vor Endungs-«-a») | Passivität                      |
+| Ndaishandiswa navo.    | Ich wurde von ihnen ausgenutzt. |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikatoren > #### Nachsilben > ##### Table 47
+
+<pre>```
+| 0              | 1                              |
+|:---------------|:-------------------------------|
+| -zve           | Wiederholung: nochmals         |
+| Ndakavaonazve. | Ich habe sie nochmals gesehen. |
+```</pre>
+
+
+## Das Verb > ### Verbmodifikatoren > #### Nachsilben > ##### Table 48
+
+<pre>```
+| 0             | 1                          |
+|:--------------|:---------------------------|
+| -wo           | Parallelität: auch         |
+| Ndakavaonawo. | Ich habe sie auch gesehen. |
+```</pre>
+
+Für Bildung: Siehe unter Nachsilben.
+
+Der Täter (dt. «von») wird im Shona durch «na», «mit», gekennzeichnet. Dabei kommt es zur Kontraktion (siehe unter Pronomina) von «na» und den Pronomen.
+
+## Das Verb > ### Verbmodifikatoren > #### Passiv > ##### Table 49
+
+<pre>```
+| 0                                         | 1                                  |
+|:------------------------------------------|:-----------------------------------|
+| Ich wurde von ihr geschlagen.             | Nda-i-roh-wa na-ye.                |
+|                                           | Ich-Impf.-schlagen-werden mit-ihr. |
+| Er wird getötet werden von diesen Dingen. | Achaurayiwa nazo.                  |
+```</pre>
+
+Reflexivität wird – unabhängig von der Person – mit dem Objektsilbe «zvi» angezeigt.
+
+## Das Verb > ### Verbmodifikatoren > #### Reflexivität > ##### Table 50
+
+<pre>```
+| 0                           | 1                   |
+|:----------------------------|:--------------------|
+| Ich habe mich gefragt, ob … | Ndakazvibvunza kuti |
+| Er schlug sich selbst.      | Aizvirova.          |
+```</pre>
+
+Führt jemand mehrere Aktionen hintereinander aus, so muss das Subjekt nicht wiederholt werden.
+
+## Das Verb > ### Mehrere Aktionen > #### Table 51
+
+<pre>```
+| 0                                                | 1                                   |
+|:-------------------------------------------------|:------------------------------------|
+| Sie sind zu Dir gekommen und haben Dir geholfen. | Vakauya kwamuri ndokubatsirai.      |
+|                                                  | Vakauya kwamuri uye vakakubatsirai. |
+```</pre>
+
+Der Konditional tritt in mehreren Formen auf, die sich jeweils in ihrer zeitlichen Bedeutung unterscheiden. Sein Kennzeichen ist die Silbe «-ka-», die mit den unterschiedlichen Zeitsilben kombiniert werden kann.
+
+In der Vergangenheit nutzt man das Hilfsverb «dai» sowie «-nga-», das Infix für die Potenzialität.
+
+Dai + Perfektform, Kennsilbe – nga – dai + Perfekt
+
+## Das Verb > ### Konditional > #### Vergangenheit > ##### Table 52
+
+<pre>```
+| 0                                                | 1                                                       |
+|:-------------------------------------------------|:--------------------------------------------------------|
+| Dai nda-ka-zvara mwana, ndi-nga-dai nda-ka-fara. | Wenn ich ein Kind gehabt hätte, hätte ich mich gefreut. |
+```</pre>
+
+
+Für die Verneinung muss man eine Hilfskontruktion mit «sina» (nicht haben) nutzen:
+
+## Das Verb > ### Konditional > #### Vergangenheit > ##### Table 53
+
+<pre>```
+| 0                                                        | 1                                                                  |
+|:---------------------------------------------------------|:-------------------------------------------------------------------|
+| Dai ndi-sina kuva no-mwana, ndi-nga-dai ndi-sina kufara. | Wenn ich kein Kind gehabt hätte, wäre ich nicht glücklich gewesen. |
+```</pre>
+
+## Das Verb > ### Konditional > #### Gegenwart > ##### Table 54
+
+<pre>```
+| 0                                         | 1                                                                  |
+|:------------------------------------------|:-------------------------------------------------------------------|
+| (Kana) ndi-ka-siya ndi-no/cha/nga-rasika. | Falls ich gehe, verirre ich mich / werde/könnte ich mich verirren. |
+```</pre>
+
+
+Alternativ kann im Positiven auch -chi- anstelle von -ka- genutzt werden. Für die Verneinung wird lediglich ein -sa- nach dem -ka- eingefügt:
+
+## Das Verb > ### Konditional > #### Gegenwart > ##### Table 55
+
+<pre>```
+| 0                                    | 1                                                  |
+|:-------------------------------------|:---------------------------------------------------|
+| Ndi-ka-sa-siya ha-ndi-goni kurasika. | Wenn ich nicht gehe, kann ich mich nicht verirren. |
+```</pre>
+
+Hier werden partizipielle Zeiten genutzt, Zeiten also, die keinen eigenen Zeitbezug haben, sondern den des Hauptsatzes nehmen.
+
+Kennsilbe – sa – ti + Resultatives Perfekt
+
+Im Shona muss ist die Konstruktion der Vorzeitigkeit eine negative Konstruktion: hierauf weist das Verneinungs-Infix «-sa-». Zusätzlich verwendet sie «-ti», den Verbstamm des Verbes «sagen».
+
+## Das Verb > ### Zeitverhältnisse > #### Vorzeitigkeit > ##### Table 56
+
+<pre>```
+| 0                                                           | 1                                                                |
+|:------------------------------------------------------------|:-----------------------------------------------------------------|
+| Ndisati ndapinda, ndakageza maoko angu.                     | Vor dem reinkommen habe ich mir die Hände gewaschen.             |
+| Ndisati ndapinda, ndinoshamba maoko angu.                   | Bevor ich reinkomme, wasche ich mir die Hände.                   |
+| Ndichange ndiri kuchikoro, ndisati ndadzokera kumba kwangu. | Ich werde in der Schule sein, bevor ich nach Hause kommen werde. |
+```</pre>
+
+Gleichzeitigkeit kann auf zweierlei Arten ausgedrückt werden:
+
+-chi- 	(Äquivalent zum Deutschen Partizip I)
+
+pa-
+
+## Das Verb > ### Zeitverhältnisse > #### Gleichzeitigkeit > ##### Table 57
+
+<pre>```
+| 0                                  | 1                                                    |
+|:-----------------------------------|:-----------------------------------------------------|
+| Tichisvika vanhu vese vakaungana.  | Als wir ankamen, strömten alle Menschen zusammen.    |
+| Patakasvika vanhu vese vakaungana. |                                                      |
+| Tichiri uko, hapana chichaitika.   | Während wir dort sein werden, wird nichts passieren. |
+| Patigara uko, hapana chichaitika.  |                                                      |
+```</pre>
+
+
+In der Zukunft nutzt man eher nur pa-:
+
+## Das Verb > ### Zeitverhältnisse > #### Gleichzeitigkeit > ##### Table 58
+
+<pre>```
+| 0                              | 1                                     |
+|:-------------------------------|:--------------------------------------|
+| Ndichange ndiripo pavanoroora. | Ich werde da sein, wenn sie heiraten. |
+```</pre>
+
+Vorzeitigkeit ganz generell, bzw. das Wörtchen «nach dem/der», wird im Shona mit «mushure me» übersetzt. Dies funktioniert aber nur mit Nomen oder substantivierten Verben.
+
+Mushure me + Infinitiv
+
+## Das Verb > ### Zeitverhältnisse > #### Nachzeitigkeit > ##### Table 59
+
+<pre>```
+| 0                                   | 1                                                     |
+|:------------------------------------|:------------------------------------------------------|
+| Mushure mekupinda, ndakageza maoko. | Nach dem Reinkommen habe ich mir die Hände gewaschen. |
+```</pre>
+
+Im Unterschied zum Indikativ enden Verben im Subjunktiv auf «-e». Er wird benutzt:
+
+Bei höflichen Aufforderungen und Wünschen
+
+## Das Verb > ### Subjunktiv > #### Table 60
+
+<pre>```
+| 0                         | 1                |
+|:--------------------------|:-----------------|
+| Reich mir bitte das Brot. | Mundipe chingwa. |
+```</pre>
+
+
+Nach «kuti» («dass») nach Verben des Wünschens, des Wollens und der Aufforderung
+
+## Das Verb > ### Subjunktiv > #### Table 61
+
+<pre>```
+| 0                                   | 1                                 |
+|:------------------------------------|:----------------------------------|
+| Wir möchten, dass Du zu uns kommst. | Tinoda kuti muuye kunzvimbo yedu. |
+```</pre>
+
+
+Nach «kuti» im Sinne von sodass/damit
+
+## Das Verb > ### Subjunktiv > #### Table 62
+
+<pre>```
+| 0                                          | 1                                        |
+|:-------------------------------------------|:-----------------------------------------|
+| Wir gehen heute, sodass wir bald ankommen. | Tinoenda nhasi kuti tikurumidze kusvika. |
+```</pre>
+
+
+
+Wünsche, höfliche Aufforderungen oder bitten werden mit dem Subjunktiv vorgebracht. Sie unterscheiden sich nur in der Endung vom Indikativ.
+
+## Das Verb > ### Wünsche, Aufforderungen, Befehle > #### Wünsche und höfliche Aufforderungen > ##### Table 63
+
+<pre>```
+| 0                                       | 1                |
+|:----------------------------------------|:-----------------|
+| Du gibst mir das Brot.                  | Mundipa chingwa. |
+| Könntest Du mir bitte das Brot reichen? | Mundipe chingwa? |
+```</pre>
+
+
+Alternativ kann man das Subjekt weglassen und mit dem Objekt beginnen. Dies ist etwas direkter, wobei ein «-i» angehängt werden muss.
+
+## Das Verb > ### Wünsche, Aufforderungen, Befehle > #### Wünsche und höfliche Aufforderungen > ##### Table 64
+
+<pre>```
+| 0                         | 1               |
+|:--------------------------|:----------------|
+| Reich mir bitte das Brot. | Ndipei chingwa. |
+```</pre>
+
+Es gibt auch höfliche Aufforderungen, die von einem verneinten Verb herrühren. In dem Fall fügt man ein «-sa» nach der Kennsilbe ein.
+
+## Das Verb > ### Wünsche, Aufforderungen, Befehle > #### Wünsche und höfliche Aufforderungen > ##### Verneinung > ###### Table 65
+
+<pre>```
+| 0                      | 1                |
+|:-----------------------|:-----------------|
+| Mach Dir keine Sorgen! | Musazvidye moyo! |
+```</pre>
+
+Bei Befehlen wird unterschieden, ob man zu einer rangniedereren Person oder zu mehreren Personen respektive einer Respektsperson spricht.
+
+Rangniedriger und Sg.:	Verbstamm
+
+Ranghöher oder Pl.:	Verbstamm + i
+
+Bei einsilbigen Verben wird ein «i-» vor den Verbstamm gehängt.
+
+Der Imperativ kennt keine eigene Verneinung und nutzt die Verneinung der höflichen Aufforderung.
+
+zva – ka – Verbstamm
+
+## Adjektive & Adverben > ### Adjektive > #### Verbale Adjektive > ##### Table 68
+
+<pre>```
+| 0                             | 1                |
+|:------------------------------|:-----------------|
+| Er ist ein redseliger Mensch. | mùnhu wakataura. |
+| sich unterhalten              | -taura           |
+```</pre>
+
+Die Verneinung entspricht der von nominalen Adjektiven, nur dass das Nomen durch das substantivierte Verb ersetzt wird.
+
+Kennsilbe – si – na + Infinitiv
+
+## Adjektive & Adverben > ### Adjektive > #### Verbale Adjektive > ##### Verneinung > ###### Table 69
+
+<pre>```
+| 0                             | 1                    |
+|:------------------------------|:---------------------|
+| Er ist ein redseliger Mensch. | mùnhu asina kutaura. |
+```</pre>
+
+ne + Infinitiv
+
+## Adjektive & Adverben > ### Adverben > #### Verbale Adverben > ##### Table 82
+
+<pre>```
+| 0                 | 1                        |
+|:------------------|:-------------------------|
+| Er rennt schnell. | Anomhanya nekukurumidza. |
+```</pre>
+
+pasina + Infinitiv
+
+## Adjektive & Adverben > ### Adverben > #### Verbale Adverben > ##### Verneinung > ###### Table 83
+
+<pre>```
+| 0                       | 1                             |
+|:------------------------|:------------------------------|
+| Er rennt nicht schnell. | Anomhanya pasina kukurumidza. |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+Noun classes (mupanda)
+Shona nouns are grouped by noun class (mupanda) based on:
+
+Meanings (Zvaanoreva) e.g. words found in class 1 and 2 describe a person: munhu ("person") is in mupanda 1 and musikana ("girl") is in mupanda 2.
+Prefix (Chivakashure) e.g. words in class 1 have prefix mu-, class 8 zvi-, class 10 dzi-, class 11 ru-, etc. Empty prefix units refer to words that do not require a prefix
+Singular and plural forms (Uwandu neushoma) e.g. words found in class 8 are plurals of class 7: zvikoro ("schools") in class 8 is the plural form of chikoro ("school") in class 7.
+Agreement (Sungawirirano) e.g. words in class 5 have accordance of the marker -ri- with pronouns and modifiers: garwe iri ("this crocodile"), dombo iri ("this stone"), gudo iri ("this baboon"); iri means 'this'.
+
+## Grammar > ### Table 5
+
+<pre>```
+| Noun class   | Noun class + Noun class.1   | Muenzaniso weIzwi ("word example")   | Word construction Prefix+body=word + Prefix   | Word construction Prefix+body=word + Body   | English translation   |
+|:-------------|:----------------------------|:-------------------------------------|:----------------------------------------------|:--------------------------------------------|:----------------------|
+| 1            | mu                          | mukomana                             | mu-                                           | -komana                                     | "boy"                 |
+| 1a           | –                           | baba                                 | nan                                           | -baba                                       | "father"              |
+| 2            | va                          | vakomana                             | va-                                           | -komana                                     | "boys"                |
+| 2a           | va                          | vasahwira                            | va-                                           | -sahwira                                    | "best friend"         |
+| 2a           | vana                        | vanatezvara                          | vana-                                         | -tezvara                                    | "father-in-law"       |
+| 2b           | a                           | atete                                | a-                                            | -tete                                       | "aunt"                |
+| 3            | mu                          | muti                                 | mu-                                           | -ti                                         | "tree"                |
+| 4            | mi                          | miti                                 | mi-                                           | -ti                                         | "trees"               |
+| 5            | ri                          | rize                                 | ri-                                           | -ze                                         | "scorpion"            |
+| 6            | ma                          | marize                               | ma-                                           | -ze                                         | "scorpions"           |
+| 7            | chi                         | chingwa                              | chi-                                          | -ngwa                                       | "bread"               |
+| 8            | zvi                         | zvingwa                              | zvi-                                          | -ngwa                                       | "bread"               |
+| 9            | i                           | imba                                 | i-                                            | -mba                                        | "house"               |
+| 10           | dzi                         | dzimba                               | dzi-                                          | -mba                                        | "houses"              |
+| 11           | ru                          | rwizi                                | ru-                                           | -izi                                        | "river"               |
+| 12           | ka                          | kambwa                               | ka-                                           | -mbwa                                       | "that little dog"     |
+| 13           | tu                          | tumbwa                               | tu-                                           | -mbwa                                       | "those little dogs"   |
+| 14           | u                           | upfu                                 | u-                                            | -pfu                                        | "mealie meal"         |
+| 15           | ku                          | kuenda                               | ku-                                           | -enda                                       | "going"               |
+| 16           | pa                          | pamba                                | pa-                                           | -mba                                        | "home"                |
+| 17           | ku                          | kumusha                              | ku-                                           | -musha                                      | "rural home"          |
+| 17a          | –                           | zasi                                 | nan                                           | -zasi                                       | "below"               |
+| 18           | mu                          | mumunda                              | mu-                                           | -munda                                      | "in the farm"         |
+| 19           | svi                         | svimbudzi                            | svi-                                          | -mbudzi                                     | "goat"                |
+| 21           | zi                          | zigomana                             | zi-                                           | -gomana                                     | "big boy"             |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+ReportedSpeech:
+  Features:
+    u-Evidentiality: [u-fh, u-quot]
+    u-Interrogativity: [u-decl, u-int, x-excl]
+    u-Tense: [u-prs, u-pst, u-fut]
+
+  Notes:
+  - "The tense of the subordinate clause remains unchanged unless the reporting verb is in the past, in which case the reported tense is adjusted relative to it as outlined."
+  - "In either case, though, mood changes: Subjunctive I is the mood of reporting, Subjunctive II if forms coincide"
+  - "Using 'dass' will trigger the inversion, as the sentence then becomes a subclause."
+
+  Negation:
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
+    examples:
+    - "Er sagte, er wolle den Kuchen nicht essen."
+
+  Rules:
+    u-Evidentiality_u-fh:
+      applies: {u-Evidentiality: u-fh}
+      pattern: "quote + _reporting verb_"
+      example: "Er sagte: 'Ich komme morgen.'"
+      note: "quotation preserves original tense/mood exactly"
+
+    u-Evidentiality_u-quot__u-Interrogativity_u-int:
+      applies: {u-Evidentiality: u-quot, u-Interrogativity: u-int}
+      pattern: "_reporting verb_ + ob/wh-word + {clause in Subjunctive I (present/perfect/future)}"
+      example: "Er fragte, ob er morgen komme."
+      note: "yes/no questions use 'ob', wh-questions use wh-word; tense follows same system as u-decls (pres, past, fut)"
+
+    u-Evidentiality_u-quot__u-Interrogativity_x-excl:
+      applies: {u-Evidentiality: u-quot, u-Interrogativity: x-excl}
+      pattern: "_reporting verb_ + wie/was für + {clause in Subjunctive I (present/perfect/future)}"
+      example: "Er sagte, wie schön es sei!"
+      note: "exclamatives follow the same tense distinctions as u-decls."
+    u-Evidentiality_u-quot__u-Interrogativity_u-decl__u-Tense_u-prs:
+      applies: {u-Evidentiality: u-quot, u-Interrogativity: u-decl, u-Tense: u-prs}
+      pattern: "_reporting verb_ + dass/Ø + {clause in Subjunctive I (present)}"
+      examples:
+      - "Er sagte, er komme morgen."
+      - "Er sagte, dass er morgen komme."
+
+    u-Evidentiality_u-quot__u-Interrogativity_u-decl__u-Tense_u-pst:
+      applies: {u-Evidentiality: u-quot, u-Interrogativity: u-decl, u-Tense: u-pst}
+      pattern: "_reporting verb_ + dass/Ø + {clause in Subjunctive I (perfect)}"
+      example: "Er sagte, er sei gestern angekommen."
+
+    u-Evidentiality_u-quot__u-Interrogativity_u-decl__u-Tense_u-fut:
+      applies: {u-Evidentiality: u-quot, u-Interrogativity: u-decl, u-Tense: u-fut}
+      pattern: "_reporting verb_ + dass/Ø + {clause in Subjunctive I (future)}"
+      example: "Er sagte, er werde morgen kommen."
+      note: "reported future"
+
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

@@ -1,0 +1,397 @@
+SYSTEM PROMPT:
+You are an expert in the italian language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language italian.
+
+The data you receive comes from multiple sources and relates to the following topics:
+noun.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or it-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "italian-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("italian-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Nouns have gender (masculine, feminine or, in many instances, both) and inflect in number (singular and plural). When a noun refers to people or animals with natural gender, grammatical gender typically corresponds. The gender each noun is written in is not arbitrary: because most nouns have a masculine and a feminine form, the form the given noun is written in could change the entire structure of the sentence. As in most other Romance languages, the historical neuter has merged with the masculine. A subgroup of these deriving from Latin's second declension are considered feminine in the plural. Subclauses and infinitives are masculine. Adjectives inflect for gender and number in patterns broadly similar to nouns.
+
+## Inflection of nouns and adjectives > ### Table 5: General noun and adjectival endings by number and gender
+
+<pre>```
+| Gender                                 | Singular          | Plural            | Example                                                                                |
+|:---------------------------------------|:------------------|:------------------|:---------------------------------------------------------------------------------------|
+| Masculine                              | -o                | -i                | il cappello nero, i cappelli neri ('the black hat(s)')                                 |
+| Feminine                               | -a                | -e                | la bella macchina, le belle macchine ('the beautiful car(s)')                          |
+| Masculine and feminine                 | -e                | -i                | il/la comandante intelligente, i/le comandanti intelligenti ('the smart commander(s)') |
+| Mixed (historically neuter)            | -o                | -a                | il lenzuolo leggero, le lenzuola leggere ('the light bed sheet(s)')                    |
+| Masculine                              | -a                | -i                | l'atleta entusiasta, gli atleti entusiasti ('the enthusiastic athlete(s)')             |
+| Feminine                               | -ie               | -ie               | la specie estinta, le specie estinte ('the extinct species')                           |
+| All nouns ending with a stressed vowel | singular = plural | singular = plural | la città, le città ('the city(-ies)')                                                  |
+| Non-integrated loanwords               | singular = plural | singular = plural | il/la manager trendy, i/le manager trendy ('the trendy manager(s)')                    |
+```</pre>
+
+
+In the last two examples, only the article carries information about gender and number.
+Most masculine words that end in -io pronounced as /jo/ drop the -o and thus end in -i in the plural: vecchio / vecchi ('old'), funzionario / funzionari ('functionary(-ies)'), esempio / esempi ('example(s)'), etc.
+The Italian hard and soft C and G phenomenon leads to certain peculiarities in spelling and pronunciation:
+
+Words in -cio and -gio form plurals in -ci and -gi, e.g. bacio / baci ('kiss(es)')
+Words in -cia and -gia have been a point of contention. According to a commonly employed rule, they:
+form plurals in -ce and -ge if the final letter before the suffix is a consonant: frangia, frange ('fringe(s)'); faccia, facce ('face(s)').
+form plurals in -cie and -gie if the final letter before the suffix is a vowel: camicia, camicie ('shirt(s)'); ciliegia, ciliegie ('cherry'/'cherries'). Note that the presence of an i in the plural ending has no impact on the pronunciation in this case.
+when the i is stressed, it always remains in plural: farmacia / farmacie ('chemist's shop(s)'), nevralgia / nevralgie ('neuralgia(s)').
+Words in -co and -go behave irregularly: for some words the plural form causes the hard consonant to become soft, and for others the consonant remains hard. "The grammarians are skeptical of any attempt at giving a ruling about this area." There are, however, certain rules of thumb:
+plurals are formed with -chi and -ghi if the last letter before the suffix is a consonant or a stressed vowel: fungo / funghi ('mushroom(s)'), stecco / stecchi ('stick(s)'), mago / maghi ('magician(s)'), fuoco / fuochi ('fire(s)')
+plurals are formed with -ci and -gi if the last letter before the suffix is an unstressed vowel: comico / comici ('comedian(s)'), medico / medici ('physician(s)')
+in words ending with -logo suffix, the plural is usually in -gi when -logo means 'expert' or 'student', corresponding to English -logist (e.g. archeologo / archeologi, 'archaeologist(s)'), while it is in -ghi when it means 'speech' or 'reasoning', corresponding often to English -logue/-log (e.g. catalogo / cataloghi, 'catalogue(s)').
+there are exceptions such as amico / amici ('friend(s)'), greco / greci ('Greek(s)'), valico / valichi ('mountain pass(es)'), carico / carichi ('cargo(s)').
+Words in -ca and -ga form plurals in -che and -ghe, e.g. amica / amiche ('female friend(s)')
+
+Most nouns are derived from Latin. Many of these are themselves borrowed from Greek (e.g. poeta below). Although Italian nouns do not inflect for case, they are derived from a mixture of the Latin nominative and accusative cases:
+
+## Nouns > ### Table 6: Derivation of noun inflections
+
+<pre>```
+| Latin declension (nominative/accusative)   | Italian singular/plural   | Masculine                 | Feminine                          |
+|:-------------------------------------------|:--------------------------|:--------------------------|:----------------------------------|
+| 1st (-a, -ae / -am, -ās)                   | -a, -e                    | nan                       | amica / amiche 'female friend(s)' |
+| 1st & 2nd (-a, -i / -, -)[7]               | -a, -i                    | poeta / poeti 'poet(s)'   | ala/ali 'wing(s)'                 |
+| 2nd (-us, -ī / -um, -ōs)                   | -o, -i                    | amico / amici 'friend(s)' | nan                               |
+| 3rd (-is, -ēs / -em, -ēs)                  | -e, -i                    | cane / cani 'dog(s)'      | parete / pareti 'wall(s)'         |
+| 4th (-us, -ūs / -um, -ūs)                  | -o, -i                    | passo / passi 'step(s)'   | mano / mani 'hand(s)'             |
+| 5th (-ēs, -ēs / -em, -ēs)                  | -e, -i                    | nan                       | fede / fedi 'faith(s)'            |
+```</pre>
+
+
+Nouns ending in any letter other than -a, -e or -o, as well as nouns ending in a stressed vowel, are normally invariable in the plural. Thus:
+
+la gru / le gru ('the crane(s)', from Latin grūs / grūes)
+la città / le città ('the city(ies)', contracted form of archaic cittade, cittadi, from Latin cīvitātem, cīvitātēs)
+il caffè / i caffè ('the coffee(s)')
+il film / i film ('the film(s)')
+There are certain words (derived from Latin second-declension neuter nouns) that are masculine in the singular and feminine or masculine in the plural. Examples include:
+
+il braccio / le braccia or i bracci ('the arm(s)')
+l'uovo / le uova ('the egg(s)')
+il ginocchio / le ginocchia or i ginocchi ('the knee(s)')
+il sopracciglio / le sopracciglia or i sopraccigli ('the eyebrow(s)')
+These nouns' endings derive regularly from the Latin neuter endings of the second declension (sg. -um / pl. -a), but there are some from the third declension as well: e.g. il gregge / le greggi ('flock(s)', but i greggi works, too); the tradition of calling them "irregular" or "mobile gender" (genere mobile) would come from the paradigm that there are so few nouns of this type that the existence of neuter can be considered vestigial (compared to Romanian, which has many more nouns of the masculine singular–feminine plural type, and as such are usually classified as a separate neuter gender). The choice of plural is sometimes left to the user, while in some cases there are differences of meaning:
+
+Sometimes, for body parts, the feminine/neuter plural denotes the literal meaning while the masculine one denotes a figurative meaning: il braccio ('the arm') / le braccia ('the arms') / i bracci ('the isthmuses', 'the inlets'); il corno ('the horn') / le corna ('the horns' of an animal) / i corni ('the horns' as musical instruments)
+Sometimes, especially in poetic and old-fashioned Italian, the masculine plural acts as a count noun, while the neuter/feminine plural acts as a mass noun: il cervello ('the brain') / due cervelli ('two brains') / le cervella ('the cerebral matter'); l'anello ('the ring') / due anelli ('two rings') / le anella ('ringlets'); furthermore, il dito ('the finger') / le dita ('the fingers') and also due dita ('two fingers') / but i diti indici ('the index fingers')
+Most noun stems are derived from the accusative: Latin socer/socerum begets Italian suocero, and Latin pēs/pēdem begets Italian piede. There are a few exceptions, however, such as uomo from Latin homo/hominem and moglie from Latin mulier/mulierem. Neuter third-declension nouns may bequeath Italian nouns either from the nominative/accusative case (e.g. capo from caput, cuore from cor) or from the oblique case used for other cases and for the plural (e.g. latte from lac, lact-, giure from ius, iur-).
+
+There are a few genuine irregular plurals in Italian (plurali irregolari). Most of these were introduced in Vulgar Latin, but some derive from irregular Latin plurals. Examples include:
+
+uomo / uomini ('man'/'men'; Latin homo / homines)
+il dio / gli dei ('god(s)'; note also the irregularity in the article: gli instead of i)
+bue / buoi ('ox(en)'; Latin bovem / boves)
+tempio / templi ('temple(s)'; the plural retains the l from Vulgar Latin templi in order to distinguish it from tempi, the plural of tempo; the l is lost in the singular)
+
+In Italian, altered nouns are nouns with particular shades of meaning. They are divided into diminutives, vezzeggiativi (diminutives with kindness and sympathy nuance), augmentatives and pejoratives.
+
+## Nouns > ### Alteration > #### Table 7
+
+<pre>```
+| Unnamed: 0                          | Suffix     | Example            | Example.1                    |
+|:------------------------------------|:-----------|:-------------------|:-----------------------------|
+| diminutivi (diminutive)             | -ino       | tavolo (table)     | tavolino (small table)       |
+| diminutivi (diminutive)             | -etto      | libro (book)       | libretto                     |
+| diminutivi (diminutive)             | -atto      | cerbia (deer)      | cerbiatto (fawn)             |
+| diminutivi (diminutive)             | -ello      | bambino (child)    | bambinello (small child)     |
+| diminutivi (diminutive)             | -icello    | monte (mountain)   | monticello                   |
+| diminutivi (diminutive)             | -icciolo   | porto (port)       | porticciolo                  |
+| diminutivi (diminutive)             | -acchio    | orso (bear)        | orsacchio                    |
+| vezzeggiativi (terms of endearment) | -uccio     | cavallo (horse)    | cavalluccio                  |
+| vezzeggiativi (terms of endearment) | -acchiotto | orso (bear)        | orsacchiotto                 |
+| vezzeggiativi (terms of endearment) | -iciattolo | fiume (river)      | fiumiciattolo                |
+| vezzeggiativi (terms of endearment) | -olo       | figlio (son)       | figliolo (also figliuolo)    |
+| vezzeggiativi (terms of endearment) | -otto      | cucciolo (puppy)   | cucciolotto                  |
+| accrescitivi (augmentative)         | -one       | libro (book)       | librone (big book)           |
+| accrescitivi (augmentative)         | -accione   | uomo (man)         | omaccione                    |
+| dispregiativi (pejorative)          | -accio     | libro (book)       | libraccio (bad book)         |
+| dispregiativi (pejorative)          | -astro     | medico (medic)     | medicastro (quack doctor)    |
+| dispregiativi (pejorative)          | -ucolo     | poeta (poet)       | poetucolo                    |
+| dispregiativi (pejorative)          | -onzolo    | medico (medic)     | mediconzolo                  |
+| dispregiativi (pejorative)          | -uncolo    | uomo (man)         | omuncolo (insignificant man) |
+| dispregiativi (pejorative)          | -otto      | contadino (farmer) | contadinotto (peasant)       |
+```</pre>
+
+
+Many other alterations can be built, sometimes with more than one suffix: for example, libro ('book') can become libretto (diminutive), libricino (double diminutive), libercolo (diminutive + pejorative), libraccio (pejorative), libraccione (pejorative + augmentative).
+Uomo ('man'), coming from Latin homo, becomes om- in altered forms: omino/ometto (diminutive), omone (augmentative), omaccio (pejorative), omaccione (augmentative + pejorative).
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Noun:
+  Features:
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+    de-Declension: [de-strong, de-weak, de-plural-en, de-plural-e, de-plural-er, de-plural-s]
+
+  Rules:
+    de-Declension_de-plural-e__u-Gender_u-fem:
+      applies: {de-Declension: de-plural-e, u-Gender: u-fem}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "e"
+          note: "often with Umlaut"
+      examples: 
+      - "eine Nacht → Nächte"
+      note: "feminine nouns with plural -e, often umlauted"
+
+    de-Declension_de-plural-en__u-Gender_u-fem:
+      applies: {de-Declension: de-plural-en, u-Gender: u-fem}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "en"
+      examples: 
+      - "eine Frau → Frauen"
+      note: "default feminine pattern; plural in -(e)n"
+
+    de-Declension_de-plural-er__u-Gender_u-neut:
+      applies: {de-Declension: de-plural-er, u-Gender: u-neut}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "es"
+        - features: {u-Number: u-pl}
+          form: "er"
+          note: "often with Umlaut"
+      examples: 
+      - "ein Kind → Kinder"
+      note: "common neuter plural type; Umlaut frequent"
+
+    de-Declension_de-plural-s__u-Gender_u-neut:
+      applies: {de-Declension: de-plural-s, u-Gender: u-neut}
+      pattern: "_stem_ + s"
+      endings:
+        - features: {u-Number: u-sg}
+          form: ""
+        - features: {u-Number: u-pl}
+          form: "s"
+      examples: 
+      - "ein Auto → Autos"
+      note: "loanwords and abbreviations; plural in -s"
+
+    de-Declension_de-strong__u-Gender_u-masc:
+      applies: {de-Declension: de-strong, u-Gender: u-masc}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: ""
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "es"
+        - features: {u-Number: u-pl, u-Case: u-nom}
+          form: "e"
+        - features: {u-Number: u-pl, u-Case: u-acc}
+          form: "e"
+        - features: {u-Number: u-pl, u-Case: u-dat}
+          form: "en"
+        - features: {u-Number: u-pl, u-Case: u-gen}
+          form: "e"
+      examples: 
+      - "ein Hund → Hunde"
+
+    de-Declension_de-weak__u-Gender_u-masc:
+      applies: {de-Declension: de-weak, u-Gender: u-masc}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          form: "e"   # Junge
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          form: "en"  # Jungen
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          form: "en"
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          form: "en"
+        - features: {u-Number: u-pl}
+          form: "en"  # Jungen
+      examples: 
+      - "ein Junge → Jungen"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+

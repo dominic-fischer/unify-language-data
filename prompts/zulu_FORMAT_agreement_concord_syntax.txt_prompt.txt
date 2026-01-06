@@ -1,0 +1,371 @@
+SYSTEM PROMPT:
+You are an expert in the zulu language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language zulu.
+
+The data you receive comes from multiple sources and relates to the following topics:
+agreement, concord, syntax.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Ignore information that is not relevant to the reference schema.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or zu-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "zulu-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("zulu-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Zum besseren Verständnis sind anfangs alle und später nur komplexe Beispielsätze zusätzlich zur standardsprachlichen Übersetzung mit einer Wort-für-Wort-Übersetzung versehen.
+
+Zudem werden die Verben sowie andere vielsilbige Wörter mit Bindestrichen ausgestattet, die die verschiedenen Bausteine voneinander abtrennen. Diese Bindestriche dienen lediglich zu Verständniszwecken und sind nicht im eigentlichen Schriftbild erhalten.
+
+Klassenzugehörigkeiten von Silben werden in Klammern () angegeben.
+
+Wie bereits angetönt hängt im Zulu das Verb vom Subjekt ab. Die Angleichung erledigt die Kenn- oder Subjektsilbe, die vor das Verb gehängt wird. Die Kennsilbe folgt lautlich zumeist dem Wortanfang.
+
+## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Kenn- oder Subjektsilbe > ###### Table 3
+
+<pre>```
+| 0                                       | 1                                       |
+|:----------------------------------------|:----------------------------------------|
+| Die Menschen laufen gerade in den Wald. | Abantu ba-ya-hamba e-hlath-ini.         |
+|                                         | Menschen sie-Präs.-laufen i.-Wald-Lok.. |
+```</pre>
+
+
+Nebst den Nomen, die Klassen angehören, können auch Personen (ich, Du, etc.) Subjekte sein. Die Personalpronomen Mina, Wena, Yena, Thina, Nina, Bona werden nur genannt, wenn sie betont werden sollen. Ansonsten bedient man sich der Personen-Kennsilben.
+
+## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Kenn- oder Subjektsilbe > ###### Table 4
+
+<pre>```
+| 0                                | 1                                   |
+|:---------------------------------|:------------------------------------|
+| Aber ich, ich möchte dahingehen! | Kodwa Mina ngi-funa ukuhamba lapho! |
+|                                  | Aber ich ich-wollen gehen dort.     |
+```</pre>
+
+Das Zulu kennt keine Fälle wie das Deutsch. Hat eine Aktion ob Objekt – egal welcher Art – kann dies mit der Objektsilbe angezeigt werden. Sie wird nach der Kenn- und ggf. Zeitsilbe und vor dem Verbstamm eingefügt. Die Objektsilbe entspricht grundsätzlich der Kenn, die meisten Unterschiede werden dadurch begründet, dass sie Objektsilbe im Wortinnern und nicht etwa zu Beginn steht.
+
+Wird durch den Satzaufbau klar, welches das Objekt ist, so kann es auch weggelassen werden.
+
+## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Objektsilbe > ###### Table 5
+
+<pre>```
+| 0                                 | 1                                     |
+|:----------------------------------|:--------------------------------------|
+| Wir sehen diesen Menschen.        | Siyabona lo muntu.                    |
+|                                   | Wir-Präs.-sehen dieser(1)  Mensch.    |
+| Wir sehen (ihn,) diesen Menschen. | Siyambona lo muntu.                   |
+|                                   | Wir-Präs.-ihn-sehen dieser(1) Mensch. |
+```</pre>
+
+Werden Besitzverhältnisse eines Nomens zu einem anderen ausgedrückt, so kommt die Besitzsilbe zum Einsatz. Im Gegensatz zum Deutschen muss zwischen normalem (subjektivem) und attributivem Genitiv unterschieden werden. Verwechslungsgefahr besteht jedoch nur sehr selten, da für den attributen Genitiv meisten «na» (mit) verwendet wird.
+
+## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Besitzsilbe > ###### Table 6
+
+<pre>```
+| 0                        | 1                           |
+|:-------------------------|:----------------------------|
+| Das Kind der Frau isst.  | Ingane yowesifazane iyadla. |
+| uwesifazane              | Frau                        |
+| Das weibliche Kind isst. | Ingane yesifazane iyadla.   |
+| isifazane                | Weiblichkeit                |
+```</pre>
+
+
+Ist der Possessor in Klasse eins oder zwei, so ändert sich die Possessivsilbe geringfügig und beinhaltet stets -ka-:
+
+## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Besitzsilbe > ###### Table 7
+
+<pre>```
+| 0                                 | 1                 |
+|:----------------------------------|:------------------|
+| die Kinder des Vaters (Klasse 1/2 | izingane zikababa |
+```</pre>
+
+
+Bem.: «owesifazane», die Frau, ist selbst eine Wortschöpfung mithilfe der Besitzsilbe: «o – wa – isifazane» wird zu «owesifazane». Dies aufgrund der A-Regel.
+
+Wir sehen hier bereits zwei Dinge: Die unterschiedlichen Vorsilbe einerseits und andererseits das Faktum, dass sich die Besitzsilbe einmal «ya-» und einmal «yo-» ist. Wir klären gleich, warum.
+
+Die A-Regel lautet folgendermassen:
+
+-a vor i  -> e
+
+-a vor u -> o
+
+Dadurch gleichen sich einige Wörter wie Besitzsilben, «na» (mit), «nga» (durch) und weitere an das ihnen folgende Nomen an.
+
+## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Einschub – A-Regel > ###### Table 8
+
+<pre>```
+| 0               | 1             |
+|:----------------|:--------------|
+| mit dem Kind    | nengane       |
+| Kind            | ingane, izin- |
+| mit dem Vater   | nobaba        |
+| Vater           | ubaba, o-     |
+| mit den Männern | namadoda      |
+| Mann            | indoda, ama-  |
+```</pre>
+
+Die Adjektivsilbe ist dazu da, echte Adjektive ihren Nomen anzugleichen. Neben den echten Adjektiven kann man auch Verb adjektivisch verwenden; dafür nutzt man die Eigenschaftssilbe.
+
+Die Adjektivsilbe folgt dem Wortanfang. Für ihre Bildung gilt:
+
+u- -> o-
+
+i- -> e-
+
+Die Eigenschaftssilbe ist dazu da, Nomen mit einem Verb adjektivisch zu verknüpfen. Zu diesem Zweck dienen fast ausschliesslich Zustandsverben (z.B. lula = einfach sein).
+
+Sie entsteht aus einer Vereinfachung der Adjektivsilbe, und zwar folgendermassen:
+
+Bei Adjektivsilben, die ein -m- oder -n- beinhalten, übernimmt die Eigenschaftssilbe, was vor diesen Buchstaben steht
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+Both the subject and, when applicable, the object of the verb are indicated by prefixes or concords attached to the verb stem. Zulu is a pro-drop language: explicit personal pronouns are only used for emphasis, while in general the concords on the verb give enough information. When a noun is used as the subject or object, then the concord must match its class. To refer to someone in the third-person, without a noun, classes 1 and 2 are used. The subject concord must always be present, except in the infinitive and imperative forms. The object concord is always optional, even when an explicit object follows the verb.
+Four different kinds of verbal concord exist. For the subject, there are the primary subject, secondary subject and participial subject concords. In addition, a separate set is used for the object. The four are essentially the same if not for tone, except in class 1.
+
+The primary subject concords (subj1) are used for the subject in all tenses of the positive indicative mood. They are underlyingly low-toned in the first and second person, and high-toned in the remainder.
+Secondary subject concords (subj2) are used for the subject on all verbs marked with negation and on verbs marked for the subjunctive mood. They are all underlyingly high-toned.
+The participial subject concords (subjP) are present whenever its verb is in participial form. This concord extant on participial verbs is used regardless of the verb's tense. They are identical to the secondary subject concords, except that any final a becomes e.
+The object concords (obj) are used for the object of the verb, and are only used for transitive verbs and can be used to mark specificity and/or definiteness. They are all underlyingly high-toned.
+The letters in parentheses indicate additional letters that are added when the prefix is not at the start of the word, functioning to "save" the phonology from being violated or to avoid ambiguity.
+
+## Verbs > ### Subject and object concords > #### Table 9
+
+<pre>```
+| Person/ Class   | Primary subject (subj1)   | Secondary subject (subj2)   | Participial subject (subjP)   | Object (obj)   |
+|:----------------|:--------------------------|:----------------------------|:------------------------------|:---------------|
+| 1st sing.       | ngi-                      | ngí-                        | ngí-                          | ngí-           |
+| 2nd sing.       | u-                        | (w)ú-                       | (w)ú-                         | kú-            |
+| 1st plur.       | si-                       | sí-                         | sí-                           | sí-            |
+| 2nd plur.       | ni-                       | ní-                         | ní-                           | ní-            |
+| 1               | ú-                        | (k)á-                       | (k)é-                         | ḿ-             |
+| 2               | bá-                       | bá-                         | bé-                           | bá-            |
+| 3               | ú-                        | (w)ú-                       | (w)ú-                         | wú-            |
+| 4               | í-                        | (y)í-                       | (y)í-                         | yí-            |
+| 5               | lí-                       | lí-                         | lí-                           | lí-            |
+| 6               | á-                        | (w)á-                       | (w)é-                         | wá-            |
+| 7               | sí-                       | sí-                         | sí-                           | sí-            |
+| 8               | zí-                       | zí-                         | zí-                           | zí-            |
+| 9               | í-                        | (y)í-                       | (y)í-                         | yí-            |
+| 10              | zí-                       | zí-                         | zí-                           | zí-            |
+| 11              | lú-                       | lú-                         | lú-                           | lú-            |
+| 14              | bú-                       | bú-                         | bú-                           | bú-            |
+| 15              | kú-                       | kú-                         | kú-                           | kú-            |
+| 17              | kú-                       | kú-                         | kú-                           | kú-            |
+| reflexive       | —                         | —                           | —                             | zí-            |
+```</pre>
+
+
+Examples:
+
+Sihamba manje., 'We are going now.'
+Thina sihamba manje., 'We are going now.' (with emphasis)
+Ngiyambona., 'I see him/her.'
+Ngimbona yena., 'I see him/her.' (with emphasis)
+Ngimnika isipho., 'I give him/her a gift.'
+The reflexive prefix only occurs as an object, and refers back to the subject of the sentence. It is equivalent to English forms like myself, yourself, himself and so on.
+
+ngiyazigeza, 'I wash myself'
+uyazibona, 'he sees himself'
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Agreement:
+  Features:
+    x-Domain: [x-subject-verb, x-noun-adjective, x-noun-determiner]
+
+  Rules:
+    x-Domain_x-noun-adjective:
+      applies: {x-Domain: x-noun-adjective}
+      pattern: "adjective inflected for case, number, gender of head noun"
+      examples: 
+      - "ein schöner Hund"
+      note: "endings follow strong/weak/mixed inflection depending on determiner"
+
+    x-Domain_x-noun-determiner:
+      applies: {x-Domain: x-noun-determiner}
+      pattern: "determiner inflected for case, number, gender of head noun"
+      examples: 
+      - "die großen Hunde"
+      note: "paradigm identical to article system"
+
+    x-Domain_x-subject-verb:
+      applies: {x-Domain: x-subject-verb}
+      pattern: "finite verb agrees with subject in person and number"
+      examples: 
+      - "ich gehe"
+      - "wir gehen"
+      note: "obligatory agreement; 3sg endings distinct, others reduced"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+
