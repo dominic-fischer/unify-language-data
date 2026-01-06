@@ -124,35 +124,46 @@ def validate_file(path: Path, base_path: Path) -> list[str]:
 
 def main():
     import argparse
+    import sys
+    from pathlib import Path
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("folder", help="Folder with rule files")
+    parser.add_argument("path", help="File or folder with rule files")
     args = parser.parse_args()
 
-    folder = Path(args.folder)
-    if not folder.is_dir():
-        print(f"Error: {folder} is not a directory")
-        sys.exit(1)
+    path = Path(args.path)
 
     # base_path points to the repository's reference schemas used for validation
-    # (ref_schemas is located next to this script)
     base_path = Path(__file__).resolve().parent / "ref_schemas"
 
+    if path.is_file():
+        paths = [path]
+    elif path.is_dir():
+        paths = sorted(
+            p for p in path.iterdir()
+            if p.suffix in [".txt", ".yaml", ".yml", ".json"]
+        )
+        if not paths:
+            print(f"No rule files found in {path}")
+            sys.exit(0)
+    else:
+        print(f"Error: {path} is not a file or directory")
+        sys.exit(1)
+
     all_errors = 0
-    for path in sorted(folder.glob("*")):
-        if path.suffix not in [".txt", ".yaml", ".yml", ".json"]:
-            continue
-        errors = validate_file(path, base_path)
+    for p in paths:
+        errors = validate_file(p, base_path)
         if errors:
-            print(f"❌ {path}:")
+            print(f"❌ {p}:")
             for e in errors:
                 print("  -", e)
             all_errors += 1
         else:
-            print(f"✅ {path}: all features/values validated")
+            print(f"✅ {p}: all features/values validated")
 
     if all_errors:
         sys.exit(1)
+
 
 
 if __name__ == "__main__":

@@ -24,29 +24,32 @@ def validate_file(filepath: Path, schema) -> None:
 
 def main():
     if len(sys.argv) != 2:
-        print("Usage: python validate.py <folder>")
+        print("Usage: python validate.py <file-or-folder>")
         sys.exit(1)
 
-    folder = Path(sys.argv[1])
-    if not folder.is_dir():
-        print(f"Error: {folder} is not a folder")
-        sys.exit(1)
+    path = Path(sys.argv[1])
 
-    # load schema once from the testing reference schemas
+    # load schema once
     schema_path = (
         Path(__file__).resolve().parent / "ref_schemas" / "grammar_schema.json"
     )
-    with open(schema_path) as f:
+    with open(schema_path, encoding="utf-8") as f:
         schema = json.load(f)
 
-    # validate all .txt files in folder
-    files = sorted(folder.glob("*.txt"))
-    if not files:
-        print(f"No .txt files found in {folder}")
-        sys.exit(0)
+    if path.is_file():
+        files = [path]
+    elif path.is_dir():
+        files = sorted(path.glob("*.txt"))
+        if not files:
+            print(f"No .txt files found in {path}")
+            sys.exit(0)
+    else:
+        print(f"Error: {path} is not a file or folder")
+        sys.exit(1)
 
     for filepath in files:
         validate_file(filepath, schema)
+
 
 
 if __name__ == "__main__":

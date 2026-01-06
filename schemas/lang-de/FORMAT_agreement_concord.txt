@@ -1,26 +1,29 @@
 Agreement:
   Features:
-    x-Domain: [x-subject-verb, x-noun-adjective, x-noun-determiner]
+    x-Domain:
+    - x-noun-adjective
+    - x-noun-determiner
+    - x-subject-verb
 
   Rules:
     x-Domain_x-noun-adjective:
       applies: {x-Domain: x-noun-adjective}
       pattern: "adjective inflected for case, number, gender of head noun"
-      examples: 
+      examples:
       - "ein schöner Hund"
       note: "endings follow strong/weak/mixed inflection depending on determiner"
 
     x-Domain_x-noun-determiner:
       applies: {x-Domain: x-noun-determiner}
       pattern: "determiner inflected for case, number, gender of head noun"
-      examples: 
+      examples:
       - "die großen Hunde"
       note: "paradigm identical to article system"
 
     x-Domain_x-subject-verb:
       applies: {x-Domain: x-subject-verb}
       pattern: "finite verb agrees with subject in person and number"
-      examples: 
+      examples:
       - "ich gehe"
       - "wir gehen"
       note: "obligatory agreement; 3sg endings distinct, others reduced"

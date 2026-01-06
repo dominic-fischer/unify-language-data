@@ -1,37 +1,42 @@
 DerivationalMorphology:
   Features:
-    u-Part-of-Speech: [u-n, u-v, u-adj, u-adv]
+    u-Part-of-Speech:
+    - u-adj
+    - u-n
+    - u-v
     x-Process: [x-prefixation, x-suffixation, x-compounding, x-conversion]
-    u-Gender: [u-masc, u-fem, u-neut]
+    u-Gender:
+    - u-fem
+    - u-neut
 
   Rules:
     u-Gender_u-fem__u-Part-of-Speech_u-n__x-Process_x-suffixation:
       applies: {u-Gender: u-fem, u-Part-of-Speech: u-n, x-Process: x-suffixation}
       patterns:
-        - pattern: "_stem_ + heit"
-          examples:
-          - "schön → Schönheit"
-          note: "forms abstract nouns denoting qualities"
-        - pattern: "_stem_ + keit"
-          examples:
-          - "tapfer → Tapferkeit"
-          note: "forms abstract nouns denoting qualities"
-        - pattern: "_stem_ + ung"
-          examples:
-          - "lesen → Lesung"
-          note: "action/result nouns"
+      - pattern: "_stem_ + heit"
+        examples:
+        - "schön → Schönheit"
+        note: "forms abstract nouns denoting qualities"
+      - pattern: "_stem_ + keit"
+        examples:
+        - "tapfer → Tapferkeit"
+        note: "forms abstract nouns denoting qualities"
+      - pattern: "_stem_ + ung"
+        examples:
+        - "lesen → Lesung"
+        note: "action/result nouns"
 
     u-Gender_u-neut__u-Part-of-Speech_u-n__x-Process_x-suffixation:
       applies: {u-Gender: u-neut, u-Part-of-Speech: u-n, x-Process: x-suffixation}
       patterns:
-        - pattern: "_stem_ + chen"
-          examples:
-          - "Hund → Hündchen"
-          note: "diminutive, always neuter, often umlaut"
-        - pattern: "_stem_ + lein"
-          examples:
-          - "Fräulein"
-          note: "diminutive, always neuter"
+      - pattern: "_stem_ + chen"
+        examples:
+        - "Hund → Hündchen"
+        note: "diminutive, always neuter, often umlaut"
+      - pattern: "_stem_ + lein"
+        examples:
+        - "Fräulein"
+        note: "diminutive, always neuter"
 
     u-Part-of-Speech_u-n__x-Process_x-compounding:
       applies: {u-Part-of-Speech: u-n, x-Process: x-compounding}
@@ -43,71 +48,71 @@ DerivationalMorphology:
     u-Gender_u-neut__u-Part-of-Speech_u-n__x-Process_x-conversion:
       applies: {u-Part-of-Speech: u-n, u-Gender: u-neut, x-Process: x-conversion}
       patterns:
-        - pattern: "Verb → Noun"
-          examples:
-          - "laufen → das Laufen"
-          note: "gerund-like; infinitive as neuter noun"
-        - pattern: "Adjective → Noun"
-          examples:
-          - "grün → das Grün"
-          note: "abstract quality, substance, or color"
+      - pattern: "Verb → Noun"
+        examples:
+        - "laufen → das Laufen"
+        note: "gerund-like; infinitive as neuter noun"
+      - pattern: "Adjective → Noun"
+        examples:
+        - "grün → das Grün"
+        note: "abstract quality, substance, or color"
 
     u-Part-of-Speech_u-v__x-Process_x-prefixation:
       applies: {u-Part-of-Speech: u-v, x-Process: x-prefixation}
       patterns:
-        - pattern: "be- + _stem_"
-          examples:
-          - "sprechen → besprechen"
-          note: "adds transitivity, valency"
-        - pattern: "ver- + _stem_"
-          examples:
-          - "kaufen → verkaufen"
-          note: "change, error, destruction, completion"
-        - pattern: "zer- + _stem_"
-          examples:
-          - "brechen → zerbrechen"
-          note: "destruction/disintegration"
-        - pattern: "miss- + _stem_"
-          examples:
-          - "verstehen → missverstehen"
-          note: "negation/mis- prefix"
+      - pattern: "be- + _stem_"
+        examples:
+        - "sprechen → besprechen"
+        note: "adds transitivity, valency"
+      - pattern: "ver- + _stem_"
+        examples:
+        - "kaufen → verkaufen"
+        note: "change, error, destruction, completion"
+      - pattern: "zer- + _stem_"
+        examples:
+        - "brechen → zerbrechen"
+        note: "destruction/disintegration"
+      - pattern: "miss- + _stem_"
+        examples:
+        - "verstehen → missverstehen"
+        note: "negation/mis- prefix"
 
     u-Part-of-Speech_u-v__x-Process_x-suffixation:
       applies: {u-Part-of-Speech: u-v, x-Process: x-suffixation}
       patterns:
-        - pattern: "_stem_ + ieren"
-          examples:
-          - "passen → passieren"
-          note: "productive for Latinate stems"
-        - pattern: "_stem_ + isieren"
-          examples:
-          - "modern → modernisieren"
-          note: "productive for Latinate stems"
+      - pattern: "_stem_ + ieren"
+        examples:
+        - "passen → passieren"
+        note: "productive for Latinate stems"
+      - pattern: "_stem_ + isieren"
+        examples:
+        - "modern → modernisieren"
+        note: "productive for Latinate stems"
 
     u-Part-of-Speech_u-adj__x-Process_x-prefixation:
       applies: {u-Part-of-Speech: u-adj, x-Process: x-prefixation}
       patterns:
-        - pattern: "un- + _stem_"
-          examples:
-          - "glücklich → unglücklich"
-          note: "productive negation prefix"
-        - pattern: "in-/im-/ir-/il- + _stem_"
-          examples:
-          - "rational → irrational"
-          note: "Latinate negation prefix; assimilation to following consonant"
+      - pattern: "un- + _stem_"
+        examples:
+        - "glücklich → unglücklich"
+        note: "productive negation prefix"
+      - pattern: "in-/im-/ir-/il- + _stem_"
+        examples:
+        - "rational → irrational"
+        note: "Latinate negation prefix; assimilation to following consonant"
 
     u-Part-of-Speech_u-adj__x-Process_x-suffixation:
       applies: {u-Part-of-Speech: u-adj, x-Process: x-suffixation}
       patterns:
-        - pattern: "_stem_ + lich"
-          examples:
-          - "Kind → kindlich"
-          note: "‘like’ or ‘characteristic of’"
-        - pattern: "_stem_ + bar"
-          examples:
-          - "essen → essbar"
-          note: "possibility or capability (‘-able’)"
-        - pattern: "_stem_ + ig"
-          examples:
-          - "Sonne → sonnig"
-          note: "possession or abundance"
+      - pattern: "_stem_ + lich"
+        examples:
+        - "Kind → kindlich"
+        note: "‘like’ or ‘characteristic of’"
+      - pattern: "_stem_ + bar"
+        examples:
+        - "essen → essbar"
+        note: "possibility or capability (‘-able’)"
+      - pattern: "_stem_ + ig"
+        examples:
+        - "Sonne → sonnig"
+        note: "possession or abundance"

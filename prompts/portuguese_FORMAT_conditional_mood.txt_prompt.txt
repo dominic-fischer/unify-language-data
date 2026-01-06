@@ -7,9 +7,9 @@ You are a linguist tasked with normalizing grammatical descriptions for the lang
 The data you receive comes from multiple sources and relates to the following topics:
 conditional, mood.
 
-Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+Your goal is to transform the data into a structure that satisfies the constraints specified in the validation schema provided.
 
-REFERENCE SCHEMA (structure and headings must be followed exactly):
+VALIDATION SCHEMA (structure and headings must be followed exactly):
 {
   "$schema": "http://json-schema.org/draft/2020-12/schema",
   "title": "Grammar File Schema",
@@ -152,23 +152,349 @@ REFERENCE SCHEMA (structure and headings must be followed exactly):
   "additionalProperties": false
 }
 
+The schema consists of RULES, each applying to a specific grammatical FEATURE and its ATTRIBUTE.
+Each Rule must contain:
+- A name: built by joining feature-attribute pairs with an underscore, and a double underscore between different pairs.
+- the 'applies' field: specifies to which feature-attribute pair the rule applies.
+- either a field 'pattern' or 'patterns' or 'forms':
+   - a 'pattern' is a string-like template
+   - 'patterns' is a list of sub-patterns, that each contain either 'pattern' or 'forms', and may include 'examples', 'notes' or 'endings.
+   - 'forms' is a list of specific word forms. It must contain 'features' and either 'form' or 'pattern'. It may also include a 'note' field.
+- it may include the fields 'notes', 'examples' or 'endings'.
+   - 'endings' must include 'features' and 'form', and may include a 'note' field.
+The 'Features' field on the same level as 'Rules' is the set of all features and their attributes used in the rules.
+There are also other optional fields at the top level, 'Negation' and 'Usage'. 'Usage' is used to specify usage of a tense, 'Negation' is used to specify negation in that tense. They should only be used in schemas pertaining to tenses. Both may contain 'pattern', 'note' or 'examples' fields, 'Usage' may additionally contain 'applies'.
+
 INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
 - Rephrase content where necessary, but do NOT add new facts.
 - Merge overlapping information into a single coherent description.
-- Make sure to ignore information that is not relevant to the topic(s) in question: conditional, mood.
+- Ignore any information that is not relevant to the topic(s): conditional, mood.
 - Preserve the hierarchy and ordering of the reference schema.
 
 FEATURES AND THEIR VALUES:
 - Feature names and values are prefixed with either u-, x- or pt-.
 - Use the prefix "u-" for UniMorph features and values.
 - Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
-- Use the language prefix "portuguese-" ONLY for language-specific features and values.
+- Use the language prefix "pt-" ONLY for language-specific features and values.
 - When multiple representations are possible, prefer:
   1) UniMorph ("u-") features,
   2) then custom ("x-") features,
   3) and only then language-specific ("portuguese-") features.
 - Do NOT invent new features if an appropriate UniMorph feature exists.
+
+Below are the features for reference:
+UNIMORPH FEATURES AND VALUES:
+{
+  "u-Aktionsart": {
+    "u-accmp": "Accomplishment",
+    "u-ach": "Achievement",
+    "u-acty": "Activity",
+    "u-atel": "Atelic",
+    "u-dur": "Durative",
+    "u-dyn": "Dynamic",
+    "u-pct": "Punctual",
+    "u-semel": "Semelfactive",
+    "u-stat": "Stative",
+    "u-tel": "Telic"
+  },
+  "u-Animacy": {
+    "u-anim": "Animate",
+    "u-hum": "Human",
+    "u-inan": "Inanimate",
+    "u-nhum": "Non-human"
+  },
+  "u-Aspect": {
+    "u-hab": "Habitual",
+    "u-ipfv": "Imperfective",
+    "u-iter": "Iterative",
+    "u-pfv": "Perfective",
+    "u-prf": "Perfect",
+    "u-prog": "Progressive",
+    "u-prosp": "Prospective"
+  },
+  "u-Case": {
+    "u-abl": "Ablative",
+    "u-abs": "Absolutive",
+    "u-acc": "Accusative",
+    "u-all": "Allative",
+    "u-ante": "Near, in front of",
+    "u-apprx": "Approximative",
+    "u-apud": "Next to",
+    "u-at": "At",
+    "u-avr": "Aversive",
+    "u-ben": "Benefactive",
+    "u-byway": "Essive-modal",
+    "u-circ": "Near",
+    "u-com": "Comitative",
+    "u-compv": "Comparative",
+    "u-dat": "Dative",
+    "u-eqtv": "Equative",
+    "u-erg": "Ergative",
+    "u-ess": "Essive",
+    "u-frml": "Formal",
+    "u-gen": "Genitive",
+    "u-in": "In",
+    "u-ins": "Instrumental",
+    "u-inter": "Among",
+    "u-nom": "Nominative",
+    "u-noms": "Nominative, S-only",
+    "u-on": "On",
+    "u-onhr": "On (horizontal)",
+    "u-onvr": "On (vertical)",
+    "u-post": "Behind",
+    "u-priv": "Privative",
+    "u-prol": "Prolative/translative",
+    "u-propr": "Proprietive",
+    "u-prox": "Proximate",
+    "u-prp": "Purposive",
+    "u-prt": "Partitive",
+    "u-rel": "Relative",
+    "u-rem": "Distal",
+    "u-sub": "Under",
+    "u-term": "Terminative",
+    "u-trans": "Translative",
+    "u-vers": "Versative",
+    "u-voc": "Vocative"
+  },
+  "u-Comparison": {
+    "u-ab": "Absolute",
+    "u-cmpr": "Comparative",
+    "u-eqt": "Equative",
+    "u-rl": "Relative",
+    "u-sprl": "Superlative"
+  },
+  "u-Definiteness": {
+    "u-def": "Definite",
+    "u-indf": "Indefinite",
+    "u-nspec": "Non-Specific",
+    "u-spec": "Specific"
+  },
+  "u-Deixis": {
+    "u-abv": "Above",
+    "u-bel": "Below",
+    "u-even": "Even",
+    "u-med": "Medial",
+    "u-noref": "No Reference Point, Distal",
+    "u-nvis": "Invisible",
+    "u-phor": "Phoric, situated in discourse",
+    "u-prox": "Proximate",
+    "u-ref1": "First Person Reference Point",
+    "u-ref2": "Second Person Reference Point",
+    "u-remt": "Remote",
+    "u-vis": "Visible"
+  },
+  "u-Evidentiality": {
+    "u-assum": "Assumed",
+    "u-aud": "Auditory",
+    "u-drct": "Direct",
+    "u-fh": "Firsthand",
+    "u-hrsy": "Hearsay",
+    "u-infer": "Inferred",
+    "u-nfh": "Non-firsthand",
+    "u-nvsen": "Non-visual sensory",
+    "u-quot": "Quotative",
+    "u-rprt": "Reported",
+    "u-sen": "Sensory"
+  },
+  "u-Finiteness": {
+    "u-fin": "Finite",
+    "u-nfin": "Nonfinite"
+  },
+  "u-Gender": {
+    "u-bantu1-23": "Bantu Noun Classes",
+    "u-fem": "Feminine",
+    "u-masc": "Masculine",
+    "u-nakh1-8": "Nakh-Daghestanian Noun Classes",
+    "u-neut": "Neuter"
+  },
+  "u-Information Structure": {
+    "u-foc": "Focus",
+    "u-top": "Topic"
+  },
+  "u-Interrogativity": {
+    "u-decl": "Declarative",
+    "u-int": "Interrogative"
+  },
+  "u-Mood": {
+    "u-adm": "Admirative",
+    "u-aunprp": "Australian Non-Purposive",
+    "u-auprp": "Australian Purposive",
+    "u-cond": "Conditional",
+    "u-deb": "Debitive",
+    "u-ded": "Deductive",
+    "u-imp": "Imperative-Jussive",
+    "u-ind": "Indicative",
+    "u-inten": "Intentive",
+    "u-irr": "Irrealis",
+    "u-lkly": "Likely",
+    "u-oblig": "Obligative",
+    "u-opt": "Optative-Desiderative",
+    "u-perm": "Permissive",
+    "u-pot": "Potential",
+    "u-purp": "General Purposive",
+    "u-real": "Realis",
+    "u-sbjv": "Subjunctive",
+    "u-sim": "Simulative"
+  },
+  "u-Number": {
+    "u-du": "Dual",
+    "u-gpauc": "Greater paucal",
+    "u-grpl": "Greater plural",
+    "u-invn": "Inverse",
+    "u-pauc": "Paucal",
+    "u-pl": "Plural",
+    "u-sg": "Singular",
+    "u-tri": "Trial"
+  },
+  "u-Part-of-Speech": {
+    "u-adj": "Adjective",
+    "u-adp": "Adposition",
+    "u-adv": "Adverb",
+    "u-art": "Article",
+    "u-aux": "Auxiliary",
+    "u-clf": "Classifier",
+    "u-comp": "Complementizer",
+    "u-conj": "Conjunction",
+    "u-det": "Determiner",
+    "u-intj": "Interjection",
+    "u-n": "Noun",
+    "u-num": "Numeral",
+    "u-part": "Particle",
+    "u-pro": "Pronoun",
+    "u-propn": "Proper Name",
+    "u-v": "Verb",
+    "u-v.cvb": "Converb",
+    "u-v.msdr": "Masdar",
+    "u-v.ptcp": "Participle"
+  },
+  "u-Person": {
+    "u-0": "Zero person",
+    "u-1": "First person",
+    "u-2": "Second person",
+    "u-3": "Third person",
+    "u-4": "Fourth person",
+    "u-excl": "Exclusive",
+    "u-incl": "Inclusive",
+    "u-obv": "Obviative",
+    "u-prx": "Proximate"
+  },
+  "u-Polarity": {
+    "u-pos": "Positive",
+    "u-neg": "Negative"
+  },
+  "u-Politeness": {
+    "u-avoid": "Avoidance style",
+    "u-col": "Colloquial",
+    "u-elev": "Formal, Referent Elevating",
+    "u-foreg": "Formal register",
+    "u-form": "Formal",
+    "u-high": "High status",
+    "u-humb": "Formal, Speaker Humbling",
+    "u-infm": "Informal",
+    "u-lit": "Literary",
+    "u-low": "Low status",
+    "u-pol": "Polite",
+    "u-stelev": "High status, elevated",
+    "u-stsupr": "High status, supreme"
+  },
+  "u-Tense": {
+    "u-1day": "Within 1 day",
+    "u-fut": "Future",
+    "u-hod": "Hodiernal",
+    "u-immed": "Immediate",
+    "u-prs": "Present",
+    "u-pst": "Past",
+    "u-rct": "Recent",
+    "u-rmt": "Remote"
+  },
+  "u-Valency": {
+    "u-appl": "Applicative",
+    "u-caus": "Causative",
+    "u-ditr": "Ditransitive",
+    "u-imprs": "Impersonal",
+    "u-intr": "Intransitive",
+    "u-recp": "Reciprocal",
+    "u-refl": "Reflexive",
+    "u-tr": "Transitive"
+  },
+  "u-Voice": {
+    "u-acfoc": "Accompanier Focus",
+    "u-act": "Active",
+    "u-agfoc": "Agent Focus",
+    "u-antip": "Antipassive",
+    "u-bfoc": "Beneficiary Focus",
+    "u-cfoc": "Conveyed Focus",
+    "u-dir": "Direct",
+    "u-ifoc": "Instrument Focus",
+    "u-inv": "Inverse",
+    "u-lfoc": "Location Focus",
+    "u-mid": "Middle",
+    "u-pass": "Passive",
+    "u-pfoc": "Patient Focus"
+  }
+}
+
+CUSTOM FEATURES AND VALUES:
+{
+  "x-Process": [
+    "x-base-form",
+    "x-adj-as-adv",
+    "x-complex",
+    "x-modification",
+    "x-prefixation",
+    "x-suffixation",
+    "x-compounding",
+    "x-conversion"
+  ],
+  "x-Domain": [
+    "x-subject-verb",
+    "x-noun-adjective",
+    "x-noun-determiner"
+  ],
+  "x-Clausetype": [
+    "x-main",
+    "x-subordinate",
+    "x-int-yes-no",
+    "x-int-wh",
+    "x-excl",
+    "x-protasis",
+    "x-apodosis"
+  ],
+  "x-Word-order": [
+    "x-V2",
+    "x-Vfinal",
+    "x-V1"
+  ],
+  "x-Negation-type": [
+    "x-clause",
+    "x-constituent"
+  ],
+  "x-Constituent": [
+    "x-NP",
+    "x-VP",
+    "x-AP",
+    "x-PP",
+    "x-AdvP",
+    "x-CP"
+  ],
+  "x-Passive-type": [
+    "x-process",
+    "x-state"
+  ],
+  "x-Pronoun-type": [
+    "x-pers",
+    "x-refl",
+    "x-dem",
+    "x-poss",
+    "x-int",
+    "x-rel"
+  ],
+  "x-Form-type": [
+    "x-standalone",
+    "x-clitic"
+  ]
+}
 
 SOURCE DATA:
 Source 1:
@@ -307,10 +633,14 @@ Conditionals:
     
 
 
-OUTPUT RULES:
+OUTPUT FORMAT CONSTRAINTS:
 - Output ONLY the synthesized schema.
+- The output must be in a human-readable, YAML-like text format (as in the example).
+- The output is NOT JSON.
+- The structure, keys, nesting, and values must correspond exactly to the provided validation schema.
+- The output must be directly convertible to valid JSON without adding, removing, or reinterpreting information.
+- Do NOT include empty objects or sections unless they are required by the schema.
 - Do NOT include explanations, comments, or metadata.
-- Use the same formatting style as the example.
-- Do not take content from the example; it is only to illustrate the format.
+- Do not take content from the example; it only illustrates the format.
 
 

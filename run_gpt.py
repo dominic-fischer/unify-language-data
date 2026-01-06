@@ -3,6 +3,11 @@ import sys
 from openai import OpenAI
 import subprocess
 import os
+from pathlib import Path
+import subprocess
+import sys
+
+log_path = Path("validation_errors.log")
 
 # Read your API key from file
 with open("api.key", "r") as f:
@@ -55,8 +60,17 @@ for lang in langs:
 
         # run the files testing_validation/_validate_grammar.py, _validate_grammar_extended.py, _validate_features.py to validate the output
         print(f"\tOutput saved to {save_dir}/{save_filename}")
+        output_filepath = os.path.join(save_dir, save_filename)
 
-
-subprocess.run([sys.executable, "testing_validation/_validate_grammar.py", save_dir])
-subprocess.run([sys.executable, "testing_validation/_validate_grammar_extended.py", save_dir, "--fix"])
-subprocess.run([sys.executable, "testing_validation/_validate_features.py", save_dir])
+        with log_path.open("a", encoding="utf-8") as log:
+            for cmd in [
+                [sys.executable, "testing_validation/_validate_grammar.py", output_filepath],
+                [sys.executable, "testing_validation/_validate_grammar_extended.py", output_filepath, "--fix"],
+                [sys.executable, "testing_validation/_validate_features.py", output_filepath],
+            ]:
+                subprocess.run(
+                    cmd,
+                    stdout=log,        # or subprocess.DEVNULL if you only want errors
+                    stderr=log,
+                    check=False,
+                )
