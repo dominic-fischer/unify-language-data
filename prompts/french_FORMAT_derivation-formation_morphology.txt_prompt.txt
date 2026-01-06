@@ -156,7 +156,7 @@ INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
 - Rephrase content where necessary, but do NOT add new facts.
 - Merge overlapping information into a single coherent description.
-- Ignore information that is not relevant to the reference schema.
+- Make sure to ignore information that is not relevant to the topic(s) in question: derivation, formation, morphology.
 - Preserve the hierarchy and ordering of the reference schema.
 
 FEATURES AND THEIR VALUES:
@@ -356,4 +356,6 @@ OUTPUT RULES:
 - Output ONLY the synthesized schema.
 - Do NOT include explanations, comments, or metadata.
 - Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
 

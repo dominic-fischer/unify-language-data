@@ -156,7 +156,7 @@ INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
 - Rephrase content where necessary, but do NOT add new facts.
 - Merge overlapping information into a single coherent description.
-- Ignore information that is not relevant to the reference schema.
+- Make sure to ignore information that is not relevant to the topic(s) in question: clauses, syntax.
 - Preserve the hierarchy and ordering of the reference schema.
 
 FEATURES AND THEIR VALUES:
@@ -172,46 +172,6 @@ FEATURES AND THEIR VALUES:
 
 SOURCE DATA:
 Source 1:
-Im Unterschied zum Indikativ enden Verben im Subjunktiv auf «-e». Er wird benutzt:
-
-Bei höflichen Aufforderungen und Wünschen
-
-## Das Verb > ### Subjunktiv > #### Table 56
-
-<pre>```
-| 0                         | 1                         |
-|:--------------------------|:--------------------------|
-| Reich mir bitte das Brot. | Ngicela ningiphe isinkwa. |
-```</pre>
-
-
-nach Verben des Wünschens, des Wollens und der Aufforderung
-
-## Das Verb > ### Subjunktiv > #### Table 57
-
-<pre>```
-| 0                                     | 1                         |
-|:--------------------------------------|:--------------------------|
-| Er wollte, dass ich ihm das brot gebe | Wayefuna ngimnike isinkwa |
-```</pre>
-
-
-Nach «ukuze»/«ukuthi» im Sinne von (so)dass/damit
-
-## Das Verb > ### Subjunktiv > #### Table 58
-
-<pre>```
-| 0                                          | 1                                      |
-|:-------------------------------------------|:---------------------------------------|
-| Wir gehen heute, sodass wir bald ankommen. | Siyahamba namuhla ukuze sifike maduze. |
-```</pre>
-
-
-Die Negation ist: Kennsilbe – nga – Verbstamm auf -i: Ubaba ufuna ukuthi ngingahambi lapho.
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
-Source 2:
 The subjunctive expresses hypothetical situations, wishes and requests. It is also used for consecutive action, and as a complement to certain auxiliary verbs and conjunctions. There are present and past subjunctive forms.
 
 ## Verbs > ### Tenses and moods > #### Subjunctive > ##### Table 22: Formation of the subjunctive
@@ -302,4 +262,6 @@ OUTPUT RULES:
 - Output ONLY the synthesized schema.
 - Do NOT include explanations, comments, or metadata.
 - Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
 

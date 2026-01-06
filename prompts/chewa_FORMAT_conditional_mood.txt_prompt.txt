@@ -1,0 +1,374 @@
+SYSTEM PROMPT:
+You are an expert in the chewa language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language chewa.
+
+The data you receive comes from multiple sources and relates to the following topics:
+conditional, mood.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Make sure to ignore information that is not relevant to the topic(s) in question: conditional, mood.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or ny-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "chewa-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("chewa-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+## Das Verb > ### Zeitformen > #### Konditional > ##### Table 29
+
+<pre>```
+| 0                             | 1    | 2           | 3       | 4        | 5                            |
+|:------------------------------|:-----|:------------|:--------|:---------|:-----------------------------|
+|                               | SUBJ | TEMP        | ASP     | VERB     |                              |
+| Konditional Past              | Ndí- | ka-na-      |         | thandíza | If I had helped, …           |
+| Konditional Habit             | Ndi- | ka-         | má-     | thandíza | Whenever I (used to) help, … |
+| Konditional                   | Ndi- | ka- (/chi-) |         | thandiza | If I help, …                 |
+| Konditional Futur             | Ndi- | ka-         | dzá-    | thandiza | If I were going to help, …   |
+| Konditional Future continuous | Ndi- | ka-         | má-dza- | thandíza | If ever I were helping, …    |
+```</pre>
+
+
+Die negativen Konditonale brauchen «ku-panda» ‘nicht haben’ als Hilfsverb:
+
+## Das Verb > ### Zeitformen > #### Konditional > ##### Table 30
+
+<pre>```
+| 0                     | 1    | 2      | 3    | 4     | 5    | 6        | 7                              |
+|:----------------------|:-----|:-------|:-----|:------|:-----|:---------|:-------------------------------|
+|                       | SUBJ | VERB   | ASP  | VERB  | SUBJ | VERB     |                                |
+| Konditional Past NEG  | Ndi- | ka-na- |      | panda | ku-  | thándiza | If I did not help, …           |
+| Konditional NEG       | Ndi- | ka-    |      | panda | ku-  | thándiza | If i do not help, …            |
+| Konditional Futur NEG | Ndi- | ka-    | dzá- | panda | ku-  | thándiza | If I were not going to help, … |
+```</pre>
+
+Konditionalsätze haben im Bedingungssatz einen Konditional, im Hauptsatz einen Potential (für Vergangenes), ein Präsens oder ein Futur. Untenstehend finden sich einige Beispiele; andere Bildungen sind aber auch möglich:
+
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Vergangenheit > ####### Table 31
+
+<pre>```
+| 0                                             | 1                                                            |
+|:----------------------------------------------|:-------------------------------------------------------------|
+| Ndí-ka-da-khála ndi mwana ndi-ka-dá-kondwera. | Wenn ich ein Kind gehabt hätte, hätte ich mich sehr gefreut. |
+```</pre>
+
+Der Konditional Präsens selbst kann in mehrere Unterarten aufgeteilt werden:
+
+Gewohnheit: -kama- … -ma-
+
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Gegenwart > ####### Table 32
+
+<pre>```
+| 0                                                     | 1                                         |
+|:------------------------------------------------------|:------------------------------------------|
+| Ndi-ka-má-ku-óna-ni ndí-ma-kondwéra.                  | Ich freue mich immer, wenn ich Dich sehe. |
+| Ich-wenn-Gewohnheit-dich-sehen ich-Gewohnheit-freuen. |                                           |
+```</pre>
+
+
+Wahrscheinlich: -ka- …
+
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Gegenwart > ####### Table 33
+
+<pre>```
+| 0                                                | 1                                                                                         |
+|:-------------------------------------------------|:------------------------------------------------------------------------------------------|
+| Ndi-ka-fika kunyumba ndí-komana ndi banja langa. | Wenn ich nach Hause komme, treffe ich meine Familie an/werde ich meine Familie antreffen. |
+```</pre>
+
+
+Möglich: -ka- … -ka-
+
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Gegenwart > ####### Table 34
+
+<pre>```
+| 0                                   | 1                                                              |
+|:------------------------------------|:---------------------------------------------------------------|
+| Ndi-ka-fika kunyumba ndi-ká-komana  | Wenn ich nach Hause komme, könnte ich meine Familie antreffen. |
+| ndi banja langa.                    |                                                                |
+```</pre>
+
+-kadza- … -ka/dza-
+
+Je nach Bedeutung («Kommen-und-Tun» oder «Gehen-und-Tun») wird im zweiten Teilsatz «-ka-» oder «-dza-» gewählt.
+
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Zukunft > ####### Table 35
+
+<pre>```
+| 0                                       | 1                                                        |
+|:----------------------------------------|:---------------------------------------------------------|
+| Ndi-ka-dzá-fika kunyumba ndi-dzá-samba. | Wenn/Falls ich Hause komme, werde ich mich waschen.      |
+| Ndi-ka-dzá-fika kwanu ndi-ká-puma.      | Wenn/Falls ich bei Dir ankomme, werde ich mich ausruhen. |
+```</pre>
+
+Eine weitere – und vielleicht einfachere – Möglichkeit der Bildung von Konditionalsätzen ist die Verwendung von «ngati» (falls). Ein Vorteil ist, dass man dadurch im Präsens und Futur die Negation einfach bilden, indem man das Verb negiert.
+
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Weitere Bildungsmöglichkeit und Verneinung > ####### Table 36
+
+<pre>```
+| 0                                                     | 1                                                     |
+|:------------------------------------------------------|:------------------------------------------------------|
+| Solange ich nicht gehe, bin ich noch da.              | Ngati sindisíya ndilipo.                              |
+| Wenn ich nicht gehen werde, werde ich noch dort sein. | Ngati si-ndi-dza-siya ndi-dza-khala-be uko.           |
+|                                                       | Wenn Nicht-ich-Fut.-verlasse ich-Fut.-sein-noch dort. |
+```</pre>
+
+
+Einzig in der Vergangenheit muss man die Konstruktion modifizieren und die oben beschrieben negativen Konditionale nutzen:
+
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Weitere Bildungsmöglichkeit und Verneinung > ####### Table 37
+
+<pre>```
+| 0                                                             | 1                                                                  |
+|:--------------------------------------------------------------|:-------------------------------------------------------------------|
+| Wenn ich nicht gegangen wäre, wäre ich nicht erfreut gewesen. | Ndí-ka-na-pánda kupita, sí-ndí-ka-ná-kondwa.                       |
+|                                                               | Ich-wenn-Vgh.-nicht-haben gehen, nicht-ich-wenn-Vgh.-haben Freude. |
+```</pre>
+
+
+Diese Konstruktion kann man auch für Präsens und Futur nutzen; teils wird ihr aber die einfachere Konstruktion mit «ngati» vorgezogen.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Conditionals:
+  Features:
+    u-Tense: [u-prs, u-pst, u-fut]
+    u-Mood: [u-irr, u-real]
+    x-Clausetype: [x-protasis, x-apodosis]
+  Negation:
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
+    examples:
+    - "Auch wenn er nicht bald kommen sollte, gehen wir nicht ohne ihn."
+  Rules:
+    u-Tense_u-fut__x-Clausetype_x-protasis:
+      applies: {u-Tense: u-fut, x-Clausetype: x-protasis}
+      pattern: "{de-praesens}"
+      examples:
+      - "Wenn er kommt, ..."
+
+    u-Tense_u-fut__x-Clausetype_x-apodosis:
+      applies: {u-Tense: u-fut, x-Clausetype: x-apodosis}
+      pattern: "{de-futur-I}"
+      examples:
+      - "..., werden wir gehen."
+
+    u-Mood_u-real__u-Tense_u-prs__x-Clausetype_x-protasis:
+      applies: {u-Tense: u-prs, x-Clausetype: x-protasis, u-Mood: u-real}
+      pattern: "{de-praesens}"
+      examples:
+      - "wenn er kommt, ..."
+
+    u-Mood_u-real__u-Tense_u-prs__x-Clausetype_x-apodosis:
+      applies: {u-Tense: u-prs, x-Clausetype: x-apodosis, u-Mood: u-real}
+      pattern: "{de-praesens}/{de-futur-I}"
+      examples:
+      - "..., gehen wir."
+
+
+    u-Mood_u-irr__u-Tense_u-prs__x-Clausetype_x-protasis:
+      applies: {u-Tense: u-prs, x-Clausetype: x-protasis, u-Mood: u-irr}
+      patterns:
+      - pattern: "{de-konjunktiv-II} present (synthetic)"
+        examples:
+        - "Wenn er käme, ..."
+      - pattern: "{de-konjunktiv-II} present (periphrastic)"
+        examples:
+        - "Wenn er kommen würde, ..."
+        note: "dominant in modern usage"
+
+    u-Mood_u-irr__u-Tense_u-prs__x-Clausetype_x-apodosis:
+      applies: {u-Tense: u-prs, x-Clausetype: x-apodosis, u-Mood: u-irr}
+      patterns:
+      - pattern: "{de-konjunktiv-II} present (synthetic)"
+        examples:
+        - "..., gingen wir."
+        note: "less common in modern usage, survives with sein/haben/modals"
+      - pattern: "{de-konjunktiv-II} present (periphrastic)"
+        examples:
+        - "..., würden wir gehen."
+        note: "dominant in modern usage"
+
+
+    u-Mood_u-irr__u-Tense_u-pst__x-Clausetype_x-protasis:
+      applies: {u-Tense: u-pst, x-Clausetype: x-protasis, u-Mood: u-irr}
+      pattern: "{de-konjunktiv-II} past"
+      examples:
+      - "wenn er gegangen wäre, ..."
+
+    u-Mood_u-irr__u-Tense_u-pst__x-Clausetype_x-apodosis:
+      applies: {u-Tense: u-pst, x-Clausetype: x-apodosis, u-Mood: u-irr}
+      pattern: "{de-konjunktiv-II} past"
+      examples:
+      - "..., hätten wir gewonnen."
+
+    
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
+

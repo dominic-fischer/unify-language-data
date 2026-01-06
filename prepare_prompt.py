@@ -52,10 +52,13 @@ for lang, mapping_file_paths in langs_w_files.items():
                     relevant_entry = mapping_data["schemas\\lang-de\\" + filename]
                     matches = relevant_entry.get("matches", [])
                     topic_terms = relevant_entry.get("topic_terms", [])
-                    
+                    strategy = relevant_entry.get("strategy", "unknown")
                     for match in matches:
                         # skip vocabulary matches
                         if match["full"].startswith("## Vokabular >"):
+                            continue
+                        # skip improbable matches
+                        if strategy == "embedding" and match["similarity"] < 0.5:
                             continue
                         if "wikipedia" in mapping_file_path:
                             wikipedia_matches.append(match["content"])
@@ -71,7 +74,9 @@ for lang, mapping_file_paths in langs_w_files.items():
             if wikipedia_matches:
                 wiki_joined = '\n\n'.join(wikipedia_matches).lstrip("\n")
                 match_prompt += f"Source {source_ind}:\n{wiki_joined}\n\n" + "- "*50 + "\n\n"
-
+            if match_prompt == "":
+                # write an empty file to outputs
+                continue
 
             prompt = (
                 f"You are a linguist tasked with normalizing grammatical descriptions for the language {lang}.\n\n"
@@ -88,7 +93,7 @@ for lang, mapping_file_paths in langs_w_files.items():
                 "- Use ONLY the information present in the provided data.\n"
                 "- Rephrase content where necessary, but do NOT add new facts.\n"
                 "- Merge overlapping information into a single coherent description.\n"
-                "- Ignore information that is not relevant to the reference schema.\n"
+                f"- Make sure to ignore information that is not relevant to the topic(s) in question: {', '.join(topic_terms)}.\n"
                 "- Preserve the hierarchy and ordering of the reference schema.\n\n"
 
                 "FEATURES AND THEIR VALUES:\n"
@@ -112,6 +117,7 @@ for lang, mapping_file_paths in langs_w_files.items():
                 "- Output ONLY the synthesized schema.\n"
                 "- Do NOT include explanations, comments, or metadata.\n"
                 "- Use the same formatting style as the example.\n"
+                "- Do not take content from the example; it is only to illustrate the format.\n\n"
             )
 
             # save sys_prompt and prompt to a file for later use

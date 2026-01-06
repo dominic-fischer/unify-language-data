@@ -1,0 +1,255 @@
+SYSTEM PROMPT:
+You are an expert in the shona language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language shona.
+
+The data you receive comes from multiple sources and relates to the following topics:
+passive, voice.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Make sure to ignore information that is not relevant to the topic(s) in question: passive, voice.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or sn-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "shona-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("shona-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Für Bildung: Siehe unter Nachsilben.
+
+Der Täter (dt. «von») wird im Shona durch «na», «mit», gekennzeichnet. Dabei kommt es zur Kontraktion (siehe unter Pronomina) von «na» und den Pronomen.
+
+## Das Verb > ### Verbmodifikatoren > #### Passiv > ##### Table 49
+
+<pre>```
+| 0                                         | 1                                  |
+|:------------------------------------------|:-----------------------------------|
+| Ich wurde von ihr geschlagen.             | Nda-i-roh-wa na-ye.                |
+|                                           | Ich-Impf.-schlagen-werden mit-ihr. |
+| Er wird getötet werden von diesen Dingen. | Achaurayiwa nazo.                  |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Passive:
+  Features:
+    x-Passive-type: [x-process, x-state]
+    u-Tense: [u-prs, u-pst, u-fut]
+
+  Negation:
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
+    examples: 
+    - "Der Hund wird nicht gesehen."
+
+  Rules:
+    u-Tense_u-fut__x-Passive-type_x-process:
+      applies: {u-Tense: u-fut, x-Passive-type: x-process}
+      pattern: "werden (present, finite) + {de-past-participle} + werden (infinitive)"
+      examples: 
+      - "Der Hund wird gesehen werden"
+      note: "Vorgangspassiv im Futur I"
+
+    u-Tense_u-fut__x-Passive-type_x-state:
+      applies: {u-Tense: u-fut, x-Passive-type: x-state}
+      pattern: "werden (present, finite) + {de-past-participle} + sein (infinitive)"
+      examples: 
+      - "Der Zaun wird gestrichen sein"
+      note: "Zustandspassiv im Futur I"
+
+    u-Tense_u-prs__x-Passive-type_x-process:
+      applies: {u-Tense: u-prs, x-Passive-type: x-process}
+      pattern: "werden (present, finite) + {de-past-participle}"
+      examples: 
+      - "Der Hund wird gesehen"
+      note: "Vorgangspassiv im Präsens"
+
+    u-Tense_u-prs__x-Passive-type_x-state:
+      applies: {u-Tense: u-prs, x-Passive-type: x-state}
+      pattern: "sein (present, finite) + {de-past-participle}"
+      examples: 
+      - "Der Zaun ist gestrichen"
+      note: "Zustandspassiv im Präsens"
+
+    u-Tense_u-pst__x-Passive-type_x-process:
+      applies: {u-Tense: u-pst, x-Passive-type: x-process}
+      pattern: "werden (preterite, finite) + {de-past-participle}"
+      examples: 
+      - "Der Hund wurde gesehen"
+      note: "Vorgangspassiv im Präteritum"
+
+    u-Tense_u-pst__x-Passive-type_x-state:
+      applies: {u-Tense: u-pst, x-Passive-type: x-state}
+      pattern: "sein (preterite, finite) + {de-past-participle}"
+      examples: 
+      - "Der Zaun war gestrichen"
+      note: "Zustandspassiv im Präteritum"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
+

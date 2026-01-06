@@ -1,0 +1,358 @@
+SYSTEM PROMPT:
+You are an expert in the spanish language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language spanish.
+
+The data you receive comes from multiple sources and relates to the following topics:
+present tense, tense.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Make sure to ignore information that is not relevant to the topic(s) in question: present tense, tense.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or es-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "spanish-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("spanish-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Spanish has a number of verb tenses used to express actions or states of being in a past time frame. The two that are "simple" in form (formed with a single word, rather than being compound verbs) are the preterite and the imperfect.
+
+The preterite is used to express actions or events that took place in the past, and which were instantaneous or are viewed as completed. For example:
+
+Ella se murió ayer (She died yesterday)
+Pablo apagó las luces (Pablo turned the lights off)
+Yo me comí el arroz (I ate the rice)
+Te cortaste el pelo (You had your hair cut, Lit. "You cut yourself the hair")
+
+## Verbs > ### Past tenses > #### Preterite > ##### Table 5: Preterite forms of the regular-arverbhablar('to speak')
+
+<pre>```
+| Unnamed: 0             | Singular           | Plural                    |
+|:-----------------------|:-------------------|:--------------------------|
+| First person           | (yo) hablé         | (nosotros/-as) hablamos   |
+| Second person familiar | (tú, vos) hablaste | (vosotros/-as) hablasteis |
+| Second person formal   | (usted) habló      | (ustedes) hablaron        |
+| Third person           | (él, ella) habló   | (ellos, ellas) hablaron   |
+```</pre>
+
+
+## Verbs > ### Past tenses > #### Preterite > ##### Table 6: Preterite forms of the regular-erverbcomer('to eat')
+
+<pre>```
+| Unnamed: 0             | Singular          | Plural                   |
+|:-----------------------|:------------------|:-------------------------|
+| First person           | (yo) comí         | (nosotros/-as) comimos   |
+| Second person familiar | (tú, vos) comiste | (vosotros/-as) comisteis |
+| Second person formal   | (usted) comió     | (ustedes) comieron       |
+| Third person           | (él, ella) comió  | (ellos, ellas) comieron  |
+```</pre>
+
+
+## Verbs > ### Past tenses > #### Preterite > ##### Table 7: Preterite forms of the regular-irverbvivir('to live')
+
+<pre>```
+| Unnamed: 0             | Singular          | Plural                   |
+|:-----------------------|:------------------|:-------------------------|
+| First person           | (yo) viví         | (nosotros/-as) vivimos   |
+| Second person familiar | (tú, vos) viviste | (vosotros/-as) vivisteis |
+| Second person formal   | (usted) vivió     | (ustedes) vivieron       |
+| Third person           | (él, ella) vivió  | (ellos, ellas) vivieron  |
+```</pre>
+
+
+Note that (1) for -ar and -ir verbs (but not -er), the first-person plural form is the same as that of the present indicative; and (2) -er and -ir verbs share the same set of endings.
+
+The imperfect expresses actions or states that are viewed as ongoing in the past. For example:
+
+Yo era cómico en el pasado (I was/used to be funny in the past).
+Usted comía mucho (You ate a lot – literally, this sentence is saying "You used to eat a lot", saying that in the past, the person being referred to had a characteristic of "eating a lot").
+Ellos escuchaban la radio (They were listening to the radio).
+All three of the sentences above describe "non-instantaneous" actions that are viewed as continuing in the past. The characteristic in the first sentence and the action in the second were continuous, not instantaneous occurrences. In the third sentence, the speaker focuses on the action in progress, not on its beginning or end.
+
+## Verbs > ### Past tenses > #### Imperfect or "copretérito" > ##### Table 8: Imperfect forms of the regular-arverbhablar('to speak')
+
+<pre>```
+| Unnamed: 0             | Singular           | Plural                    |
+|:-----------------------|:-------------------|:--------------------------|
+| First person           | (yo) hablaba       | (nosotros/-as) hablábamos |
+| Second person familiar | (tú, vos) hablabas | (vosotros/-as) hablabais  |
+| Second person formal   | (usted) hablaba    | (ustedes) hablaban        |
+| Third person           | (él, ella) hablaba | (ellos, ellas) hablaban   |
+```</pre>
+
+
+## Verbs > ### Past tenses > #### Imperfect or "copretérito" > ##### Table 9: Imperfect forms of the regular-erverbcomer('to eat')
+
+<pre>```
+| Unnamed: 0             | Singular         | Plural                  |
+|:-----------------------|:-----------------|:------------------------|
+| First person           | (yo) comía       | (nosotros/-as) comíamos |
+| Second person familiar | (tú, vos) comías | (vosotros/-as) comíais  |
+| Second person formal   | (usted) comía    | (ustedes) comían        |
+| Third person           | (él, ella) comía | (ellos, ellas) comían   |
+```</pre>
+
+
+## Verbs > ### Past tenses > #### Imperfect or "copretérito" > ##### Table 10: Imperfect forms of the regular-irverbvivir('to live')
+
+<pre>```
+| Unnamed: 0             | Singular         | Plural                  |
+|:-----------------------|:-----------------|:------------------------|
+| First person           | (yo) vivía       | (nosotros/-as) vivíamos |
+| Second person familiar | (tú, vos) vivías | (vosotros/-as) vivíais  |
+| Second person formal   | (usted) vivía    | (ustedes) vivían        |
+| Third person           | (él, ella) vivía | (ellos, ellas) vivían   |
+```</pre>
+
+
+Note that (1) for all verbs in the imperfect, the first- and third-person singular share the same form; and (2) -er and -ir verbs share the same set of endings.
+
+The preterite and the imperfect can be combined in the same sentence to express the occurrence of an event in one clause during an action or state expressed in another clause. For example:
+
+Ellos escuchaban la radio cuando oyeron un ruido afuera. (They were listening to the radio when they heard a noise outside.)
+Yo estaba en mi cuarto cuando usted entró. (I was in my room when you came in.)
+Era un día muy tranquilo cuando eso pasó. (It was a very peaceful day when that happened.)
+In all three cases, an event or completed action interrupts an ongoing state or action. For example, in the second sentence, the speaker states that he was in his room (expressed through the imperfect to reflect the ongoing or unfinished state of being there) when the other person "interrupted" that state by entering (expressed through the preterite to suggest a completed action).
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Present:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Number: [u-sg, u-pl]
+    de-Verbclass: [de-weak, de-strong, de-irregular]
+    de-Tense-type: [de-praesens, de-praesens-progressive]
+
+  Negation:
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
+    examples:
+    - "Ich weiß nicht."
+    - "Er isst den Kuchen nicht."
+
+  Usage:
+    de-praesens:
+      applies: {u-Aspect: [u-ipfv, u-hab, u-iter]}
+      note: "The simple present is the unmarked tense for present reference. It encodes ongoing situations (u-ipfv), habitual actions (u-hab), and repeated or iterative actions (u-iter). It can also be used for near-future reference in context."
+      examples:
+      - "u-ipfv: Ich lese gerade ein Buch."
+      - "u-hab: Er geht jeden Tag zur Arbeit."
+      - "u-iter: Er ruft immer wieder an."
+    de-praesens-progressive:
+      applies: {u-Aspect: [u-prog, u-ipfv]}
+      note: "The 'am'-progressive is a colloquial construction used mainly in spoken German. It highlights that an action is ongoing (u-prog), and often overlaps functionally with the simple present as an imperfective marker (u-ipfv). Less common in formal registers."
+      examples:
+      - "u-prog: Ich bin am Lesen."
+      - "u-ipfv: Er ist am Arbeiten."
+
+  Rules:
+    de-Tense-type_de-praesens__de-Verbclass_de-weak:
+      applies: {de-Verbclass: de-weak, de-Tense-type: de-praesens}
+      pattern: "_stem_ + _ending_"
+      endings:
+      - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}     # ich mache
+      - {features: {u-Person: u-2, u-Number: u-sg}, form: "st"}    # du machst
+      - {features: {u-Person: u-3, u-Number: u-sg}, form: "t"}     # er macht
+      - {features: {u-Person: u-1, u-Number: u-pl}, form: "en"}    # wir machen
+      - {features: {u-Person: u-2, u-Number: u-pl}, form: "t"}     # ihr macht
+      - {features: {u-Person: u-3, u-Number: u-pl}, form: "en"}    # sie machen
+      examples:
+      - "lemma: 'machen', stem: 'mach-'"
+
+    de-Tense-type_de-praesens__de-Verbclass_de-strong:
+      applies: {de-Verbclass: de-strong, de-Tense-type: de-praesens}
+      pattern: "_stem/alteredStem_ + _ending_"
+      endings:
+      - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}     # ich sehe
+      - {features: {u-Person: u-2, u-Number: u-sg}, form: "st"}    # du siehst
+      - {features: {u-Person: u-3, u-Number: u-sg}, form: "t"}     # er sieht
+      - {features: {u-Person: u-1, u-Number: u-pl}, form: "en"}    # wir sehen
+      - {features: {u-Person: u-2, u-Number: u-pl}, form: "t"}     # ihr seht
+      - {features: {u-Person: u-3, u-Number: u-pl}, form: "en"}    # sie sehen
+      note: "Stem vowel alternation occurs in 2sg and 3sg"
+      examples:
+      - "lemma: 'sehen', stem: 'seh-', altered stem: 'sieh-'"
+
+    de-Tense-type_de-praesens__de-Verbclass_de-irregular:
+      applies: {de-Verbclass: de-irregular, de-Tense-type: de-praesens}
+      pattern: "suppletive forms"
+      examples:
+      - "sein → ich bin, du bist, er ist"
+      - "haben → ich habe, du hast, er hat"
+      - "wissen → ich weiß, du weißt, er weiß"
+
+    de-Tense-type_de-praesens-progressive:
+      applies: {de-Tense-type: de-praesens-progressive}
+      pattern: "{sein (finite)} + am + Infinitiv"
+      examples:
+      - "ich bin am Arbeiten"
+      - "er ist am Lesen"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
+

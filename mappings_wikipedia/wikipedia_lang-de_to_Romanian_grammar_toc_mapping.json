@@ -69,57 +69,21 @@
       }
     ]
   },
-  "schemas\\lang-de\\FORMAT_agreement_concord_syntax.txt": {
-    "strategy": "lexical",
-    "term_used": "syntax",
+  "schemas\\lang-de\\FORMAT_agreement_concord.txt": {
+    "strategy": "embedding",
+    "term_used": null,
     "topic_terms": [
       "agreement",
-      "concord",
-      "syntax"
+      "concord"
     ],
     "matches": [
-      {
-        "full": "## Adjectives > ### Adjective syntax",
-        "path": [
-          "## Adjectives",
-          "### Adjective syntax"
-        ],
-        "similarity": 1.0,
-        "content": "Syntactical functions of the adjective can be:\n\nAttribute, in case it defines a noun, pronoun or numeral. (e.g.: The blond boy is here. Băiatul blond este aici.)\nAdjectival complement, in case it defines a copulative verb. (e.g.: The boy is blond. Băiatul este blond.)"
-      },
-      {
-        "full": "## Phrase syntax",
-        "path": [
-          "## Phrase syntax"
-        ],
-        "similarity": 1.0,
-        "content": "Romanian has terminology and rules for phrase syntax, which describes the way simple sentences relate to one another within a single complex sentence. There are many functions a simple sentence may take, their number usually being determined by the number of predicates. It is also noteworthy that Romanian terminology for the terms simple sentence, complex sentence, and phrase is somewhat counterintuitive. The Romanian term propoziție means as much as simple sentence (or clause). To describe a complex sentence (or compound sentence), Romanian uses the word frază, which can cause confusion with the English word phrase, which describes not a complex sentence, but a grouping of words. In consequence, Romanian doesn't have terms for the English noun phrase, or verb phrase, preferring the more commonly understood term predicate for the latter. The former has no formal equivalent in Romanian.\nSimple sentences can be of two types: main clauses and subordinate clauses"
-      },
-      {
-        "full": "## Phrase syntax > ### Main clause",
-        "path": [
-          "## Phrase syntax",
-          "### Main clause"
-        ],
-        "similarity": 1.0,
-        "content": "The main clause, within a complex sentence, does not rely on another sentence to be fully understood. In other words, it has stand-alone meaning. The following example has the verb phrase underlined.\nExample:\n\nAm văzut copiii din curtea școlii.\nI have seen the children in the school courtyard.\nEven though this sentence is long, it is still composed of a single simple sentence, which is a main clause."
-      },
-      {
-        "full": "## Phrase syntax > ### Subordinate clause",
-        "path": [
-          "## Phrase syntax",
-          "### Subordinate clause"
-        ],
-        "similarity": 1.0,
-        "content": "A subordinate clause cannot have a stand-alone meaning. It relies on a main clause to give it meaning. It usually determines or defines an element of another clause, be it a main clause, or a subordinate one. The following example has the verb phrase underlined, and the element of relation, which is to say, the relative pronoun used to link the two sentences, in bold. The sentences are also separated and numbered.\nExample:\n\nAm văzut copiii 1/ care sunt în curtea școlii. 2/\nI have seen the children 1/ who are in the school courtyard. 2/\nThere are also subordinate clauses other than the relative clause, which is an attributive clause, since it determines a noun, pronoun or numeral, and not a verb phrase. Here is a list of examples illustrating some of the remaining cases:\nDirect Object Clause (propoziție subordonată completivă directă):\n\nÎnțeleg 1/ ce zice profesoara. 2/\nI understand 1/ what the teacher is saying. 2/\nIndirect Object Clause (propoziție subordonată completivă indirectă):\n\nMă gândesc 1/ la ce spune profesoara. 2/\nI am thinking  1/ about what the teacher is saying. 2/\nSubject Clause (propoziție subordonată subiectivă):\n\nCeea ce zice profesoara, 1/ e corect. 2/\nWhat the teacher is saying, 1/ is true. 2/\nLocal Circumstantial Object Clause (propoziție subordonată completivă circumstanțială de loc):\n\nMă văd cu Ionuț 1/ unde (mi-)a propus el. 2/\nI am meeting Johnny 1/ where he proposed (to me). 2/"
-      },
       {
         "full": "## Phrase syntax > ### Clauses introduced by coordinating conjunctions",
         "path": [
           "## Phrase syntax",
           "### Clauses introduced by coordinating conjunctions"
         ],
-        "similarity": 1.0,
+        "similarity": 0.296871542930603,
         "content": "Some conjunctions are called coordinating because they do not define the type of clause introduced. Rather, they coordinate an existing clause with another, making the new clause of the same type as the other one. The coordinating conjunctions are of four types (note that the list is not exhaustive):\n\nThe copulative conjunctions are: și (and), nici (neither), and precum și (as well as).\nThe adversative conjunctions are: dar/însă/ci (but) and iar (on the other hand).\nThe disjunctive conjunctions are: sau/ori/fie (or/either).\nThe conclusive conjunctions are: deci/așadar (thus), în concluzie (in conclusion), and prin urmare (therefore).\nAn example of two main clauses (1, 2) linked together by a coordinative conjunction (bold) is:\n\nAna este o fată 1/ și Ion este un băiat. 2/\nAna is a girl, 1/ and Ion is a boy. 2/\nTwo subordinate clauses (2, 3) can also be joined to the same end:\n\nV-am spus despre băiatul 1/ care este la mine în clasă, 2/ și care este foarte bun la matematică. 3/\nI have told you about the boy 1/ who is in my class, 2/ and who is very good in mathematics. 3/\nThe same effect of two main clauses (1, 2) being tied together can also be achieved via juxtaposition of the sentences using a comma:\n\nAm păzit palatul, 1/ palatul era și foarte greu de păzit. 2/\nI guarded the palace, 1/ the palace was very hard to guard, too. 2/"
       }
     ]
@@ -143,22 +107,22 @@
       }
     ]
   },
-  "schemas\\lang-de\\FORMAT_conditional_mood_verb.txt": {
-    "strategy": "lexical",
-    "term_used": "verb",
+  "schemas\\lang-de\\FORMAT_conditional_mood.txt": {
+    "strategy": "embedding",
+    "term_used": null,
     "topic_terms": [
       "conditional",
-      "mood",
-      "verb"
+      "mood"
     ],
     "matches": [
       {
-        "full": "## Verbs",
+        "full": "## Adjectives > ### Degrees of comparison",
         "path": [
-          "## Verbs"
+          "## Adjectives",
+          "### Degrees of comparison"
         ],
-        "similarity": 1.0,
-        "content": "As in all Romance languages, Romanian verbs are inflected according to: person, number, tense, mood and voice. The usual word order in sentences is SVO (Subject – Verb – Object). Romanian verbs are traditionally categorized into four large conjugation groups depending on the ending in the infinitive mood. The actual conjugation patterns for each group are multiple.\n\nFirst conjugation: verbs ending in –a (long infinitive in –are), such as a da, dare \"to give\", a cânta, cântare \"to sing\", including those ending in hiatus ea, such as a crea, creare \"to create\". Verbs ending orthographically in –chea and –ghea are also included here as their conjugation pattern matches this group, although the long infinitive ends in –ere: a veghea, veghere \"to ward\".\nSecond conjugation: verbs ending in –ea (long infinitive in stressed -ere), only when ea is a diphthong, such as a putea, putere \"can\", a cădea, cădere \"to fall\".\nThird conjugation: verbs ending in –e (long infinitive in unstressed –ere), such as a vinde, vindere \"to sell\", a crede, credere \"to believe\".\nFourth conjugation: verbs ending in –i (long infinitive in –ire), such as a veni, venire \"to come\",.\nFifth conjugation:verbs ending in -î (long infinitive in -âre), such as a hotărî, hotărâre, \"to decide\"."
+        "similarity": 0.3259250521659851,
+        "content": "An adjective also can have degrees of comparison.\n\nPositive Degree (frumos, beautiful)\nComparative Degree:\nOf equality (la fel de frumos, as beautiful as)\nOf inequality (note that the following degrees are written as \"comparative of superiority/inferiority\", not as \"comparative of inequality of superiority/inferiority\")\nOf superiority (mai frumos, more beautiful)\nOf inferiority (mai puțin frumos, less beautiful)\nSuperlative Degree:\nRelative Superlative\nOf superiority (cel mai frumos, the most beautiful)\nOf inferiority (cel mai puțin frumos, the least beautiful)\nAbsolute Superlative (foarte frumos, very beautiful)\nOf superiority (foarte frumos, translated as \"very beautiful\")\nOf inferiority (foarte puțin frumos, roughly translated as \"very little beautiful\"). This form is not used very much, though, as antonyms can be used (foarte puțin frumos becomes foarte urât, \"very little beautiful\" becomes \"very ugly\")"
       }
     ]
   },
@@ -301,13 +265,12 @@
       }
     ]
   },
-  "schemas\\lang-de\\FORMAT_futureTense_tense_verb.txt": {
-    "strategy": "lexical",
-    "term_used": "verb",
+  "schemas\\lang-de\\FORMAT_futureTense_tense.txt": {
+    "strategy": "embedding",
+    "term_used": null,
     "topic_terms": [
       "future tense",
-      "tense",
-      "verb"
+      "tense"
     ],
     "matches": [
       {
@@ -315,81 +278,45 @@
         "path": [
           "## Verbs"
         ],
-        "similarity": 1.0,
+        "similarity": 0.2678832411766052,
         "content": "As in all Romance languages, Romanian verbs are inflected according to: person, number, tense, mood and voice. The usual word order in sentences is SVO (Subject – Verb – Object). Romanian verbs are traditionally categorized into four large conjugation groups depending on the ending in the infinitive mood. The actual conjugation patterns for each group are multiple.\n\nFirst conjugation: verbs ending in –a (long infinitive in –are), such as a da, dare \"to give\", a cânta, cântare \"to sing\", including those ending in hiatus ea, such as a crea, creare \"to create\". Verbs ending orthographically in –chea and –ghea are also included here as their conjugation pattern matches this group, although the long infinitive ends in –ere: a veghea, veghere \"to ward\".\nSecond conjugation: verbs ending in –ea (long infinitive in stressed -ere), only when ea is a diphthong, such as a putea, putere \"can\", a cădea, cădere \"to fall\".\nThird conjugation: verbs ending in –e (long infinitive in unstressed –ere), such as a vinde, vindere \"to sell\", a crede, credere \"to believe\".\nFourth conjugation: verbs ending in –i (long infinitive in –ire), such as a veni, venire \"to come\",.\nFifth conjugation:verbs ending in -î (long infinitive in -âre), such as a hotărî, hotărâre, \"to decide\"."
       }
     ]
   },
-  "schemas\\lang-de\\FORMAT_imperative_mood_verb.txt": {
-    "strategy": "lexical",
-    "term_used": "verb",
+  "schemas\\lang-de\\FORMAT_imperative_mood.txt": {
+    "strategy": "embedding",
+    "term_used": null,
     "topic_terms": [
       "imperative",
-      "mood",
-      "verb"
+      "mood"
     ],
     "matches": [
-      {
-        "full": "## Verbs",
-        "path": [
-          "## Verbs"
-        ],
-        "similarity": 1.0,
-        "content": "As in all Romance languages, Romanian verbs are inflected according to: person, number, tense, mood and voice. The usual word order in sentences is SVO (Subject – Verb – Object). Romanian verbs are traditionally categorized into four large conjugation groups depending on the ending in the infinitive mood. The actual conjugation patterns for each group are multiple.\n\nFirst conjugation: verbs ending in –a (long infinitive in –are), such as a da, dare \"to give\", a cânta, cântare \"to sing\", including those ending in hiatus ea, such as a crea, creare \"to create\". Verbs ending orthographically in –chea and –ghea are also included here as their conjugation pattern matches this group, although the long infinitive ends in –ere: a veghea, veghere \"to ward\".\nSecond conjugation: verbs ending in –ea (long infinitive in stressed -ere), only when ea is a diphthong, such as a putea, putere \"can\", a cădea, cădere \"to fall\".\nThird conjugation: verbs ending in –e (long infinitive in unstressed –ere), such as a vinde, vindere \"to sell\", a crede, credere \"to believe\".\nFourth conjugation: verbs ending in –i (long infinitive in –ire), such as a veni, venire \"to come\",.\nFifth conjugation:verbs ending in -î (long infinitive in -âre), such as a hotărî, hotărâre, \"to decide\"."
-      }
-    ]
-  },
-  "schemas\\lang-de\\FORMAT_negation_syntax.txt": {
-    "strategy": "lexical",
-    "term_used": "syntax",
-    "topic_terms": [
-      "negation",
-      "syntax"
-    ],
-    "matches": [
-      {
-        "full": "## Adjectives > ### Adjective syntax",
-        "path": [
-          "## Adjectives",
-          "### Adjective syntax"
-        ],
-        "similarity": 1.0,
-        "content": "Syntactical functions of the adjective can be:\n\nAttribute, in case it defines a noun, pronoun or numeral. (e.g.: The blond boy is here. Băiatul blond este aici.)\nAdjectival complement, in case it defines a copulative verb. (e.g.: The boy is blond. Băiatul este blond.)"
-      },
-      {
-        "full": "## Phrase syntax",
-        "path": [
-          "## Phrase syntax"
-        ],
-        "similarity": 1.0,
-        "content": "Romanian has terminology and rules for phrase syntax, which describes the way simple sentences relate to one another within a single complex sentence. There are many functions a simple sentence may take, their number usually being determined by the number of predicates. It is also noteworthy that Romanian terminology for the terms simple sentence, complex sentence, and phrase is somewhat counterintuitive. The Romanian term propoziție means as much as simple sentence (or clause). To describe a complex sentence (or compound sentence), Romanian uses the word frază, which can cause confusion with the English word phrase, which describes not a complex sentence, but a grouping of words. In consequence, Romanian doesn't have terms for the English noun phrase, or verb phrase, preferring the more commonly understood term predicate for the latter. The former has no formal equivalent in Romanian.\nSimple sentences can be of two types: main clauses and subordinate clauses"
-      },
       {
         "full": "## Phrase syntax > ### Main clause",
         "path": [
           "## Phrase syntax",
           "### Main clause"
         ],
-        "similarity": 1.0,
+        "similarity": 0.34471169114112854,
         "content": "The main clause, within a complex sentence, does not rely on another sentence to be fully understood. In other words, it has stand-alone meaning. The following example has the verb phrase underlined.\nExample:\n\nAm văzut copiii din curtea școlii.\nI have seen the children in the school courtyard.\nEven though this sentence is long, it is still composed of a single simple sentence, which is a main clause."
-      },
+      }
+    ]
+  },
+  "schemas\\lang-de\\FORMAT_negation.txt": {
+    "strategy": "embedding",
+    "term_used": null,
+    "topic_terms": [
+      "negation"
+    ],
+    "matches": [
       {
-        "full": "## Phrase syntax > ### Subordinate clause",
+        "full": "## Pronouns > ### Negative and indefinite pronouns",
         "path": [
-          "## Phrase syntax",
-          "### Subordinate clause"
+          "## Pronouns",
+          "### Negative and indefinite pronouns"
         ],
-        "similarity": 1.0,
-        "content": "A subordinate clause cannot have a stand-alone meaning. It relies on a main clause to give it meaning. It usually determines or defines an element of another clause, be it a main clause, or a subordinate one. The following example has the verb phrase underlined, and the element of relation, which is to say, the relative pronoun used to link the two sentences, in bold. The sentences are also separated and numbered.\nExample:\n\nAm văzut copiii 1/ care sunt în curtea școlii. 2/\nI have seen the children 1/ who are in the school courtyard. 2/\nThere are also subordinate clauses other than the relative clause, which is an attributive clause, since it determines a noun, pronoun or numeral, and not a verb phrase. Here is a list of examples illustrating some of the remaining cases:\nDirect Object Clause (propoziție subordonată completivă directă):\n\nÎnțeleg 1/ ce zice profesoara. 2/\nI understand 1/ what the teacher is saying. 2/\nIndirect Object Clause (propoziție subordonată completivă indirectă):\n\nMă gândesc 1/ la ce spune profesoara. 2/\nI am thinking  1/ about what the teacher is saying. 2/\nSubject Clause (propoziție subordonată subiectivă):\n\nCeea ce zice profesoara, 1/ e corect. 2/\nWhat the teacher is saying, 1/ is true. 2/\nLocal Circumstantial Object Clause (propoziție subordonată completivă circumstanțială de loc):\n\nMă văd cu Ionuț 1/ unde (mi-)a propus el. 2/\nI am meeting Johnny 1/ where he proposed (to me). 2/"
-      },
-      {
-        "full": "## Phrase syntax > ### Clauses introduced by coordinating conjunctions",
-        "path": [
-          "## Phrase syntax",
-          "### Clauses introduced by coordinating conjunctions"
-        ],
-        "similarity": 1.0,
-        "content": "Some conjunctions are called coordinating because they do not define the type of clause introduced. Rather, they coordinate an existing clause with another, making the new clause of the same type as the other one. The coordinating conjunctions are of four types (note that the list is not exhaustive):\n\nThe copulative conjunctions are: și (and), nici (neither), and precum și (as well as).\nThe adversative conjunctions are: dar/însă/ci (but) and iar (on the other hand).\nThe disjunctive conjunctions are: sau/ori/fie (or/either).\nThe conclusive conjunctions are: deci/așadar (thus), în concluzie (in conclusion), and prin urmare (therefore).\nAn example of two main clauses (1, 2) linked together by a coordinative conjunction (bold) is:\n\nAna este o fată 1/ și Ion este un băiat. 2/\nAna is a girl, 1/ and Ion is a boy. 2/\nTwo subordinate clauses (2, 3) can also be joined to the same end:\n\nV-am spus despre băiatul 1/ care este la mine în clasă, 2/ și care este foarte bun la matematică. 3/\nI have told you about the boy 1/ who is in my class, 2/ and who is very good in mathematics. 3/\nThe same effect of two main clauses (1, 2) being tied together can also be achieved via juxtaposition of the sentences using a comma:\n\nAm păzit palatul, 1/ palatul era și foarte greu de păzit. 2/\nI guarded the palace, 1/ the palace was very hard to guard, too. 2/"
+        "similarity": 0.49810051918029785,
+        "content": "Pronumele negative și nehotărâte, these two types of pronouns are used to express negation, as well as indefinite concepts. There are many indefinite pronouns, but only a limited number of negative pronouns.\nThe most common indefinite pronouns are:\n\n## Pronouns > ### Negative and indefinite pronouns > #### Table 22\n\n<pre>```\n| 0                   | 1    | 2   | 3        | 4          | 5               | 6           | 7      |\n|:--------------------|:-----|:----|:---------|:-----------|:----------------|:------------|:-------|\n| Indefinite Pronoun  | mult | tot | unul/una | altul/alta | atât            | puțin/nițel | destul |\n| English translation | much | all | one      | other      | so much/as much | a little    | enough |\n```</pre>\n\n\nThe most common negative pronouns are:\n\n## Pronouns > ### Negative and indefinite pronouns > #### Table 23\n\n<pre>```\n| 0                   | 1              | 2            | 3                | 4                       |\n|:--------------------|:---------------|:-------------|:-----------------|:------------------------|\n| Negative Pronoun    | nimeni/nimenea | nimic/nimica | niciunul/niciuna | niciunui(a)/niciunei(a) |\n| English translation | nobody         | nothing      | none             | to none (of none)       |\n```</pre>"
       }
     ]
   },
@@ -437,32 +364,31 @@
       }
     ]
   },
-  "schemas\\lang-de\\FORMAT_passive_voice_verb.txt": {
-    "strategy": "lexical",
-    "term_used": "verb",
+  "schemas\\lang-de\\FORMAT_passive_voice.txt": {
+    "strategy": "embedding",
+    "term_used": null,
     "topic_terms": [
       "passive",
-      "voice",
-      "verb"
+      "voice"
     ],
     "matches": [
       {
-        "full": "## Verbs",
+        "full": "## Pronouns > ### Intensive pronouns",
         "path": [
-          "## Verbs"
+          "## Pronouns",
+          "### Intensive pronouns"
         ],
-        "similarity": 1.0,
-        "content": "As in all Romance languages, Romanian verbs are inflected according to: person, number, tense, mood and voice. The usual word order in sentences is SVO (Subject – Verb – Object). Romanian verbs are traditionally categorized into four large conjugation groups depending on the ending in the infinitive mood. The actual conjugation patterns for each group are multiple.\n\nFirst conjugation: verbs ending in –a (long infinitive in –are), such as a da, dare \"to give\", a cânta, cântare \"to sing\", including those ending in hiatus ea, such as a crea, creare \"to create\". Verbs ending orthographically in –chea and –ghea are also included here as their conjugation pattern matches this group, although the long infinitive ends in –ere: a veghea, veghere \"to ward\".\nSecond conjugation: verbs ending in –ea (long infinitive in stressed -ere), only when ea is a diphthong, such as a putea, putere \"can\", a cădea, cădere \"to fall\".\nThird conjugation: verbs ending in –e (long infinitive in unstressed –ere), such as a vinde, vindere \"to sell\", a crede, credere \"to believe\".\nFourth conjugation: verbs ending in –i (long infinitive in –ire), such as a veni, venire \"to come\",.\nFifth conjugation:verbs ending in -î (long infinitive in -âre), such as a hotărî, hotărâre, \"to decide\"."
+        "similarity": 0.3301558792591095,
+        "content": "The intensive pronouns and adjectives are used for emphasis.\n\n## Pronouns > ### Intensive pronouns > #### Table 20\n\n<pre>```\n| ('Unnamed: 0_level_0', 'Unnamed: 0_level_1', 'Unnamed: 0_level_2')   | ('Intensive pronoun', 'Singular', 'Masculine')   | ('Intensive pronoun', 'Singular', 'Neuter')   | ('Intensive pronoun', 'Singular', 'Feminine')   | ('Intensive pronoun', 'Plural', 'Masculine')   | ('Intensive pronoun', 'Plural', 'Neuter')   | ('Intensive pronoun', 'Plural', 'Feminine')   |\n|:---------------------------------------------------------------------|:-------------------------------------------------|:----------------------------------------------|:------------------------------------------------|:-----------------------------------------------|:--------------------------------------------|:----------------------------------------------|\n| First Person                                                         | însumi (myself)                                  | însumi (myself)                               | însămi (myself)                                 | înșine (ourselves)                             | însene (ourselves)                          | însene (ourselves)                            |\n| Second Person                                                        | însuți (yourself)                                | însuți (yourself)                             | însăți (yourself)                               | înșivă (yourself)                              | însevă (yourself)                           | însevă (yourself)                             |\n| Third Person                                                         | însuși (himself)                                 | însuși (himself)                              | însăși (herself)                                | înșiși (themselves)                            | înseși (themselves)                         | înseși (themselves)                           |\n```</pre>"
       }
     ]
   },
-  "schemas\\lang-de\\FORMAT_pastTense_tense_verb.txt": {
-    "strategy": "lexical",
-    "term_used": "verb",
+  "schemas\\lang-de\\FORMAT_pastTense_tense.txt": {
+    "strategy": "embedding",
+    "term_used": null,
     "topic_terms": [
       "past tense",
-      "tense",
-      "verb"
+      "tense"
     ],
     "matches": [
       {
@@ -470,18 +396,17 @@
         "path": [
           "## Verbs"
         ],
-        "similarity": 1.0,
+        "similarity": 0.30131614208221436,
         "content": "As in all Romance languages, Romanian verbs are inflected according to: person, number, tense, mood and voice. The usual word order in sentences is SVO (Subject – Verb – Object). Romanian verbs are traditionally categorized into four large conjugation groups depending on the ending in the infinitive mood. The actual conjugation patterns for each group are multiple.\n\nFirst conjugation: verbs ending in –a (long infinitive in –are), such as a da, dare \"to give\", a cânta, cântare \"to sing\", including those ending in hiatus ea, such as a crea, creare \"to create\". Verbs ending orthographically in –chea and –ghea are also included here as their conjugation pattern matches this group, although the long infinitive ends in –ere: a veghea, veghere \"to ward\".\nSecond conjugation: verbs ending in –ea (long infinitive in stressed -ere), only when ea is a diphthong, such as a putea, putere \"can\", a cădea, cădere \"to fall\".\nThird conjugation: verbs ending in –e (long infinitive in unstressed –ere), such as a vinde, vindere \"to sell\", a crede, credere \"to believe\".\nFourth conjugation: verbs ending in –i (long infinitive in –ire), such as a veni, venire \"to come\",.\nFifth conjugation:verbs ending in -î (long infinitive in -âre), such as a hotărî, hotărâre, \"to decide\"."
       }
     ]
   },
-  "schemas\\lang-de\\FORMAT_presentTense_tense_verb.txt": {
-    "strategy": "lexical",
-    "term_used": "verb",
+  "schemas\\lang-de\\FORMAT_presentTense_tense.txt": {
+    "strategy": "embedding",
+    "term_used": null,
     "topic_terms": [
       "present tense",
-      "tense",
-      "verb"
+      "tense"
     ],
     "matches": [
       {
@@ -489,7 +414,7 @@
         "path": [
           "## Verbs"
         ],
-        "similarity": 1.0,
+        "similarity": 0.32080239057540894,
         "content": "As in all Romance languages, Romanian verbs are inflected according to: person, number, tense, mood and voice. The usual word order in sentences is SVO (Subject – Verb – Object). Romanian verbs are traditionally categorized into four large conjugation groups depending on the ending in the infinitive mood. The actual conjugation patterns for each group are multiple.\n\nFirst conjugation: verbs ending in –a (long infinitive in –are), such as a da, dare \"to give\", a cânta, cântare \"to sing\", including those ending in hiatus ea, such as a crea, creare \"to create\". Verbs ending orthographically in –chea and –ghea are also included here as their conjugation pattern matches this group, although the long infinitive ends in –ere: a veghea, veghere \"to ward\".\nSecond conjugation: verbs ending in –ea (long infinitive in stressed -ere), only when ea is a diphthong, such as a putea, putere \"can\", a cădea, cădere \"to fall\".\nThird conjugation: verbs ending in –e (long infinitive in unstressed –ere), such as a vinde, vindere \"to sell\", a crede, credere \"to believe\".\nFourth conjugation: verbs ending in –i (long infinitive in –ire), such as a veni, venire \"to come\",.\nFifth conjugation:verbs ending in -î (long infinitive in -âre), such as a hotărî, hotărâre, \"to decide\"."
       }
     ]
@@ -634,42 +559,42 @@
       }
     ]
   },
-  "schemas\\lang-de\\FORMAT_reported-indirect_verb.txt": {
-    "strategy": "lexical",
-    "term_used": "verb",
+  "schemas\\lang-de\\FORMAT_reported-indirect.txt": {
+    "strategy": "embedding",
+    "term_used": null,
     "topic_terms": [
       "reported",
-      "indirect",
-      "verb"
+      "indirect"
     ],
     "matches": [
       {
-        "full": "## Verbs",
+        "full": "## Pronouns > ### Relative and interrogative pronouns",
         "path": [
-          "## Verbs"
+          "## Pronouns",
+          "### Relative and interrogative pronouns"
         ],
-        "similarity": 1.0,
-        "content": "As in all Romance languages, Romanian verbs are inflected according to: person, number, tense, mood and voice. The usual word order in sentences is SVO (Subject – Verb – Object). Romanian verbs are traditionally categorized into four large conjugation groups depending on the ending in the infinitive mood. The actual conjugation patterns for each group are multiple.\n\nFirst conjugation: verbs ending in –a (long infinitive in –are), such as a da, dare \"to give\", a cânta, cântare \"to sing\", including those ending in hiatus ea, such as a crea, creare \"to create\". Verbs ending orthographically in –chea and –ghea are also included here as their conjugation pattern matches this group, although the long infinitive ends in –ere: a veghea, veghere \"to ward\".\nSecond conjugation: verbs ending in –ea (long infinitive in stressed -ere), only when ea is a diphthong, such as a putea, putere \"can\", a cădea, cădere \"to fall\".\nThird conjugation: verbs ending in –e (long infinitive in unstressed –ere), such as a vinde, vindere \"to sell\", a crede, credere \"to believe\".\nFourth conjugation: verbs ending in –i (long infinitive in –ire), such as a veni, venire \"to come\",.\nFifth conjugation:verbs ending in -î (long infinitive in -âre), such as a hotărî, hotărâre, \"to decide\"."
+        "similarity": 0.3521953225135803,
+        "content": "Pronumele relative și interogative, the two types of pronouns are identical in form but differ in usage. The relative pronouns are used to connect relative clauses to their main clause, but interrogative pronouns are used to form questions. The interrogative pronouns are usually written out with a question mark after them to differentiate them from their relative counterparts.\nThese are the most common relative/interrogative pronouns:\n\n## Pronouns > ### Relative and interrogative pronouns > #### Table 21\n\n<pre>```\n| 0                   | 1    | 2                 | 3     | 4          | 5          | 6                                        |\n|:--------------------|:-----|:------------------|:------|:-----------|:-----------|:-----------------------------------------|\n| Relative Pronoun    | cine | (a/al/ai/ale) cui | care  | pe care    | ce         | (a/al/ai/ale) cărui(a)/cărei(a)/căror(a) |\n| English translation | who  | (whose), to whom  | which | which/whom | which/whom | (whose), to whom                         |\n```</pre>"
       }
     ]
   },
-  "schemas\\lang-de\\FORMAT_subjunctive-conjunctive_mood_verb.txt": {
-    "strategy": "lexical",
-    "term_used": "verb",
+  "schemas\\lang-de\\FORMAT_subjunctive-conjunctive_mood.txt": {
+    "strategy": "embedding",
+    "term_used": null,
     "topic_terms": [
       "subjunctive",
       "conjunctive",
-      "mood",
-      "verb"
+      "mood"
     ],
     "matches": [
       {
-        "full": "## Verbs",
+        "full": "## Phrase syntax > ### Clauses introduced by coordinating conjunctions",
         "path": [
-          "## Verbs"
+          "## Phrase syntax",
+          "### Clauses introduced by coordinating conjunctions"
         ],
-        "similarity": 1.0,
-        "content": "As in all Romance languages, Romanian verbs are inflected according to: person, number, tense, mood and voice. The usual word order in sentences is SVO (Subject – Verb – Object). Romanian verbs are traditionally categorized into four large conjugation groups depending on the ending in the infinitive mood. The actual conjugation patterns for each group are multiple.\n\nFirst conjugation: verbs ending in –a (long infinitive in –are), such as a da, dare \"to give\", a cânta, cântare \"to sing\", including those ending in hiatus ea, such as a crea, creare \"to create\". Verbs ending orthographically in –chea and –ghea are also included here as their conjugation pattern matches this group, although the long infinitive ends in –ere: a veghea, veghere \"to ward\".\nSecond conjugation: verbs ending in –ea (long infinitive in stressed -ere), only when ea is a diphthong, such as a putea, putere \"can\", a cădea, cădere \"to fall\".\nThird conjugation: verbs ending in –e (long infinitive in unstressed –ere), such as a vinde, vindere \"to sell\", a crede, credere \"to believe\".\nFourth conjugation: verbs ending in –i (long infinitive in –ire), such as a veni, venire \"to come\",.\nFifth conjugation:verbs ending in -î (long infinitive in -âre), such as a hotărî, hotărâre, \"to decide\"."
+        "similarity": 0.4109596610069275,
+        "content": "Some conjunctions are called coordinating because they do not define the type of clause introduced. Rather, they coordinate an existing clause with another, making the new clause of the same type as the other one. The coordinating conjunctions are of four types (note that the list is not exhaustive):\n\nThe copulative conjunctions are: și (and), nici (neither), and precum și (as well as).\nThe adversative conjunctions are: dar/însă/ci (but) and iar (on the other hand).\nThe disjunctive conjunctions are: sau/ori/fie (or/either).\nThe conclusive conjunctions are: deci/așadar (thus), în concluzie (in conclusion), and prin urmare (therefore).\nAn example of two main clauses (1, 2) linked together by a coordinative conjunction (bold) is:\n\nAna este o fată 1/ și Ion este un băiat. 2/\nAna is a girl, 1/ and Ion is a boy. 2/\nTwo subordinate clauses (2, 3) can also be joined to the same end:\n\nV-am spus despre băiatul 1/ care este la mine în clasă, 2/ și care este foarte bun la matematică. 3/\nI have told you about the boy 1/ who is in my class, 2/ and who is very good in mathematics. 3/\nThe same effect of two main clauses (1, 2) being tied together can also be achieved via juxtaposition of the sentences using a comma:\n\nAm păzit palatul, 1/ palatul era și foarte greu de păzit. 2/\nI guarded the palace, 1/ the palace was very hard to guard, too. 2/"
       }
     ]
   }

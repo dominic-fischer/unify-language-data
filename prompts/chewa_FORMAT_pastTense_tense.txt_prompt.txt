@@ -1,0 +1,441 @@
+SYSTEM PROMPT:
+You are an expert in the chewa language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language chewa.
+
+The data you receive comes from multiple sources and relates to the following topics:
+past tense, tense.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Make sure to ignore information that is not relevant to the topic(s) in question: past tense, tense.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or ny-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "chewa-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("chewa-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Continuous: Der Effekt der Handlung ist immer noch gültig
+
+Discontinuous: Der Effekt der Handlung ist nicht mehr gültig
+
+## Das Verb > ### Zeitformen > #### Vergangenheit > ##### Table 20
+
+<pre>```
+| 0                                         | 1       | 2     | 3        | 4   | 5                                          |
+|:------------------------------------------|:--------|:------|:---------|:----|:-------------------------------------------|
+|                                           | SUBJ    | TEMP  | VERB     | END |                                            |
+| Past remote (continuous)                  | Ndi-    | ná-   | thandíza |     | I helped.                                  |
+| Past remote (continuous)                  | Sí-ndí- | na-   | thandíz- | e   | I did not help.                            |
+| Past recent (discountinuous)              | Ndi-    | na-   | thándiza |     | I helped just now (but not anymore).       |
+| Past recent (discountinuous)              | Si-ndi- | na-   | thandíz- | e   | I have not helped yet.                     |
+| Imperfect remote                          | Ndi-    | nká-  | thandíza |     | I was helping / I used to help.            |
+| Imperfect remote                          | Sí-ndí- | nká - | thandíza |     | I was not helping / I did not use to help. |
+| Past habitual / Imperfect (discontinuous) | Ndi-    | ma-   | thándiza |     | I was helping / I used to help.            |
+| Past habitual / Imperfect (discontinuous) | Sí-ndí- | ma-   | thándiza |     | I was not helping / I did not use to help. |
+```</pre>
+
+
+Wie bei allen Zeitstufen können auch hier Aspektsinfixe eingefügt werden, sofern sie nicht mit dem intrinsischen Aspekt konkurrieren (e.g., imperfektives -ma- mit einer Perfektzeitform). Häufig ist u.a.:
+
+## Das Verb > ### Zeitformen > #### Vergangenheit > ##### Table 21
+
+<pre>```
+| 0              | 1    | 2    | 3   | 4        | 5               |
+|:---------------|:-----|:-----|:----|:---------|:----------------|
+|                | SUBJ | TEMP | ASP | VERB     |                 |
+| Past remote GO | Ndi- | ná-  | ká- | thandiza | I went to help. |
+```</pre>
+
+
+Das Past Perfect oder Plusquamperfekt bilden wir mit einer zusammengesetzen Zeitform:
+
+## Das Verb > ### Zeitformen > #### Vergangenheit > ##### Table 22
+
+<pre>```
+| 0            | 1    | 2    | 3    | 4    | 5      | 6        | 7   | 8                     |
+|:-------------|:-----|:-----|:-----|:-----|:-------|:---------|:----|:----------------------|
+|              | SUBJ | TEMP | VERB | SUBJ | TEMP   | VERB     | END |                       |
+| Past Perfect | Ndi- | ná-  | li   | ndí- | tá-    | thándiza |     | I had helped.         |
+| Past Perfect | Ndi- | ná-  | li   | ndí- | sa-na- | thandíz- | e   | I had not yet helped. |
+```</pre>
+
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Vergangenheit > ####### Table 31
+
+<pre>```
+| 0                                             | 1                                                            |
+|:----------------------------------------------|:-------------------------------------------------------------|
+| Ndí-ka-da-khála ndi mwana ndi-ka-dá-kondwera. | Wenn ich ein Kind gehabt hätte, hätte ich mich sehr gefreut. |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+The same concords w- (derived from u-) and a-, combined with the vowel a, make the subject prefix of the perfect tense. In the plural the two prefixes a-a- combine into a single vowel:
+
+mwaná wapita 'the child has gone; aná apita 'the children have gone'
+
+Tenses in Chichewa are differentiated in two ways, by their tense-marker (or tense-infix), and by their tonal pattern. Sometimes two tenses have the same tense-marker and differ in their tonal pattern alone. In the following examples, the tense-marker is underlined:
+
+ndi-ku-gúla 'I am buying'
+ndí-ma-gúla 'I usually buy'
+ndi-ma-gúla 'I was buying', 'I used to buy'
+ndí-dzá-gula 'I will buy (tomorrow or in future)'
+ndí-ká-gula 'I will buy (when I get there)'
+One tense has no tense-marker:
+
+ndí-gula 'I will buy (soon)'
+Tenses can be modified further by adding certain other infixes, called 'aspect-markers', after the tense-marker. These are -má- 'always, usually' -ká- 'go and', -dzá 'come and' or 'in future', and -ngo- 'only', 'just'. These infixes can also be used on their own, as tense-markers in their own right (compare the use of -ma- and -dza- in the list of tenses above). For example:
+
+ndi-ku-má-gúlá 'I am always buying'
+ndi-ná-ká-gula 'I went and bought'
+ndí-má-ngo-gúla 'I just usually buy'
+Compound tenses, such as the following, are also found in Chichewa:
+
+nd-a-khala ndí-kú-gúla 'I have been buying'
+
+Chewa has a large number of tenses, some of which differ in some respects from the tenses met with in European languages. The distinction between one tense and another is made partly by the use of infixes, such as -na- and -ku-, and partly by the intonation of the verb, since each tense has its own particular tonal pattern.
+
+There are five time-frames (remote past, near past, present, near future, and remote future). The distinction between near and remote tenses is not exact. The remote tenses are not used of events of today or last night, but the near tenses can sometimes be used of events of earlier or later than today:
+
+ndi-ná-gula 'I bought (yesterday or some days ago)' (remote perfect)
+nd-a-gula 'I have bought (today)' (perfect)
+ndi-ku-gúla 'I am buying (now)' (present)
+ndí-gula 'I'll buy (today)' (near future)
+ndi-dzá-gula 'I'll buy (tomorrow or later)' (remote future)
+
+Another distinction is between perfect and past. The two perfect tenses imply that the event described had an outcome which still obtains now. The two past tenses usually imply that the result of the action has been reversed in some way:
+Recent time (today):
+
+nd-a-gula 'I have bought it' (and still have it) (Perfect)
+ndi-na-gúla 'I bought it (but no longer have it)' (Recent Past)
+Remote time (yesterday or earlier):
+
+ndi-ná-gula or ndi-dá-gula 'I bought it' (and still have it) (Remote Perfect)
+ndí-ná-a-gúla or ndí-dá-a-gúla 'I bought it (but no longer have it)' (Remote Past)
+When used in narrating a series of events, however, these implications are somewhat relaxed: the Remote Perfect is used for narrating earlier events, and the Recent Past for narrating events of today.
+
+Another important distinction in Chewa is between perfective and imperfective aspect. Imperfective tenses are used for situations, events which occur regularly, or events which are temporarily in progress:
+
+ndi-nká-gúlá 'I used to buy', 'I was buying (a long time ago)'
+ndi-ma-gúla 'I was buying (today)', 'I used to buy (a long time ago)'
+ndí-zi-dza-gúla 'I will be buying (regularly)'
+In the present tense only, there is a further distinction between habitual and progressive:
+
+ndí-ma-gúla 'I buy (regularly)'
+ndi-ku-gúla 'I am buying (currently)'
+
+One future tense not found in European languages is the -ká- future, which 'might presuppose an unspoken conditional clause':
+
+ndí-ká-gula 'I will buy' (if I go there, or when I get there)
+There are also various subjunctive and potential mood tenses, such as:
+
+ndi-gulé 'I should buy'
+ndi-zí-gúlá 'I should be buying'
+ndi-dzá-gúlé 'I should buy (in future)'
+ndi-nga-gule 'I can buy'
+ndi-kadá-gula 'I would have bought'
+
+Negative tenses, if they are main verbs, are made with the prefix sí-. They differ in intonation from the positive tenses. The negative of the -ná- tense has the ending -e instead of -a:
+
+sí-ndí-gula 'I don't buy'
+sí-ndi-na-gúle 'I didn't buy'
+Tenses which mean 'will not' or 'have not yet' have a single tone on the penultimate syllable:
+
+si-ndi-dza-gúla 'I won't buy'
+si-ndi-na-gúle 'I haven't bought (it) yet'
+Infinitives, participial verbs, and the subjunctive make their negative with -sa-, which is added after the subject-prefix instead of before it. They similarly have a single tone on the penultimate syllable:
+
+ndi-sa-gúle 'I should not buy'
+ku-sa-gúla 'not to buy'
+
+The tenses used in certain kinds of dependent clauses (such as relative clauses and some types of temporal clauses) differ from those used in main clauses. Dependent verbs often have a tone on the first syllable. Sometimes this change of tone alone is sufficient to show that the verb is being used in a dependent clause. Compare for example:
+
+a-ku-gúla 'he is buying'
+á-kú-gúla 'when he is buying' or 'who is buying'
+Other commonly used dependent tenses are the following:
+
+ndí-tá-gúla 'after I bought/buy'
+ndí-sa-na-gúle 'before I bought/buy'
+There is also a series of tenses using a toneless -ka- meaning 'when' of 'if', for example:
+
+ndi-ka-gula 'when/if I buy'
+ndi-ka-dzá-gula 'if in future I buy'
+ndi-ka-má-gúlá 'whenever I buy'
+ndí-ka-da-gúla 'if I had bought'
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Past:
+  Features:
+    de-Tense-type: [de-praeteritum, de-perfekt, de-plusquamperfekt, de-past-progressive]
+    de-Verbclass: [de-weak, de-strong, de-irregular]
+
+  Usage:
+    de-praeteritum:
+      applies: {u-Aspect: [u-hab, u-ipfv, u-iter, u-pfv]}
+      note: "The preterite is the default narrative past in written German. It expresses habitual actions (u-hab), ongoing background situations (u-ipfv), repeated or iterative actions (u-iter), and completed bounded events (u-pfv). In spoken German, often replaced by the perfect."
+      examples:
+        - "u-hab: Er kam jeden Tag."
+        - "u-ipfv: Es regnete, als er kam."
+        - "u-iter: Er klopfte immer wieder."
+        - "u-pfv: Er kam und setzte sich."
+    de-perfekt:
+      applies: {u-Aspect: [u-prf, u-pfv, u-ipfv, u-hab, u-iter]}
+      note: "The perfect is the preferred past form in spoken German. It encodes current relevance or resultative meaning (u-prf), but in usage also covers perfective (u-pfv), imperfective/background (u-ipfv), habitual (u-hab), and iterative (u-iter) readings depending on context."
+      examples:
+        - "u-prf: Ich habe gearbeitet."
+        - "u-pfv: Ich habe das Buch gelesen."
+        - "u-ipfv: Ich habe gestern lange gelesen."
+        - "u-hab: Ich habe oft Fußball gespielt."
+        - "u-iter: Ich habe ihn mehrmals getroffen."
+    de-plusquamperfekt:
+      applies: {u-Aspect: [u-prf, u-pfv, u-ipfv, u-hab, u-iter]}
+      note: "The pluperfect is used for anteriority, i.e. to describe events prior to another past reference point. It highlights resultative or perfect (u-prf), but also accommodates perfective (u-pfv), imperfective (u-ipfv), habitual (u-hab), and iterative (u-iter) readings in narratives."
+      examples:
+        - "u-prf: Ich hatte gearbeitet."
+        - "u-pfv: Ich hatte das Buch gelesen."
+        - "u-ipfv: Ich hatte lange gelesen, als er kam."
+        - "u-hab: Ich hatte oft dort gegessen."
+        - "u-iter: Ich hatte ihn mehrmals gesehen."
+    de-past-progressive:
+      applies: {u-Aspect: [u-prog, u-ipfv]}
+      note: "The 'am'-progressive in the past is a colloquial form, highlighting an action in progress (u-prog). It can also serve as an imperfective marker (u-ipfv) for backgrounded ongoing activity. Rare in formal registers."
+      examples:
+        - "u-prog: Ich war am Arbeiten."
+        - "u-ipfv: Er war am Lesen."
+
+
+  Negation:
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
+    examples: 
+      - "Ich ging nicht nach Hause"
+      - "Er ist/war auch nicht nach Hause gegangen"
+
+  Rules:
+    de-Tense-type_de-praeteritum__de-Verbclass_de-weak:
+      applies: {de-Tense-type: de-praeteritum, de-Verbclass: de-weak}
+      pattern: "_stem_ + te + _personal ending_"
+      examples: 
+        - "ich machte"
+
+    de-Tense-type_de-praeteritum__de-Verbclass_de-strong:
+      applies: {de-Tense-type: de-praeteritum, de-Verbclass: de-strong}
+      pattern: "_ablauted stem_ + _personal ending_"
+      examples: 
+        - "ich ging"
+
+    de-Tense-type_de-praeteritum__de-Verbclass_de-irregular:
+      applies: {de-Tense-type: de-praeteritum, de-Verbclass: de-irregular}
+      pattern: "suppletive forms"
+      examples: 
+        - "ich war"
+        - "ich hatte"
+
+    de-Tense-type_de-perfekt:
+      applies: {de-Tense-type: de-perfekt}
+      pattern: "haben/sein (present finite) + past participle"
+      examples: 
+        - "ich habe gesehen"
+        - "ich bin gegangen"
+
+    de-Tense-type_de-plusquamperfekt:
+      applies: {de-Tense-type: de-plusquamperfekt}
+      pattern: "haben/sein (preterite finite) + past participle"
+      examples: 
+        - "ich hatte gesehen"
+        - "ich war gegangen"
+
+    de-Tense-type_de-past-progressive:
+      applies: {de-Tense-type: de-past-progressive}
+      pattern: "sein (preterite finite) + am + Infinitiv"
+      examples: 
+        - "ich war am Arbeiten"
+
+    de-Tense-type_de-past-participle__de-Verbclass_de-weak:
+      applies: {de-Tense-type: de-past-participle, de-Verbclass: de-weak}
+      pattern: "ge- + {stem} + (e)t"
+      examples:
+        - "gemacht"
+        - "gearbeitet"
+        - "gespielt"
+      note: "Weak verbs: participle formed with -t, occasionally -et after certain stems."
+
+    de-Tense-type_de-past-participle__de-Verbclass_de-strong:
+      applies: {de-Tense-type: de-past-participle, de-Verbclass: de-strong}
+      pattern: "ge- + {ablauted stem} + en"
+      examples:
+        - "gesehen"
+        - "gegangen"
+        - "gefunden"
+      note: "Strong verbs: participle formed with -en and often stem vowel change (Ablaut)."
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
+

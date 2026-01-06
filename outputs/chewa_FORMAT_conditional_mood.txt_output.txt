@@ -1,0 +1,41 @@
+Conditionals:
+  Features:
+    u-Tense: [u-pst, u-prs, u-fut]
+    u-Mood: [u-irr, u-real]
+    x-Clausetype: [x-protasis, x-apodosis]
+  Negation:
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
+    examples:
+    - "Ndí-ka-na-pánda kupita, sí-ndí-ka-ná-kondwa."
+  Rules:
+    u-Tense_u-pst__x-Clausetype_x-protasis:
+      applies: {u-Tense: u-pst, x-Clausetype: x-protasis}
+      pattern: "{chewa-past-protasis}"
+      examples:
+      - "Ndí-ka-da-khála ndi mwana ndi-ka-dá-kondwera."
+    u-Tense_u-pst__x-Clausetype_x-apodosis:
+      applies: {u-Tense: u-pst, x-Clausetype: x-apodosis}
+      pattern: "{chewa-past-apodosis}"
+      examples:
+      - "Ndí-ka-da-khála ndi mwana ndi-ka-dá-kondwera."
+    u-Tense_u-prs__x-Clausetype_x-protasis:
+      applies: {u-Tense: u-prs, x-Clausetype: x-protasis}
+      pattern: "{chewa-praesens-protasis}"
+      examples:
+      - "Ndí-ka-má-ku-óna-ni ndí-ma-kondwéra."
+    u-Tense_u-prs__x-Clausetype_x-apodosis:
+      applies: {u-Tense: u-prs, x-Clausetype: x-apodosis}
+      pattern: "{chewa-praesens-apodosis}"
+      examples:
+      - "Ndí-ka-má-ku-óna-ni ndí-ma-kondwéra."
+    u-Tense_u-fut__x-Clausetype_x-protasis:
+      applies: {u-Tense: u-fut, x-Clausetype: x-protasis}
+      pattern: "{chewa-future-protasis}"
+      examples:
+      - "Ndi-ka-dzá-fika kunyumba ndi-dzá-samba."
+    u-Tense_u-fut__x-Clausetype_x-apodosis:
+      applies: {u-Tense: u-fut, x-Clausetype: x-apodosis}
+      pattern: "{chewa-future-apodosis}"
+      examples:
+      - "Ndi-ka-dzá-fika kunyumba ndi-dzá-samba."

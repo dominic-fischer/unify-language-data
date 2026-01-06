@@ -1,0 +1,281 @@
+SYSTEM PROMPT:
+You are an expert in the zulu language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language zulu.
+
+The data you receive comes from multiple sources and relates to the following topics:
+negation.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Make sure to ignore information that is not relevant to the topic(s) in question: negation.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or zu-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "zulu-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("zulu-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Die allgemeine Vorsilbe für die Verneinung im Zulu ist «A-». Im gewissen Zeiten jedoch nimm die sehr versatile Silbe «-nga-», manchmal sogar in Kombination mit «A-», die Aufgabe der Negation wahr.
+
+Bei der Verwendung der Kennsilbe gibt es in der Negation eine minimale Veränderung: Diejenige der 3. Person Sg., d.h. der Singular der Klasse 1/2, lauten nun: -ka-. Wir kennezeichnen diese Kennsilbe so: «Kennsilbe (V)».
+
+## Das Verb > ### Zeiten > #### Eigenheiten der Verneinung > ##### Table 20
+
+<pre>```
+| 0                      | 1              |
+|:-----------------------|:---------------|
+| Sie läuft herum.       | Uhambahamba.   |
+| Sie läuft nicht herum. | Akahambihamba. |
+```</pre>
+
+
+Eine zweite spezielle Gegebenheit wird aus selbigem Beispiel klar: Bei reduplizierten Verbstämmen wird nur der erste Verbstamm, falls die Verneinung der vorliegenden Zeit das verlangt, zu -i verändert.
+
+Um die Verneinung zu bilden, müssen die zu verneinenden Satzteile ganz regulär verneint werden.
+
+Es gibt auch höfliche Aufforderungen, die von einem verneinten Verb herrühren.
+
+Kennsilbe – nga – (Objektsilbe) – Verbstamm auf -i
+
+## Das Verb > ### Wünsche, Aufforderungen, Befehle > #### Wünsche und höfliche Aufforderungen > ##### Verneinung > ###### Table 61
+
+<pre>```
+| 0                               | 1                               |
+|:--------------------------------|:--------------------------------|
+| (Bitte) gib mir das Brot nicht! | (Ngicela) ninganginiki isinkwa. |
+```</pre>
+
+Mu – sa + Infinitiv
+
+Mu – sa – ni + Infinitiv
+
+Kennsilbe – nge – na/ne/no – Nomen
+
+## Adjektive & Adverben > ### Adjektive > #### Nominale Adjektive > ##### Verneinung > ###### Table 63
+
+<pre>```
+| 0                                | 1                     |
+|:---------------------------------|:----------------------|
+| Er ist kein freundlicher Mensch. | Ungumuntu ungenomusa. |
+```</pre>
+
+Prädikative Adjektivkonstruktionen können auch verneint werden. Dies folgt der folgenden Formel:
+
+a – Kennsilbe (V) – Prädikatives Adjektiv
+
+Ausnahme: In der Klasse 7/8 ändert sich die Kennsilbe (V) zu «-ka-».
+
+Ngaphandle kwa/kwe/kwo – Nomen
+
+## Adjektive & Adverben > ### Adverben > #### Nominale Adverben > ##### Verneinung > ###### Table 72
+
+<pre>```
+| 0                       | 1                             |
+|:------------------------|:------------------------------|
+| Er rennt nicht schnell. | Ugijima ngaphandle kwejubane. |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Negation:
+  Features:
+    x-Negation-type: [x-clause, x-constituent]
+
+  Rules:
+    x-Negation-type_x-constituent:
+      applies: {x-Negation-type: x-constituent}
+      patterns: 
+        - pattern: "nicht + constituent"
+          examples: 
+          - "Er rennt nicht heute"
+          - "Nicht das Essen, sondern die Getränke hat er bezahlt"
+          note: "focuses on constituent rather than whole sentence"
+        - pattern: "kein + noun"
+          examples: 
+          - "Ich habe keinen Hund gesehen"
+          note: "negates indefinite noun phrase; inflected like indefinite determiner"
+
+    x-Negation-type_x-clause:
+      applies: {x-Negation-type: x-clause}
+      patterns: 
+      - pattern: "(...) finite/main verb (...) nicht (...) (final verb cluster)"
+        examples: 
+        - "Er will den Kuchen nicht essen"
+        - "Er rennt heute nicht"
+        note: "Negated main clauses."
+      - pattern: "main clause with Vfin, subordinating conjunction (...) nicht (...) final verb cluster"
+        examples: 
+        - "Er geht nach Hause, weil er nicht in der Schule bleiben will"
+        - "..., weil er in der Schule jeden Tag nicht gut aufpasst"
+        - "..., weil er in der Schule nicht jeden Tag gut aufpasst"
+        note: "Negated subclauses."
+      note: "If the entire sentence is to be negated, 'nicht' goes as far to the end as possible, but before the final verb cluster/the constituent it is supposed to negate. Note that for main- and subclauses, the principle of negation (finite/main verb - negation - final verb cluster) stays the same, apart from the subordinating conjunction intervening."
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
+

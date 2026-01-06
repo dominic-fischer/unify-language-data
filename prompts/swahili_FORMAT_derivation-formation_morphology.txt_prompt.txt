@@ -156,7 +156,7 @@ INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
 - Rephrase content where necessary, but do NOT add new facts.
 - Merge overlapping information into a single coherent description.
-- Ignore information that is not relevant to the reference schema.
+- Make sure to ignore information that is not relevant to the topic(s) in question: derivation, formation, morphology.
 - Preserve the hierarchy and ordering of the reference schema.
 
 FEATURES AND THEIR VALUES:
@@ -202,40 +202,6 @@ Here is another rather more implausible example:
 → -likiana "to be edible to each other"
 → -likianisha "to cause to be edible to each other"
 → -likianishwa "to be caused to be edible to each other"
-
-New verbs are readily created from simple verbs by attaching various suffixes (often called extensions) to the stem to get different shades of meaning by altering grammatical voice. Note that the final -a of common and short verbs only appears at the very end of the verb and is dropped before any suffixes. All of these derivational suffixes, in turn, also contain the final -a, which is dropped when additional suffixes (both derivational and inflectional) are appended.
-
-The applicative suffix, frequently called the 'prepositional extension' in learning resources, adds one of various meanings to a verb usually represented by a preposition in English such as "to", "for", "in", "with" or even "from". The form of the applicative suffix varies, depending on vowel harmony and the reappearance of the /l/ which disappeared from an older stage of Swahili between the final two vowels.  
-
-## Verbs > ### Derived verbs > #### Applicative > ##### Table 60: Applicative suffix on common verbs:
-
-<pre>```
-| Unnamed: 0                                   | Consonant-final root (Consonant + -a)   | Vowel-final root (Vowel + -a)   |
-|:---------------------------------------------|:----------------------------------------|:--------------------------------|
-| Preceding syllable has /a/, /i/, /u/ or /m̩/ | -ia                                     | -lia                            |
-| Preceding syllable has /e/ or /o/            | -ea                                     | -lea                            |
-```</pre>
-
-
--andika "to write" → -andikia "to write to"
--zungumza "to converse" → -zungumzia "to converse about", "to discuss"
--nunua "to buy" → -nunulia "to buy for"
--soma "to read" → -somea "to read to/for"
--kojoa "to urinate" → -kojolea "to urinate on/in/against"
-Loan verbs usually form their applicative forms by removing their final vowel and replacing it with either -ia or -ea according to the same rules.
-
--rudi "to return" → -rudia "to return to"
--samehe "to forgive" → -samehea "to forgive (sb.) for (sb.)"
--hesabu "to count", "to consider" → -hesabia "to count for", "to ascribe"
-
-The reciprocal suffix -ana adds the meaning "each other" to the verb.
-
--penda "to love" → -pendana "to love each other"
--andikia "to write to" → -andikiana "to write to each other"
--pata "to get, receive" → -patana "to reconcile"
--piga "to hit" → -pigana "to fight", "to hit each other"
--tii "to obey" → -tiiana "to obey each other"
-The subject of a reciprocal verb is generally plural, however a singular subject may be used, often followed by na and an additional referent.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
@@ -361,4 +327,6 @@ OUTPUT RULES:
 - Output ONLY the synthesized schema.
 - Do NOT include explanations, comments, or metadata.
 - Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
 

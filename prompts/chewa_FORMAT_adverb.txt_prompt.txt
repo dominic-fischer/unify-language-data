@@ -156,7 +156,7 @@ INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
 - Rephrase content where necessary, but do NOT add new facts.
 - Merge overlapping information into a single coherent description.
-- Ignore information that is not relevant to the reference schema.
+- Make sure to ignore information that is not relevant to the topic(s) in question: adverb.
 - Preserve the hierarchy and ordering of the reference schema.
 
 FEATURES AND THEIR VALUES:
@@ -383,30 +383,6 @@ Siehe unter Adverben.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-Source 2:
-Chewa nouns are divided for convenience into a number of classes, which are referred to by the Malawians themselves by names such as "Mu-A-", but by Bantu specialists by numbers such as "1/2", corresponding to the classes in other Bantu languages. Conventionally, they are grouped into pairs of singular and plural. However, irregular pairings are also possible, especially with loanwords; for example, bánki 'bank', which takes the concords of class 9 in the singular, has a plural mabánki (class 6).
-When assigning nouns to a particular class, initially the prefix of the noun is used. Where there is no prefix, or where the prefix is ambiguous, the concords (see below) are used as a guide to the noun class. For example, katúndu 'possessions' is put in class 1, since it takes the class 1 demonstrative uyu 'this'.
-Some nouns belong to one class only, e.g. tomáto 'tomato(es)' (class 1), mowa 'beer' (class 3), malayá 'shirt(s)' (class 6), udzudzú 'mosquito(es)' (class 14), and do not change between singular and plural. Despite this, such words can still be counted if appropriate: tomáto muwíri 'two tomatoes', mowa uwíri 'two beers', malayá amódzi 'one shirt', udzudzú umódzi 'one mosquito'.
-Class 11 (Lu-) is not found in Chewa. Words like lumo 'razor' and lusó 'skill' are considered to belong to class 5/6 (Li-Ma-) and take the concords of that class.
-
-Mu-A- (1/2): munthu pl. anthu 'person'; mphunzitsi pl. aphunzitsi 'teacher'; mwaná pl. aná 'child'  (1a/2): galú pl. agalú 'dog'. Class 1a refers to nouns which have no m- prefix.  The plural a- is used only for humans and animals. It can also be used for respect, e.g. aphunzitsi áthu 'our teacher'  (1a/6): kíyi pl. makíyi 'key'; gúle pl. magúle 'dance'  (1a): tomáto 'tomato(es)'; katúndu 'luggage, furniture'; feteréza 'fertilizer' (no pl.)
-Mu-Mi- (3/4): mudzi pl. midzi 'village'; mténgo pl. miténgo 'tree'; moyo pl. miyoyo 'life'; msika pl. misika 'village'  (3): mowa 'beer'; móto 'fire'; bowa 'mushroom(s)' (no pl.)
-Li-Ma- (5/6): dzína pl. maína 'name'; vúto pl. mavúto 'problem'; khásu pl. makásu 'hoe'; díso pl. masó 'eye'  Often the first consonant is softened or omitted in the plural in this class.  (6): madzí 'water', mankhwála 'medicine', maló 'place' (no sg.)
-Chi-Zi- (7/8): chinthu pl. zinthu 'thing'; chaká pl. zaká 'year'  (7): chímanga 'maize'; chikóndi 'love' (no pl.)
-I-Zi- (9/10): nyumbá pl. nyumbá 'house'; mbúzi pl. mbúzi 'goat'  (10): ndevu 'beard'; ndíwo 'relish'; nzerú 'intelligence' (no sg.)  (9/6): bánki pl. mabánki 'bank'
-Ka-Ti- (12/13): kamwaná pl. tianá 'baby'; kanthu pl. tinthu 'small thing'  (12): kasamalidwe 'method of taking care'; kavinidwe 'way of dancing' (no pl.)  (13): tuló 'sleep' (no sg.)
-U-Ma- (14): usíku 'night time'; ulimi 'farming'; udzudzú 'mosquito(es)' (no pl.)  (14/6): utá pl. mautá 'bow'
-Infinitive class:
-
-Ku- (15): kuóna 'to see, seeing'
-Locative classes:
-
-Pa- (16): pakamwa 'mouth'
-Ku- (17): kukhosi 'neck'
-Mu- (18): mkamwa 'inside the mouth'
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
 
 
 EXAMPLE OUTPUT (for German):
@@ -473,4 +449,6 @@ OUTPUT RULES:
 - Output ONLY the synthesized schema.
 - Do NOT include explanations, comments, or metadata.
 - Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
 

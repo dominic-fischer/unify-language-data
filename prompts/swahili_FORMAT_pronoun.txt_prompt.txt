@@ -156,7 +156,7 @@ INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
 - Rephrase content where necessary, but do NOT add new facts.
 - Merge overlapping information into a single coherent description.
-- Ignore information that is not relevant to the reference schema.
+- Make sure to ignore information that is not relevant to the topic(s) in question: pronoun.
 - Preserve the hierarchy and ordering of the reference schema.
 
 FEATURES AND THEIR VALUES:
@@ -172,6 +172,63 @@ FEATURES AND THEIR VALUES:
 
 SOURCE DATA:
 Source 1:
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Table 22
+
+<pre>```
+| 0   | 1           | 2          | 3                               | 4                   |
+|:----|:------------|:-----------|:--------------------------------|:--------------------|
+|     | Deutsch     | Swahili    | Bildung                         | Ausnahmen           |
+| I   | Dieses Kind | mtoto huyu | h – Kennsilbenvokal – Kennsilbe | Klasse 1/2 Sg. huyu |
+| II  | Jenes Kind  | mtoto yule | Kennsilbe – le                  | Klasse 1/2 Sg. yule |
+```</pre>
+
+«mit» + Demonstrativpronomen: Man setze «na» vor die Eigenschaftssilbe (Ausnahme: Klasse 1/2 Sg. naye).
+
+Welche/r/s?: Man nutze die Kennsilbe und hängt ihr ein «-pi» an (Ausnahme: Klasse 1/2 Sg. yupi?).
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung > ###### Table 23
+
+<pre>```
+| 0             | 1             | 2             | 3             | 4             | 5             | 6             | 7             |
+|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|
+|               |               | Kennsilbe     | Welches?      | Dieses        | Jenes         | Eigenschaft   | Mit Jenem     |
+| Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  |
+| 1             | m-            | ni-, u-, a-   | yupi?         | huyu          | yule          | ye-           | naye          |
+| 2             | wa-           | tu-, m-, wa-  | wapi?         | hawa          | wale          | o-            | nao           |
+| 3             | m-            | u-            | upi?          | huu           | ule           | wo-           | nawo          |
+| 4             | mi-           | i-            | ipi?          | hii           | ile           | yo-           | nayo          |
+| 5             | -             | li-           | lipi?         | hili          | lile          | lo-           | nalo          |
+| 6             | ma-           | ya-           | yapi?         | hiya          | yale          | yo-           | nayo          |
+| 7             | Ki-           | ki-           | kipi?         | hiki          | kile          | cho-          | nacho         |
+| 8             | vi-           | vi-           | vipi?         | hivi          | vile          | vyo-          | navyo         |
+| 9             | n- / -        | i-            | ipi?          | hii           | ile           | yo-           | nayo          |
+| 10            | n- / -        | zi-           | zipi?         | hizi          | zile          | zo-           | nazo          |
+| 11+14         | u-            | u-            | upi?          | huu           | ule           | (w)o-         | nawo          |
+| (10/6)        | n-            | zi-           | zipi?         | hizi          | zile          | zo-           | nazo          |
+| Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen |
+| 15            | ku-           | ku-           | kupi-         | huku          | kule          | ko-           | nako          |
+```</pre>
+
+
+In der Ortsklasse sind folgende Bedeutungen gebräuchlich:
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung > ###### Table 24
+
+<pre>```
+| 0   | 1   | 2   | 3   | 4    | 5    | 6   | 7   |
+|:----|:----|:----|:----|:-----|:-----|:----|:----|
+|     |     |     | Wo? | hier | dort |     |     |
+```</pre>
+
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung > ###### Table 25
+
+<pre>```
+| 0   | 1   | 2   | 3     | 4    | 5    | 6   | 7   |
+|:----|:----|:----|:------|:-----|:-----|:----|:----|
+|     | -   | pa- | wapi? | hapa | hapo | po- | -   |
+```</pre>
+
 Die Personalprononima sind im Swahili für Subjekt und Objekt identisch und lauten:
 
 ## Das Nomen > ### Pronomina > #### Personalpronomina > ##### Table 26
@@ -186,23 +243,6 @@ Die Personalprononima sind im Swahili für Subjekt und Objekt identisch und laut
 | wir       | sisi  | mit uns        | nasi  |
 | ihr       | ninyi | mit Euch/Ihnen | nanyi |
 | sie       | wao   | mit ihnen      | nao   |
-```</pre>
-
-
-
-## Das Nomen > ### Pronomina > #### Possessivpronomina > ##### Table 30
-
-<pre>```
-| 0        | 1                  | 2    |
-|:---------|:-------------------|:-----|
-|          | Vorsilbe           |      |
-| mein     | Besitzsilbe        | -ngu |
-| Dein     | Besitzsilbe        | -ko  |
-| sein/ihr | Besitzsilbe        | -ke  |
-|          |                    |      |
-| unser    | Besitzsilbe auf -e | -tu  |
-| euer/Ihr | Besitzsilbe auf -e | -nu  |
-| ihr      | Besitzsilbe        | -o   |
 ```</pre>
 
 Relativkonstruktionen können auf zwei Arten gebildet werden:
@@ -244,14 +284,19 @@ Bei ersterer Konstruktion wird normal das Verb negiert. Die Negation der zweiten
 | (Was ich nicht weiss, macht mich nicht heiss.)                   | Chilis du-nicht-von(5)-essen sie(Präs.)-dich-brennen-wie? |
 ```</pre>
 
-## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Table 22
+## Das Nomen > ### Pronomina > #### Possessivpronomina > ##### Table 30
 
 <pre>```
-| 0   | 1           | 2          | 3                               | 4                   |
-|:----|:------------|:-----------|:--------------------------------|:--------------------|
-|     | Deutsch     | Swahili    | Bildung                         | Ausnahmen           |
-| I   | Dieses Kind | mtoto huyu | h – Kennsilbenvokal – Kennsilbe | Klasse 1/2 Sg. huyu |
-| II  | Jenes Kind  | mtoto yule | Kennsilbe – le                  | Klasse 1/2 Sg. yule |
+| 0        | 1                  | 2    |
+|:---------|:-------------------|:-----|
+|          | Vorsilbe           |      |
+| mein     | Besitzsilbe        | -ngu |
+| Dein     | Besitzsilbe        | -ko  |
+| sein/ihr | Besitzsilbe        | -ke  |
+|          |                    |      |
+| unser    | Besitzsilbe auf -e | -tu  |
+| euer/Ihr | Besitzsilbe auf -e | -nu  |
+| ihr      | Besitzsilbe        | -o   |
 ```</pre>
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -399,4 +444,6 @@ OUTPUT RULES:
 - Output ONLY the synthesized schema.
 - Do NOT include explanations, comments, or metadata.
 - Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
 

@@ -156,7 +156,7 @@ INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
 - Rephrase content where necessary, but do NOT add new facts.
 - Merge overlapping information into a single coherent description.
-- Ignore information that is not relevant to the reference schema.
+- Make sure to ignore information that is not relevant to the topic(s) in question: derivation, formation, morphology.
 - Preserve the hierarchy and ordering of the reference schema.
 
 FEATURES AND THEIR VALUES:
@@ -175,28 +175,6 @@ Source 1:
 Diminutive und Augmentative werden in vielen Sprachen unterschiedlich gebildet, teils nicht einmal mit diesem Präfixsystem. Speziell ist, dass die Diminutiv- und Augmentativsilben teils an den Stamm, teils an eine bereits bestehende Vorsilbe angehängt werden. Bei der Pluralbildung hat dies zur Folge, dass in gewissen Sprachen der Plural doppelt gebildet wird, also sowohl die Diminutiv-/Augmentativ- als auch die regulären Klassenvorsilben in den Pural gesetzt werden.
 
 Bei den Diminutiven fällt auf, dass Sprachen häufiger eine eigene, zusätzliche, relativ konsistente Klasse nutzen: ka- (Sg.); tu-/ti- (Pl.)
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
-Source 2:
-New verbs are readily created from simple verbs by attaching various suffixes to the stem, to get different shades of meaning. The following table lists these suffixes, and an example using the base verb -enza "to do, to make":
-
-## Verbs > ### Derived verbs > #### Table 26
-
-<pre>```
-| Type                                                                     | Suffix               | Example                               |
-|:-------------------------------------------------------------------------|:---------------------|:--------------------------------------|
-| Reciprocal: each other                                                   | -ana                 | -thandana "to love each other"        |
-| Neuter-passive: be -able                                                 | -eka                 | -fundeka "to be readable"             |
-| Applicative: for/on behalf of                                            | -ela                 | -fundela "to read for"                |
-| Causative: cause/make                                                    | -isa                 | -fundisa "to teach”                   |
-| Intensive: intense/quick action                                          | -isisa               | -fundisisa "to study/read well/quick" |
-| Passive: be -ed                                                          | -(i)wa               | -fundwa "to be read/studied"          |
-| Reduplication: repetitive, for a little bit, or it doesn’t happen easily | reduplicate the verb | -fundafunda “to study/read for a bit” |
-```</pre>
-
-
-For reduplication, verb roots that are more than two syllables long only have the first two syllables reduplicated. For example, the word “cabanga” when reduplicated is “cabacabanga” and not “cabangacabanga.”
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
@@ -322,4 +300,6 @@ OUTPUT RULES:
 - Output ONLY the synthesized schema.
 - Do NOT include explanations, comments, or metadata.
 - Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
 

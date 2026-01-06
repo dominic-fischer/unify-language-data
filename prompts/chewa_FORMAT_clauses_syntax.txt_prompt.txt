@@ -156,7 +156,7 @@ INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
 - Rephrase content where necessary, but do NOT add new facts.
 - Merge overlapping information into a single coherent description.
-- Ignore information that is not relevant to the reference schema.
+- Make sure to ignore information that is not relevant to the topic(s) in question: clauses, syntax.
 - Preserve the hierarchy and ordering of the reference schema.
 
 FEATURES AND THEIR VALUES:
@@ -172,32 +172,6 @@ FEATURES AND THEIR VALUES:
 
 SOURCE DATA:
 Source 1:
-## Das Verb > ### Zeitformen > #### Subjunktiv > ##### Table 38
-
-<pre>```
-| 0           | 1       | 2    | 3        | 4   | 5                                           |
-|:------------|:--------|:-----|:---------|:----|:--------------------------------------------|
-|             | SUBJ    | TEMP | VERB     | END |                                             |
-| Subjunctive | Ndi-    |      | thandiz- | é   | I should help. / (that…) I may help         |
-| Subjunctive | Ndi-sa- |      | thandíz- | e   | I should not help. / (that…) I may not help |
-```</pre>
-
-
-Verschiedene Aspektinfixe ändern die Bedeutung leicht, zur Negation kann hier einfach -sa- nach dem Subjekt eingefügt werden.
-
-## Das Verb > ### Zeitformen > #### Subjunktiv > ##### Table 39
-
-<pre>```
-| 0                     | 1    | 2   | 3    | 4        | 5   | 6                             |
-|:----------------------|:-----|:----|:-----|:---------|:----|:------------------------------|
-| Subjunctive GO        | Ndi- |     | ká-  | thandiz- | é   | (so that…) I may go and help. |
-| Subjunctive COME      | Ndi- |     | dzá- | thandiz- | é   | (so that…) I may help later.  |
-| Subjunctive NEG HABIT | Ndi- |     | má-  | thandiz- | é   | I should keep on helping.     |
-```</pre>
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
-Source 2:
 The tenses used in certain kinds of dependent clauses (such as relative clauses and some types of temporal clauses) differ from those used in main clauses. Dependent verbs often have a tone on the first syllable. Sometimes this change of tone alone is sufficient to show that the verb is being used in a dependent clause. Compare for example:
 
 a-ku-gúla 'he is buying'
@@ -276,4 +250,6 @@ OUTPUT RULES:
 - Output ONLY the synthesized schema.
 - Do NOT include explanations, comments, or metadata.
 - Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
 

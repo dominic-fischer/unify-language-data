@@ -1,0 +1,284 @@
+SYSTEM PROMPT:
+You are an expert in the zulu language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language zulu.
+
+The data you receive comes from multiple sources and relates to the following topics:
+future tense, tense.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Make sure to ignore information that is not relevant to the topic(s) in question: future tense, tense.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or zu-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "zulu-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("zulu-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+In der Zukunft verwendet man «ukuba», und zwar genau gemäss der normalen Zukunfts-Zeitenbildung.
+
+## Das Verb > ### Sein > #### Zukunft > ##### Table 38
+
+<pre>```
+| 0                              | 1                    |
+|:-------------------------------|:---------------------|
+| Ich werde Lehrer werden.       | Ngizoba uthisha.     |
+| Ich werde nicht Lehrer werden. | Angizuba uthisha.    |
+|                                | Ngeke ngibe uthisha. |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+There are two different future tenses in Zulu, the immediate future and distant future. They are essentially identical in form, with z in the immediate future versus y in the remote future.
+
+## Verbs > ### Tenses and moods > #### Future tense > ##### Table 19: Formation of the future tense
+
+<pre>```
+| 0           | 1         | 2                       | 3                         |
+|:------------|:----------|:------------------------|:--------------------------|
+| nan         | nan       | Principal               | Participial               |
+| Affirmative | Immediate | [subj1]zo(ku)[obj]...a  | [subjP]zo(ku)[obj]...a    |
+| Affirmative | Distant   | [subj1]yo(ku)[obj]...a  | [subjP]yo(ku)[obj]...a    |
+| Negative    | Immediate | a[subj2]zu(ku)[obj]...a | [subjP]ngezu(ku)[obj]...a |
+| Negative    | Distant   | a[subj2]yu(ku)[obj]...a | [subjP]ngeyu(ku)[obj]...a |
+```</pre>
+
+
+Both originate as periphrastic forms, from the auxiliary verbs -za "to come" and -ya "to go" respectively, followed by an infinitive. These two have fused into one word in modern Zulu, but remnants of their former status as two distinct words remain in various respects. The following list shows the approximate way in which the contraction of the immediate future preceded, using the verb -síza "to help" as an example.
+
+## Verbs > ### Tenses and moods > #### Future tense > ##### Table 20: Origin of the immediate future
+
+<pre>```
+| Affirmative   | Negative       | Contraction level                                                         |
+|:--------------|:---------------|:--------------------------------------------------------------------------|
+| ngiza ukusiza | angizi ukusiza | 1. Original periphrastic form.                                            |
+| ngizokusiza   | angiziyukusiza | 2. Two words fused into one.                                              |
+| nan           | angizukusiza   | 3. Glide -y- deleted.                                                     |
+| ngizosiza     | angizusiza     | 4. -ku- infix of the infinitive deleted.                                  |
+| ngōsiza       | angūsiza       | 5. -z-/-y- of the auxiliary deleted, contraction of subject prefix vowel. |
+```</pre>
+
+
+Generally, the forms of contraction levels 4 or 5 are used. With monosyllabic verbs, or verbs beginning with vowels, contraction only proceeds to level 3 so that the -ku- remains. Note that in the most contracted form, the distinction between immediate and distant future entirely disappears.
+
+## Verbs > ### Tenses and moods > #### Future tense > ##### Table 21: Examples
+
+<pre>```
+| Verb   | Example                                              |
+|:-------|:-----------------------------------------------------|
+| -za    | Ngizokuza. Ngiyokuza. "I will come."                 |
+| -za    | Angizukuza. Angiyukuza. "I will not come."           |
+| -akha  | Ngizokwakha. Ngiyokwakha. "I will build"             |
+| -akha  | Angizukwakha. Angiyukwakha. "I will not build."      |
+| -síza  | Ngizomsiza. Ngiyomsiza. "I will help him."           |
+| -síza  | Angizokumsiza. Angiyokumsiza. "I will not help him." |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Future:
+  Features:
+    de-Tense-type: [de-futur-I, de-futur-II]
+
+  Negation:
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
+    examples: 
+    - "Ich werde dich nicht sehen."
+    - "Ich werde dich nicht gesehen haben."
+
+  Usage:
+    de-futur-I:
+      applies: {u-Aspect: [u-prosp]}
+      examples:
+        - "u-prosp: Ich werde gehen."
+      note: "Used for future reference; can also have modal meaning ('probably')."
+
+    de-futur-II:
+      applies: {u-Aspect: [u-prf]}
+      examples:
+        - "u-prf: Ich werde gegangen sein."
+      note: "Future perfect; often expresses assumption about the past."
+
+  Rules:
+    de-Tense-type_de-futur-I:
+      applies: {de-Tense-type: de-futur-I}
+      pattern: "werden (finite) + infinitive"
+      examples: 
+        - "ich werde gehen"
+
+    de-Tense-type_de-futur-II:
+      applies: {de-Tense-type: de-futur-II}
+      pattern: "werden (finite) + past participle + haben/sein infinitive"
+      examples: 
+        - "ich werde gegangen sein"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
+

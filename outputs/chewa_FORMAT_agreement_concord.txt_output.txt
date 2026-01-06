@@ -1,0 +1,30 @@
+Agreement:
+  Features:
+    x-Domain: [x-subject-verb, x-noun-adjective, x-noun-determiner]
+
+  Rules:
+    x-Domain_x-noun-adjective:
+      applies: {x-Domain: x-noun-adjective}
+      pattern: "adjective concord with head noun, matching noun class"
+      examples: 
+      - "mwaná wánzérú"
+      - "aná ánzérú"
+      note: "adjective prefixes align with noun class as shown in concord tables"
+
+    x-Domain_x-noun-determiner:
+      applies: {x-Domain: x-noun-determiner}
+      pattern: "demonstrative/possessive determiners inflected for head noun's class"
+      examples: 
+      - "mwaná uyu"
+      - "mwaná uyo"
+      - "aná awa"
+      - "aná awo"
+      note: "demonstratives agree with noun class; possessive determiners align with class" 
+
+    x-Domain_x-subject-verb:
+      applies: {x-Domain: x-subject-verb}
+      pattern: "finite verb agrees with subject in person and number"
+      examples: 
+      - "mwaná ápita"
+      - "aná ápita"
+      note: "subject concord encodes person and number on the verb"

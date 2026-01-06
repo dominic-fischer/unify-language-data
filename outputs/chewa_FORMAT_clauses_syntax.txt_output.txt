@@ -1,0 +1,18 @@
+Clauses:
+  Features:
+    x-Clausetype: [x-main, x-subordinate]
+    x-Word-order: [x-V2, x-Vfinal, x-V1]
+  Notes:
+    - "Dependent verbs often have a tone on the first syllable; this tone change marks dependent clause usage."
+  Rules:
+    x-Clausetype_x-subordinate__x-tone_x-first-syllable:
+      applies: { x-Clausetype: x-subordinate, x-tone: x-first-syllable }
+      pattern: "... tone on the first syllable marks dependent usage ..."
+      examples:
+        - "á-kú-gúla"
+        - "ndí-tá-gúla"
+        - "ndi-ka-gula"
+        - "ndi-ka-dzá-gula"
+        - "ndí-ka-má-gúlá"
+        - "ndí-ka-da-gúla"
+      note: "Dependent clauses (relative/temporal) may use a tonal change on the first syllable to indicate dependence."

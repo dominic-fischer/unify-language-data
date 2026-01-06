@@ -198,18 +198,23 @@ def german_equiv_lookup(terms: List[str]) -> List[str]:
         "agreement": "angleichung",
         "past tense": "vergangenheit",
         "conditional": "konditional",
+        "conjunctive": "konjunktiv",
         "mood": "modus",
+        "noun": ["nomen", "substantiv"],
         "constituents": "konstituenten",
         "morphology": "morphologie",
+        "negation": "verneinung",
         "determiners": "artikel",
+        "formation": "bildung",
         "future tense": ["zukunft", "futur"],
+        "tense": "zeitform",
         "imperative": "imperativ",
         "passive": "passiv",
         "past tense": "vergangenheit",
         "present tense": ["gegenwart", "präsens"],
-        "pronoun": "pronomen",
+        "pronoun": ["pronomen", "pronomina"],
         "reported": "indirekt",
-        "subjunctive": "konjunktiv"}
+        "subjunctive": "subjunktiv",}
         
     # add the equivalents after the original term, keep the original term
     final_terms = []

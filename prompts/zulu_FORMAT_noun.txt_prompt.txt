@@ -156,7 +156,7 @@ INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
 - Rephrase content where necessary, but do NOT add new facts.
 - Merge overlapping information into a single coherent description.
-- Ignore information that is not relevant to the reference schema.
+- Make sure to ignore information that is not relevant to the topic(s) in question: noun.
 - Preserve the hierarchy and ordering of the reference schema.
 
 FEATURES AND THEIR VALUES:
@@ -172,7 +172,202 @@ FEATURES AND THEIR VALUES:
 
 SOURCE DATA:
 Source 1:
+In der Linguistik wird jedem einzelnen Klassenpräfix eine Nummer zugewiesen – der Einfachheit halber weisen wir demselben Wort im Singular und Plural dieselbe Klassennummer zu. Im Anhang wird detaillierter darauf eingegangen, wie die Wörter in die Klassen eingeteilt werden und wie diese überhaupt zustande kommen.
 
+Will man ein Nomen in den Plural setzen, so ersetzt die Pluralvorsilbe die des Singulars.
+
+## Das Nomen > ### Nominalklassen > #### Hauptklassen > ##### Table 9
+
+<pre>```
+| 0    | 1                     | 2   | 3     | 4          | 5         |
+|:-----|:----------------------|:----|:------|:-----------|:----------|
+| 1    | [a] Menschen          | Ez. | umu-  | umuntu     | Mensch    |
+| 2    |                       | Mz. | aba-  | abantu     | Menschen  |
+| 1    | [b] Menschen          | Ez. | u-    | umama      | Mutter    |
+| 2    |                       | Mz. | o-    | omama      | Mütter    |
+| 3    | Dinge                 | Ez. | umu-  | umuthi     | Baum      |
+| 4    |                       | Mz. | imi-  | imithi     | Bäume     |
+| 5    | Fremdwörter           | Ez. | i-    | itafula    | Tisch     |
+| 6    |                       | Mz. | ama-  | amatafula  | Tische    |
+| 7    | Abstrakta             | Ez. | isi-  | isifiso    | Wunsch    |
+| 8    |                       | Mz. | izi-  | izifiso    | Wünsche   |
+| 9    | -                     | Ez. | in-   | indlu      | Haus      |
+| 10   |                       | Mz. | izin- | izindlu    | Häuser    |
+| 11   | Abstrakta mit Plural  | Ez. | ulu-  | ulwandle   | Meer      |
+| (10) |                       | Mz. | izin- | izinwandle | Meere     |
+| 14   | Abstrakta ohne Plural | Ez. | ubu-  | ubuhle     | Schönheit |
+```</pre>
+
+
+Bem.: Die Klasse 1/2 [b] ist keine richtige Klasse, da alle anderen Silben genau mit der Klasse 1/2 [a] übereinstimmen. Trotzdem soll sie hier einmal aufgeführt sein, um Verwirrung zu vermeiden.
+
+Klasse 8: In Bantusprachen kann man jedes Verb substantivieren, wobei nur eine Singularform existiert, die dem Infinitiv entspricht (Dies ist für Deutschsprachige ganz natürlich: z.B.  gehen -> das Gehen). Daneben gibt es häufig – ebenfalls wie im Deutschen –  weitere vom Verbstamm abgeleitete Nomen.
+
+## Das Nomen > ### Nominalklassen > #### Zusatzklassen > ##### Table 10
+
+<pre>```
+|   0 | 1                      | 2   | 3    | 4           | 5                     |
+|----:|:-----------------------|:----|:-----|:------------|:----------------------|
+|  15 | Substantivierte Verben |     | uku- | ukuhlangana | Beziehung, Verbindung |
+```</pre>
+
+## Das Nomen > ### Nominalklassen > #### Zusatzklassen > ##### Silben-Übersichtsdarstellung > ###### Table 11
+
+<pre>```
+| 0             | 1                    | 2             | 3             | 4             | 5             | 6             | 7                   | 8             |
+|:--------------|:---------------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------------|:--------------|
+|               |                      |               |               | Adj.          | Eigen         | Subjekt       | Objekt              | Besitz        |
+| Hauptklassen  | Hauptklassen         | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen        | Hauptklassen  |
+| 1             | Menschen             | Ez.           | umu-          | omu-          | o-            | ngi-, u-, u-  | -ngi-, -ku-, -m(u)- | wa- (ka-)     |
+| 2             |                      | Mz.           | aba-          | aba-          | aba-          | si-, ni-, ba- | -si-, ni-…-ni, -ba- | ba- (baka-)   |
+| 3             | Dinge                | Ez.           | umu-          | omu-          | o-            | u-            | wu-                 | wa- (ka-)     |
+| 4             |                      | Mz.           | imi-          | emi-          | e-            | i-            | yi-                 | ya- (ka-)     |
+| 5             | Fremd-wörter         | Ez.           | i-            | eli-          | eli-          | li-           | li-                 | la- (lika-)   |
+| 6             |                      | Mz.           | ama-          | ama-          | a-            | a-            | wa-                 | a- (ka)       |
+| 7             | Abstrakta            | Ez.           | isi-          | esi-          | esi-          | si-           | si-                 | sa- (sika-)   |
+| 8             |                      | Mz.           | izi-          | ezi-          | ezi-          | zi-           | zi-                 | za- (zika-)   |
+| 9             | -                    | Ez.           | in-           | en-           | e-            | i-            | yi-                 | ya- (ka-)     |
+| 10            |                      | Mz.           | izin-         | ezin-         | ezi-          | zi-           | zi-                 | za- (zika-)   |
+| 11            | Abstrakta mit Plural | Ez.           | ulu-          | olu-          | olu-          | lu-           | lu-                 | lwa- (luka-)  |
+| (10)          |                      | Mz.           | izin-         | ezi-          | ezi-          | zi-           | zi-                 | za- (zika-)   |
+| 14            | Abstrakta            | Ez.           | ubu-          | obu-          | obu-          | bu-           | bu-                 | ba- (buka-)   |
+| Zusatzklassen | Zusatzklassen        | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen       | Zusatzklassen |
+| 15            | Subst. Verben        |               | uku-          | oku-          | oku-          | ku-           | ku                  | kwa- (kuka-)  |
+```</pre>
+
+
+
+Wie im Deutschen unterscheidet man im Zulu zwischen zwei verschiedenen Demonstrativpronomina. Wie im Deutschen werden im Zulu die Demonstrativpronomina vor das zugehörige Nomen gesetzt.
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Table 12
+
+<pre>```
+| 0   | 1             | 2    | 3                             | 4              |
+|:----|:--------------|:-----|:------------------------------|:---------------|
+|     | Deutsch       | Zulu | Bildung                       | Ausnahmen      |
+| I   | Dieser Mensch | lo   | l- + Eigenschaftssilbe        |                |
+| II  | Jener Mensch  | lowo | l- + Eigenschaftssilbe auf -o | -wo nach -o/-a |
+|     |               |      |                               | -yo nach -e    |
+```</pre>
+
+Will man ein Demonstrativpronomen mit einem «mit» kombinieren, so setzt man ein «na» vor die zweite Silbe des Demonstrativpronomen II (Ausnahme: Klasse 1/2 Sg. naye).
+
+Will man herausfinden, welche/r/s gemeint ist, so nutzt man die Kennsilbe und hängt ihr ein «-phi» an (Ausnahme: vor Kennsilben mit a- und u- wird vorne ein m- drangehängt).
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung > ###### Table 13
+
+<pre>```
+| 0    | 1     | 2         | 3        | 4           | 5        | 6      | 7     | 8         |
+|:-----|:------|:----------|:---------|:------------|:---------|:-------|:------|:----------|
+|      |       | Kennsilbe | Adjektiv | Eigenschaft | Welches? | Dieses | Jenes | Mit Jenem |
+| 1    | umu-  | u-        | omu-     | o-          | muphi?   | lo     | lowo  | naye      |
+| 2    | aba-  | ba-       | aba-     | aba-        | baphi?   | laba   | labo  | nabo      |
+| 3    | umu-  | u-        | omu-     | o-          | muphi?   | lo     | lowo  | nawo      |
+| 4    | imi-  | i-        | emi-     | e-          | miphi?   | le     | leyo  | nayo      |
+| 5    | i-    | li-       | eli-     | eli-        | liphi?   | leli   | lelo  | nalo      |
+| 6    | ama-  | a-        | ama-     | a-          | maphi?   | la     | lawo  | nawo      |
+| 7    | isi-  | si-       | esi-     | esi-        | siphi?   | lesi   | leso  | naso      |
+| 8    | izi-  | zi-       | ezi-     | ezi-        | ziphi?   | lezi   | lezo  | nazo      |
+| 9    | in-   | i-        | en-      | e-          | iphi?    | le     | leyo  | nayo      |
+| 10   | izin- | zi-       | ezin-    | ezi-        | ziphi?   | lezi   | lezo  | nazo      |
+| 11   | ulu-  | lu-       | olu-     | olu-        | luphi?   | lolu   | lolo  | nalo      |
+| (10) | izin- | zi-       | ezi-     | ezi-        | ziphi?   | lezi   | lezo  | nazo      |
+| 14   | ubu-  | bu-       | obu-     | obu-        | buphi?   | lobu   | lobo  | nabo      |
+```</pre>
+
+
+In der Klasse der substantivierten Verben sind zusätzlich folgende Bedeutungen möglich:
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung > ###### Table 14
+
+<pre>```
+| 0   | 1    | 2         | 3        | 4           | 5      | 6      | 7     | 8         |
+|:----|:-----|:----------|:---------|:------------|:-------|:-------|:------|:----------|
+|     |      | Kennsilbe | Adjektiv | Eigenschaft | Wo?    | Dieses | Jenes | Mit Jenem |
+| 15  | uku- | ku-       | oku-     | oku-        | kuphi? | lokhu  | lokho | nakho     |
+```</pre>
+
+Die Personalprononima sind im Zulu für Subjekt und Objekt identisch und lauten:
+
+## Das Nomen > ### Pronomina > #### Personalpronomina > ##### Table 15
+
+<pre>```
+| 0         | 1     | 2              | 3     |
+|:----------|:------|:---------------|:------|
+| ich       | mina  | mit mir        | nami  |
+| Du        | wena  | mit Dir        | nawe  |
+| er/sie/es | yena  | mit ihm/ihr    | naye  |
+|           |       |                |       |
+| wir       | thina | mit uns        | nathi |
+| ihr/Sie   | nina  | mit Euch/Ihnen | nani  |
+| sie       | bona  | mit ihnen      | nabo  |
+```</pre>
+
+
+Es gilt, Erwachsene stets in der zweiten Person plural anzusprechen. Der Singular gilt im normalen Sprachgebrauch als unhöflich und wird nur gegenüber Kindern oder klar rangniedereren Personen angewandt.
+
+Relativkonstruktionen sind zur Abwechslung sehr simpel: Man setzt lediglich ein «e-» vor die darauffolgende Verbform.
+
+## Das Nomen > ### Pronomina > #### Relativpronomina > ##### Table 16
+
+<pre>```
+| 0                                                | 1                                               |
+|:-------------------------------------------------|:------------------------------------------------|
+| Der Mann, den ich gesehen habe, ist weggegangen. | Indoda e-ngi-yi-bon-ile i-hamb-ile.             |
+|                                                  | Mann welcher-ich-ihn-sehen-Perf. er-gehen-Perf. |
+```</pre>
+
+## Das Nomen > ### Pronomina > #### Possessivpronomina > ##### Table 17
+
+<pre>```
+| 0        | 1                         | 2     |
+|:---------|:--------------------------|:------|
+|          | Vorsilbe                  |       |
+| mein     | Besitzsilbe               | -mi   |
+| Dein     | Besitzsilbe               | -kho  |
+| sein/ihr | Besitzsilbe               | -khe  |
+|          |                           |       |
+| unser    | Besitzsilbe (-a entfällt) | -ethu |
+| euer/Ihr | Besitzsilbe (-a entfällt) | -enyu |
+| ihr      | Besitzsilbe               | -bo   |
+```</pre>
+
+Im Gegensatz zu anderen Bantusprachen haben Ortsangaben im Zulu keine eigene Nominalklasse. Ortsangaben erkennt man daran, dass sie ein «e-» vor und ein «-eni/-weni/-ini/-wini» an das Nomen hängen. Die Konstruktion funktioniert folgendermassen:
+
+-eni nach -e, -a
+
+-ini nach -i
+
+-weni nach -o
+
+-wini nach -u
+
+## Das Nomen > ### Ortsangaben > #### Table 18
+
+<pre>```
+| 0        | 1       | 2          | 3               |
+|:---------|:--------|:-----------|:----------------|
+| dolobha  | Stadt   | edholobeni | in der Stadt    |
+| isiteshi | Station | esiteshini | bei der Station |
+| imoto    | Auto    | emotweni   | aus dem Auto    |
+| izulu    | Himmel  | ezulwini   | in den Himmel   |
+```</pre>
+
+
+Man sieht, dass diese Konstruktionen diverse Übersetzungen haben können – in, bei, aus … heraus, in … hinein – also lokative und lative (die eine Richtunge vorgeben). Andere als die genannten Übersetzungen (z.B. unter, über, in … drin) haben eigene Wörter. Folgt ihnen ein Objekt, so werden sie mit dem Wörtchen «kwa» verbunden. «Kwa» selbst heisst zudem bei und wird vor Namen oder Personalpronomen (-na entfällt) verwendet.
+
+## Das Nomen > ### Ortsangaben > #### Table 19
+
+<pre>```
+| 0            | 1              |
+|:-------------|:---------------|
+| bei mir      | kwami          |
+| vor mir      | phambi kwami   |
+| auf dem Berg | phezu kwentaba |
+```</pre>
+
+
+Man bemerke, dass «kwa» sich gemäss der A-Regeln ans nachfolgende Nomen anpasst.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
@@ -512,4 +707,6 @@ OUTPUT RULES:
 - Output ONLY the synthesized schema.
 - Do NOT include explanations, comments, or metadata.
 - Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
 

@@ -156,7 +156,7 @@ INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
 - Rephrase content where necessary, but do NOT add new facts.
 - Merge overlapping information into a single coherent description.
-- Ignore information that is not relevant to the reference schema.
+- Make sure to ignore information that is not relevant to the topic(s) in question: pronoun.
 - Preserve the hierarchy and ordering of the reference schema.
 
 FEATURES AND THEIR VALUES:
@@ -172,6 +172,56 @@ FEATURES AND THEIR VALUES:
 
 SOURCE DATA:
 Source 1:
+Wie im Deutschen unterscheidet man im Zulu zwischen zwei verschiedenen Demonstrativpronomina. Wie im Deutschen werden im Zulu die Demonstrativpronomina vor das zugehörige Nomen gesetzt.
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Table 12
+
+<pre>```
+| 0   | 1             | 2    | 3                             | 4              |
+|:----|:--------------|:-----|:------------------------------|:---------------|
+|     | Deutsch       | Zulu | Bildung                       | Ausnahmen      |
+| I   | Dieser Mensch | lo   | l- + Eigenschaftssilbe        |                |
+| II  | Jener Mensch  | lowo | l- + Eigenschaftssilbe auf -o | -wo nach -o/-a |
+|     |               |      |                               | -yo nach -e    |
+```</pre>
+
+Will man ein Demonstrativpronomen mit einem «mit» kombinieren, so setzt man ein «na» vor die zweite Silbe des Demonstrativpronomen II (Ausnahme: Klasse 1/2 Sg. naye).
+
+Will man herausfinden, welche/r/s gemeint ist, so nutzt man die Kennsilbe und hängt ihr ein «-phi» an (Ausnahme: vor Kennsilben mit a- und u- wird vorne ein m- drangehängt).
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung > ###### Table 13
+
+<pre>```
+| 0    | 1     | 2         | 3        | 4           | 5        | 6      | 7     | 8         |
+|:-----|:------|:----------|:---------|:------------|:---------|:-------|:------|:----------|
+|      |       | Kennsilbe | Adjektiv | Eigenschaft | Welches? | Dieses | Jenes | Mit Jenem |
+| 1    | umu-  | u-        | omu-     | o-          | muphi?   | lo     | lowo  | naye      |
+| 2    | aba-  | ba-       | aba-     | aba-        | baphi?   | laba   | labo  | nabo      |
+| 3    | umu-  | u-        | omu-     | o-          | muphi?   | lo     | lowo  | nawo      |
+| 4    | imi-  | i-        | emi-     | e-          | miphi?   | le     | leyo  | nayo      |
+| 5    | i-    | li-       | eli-     | eli-        | liphi?   | leli   | lelo  | nalo      |
+| 6    | ama-  | a-        | ama-     | a-          | maphi?   | la     | lawo  | nawo      |
+| 7    | isi-  | si-       | esi-     | esi-        | siphi?   | lesi   | leso  | naso      |
+| 8    | izi-  | zi-       | ezi-     | ezi-        | ziphi?   | lezi   | lezo  | nazo      |
+| 9    | in-   | i-        | en-      | e-          | iphi?    | le     | leyo  | nayo      |
+| 10   | izin- | zi-       | ezin-    | ezi-        | ziphi?   | lezi   | lezo  | nazo      |
+| 11   | ulu-  | lu-       | olu-     | olu-        | luphi?   | lolu   | lolo  | nalo      |
+| (10) | izin- | zi-       | ezi-     | ezi-        | ziphi?   | lezi   | lezo  | nazo      |
+| 14   | ubu-  | bu-       | obu-     | obu-        | buphi?   | lobu   | lobo  | nabo      |
+```</pre>
+
+
+In der Klasse der substantivierten Verben sind zusätzlich folgende Bedeutungen möglich:
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung > ###### Table 14
+
+<pre>```
+| 0   | 1    | 2         | 3        | 4           | 5      | 6      | 7     | 8         |
+|:----|:-----|:----------|:---------|:------------|:-------|:-------|:------|:----------|
+|     |      | Kennsilbe | Adjektiv | Eigenschaft | Wo?    | Dieses | Jenes | Mit Jenem |
+| 15  | uku- | ku-       | oku-     | oku-        | kuphi? | lokhu  | lokho | nakho     |
+```</pre>
+
 Die Personalprononima sind im Zulu für Subjekt und Objekt identisch und lauten:
 
 ## Das Nomen > ### Pronomina > #### Personalpronomina > ##### Table 15
@@ -191,7 +241,16 @@ Die Personalprononima sind im Zulu für Subjekt und Objekt identisch und lauten:
 
 Es gilt, Erwachsene stets in der zweiten Person plural anzusprechen. Der Singular gilt im normalen Sprachgebrauch als unhöflich und wird nur gegenüber Kindern oder klar rangniedereren Personen angewandt.
 
+Relativkonstruktionen sind zur Abwechslung sehr simpel: Man setzt lediglich ein «e-» vor die darauffolgende Verbform.
 
+## Das Nomen > ### Pronomina > #### Relativpronomina > ##### Table 16
+
+<pre>```
+| 0                                                | 1                                               |
+|:-------------------------------------------------|:------------------------------------------------|
+| Der Mann, den ich gesehen habe, ist weggegangen. | Indoda e-ngi-yi-bon-ile i-hamb-ile.             |
+|                                                  | Mann welcher-ich-ihn-sehen-Perf. er-gehen-Perf. |
+```</pre>
 
 ## Das Nomen > ### Pronomina > #### Possessivpronomina > ##### Table 17
 
@@ -206,30 +265,6 @@ Es gilt, Erwachsene stets in der zweiten Person plural anzusprechen. Der Singula
 | unser    | Besitzsilbe (-a entfällt) | -ethu |
 | euer/Ihr | Besitzsilbe (-a entfällt) | -enyu |
 | ihr      | Besitzsilbe               | -bo   |
-```</pre>
-
-Relativkonstruktionen sind zur Abwechslung sehr simpel: Man setzt lediglich ein «e-» vor die darauffolgende Verbform.
-
-## Das Nomen > ### Pronomina > #### Relativpronomina > ##### Table 16
-
-<pre>```
-| 0                                                | 1                                               |
-|:-------------------------------------------------|:------------------------------------------------|
-| Der Mann, den ich gesehen habe, ist weggegangen. | Indoda e-ngi-yi-bon-ile i-hamb-ile.             |
-|                                                  | Mann welcher-ich-ihn-sehen-Perf. er-gehen-Perf. |
-```</pre>
-
-Wie im Deutschen unterscheidet man im Zulu zwischen zwei verschiedenen Demonstrativpronomina. Wie im Deutschen werden im Zulu die Demonstrativpronomina vor das zugehörige Nomen gesetzt.
-
-## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Table 12
-
-<pre>```
-| 0   | 1             | 2    | 3                             | 4              |
-|:----|:--------------|:-----|:------------------------------|:---------------|
-|     | Deutsch       | Zulu | Bildung                       | Ausnahmen      |
-| I   | Dieser Mensch | lo   | l- + Eigenschaftssilbe        |                |
-| II  | Jener Mensch  | lowo | l- + Eigenschaftssilbe auf -o | -wo nach -o/-a |
-|     |               |      |                               | -yo nach -e    |
 ```</pre>
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -395,4 +430,6 @@ OUTPUT RULES:
 - Output ONLY the synthesized schema.
 - Do NOT include explanations, comments, or metadata.
 - Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
 

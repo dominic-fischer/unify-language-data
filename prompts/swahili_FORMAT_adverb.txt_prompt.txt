@@ -156,7 +156,7 @@ INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
 - Rephrase content where necessary, but do NOT add new facts.
 - Merge overlapping information into a single coherent description.
-- Ignore information that is not relevant to the reference schema.
+- Make sure to ignore information that is not relevant to the topic(s) in question: adverb.
 - Preserve the hierarchy and ordering of the reference schema.
 
 FEATURES AND THEIR VALUES:
@@ -431,11 +431,6 @@ Adverben arabischer Adjektive können eins zu eins übernommen werden.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-Source 2:
-Yet another construction which makes up for the paucity of true adjectives in Swahili is the ornative construction using -enye. Some examples of adjectival phrases with -enye include -enye nguvu "strong" (with strength), -enye nywele fupi "short-haired" (having short hair), and -enye senta moja "concentric" (having one centre). The forms of -enye as well as some more examples of use can be seen here.
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
 
 
 EXAMPLE OUTPUT (for German):
@@ -502,4 +497,6 @@ OUTPUT RULES:
 - Output ONLY the synthesized schema.
 - Do NOT include explanations, comments, or metadata.
 - Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
 

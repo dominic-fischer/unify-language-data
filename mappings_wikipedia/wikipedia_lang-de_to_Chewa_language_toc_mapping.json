@@ -36,13 +36,12 @@
       }
     ]
   },
-  "schemas\\lang-de\\FORMAT_agreement_concord_syntax.txt": {
+  "schemas\\lang-de\\FORMAT_agreement_concord.txt": {
     "strategy": "lexical",
     "term_used": "concord",
     "topic_terms": [
       "agreement",
-      "concord",
-      "syntax"
+      "concord"
     ],
     "matches": [
       {
@@ -204,125 +203,22 @@
       }
     ]
   },
-  "schemas\\lang-de\\FORMAT_conditional_mood_verb.txt": {
-    "strategy": "lexical",
-    "term_used": "verb",
+  "schemas\\lang-de\\FORMAT_conditional_mood.txt": {
+    "strategy": "embedding",
+    "term_used": null,
     "topic_terms": [
       "conditional",
-      "mood",
-      "verb"
+      "mood"
     ],
     "matches": [
-      {
-        "full": "## Verbs",
-        "path": [
-          "## Verbs"
-        ],
-        "similarity": 1.0,
-        "content": ""
-      },
-      {
-        "full": "## Verbs > ### Formation of tenses",
-        "path": [
-          "## Verbs",
-          "### Formation of tenses"
-        ],
-        "similarity": 1.0,
-        "content": "Tenses in Chichewa are differentiated in two ways, by their tense-marker (or tense-infix), and by their tonal pattern. Sometimes two tenses have the same tense-marker and differ in their tonal pattern alone. In the following examples, the tense-marker is underlined:\n\nndi-ku-gúla 'I am buying'\nndí-ma-gúla 'I usually buy'\nndi-ma-gúla 'I was buying', 'I used to buy'\nndí-dzá-gula 'I will buy (tomorrow or in future)'\nndí-ká-gula 'I will buy (when I get there)'\nOne tense has no tense-marker:\n\nndí-gula 'I will buy (soon)'\nTenses can be modified further by adding certain other infixes, called 'aspect-markers', after the tense-marker. These are -má- 'always, usually' -ká- 'go and', -dzá 'come and' or 'in future', and -ngo- 'only', 'just'. These infixes can also be used on their own, as tense-markers in their own right (compare the use of -ma- and -dza- in the list of tenses above). For example:\n\nndi-ku-má-gúlá 'I am always buying'\nndi-ná-ká-gula 'I went and bought'\nndí-má-ngo-gúla 'I just usually buy'\nCompound tenses, such as the following, are also found in Chichewa:\n\nnd-a-khala ndí-kú-gúla 'I have been buying'"
-      },
-      {
-        "full": "## Verbs > ### Subject-marker",
-        "path": [
-          "## Verbs",
-          "### Subject-marker"
-        ],
-        "similarity": 1.0,
-        "content": "Chichewa verbs (with the exception of the imperative mood and infinitive) begin with a prefix agreeing grammatically with the subject. This prefix is referred to by some grammarians as the 'subject-marker'.\n\n(ife) ti-ku-píta 'we are going'\nmténgo w-a-gwa (for *u-a-gwa) 'the tree has fallen'\nThe subject-marker can be:\n\nPersonal: ndi- 'I', u- 'you (singular)', a- 'he, she', ti- 'we', mu- 'you (plural or polite)', a- 'they'; 'he/she (respectful or polite). (In the perfect tense, the subject-marker for 'he, she' is w-: w-a-pita 'he has gone'.)\nImpersonal: a- (class 1, 2 or 6), u- (class 3 or 14), i- (class 4 or 9), li- (class 5), etc.\nLocative: ku-, pa-, mu-\nAn example of a locative subject-marker is:\n\nm'madzí muli nsómba 'in the water there are fish'\nBoth the 2nd and the 3rd person plural pronouns and subject-markers are used respectfully to refer to a single person:\n\nmukupíta 'you are going' (plural or respectful)\napita 'they have gone' or 'he/she has gone' (respectful)\nExcept in the perfect tense, the 3rd person subject marker when used of people is the same whether singular or plural. So in the present tense the 3rd person subject-marker is a-:\n\nakupíta 'he/she is going'\nakupíta 'they are going', 'he/she is going' (respectful)\nBut in the perfect tense wa- (singular) contrasts with a- (plural or respectful):\n\nwapita 'he/she has gone'\napita 'they have gone', 'he/she has gone' \n\n## Verbs > ### Subject-marker > #### Table 2\n\n<pre>```\n| 0        | 1        |\n|:---------|:---------|\n| Person   | Mchewa   |\n| People   | Achewa   |\n| Language | Chichewa |\n```</pre>\n\n(respectful)\nWhen the subject is a noun not in class 1, the appropriate class prefix is used even if referring to a person:\n\nmfúmu ikupíta 'the chief is going' (class 9)\ntianá tikupíta 'the babies are going' (class 13)"
-      },
-      {
-        "full": "## Verbs > ### Object-marker",
-        "path": [
-          "## Verbs",
-          "### Object-marker"
-        ],
-        "similarity": 1.0,
-        "content": "An object-marker can also optionally be added to the verb; if one is added it goes immediately before the verb-stem. The 2nd person plural adds -ni after the verb:\n\nndí-ma-ku-kónda 'I love you' (ndi = 'I', ku = 'you')\nndí-ma-ku-kónda-ni 'I love you' (plural or formal)\nThe object-marker can be:\n\nPersonal: -ndi- 'me', -ku- 'you', -mu- or -m'- 'him, her', -ti- 'us', -wa- or -a- 'them', 'him/her (polite)'.\nImpersonal: -mu- (class 1), -wa- (class 2), -u- (class 3 or 14), etc.\nLocative: e.g. m'nyumbá mu-ku-mú-dzíwa 'you know the inside of the house'; but usually a locative suffix is used instead: nd-a-oná-mo 'I have seen inside it'\nReflexive: -dzi- 'himself', 'herself', 'themselves', 'myself', etc.\nWhen used with a toneless verb tense such as the perfect, the object-marker has a high tone, but in some tenses such as the present habitual, the tone is lost:\n\nnd-a-mú-ona 'I have seen him'\nndí-ma-mu-óna 'I usually see him'\nWith the imperative or subjunctive, the tone of the object-marker goes on the syllable following it, and the imperative ending changes to -e:\n\nndi-pátse-ni mpungá 'could you give me some rice?'\nndi-thándízé-ni! 'help me!'\nmu-mu-thándízé 'you should help him'"
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses"
-        ],
-        "similarity": 1.0,
-        "content": "Chewa has a large number of tenses, some of which differ in some respects from the tenses met with in European languages. The distinction between one tense and another is made partly by the use of infixes, such as -na- and -ku-, and partly by the intonation of the verb, since each tense has its own particular tonal pattern."
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses > #### Near vs. remote",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses",
-          "#### Near vs. remote"
-        ],
-        "similarity": 1.0,
-        "content": "There are five time-frames (remote past, near past, present, near future, and remote future). The distinction between near and remote tenses is not exact. The remote tenses are not used of events of today or last night, but the near tenses can sometimes be used of events of earlier or later than today:\n\nndi-ná-gula 'I bought (yesterday or some days ago)' (remote perfect)\nnd-a-gula 'I have bought (today)' (perfect)\nndi-ku-gúla 'I am buying (now)' (present)\nndí-gula 'I'll buy (today)' (near future)\nndi-dzá-gula 'I'll buy (tomorrow or later)' (remote future)"
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses > #### Perfect vs. past",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses",
-          "#### Perfect vs. past"
-        ],
-        "similarity": 1.0,
-        "content": "Another distinction is between perfect and past. The two perfect tenses imply that the event described had an outcome which still obtains now. The two past tenses usually imply that the result of the action has been reversed in some way:\nRecent time (today):\n\nnd-a-gula 'I have bought it' (and still have it) (Perfect)\nndi-na-gúla 'I bought it (but no longer have it)' (Recent Past)\nRemote time (yesterday or earlier):\n\nndi-ná-gula or ndi-dá-gula 'I bought it' (and still have it) (Remote Perfect)\nndí-ná-a-gúla or ndí-dá-a-gúla 'I bought it (but no longer have it)' (Remote Past)\nWhen used in narrating a series of events, however, these implications are somewhat relaxed: the Remote Perfect is used for narrating earlier events, and the Recent Past for narrating events of today."
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses > #### Perfective vs. imperfective",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses",
-          "#### Perfective vs. imperfective"
-        ],
-        "similarity": 1.0,
-        "content": "Another important distinction in Chewa is between perfective and imperfective aspect. Imperfective tenses are used for situations, events which occur regularly, or events which are temporarily in progress:\n\nndi-nká-gúlá 'I used to buy', 'I was buying (a long time ago)'\nndi-ma-gúla 'I was buying (today)', 'I used to buy (a long time ago)'\nndí-zi-dza-gúla 'I will be buying (regularly)'\nIn the present tense only, there is a further distinction between habitual and progressive:\n\nndí-ma-gúla 'I buy (regularly)'\nndi-ku-gúla 'I am buying (currently)'"
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses > #### Other tenses",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses",
-          "#### Other tenses"
-        ],
-        "similarity": 1.0,
-        "content": "One future tense not found in European languages is the -ká- future, which 'might presuppose an unspoken conditional clause':\n\nndí-ká-gula 'I will buy' (if I go there, or when I get there)\nThere are also various subjunctive and potential mood tenses, such as:\n\nndi-gulé 'I should buy'\nndi-zí-gúlá 'I should be buying'\nndi-dzá-gúlé 'I should buy (in future)'\nndi-nga-gule 'I can buy'\nndi-kadá-gula 'I would have bought'"
-      },
-      {
-        "full": "## Verbs > ### Negative tenses",
-        "path": [
-          "## Verbs",
-          "### Negative tenses"
-        ],
-        "similarity": 1.0,
-        "content": "Negative tenses, if they are main verbs, are made with the prefix sí-. They differ in intonation from the positive tenses. The negative of the -ná- tense has the ending -e instead of -a:\n\nsí-ndí-gula 'I don't buy'\nsí-ndi-na-gúle 'I didn't buy'\nTenses which mean 'will not' or 'have not yet' have a single tone on the penultimate syllable:\n\nsi-ndi-dza-gúla 'I won't buy'\nsi-ndi-na-gúle 'I haven't bought (it) yet'\nInfinitives, participial verbs, and the subjunctive make their negative with -sa-, which is added after the subject-prefix instead of before it. They similarly have a single tone on the penultimate syllable:\n\nndi-sa-gúle 'I should not buy'\nku-sa-gúla 'not to buy'"
-      },
       {
         "full": "## Verbs > ### Dependent clause tenses",
         "path": [
           "## Verbs",
           "### Dependent clause tenses"
         ],
-        "similarity": 1.0,
+        "similarity": 0.38427817821502686,
         "content": "The tenses used in certain kinds of dependent clauses (such as relative clauses and some types of temporal clauses) differ from those used in main clauses. Dependent verbs often have a tone on the first syllable. Sometimes this change of tone alone is sufficient to show that the verb is being used in a dependent clause. Compare for example:\n\na-ku-gúla 'he is buying'\ná-kú-gúla 'when he is buying' or 'who is buying'\nOther commonly used dependent tenses are the following:\n\nndí-tá-gúla 'after I bought/buy'\nndí-sa-na-gúle 'before I bought/buy'\nThere is also a series of tenses using a toneless -ka- meaning 'when' of 'if', for example:\n\nndi-ka-gula 'when/if I buy'\nndi-ka-dzá-gula 'if in future I buy'\nndi-ka-má-gúlá 'whenever I buy'\nndí-ka-da-gúla 'if I had bought'"
-      },
-      {
-        "full": "## Verbs > ### Verb extensions",
-        "path": [
-          "## Verbs",
-          "### Verb extensions"
-        ],
-        "similarity": 1.0,
-        "content": "After the verb stem one or more extensions may be added. The extensions modify the meaning of the verb, for example:\n\ngul-a 'buy'\ngul-ir-a 'buy for' or 'buy with' (applicative)\ngul-ir-an-a 'buy for one another' (applicative + reciprocal)\ngul-ik-á 'get bought', 'be for sale' (stative)\ngul-its-a 'cause to get bought, i.e. sell' (causative)\ngul-its-idw-a 'be sold (by someone)' (causative + passive)\nThe extensions -ul-/-ol- and its intransitive form -uk-/-ok- are called 'reversive'. They give meanings such as 'open', 'undo', 'unstick', 'uncover':\n\ntseg-ul-a 'open (something)'\ntseg-uk-á 'become open'\nthy-ol-a 'break something off'\nthy-ok-á 'get broken off'\nmas-ul-a 'undo, loosen'\nmas-uk-á 'become loose, relaxed'\nMost extensions, apart from the reciprocal -an- 'one another', have two possible forms, e.g. -ir-/-er-, -idw-/-edw-, -its-/-ets-, -iz-/-ez-, -ul-/-ol-, -uk-/-ok-. The forms with i and u are used when the verb stem has a, i, or u. u can also follow e:\n\nkan-ik-á 'fail to happen'\nphik-ir-a 'cook for someone'\ngul-its-a 'sell'\nsungun-ul-a 'melt (transitive)'\ntseg-ul-a 'open'\nThe forms with e are used if the verb stem is monosyllabic or has an e or o in it:\n\ndy-er-a 'eat with'\nbwer-ez-a 'repeat'\nchok-er-a 'come from'\nExtensions with o are used only with a monosyllabic stem or one with o:\n\nthy-ok-á 'get broken off'\nton-ol-a 'remove grains of corn from the cob'\nThe extension -its-, -ets- with a low tone is causative, but when it has a high tone it is intensive. The high tone is heard on the final syllable of the verb:\n\nyang'an-its-its-á 'look carefully'\nyes-ets-á 'try hard'\nThe applicative -ir-, -er- can also sometimes be intensive, in which case it has a high tone:\n\npit-ir-ir-á 'carry on, keep going'\nVerbs with -ik-, -ek-, -uk-, -ok- when they have a stative or intransitive meaning also usually have a high tone:\n\nchit-ik-á 'happen'\nsungun-uk-á 'melt (intransitive), get melted'\nHowever, there are some low-toned exceptions such as on-ek-a 'seem' or nyam-uk-a 'set off'."
       }
     ]
   },
@@ -385,13 +281,12 @@
       }
     ]
   },
-  "schemas\\lang-de\\FORMAT_futureTense_tense_verb.txt": {
+  "schemas\\lang-de\\FORMAT_futureTense_tense.txt": {
     "strategy": "lexical",
     "term_used": "tense",
     "topic_terms": [
       "future tense",
-      "tense",
-      "verb"
+      "tense"
     ],
     "matches": [
       {
@@ -482,134 +377,30 @@
       }
     ]
   },
-  "schemas\\lang-de\\FORMAT_imperative_mood_verb.txt": {
-    "strategy": "lexical",
-    "term_used": "verb",
+  "schemas\\lang-de\\FORMAT_imperative_mood.txt": {
+    "strategy": "embedding",
+    "term_used": null,
     "topic_terms": [
       "imperative",
-      "mood",
-      "verb"
+      "mood"
     ],
     "matches": [
-      {
-        "full": "## Verbs",
-        "path": [
-          "## Verbs"
-        ],
-        "similarity": 1.0,
-        "content": ""
-      },
       {
         "full": "## Verbs > ### Formation of tenses",
         "path": [
           "## Verbs",
           "### Formation of tenses"
         ],
-        "similarity": 1.0,
+        "similarity": 0.34638261795043945,
         "content": "Tenses in Chichewa are differentiated in two ways, by their tense-marker (or tense-infix), and by their tonal pattern. Sometimes two tenses have the same tense-marker and differ in their tonal pattern alone. In the following examples, the tense-marker is underlined:\n\nndi-ku-gúla 'I am buying'\nndí-ma-gúla 'I usually buy'\nndi-ma-gúla 'I was buying', 'I used to buy'\nndí-dzá-gula 'I will buy (tomorrow or in future)'\nndí-ká-gula 'I will buy (when I get there)'\nOne tense has no tense-marker:\n\nndí-gula 'I will buy (soon)'\nTenses can be modified further by adding certain other infixes, called 'aspect-markers', after the tense-marker. These are -má- 'always, usually' -ká- 'go and', -dzá 'come and' or 'in future', and -ngo- 'only', 'just'. These infixes can also be used on their own, as tense-markers in their own right (compare the use of -ma- and -dza- in the list of tenses above). For example:\n\nndi-ku-má-gúlá 'I am always buying'\nndi-ná-ká-gula 'I went and bought'\nndí-má-ngo-gúla 'I just usually buy'\nCompound tenses, such as the following, are also found in Chichewa:\n\nnd-a-khala ndí-kú-gúla 'I have been buying'"
-      },
-      {
-        "full": "## Verbs > ### Subject-marker",
-        "path": [
-          "## Verbs",
-          "### Subject-marker"
-        ],
-        "similarity": 1.0,
-        "content": "Chichewa verbs (with the exception of the imperative mood and infinitive) begin with a prefix agreeing grammatically with the subject. This prefix is referred to by some grammarians as the 'subject-marker'.\n\n(ife) ti-ku-píta 'we are going'\nmténgo w-a-gwa (for *u-a-gwa) 'the tree has fallen'\nThe subject-marker can be:\n\nPersonal: ndi- 'I', u- 'you (singular)', a- 'he, she', ti- 'we', mu- 'you (plural or polite)', a- 'they'; 'he/she (respectful or polite). (In the perfect tense, the subject-marker for 'he, she' is w-: w-a-pita 'he has gone'.)\nImpersonal: a- (class 1, 2 or 6), u- (class 3 or 14), i- (class 4 or 9), li- (class 5), etc.\nLocative: ku-, pa-, mu-\nAn example of a locative subject-marker is:\n\nm'madzí muli nsómba 'in the water there are fish'\nBoth the 2nd and the 3rd person plural pronouns and subject-markers are used respectfully to refer to a single person:\n\nmukupíta 'you are going' (plural or respectful)\napita 'they have gone' or 'he/she has gone' (respectful)\nExcept in the perfect tense, the 3rd person subject marker when used of people is the same whether singular or plural. So in the present tense the 3rd person subject-marker is a-:\n\nakupíta 'he/she is going'\nakupíta 'they are going', 'he/she is going' (respectful)\nBut in the perfect tense wa- (singular) contrasts with a- (plural or respectful):\n\nwapita 'he/she has gone'\napita 'they have gone', 'he/she has gone' \n\n## Verbs > ### Subject-marker > #### Table 2\n\n<pre>```\n| 0        | 1        |\n|:---------|:---------|\n| Person   | Mchewa   |\n| People   | Achewa   |\n| Language | Chichewa |\n```</pre>\n\n(respectful)\nWhen the subject is a noun not in class 1, the appropriate class prefix is used even if referring to a person:\n\nmfúmu ikupíta 'the chief is going' (class 9)\ntianá tikupíta 'the babies are going' (class 13)"
-      },
-      {
-        "full": "## Verbs > ### Object-marker",
-        "path": [
-          "## Verbs",
-          "### Object-marker"
-        ],
-        "similarity": 1.0,
-        "content": "An object-marker can also optionally be added to the verb; if one is added it goes immediately before the verb-stem. The 2nd person plural adds -ni after the verb:\n\nndí-ma-ku-kónda 'I love you' (ndi = 'I', ku = 'you')\nndí-ma-ku-kónda-ni 'I love you' (plural or formal)\nThe object-marker can be:\n\nPersonal: -ndi- 'me', -ku- 'you', -mu- or -m'- 'him, her', -ti- 'us', -wa- or -a- 'them', 'him/her (polite)'.\nImpersonal: -mu- (class 1), -wa- (class 2), -u- (class 3 or 14), etc.\nLocative: e.g. m'nyumbá mu-ku-mú-dzíwa 'you know the inside of the house'; but usually a locative suffix is used instead: nd-a-oná-mo 'I have seen inside it'\nReflexive: -dzi- 'himself', 'herself', 'themselves', 'myself', etc.\nWhen used with a toneless verb tense such as the perfect, the object-marker has a high tone, but in some tenses such as the present habitual, the tone is lost:\n\nnd-a-mú-ona 'I have seen him'\nndí-ma-mu-óna 'I usually see him'\nWith the imperative or subjunctive, the tone of the object-marker goes on the syllable following it, and the imperative ending changes to -e:\n\nndi-pátse-ni mpungá 'could you give me some rice?'\nndi-thándízé-ni! 'help me!'\nmu-mu-thándízé 'you should help him'"
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses"
-        ],
-        "similarity": 1.0,
-        "content": "Chewa has a large number of tenses, some of which differ in some respects from the tenses met with in European languages. The distinction between one tense and another is made partly by the use of infixes, such as -na- and -ku-, and partly by the intonation of the verb, since each tense has its own particular tonal pattern."
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses > #### Near vs. remote",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses",
-          "#### Near vs. remote"
-        ],
-        "similarity": 1.0,
-        "content": "There are five time-frames (remote past, near past, present, near future, and remote future). The distinction between near and remote tenses is not exact. The remote tenses are not used of events of today or last night, but the near tenses can sometimes be used of events of earlier or later than today:\n\nndi-ná-gula 'I bought (yesterday or some days ago)' (remote perfect)\nnd-a-gula 'I have bought (today)' (perfect)\nndi-ku-gúla 'I am buying (now)' (present)\nndí-gula 'I'll buy (today)' (near future)\nndi-dzá-gula 'I'll buy (tomorrow or later)' (remote future)"
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses > #### Perfect vs. past",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses",
-          "#### Perfect vs. past"
-        ],
-        "similarity": 1.0,
-        "content": "Another distinction is between perfect and past. The two perfect tenses imply that the event described had an outcome which still obtains now. The two past tenses usually imply that the result of the action has been reversed in some way:\nRecent time (today):\n\nnd-a-gula 'I have bought it' (and still have it) (Perfect)\nndi-na-gúla 'I bought it (but no longer have it)' (Recent Past)\nRemote time (yesterday or earlier):\n\nndi-ná-gula or ndi-dá-gula 'I bought it' (and still have it) (Remote Perfect)\nndí-ná-a-gúla or ndí-dá-a-gúla 'I bought it (but no longer have it)' (Remote Past)\nWhen used in narrating a series of events, however, these implications are somewhat relaxed: the Remote Perfect is used for narrating earlier events, and the Recent Past for narrating events of today."
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses > #### Perfective vs. imperfective",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses",
-          "#### Perfective vs. imperfective"
-        ],
-        "similarity": 1.0,
-        "content": "Another important distinction in Chewa is between perfective and imperfective aspect. Imperfective tenses are used for situations, events which occur regularly, or events which are temporarily in progress:\n\nndi-nká-gúlá 'I used to buy', 'I was buying (a long time ago)'\nndi-ma-gúla 'I was buying (today)', 'I used to buy (a long time ago)'\nndí-zi-dza-gúla 'I will be buying (regularly)'\nIn the present tense only, there is a further distinction between habitual and progressive:\n\nndí-ma-gúla 'I buy (regularly)'\nndi-ku-gúla 'I am buying (currently)'"
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses > #### Other tenses",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses",
-          "#### Other tenses"
-        ],
-        "similarity": 1.0,
-        "content": "One future tense not found in European languages is the -ká- future, which 'might presuppose an unspoken conditional clause':\n\nndí-ká-gula 'I will buy' (if I go there, or when I get there)\nThere are also various subjunctive and potential mood tenses, such as:\n\nndi-gulé 'I should buy'\nndi-zí-gúlá 'I should be buying'\nndi-dzá-gúlé 'I should buy (in future)'\nndi-nga-gule 'I can buy'\nndi-kadá-gula 'I would have bought'"
-      },
-      {
-        "full": "## Verbs > ### Negative tenses",
-        "path": [
-          "## Verbs",
-          "### Negative tenses"
-        ],
-        "similarity": 1.0,
-        "content": "Negative tenses, if they are main verbs, are made with the prefix sí-. They differ in intonation from the positive tenses. The negative of the -ná- tense has the ending -e instead of -a:\n\nsí-ndí-gula 'I don't buy'\nsí-ndi-na-gúle 'I didn't buy'\nTenses which mean 'will not' or 'have not yet' have a single tone on the penultimate syllable:\n\nsi-ndi-dza-gúla 'I won't buy'\nsi-ndi-na-gúle 'I haven't bought (it) yet'\nInfinitives, participial verbs, and the subjunctive make their negative with -sa-, which is added after the subject-prefix instead of before it. They similarly have a single tone on the penultimate syllable:\n\nndi-sa-gúle 'I should not buy'\nku-sa-gúla 'not to buy'"
-      },
-      {
-        "full": "## Verbs > ### Dependent clause tenses",
-        "path": [
-          "## Verbs",
-          "### Dependent clause tenses"
-        ],
-        "similarity": 1.0,
-        "content": "The tenses used in certain kinds of dependent clauses (such as relative clauses and some types of temporal clauses) differ from those used in main clauses. Dependent verbs often have a tone on the first syllable. Sometimes this change of tone alone is sufficient to show that the verb is being used in a dependent clause. Compare for example:\n\na-ku-gúla 'he is buying'\ná-kú-gúla 'when he is buying' or 'who is buying'\nOther commonly used dependent tenses are the following:\n\nndí-tá-gúla 'after I bought/buy'\nndí-sa-na-gúle 'before I bought/buy'\nThere is also a series of tenses using a toneless -ka- meaning 'when' of 'if', for example:\n\nndi-ka-gula 'when/if I buy'\nndi-ka-dzá-gula 'if in future I buy'\nndi-ka-má-gúlá 'whenever I buy'\nndí-ka-da-gúla 'if I had bought'"
-      },
-      {
-        "full": "## Verbs > ### Verb extensions",
-        "path": [
-          "## Verbs",
-          "### Verb extensions"
-        ],
-        "similarity": 1.0,
-        "content": "After the verb stem one or more extensions may be added. The extensions modify the meaning of the verb, for example:\n\ngul-a 'buy'\ngul-ir-a 'buy for' or 'buy with' (applicative)\ngul-ir-an-a 'buy for one another' (applicative + reciprocal)\ngul-ik-á 'get bought', 'be for sale' (stative)\ngul-its-a 'cause to get bought, i.e. sell' (causative)\ngul-its-idw-a 'be sold (by someone)' (causative + passive)\nThe extensions -ul-/-ol- and its intransitive form -uk-/-ok- are called 'reversive'. They give meanings such as 'open', 'undo', 'unstick', 'uncover':\n\ntseg-ul-a 'open (something)'\ntseg-uk-á 'become open'\nthy-ol-a 'break something off'\nthy-ok-á 'get broken off'\nmas-ul-a 'undo, loosen'\nmas-uk-á 'become loose, relaxed'\nMost extensions, apart from the reciprocal -an- 'one another', have two possible forms, e.g. -ir-/-er-, -idw-/-edw-, -its-/-ets-, -iz-/-ez-, -ul-/-ol-, -uk-/-ok-. The forms with i and u are used when the verb stem has a, i, or u. u can also follow e:\n\nkan-ik-á 'fail to happen'\nphik-ir-a 'cook for someone'\ngul-its-a 'sell'\nsungun-ul-a 'melt (transitive)'\ntseg-ul-a 'open'\nThe forms with e are used if the verb stem is monosyllabic or has an e or o in it:\n\ndy-er-a 'eat with'\nbwer-ez-a 'repeat'\nchok-er-a 'come from'\nExtensions with o are used only with a monosyllabic stem or one with o:\n\nthy-ok-á 'get broken off'\nton-ol-a 'remove grains of corn from the cob'\nThe extension -its-, -ets- with a low tone is causative, but when it has a high tone it is intensive. The high tone is heard on the final syllable of the verb:\n\nyang'an-its-its-á 'look carefully'\nyes-ets-á 'try hard'\nThe applicative -ir-, -er- can also sometimes be intensive, in which case it has a high tone:\n\npit-ir-ir-á 'carry on, keep going'\nVerbs with -ik-, -ek-, -uk-, -ok- when they have a stative or intransitive meaning also usually have a high tone:\n\nchit-ik-á 'happen'\nsungun-uk-á 'melt (intransitive), get melted'\nHowever, there are some low-toned exceptions such as on-ek-a 'seem' or nyam-uk-a 'set off'."
       }
     ]
   },
-  "schemas\\lang-de\\FORMAT_negation_syntax.txt": {
+  "schemas\\lang-de\\FORMAT_negation.txt": {
     "strategy": "embedding",
     "term_used": null,
     "topic_terms": [
-      "negation",
-      "syntax"
+      "negation"
     ],
     "matches": [
       {
@@ -618,7 +409,7 @@
           "## Verbs",
           "### Negative tenses"
         ],
-        "similarity": 0.4801669418811798,
+        "similarity": 0.4610954821109772,
         "content": "Negative tenses, if they are main verbs, are made with the prefix sí-. They differ in intonation from the positive tenses. The negative of the -ná- tense has the ending -e instead of -a:\n\nsí-ndí-gula 'I don't buy'\nsí-ndi-na-gúle 'I didn't buy'\nTenses which mean 'will not' or 'have not yet' have a single tone on the penultimate syllable:\n\nsi-ndi-dza-gúla 'I won't buy'\nsi-ndi-na-gúle 'I haven't bought (it) yet'\nInfinitives, participial verbs, and the subjunctive make their negative with -sa-, which is added after the subject-prefix instead of before it. They similarly have a single tone on the penultimate syllable:\n\nndi-sa-gúle 'I should not buy'\nku-sa-gúla 'not to buy'"
       }
     ]
@@ -641,135 +432,31 @@
       }
     ]
   },
-  "schemas\\lang-de\\FORMAT_passive_voice_verb.txt": {
-    "strategy": "lexical",
-    "term_used": "verb",
+  "schemas\\lang-de\\FORMAT_passive_voice.txt": {
+    "strategy": "embedding",
+    "term_used": null,
     "topic_terms": [
       "passive",
-      "voice",
-      "verb"
+      "voice"
     ],
     "matches": [
-      {
-        "full": "## Verbs",
-        "path": [
-          "## Verbs"
-        ],
-        "similarity": 1.0,
-        "content": ""
-      },
       {
         "full": "## Verbs > ### Formation of tenses",
         "path": [
           "## Verbs",
           "### Formation of tenses"
         ],
-        "similarity": 1.0,
+        "similarity": 0.31150320172309875,
         "content": "Tenses in Chichewa are differentiated in two ways, by their tense-marker (or tense-infix), and by their tonal pattern. Sometimes two tenses have the same tense-marker and differ in their tonal pattern alone. In the following examples, the tense-marker is underlined:\n\nndi-ku-gúla 'I am buying'\nndí-ma-gúla 'I usually buy'\nndi-ma-gúla 'I was buying', 'I used to buy'\nndí-dzá-gula 'I will buy (tomorrow or in future)'\nndí-ká-gula 'I will buy (when I get there)'\nOne tense has no tense-marker:\n\nndí-gula 'I will buy (soon)'\nTenses can be modified further by adding certain other infixes, called 'aspect-markers', after the tense-marker. These are -má- 'always, usually' -ká- 'go and', -dzá 'come and' or 'in future', and -ngo- 'only', 'just'. These infixes can also be used on their own, as tense-markers in their own right (compare the use of -ma- and -dza- in the list of tenses above). For example:\n\nndi-ku-má-gúlá 'I am always buying'\nndi-ná-ká-gula 'I went and bought'\nndí-má-ngo-gúla 'I just usually buy'\nCompound tenses, such as the following, are also found in Chichewa:\n\nnd-a-khala ndí-kú-gúla 'I have been buying'"
-      },
-      {
-        "full": "## Verbs > ### Subject-marker",
-        "path": [
-          "## Verbs",
-          "### Subject-marker"
-        ],
-        "similarity": 1.0,
-        "content": "Chichewa verbs (with the exception of the imperative mood and infinitive) begin with a prefix agreeing grammatically with the subject. This prefix is referred to by some grammarians as the 'subject-marker'.\n\n(ife) ti-ku-píta 'we are going'\nmténgo w-a-gwa (for *u-a-gwa) 'the tree has fallen'\nThe subject-marker can be:\n\nPersonal: ndi- 'I', u- 'you (singular)', a- 'he, she', ti- 'we', mu- 'you (plural or polite)', a- 'they'; 'he/she (respectful or polite). (In the perfect tense, the subject-marker for 'he, she' is w-: w-a-pita 'he has gone'.)\nImpersonal: a- (class 1, 2 or 6), u- (class 3 or 14), i- (class 4 or 9), li- (class 5), etc.\nLocative: ku-, pa-, mu-\nAn example of a locative subject-marker is:\n\nm'madzí muli nsómba 'in the water there are fish'\nBoth the 2nd and the 3rd person plural pronouns and subject-markers are used respectfully to refer to a single person:\n\nmukupíta 'you are going' (plural or respectful)\napita 'they have gone' or 'he/she has gone' (respectful)\nExcept in the perfect tense, the 3rd person subject marker when used of people is the same whether singular or plural. So in the present tense the 3rd person subject-marker is a-:\n\nakupíta 'he/she is going'\nakupíta 'they are going', 'he/she is going' (respectful)\nBut in the perfect tense wa- (singular) contrasts with a- (plural or respectful):\n\nwapita 'he/she has gone'\napita 'they have gone', 'he/she has gone' \n\n## Verbs > ### Subject-marker > #### Table 2\n\n<pre>```\n| 0        | 1        |\n|:---------|:---------|\n| Person   | Mchewa   |\n| People   | Achewa   |\n| Language | Chichewa |\n```</pre>\n\n(respectful)\nWhen the subject is a noun not in class 1, the appropriate class prefix is used even if referring to a person:\n\nmfúmu ikupíta 'the chief is going' (class 9)\ntianá tikupíta 'the babies are going' (class 13)"
-      },
-      {
-        "full": "## Verbs > ### Object-marker",
-        "path": [
-          "## Verbs",
-          "### Object-marker"
-        ],
-        "similarity": 1.0,
-        "content": "An object-marker can also optionally be added to the verb; if one is added it goes immediately before the verb-stem. The 2nd person plural adds -ni after the verb:\n\nndí-ma-ku-kónda 'I love you' (ndi = 'I', ku = 'you')\nndí-ma-ku-kónda-ni 'I love you' (plural or formal)\nThe object-marker can be:\n\nPersonal: -ndi- 'me', -ku- 'you', -mu- or -m'- 'him, her', -ti- 'us', -wa- or -a- 'them', 'him/her (polite)'.\nImpersonal: -mu- (class 1), -wa- (class 2), -u- (class 3 or 14), etc.\nLocative: e.g. m'nyumbá mu-ku-mú-dzíwa 'you know the inside of the house'; but usually a locative suffix is used instead: nd-a-oná-mo 'I have seen inside it'\nReflexive: -dzi- 'himself', 'herself', 'themselves', 'myself', etc.\nWhen used with a toneless verb tense such as the perfect, the object-marker has a high tone, but in some tenses such as the present habitual, the tone is lost:\n\nnd-a-mú-ona 'I have seen him'\nndí-ma-mu-óna 'I usually see him'\nWith the imperative or subjunctive, the tone of the object-marker goes on the syllable following it, and the imperative ending changes to -e:\n\nndi-pátse-ni mpungá 'could you give me some rice?'\nndi-thándízé-ni! 'help me!'\nmu-mu-thándízé 'you should help him'"
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses"
-        ],
-        "similarity": 1.0,
-        "content": "Chewa has a large number of tenses, some of which differ in some respects from the tenses met with in European languages. The distinction between one tense and another is made partly by the use of infixes, such as -na- and -ku-, and partly by the intonation of the verb, since each tense has its own particular tonal pattern."
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses > #### Near vs. remote",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses",
-          "#### Near vs. remote"
-        ],
-        "similarity": 1.0,
-        "content": "There are five time-frames (remote past, near past, present, near future, and remote future). The distinction between near and remote tenses is not exact. The remote tenses are not used of events of today or last night, but the near tenses can sometimes be used of events of earlier or later than today:\n\nndi-ná-gula 'I bought (yesterday or some days ago)' (remote perfect)\nnd-a-gula 'I have bought (today)' (perfect)\nndi-ku-gúla 'I am buying (now)' (present)\nndí-gula 'I'll buy (today)' (near future)\nndi-dzá-gula 'I'll buy (tomorrow or later)' (remote future)"
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses > #### Perfect vs. past",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses",
-          "#### Perfect vs. past"
-        ],
-        "similarity": 1.0,
-        "content": "Another distinction is between perfect and past. The two perfect tenses imply that the event described had an outcome which still obtains now. The two past tenses usually imply that the result of the action has been reversed in some way:\nRecent time (today):\n\nnd-a-gula 'I have bought it' (and still have it) (Perfect)\nndi-na-gúla 'I bought it (but no longer have it)' (Recent Past)\nRemote time (yesterday or earlier):\n\nndi-ná-gula or ndi-dá-gula 'I bought it' (and still have it) (Remote Perfect)\nndí-ná-a-gúla or ndí-dá-a-gúla 'I bought it (but no longer have it)' (Remote Past)\nWhen used in narrating a series of events, however, these implications are somewhat relaxed: the Remote Perfect is used for narrating earlier events, and the Recent Past for narrating events of today."
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses > #### Perfective vs. imperfective",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses",
-          "#### Perfective vs. imperfective"
-        ],
-        "similarity": 1.0,
-        "content": "Another important distinction in Chewa is between perfective and imperfective aspect. Imperfective tenses are used for situations, events which occur regularly, or events which are temporarily in progress:\n\nndi-nká-gúlá 'I used to buy', 'I was buying (a long time ago)'\nndi-ma-gúla 'I was buying (today)', 'I used to buy (a long time ago)'\nndí-zi-dza-gúla 'I will be buying (regularly)'\nIn the present tense only, there is a further distinction between habitual and progressive:\n\nndí-ma-gúla 'I buy (regularly)'\nndi-ku-gúla 'I am buying (currently)'"
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses > #### Other tenses",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses",
-          "#### Other tenses"
-        ],
-        "similarity": 1.0,
-        "content": "One future tense not found in European languages is the -ká- future, which 'might presuppose an unspoken conditional clause':\n\nndí-ká-gula 'I will buy' (if I go there, or when I get there)\nThere are also various subjunctive and potential mood tenses, such as:\n\nndi-gulé 'I should buy'\nndi-zí-gúlá 'I should be buying'\nndi-dzá-gúlé 'I should buy (in future)'\nndi-nga-gule 'I can buy'\nndi-kadá-gula 'I would have bought'"
-      },
-      {
-        "full": "## Verbs > ### Negative tenses",
-        "path": [
-          "## Verbs",
-          "### Negative tenses"
-        ],
-        "similarity": 1.0,
-        "content": "Negative tenses, if they are main verbs, are made with the prefix sí-. They differ in intonation from the positive tenses. The negative of the -ná- tense has the ending -e instead of -a:\n\nsí-ndí-gula 'I don't buy'\nsí-ndi-na-gúle 'I didn't buy'\nTenses which mean 'will not' or 'have not yet' have a single tone on the penultimate syllable:\n\nsi-ndi-dza-gúla 'I won't buy'\nsi-ndi-na-gúle 'I haven't bought (it) yet'\nInfinitives, participial verbs, and the subjunctive make their negative with -sa-, which is added after the subject-prefix instead of before it. They similarly have a single tone on the penultimate syllable:\n\nndi-sa-gúle 'I should not buy'\nku-sa-gúla 'not to buy'"
-      },
-      {
-        "full": "## Verbs > ### Dependent clause tenses",
-        "path": [
-          "## Verbs",
-          "### Dependent clause tenses"
-        ],
-        "similarity": 1.0,
-        "content": "The tenses used in certain kinds of dependent clauses (such as relative clauses and some types of temporal clauses) differ from those used in main clauses. Dependent verbs often have a tone on the first syllable. Sometimes this change of tone alone is sufficient to show that the verb is being used in a dependent clause. Compare for example:\n\na-ku-gúla 'he is buying'\ná-kú-gúla 'when he is buying' or 'who is buying'\nOther commonly used dependent tenses are the following:\n\nndí-tá-gúla 'after I bought/buy'\nndí-sa-na-gúle 'before I bought/buy'\nThere is also a series of tenses using a toneless -ka- meaning 'when' of 'if', for example:\n\nndi-ka-gula 'when/if I buy'\nndi-ka-dzá-gula 'if in future I buy'\nndi-ka-má-gúlá 'whenever I buy'\nndí-ka-da-gúla 'if I had bought'"
-      },
-      {
-        "full": "## Verbs > ### Verb extensions",
-        "path": [
-          "## Verbs",
-          "### Verb extensions"
-        ],
-        "similarity": 1.0,
-        "content": "After the verb stem one or more extensions may be added. The extensions modify the meaning of the verb, for example:\n\ngul-a 'buy'\ngul-ir-a 'buy for' or 'buy with' (applicative)\ngul-ir-an-a 'buy for one another' (applicative + reciprocal)\ngul-ik-á 'get bought', 'be for sale' (stative)\ngul-its-a 'cause to get bought, i.e. sell' (causative)\ngul-its-idw-a 'be sold (by someone)' (causative + passive)\nThe extensions -ul-/-ol- and its intransitive form -uk-/-ok- are called 'reversive'. They give meanings such as 'open', 'undo', 'unstick', 'uncover':\n\ntseg-ul-a 'open (something)'\ntseg-uk-á 'become open'\nthy-ol-a 'break something off'\nthy-ok-á 'get broken off'\nmas-ul-a 'undo, loosen'\nmas-uk-á 'become loose, relaxed'\nMost extensions, apart from the reciprocal -an- 'one another', have two possible forms, e.g. -ir-/-er-, -idw-/-edw-, -its-/-ets-, -iz-/-ez-, -ul-/-ol-, -uk-/-ok-. The forms with i and u are used when the verb stem has a, i, or u. u can also follow e:\n\nkan-ik-á 'fail to happen'\nphik-ir-a 'cook for someone'\ngul-its-a 'sell'\nsungun-ul-a 'melt (transitive)'\ntseg-ul-a 'open'\nThe forms with e are used if the verb stem is monosyllabic or has an e or o in it:\n\ndy-er-a 'eat with'\nbwer-ez-a 'repeat'\nchok-er-a 'come from'\nExtensions with o are used only with a monosyllabic stem or one with o:\n\nthy-ok-á 'get broken off'\nton-ol-a 'remove grains of corn from the cob'\nThe extension -its-, -ets- with a low tone is causative, but when it has a high tone it is intensive. The high tone is heard on the final syllable of the verb:\n\nyang'an-its-its-á 'look carefully'\nyes-ets-á 'try hard'\nThe applicative -ir-, -er- can also sometimes be intensive, in which case it has a high tone:\n\npit-ir-ir-á 'carry on, keep going'\nVerbs with -ik-, -ek-, -uk-, -ok- when they have a stative or intransitive meaning also usually have a high tone:\n\nchit-ik-á 'happen'\nsungun-uk-á 'melt (intransitive), get melted'\nHowever, there are some low-toned exceptions such as on-ek-a 'seem' or nyam-uk-a 'set off'."
       }
     ]
   },
-  "schemas\\lang-de\\FORMAT_pastTense_tense_verb.txt": {
+  "schemas\\lang-de\\FORMAT_pastTense_tense.txt": {
     "strategy": "lexical",
     "term_used": "tense",
     "topic_terms": [
       "past tense",
-      "tense",
-      "verb"
+      "tense"
     ],
     "matches": [
       {
@@ -860,13 +547,12 @@
       }
     ]
   },
-  "schemas\\lang-de\\FORMAT_presentTense_tense_verb.txt": {
+  "schemas\\lang-de\\FORMAT_presentTense_tense.txt": {
     "strategy": "lexical",
     "term_used": "tense",
     "topic_terms": [
       "present tense",
-      "tense",
-      "verb"
+      "tense"
     ],
     "matches": [
       {
@@ -976,248 +662,42 @@
       }
     ]
   },
-  "schemas\\lang-de\\FORMAT_reported-indirect_verb.txt": {
-    "strategy": "lexical",
-    "term_used": "verb",
+  "schemas\\lang-de\\FORMAT_reported-indirect.txt": {
+    "strategy": "embedding",
+    "term_used": null,
     "topic_terms": [
       "reported",
-      "indirect",
-      "verb"
+      "indirect"
     ],
     "matches": [
-      {
-        "full": "## Verbs",
-        "path": [
-          "## Verbs"
-        ],
-        "similarity": 1.0,
-        "content": ""
-      },
-      {
-        "full": "## Verbs > ### Formation of tenses",
-        "path": [
-          "## Verbs",
-          "### Formation of tenses"
-        ],
-        "similarity": 1.0,
-        "content": "Tenses in Chichewa are differentiated in two ways, by their tense-marker (or tense-infix), and by their tonal pattern. Sometimes two tenses have the same tense-marker and differ in their tonal pattern alone. In the following examples, the tense-marker is underlined:\n\nndi-ku-gúla 'I am buying'\nndí-ma-gúla 'I usually buy'\nndi-ma-gúla 'I was buying', 'I used to buy'\nndí-dzá-gula 'I will buy (tomorrow or in future)'\nndí-ká-gula 'I will buy (when I get there)'\nOne tense has no tense-marker:\n\nndí-gula 'I will buy (soon)'\nTenses can be modified further by adding certain other infixes, called 'aspect-markers', after the tense-marker. These are -má- 'always, usually' -ká- 'go and', -dzá 'come and' or 'in future', and -ngo- 'only', 'just'. These infixes can also be used on their own, as tense-markers in their own right (compare the use of -ma- and -dza- in the list of tenses above). For example:\n\nndi-ku-má-gúlá 'I am always buying'\nndi-ná-ká-gula 'I went and bought'\nndí-má-ngo-gúla 'I just usually buy'\nCompound tenses, such as the following, are also found in Chichewa:\n\nnd-a-khala ndí-kú-gúla 'I have been buying'"
-      },
-      {
-        "full": "## Verbs > ### Subject-marker",
-        "path": [
-          "## Verbs",
-          "### Subject-marker"
-        ],
-        "similarity": 1.0,
-        "content": "Chichewa verbs (with the exception of the imperative mood and infinitive) begin with a prefix agreeing grammatically with the subject. This prefix is referred to by some grammarians as the 'subject-marker'.\n\n(ife) ti-ku-píta 'we are going'\nmténgo w-a-gwa (for *u-a-gwa) 'the tree has fallen'\nThe subject-marker can be:\n\nPersonal: ndi- 'I', u- 'you (singular)', a- 'he, she', ti- 'we', mu- 'you (plural or polite)', a- 'they'; 'he/she (respectful or polite). (In the perfect tense, the subject-marker for 'he, she' is w-: w-a-pita 'he has gone'.)\nImpersonal: a- (class 1, 2 or 6), u- (class 3 or 14), i- (class 4 or 9), li- (class 5), etc.\nLocative: ku-, pa-, mu-\nAn example of a locative subject-marker is:\n\nm'madzí muli nsómba 'in the water there are fish'\nBoth the 2nd and the 3rd person plural pronouns and subject-markers are used respectfully to refer to a single person:\n\nmukupíta 'you are going' (plural or respectful)\napita 'they have gone' or 'he/she has gone' (respectful)\nExcept in the perfect tense, the 3rd person subject marker when used of people is the same whether singular or plural. So in the present tense the 3rd person subject-marker is a-:\n\nakupíta 'he/she is going'\nakupíta 'they are going', 'he/she is going' (respectful)\nBut in the perfect tense wa- (singular) contrasts with a- (plural or respectful):\n\nwapita 'he/she has gone'\napita 'they have gone', 'he/she has gone' \n\n## Verbs > ### Subject-marker > #### Table 2\n\n<pre>```\n| 0        | 1        |\n|:---------|:---------|\n| Person   | Mchewa   |\n| People   | Achewa   |\n| Language | Chichewa |\n```</pre>\n\n(respectful)\nWhen the subject is a noun not in class 1, the appropriate class prefix is used even if referring to a person:\n\nmfúmu ikupíta 'the chief is going' (class 9)\ntianá tikupíta 'the babies are going' (class 13)"
-      },
-      {
-        "full": "## Verbs > ### Object-marker",
-        "path": [
-          "## Verbs",
-          "### Object-marker"
-        ],
-        "similarity": 1.0,
-        "content": "An object-marker can also optionally be added to the verb; if one is added it goes immediately before the verb-stem. The 2nd person plural adds -ni after the verb:\n\nndí-ma-ku-kónda 'I love you' (ndi = 'I', ku = 'you')\nndí-ma-ku-kónda-ni 'I love you' (plural or formal)\nThe object-marker can be:\n\nPersonal: -ndi- 'me', -ku- 'you', -mu- or -m'- 'him, her', -ti- 'us', -wa- or -a- 'them', 'him/her (polite)'.\nImpersonal: -mu- (class 1), -wa- (class 2), -u- (class 3 or 14), etc.\nLocative: e.g. m'nyumbá mu-ku-mú-dzíwa 'you know the inside of the house'; but usually a locative suffix is used instead: nd-a-oná-mo 'I have seen inside it'\nReflexive: -dzi- 'himself', 'herself', 'themselves', 'myself', etc.\nWhen used with a toneless verb tense such as the perfect, the object-marker has a high tone, but in some tenses such as the present habitual, the tone is lost:\n\nnd-a-mú-ona 'I have seen him'\nndí-ma-mu-óna 'I usually see him'\nWith the imperative or subjunctive, the tone of the object-marker goes on the syllable following it, and the imperative ending changes to -e:\n\nndi-pátse-ni mpungá 'could you give me some rice?'\nndi-thándízé-ni! 'help me!'\nmu-mu-thándízé 'you should help him'"
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses"
-        ],
-        "similarity": 1.0,
-        "content": "Chewa has a large number of tenses, some of which differ in some respects from the tenses met with in European languages. The distinction between one tense and another is made partly by the use of infixes, such as -na- and -ku-, and partly by the intonation of the verb, since each tense has its own particular tonal pattern."
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses > #### Near vs. remote",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses",
-          "#### Near vs. remote"
-        ],
-        "similarity": 1.0,
-        "content": "There are five time-frames (remote past, near past, present, near future, and remote future). The distinction between near and remote tenses is not exact. The remote tenses are not used of events of today or last night, but the near tenses can sometimes be used of events of earlier or later than today:\n\nndi-ná-gula 'I bought (yesterday or some days ago)' (remote perfect)\nnd-a-gula 'I have bought (today)' (perfect)\nndi-ku-gúla 'I am buying (now)' (present)\nndí-gula 'I'll buy (today)' (near future)\nndi-dzá-gula 'I'll buy (tomorrow or later)' (remote future)"
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses > #### Perfect vs. past",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses",
-          "#### Perfect vs. past"
-        ],
-        "similarity": 1.0,
-        "content": "Another distinction is between perfect and past. The two perfect tenses imply that the event described had an outcome which still obtains now. The two past tenses usually imply that the result of the action has been reversed in some way:\nRecent time (today):\n\nnd-a-gula 'I have bought it' (and still have it) (Perfect)\nndi-na-gúla 'I bought it (but no longer have it)' (Recent Past)\nRemote time (yesterday or earlier):\n\nndi-ná-gula or ndi-dá-gula 'I bought it' (and still have it) (Remote Perfect)\nndí-ná-a-gúla or ndí-dá-a-gúla 'I bought it (but no longer have it)' (Remote Past)\nWhen used in narrating a series of events, however, these implications are somewhat relaxed: the Remote Perfect is used for narrating earlier events, and the Recent Past for narrating events of today."
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses > #### Perfective vs. imperfective",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses",
-          "#### Perfective vs. imperfective"
-        ],
-        "similarity": 1.0,
-        "content": "Another important distinction in Chewa is between perfective and imperfective aspect. Imperfective tenses are used for situations, events which occur regularly, or events which are temporarily in progress:\n\nndi-nká-gúlá 'I used to buy', 'I was buying (a long time ago)'\nndi-ma-gúla 'I was buying (today)', 'I used to buy (a long time ago)'\nndí-zi-dza-gúla 'I will be buying (regularly)'\nIn the present tense only, there is a further distinction between habitual and progressive:\n\nndí-ma-gúla 'I buy (regularly)'\nndi-ku-gúla 'I am buying (currently)'"
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses > #### Other tenses",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses",
-          "#### Other tenses"
-        ],
-        "similarity": 1.0,
-        "content": "One future tense not found in European languages is the -ká- future, which 'might presuppose an unspoken conditional clause':\n\nndí-ká-gula 'I will buy' (if I go there, or when I get there)\nThere are also various subjunctive and potential mood tenses, such as:\n\nndi-gulé 'I should buy'\nndi-zí-gúlá 'I should be buying'\nndi-dzá-gúlé 'I should buy (in future)'\nndi-nga-gule 'I can buy'\nndi-kadá-gula 'I would have bought'"
-      },
-      {
-        "full": "## Verbs > ### Negative tenses",
-        "path": [
-          "## Verbs",
-          "### Negative tenses"
-        ],
-        "similarity": 1.0,
-        "content": "Negative tenses, if they are main verbs, are made with the prefix sí-. They differ in intonation from the positive tenses. The negative of the -ná- tense has the ending -e instead of -a:\n\nsí-ndí-gula 'I don't buy'\nsí-ndi-na-gúle 'I didn't buy'\nTenses which mean 'will not' or 'have not yet' have a single tone on the penultimate syllable:\n\nsi-ndi-dza-gúla 'I won't buy'\nsi-ndi-na-gúle 'I haven't bought (it) yet'\nInfinitives, participial verbs, and the subjunctive make their negative with -sa-, which is added after the subject-prefix instead of before it. They similarly have a single tone on the penultimate syllable:\n\nndi-sa-gúle 'I should not buy'\nku-sa-gúla 'not to buy'"
-      },
       {
         "full": "## Verbs > ### Dependent clause tenses",
         "path": [
           "## Verbs",
           "### Dependent clause tenses"
         ],
-        "similarity": 1.0,
+        "similarity": 0.36119920015335083,
         "content": "The tenses used in certain kinds of dependent clauses (such as relative clauses and some types of temporal clauses) differ from those used in main clauses. Dependent verbs often have a tone on the first syllable. Sometimes this change of tone alone is sufficient to show that the verb is being used in a dependent clause. Compare for example:\n\na-ku-gúla 'he is buying'\ná-kú-gúla 'when he is buying' or 'who is buying'\nOther commonly used dependent tenses are the following:\n\nndí-tá-gúla 'after I bought/buy'\nndí-sa-na-gúle 'before I bought/buy'\nThere is also a series of tenses using a toneless -ka- meaning 'when' of 'if', for example:\n\nndi-ka-gula 'when/if I buy'\nndi-ka-dzá-gula 'if in future I buy'\nndi-ka-má-gúlá 'whenever I buy'\nndí-ka-da-gúla 'if I had bought'"
-      },
-      {
-        "full": "## Verbs > ### Verb extensions",
-        "path": [
-          "## Verbs",
-          "### Verb extensions"
-        ],
-        "similarity": 1.0,
-        "content": "After the verb stem one or more extensions may be added. The extensions modify the meaning of the verb, for example:\n\ngul-a 'buy'\ngul-ir-a 'buy for' or 'buy with' (applicative)\ngul-ir-an-a 'buy for one another' (applicative + reciprocal)\ngul-ik-á 'get bought', 'be for sale' (stative)\ngul-its-a 'cause to get bought, i.e. sell' (causative)\ngul-its-idw-a 'be sold (by someone)' (causative + passive)\nThe extensions -ul-/-ol- and its intransitive form -uk-/-ok- are called 'reversive'. They give meanings such as 'open', 'undo', 'unstick', 'uncover':\n\ntseg-ul-a 'open (something)'\ntseg-uk-á 'become open'\nthy-ol-a 'break something off'\nthy-ok-á 'get broken off'\nmas-ul-a 'undo, loosen'\nmas-uk-á 'become loose, relaxed'\nMost extensions, apart from the reciprocal -an- 'one another', have two possible forms, e.g. -ir-/-er-, -idw-/-edw-, -its-/-ets-, -iz-/-ez-, -ul-/-ol-, -uk-/-ok-. The forms with i and u are used when the verb stem has a, i, or u. u can also follow e:\n\nkan-ik-á 'fail to happen'\nphik-ir-a 'cook for someone'\ngul-its-a 'sell'\nsungun-ul-a 'melt (transitive)'\ntseg-ul-a 'open'\nThe forms with e are used if the verb stem is monosyllabic or has an e or o in it:\n\ndy-er-a 'eat with'\nbwer-ez-a 'repeat'\nchok-er-a 'come from'\nExtensions with o are used only with a monosyllabic stem or one with o:\n\nthy-ok-á 'get broken off'\nton-ol-a 'remove grains of corn from the cob'\nThe extension -its-, -ets- with a low tone is causative, but when it has a high tone it is intensive. The high tone is heard on the final syllable of the verb:\n\nyang'an-its-its-á 'look carefully'\nyes-ets-á 'try hard'\nThe applicative -ir-, -er- can also sometimes be intensive, in which case it has a high tone:\n\npit-ir-ir-á 'carry on, keep going'\nVerbs with -ik-, -ek-, -uk-, -ok- when they have a stative or intransitive meaning also usually have a high tone:\n\nchit-ik-á 'happen'\nsungun-uk-á 'melt (intransitive), get melted'\nHowever, there are some low-toned exceptions such as on-ek-a 'seem' or nyam-uk-a 'set off'."
       }
     ]
   },
-  "schemas\\lang-de\\FORMAT_subjunctive-conjunctive_mood_verb.txt": {
-    "strategy": "lexical",
-    "term_used": "verb",
+  "schemas\\lang-de\\FORMAT_subjunctive-conjunctive_mood.txt": {
+    "strategy": "embedding",
+    "term_used": null,
     "topic_terms": [
       "subjunctive",
       "conjunctive",
-      "mood",
-      "verb"
+      "mood"
     ],
     "matches": [
-      {
-        "full": "## Verbs",
-        "path": [
-          "## Verbs"
-        ],
-        "similarity": 1.0,
-        "content": ""
-      },
-      {
-        "full": "## Verbs > ### Formation of tenses",
-        "path": [
-          "## Verbs",
-          "### Formation of tenses"
-        ],
-        "similarity": 1.0,
-        "content": "Tenses in Chichewa are differentiated in two ways, by their tense-marker (or tense-infix), and by their tonal pattern. Sometimes two tenses have the same tense-marker and differ in their tonal pattern alone. In the following examples, the tense-marker is underlined:\n\nndi-ku-gúla 'I am buying'\nndí-ma-gúla 'I usually buy'\nndi-ma-gúla 'I was buying', 'I used to buy'\nndí-dzá-gula 'I will buy (tomorrow or in future)'\nndí-ká-gula 'I will buy (when I get there)'\nOne tense has no tense-marker:\n\nndí-gula 'I will buy (soon)'\nTenses can be modified further by adding certain other infixes, called 'aspect-markers', after the tense-marker. These are -má- 'always, usually' -ká- 'go and', -dzá 'come and' or 'in future', and -ngo- 'only', 'just'. These infixes can also be used on their own, as tense-markers in their own right (compare the use of -ma- and -dza- in the list of tenses above). For example:\n\nndi-ku-má-gúlá 'I am always buying'\nndi-ná-ká-gula 'I went and bought'\nndí-má-ngo-gúla 'I just usually buy'\nCompound tenses, such as the following, are also found in Chichewa:\n\nnd-a-khala ndí-kú-gúla 'I have been buying'"
-      },
-      {
-        "full": "## Verbs > ### Subject-marker",
-        "path": [
-          "## Verbs",
-          "### Subject-marker"
-        ],
-        "similarity": 1.0,
-        "content": "Chichewa verbs (with the exception of the imperative mood and infinitive) begin with a prefix agreeing grammatically with the subject. This prefix is referred to by some grammarians as the 'subject-marker'.\n\n(ife) ti-ku-píta 'we are going'\nmténgo w-a-gwa (for *u-a-gwa) 'the tree has fallen'\nThe subject-marker can be:\n\nPersonal: ndi- 'I', u- 'you (singular)', a- 'he, she', ti- 'we', mu- 'you (plural or polite)', a- 'they'; 'he/she (respectful or polite). (In the perfect tense, the subject-marker for 'he, she' is w-: w-a-pita 'he has gone'.)\nImpersonal: a- (class 1, 2 or 6), u- (class 3 or 14), i- (class 4 or 9), li- (class 5), etc.\nLocative: ku-, pa-, mu-\nAn example of a locative subject-marker is:\n\nm'madzí muli nsómba 'in the water there are fish'\nBoth the 2nd and the 3rd person plural pronouns and subject-markers are used respectfully to refer to a single person:\n\nmukupíta 'you are going' (plural or respectful)\napita 'they have gone' or 'he/she has gone' (respectful)\nExcept in the perfect tense, the 3rd person subject marker when used of people is the same whether singular or plural. So in the present tense the 3rd person subject-marker is a-:\n\nakupíta 'he/she is going'\nakupíta 'they are going', 'he/she is going' (respectful)\nBut in the perfect tense wa- (singular) contrasts with a- (plural or respectful):\n\nwapita 'he/she has gone'\napita 'they have gone', 'he/she has gone' \n\n## Verbs > ### Subject-marker > #### Table 2\n\n<pre>```\n| 0        | 1        |\n|:---------|:---------|\n| Person   | Mchewa   |\n| People   | Achewa   |\n| Language | Chichewa |\n```</pre>\n\n(respectful)\nWhen the subject is a noun not in class 1, the appropriate class prefix is used even if referring to a person:\n\nmfúmu ikupíta 'the chief is going' (class 9)\ntianá tikupíta 'the babies are going' (class 13)"
-      },
-      {
-        "full": "## Verbs > ### Object-marker",
-        "path": [
-          "## Verbs",
-          "### Object-marker"
-        ],
-        "similarity": 1.0,
-        "content": "An object-marker can also optionally be added to the verb; if one is added it goes immediately before the verb-stem. The 2nd person plural adds -ni after the verb:\n\nndí-ma-ku-kónda 'I love you' (ndi = 'I', ku = 'you')\nndí-ma-ku-kónda-ni 'I love you' (plural or formal)\nThe object-marker can be:\n\nPersonal: -ndi- 'me', -ku- 'you', -mu- or -m'- 'him, her', -ti- 'us', -wa- or -a- 'them', 'him/her (polite)'.\nImpersonal: -mu- (class 1), -wa- (class 2), -u- (class 3 or 14), etc.\nLocative: e.g. m'nyumbá mu-ku-mú-dzíwa 'you know the inside of the house'; but usually a locative suffix is used instead: nd-a-oná-mo 'I have seen inside it'\nReflexive: -dzi- 'himself', 'herself', 'themselves', 'myself', etc.\nWhen used with a toneless verb tense such as the perfect, the object-marker has a high tone, but in some tenses such as the present habitual, the tone is lost:\n\nnd-a-mú-ona 'I have seen him'\nndí-ma-mu-óna 'I usually see him'\nWith the imperative or subjunctive, the tone of the object-marker goes on the syllable following it, and the imperative ending changes to -e:\n\nndi-pátse-ni mpungá 'could you give me some rice?'\nndi-thándízé-ni! 'help me!'\nmu-mu-thándízé 'you should help him'"
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses"
-        ],
-        "similarity": 1.0,
-        "content": "Chewa has a large number of tenses, some of which differ in some respects from the tenses met with in European languages. The distinction between one tense and another is made partly by the use of infixes, such as -na- and -ku-, and partly by the intonation of the verb, since each tense has its own particular tonal pattern."
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses > #### Near vs. remote",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses",
-          "#### Near vs. remote"
-        ],
-        "similarity": 1.0,
-        "content": "There are five time-frames (remote past, near past, present, near future, and remote future). The distinction between near and remote tenses is not exact. The remote tenses are not used of events of today or last night, but the near tenses can sometimes be used of events of earlier or later than today:\n\nndi-ná-gula 'I bought (yesterday or some days ago)' (remote perfect)\nnd-a-gula 'I have bought (today)' (perfect)\nndi-ku-gúla 'I am buying (now)' (present)\nndí-gula 'I'll buy (today)' (near future)\nndi-dzá-gula 'I'll buy (tomorrow or later)' (remote future)"
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses > #### Perfect vs. past",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses",
-          "#### Perfect vs. past"
-        ],
-        "similarity": 1.0,
-        "content": "Another distinction is between perfect and past. The two perfect tenses imply that the event described had an outcome which still obtains now. The two past tenses usually imply that the result of the action has been reversed in some way:\nRecent time (today):\n\nnd-a-gula 'I have bought it' (and still have it) (Perfect)\nndi-na-gúla 'I bought it (but no longer have it)' (Recent Past)\nRemote time (yesterday or earlier):\n\nndi-ná-gula or ndi-dá-gula 'I bought it' (and still have it) (Remote Perfect)\nndí-ná-a-gúla or ndí-dá-a-gúla 'I bought it (but no longer have it)' (Remote Past)\nWhen used in narrating a series of events, however, these implications are somewhat relaxed: the Remote Perfect is used for narrating earlier events, and the Recent Past for narrating events of today."
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses > #### Perfective vs. imperfective",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses",
-          "#### Perfective vs. imperfective"
-        ],
-        "similarity": 1.0,
-        "content": "Another important distinction in Chewa is between perfective and imperfective aspect. Imperfective tenses are used for situations, events which occur regularly, or events which are temporarily in progress:\n\nndi-nká-gúlá 'I used to buy', 'I was buying (a long time ago)'\nndi-ma-gúla 'I was buying (today)', 'I used to buy (a long time ago)'\nndí-zi-dza-gúla 'I will be buying (regularly)'\nIn the present tense only, there is a further distinction between habitual and progressive:\n\nndí-ma-gúla 'I buy (regularly)'\nndi-ku-gúla 'I am buying (currently)'"
-      },
-      {
-        "full": "## Verbs > ### Variety of tenses > #### Other tenses",
-        "path": [
-          "## Verbs",
-          "### Variety of tenses",
-          "#### Other tenses"
-        ],
-        "similarity": 1.0,
-        "content": "One future tense not found in European languages is the -ká- future, which 'might presuppose an unspoken conditional clause':\n\nndí-ká-gula 'I will buy' (if I go there, or when I get there)\nThere are also various subjunctive and potential mood tenses, such as:\n\nndi-gulé 'I should buy'\nndi-zí-gúlá 'I should be buying'\nndi-dzá-gúlé 'I should buy (in future)'\nndi-nga-gule 'I can buy'\nndi-kadá-gula 'I would have bought'"
-      },
-      {
-        "full": "## Verbs > ### Negative tenses",
-        "path": [
-          "## Verbs",
-          "### Negative tenses"
-        ],
-        "similarity": 1.0,
-        "content": "Negative tenses, if they are main verbs, are made with the prefix sí-. They differ in intonation from the positive tenses. The negative of the -ná- tense has the ending -e instead of -a:\n\nsí-ndí-gula 'I don't buy'\nsí-ndi-na-gúle 'I didn't buy'\nTenses which mean 'will not' or 'have not yet' have a single tone on the penultimate syllable:\n\nsi-ndi-dza-gúla 'I won't buy'\nsi-ndi-na-gúle 'I haven't bought (it) yet'\nInfinitives, participial verbs, and the subjunctive make their negative with -sa-, which is added after the subject-prefix instead of before it. They similarly have a single tone on the penultimate syllable:\n\nndi-sa-gúle 'I should not buy'\nku-sa-gúla 'not to buy'"
-      },
       {
         "full": "## Verbs > ### Dependent clause tenses",
         "path": [
           "## Verbs",
           "### Dependent clause tenses"
         ],
-        "similarity": 1.0,
+        "similarity": 0.44849371910095215,
         "content": "The tenses used in certain kinds of dependent clauses (such as relative clauses and some types of temporal clauses) differ from those used in main clauses. Dependent verbs often have a tone on the first syllable. Sometimes this change of tone alone is sufficient to show that the verb is being used in a dependent clause. Compare for example:\n\na-ku-gúla 'he is buying'\ná-kú-gúla 'when he is buying' or 'who is buying'\nOther commonly used dependent tenses are the following:\n\nndí-tá-gúla 'after I bought/buy'\nndí-sa-na-gúle 'before I bought/buy'\nThere is also a series of tenses using a toneless -ka- meaning 'when' of 'if', for example:\n\nndi-ka-gula 'when/if I buy'\nndi-ka-dzá-gula 'if in future I buy'\nndi-ka-má-gúlá 'whenever I buy'\nndí-ka-da-gúla 'if I had bought'"
-      },
-      {
-        "full": "## Verbs > ### Verb extensions",
-        "path": [
-          "## Verbs",
-          "### Verb extensions"
-        ],
-        "similarity": 1.0,
-        "content": "After the verb stem one or more extensions may be added. The extensions modify the meaning of the verb, for example:\n\ngul-a 'buy'\ngul-ir-a 'buy for' or 'buy with' (applicative)\ngul-ir-an-a 'buy for one another' (applicative + reciprocal)\ngul-ik-á 'get bought', 'be for sale' (stative)\ngul-its-a 'cause to get bought, i.e. sell' (causative)\ngul-its-idw-a 'be sold (by someone)' (causative + passive)\nThe extensions -ul-/-ol- and its intransitive form -uk-/-ok- are called 'reversive'. They give meanings such as 'open', 'undo', 'unstick', 'uncover':\n\ntseg-ul-a 'open (something)'\ntseg-uk-á 'become open'\nthy-ol-a 'break something off'\nthy-ok-á 'get broken off'\nmas-ul-a 'undo, loosen'\nmas-uk-á 'become loose, relaxed'\nMost extensions, apart from the reciprocal -an- 'one another', have two possible forms, e.g. -ir-/-er-, -idw-/-edw-, -its-/-ets-, -iz-/-ez-, -ul-/-ol-, -uk-/-ok-. The forms with i and u are used when the verb stem has a, i, or u. u can also follow e:\n\nkan-ik-á 'fail to happen'\nphik-ir-a 'cook for someone'\ngul-its-a 'sell'\nsungun-ul-a 'melt (transitive)'\ntseg-ul-a 'open'\nThe forms with e are used if the verb stem is monosyllabic or has an e or o in it:\n\ndy-er-a 'eat with'\nbwer-ez-a 'repeat'\nchok-er-a 'come from'\nExtensions with o are used only with a monosyllabic stem or one with o:\n\nthy-ok-á 'get broken off'\nton-ol-a 'remove grains of corn from the cob'\nThe extension -its-, -ets- with a low tone is causative, but when it has a high tone it is intensive. The high tone is heard on the final syllable of the verb:\n\nyang'an-its-its-á 'look carefully'\nyes-ets-á 'try hard'\nThe applicative -ir-, -er- can also sometimes be intensive, in which case it has a high tone:\n\npit-ir-ir-á 'carry on, keep going'\nVerbs with -ik-, -ek-, -uk-, -ok- when they have a stative or intransitive meaning also usually have a high tone:\n\nchit-ik-á 'happen'\nsungun-uk-á 'melt (intransitive), get melted'\nHowever, there are some low-toned exceptions such as on-ek-a 'seem' or nyam-uk-a 'set off'."
       }
     ]
   }

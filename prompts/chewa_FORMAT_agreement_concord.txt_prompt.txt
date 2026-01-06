@@ -1,0 +1,430 @@
+SYSTEM PROMPT:
+You are an expert in the chewa language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language chewa.
+
+The data you receive comes from multiple sources and relates to the following topics:
+agreement, concord.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Make sure to ignore information that is not relevant to the topic(s) in question: agreement, concord.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or ny-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "chewa-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("chewa-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Zum besseren Verständnis sind anfangs alle und später nur komplexe Beispielsätze zusätzlich zur standardsprachlichen Übersetzung mit einer Wort-für-Wort-Übersetzung versehen.
+
+Zudem werden die Verben sowie andere vielsilbige Wörter mit Bindestrichen ausgestattet, die die verschiedenen Bausteine voneinander abtrennen. Diese Bindestriche dienen lediglich zu Verständniszwecken und sind nicht im eigentlichen Schriftbild erhalten.
+
+Klassenzugehörigkeiten von Silben werden in Klammern () angegeben.
+
+Wie bereits angetönt hängt im Chichewa das Verb vom Subjekt ab. Die Kenn- oder Subjektsilbe gleicht das Verb dem Nomen an. Die Kennsilbe wird vor das Verb gehängt und folgt lautlich zumeist dem Wortanfang.
+
+## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Kenn- oder Subjektsilbe > ###### Table 3
+
+<pre>```
+| 0                                | 1                                     |
+|:---------------------------------|:--------------------------------------|
+| Die Menschen laufen in den Wald. | A-nthu a-ku-pita ku-nkhalango.        |
+|                                  | Menschen sie(2)-Präs.-laufen in-Wald. |
+```</pre>
+
+
+Nebst den Nomen, die Klassen angehören, können auch Personen (ich, Du, etc.) Subjekte sein. Die Personalpronomen ine, iwe, iye, ife, inu, iwo werden nur genannt, wenn sie betont werden sollen. Ansonsten bedient man sich der Personen-Kennsilben.
+
+## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Kenn- oder Subjektsilbe > ###### Table 4
+
+<pre>```
+| 0                                | 1                                              |
+|:---------------------------------|:-----------------------------------------------|
+| Aber ich, ich möchte dahingehen! | Koma ine ndi-ku-funa kupita uko!               |
+|                                  | Aber ich ich(1 Pers.)-Präs.-wollen gehen dort. |
+```</pre>
+
+Das Chichewa kennt keine Fälle wie das Deutsch. Die Objektsilbe zeigt Objekte an – egal welcher Art. Sie wird nach der Kenn- und ggf. Zeitsilbe und vor dem Verbstamm eingefügt. Die Objektsilbe entspricht grundsätzlich der Kennsilbe, die meisten Unterschiede werden dadurch begründet, dass sie Objektsilbe im Wortinnern und nicht etwa zu Beginn steht.
+
+Wird durch den Satzaufbau (SVO) klar, welches das Objekt ist, so kann es auch weggelassen werden.
+
+## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Objektsilbe > ###### Table 5
+
+<pre>```
+| 0                                 | 1                                     |
+|:----------------------------------|:--------------------------------------|
+| Wir sehen (ihn,) diesen Menschen. | Ti-ku-mu-ona munthu uyu.              |
+|                                   | Wir-Präs.-ihn-sehen Mensch dieser(1). |
+| Wir sehen diesen Menschen.        | Ti-ku-ona munthu uyu.                 |
+|                                   | Wir-Präs.-sehen Mensch dieser(1).     |
+| Wir sehen ihn.                    | Ti-ku-mu-ona.                         |
+|                                   | Wir-Präs.-ihn-sehen.                  |
+```</pre>
+
+Die Besitzsilbe drückt Besitzverhältnisse zwischen Nomen aus. Im Chichewa wird hier zwischen subjektiven und attributivem Genitiv unterschieden.
+
+## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Besitzsilbe > ###### Table 6
+
+<pre>```
+| 0                                                                           | 1                                |
+|:----------------------------------------------------------------------------|:---------------------------------|
+| Das Kind der Frau isst. (subjektiv) / Das weibliche Kind isst. (attributiv) | Mwana wa mkazi a-ku-dya. (subj.) |
+|                                                                             | Kind von(1)-Frau es-Präs.-essen. |
+```</pre>
+
+
+Die attributive Genitivfunktion ist eine mehrerer Möglichkeiten, Nomen adjektivisch zu beschreiben. Bantusprachen kennen nämlich in der Regel nur eine Handvoll echter Adjektive.
+
+Objektive Genitive werden im Chichewa durch Infinitivkonstruktionen ausgedrückt:
+
+## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Besitzsilbe > ###### Table 7
+
+<pre>```
+| 0                                                                                   | 1                   |
+|:------------------------------------------------------------------------------------|:--------------------|
+| Das Verlangen nach dem Vater (objektiv; e.g., die Kinder verlangen nach dem Vater). | Ku-lakalaka atate   |
+|                                                                                     | Inf-verlangen Vater |
+```</pre>
+
+Hingegen zeigt die Eigenschaftssilbe Besitzsverhältnisse von Nomen zu Verben an. Sie unterscheidet sich lediglich durch die o-Endung von der Besitzsilbe und wird direkt ans Verb angehängt.
+
+Dies ist die zweite Möglichkeit, Nomen adjektivisch zu beschreiben.
+
+## Einführung > ### Eigenheiten der Bantusprachen: Agglutination und Nominalklassen > #### Angleichung und Silben > ##### Eigenschaftssilbe > ###### Table 8
+
+<pre>```
+| 0                            | 1                                            |
+|:-----------------------------|:---------------------------------------------|
+| Wir ernten in der Erntezeit. | Ti-ma-kolola mu nyengo yokolola.             |
+|                              | Wir-Gewohnheit-ernten in Zeit von(9)-ernten. |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+Pronouns, adjectives, and verbs have to show agreement with nouns in Chichewa. This is done by means of prefixes, for example:
+
+Uyu ndi mwaná wángá 'this is my child' (class 1)
+Awa ndi aná ángá 'these are my children' (class 2)
+Ichi ndi chímanga chánga 'this is my maize' (class 7)
+Iyi ndi nyumbá yángá 'this is my house' (class 9)
+Class 2 (the plural of class 1) is often used for respect when referring to elders. According to Corbett and Mtenje, a word like bambo 'father', even though it is singular, will take plural concords (e.g. bambo anga akuyenda, ndikuwaona 'my father is walking, I see him'); they note that to use the singular object-marker -mu- would be 'grossly impolite'.
+The various prefixes are shown on the table below:
+
+## Grammar > ### Concords > #### Table 6: Table of Chewa concords
+
+<pre>```
+|   Unnamed: 0 | noun      | English    | this   | that   | pron   | subj   | object   | num     | rem   | of   | of+vb   | other   | adj     |
+|-------------:|:----------|:-----------|:-------|:-------|:-------|:-------|:---------|:--------|:------|:-----|:--------|:--------|:--------|
+|            1 | mwaná     | child      | uyu    | uyo    | yé-    | a-     | mú/ḿ-    | m/(mu)- | uja   | wá   | wó-     | wína    | wám-    |
+|            2 | aná       | children   | awa    | awo    | ó-     | a-     | -á/wá-   | a-      | aja   | á    | ó-      | éna     | áa-     |
+|            3 | mutú      | head       | uwu    | uwo    | wó-    | u-     | -ú-      | u-      | uja   | wá   | wó-     | wína    | wau-    |
+|            4 | mitú      | heads      | iyi    | iyo    | yó-    | i-     | -í/yí-   | i-      | ija   | yá   | yó-     | ína     | yái-    |
+|            5 | díso      | eye        | ili    | ilo    | ló-    | li-    | -lí-     | li-     | lija  | lá   | ló-     | lína    | láli-   |
+|            6 | masó      | eyes       | awa    | awo    | ó-     | a-     | -wá-     | a-      | aja   | á    | ó-      | éna     | áa-     |
+|            7 | chaká     | year       | ichi   | icho   | chó-   | chi-   | -chí-    | chi-    | chija | chá  | chó-    | chína   | cháchi- |
+|            8 | zaká      | years      | izi    | izo    | zó-    | zi-    | -zí-     | zi-     | zija  | zá   | zó-     | zína    | zázi-   |
+|            9 | nyumbá    | house      | iyi    | iyo    | yó-    | i-     | -í/yí-   | i-      | ija   | yá   | yó-     | ína     | yái-    |
+|           10 | nyumbá    | houses     | izi    | izo    | zó-    | zi-    | -zí-     | zi-     | zija  | zá   | zó-     | zína    | zázi-   |
+|           12 | kamwaná   | baby       | aka    | ako    | kó-    | ka-    | -ká-     | ka-     | kaja  | ká   | kó-     | kéna    | káka-   |
+|           13 | tianá     | babies     | iti    | ito    | tó-    | ti-    | -tí-     | ti-     | tija  | tá   | tó-     | tína    | táti-   |
+|           14 | utá       | bow        | uwu    | uwo    | wó-    | u-     | -ú-      | u-      | uja   | wá   | wó-     | wína    | wáu-    |
+|           15 | kugúla    | buying     | uku    | uko    | kó-    | ku-    | -kú-     | ku-     | kuja  | kwá  | kó-     | kwína   | kwáku-  |
+|           16 | pansí     | underneath | apa    | apo    | pó-    | pa-    | -po      | pa-     | paja  | pá   | pó-     | péna    | pápa-   |
+|           17 | kutsogoló | in front   | uku    | uko    | kó-    | ku-    | -ko      | ku-     | kuja  | kwá  | kó-     | kwína   | kwáku-  |
+|           18 | mkatí     | inside     | umu    | umo    | mó-    | m/mu-  | -mo      | m/mu-   | muja  | mwá  | mó-     | mwína   | mwám'-  |
+```</pre>
+
+
+There are 17 different noun classes, but because some of them share concords there are in fact only 12 distinct sets of prefixes.
+
+In the examples below, the concords are illustrated mainly with nouns of classes 1 and 2.
+
+uyu ndaní? 'who is this?'; awa ndaní? 'who are these?' (or: 'who is this gentleman?' (respectful))
+mwaná uyu (mwanáyu) 'this child'; aná awa (anáwa) 'these children'
+mwaná uyo (mwanáyo) 'that child'; aná awo (anáwo) 'those children'
+The shortened forms are more common.
+
+Prefixed by a supporting vowel, or by ná 'with' or ndi 'it is', these make the pronouns 'he/she' and 'they':
+
+iyé 'he/she'; iwó 'they' (or 'he/she' (respectful))
+náye 'with him/her'; náwo 'with them' (or 'with him/her' (respectful))
+ndiyé 'it is he/she'; ndiwó 'it is they'
+For classes other than classes 1 and 2, a demonstrative is used instead of a freestanding pronoun, for example in class 6 ichi or icho. But forms prefixed by ná- and ndi- such as nácho and ndichó are found.
+
+The three pronominal adjectives yénse 'all', yékha 'alone', yémwe 'that same' (or 'who') have the same pronominal concords yé- and (w)ó-, this time as prefixes:
+
+Maláwi yénse 'the whole of Malawi'
+aná ónse 'all the children'
+yékha 'on his/her own'
+ókha 'on their own'
+mwaná yemwéyo 'that same child'
+aná omwéwo 'those same children'
+In classes 2 and 6, ó- often becomes wó- (e.g. wónse for ónse etc.).
+The commonly used word álíyensé 'every' is compounded from the verb áli 'who is' and yénse 'all'. Both parts of the word have concords:
+
+mwaná álíyensé 'every child'
+aná awíri álíonsé 'every two children'
+nyumbá ílíyonsé 'every house' (class 4)
+chaká chílíchonsé 'every year' (class 7)
+
+As with other Bantu languages, all Chewa verbs have a prefix which agrees with the subject of the verb. In modern Chewa, the class 2 prefix (formerly ŵa-) has become a-, identical with the prefix of class 1:
+
+mwaná ápita 'the child will go'; aná ápita 'the children will go'
+The perfect tense (wapita 'he/she has gone', apita 'they have gone') has different subject prefixes from the other tenses (see below).
+
+The relative pronoun améne 'who' and demonstrative améneyo use the same prefixes as a verb:
+
+mwaná améne 'the child who'
+aná améne 'the children who'
+mwaná améneyo 'that child'
+aná aménewo 'those children'
+nyumbá iméneyo 'that house'
+nyumbá ziménezo 'those houses'
+
+The use of an object infix is not obligatory in Chewa (for example, ndagula means 'I have bought (them)'). If used, it comes immediately before the verb root, and agrees with the object:
+
+ndamúona 'I have seen him/her'; ndawáona 'I have seen them' (sometimes shortened to ndaáona).
+The object infix of classes 16, 17, and 18 is usually replaced by a suffix: ndaonámo 'I have seen inside it'.
+The same infix with verbs with the applicative suffix -ira represents the indirect object, e.g. ndamúlembera 'I have written to him'.
+
+Numeral concords are used with numbers -módzi 'one', -wíri 'two', -tátu 'three', -náyi 'four', -sanu 'five', and the words -ngáti? 'how many', -ngápo 'several':
+
+mwaná mmódzi 'one child'; aná awíri 'two children'; aná angáti? 'how many children?'
+The class 1 prefix m- becomes mu- before -wiri: tomáto muwíri 'two tomatoes'.
+The number khúmi 'ten' has no concord.
+
+The demonstrative pronouns uja 'that one you know' and uno 'this one we are in' take the concords u- and a- in classes 1 and 2. For semantic reasons, class 1 uno is rare:
+
+mwaná uja 'that child (the one you know)'; aná aja 'those children' (those ones you know)
+mwezí uno 'this month (we are in)' (class 3); masíkú ano 'these days'; ku Maláwí kuno 'here in Malawi (where we are now)' (class 17).
+
+The same concords w- (derived from u-) and a-, combined with the vowel a, make the subject prefix of the perfect tense. In the plural the two prefixes a-a- combine into a single vowel:
+
+mwaná wapita 'the child has gone; aná apita 'the children have gone'
+
+The concords w- (derived from u-) and a- are also found in the word á 'of':
+
+mwaná wá Mphátso 'Mphatso's child'; aná á Mphátso 'Mphatso's children'
+The same concords are used in possessive adjectives -ánga 'my', -áko 'your', -áke 'his/her/its/their', -áthu 'our', -ánu 'your (plural or respectful singular), -áwo 'their'/'his/her' (respectful):
+
+mwaná wángá 'my child'; aná ángá 'my children'
+-áwo 'their' is used only of people (-áke is used for things).
+Wá 'of' can be combined with nouns or adverbs to make adjectives:
+
+mwaná wánzérú 'an intelligent child'; aná ánzérú 'intelligent children'
+mwaná ábwino a good child'; aná ábwino 'good children'
+In the same way wá 'of' combines with the ku- of the infinitive to make verbal adjectives. Wá + ku- usually shortens to wó-, except where the verb root is monosyllabic:
+
+mwaná wókóngola 'a beautiful child'; aná ókóngola 'beautiful children'
+mwaná wákúbá 'a thieving child'; aná ákúbá 'thieving children'
+
+The same w- and a- concords are found with the words -ína 'other' and -ení-éní 'real'. In combination with these words the plural concord a- is converted to e-:
+
+mwaná wína 'a certain child, another child'; aná éna 'certain children, other children'
+mwaná weníwéní 'a real child'; aná eníéní 'real children'
+
+Certain adjectives (-kúlu 'big', -ng'óno 'small'; -(a)múna 'male', -kázi 'female'; -táli 'long', 'tall', -fúpi 'short'; -wisi 'fresh') have a double prefix, combining the possessive concord (wá-) and the number concord (m- or mw-):
+
+mwaná wáḿkúlu 'a big child'; aná áákúlu 'big children'
+mwaná wáḿng'óno 'a small child'; aná ááng'óno 'little children'
+mwaná wámwámúna 'a male child'; aná áámúna 'male children'
+mwaná wáḿkázi 'a female child'; aná áákázi 'female children'
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Agreement:
+  Features:
+    x-Domain: [x-subject-verb, x-noun-adjective, x-noun-determiner]
+
+  Rules:
+    x-Domain_x-noun-adjective:
+      applies: {x-Domain: x-noun-adjective}
+      pattern: "adjective inflected for case, number, gender of head noun"
+      examples: 
+      - "ein schöner Hund"
+      note: "endings follow strong/weak/mixed inflection depending on determiner"
+
+    x-Domain_x-noun-determiner:
+      applies: {x-Domain: x-noun-determiner}
+      pattern: "determiner inflected for case, number, gender of head noun"
+      examples: 
+      - "die großen Hunde"
+      note: "paradigm identical to article system"
+
+    x-Domain_x-subject-verb:
+      applies: {x-Domain: x-subject-verb}
+      pattern: "finite verb agrees with subject in person and number"
+      examples: 
+      - "ich gehe"
+      - "wir gehen"
+      note: "obligatory agreement; 3sg endings distinct, others reduced"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
+

@@ -156,7 +156,7 @@ INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
 - Rephrase content where necessary, but do NOT add new facts.
 - Merge overlapping information into a single coherent description.
-- Ignore information that is not relevant to the reference schema.
+- Make sure to ignore information that is not relevant to the topic(s) in question: adverb.
 - Preserve the hierarchy and ordering of the reference schema.
 
 FEATURES AND THEIR VALUES:
@@ -369,17 +369,6 @@ Siehe unter Adverben.
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-Source 2:
-The term "adjective", as applied to Zulu and most other Bantu languages, usually applies only to a rather restricted set of words. However, in the wider sense, it can refer to any word that modifies a noun. The wider sense is used here. Adjectives in the stricter Bantu sense are referred to as "true adjectives" in this article.
-All adjectives have one thing in common: they all follow the noun they modify, and require some kind of prefix whose class matches the preceding noun. The different types of adjectives reflect the different prefixes that are used:
-
-"True" adjectives are prefixed with the adjective concord.
-Relatives are prefixed with the relative concord.
-Enumeratives use the enumerative concord.
-Adjectives have the same tone classes that nouns do.
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
 
 
 EXAMPLE OUTPUT (for German):
@@ -446,4 +435,6 @@ OUTPUT RULES:
 - Output ONLY the synthesized schema.
 - Do NOT include explanations, comments, or metadata.
 - Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
 

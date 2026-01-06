@@ -1,0 +1,408 @@
+SYSTEM PROMPT:
+You are an expert in the swahili language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language swahili.
+
+The data you receive comes from multiple sources and relates to the following topics:
+subjunctive, conjunctive, mood.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Make sure to ignore information that is not relevant to the topic(s) in question: subjunctive, conjunctive, mood.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or sw-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "swahili-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("swahili-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Im Unterschied zum Indikativ enden Verben im Subjunktiv auf «-e». Er wird benutzt:
+
+Bei höflichen Aufforderungen und Wünschen
+
+## Das Verb > ### Subjunktiv > #### Table 63
+
+<pre>```
+| 0                         | 1                        |
+|:--------------------------|:-------------------------|
+| Reich mir bitte das Brot. | Tafadhali (u)nipe mkate. |
+```</pre>
+
+
+nach Verben des Wünschens, des Wollens und der Aufforderung
+
+## Das Verb > ### Subjunktiv > #### Table 64
+
+<pre>```
+| 0                                   | 1                              |
+|:------------------------------------|:-------------------------------|
+| Wir möchten, dass Du zu uns kommst. | Tungependa uje nyumbani kwetu. |
+```</pre>
+
+
+Nach «ili» (sodass/damit) und allgemein in Sätzen mit diesem Sinn
+
+## Das Verb > ### Subjunktiv > #### Table 65
+
+<pre>```
+| 0                                          | 1                                          |
+|:-------------------------------------------|:-------------------------------------------|
+| Wir gehen heute, sodass wir bald ankommen. | Tunaondoka leo (ili) tufike huko karibuni. |
+```</pre>
+
+Die Verneinung wird gebildet, indem man ein -si- zwischenfügt:
+
+## Das Verb > ### Subjunktiv > #### Verneinung > ##### Table 66
+
+<pre>```
+| 0                                                | 1                                        |
+|:-------------------------------------------------|:-----------------------------------------|
+| Wir gehen heute, sodass wir nicht spät ankommen. | Tunaondoka leo (ili) tusichelewe kufika. |
+|                                                  | chelewa = verspätet sein                 |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
+The subjunctive (sometimes referred to as an optative) expresses hypothetical situations, wishes and requests. It is also used as a complement to certain auxiliary verbs and conjunctions. The subjunctive is indicated by the lack of any Tense-Aspect-Mood prefix and the change of the final -a, where present, to -e-. The class of loan verbs, which do not end in -a, do not undergo this change and the subjunctive form is made by simply omitting any tense marker. The negative subjunctive is indicated by adding the syllable -si- into the tense slot, with the positive subject prefix being used rather than the negative.
+
+## Verbs > ### Tenses, aspects and moods > #### Subjunctive > ##### Table 38: Formation of the subjunctive
+
+<pre>```
+| Unnamed: 0           | Common Verb       | Short Verb        | Loan verb        |
+|:---------------------|:------------------|:------------------|:-----------------|
+| positive subjunctive | [SUBJ]___e        | [SUBJ]___e        | [SUBJ]___        |
+| positive subjunctive | [SUBJ][OBJ]___e   | [SUBJ][OBJ]___e   | [SUBJ][OBJ]___   |
+| negative subjunctive | [SUBJ]si___e      | [SUBJ]si___e      | [SUBJ]si___      |
+| negative subjunctive | [SUBJ]si[OBJ]___e | [SUBJ]si[OBJ]___e | [SUBJ]si[OBJ]___ |
+```</pre>
+
+
+## Verbs > ### Tenses, aspects and moods > #### Subjunctive > ##### Table 39: Examples
+
+<pre>```
+| Verb    | Example                                                                                                     |
+|:--------|:------------------------------------------------------------------------------------------------------------|
+| -enda   | Aende. "He should go." / "... him to go" / "... that he go"                                                 |
+| -enda   | Asiende. "He shouldn't go." / "... him not to go" / "... that he not go"                                    |
+| -la     | Nile. "I should eat." / "... me to eat" / "... that I eat"                                                  |
+| -la     | Nisile. "I shouldn't eat." / "... me not to eat" / "... that I not eat"                                     |
+| -andika | Uandike. "You should write." / "... you to write" / "... that you write"                                    |
+| -andika | Usiandike. "Don't write!" / "You shouldn't write." / "... you not to write" / "... that you not write"      |
+| -sahau  | Tusahau. "Let's forget!" / "We should forget." / "... us to forget" / "... that we forget"                  |
+| -sahau  | Tusisahau. "Let's not forget." / "We shouldn't forget." / "... us not to forget" / "... that we not forget" |
+```</pre>
+
+
+The subjunctive is frequently used following the equivalents of modal verbs, verbs indicating wishes, suggestions, recommendations and other constructions.
+
+## Verbs > ### Tenses, aspects and moods > #### Subjunctive > ##### Table 40
+
+<pre>```
+| 0                                                                                                                                                      | 1   | 2                                                                                                                                                                       |
+|:-------------------------------------------------------------------------------------------------------------------------------------------------------|:----|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Nilimwambia aende.ni-li-mw-ambi(a)1S.SBJ-PST-3S.ANIM.OBJ-tella-end(a)-e3S.ANIM.SBJ-go-SBJV"I told her/him to go." / "I told her/him she/he should go." | ↔   | Nilimwambia asiende.ni-li-mw-ambi(a)1S.SBJ-PST-3S.ANIM.OBJ-tella-si-end(a)-e3S.ANIM.SBJ-NEG-go-SBJV"I told her/him not to go." / "I told her/him she/he should not go." |
+```</pre>
+
+
+## Verbs > ### Tenses, aspects and moods > #### Subjunctive > ##### Table 41
+
+<pre>```
+| 0                                                                                                                  | 1   | 2                                                                                                                               |
+|:-------------------------------------------------------------------------------------------------------------------|:----|:--------------------------------------------------------------------------------------------------------------------------------|
+| Tutawaomba wakae.tu-ta-wa-omb(a)1P.SBJ-FUT-3P.ANIM.OBJ-requestwa-ka(a)-e3P.ANIM-sit-SBJV"We will ask them to sit." | ↔   | Tutawaomba wasikae.tu-ta-wa-omb(a)1P.SBJ-FUT-3P.ANIM.OBJ-requestwa-si-ka(a)-e3P.ANIM-NEG-sit-SBJV"We will ask them not to sit." |
+```</pre>
+
+
+## Verbs > ### Tenses, aspects and moods > #### Subjunctive > ##### Table 42
+
+<pre>```
+| 0                                                                                      | 1   | 2                                                                                                 | 3   | 4                                                                                                   |
+|:---------------------------------------------------------------------------------------|:----|:--------------------------------------------------------------------------------------------------|:----|:----------------------------------------------------------------------------------------------------|
+| Ninataka uje.ni-na-tak(a)1P.SBJ-PRES-wantu-j(a)-e2S.SBJ-come-SBJV"I want you to come." | ↔   | Sitaki uje.si-tak(a)-iNEG.1P.SBJ-want-NEG.PRESu-j(a)-e2S.SBJ-come-SBJV"I don't want you to come." | ↔   | Ninataka usije.ni-na-tak(a)1P.SBJ-PRES-wantu-si-j(a)-e2S.SBJ-NEG-come-SBJV"I want you not to come." |
+```</pre>
+
+
+The verb kutaka and such verbs expressing wishes or intentions like kutegemea to intend are usually followed by the subjunctive even when the subject is the same in both propositions; Nataka niende sokoni I want to go to the market. Mtoto alipewa kitabu asome  The child was given a book so that he could study. Sisi tunategemea tuende picha usiku We've planned to go to the theatre (movies) tonight. It applies when there a possibility of influencing the factors encountered in the context. If there is nothing to do about the context then the infinitive is used.
+
+Wale watu wanataka kutawala dunia Those people want to rule the world.
+Nataka kukojoa I want to piss
+Anataka kufa  He wants to die (He's going to die)
+Wale wageni wanataka kuondoka The guests want to leave
+Compare with: Nataka nikojolee chooni  I want to piss in the toilet. Walitaka waondoke mapema They wanted to leave early (and they didn't wake up) Walitaka kuondoka mapema They wanted to leave early (and the road was flooded)
+An equivalent of "must" or "have to" is formed with ni lazima "it is necessary", or simply lazima "necessarily" followed by the subjunctive. 
+
+## Verbs > ### Tenses, aspects and moods > #### Subjunctive > ##### Table 43
+
+<pre>```
+| 0                                                                                                                    | 1   | 2                                                                                                                                 | 3   | 4                                                                                                                                     |
+|:---------------------------------------------------------------------------------------------------------------------|:----|:----------------------------------------------------------------------------------------------------------------------------------|:----|:--------------------------------------------------------------------------------------------------------------------------------------|
+| (Ni) lazima ulale(ni)(COP)lazimanecessaryu-lal-e2S.SBJ-sleep-SBJV"You must sleep." "It is necessary that you sleep." | ↔   | Si lazima ulalesiNEG.COPlazimanecessarilyu-lal-e2S.SBJ-sleep-SBJV"You don't have to sleep." "It is not necessary that you sleep." | ↔   | (Ni) lazima usilale(ni)(COP)lazimanecessaryu-si-lal-e2S.SBJ-NEG-sleep-SBJV"You must not sleep." "It is necessary that you not sleep." |
+```</pre>
+
+
+The subjunctive may be used on its own with a second person subject as a more polite alternative to an imperative. As there is no negative imperative, forms beginning with usi- and msi- may also be interpreted as such.
+
+## Verbs > ### Tenses, aspects and moods > #### Subjunctive > ##### Table 44
+
+<pre>```
+| 0                                                       | 1   | 2                                                                                   | 3   | 4                                                                                     |
+|:--------------------------------------------------------|:----|:------------------------------------------------------------------------------------|:----|:--------------------------------------------------------------------------------------|
+| Toka.Ø-tok(a)-ØIMP-got.out-2S.SBJ"Go away." "Get lost." | ↔   | Utoke.u-tok(a)-e2S.SBJ-go.out-SBJV"You should go away!" "Can you (please) go away!" | ↔   | Usitoke.u-si-tok(a)-e2S.SBJ-not-go.out-SBJV"Don't go away!" "You should not go away!" |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Subjunctive:
+  Features:
+    de-Tense-type: [de-subj-I, de-subj-II]
+    u-Tense: [u-prs, u-pst, u-fut]
+
+  Negation:
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
+    examples:
+    - "Ich persönlich würde das nicht jeden Tag tun."
+
+  Usage:
+    de-subj-I:
+      applies: {u-Evidentiality: u-quot}
+      examples:
+        - "u-quot: Er sagte, er sei krank."
+        - "u-quot: Die Zeitung berichtet, die Preise stiegen weiter."
+      note: "Subjunctive I (Konjunktiv I) is primarily used for indirect/reported speech, especially in formal registers (newspapers, academic writing). It marks distancing of the speaker from the truth of the proposition."
+
+    de-subj-II:
+      applies: {u-Mood: u-irr, u-Politeness: u-pol}
+      examples:
+        - "u-irr: Wenn ich Zeit hätte, käme ich vorbei."
+        - "u-irr: An deiner Stelle würde ich das nicht tun."
+        - "u-pol: Ich hätte gern einen Kaffee."
+        - "u-pol: Könnten Sie mir bitte helfen?"
+      note: "Subjunctive II (Konjunktiv II) expresses counterfactuality, unreality, or politeness. In modern usage, synthetic forms survive mostly in a few verbs (sein, haben, modals), while the würde + infinitive construction dominates otherwise."
+
+  Rules:
+    de-Tense-type_de-subj-I__u-Tense_u-prs:
+      applies: {de-Tense-type: de-subj-I, u-Tense: u-prs}
+      pattern: "_present stem_ + _endings_"
+      endings:
+      - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}       # ich habe
+      - {features: {u-Person: u-2, u-Number: u-sg}, form: "est"}     # du habest
+      - {features: {u-Person: u-3, u-Number: u-sg}, form: "e"}       # er habe
+      - {features: {u-Person: u-1, u-Number: u-pl}, form: "en"}      # wir haben
+      - {features: {u-Person: u-2, u-Number: u-pl}, form: "et"}      # ihr habet
+      - {features: {u-Person: u-3, u-Number: u-pl}, form: "en"}      # sie haben
+      examples:
+      - "Er sagte, er ginge bald."
+
+    de-Tense-type_de-subj-I__u-Tense_u-pst:
+      applies: {de-Tense-type: de-subj-I, u-Tense: u-pst}
+      pattern: "haben/sein in Subjunctive I + past participle"
+      examples:
+      - "Er hat gesagt, er sei gegangen."
+
+    de-Tense-type_de-subj-I__u-Tense_u-fut:
+      applies: {de-Tense-type: de-subj-I, u-Tense: u-fut}
+      pattern: "werden in Subjunctive I + infinitive"
+      examples:
+      - "Er sagte, er werde gehen."
+
+    de-Tense-type_de-subj-II__u-Tense_u-prs:
+      applies: {de-Tense-type: de-subj-II, u-Tense: u-prs}
+      patterns:
+      - pattern: "_preterite stem (ablaut/umlaut)_ + _endings_"
+        endings:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}        # ich ginge
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "est"}      # du gingest
+        - {features: {u-Person: u-3, u-Number: u-sg}, form: "e"}        # er ginge
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "en"}       # wir gingen
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "et"}       # ihr ginget
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "en"}       # sie gingen
+        examples:
+        - "ich ginge"
+      - pattern: "würde (Konjunktiv II) + infinitive"
+        examples:
+        - "ich würde gehen"
+        note: "dominant form for most verbs in modern usage"
+
+    de-Tense-type_de-subj-II__u-Tense_u-pst:
+      applies: {de-Tense-type: de-subj-II, u-Tense: u-pst}
+      pattern: "hätte/wäre (Konjunktiv II) + past participle"
+      examples:
+      - "ich hätte gesagt, ich wäre gegangen"
+      note: "used for counterfactuals about the past"
+
+    de-Tense-type_de-subj-II__u-Tense_u-fut:
+      applies: {de-Tense-type: de-subj-II, u-Tense: u-fut}
+      pattern: "würde (Konjunktiv II) + past participle + haben/sein infinitive"
+      examples:
+      - "ich würde gegangen sein"
+      note: "rare; equivalent to Future II under subjunctive"
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
+

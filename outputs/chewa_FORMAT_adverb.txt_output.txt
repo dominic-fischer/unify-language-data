@@ -1,0 +1,22 @@
+Adverbs:
+  Features:
+    u-Comparison: []
+    x-Process: [x-base-form, x-adj-as-adv, x-complex, x-modification]
+
+  Rules:
+    x-Process_x-base-form:
+      applies: {x-Process: x-base-form}
+      pattern: "lexical base form"
+      examples:
+      - "mofulumira"
+    x-Process_x-adj-as-adv:
+      applies: {x-Process: x-adj-as-adv}
+      pattern: "adjective stem reused as adverb (uninflected)"
+      examples:
+      - "changu"
+    x-Process_x-complex:
+      applies: {x-Process: x-complex}
+      pattern: "compound or prepositional phrase functioning adverbially"
+    x-Process_x-modification:
+      applies: {x-Process: x-modification}
+      pattern: "degree/modality particles modifying adverb"

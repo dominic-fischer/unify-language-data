@@ -156,7 +156,7 @@ INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
 - Rephrase content where necessary, but do NOT add new facts.
 - Merge overlapping information into a single coherent description.
-- Ignore information that is not relevant to the reference schema.
+- Make sure to ignore information that is not relevant to the topic(s) in question: derivation, formation, morphology.
 - Preserve the hierarchy and ordering of the reference schema.
 
 FEATURES AND THEIR VALUES:
@@ -175,11 +175,6 @@ Source 1:
 Diminutive und Augmentative werden in vielen Sprachen unterschiedlich gebildet, teils nicht einmal mit diesem Präfixsystem. Speziell ist, dass die Diminutiv- und Augmentativsilben teils an den Stamm, teils an eine bereits bestehende Vorsilbe angehängt werden. Bei der Pluralbildung hat dies zur Folge, dass in gewissen Sprachen der Plural doppelt gebildet wird, also sowohl die Diminutiv-/Augmentativ- als auch die regulären Klassenvorsilben in den Pural gesetzt werden.
 
 Bei den Diminutiven fällt auf, dass Sprachen häufiger eine eigene, zusätzliche, relativ konsistente Klasse nutzen: ka- (Sg.); tu-/ti- (Pl.)
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
-Source 2:
-Shona has a simple 5-vowels system: [a, e, i, o, u]. This inventory is quite common cross-linguistically, with similar systems occurring in Greek, Spanish, Tagalog, Swahili and Japanese. Each vowel is pronounced separately even if they fall in succession. For example, Unoenda kupi? ("Where do you go?") is pronounced [u.no.e.nda.ku.pi].
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
@@ -305,4 +300,6 @@ OUTPUT RULES:
 - Output ONLY the synthesized schema.
 - Do NOT include explanations, comments, or metadata.
 - Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
 

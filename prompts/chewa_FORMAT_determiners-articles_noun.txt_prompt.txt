@@ -156,7 +156,7 @@ INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
 - Rephrase content where necessary, but do NOT add new facts.
 - Merge overlapping information into a single coherent description.
-- Ignore information that is not relevant to the reference schema.
+- Make sure to ignore information that is not relevant to the topic(s) in question: determiners, articles, noun.
 - Preserve the hierarchy and ordering of the reference schema.
 
 FEATURES AND THEIR VALUES:
@@ -172,6 +172,203 @@ FEATURES AND THEIR VALUES:
 
 SOURCE DATA:
 Source 1:
+In der Linguistik wird jedem einzelnen Klassenpräfix eine Nummer zugewiesen – wir folgen dieser Einteilung. Gedanklich kann man aber durchaus Singular- und Pluralklassen jeweils zusammennehmen (ungerade = Singular, gerade = Plural).
+
+Klasse 11 fehlt im Chichewa, wobei die Durchnummerierung aber beibehalten wird, um Interkompatibilität mit anderen Bantusprachen zu gewährleisten. Klasse 14 hat keinen eigenen Plural, es wird der Klasse 6 genutzt. Im Anhang wird detaillierter darauf eingegangen, wie die Wörter in die Klassen eingeteilt werden und wie diese überhaupt zustande kommen.
+
+Will man ein Nomen in den Plural setzen, so ersetzt die Pluralvorsilbe die des Singulars. Ausnahme hiervon ist die Pluralvorsilbe «ma-», diese wird direkt an den Wortanfang angehängt.
+
+## Das Nomen > ### Nominalklassen > #### Hauptklassen > ##### Table 9
+
+<pre>```
+| 0   | 1                     | 2   | 3      | 4        | 5        |
+|:----|:----------------------|:----|:-------|:---------|:---------|
+| 1   | Menschen              | Ez. | m(u)-  | munthu   | Mensch   |
+| 2   |                       | Mz. | a-     | anthu    | Menschen |
+| 3   | Dinge                 | Ez. | m(u)-  | muti     | Baum     |
+| 4   |                       | Mz. | mi-    | miti     | Bäume    |
+| 5   | Fremdwörter           | Ez. | -      | sukulu   | Schule   |
+| 6   |                       | Mz. | ma-    | masukulu | Schulen  |
+| 7   | Abstrakta             | Ez. | ch(i)- | chinthu  | Ding     |
+| 8   |                       | Mz. | z(i)-  | zinthu   | Dinge    |
+| 9   | -                     | Ez. | (n-)   | nyumba   | Haus     |
+| 10  |                       | Mz. | (n-)   | nyumba   | Häuser   |
+| 14  | Abstrakta, Plurallose | Ez. | u-     | ubwino   | Güte     |
+| (6) |                       | Mz. | ma-    | -        | -        |
+```</pre>
+
+Diminutivklasse 12/13 und Augmentative (nutzen Klassensilben der Klasse 7/8): Die Verkleinerungs- und Vergrösserungsklassen müssen im Plural doppelt dekliniert werden: Ihre klasseneigenen Vorsilben «ti-» und «zi-» werden an den Plural des zu verkleinernden/vergrössernden Nomens angehängt.
+
+Klasse 15: In Bantusprachen kann man jedes Verb substantivieren, wobei nur eine Singularform existiert, die dem Infinitiv entspricht (Dies ist für Deutschsprachige ganz natürlich: z.B.  gehen -> das Gehen). Daneben gibt es häufig – ebenfalls wie im Deutschen –  weitere vom Verbstamm abgeleitete Nomen.
+
+Ortsklassen 16/17/18: Gibt man in einem Satz zusammen einen Ort mit einem Nomen an (z.B. in der Schule), so gehört das Nomen nun der Ortsklasse an und der Satz muss entsprechend angepasst werden.
+
+## Das Nomen > ### Nominalklassen > #### Zusatzklassen > ##### Table 10
+
+<pre>```
+| 0   | 1             | 2                           | 3    | 4         | 5             |
+|:----|:--------------|:----------------------------|:-----|:----------|:--------------|
+| 12  | Verkleinerung | Ez.                         | ka-  | kamwana   | Kleinkind     |
+| 13  |               | Mz.                         | ti-  | tiana     | Kleinkinder   |
+| (7) | Vergrösserung | Ez.                         | chi- | chinyumba | Villa         |
+| (8) |               | Mz.                         | zi-  | zinyumba  | Villen        |
+| 15  | Subst. Verben |                             | ku-  | kupita    | das Gehen     |
+| 16  | Ort           | Ort (grossräumig, Richtung) | ku-  | kuMalawi  | in Malawi     |
+| 17  |               | Ort (exakt)                 | pa-  | pamwala   | auf dem Stein |
+| 18  |               | Ort (innerhalb, zeitlich)   | mu-  | munyumba  | im Haus       |
+```</pre>
+
+Die Nominalklassen bilden die Basis eines jeden Satzes. Die Meisterung der zugehören Silben ist somit unumgänglich. Auf der nächsten Seite findet sich eine Übersichtsdarstellung aller Silben. Silben(-teile), die von der regulären Bildung abweichen, sind speziell markiert.
+
+## Das Nomen > ### Nominalklassen > #### Silben-Übersichtsdarstellung > ##### Table 11
+
+<pre>```
+| 0             | 1                     | 2             | 3             | 4             | 5                    | 6                    | 7             | 8             |
+|:--------------|:----------------------|:--------------|:--------------|:--------------|:---------------------|:---------------------|:--------------|:--------------|
+|               |                       |               |               | Subjekt       | Objekt               | Objekt               | Besitz        | Eigenschaft   |
+| Hauptklassen  | Hauptklassen          | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen         | Hauptklassen         | Hauptklassen  | Hauptklassen  |
+| 1             | Menschen              | Ez.           | m(u)-         | ndi-, u-, a-  | -ndi-, -ku-, -mu-    | -ndi-, -ku-, -mu-    | wa-           | wo-           |
+| 2             |                       | Mz.           | a-            | ti-, mu-, a-  | -ti-, -ku-…-ni, -wa- | -ti-, -ku-…-ni, -wa- | a-            | o-            |
+| 3             | Dinge                 | Ez.           | m(u)-         | u-            | -wu-                 | -wu-                 | wa-           | wo-           |
+| 4             |                       | Mz.           | mi-           | i-            | -yi-                 | -yi-                 | ya-           | yo-           |
+| 5             | Fremdwörter           | Ez.           | -             | li-           | -li-                 | -li-                 | la-           | lo-           |
+| 6             |                       | Mz.           | ma-           | a-            | -wa                  | -wa                  | a-            | o-            |
+| 7             | Abstrakta             | Ez.           | ch(i)-        | chi-          | -chi-                | -chi-                | cha-          | cho-          |
+| 8             |                       | Mz.           | z(i)-         | zi-           | -zi-                 | -zi-                 | za-           | zo-           |
+| 9             | -                     | Ez.           | (n-)          | i-            | -yi-                 | -yi-                 | ya-           | yo-           |
+| 10            |                       | Mz.           | (n-)          | zi-           | -zi-                 | -zi-                 | za-           | zo-           |
+| 14            | Abstrakta, Plurallose | Ez.           | u-            | u-            | -wu-                 | -wu-                 | wa-           | wo-           |
+| (6)           |                       | Mz.           | ma-           | a-            | -wa-                 | -wa-                 | a-            | o-            |
+| Zusatzklassen | Zusatzklassen         | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen        | Zusatzklassen        | Zusatzklassen | Zusatzklassen |
+| 12            | Verkleinerung         | Ez.           | ka-           | ka-           | ka-                  | -ka-                 | ka-           | ko-           |
+| 13            |                       | Mz.           | ti-           | ti-           | ti-                  | -ti-                 | ta-           | to-           |
+| (7)           | Vergrösserung         | Ez.           | chi-          | chi-          | chi-                 | -chi-                | cha-          | cho-          |
+| (8)           |                       | Mz.           | zi-           | zi-           | zi-                  | -zi-                 | za-           | zo-           |
+| 15            | Subst. Verben         |               | ku-           | ku-           | ku-                  | -ku-                 | kwa-          | ko-           |
+| 16            | Ort                   | Ort           | ku-           | ku-           | ku-                  | -ku-                 | kwa-          | ko-           |
+| 17            |                       | Punkt         | pa-           | pa-           | pa-                  | -pa-                 | pa-           | po-           |
+| 18            |                       | «in»          | mu-           | mu-           | mu-                  | -mu-                 | mwa-          | mo-           |
+```</pre>
+
+
+
+Im Chichewa ist der Gebrauch von Demonstrativpronomina sehr differenziert und häufig. So unterscheidet man zwischen vier Arten von Demonstrativpronomina.
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Table 12
+
+<pre>```
+| 0   | 1                  | 2          | 3                                   | 4                   |
+|:----|:-------------------|:-----------|:------------------------------------|:--------------------|
+|     | Deutsch            | Chichewa   | Bildung                             | Ausnahmen           |
+| I   | Dieser Mensch      | munthu uyu | Kennsilbenvokal + Kennsilbe         | Klasse 1/2 Sg. uyu  |
+| II  | Jener Mensch       | munthu uyo | Kennsilbenvokal + Eigenschaftssilbe | Klasse 1/2. Sg. uyo |
+| III | Dieser Mensch hier | munthu uno | Kennsilbe + no                      | Klasse 1/2 Sg. uno  |
+| IV  | Jener Mensch       | munthu uja | Kennsilbe + ja                      | Klasse 1/2 Sg. uja  |
+```</pre>
+
+Das Chichewa-Wort für «mit» (ndi) funktioniert genau gleich wie auf Deutsch. Vor Pronomen aber verschmilzt es mit diesen: Man setzt ein «na» vor das Demonstrativpronomen II, wobei der Anfangsvokal dieses entfällt (Ausnahme: Klasse 1/2 Sg. naye).
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Mit Diesem/r / Jenem/r > ###### Table 13
+
+<pre>```
+| 0                                         | 1                                                 |
+|:------------------------------------------|:--------------------------------------------------|
+| Mphatso ist mit Kondwani/ihm weggegangen. | Mphatso wapita ndi Kondwani. Mphatso wapita naye. |
+```</pre>
+
+Will man herausfinden, welche/r/s gemeint ist, so nutzt man die Kennsilbe und hängt ihr ein «-ti» an (Ausnahme: Klasse 1/2 Sg. uti).
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Welche/r/s? > ###### Table 14
+
+<pre>```
+| 0               | 1           |
+|:----------------|:------------|
+| Welcher Baum?   | Mtengo uti? |
+| Welches (Ding)? | Chiti?      |
+```</pre>
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung > ###### Table 15
+
+<pre>```
+| 0             | 1             | 2             | 3             | 4             | 5             | 6             | 7              | 8             |
+|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:---------------|:--------------|
+|               |               | Kennsilbe     | Welches?      | Dieses        | Jenes         | Dieses hier   | Jenes bekannte | Mit Jenem     |
+| Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen   | Hauptklassen  |
+| 1             | m(u)-         | a-            | uti?          | uyu           | uyo           | uno           | uja            | naye          |
+| 2             | a-            | a-            | ati?          | awa           | awo           | ano           | aja            | nawo          |
+| 3             | m(u)-         | u-            | uti?          | uwu           | uwo           | uno           | uja            | nawo          |
+| 4             | mi-           | i-            | iti?          | iyi           | iyo           | ino           | ija            | nayo          |
+| 5             | -             | li-           | liti?         | ili           | ilo           | lino          | lija           | nalo          |
+| 6             | ma-           | a-            | ati?          | awa           | awo           | ano           | aja            | nawo          |
+| 7             | ch(i)-        | chi-          | chiti?        | ichi          | icho          | chino         | chija          | nacho         |
+| 8             | z(i)-         | zi-           | ziti?         | izi           | izo           | zino          | zija           | nazo          |
+| 9             | (n-)          | i-            | iti?          | iyi           | iyo           | ino           | ija            | nayo          |
+| 10            | (n-)          | zi-           | ziti?         | izi           | izo           | zino          | zija           | nazo          |
+| 14            | u-            | u-            | uti?          | uwu           | uwo           | uno           | uja            | nawo          |
+| (6)           | ma-           | a-            | ati?          | awa           | awo           | ano           | aja            | nawo          |
+| Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen  | Zusatzklassen |
+| 15            | ku-           | ku-           | kuti?         | uku           | uko           | kuno          | kuja           | nako          |
+| 12            | ka-           | ka-           | kati?         | aka           | ako           | kano          | kaja           | nako          |
+| 13            | ti-           | ti-           | titi?         | iti           | ito           | tino          | tija           | nato          |
+| (7)           | chi-          | chi-          | chiti?        | ichi          | icho          | chino         | chija          | nacho         |
+| (8)           | zi-           | zi-           | ziti?         | izi           | izo           | zino          | zija           | nazo          |
+|               |               |               | Wo?           | hier          | dort          | hier drin     | da drin        | -             |
+| 16            | ku-           | ku-           | kuti?         | uku           | uko           | kuno          | kuja           | -             |
+| 17            | pa-           | pa-           | pati?         | apa           | apo           | pano          | paja           | -             |
+| 18            | mu-           | mu-           | muti?         | umu           | umo           | muno          | muja           | -             |
+```</pre>
+
+Die Personalprononima sind im Chichewa für Subjekt und Objekt identisch und lauten:
+
+## Das Nomen > ### Pronomina > #### Personalpronomina > ##### Table 16
+
+<pre>```
+| 0         | 1   | 2              | 3    |
+|:----------|:----|:---------------|:-----|
+| ich       | ine | mit mir        | nane |
+| Du        | iwe | mit Dir        | nawe |
+| er/sie/es | iye | mit ihm/ihr    | naye |
+|           |     |                |      |
+| wir       | ife | mit uns        | nafe |
+| ihr/Sie   | inu | mit Euch/Ihnen | nane |
+| sie       | iwo | mit ihnen      | nawo |
+```</pre>
+
+
+Es gilt, Erwachsene stets in der zweiten Person Plural anzusprechen. Der Singular gilt im normalen Sprachgebrauch als unhöflich und wird nur gegenüber Kindern oder klar rangniedereren Personen angewandt.
+
+Bei den Relativpronomina hat man zwei Möglichkeiten, wobei letztere etwas stärker betont:
+
+## Das Nomen > ### Pronomina > #### Relativpronomina > ##### Table 17
+
+<pre>```
+| 0                       | 1                     | 2                                    | 3                                                |
+|:------------------------|:----------------------|:-------------------------------------|:-------------------------------------------------|
+| Bildung                 | Ausnahmen             | Deutsch                              | Chichewa                                         |
+| Kennsilbe + mene        | Klasse 1/2 Sg. m’mene | Das, was Du gestern gesagt hast      | Zinthu zi-mene mwa-nena dzulo.                   |
+|                         |                       |                                      | Dinge sie(4)-welche Du-Vgh.-sagen gestern.       |
+| Eigenschaftssilbe + mwe | Klasse 1/2 Sg. yemwe  | Genau die Worte, die Du benutzt hast | Mawu omwe mwa-gwiri-tsa ntchito.                 |
+|                         |                       |                                      | Worte sie(3)-diese Du-Vgh.-halten-machen Arbeit. |
+```</pre>
+
+## Das Nomen > ### Pronomina > #### Possessivpronomina > ##### Table 18
+
+<pre>```
+| 0        | 1           | 2    |
+|:---------|:------------|:-----|
+|          | Vorsilbe    |      |
+| mein     | Besitzsilbe | -nga |
+| Dein     | Besitzsilbe | -ko  |
+| sein/ihr | Besitzsilbe | -ke  |
+|          |             |      |
+| unser    | Besitzsilbe | -tu  |
+| euer/Ihr | Besitzsilbe | -nu  |
+| ihr      | Besitzsilbe | -wo  |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+Source 2:
 Chewa nouns are divided for convenience into a number of classes, which are referred to by the Malawians themselves by names such as "Mu-A-", but by Bantu specialists by numbers such as "1/2", corresponding to the classes in other Bantu languages. Conventionally, they are grouped into pairs of singular and plural. However, irregular pairings are also possible, especially with loanwords; for example, bánki 'bank', which takes the concords of class 9 in the singular, has a plural mabánki (class 6).
 When assigning nouns to a particular class, initially the prefix of the noun is used. Where there is no prefix, or where the prefix is ambiguous, the concords (see below) are used as a guide to the noun class. For example, katúndu 'possessions' is put in class 1, since it takes the class 1 demonstrative uyu 'this'.
 Some nouns belong to one class only, e.g. tomáto 'tomato(es)' (class 1), mowa 'beer' (class 3), malayá 'shirt(s)' (class 6), udzudzú 'mosquito(es)' (class 14), and do not change between singular and plural. Despite this, such words can still be counted if appropriate: tomáto muwíri 'two tomatoes', mowa uwíri 'two beers', malayá amódzi 'one shirt', udzudzú umódzi 'one mosquito'.
@@ -281,4 +478,6 @@ OUTPUT RULES:
 - Output ONLY the synthesized schema.
 - Do NOT include explanations, comments, or metadata.
 - Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
 

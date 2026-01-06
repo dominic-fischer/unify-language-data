@@ -1,0 +1,305 @@
+SYSTEM PROMPT:
+You are an expert in the shona language. You excel at inspecting linguistic data from different sources and distilling them into a specific format.
+
+USER PROMPT:
+You are a linguist tasked with normalizing grammatical descriptions for the language shona.
+
+The data you receive comes from multiple sources and relates to the following topics:
+conditional, mood.
+
+Your goal is to transform the data into a structure that EXACTLY matches the reference schema provided.
+
+REFERENCE SCHEMA (structure and headings must be followed exactly):
+{
+  "$schema": "http://json-schema.org/draft/2020-12/schema",
+  "title": "Grammar File Schema",
+  "type": "object",
+
+  "$defs": {
+    "endings": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features", "form"]
+    },
+    "forms": {
+      "type": "object",
+      "properties": {
+        "features": { "type": "object" },
+        "form": { "type": "string" },
+        "pattern": { "type": "string" },
+        "note": { "type": "string" }
+      },
+      "required": ["features"],
+      "oneOf": [
+        { "required": ["form"] },
+        { "required": ["pattern"] }
+      ]
+    },
+    "applies": {
+      "type": "object",
+      "description": "Feature-value constraints for the rule/usage"
+    },
+    "examples": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
+    },
+    "patterns": {
+      "type": "object",
+      "properties": {
+        "pattern": { "type": "string" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "note": { "$ref": "#/$defs/note" },
+        "endings": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/endings" }
+        },
+        "forms": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/forms" }
+        }
+      },
+      "oneOf": [
+        { "required": ["pattern"] },
+        { "required": ["forms"] }
+      ]
+    },
+    "note": {
+      "type": "string"
+    }
+  },
+
+  "patternProperties": {
+    "^[A-Z][A-Za-z0-9-]*$": {
+      "type": "object",
+      "required": ["Features", "Rules"],
+      "properties": {
+        "Features": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        },
+        "Usage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "note": { "$ref": "#/$defs/note" },
+              "examples": { "$ref": "#/$defs/examples" }
+            },
+            "anyOf": [
+              { "required": ["applies"] },
+              { "required": ["note"] },
+              { "required": ["examples"] }
+            ]
+          }
+        },
+        "Negation": {
+          "type": "object",
+          "required": ["examples"],
+          "properties": {
+            "pattern": { "type": "string" },
+            "examples": { "$ref": "#/$defs/examples" },
+            "note": { "$ref": "#/$defs/note" }
+          }
+        },
+        "Rules": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": ["applies"],
+            "properties": {
+              "applies": { "$ref": "#/$defs/applies" },
+              "pattern": { "type": "string" },
+              "patterns": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/patterns" }
+              },
+              "endings": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/endings" }
+              },
+              "forms": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/forms" }
+              },
+              "examples": { "$ref": "#/$defs/examples" },
+              "note": { "$ref": "#/$defs/note" },
+              "negation": { "type": "string" }
+            },
+            "anyOf": [
+              { "required": ["pattern"], "not": { "required": ["patterns"] } },
+              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
+              { "required": ["forms"], "not": { "required": ["patterns"] } }
+            ]
+          }
+        },
+        "Notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    }
+  },
+
+  "additionalProperties": false
+}
+
+INSTRUCTIONS:
+- Use ONLY the information present in the provided data.
+- Rephrase content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description.
+- Make sure to ignore information that is not relevant to the topic(s) in question: conditional, mood.
+- Preserve the hierarchy and ordering of the reference schema.
+
+FEATURES AND THEIR VALUES:
+- Feature names and values are prefixed with either u-, x- or sn-.
+- Use the prefix "u-" for UniMorph features and values.
+- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Use the language prefix "shona-" ONLY for language-specific features and values.
+- When multiple representations are possible, prefer:
+  1) UniMorph ("u-") features,
+  2) then custom ("x-") features,
+  3) and only then language-specific ("shona-") features.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
+
+SOURCE DATA:
+Source 1:
+Der Konditional tritt in mehreren Formen auf, die sich jeweils in ihrer zeitlichen Bedeutung unterscheiden. Sein Kennzeichen ist die Silbe «-ka-», die mit den unterschiedlichen Zeitsilben kombiniert werden kann.
+
+In der Vergangenheit nutzt man das Hilfsverb «dai» sowie «-nga-», das Infix für die Potenzialität.
+
+Dai + Perfektform, Kennsilbe – nga – dai + Perfekt
+
+## Das Verb > ### Konditional > #### Vergangenheit > ##### Table 52
+
+<pre>```
+| 0                                                | 1                                                       |
+|:-------------------------------------------------|:--------------------------------------------------------|
+| Dai nda-ka-zvara mwana, ndi-nga-dai nda-ka-fara. | Wenn ich ein Kind gehabt hätte, hätte ich mich gefreut. |
+```</pre>
+
+
+Für die Verneinung muss man eine Hilfskontruktion mit «sina» (nicht haben) nutzen:
+
+## Das Verb > ### Konditional > #### Vergangenheit > ##### Table 53
+
+<pre>```
+| 0                                                        | 1                                                                  |
+|:---------------------------------------------------------|:-------------------------------------------------------------------|
+| Dai ndi-sina kuva no-mwana, ndi-nga-dai ndi-sina kufara. | Wenn ich kein Kind gehabt hätte, wäre ich nicht glücklich gewesen. |
+```</pre>
+
+## Das Verb > ### Konditional > #### Gegenwart > ##### Table 54
+
+<pre>```
+| 0                                         | 1                                                                  |
+|:------------------------------------------|:-------------------------------------------------------------------|
+| (Kana) ndi-ka-siya ndi-no/cha/nga-rasika. | Falls ich gehe, verirre ich mich / werde/könnte ich mich verirren. |
+```</pre>
+
+
+Alternativ kann im Positiven auch -chi- anstelle von -ka- genutzt werden. Für die Verneinung wird lediglich ein -sa- nach dem -ka- eingefügt:
+
+## Das Verb > ### Konditional > #### Gegenwart > ##### Table 55
+
+<pre>```
+| 0                                    | 1                                                  |
+|:-------------------------------------|:---------------------------------------------------|
+| Ndi-ka-sa-siya ha-ndi-goni kurasika. | Wenn ich nicht gehe, kann ich mich nicht verirren. |
+```</pre>
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+
+
+EXAMPLE OUTPUT (for German):
+Conditionals:
+  Features:
+    u-Tense: [u-prs, u-pst, u-fut]
+    u-Mood: [u-irr, u-real]
+    x-Clausetype: [x-protasis, x-apodosis]
+  Negation:
+    applies: {x-Negation-type: x-clause}
+    note: "Regular negation."
+    examples:
+    - "Auch wenn er nicht bald kommen sollte, gehen wir nicht ohne ihn."
+  Rules:
+    u-Tense_u-fut__x-Clausetype_x-protasis:
+      applies: {u-Tense: u-fut, x-Clausetype: x-protasis}
+      pattern: "{de-praesens}"
+      examples:
+      - "Wenn er kommt, ..."
+
+    u-Tense_u-fut__x-Clausetype_x-apodosis:
+      applies: {u-Tense: u-fut, x-Clausetype: x-apodosis}
+      pattern: "{de-futur-I}"
+      examples:
+      - "..., werden wir gehen."
+
+    u-Mood_u-real__u-Tense_u-prs__x-Clausetype_x-protasis:
+      applies: {u-Tense: u-prs, x-Clausetype: x-protasis, u-Mood: u-real}
+      pattern: "{de-praesens}"
+      examples:
+      - "wenn er kommt, ..."
+
+    u-Mood_u-real__u-Tense_u-prs__x-Clausetype_x-apodosis:
+      applies: {u-Tense: u-prs, x-Clausetype: x-apodosis, u-Mood: u-real}
+      pattern: "{de-praesens}/{de-futur-I}"
+      examples:
+      - "..., gehen wir."
+
+
+    u-Mood_u-irr__u-Tense_u-prs__x-Clausetype_x-protasis:
+      applies: {u-Tense: u-prs, x-Clausetype: x-protasis, u-Mood: u-irr}
+      patterns:
+      - pattern: "{de-konjunktiv-II} present (synthetic)"
+        examples:
+        - "Wenn er käme, ..."
+      - pattern: "{de-konjunktiv-II} present (periphrastic)"
+        examples:
+        - "Wenn er kommen würde, ..."
+        note: "dominant in modern usage"
+
+    u-Mood_u-irr__u-Tense_u-prs__x-Clausetype_x-apodosis:
+      applies: {u-Tense: u-prs, x-Clausetype: x-apodosis, u-Mood: u-irr}
+      patterns:
+      - pattern: "{de-konjunktiv-II} present (synthetic)"
+        examples:
+        - "..., gingen wir."
+        note: "less common in modern usage, survives with sein/haben/modals"
+      - pattern: "{de-konjunktiv-II} present (periphrastic)"
+        examples:
+        - "..., würden wir gehen."
+        note: "dominant in modern usage"
+
+
+    u-Mood_u-irr__u-Tense_u-pst__x-Clausetype_x-protasis:
+      applies: {u-Tense: u-pst, x-Clausetype: x-protasis, u-Mood: u-irr}
+      pattern: "{de-konjunktiv-II} past"
+      examples:
+      - "wenn er gegangen wäre, ..."
+
+    u-Mood_u-irr__u-Tense_u-pst__x-Clausetype_x-apodosis:
+      applies: {u-Tense: u-pst, x-Clausetype: x-apodosis, u-Mood: u-irr}
+      pattern: "{de-konjunktiv-II} past"
+      examples:
+      - "..., hätten wir gewonnen."
+
+    
+
+
+OUTPUT RULES:
+- Output ONLY the synthesized schema.
+- Do NOT include explanations, comments, or metadata.
+- Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
+

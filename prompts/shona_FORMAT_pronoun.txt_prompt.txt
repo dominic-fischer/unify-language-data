@@ -156,7 +156,7 @@ INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
 - Rephrase content where necessary, but do NOT add new facts.
 - Merge overlapping information into a single coherent description.
-- Ignore information that is not relevant to the reference schema.
+- Make sure to ignore information that is not relevant to the topic(s) in question: pronoun.
 - Preserve the hierarchy and ordering of the reference schema.
 
 FEATURES AND THEIR VALUES:
@@ -172,6 +172,67 @@ FEATURES AND THEIR VALUES:
 
 SOURCE DATA:
 Source 1:
+Im Shona ist der Gebrauch von Demonstrativpronomina sehr differenziert und häufig. So unterscheidet man zwischen vier Arten von Demonstrativpronomina.
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Table 13
+
+<pre>```
+| 0   | 1                                       | 2         | 3                                   | 4                  |
+|:----|:----------------------------------------|:----------|:------------------------------------|:-------------------|
+|     | Deutsch                                 | Shona     | Bildung                             | Ausnahmen          |
+| I   | Dieser Mensch                           | munhu uyu | Kennsilbenvokal + Kennsilbe         | Klasse 1/2 Sg. uyu |
+|     |                                         |           |                                     | Klasse 3/4 Sg. uyu |
+|     |                                         |           |                                     | Klasse 7/8 Pl. aya |
+| II  | Jener Mensch                            | munhu uyo | Kennsilbenvokal + Eigenschaftssilbe | Klasse 1/2 Sg. uyo |
+|     |                                         |           |                                     | Klasse 3/4 Sg. uyo |
+|     |                                         |           |                                     | Klasse 7/8 Pl. ayo |
+| III | Dieser Mensch hier (autoreferenziell)   | munhu uno | Kennsilbe + no                      | Klasse 1/2 Sg. uno |
+| IV  | Jener Mensch (Du weisst schon, welcher) | munhu uye | Kennsilbe + ye                      | Klasse 1/2 Sg. uye |
+```</pre>
+
+Will man ein Demonstrativpronomen mit einem «mit» kombinieren, so setzt man ein «na» vor das Demonstrativpronomen II, wobei der Anfangsvokal dieses entfällt (Ausnahme: Klasse 1/2 Sg. naye).
+
+Will man herausfinden, welche/r/s gemeint ist, so nutzt man die Kennsilbe und hängt ihr ein «-pi» an.
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung > ###### Table 14
+
+<pre>```
+| 0             | 1             | 2             | 3             | 4             | 5             | 6             | 7              | 8             |
+|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:---------------|:--------------|
+|               |               | Kennsilbe     | Welches?      | Dieses        | Jenes         | Dieses hier   | Jenes bekannte | Mit Jenem     |
+| Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen   | Hauptklassen  |
+| 1             | m(u)-         | a-            | api?          | uyu           | uyo           | uno           | uye            | naye          |
+| 2             | va-           | va-           | vapi?         | ava           | avo           | vano          | vaye           | navo          |
+| 3             | mu-           | u-            | upi?          | uyu           | uyo           | uno           | uye            | nawo          |
+| 4             | mi-           | i-            | ipi?          | iyi           | iyo           | ino           | iye            | nayo          |
+| 5             | -             | ri-           | ripi?         | iri           | iro           | rino          | riye           | naro          |
+| 6             | ma-           | a-            | api?          | aya           | ayo           | ano           | aye            | nawo          |
+| 7             | ch(i)-        | chi-          | chipi?        | ichi          | icho          | chino         | chiye          | nacho         |
+| 8             | zv(i)-        | zi-           | zvipi?        | izvi          | idzo          | zvino         | zviye          | nazvo         |
+| 9             | - / i-        | i-            | ipi?          | iyi           | iyo           | ino           | iye            | nayo          |
+| 10            | - / dzi-      | dzi-          | dzipi?        | idzi          | idzo          | dzino         | dziye          | nadzo         |
+| 11            | ru-           | ru-           | rwupi?        | uwru          | uwro          | rwuno         | rwuye          | narwo         |
+| 14            | h(u)-         | hu-           | hwupi?        | uwhu          | uwho          | hwuno         | hwuye          | nahwo         |
+| Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen  | Zusatzklassen |
+| 12            | Verkl.        | ka-           | kapi?         | aka           | ako           | kano          | kaye           | naye          |
+| 13            |               | tu-           | twupi?        | utwu          | utwo          | twuno         | twuye          | natwo         |
+| 15            | ku-           | ku-           | kupi?         | uku           | uko           | kuno          | kuye           | nako          |
+| 21            | Vergr.        | zi-           | zipi?         | izi           | izo           | zino          | ziye           | nazo          |
+|               |               | zi-           | zipi?         | izi           | izo           | zino          | ziye           | nazo          |
+```</pre>
+
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung > ###### Table 15
+
+<pre>```
+| 0   | 1   | 2   | 3     | 4     | 5    | 6    | 7         | 8       | 9   |
+|:----|:----|:----|:------|:------|:-----|:-----|:----------|:--------|:----|
+|     |     |     | Wo?   | hier  | hier | dort | hier drin | da drin | -   |
+| 16  | ku- | ku- | kupi? | kupi? | uku  | uko  | kuno      | kuye    | -   |
+| 17  | pa- | pa- | papi? | papi? | apa  | apa  | pano      | paye    | -   |
+| 18  | mu- | mu- | mupi? | mupi? | umu  | umu  | muno      | muye    | -   |
+```</pre>
+
 Die Personalprononima sind im Chishona für Subjekt und Objekt identisch und lauten:
 
 ## Das Nomen > ### Pronomina > #### Personalpronomina > ##### Table 16
@@ -191,7 +252,17 @@ Die Personalprononima sind im Chishona für Subjekt und Objekt identisch und lau
 
 Es gilt, Erwachsene stets in der zweiten Person plural anzusprechen. Der Singular gilt im normalen Sprachgebrauch als unhöflich und wird nur gegenüber Kindern oder klar rangniedereren Personen angewandt.
 
+Relativkonstruktionen werden mit der Besitzsilbe gebildet, die vor das Verb angehängt wird.
 
+## Das Nomen > ### Pronomina > #### Relativpronomina > ##### Table 17
+
+<pre>```
+| 0                                               | 1                                                  |
+|:------------------------------------------------|:---------------------------------------------------|
+| Der Mann, den ich gesehen habe, ist weggerannt. | Murume wa-ndaka-(mu-)ona aka-tiza.                 |
+|                                                 | Mann von(1)-ich(Perf.)-ihn-sehen er(Perf.)-rennen. |
+| Das (die Dinge), was ich sagen werde.           | Zvandichataura.                                    |
+```</pre>
 
 ## Das Nomen > ### Pronomina > #### Possessivpronomina > ##### Table 18
 
@@ -206,79 +277,6 @@ Es gilt, Erwachsene stets in der zweiten Person plural anzusprechen. Der Singula
 | unser    | E-Besitzsilbe | -du  |
 | euer/Ihr | E-Besitzsilbe | -nyu |
 | ihr      | Besitzsilbe   | -vo  |
-```</pre>
-
-Relativkonstruktionen werden mit der Besitzsilbe gebildet, die vor das Verb angehängt wird.
-
-## Das Nomen > ### Pronomina > #### Relativpronomina > ##### Table 17
-
-<pre>```
-| 0                                               | 1                                                  |
-|:------------------------------------------------|:---------------------------------------------------|
-| Der Mann, den ich gesehen habe, ist weggerannt. | Murume wa-ndaka-(mu-)ona aka-tiza.                 |
-|                                                 | Mann von(1)-ich(Perf.)-ihn-sehen er(Perf.)-rennen. |
-| Das (die Dinge), was ich sagen werde.           | Zvandichataura.                                    |
-```</pre>
-
-Im Shona ist der Gebrauch von Demonstrativpronomina sehr differenziert und häufig. So unterscheidet man zwischen vier Arten von Demonstrativpronomina.
-
-## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Table 13
-
-<pre>```
-| 0   | 1                                       | 2         | 3                                   | 4                  |
-|:----|:----------------------------------------|:----------|:------------------------------------|:-------------------|
-|     | Deutsch                                 | Shona     | Bildung                             | Ausnahmen          |
-| I   | Dieser Mensch                           | munhu uyu | Kennsilbenvokal + Kennsilbe         | Klasse 1/2 Sg. uyu |
-|     |                                         |           |                                     | Klasse 3/4 Sg. uyu |
-|     |                                         |           |                                     | Klasse 7/8 Pl. aya |
-| II  | Jener Mensch                            | munhu uyo | Kennsilbenvokal + Eigenschaftssilbe | Klasse 1/2 Sg. uyo |
-|     |                                         |           |                                     | Klasse 3/4 Sg. uyo |
-|     |                                         |           |                                     | Klasse 7/8 Pl. ayo |
-| III | Dieser Mensch hier (autoreferenziell)   | munhu uno | Kennsilbe + no                      | Klasse 1/2 Sg. uno |
-| IV  | Jener Mensch (Du weisst schon, welcher) | munhu uye | Kennsilbe + ye                      | Klasse 1/2 Sg. uye |
-```</pre>
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
-Source 2:
-Noun classes (mupanda)
-Shona nouns are grouped by noun class (mupanda) based on:
-
-Meanings (Zvaanoreva) e.g. words found in class 1 and 2 describe a person: munhu ("person") is in mupanda 1 and musikana ("girl") is in mupanda 2.
-Prefix (Chivakashure) e.g. words in class 1 have prefix mu-, class 8 zvi-, class 10 dzi-, class 11 ru-, etc. Empty prefix units refer to words that do not require a prefix
-Singular and plural forms (Uwandu neushoma) e.g. words found in class 8 are plurals of class 7: zvikoro ("schools") in class 8 is the plural form of chikoro ("school") in class 7.
-Agreement (Sungawirirano) e.g. words in class 5 have accordance of the marker -ri- with pronouns and modifiers: garwe iri ("this crocodile"), dombo iri ("this stone"), gudo iri ("this baboon"); iri means 'this'.
-
-## Grammar > ### Table 5
-
-<pre>```
-| Noun class   | Noun class + Noun class.1   | Muenzaniso weIzwi ("word example")   | Word construction Prefix+body=word + Prefix   | Word construction Prefix+body=word + Body   | English translation   |
-|:-------------|:----------------------------|:-------------------------------------|:----------------------------------------------|:--------------------------------------------|:----------------------|
-| 1            | mu                          | mukomana                             | mu-                                           | -komana                                     | "boy"                 |
-| 1a           | –                           | baba                                 | nan                                           | -baba                                       | "father"              |
-| 2            | va                          | vakomana                             | va-                                           | -komana                                     | "boys"                |
-| 2a           | va                          | vasahwira                            | va-                                           | -sahwira                                    | "best friend"         |
-| 2a           | vana                        | vanatezvara                          | vana-                                         | -tezvara                                    | "father-in-law"       |
-| 2b           | a                           | atete                                | a-                                            | -tete                                       | "aunt"                |
-| 3            | mu                          | muti                                 | mu-                                           | -ti                                         | "tree"                |
-| 4            | mi                          | miti                                 | mi-                                           | -ti                                         | "trees"               |
-| 5            | ri                          | rize                                 | ri-                                           | -ze                                         | "scorpion"            |
-| 6            | ma                          | marize                               | ma-                                           | -ze                                         | "scorpions"           |
-| 7            | chi                         | chingwa                              | chi-                                          | -ngwa                                       | "bread"               |
-| 8            | zvi                         | zvingwa                              | zvi-                                          | -ngwa                                       | "bread"               |
-| 9            | i                           | imba                                 | i-                                            | -mba                                        | "house"               |
-| 10           | dzi                         | dzimba                               | dzi-                                          | -mba                                        | "houses"              |
-| 11           | ru                          | rwizi                                | ru-                                           | -izi                                        | "river"               |
-| 12           | ka                          | kambwa                               | ka-                                           | -mbwa                                       | "that little dog"     |
-| 13           | tu                          | tumbwa                               | tu-                                           | -mbwa                                       | "those little dogs"   |
-| 14           | u                           | upfu                                 | u-                                            | -pfu                                        | "mealie meal"         |
-| 15           | ku                          | kuenda                               | ku-                                           | -enda                                       | "going"               |
-| 16           | pa                          | pamba                                | pa-                                           | -mba                                        | "home"                |
-| 17           | ku                          | kumusha                              | ku-                                           | -musha                                      | "rural home"          |
-| 17a          | –                           | zasi                                 | nan                                           | -zasi                                       | "below"               |
-| 18           | mu                          | mumunda                              | mu-                                           | -munda                                      | "in the farm"         |
-| 19           | svi                         | svimbudzi                            | svi-                                          | -mbudzi                                     | "goat"                |
-| 21           | zi                          | zigomana                             | zi-                                           | -gomana                                     | "big boy"             |
 ```</pre>
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
@@ -374,4 +372,6 @@ OUTPUT RULES:
 - Output ONLY the synthesized schema.
 - Do NOT include explanations, comments, or metadata.
 - Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
 

@@ -156,7 +156,7 @@ INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
 - Rephrase content where necessary, but do NOT add new facts.
 - Merge overlapping information into a single coherent description.
-- Ignore information that is not relevant to the reference schema.
+- Make sure to ignore information that is not relevant to the topic(s) in question: pronoun.
 - Preserve the hierarchy and ordering of the reference schema.
 
 FEATURES AND THEIR VALUES:
@@ -172,6 +172,72 @@ FEATURES AND THEIR VALUES:
 
 SOURCE DATA:
 Source 1:
+Im Chichewa ist der Gebrauch von Demonstrativpronomina sehr differenziert und häufig. So unterscheidet man zwischen vier Arten von Demonstrativpronomina.
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Table 12
+
+<pre>```
+| 0   | 1                  | 2          | 3                                   | 4                   |
+|:----|:-------------------|:-----------|:------------------------------------|:--------------------|
+|     | Deutsch            | Chichewa   | Bildung                             | Ausnahmen           |
+| I   | Dieser Mensch      | munthu uyu | Kennsilbenvokal + Kennsilbe         | Klasse 1/2 Sg. uyu  |
+| II  | Jener Mensch       | munthu uyo | Kennsilbenvokal + Eigenschaftssilbe | Klasse 1/2. Sg. uyo |
+| III | Dieser Mensch hier | munthu uno | Kennsilbe + no                      | Klasse 1/2 Sg. uno  |
+| IV  | Jener Mensch       | munthu uja | Kennsilbe + ja                      | Klasse 1/2 Sg. uja  |
+```</pre>
+
+Das Chichewa-Wort für «mit» (ndi) funktioniert genau gleich wie auf Deutsch. Vor Pronomen aber verschmilzt es mit diesen: Man setzt ein «na» vor das Demonstrativpronomen II, wobei der Anfangsvokal dieses entfällt (Ausnahme: Klasse 1/2 Sg. naye).
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Mit Diesem/r / Jenem/r > ###### Table 13
+
+<pre>```
+| 0                                         | 1                                                 |
+|:------------------------------------------|:--------------------------------------------------|
+| Mphatso ist mit Kondwani/ihm weggegangen. | Mphatso wapita ndi Kondwani. Mphatso wapita naye. |
+```</pre>
+
+Will man herausfinden, welche/r/s gemeint ist, so nutzt man die Kennsilbe und hängt ihr ein «-ti» an (Ausnahme: Klasse 1/2 Sg. uti).
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Welche/r/s? > ###### Table 14
+
+<pre>```
+| 0               | 1           |
+|:----------------|:------------|
+| Welcher Baum?   | Mtengo uti? |
+| Welches (Ding)? | Chiti?      |
+```</pre>
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung > ###### Table 15
+
+<pre>```
+| 0             | 1             | 2             | 3             | 4             | 5             | 6             | 7              | 8             |
+|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:---------------|:--------------|
+|               |               | Kennsilbe     | Welches?      | Dieses        | Jenes         | Dieses hier   | Jenes bekannte | Mit Jenem     |
+| Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen   | Hauptklassen  |
+| 1             | m(u)-         | a-            | uti?          | uyu           | uyo           | uno           | uja            | naye          |
+| 2             | a-            | a-            | ati?          | awa           | awo           | ano           | aja            | nawo          |
+| 3             | m(u)-         | u-            | uti?          | uwu           | uwo           | uno           | uja            | nawo          |
+| 4             | mi-           | i-            | iti?          | iyi           | iyo           | ino           | ija            | nayo          |
+| 5             | -             | li-           | liti?         | ili           | ilo           | lino          | lija           | nalo          |
+| 6             | ma-           | a-            | ati?          | awa           | awo           | ano           | aja            | nawo          |
+| 7             | ch(i)-        | chi-          | chiti?        | ichi          | icho          | chino         | chija          | nacho         |
+| 8             | z(i)-         | zi-           | ziti?         | izi           | izo           | zino          | zija           | nazo          |
+| 9             | (n-)          | i-            | iti?          | iyi           | iyo           | ino           | ija            | nayo          |
+| 10            | (n-)          | zi-           | ziti?         | izi           | izo           | zino          | zija           | nazo          |
+| 14            | u-            | u-            | uti?          | uwu           | uwo           | uno           | uja            | nawo          |
+| (6)           | ma-           | a-            | ati?          | awa           | awo           | ano           | aja            | nawo          |
+| Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen  | Zusatzklassen |
+| 15            | ku-           | ku-           | kuti?         | uku           | uko           | kuno          | kuja           | nako          |
+| 12            | ka-           | ka-           | kati?         | aka           | ako           | kano          | kaja           | nako          |
+| 13            | ti-           | ti-           | titi?         | iti           | ito           | tino          | tija           | nato          |
+| (7)           | chi-          | chi-          | chiti?        | ichi          | icho          | chino         | chija          | nacho         |
+| (8)           | zi-           | zi-           | ziti?         | izi           | izo           | zino          | zija           | nazo          |
+|               |               |               | Wo?           | hier          | dort          | hier drin     | da drin        | -             |
+| 16            | ku-           | ku-           | kuti?         | uku           | uko           | kuno          | kuja           | -             |
+| 17            | pa-           | pa-           | pati?         | apa           | apo           | pano          | paja           | -             |
+| 18            | mu-           | mu-           | muti?         | umu           | umo           | muno          | muja           | -             |
+```</pre>
+
 Die Personalprononima sind im Chichewa für Subjekt und Objekt identisch und lauten:
 
 ## Das Nomen > ### Pronomina > #### Personalpronomina > ##### Table 16
@@ -191,7 +257,19 @@ Die Personalprononima sind im Chichewa für Subjekt und Objekt identisch und lau
 
 Es gilt, Erwachsene stets in der zweiten Person Plural anzusprechen. Der Singular gilt im normalen Sprachgebrauch als unhöflich und wird nur gegenüber Kindern oder klar rangniedereren Personen angewandt.
 
+Bei den Relativpronomina hat man zwei Möglichkeiten, wobei letztere etwas stärker betont:
 
+## Das Nomen > ### Pronomina > #### Relativpronomina > ##### Table 17
+
+<pre>```
+| 0                       | 1                     | 2                                    | 3                                                |
+|:------------------------|:----------------------|:-------------------------------------|:-------------------------------------------------|
+| Bildung                 | Ausnahmen             | Deutsch                              | Chichewa                                         |
+| Kennsilbe + mene        | Klasse 1/2 Sg. m’mene | Das, was Du gestern gesagt hast      | Zinthu zi-mene mwa-nena dzulo.                   |
+|                         |                       |                                      | Dinge sie(4)-welche Du-Vgh.-sagen gestern.       |
+| Eigenschaftssilbe + mwe | Klasse 1/2 Sg. yemwe  | Genau die Worte, die Du benutzt hast | Mawu omwe mwa-gwiri-tsa ntchito.                 |
+|                         |                       |                                      | Worte sie(3)-diese Du-Vgh.-halten-machen Arbeit. |
+```</pre>
 
 ## Das Nomen > ### Pronomina > #### Possessivpronomina > ##### Table 18
 
@@ -207,46 +285,6 @@ Es gilt, Erwachsene stets in der zweiten Person Plural anzusprechen. Der Singula
 | euer/Ihr | Besitzsilbe | -nu  |
 | ihr      | Besitzsilbe | -wo  |
 ```</pre>
-
-Bei den Relativpronomina hat man zwei Möglichkeiten, wobei letztere etwas stärker betont:
-
-## Das Nomen > ### Pronomina > #### Relativpronomina > ##### Table 17
-
-<pre>```
-| 0                       | 1                     | 2                                    | 3                                                |
-|:------------------------|:----------------------|:-------------------------------------|:-------------------------------------------------|
-| Bildung                 | Ausnahmen             | Deutsch                              | Chichewa                                         |
-| Kennsilbe + mene        | Klasse 1/2 Sg. m’mene | Das, was Du gestern gesagt hast      | Zinthu zi-mene mwa-nena dzulo.                   |
-|                         |                       |                                      | Dinge sie(4)-welche Du-Vgh.-sagen gestern.       |
-| Eigenschaftssilbe + mwe | Klasse 1/2 Sg. yemwe  | Genau die Worte, die Du benutzt hast | Mawu omwe mwa-gwiri-tsa ntchito.                 |
-|                         |                       |                                      | Worte sie(3)-diese Du-Vgh.-halten-machen Arbeit. |
-```</pre>
-
-Im Chichewa ist der Gebrauch von Demonstrativpronomina sehr differenziert und häufig. So unterscheidet man zwischen vier Arten von Demonstrativpronomina.
-
-## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Table 12
-
-<pre>```
-| 0   | 1                  | 2          | 3                                   | 4                   |
-|:----|:-------------------|:-----------|:------------------------------------|:--------------------|
-|     | Deutsch            | Chichewa   | Bildung                             | Ausnahmen           |
-| I   | Dieser Mensch      | munthu uyu | Kennsilbenvokal + Kennsilbe         | Klasse 1/2 Sg. uyu  |
-| II  | Jener Mensch       | munthu uyo | Kennsilbenvokal + Eigenschaftssilbe | Klasse 1/2. Sg. uyo |
-| III | Dieser Mensch hier | munthu uno | Kennsilbe + no                      | Klasse 1/2 Sg. uno  |
-| IV  | Jener Mensch       | munthu uja | Kennsilbe + ja                      | Klasse 1/2 Sg. uja  |
-```</pre>
-
-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-
-Source 2:
-The relative pronoun améne 'who' and demonstrative améneyo use the same prefixes as a verb:
-
-mwaná améne 'the child who'
-aná améne 'the children who'
-mwaná améneyo 'that child'
-aná aménewo 'those children'
-nyumbá iméneyo 'that house'
-nyumbá ziménezo 'those houses'
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
@@ -341,4 +379,6 @@ OUTPUT RULES:
 - Output ONLY the synthesized schema.
 - Do NOT include explanations, comments, or metadata.
 - Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
 

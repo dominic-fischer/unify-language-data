@@ -156,7 +156,7 @@ INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
 - Rephrase content where necessary, but do NOT add new facts.
 - Merge overlapping information into a single coherent description.
-- Ignore information that is not relevant to the reference schema.
+- Make sure to ignore information that is not relevant to the topic(s) in question: derivation, formation, morphology.
 - Preserve the hierarchy and ordering of the reference schema.
 
 FEATURES AND THEIR VALUES:
@@ -172,6 +172,33 @@ FEATURES AND THEIR VALUES:
 
 SOURCE DATA:
 Source 1:
+Eine weitere – und vielleicht einfachere – Möglichkeit der Bildung von Konditionalsätzen ist die Verwendung von «ngati» (falls). Ein Vorteil ist, dass man dadurch im Präsens und Futur die Negation einfach bilden, indem man das Verb negiert.
+
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Weitere Bildungsmöglichkeit und Verneinung > ####### Table 36
+
+<pre>```
+| 0                                                     | 1                                                     |
+|:------------------------------------------------------|:------------------------------------------------------|
+| Solange ich nicht gehe, bin ich noch da.              | Ngati sindisíya ndilipo.                              |
+| Wenn ich nicht gehen werde, werde ich noch dort sein. | Ngati si-ndi-dza-siya ndi-dza-khala-be uko.           |
+|                                                       | Wenn Nicht-ich-Fut.-verlasse ich-Fut.-sein-noch dort. |
+```</pre>
+
+
+Einzig in der Vergangenheit muss man die Konstruktion modifizieren und die oben beschrieben negativen Konditionale nutzen:
+
+## Das Verb > ### Zeitformen > #### Konditional > ##### Konditionalsätze > ###### Weitere Bildungsmöglichkeit und Verneinung > ####### Table 37
+
+<pre>```
+| 0                                                             | 1                                                                  |
+|:--------------------------------------------------------------|:-------------------------------------------------------------------|
+| Wenn ich nicht gegangen wäre, wäre ich nicht erfreut gewesen. | Ndí-ka-na-pánda kupita, sí-ndí-ka-ná-kondwa.                       |
+|                                                               | Ich-wenn-Vgh.-nicht-haben gehen, nicht-ich-wenn-Vgh.-haben Freude. |
+```</pre>
+
+
+Diese Konstruktion kann man auch für Präsens und Futur nutzen; teils wird ihr aber die einfachere Konstruktion mit «ngati» vorgezogen.
+
 Diminutive und Augmentative werden in vielen Sprachen unterschiedlich gebildet, teils nicht einmal mit diesem Präfixsystem. Speziell ist, dass die Diminutiv- und Augmentativsilben teils an den Stamm, teils an eine bereits bestehende Vorsilbe angehängt werden. Bei der Pluralbildung hat dies zur Folge, dass in gewissen Sprachen der Plural doppelt gebildet wird, also sowohl die Diminutiv-/Augmentativ- als auch die regulären Klassenvorsilben in den Pural gesetzt werden.
 
 Bei den Diminutiven fällt auf, dass Sprachen häufiger eine eigene, zusätzliche, relativ konsistente Klasse nutzen: ka- (Sg.); tu-/ti- (Pl.)
@@ -322,4 +349,6 @@ OUTPUT RULES:
 - Output ONLY the synthesized schema.
 - Do NOT include explanations, comments, or metadata.
 - Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
 

@@ -156,7 +156,7 @@ INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
 - Rephrase content where necessary, but do NOT add new facts.
 - Merge overlapping information into a single coherent description.
-- Ignore information that is not relevant to the reference schema.
+- Make sure to ignore information that is not relevant to the topic(s) in question: noun.
 - Preserve the hierarchy and ordering of the reference schema.
 
 FEATURES AND THEIR VALUES:
@@ -172,7 +172,406 @@ FEATURES AND THEIR VALUES:
 
 SOURCE DATA:
 Source 1:
+In der Linguistik wird jedem einzelnen Klassenpräfix eine Nummer zugewiesen – wir folgen dieser Einteilung. Gedanklich kann man aber durchaus Singular- und Pluralklassen jeweils zusammennehmen (ungerade = Singular, gerade = Plural).
 
+Wir nehmen jedoch der Einfachheit halber Klassen 11 und 14 zusammen – sie funktionieren beide gleich und beinhalten auch ähnliche Wörter, was dieser Vereinfachung rechtfertigt. Klasse 14 ist oft plurallos, nutzt manchmal aber Pluralklasse 6. Klasse 11 nutzt Pluralklasse 10. Im Anhang wird detaillierter darauf eingegangen, wie die Wörter in die Klassen eingeteilt werden und wie diese überhaupt zustande kommen.
+
+Will man ein Nomen in den Plural setzen, so ersetzt die Pluralvorsilbe die des Singulars. Ausnahme hiervon ist die Pluralvorsilbe «ma-», diese wird direkt an den Wortanfang angehängt.
+
+## Das Nomen > ### Nominalklassen > #### Hauptklassen > ##### Table 8
+
+<pre>```
+| 0      | 1                      | 2   | 3      | 4      | 5        |
+|:-------|:-----------------------|:----|:-------|:-------|:---------|
+| 1      | Menschen               | Ez. | m-     | mtu    | Mensch   |
+| 2      |                        | Mz. | wa-    | watu   | Menschen |
+| 3      | Dinge                  | Ez. | m-     | mzizi  | Wurzel   |
+| 4      |                        | Mz. | mi-    | mizizi | Wurzeln  |
+| 5      | Fremdwörter, Abstrakta | Ez. | -      | neno   | Wort     |
+| 6      |                        | Mz. | ma-    | maneno | Worte    |
+| 7      | Menschengemachtes      | Ez. | Ki-    | kitu   | Ding     |
+| 8      |                        | Mz. | vi-    | vitu   | Dinge    |
+| 9      | -                      | Ez. | n- / - | nchi   | Land     |
+| 10     |                        | Mz. | n- / - | nchi   | Länder   |
+| 11+14  | Abstrakta              | Ez. | u-     | ulimi  | Zunge    |
+| (10/6) |                        | Mz. | n-     | ndimi  | Zungen   |
+```</pre>
+
+
+Bem.: Die Klasse 11 beinhaltet vor allem Abstrakta, von denen viele gar keinen Plural bilden können (z.B. ujuzu = Wissen). Daneben beinhaltet sie aber auch Wörter, die Plurale bilden können. Der Anfangsbuchstabe, also u- oder w-, wird durch n- ersetzt. Je nach nachfolgendem Buchstaben muss das Wort aber (aus Aussprachegründen) noch modifiziert werden:
+
+## Das Nomen > ### Nominalklassen > #### Hauptklassen > ##### Table 9
+
+<pre>```
+| 0                                  | 1         | 2       | 3      | 4                |
+|:-----------------------------------|:----------|:--------|:-------|:-----------------|
+| n- vor …                           | wird zu … |         |        |                  |
+| -ch, -d, -g, -j, -z                | n-        | uduvi   | nduvi  | Krevette(n)      |
+| -b, -p, -v                         | m-        | ubao    | mbao   | Seite(n)         |
+| -a, -e, -i, -o, -u                 | ny-       | wimbo   | nyimbo | Lied(er)         |
+| -l,-r                              | nd-       | ulimi   | ndimi  | Zunge(n)         |
+| -f, -h, -k, -m, -n, -s, -t, -w, -y | -         | urafiki | rafiki | Freundschaft(en) |
+```</pre>
+
+
+Wir nennen dies die N-Regel und kürzen sie fortan mit N! ab.
+
+Klasse 15: In Bantusprachen kann man jedes Verb substantivieren, wobei nur eine Singularform existiert, die dem Infinitiv entspricht (Dies ist für Deutschsprachige ganz natürlich: z.B.  gehen -> das Gehen). Daneben gibt es häufig – ebenfalls wie im Deutschen –  weitere vom Verbstamm abgeleitete Nomen.
+
+Ortsklasse: Besteht nur aus einem einzigen Wort: mahali (Platz, Ort). Sie wird demzufolge für Ortsangaben verwendet.
+
+## Das Nomen > ### Nominalklassen > #### Zusatzklassen > ##### Table 10
+
+<pre>```
+| 0   | 1                      | 2   | 3   | 4       | 5                 |
+|:----|:-----------------------|:----|:----|:--------|:------------------|
+| 15  | Substantivierte Verben | -   | ku- | kucheka | Lachen, Gelächter |
+|     | Ortsangaben            | Ez. | -   | mahali  | Platz, Ort        |
+```</pre>
+
+Die Verkleinerungsklasse, ist eigentlich nicht wirklich eine eigene Klasse, wie das in vielen anderen Bantusprachen der Fall ist (Klasse 12/13). Im Swahili fallen Diminutive in die Klasse 7/8 und benutzen regelkonform deren Silben (Präfixe Sg.: ki- und Pl.: vi-). Setzt man Nomen in den Diminutiv, so reicht die diminutive Pluralvorsilbe vi- aus, um den Plural anzuzeigen; das Nomen selbst wird nicht in den Plural gesetzt.
+
+Weiter gibt es einige klassenspezifische Regeln zu beachten:
+
+## Das Nomen > ### Nominalklassen > #### Zusatzklassen > ##### Diminutiv > ###### Table 11
+
+<pre>```
+| 0                                      | 1                                      |
+|:---------------------------------------|:---------------------------------------|
+| Klassen 1/2: Klassenpräfix wird zu ji- | Klassen 1/2: Klassenpräfix wird zu ji- |
+| mji, miji                              | Dorf                                   |
+| ki-ji-ji, vi-ji-ji                     | Dörflein                               |
+```</pre>
+
+
+## Das Nomen > ### Nominalklassen > #### Zusatzklassen > ##### Diminutiv > ###### Table 12
+
+<pre>```
+| 0                                  | 1                                  |
+|:-----------------------------------|:-----------------------------------|
+| Klasse 5/6: Klassenpräfix entfällt | Klasse 5/6: Klassenpräfix entfällt |
+| kombe, makombe                     | Tasse, Pot                         |
+| ki-kombe, vi-kombe                 | Tässlein                           |
+```</pre>
+
+
+## Das Nomen > ### Nominalklassen > #### Zusatzklassen > ##### Diminutiv > ###### Table 13
+
+<pre>```
+| 0                                     | 1                                     |
+|:--------------------------------------|:--------------------------------------|
+| Klasse 7/8: Klassenpräfix wird zu ji- | Klasse 7/8: Klassenpräfix wird zu ji- |
+| kitabu, vitabu                        | Buch, Bücher                          |
+| ki-ji-tabu, vi-ji-tabu                | Büchlein                              |
+```</pre>
+
+
+## Das Nomen > ### Nominalklassen > #### Zusatzklassen > ##### Diminutiv > ###### Table 14
+
+<pre>```
+| 0                                   | 1                                   |
+|:------------------------------------|:------------------------------------|
+| Klasse 9/10: Klassenpräfix entfällt | Klasse 9/10: Klassenpräfix entfällt |
+| ngoma                               | Trommel(n)                          |
+| ki-goma, vi-goma                    | Mini-Trommel(n)                     |
+```</pre>
+
+
+## Das Nomen > ### Nominalklassen > #### Zusatzklassen > ##### Diminutiv > ###### Table 15
+
+<pre>```
+| 0                                    | 1                                    |
+|:-------------------------------------|:-------------------------------------|
+| Klasse 11+14: Klassenpräfix entfällt | Klasse 11+14: Klassenpräfix entfällt |
+| uwanja, nyanja                       | Feld, Gebiet                         |
+| ki-wanja, vi-wanja                   | Spielfeld                            |
+```</pre>
+
+Die Vergrösserungsklasse ist, wie die Verkleinerungsklasse, keine eigene Klasse. Für Augmentative nutzt man die Silben der Klasse 5/6 (Sg.: - und Pl. ma-). Wiederum sind einige – grösstenteils dieselben – Regeln zu beachten:
+
+## Das Nomen > ### Nominalklassen > #### Zusatzklassen > ##### Augmentativ > ###### Table 16
+
+<pre>```
+| 0                                      | 1                                      |
+|:---------------------------------------|:---------------------------------------|
+| Klassen 1/2: Klassenpräfix wird zu ji- | Klassen 1/2: Klassenpräfix wird zu ji- |
+| mtu, watu                              | Mensch(en)                             |
+| ji-tu, ma-ji-tu                        | Riese(n)                               |
+```</pre>
+
+
+## Das Nomen > ### Nominalklassen > #### Zusatzklassen > ##### Augmentativ > ###### Table 17
+
+<pre>```
+| 0                                     | 1                                     |
+|:--------------------------------------|:--------------------------------------|
+| Klasse 5/6: Klassenpräfix wird zu ji- | Klasse 5/6: Klassenpräfix wird zu ji- |
+| kombe, makombe                        | Tasse, Pot                            |
+| ji-kombe, ma-ji-kombe                 | Riesentasse(n)                        |
+```</pre>
+
+
+## Das Nomen > ### Nominalklassen > #### Zusatzklassen > ##### Augmentativ > ###### Table 18
+
+<pre>```
+| 0                                  | 1                                  |
+|:-----------------------------------|:-----------------------------------|
+| Klasse 7/8: Klassenpräfix entfällt | Klasse 7/8: Klassenpräfix entfällt |
+| kikapu, vikapu                     | Korb, Körbe                        |
+| kapu, ma-kapu                      | Riesenkorb, Riesenkörbe            |
+```</pre>
+
+
+## Das Nomen > ### Nominalklassen > #### Zusatzklassen > ##### Augmentativ > ###### Table 19
+
+<pre>```
+| 0                                   | 1                                   |
+|:------------------------------------|:------------------------------------|
+| Klasse 9/10: Klassenpräfix entfällt | Klasse 9/10: Klassenpräfix entfällt |
+| mfuko                               | Sack                                |
+| fuko, ma-fuko                       | Riesensack                          |
+```</pre>
+
+
+## Das Nomen > ### Nominalklassen > #### Zusatzklassen > ##### Augmentativ > ###### Table 20
+
+<pre>```
+| 0                                       | 1                                       |
+|:----------------------------------------|:----------------------------------------|
+| Klasse 11+14: Klassenpräfix wird zu ji- | Klasse 11+14: Klassenpräfix wird zu ji- |
+| uwanja, nyanja                          | Feld, Gebiet                            |
+| ji-wanja, ma-ji-wanja                   | Riesengebiet                            |
+```</pre>
+
+Die Nominalklassen bilden die Basis eines jeden Satzes. Die Meisterung der zugehören Silben ist somit unumgänglich. Auf der nächsten Seite findet sich eine Übersichtsdarstellung aller Silben. Silben(-teile), die von der regulären Bildung abweichen, sind speziell markiert.
+
+## Das Nomen > ### Nominalklassen > #### Silben-Übersichtsdarstellung > ##### Table 21
+
+<pre>```
+| 0             | 1                      | 2             | 3             | 4             | 5             | 6             | 7                | 8             | 9             |
+|:--------------|:-----------------------|:--------------|:--------------|:--------------|:--------------|:--------------|:-----------------|:--------------|:--------------|
+|               |                        |               |               | Adj. I        | Adj. II       | Kennsilbe     | Objektsilbe      | Besitz        | Eigen / Rel   |
+|               |                        |               |               | Kons.         | Vok.          |               |                  |               |               |
+| Hauptklassen  | Hauptklassen           | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen     | Hauptklassen  | Hauptklassen  |
+| 1             | Menschen               | Ez.           | m(u)-         | m-            | mw-           | ni-, u-, a-   | -ni-, -ku-, -m-  | wa-           | ye-           |
+| 2             |                        | Mz.           | wa-           | wa-           | w-            | tu-, m-, wa-  | -tu-, -wa-, -wa- | wa-           | o-            |
+| 3             | Dinge                  | Ez.           | m(u)-         | m-            | mw-           | u-            | u-               | wa-           | wo-           |
+| 4             |                        | Mz.           | mi-           | mi-           | my-           | i-            | i-               | ya-           | yo-           |
+| 5             | Fremdwörter, Abstrakta | Ez.           | -             | -             | j-            | li-           | li-              | la-           | lo-           |
+| 6             |                        | Mz.           | ma-           | ma-           | m-            | ya-           | ya-              | ya-           | yo-           |
+| 7             | Menschen-gemachtes     | Ez.           | Ki-           | ki-           | ch-           | ki-           | ki-              | cha-          | cho-          |
+| 8             |                        | Mz.           | vi-           | vy-           | vy-           | vi-           | vi-              | vya-          | vyo-          |
+| 9             | -                      | Ez.           | n- / -        | N!            | ny-           | i-            | i-               | ya-           | yo-           |
+| 10            |                        | Mz.           | n- / -        | N!            | ny-           | zi-           | zi-              | za-           | zo-           |
+| 11+14         | Abstrakta              | Ez.           | u-            | m-            | mw-           | u-            | u-               | wa-           | (w)o-         |
+| (10/6)        |                        | Mz.           | n-            | N!            | ny-           | zi-           | zi-              | za-           | zo-           |
+| Zusatzklassen | Zusatzklassen          | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen    | Zusatzklassen | Zusatzklassen |
+| 15            | Subst. Inf.            | -             | ku-           | ku-           | kw-           | ku-           | ku-              | pa-           | po-           |
+|               | Ortsang.               | -             | -             | pa-           | p-            | pa-           | pa-              | kwa-          | ko-           |
+```</pre>
+
+
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Table 22
+
+<pre>```
+| 0   | 1           | 2          | 3                               | 4                   |
+|:----|:------------|:-----------|:--------------------------------|:--------------------|
+|     | Deutsch     | Swahili    | Bildung                         | Ausnahmen           |
+| I   | Dieses Kind | mtoto huyu | h – Kennsilbenvokal – Kennsilbe | Klasse 1/2 Sg. huyu |
+| II  | Jenes Kind  | mtoto yule | Kennsilbe – le                  | Klasse 1/2 Sg. yule |
+```</pre>
+
+«mit» + Demonstrativpronomen: Man setze «na» vor die Eigenschaftssilbe (Ausnahme: Klasse 1/2 Sg. naye).
+
+Welche/r/s?: Man nutze die Kennsilbe und hängt ihr ein «-pi» an (Ausnahme: Klasse 1/2 Sg. yupi?).
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung > ###### Table 23
+
+<pre>```
+| 0             | 1             | 2             | 3             | 4             | 5             | 6             | 7             |
+|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|:--------------|
+|               |               | Kennsilbe     | Welches?      | Dieses        | Jenes         | Eigenschaft   | Mit Jenem     |
+| Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  | Hauptklassen  |
+| 1             | m-            | ni-, u-, a-   | yupi?         | huyu          | yule          | ye-           | naye          |
+| 2             | wa-           | tu-, m-, wa-  | wapi?         | hawa          | wale          | o-            | nao           |
+| 3             | m-            | u-            | upi?          | huu           | ule           | wo-           | nawo          |
+| 4             | mi-           | i-            | ipi?          | hii           | ile           | yo-           | nayo          |
+| 5             | -             | li-           | lipi?         | hili          | lile          | lo-           | nalo          |
+| 6             | ma-           | ya-           | yapi?         | hiya          | yale          | yo-           | nayo          |
+| 7             | Ki-           | ki-           | kipi?         | hiki          | kile          | cho-          | nacho         |
+| 8             | vi-           | vi-           | vipi?         | hivi          | vile          | vyo-          | navyo         |
+| 9             | n- / -        | i-            | ipi?          | hii           | ile           | yo-           | nayo          |
+| 10            | n- / -        | zi-           | zipi?         | hizi          | zile          | zo-           | nazo          |
+| 11+14         | u-            | u-            | upi?          | huu           | ule           | (w)o-         | nawo          |
+| (10/6)        | n-            | zi-           | zipi?         | hizi          | zile          | zo-           | nazo          |
+| Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen | Zusatzklassen |
+| 15            | ku-           | ku-           | kupi-         | huku          | kule          | ko-           | nako          |
+```</pre>
+
+
+In der Ortsklasse sind folgende Bedeutungen gebräuchlich:
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung > ###### Table 24
+
+<pre>```
+| 0   | 1   | 2   | 3   | 4    | 5    | 6   | 7   |
+|:----|:----|:----|:----|:-----|:-----|:----|:----|
+|     |     |     | Wo? | hier | dort |     |     |
+```</pre>
+
+
+## Das Nomen > ### Pronomina > #### Demonstrativpronomina > ##### Demonstrativpronomina-Übersichtsdarstellung > ###### Table 25
+
+<pre>```
+| 0   | 1   | 2   | 3     | 4    | 5    | 6   | 7   |
+|:----|:----|:----|:------|:-----|:-----|:----|:----|
+|     | -   | pa- | wapi? | hapa | hapo | po- | -   |
+```</pre>
+
+Die Personalprononima sind im Swahili für Subjekt und Objekt identisch und lauten:
+
+## Das Nomen > ### Pronomina > #### Personalpronomina > ##### Table 26
+
+<pre>```
+| 0         | 1     | 2              | 3     |
+|:----------|:------|:---------------|:------|
+| ich       | mimi  | mit mir        | nami  |
+| Du/Sie    | wewe  | mit Dir        | nawe  |
+| er/sie/es | yeye  | mit ihm/ihr    | naye  |
+|           |       |                |       |
+| wir       | sisi  | mit uns        | nasi  |
+| ihr       | ninyi | mit Euch/Ihnen | nanyi |
+| sie       | wao   | mit ihnen      | nao   |
+```</pre>
+
+Relativkonstruktionen können auf zwei Arten gebildet werden:
+
+amba – Eigenschaftssilbe
+
+## Das Nomen > ### Pronomina > #### Relativpronomina > ##### Table 27
+
+<pre>```
+| 0                                                | 1                                                        |
+|:-------------------------------------------------|:---------------------------------------------------------|
+| Der Mann, den ich gesehen habe, ist weggegangen. | Mwanaume ambaye ni-li-(m)-ona a-me-ondoka.               |
+|                                                  | Mann er(1)-welcher ich-Vgh.-ihn-sehen er-Perf.-weggehen. |
+```</pre>
+
+
+Kennsilbe – li – Eigenschaftssilbe – Verbstamm
+
+## Das Nomen > ### Pronomina > #### Relativpronomina > ##### Table 28
+
+<pre>```
+| 0                                                | 1                                         |
+|:-------------------------------------------------|:------------------------------------------|
+| Der Mann, den ich gesehen habe, ist weggegangen. | Mwanaume ni-li-ye-(m)-ona a-me-ondoka.    |
+|                                                  | Mann ich-Vgh.-ihn-sehen er-Perf.-weggehen |
+```</pre>
+
+
+Beachte: Letztere ist dieselbe Konstruktion wie bei Adjektiven!
+
+Bei ersterer Konstruktion wird normal das Verb negiert. Die Negation der zweiten Konstruktion kann mit folgendem Sprichwort veranschaulicht werden: «-si-» ersetzt «-li-».
+
+## Das Nomen > ### Pronomina > #### Relativpronomina > ##### Table 29
+
+<pre>```
+| 0                                                                | 1                                                         |
+|:-----------------------------------------------------------------|:----------------------------------------------------------|
+| Wie sollen Dich Chillis, die du nicht gegessen hast, verbrennen? | Pilipili u-si-zo-kula za-ku-washia-ni?                    |
+| (Was ich nicht weiss, macht mich nicht heiss.)                   | Chilis du-nicht-von(5)-essen sie(Präs.)-dich-brennen-wie? |
+```</pre>
+
+## Das Nomen > ### Pronomina > #### Possessivpronomina > ##### Table 30
+
+<pre>```
+| 0        | 1                  | 2    |
+|:---------|:-------------------|:-----|
+|          | Vorsilbe           |      |
+| mein     | Besitzsilbe        | -ngu |
+| Dein     | Besitzsilbe        | -ko  |
+| sein/ihr | Besitzsilbe        | -ke  |
+|          |                    |      |
+| unser    | Besitzsilbe auf -e | -tu  |
+| euer/Ihr | Besitzsilbe auf -e | -nu  |
+| ihr      | Besitzsilbe        | -o   |
+```</pre>
+
+Im Swahili werden drei speziell Verben verwendet, um Ortsangaben auszudrücken. Es sind dies:
+
+-ko	irgendwo sein	(unbestimmter Ort)
+
+-po	da sein	(bestimmter Ort)
+
+-mo	drin sein	 (Innenraum)
+
+## Das Nomen > ### Ortsangaben > #### Table 31
+
+<pre>```
+| 0            | 1                            |
+|:-------------|:-----------------------------|
+| Baba yuko?   | Ist der Vater hier irgendwo? |
+| Yupo (hapa). | Er ist hier.                 |
+```</pre>
+
+
+Für die Verneinung wird die Verneinungs-Vorsilbe ha- vorangestellt.
+
+## Das Nomen > ### Ortsangaben > #### Table 32
+
+<pre>```
+| 0            | 1                              |
+|:-------------|:-------------------------------|
+| Baba hayumo. | Der Vater ist nicht hier drin. |
+```</pre>
+
+
+Als Überbleibsel des Bantu-Systems, wo die obigen drei Silben Teil der Ortsklasse sind, gibt es zusätzlich noch kwa und mwa (pa ist kaum mehr gebräuchlich):
+
+## Das Nomen > ### Ortsangaben > #### Table 33
+
+<pre>```
+| 0                  | 1                                        |
+|:-------------------|:-----------------------------------------|
+| nyumbani kwangu    | bei/zu/von meinem Haus                   |
+| chumbani mwa Daudi | in Daudis Zimmer / in … rein / aus… raus |
+```</pre>
+
+Will man Sätze bilden, die im Deutschen lokative Präpositionen (in, an, auf, bei, aus, …) enthalten, so wird an das zugehörige Hauptwort ein -ni angehängt. Bei Eigennamen wird auf diesen Zusatz verzichtet.
+
+## Das Nomen > ### Ortsangaben > #### Präposition > ##### Table 34
+
+<pre>```
+| 0                          | 1                               |
+|:---------------------------|:--------------------------------|
+| Wapo barabarani.           | Sie sind auf der Strasse.       |
+| Watoto wanakwenda shuleni. | Die Kinder gehen in die Schule. |
+```</pre>
+
+Unpersönliches (und unbetontes) Sein wird im Präsens mit «ndi» und «si» gebildet.
+
+## Das Verb > ### Sein > #### Unpersönliches Sein > ##### Mit Nomen > ###### Table 77
+
+<pre>```
+| 0                         | 1             |
+|:--------------------------|:--------------|
+| Es ist ein kleiner Baum.  | Ni mti mdogo. |
+| Es ist kein kleiner Baum. | Si mti mdogo. |
+```</pre>
+
+
+In den anderen Zeiten nutzt man ganz normal die Kennsilbe des Nomens.
+
+## Das Verb > ### Sein > #### Unpersönliches Sein > ##### Mit Nomen > ###### Table 78
+
+<pre>```
+| 0                         | 1                  |
+|:--------------------------|:-------------------|
+| Es war ein kleiner Baum.  | Ulikuwa mit mdogo. |
+| Es war kein kleiner Baum. | Hukuwa mit mdogo.  |
+```</pre>
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
@@ -461,4 +860,6 @@ OUTPUT RULES:
 - Output ONLY the synthesized schema.
 - Do NOT include explanations, comments, or metadata.
 - Use the same formatting style as the example.
+- Do not take content from the example; it is only to illustrate the format.
+
 
