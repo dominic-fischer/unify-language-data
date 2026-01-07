@@ -1,0 +1,29 @@
+{
+  "language_file": "Italian.jsonl.gz",
+  "language": "Italian",
+  "pos_counts": {
+    "verb": 399697,
+    "noun": 118959,
+    "adj": 74493,
+    "name": 16417,
+    "adv": 5167,
+    "prep_phrase": 606,
+    "suffix": 575,
+    "prefix": 553,
+    "intj": 446,
+    "pron": 321,
+    "conj": 231,
+    "phrase": 216,
+    "num": 180,
+    "prep": 167,
+    "proverb": 161,
+    "det": 158,
+    "contraction": 95,
+    "character": 63,
+    "article": 19,
+    "symbol": 5,
+    "particle": 3,
+    "punct": 2,
+    "interfix": 1
+  }
+}

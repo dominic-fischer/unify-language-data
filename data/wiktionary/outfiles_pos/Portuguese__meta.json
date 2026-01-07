@@ -1,0 +1,30 @@
+{
+  "language_file": "Portuguese.jsonl.gz",
+  "language": "Portuguese",
+  "pos_counts": {
+    "verb": 284077,
+    "noun": 65657,
+    "adj": 37810,
+    "name": 10110,
+    "adv": 2529,
+    "intj": 703,
+    "suffix": 456,
+    "phrase": 372,
+    "proverb": 282,
+    "pron": 276,
+    "prefix": 256,
+    "contraction": 226,
+    "prep": 158,
+    "conj": 112,
+    "num": 111,
+    "det": 97,
+    "character": 75,
+    "prep_phrase": 18,
+    "article": 15,
+    "interfix": 5,
+    "particle": 4,
+    "punct": 3,
+    "symbol": 3,
+    "infix": 1
+  }
+}

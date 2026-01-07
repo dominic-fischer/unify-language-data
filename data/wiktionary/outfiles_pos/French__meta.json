@@ -1,0 +1,31 @@
+{
+  "language_file": "French.jsonl.gz",
+  "language": "French",
+  "pos_counts": {
+    "verb": 245492,
+    "noun": 88034,
+    "adj": 45837,
+    "name": 9137,
+    "adv": 4513,
+    "intj": 712,
+    "phrase": 576,
+    "suffix": 376,
+    "prefix": 346,
+    "prep": 312,
+    "proverb": 299,
+    "pron": 243,
+    "prep_phrase": 229,
+    "num": 206,
+    "contraction": 159,
+    "conj": 158,
+    "character": 100,
+    "det": 83,
+    "symbol": 64,
+    "punct": 21,
+    "article": 17,
+    "particle": 10,
+    "interfix": 6,
+    "infix": 2,
+    "postp": 2
+  }
+}

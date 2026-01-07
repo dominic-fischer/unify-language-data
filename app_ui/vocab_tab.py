@@ -10,8 +10,9 @@ from app_data.vocab import (
     align_meanings_two_langs,
     get_category_options_for_langs_and_pos,
     get_pos_options_for_langs,
-    load_vocab_entries_filtered_from_lang_files,
+    load_vocab_entries_filtered,
     resolve_lang_files,
+    resolve_lang_pos_files,
     vocab_record_meanings,
 )
 from app_ui.common import non_empty_columns
@@ -61,20 +62,20 @@ def render_vocab_tab() -> None:
     # Sidebar: languages first
     # ----------------------------
     st.sidebar.header("Vocab selection")
-
     v_langs = st.sidebar.multiselect("Languages", options=LANGS, default=[], key="v_langs")
+
     if not v_langs:
         st.info("Select at least one language in the sidebar.")
         st.stop()
 
-    files = resolve_lang_files(tuple(v_langs))
-    if not files:
-        st.warning("No vocab files matched the selected languages.")
+    # Ensure there are source files for these languages
+    src_files = resolve_lang_files(tuple(v_langs))
+    if not src_files:
+        st.warning("No vocab source files matched the selected languages.")
         st.stop()
 
     # POS options:
-    # B) If exactly 2 languages: show INTERSECTION of POS.
-    # Else: union.
+    # If 2 languages: intersection. Else: union.
     pos_options = get_pos_options_for_langs(tuple(v_langs))
 
     with st.sidebar:
@@ -83,8 +84,8 @@ def render_vocab_tab() -> None:
         v_pos_val = st.selectbox("POS (optional)", options=[""] + pos_options, index=0, key="v_pos") or None
 
         # Categories depend on POS:
-        # A) If POS selected, categories only from that POS.
-        # B) If exactly 2 languages: categories are INTERSECTION within that POS.
+        # A) POS-scoped categories only
+        # B) if 2 languages: intersection within POS
         cat_options = get_category_options_for_langs_and_pos(tuple(v_langs), v_pos_val)
 
         v_cat_val = st.selectbox(
@@ -92,7 +93,7 @@ def render_vocab_tab() -> None:
             options=[""] + cat_options,
             index=0,
             key="v_cat",
-            disabled=(v_pos_val is None),  # encourage correct flow
+            disabled=(v_pos_val is None),
             help="Choose a POS first to see categories available within that POS.",
         ) or None
 
@@ -104,7 +105,7 @@ def render_vocab_tab() -> None:
     if vocab_mode == "Browse":
         word_q = st.text_input("Search word (substring; optional)", value="", key="v_word_q")
 
-        df = load_vocab_entries_filtered_from_lang_files(
+        df = load_vocab_entries_filtered(
             langs=tuple(v_langs),
             pos=v_pos_val,
             cat=v_cat_val,
@@ -123,9 +124,12 @@ def render_vocab_tab() -> None:
         v_hidden = {"details_json"}
         cols = [c for c in non_empty_columns(df) if c not in v_hidden]
 
+        # Show which files got scanned (pos-shards if pos selected and available)
+        scanned_files = resolve_lang_pos_files(tuple(v_langs), v_pos_val)
+
         st.caption(
             f"{len(df):,} entries loaded "
-            f"(scanned only: {', '.join([f.name for f in files])})."
+            f"(scanned: {', '.join([f.name for f in scanned_files])})."
         )
 
         event = st.dataframe(
@@ -158,17 +162,19 @@ def render_vocab_tab() -> None:
         lang1, lang2 = v_langs[0], v_langs[1]
 
         word_q = st.text_input("Optional: restrict words (substring)", value="", key="v_compare_word_q").strip()
-        threshold = st.slider("Meaning overlap threshold", 0.10, 0.90, 0.35, 0.05, key="v_compare_thresh")
-        scan_limit_each = st.slider("Scan limit per language", 50, 3000, 600, 50, key="v_compare_scan_each")
+        threshold = st.slider("Meaning overlap threshold", 0.10, 0.9, 0.35, 0.05, key="v_compare_thresh")
 
-        df1 = load_vocab_entries_filtered_from_lang_files(
+        # With split files, this can be much higher without pain
+        scan_limit_each = st.slider("Scan limit per language", 50, 10000, 1000, 500, key="v_compare_scan_each")
+
+        df1 = load_vocab_entries_filtered(
             langs=(lang1,),
             pos=v_pos_val,
             cat=v_cat_val,
             word_query=word_q if word_q else None,
             limit_rows=scan_limit_each,
         )
-        df2 = load_vocab_entries_filtered_from_lang_files(
+        df2 = load_vocab_entries_filtered(
             langs=(lang2,),
             pos=v_pos_val,
             cat=v_cat_val,
@@ -207,6 +213,10 @@ def render_vocab_tab() -> None:
 
         aligned = align_meanings_two_langs(rows1, rows2, threshold=threshold)
         df_align = pd.DataFrame(aligned)
+        only_matches = st.checkbox("Only show matched meanings", value=True, key="v_only_matches")
+        if only_matches:
+            df_align = df_align[df_align["_sim"] >= threshold].copy()
+
 
         df_out = (
             df_align.groupby("meaning", as_index=False)

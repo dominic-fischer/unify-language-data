@@ -1,0 +1,15 @@
+{
+  "language_file": "Shona.jsonl.gz",
+  "language": "Shona",
+  "pos_counts": {
+    "noun": 346,
+    "verb": 42,
+    "adj": 29,
+    "character": 19,
+    "name": 15,
+    "prefix": 7,
+    "adv": 3,
+    "pron": 2,
+    "intj": 1
+  }
+}

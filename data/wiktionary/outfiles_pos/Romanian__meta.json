@@ -1,0 +1,28 @@
+{
+  "language_file": "Romanian.jsonl.gz",
+  "language": "Romanian",
+  "pos_counts": {
+    "noun": 68767,
+    "name": 21165,
+    "adj": 19377,
+    "verb": 13608,
+    "adv": 1321,
+    "intj": 426,
+    "contraction": 231,
+    "pron": 195,
+    "suffix": 173,
+    "num": 140,
+    "character": 132,
+    "det": 126,
+    "phrase": 78,
+    "proverb": 61,
+    "prep": 57,
+    "conj": 54,
+    "prefix": 48,
+    "prep_phrase": 39,
+    "article": 19,
+    "particle": 3,
+    "interfix": 1,
+    "postp": 1
+  }
+}

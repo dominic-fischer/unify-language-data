@@ -1,0 +1,21 @@
+{
+  "language_file": "Zulu.jsonl.gz",
+  "language": "Zulu",
+  "pos_counts": {
+    "noun": 1925,
+    "verb": 878,
+    "prefix": 149,
+    "pron": 77,
+    "conj": 65,
+    "character": 57,
+    "adv": 45,
+    "adj": 32,
+    "intj": 30,
+    "suffix": 16,
+    "phrase": 15,
+    "name": 13,
+    "particle": 3,
+    "prep": 2,
+    "det": 1
+  }
+}

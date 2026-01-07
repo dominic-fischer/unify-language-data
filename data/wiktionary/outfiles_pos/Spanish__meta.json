@@ -1,0 +1,30 @@
+{
+  "language_file": "Spanish.jsonl.gz",
+  "language": "Spanish",
+  "pos_counts": {
+    "verb": 576407,
+    "noun": 125410,
+    "adj": 73139,
+    "name": 8160,
+    "adv": 4774,
+    "suffix": 838,
+    "phrase": 709,
+    "intj": 539,
+    "prefix": 289,
+    "pron": 246,
+    "prep": 243,
+    "num": 234,
+    "proverb": 230,
+    "det": 136,
+    "conj": 129,
+    "character": 74,
+    "contraction": 46,
+    "prep_phrase": 19,
+    "article": 15,
+    "particle": 10,
+    "symbol": 8,
+    "punct": 6,
+    "infix": 1,
+    "interfix": 1
+  }
+}

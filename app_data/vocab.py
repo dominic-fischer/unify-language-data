@@ -12,8 +12,12 @@ import streamlit as st
 from config import VOCAB_DIR, VOCAB_SUPPORTED
 from app_data.files import iter_files
 
+# If you created: data/wiktionary/outfiles_pos/
+# and VOCAB_DIR is: data/wiktionary/outfiles/
+VOCAB_POS_DIR = VOCAB_DIR.parent / "outfiles_pos"
+
 # ----------------------------
-# Vocab: streaming JSONL/JSONL.GZ
+# JSONL readers
 # ----------------------------
 
 
@@ -35,6 +39,11 @@ def iter_jsonl_records(path: Path) -> Iterable[dict]:
                 continue
             if isinstance(obj, dict):
                 yield obj
+
+
+# ----------------------------
+# Record helpers
+# ----------------------------
 
 
 def vocab_record_categories(entry: dict) -> List[str]:
@@ -115,13 +124,25 @@ def vocab_record_meanings(entry: dict, max_glosses: int = 1) -> list[str]:
 
 
 # ----------------------------
-# Language -> file mapping (per-language files)
+# Language <-> file mapping (per-language source files)
 # ----------------------------
+
 
 def _normalize_lang_key(s: str) -> str:
     s = (s or "").strip().lower()
     s = re.sub(r"[^a-z]+", "", s)
     return s
+
+
+def _safe_name(s: str) -> str:
+    s = (s or "").strip()
+    s = s.replace("/", "_").replace("\\", "_").replace(" ", "_")
+    return "".join(ch for ch in s if ch.isalnum() or ch in {"_", "-"})
+
+
+def _pos_key(pos: str) -> str:
+    # Must match your splitter's POS sanitization (close enough for POS labels)
+    return _safe_name(pos)
 
 
 # UI uses "chewa" but file is "Chichewa.jsonl.gz"
@@ -134,7 +155,7 @@ LANG_ALIASES = {
 def list_language_files() -> Dict[str, Path]:
     """
     Build mapping from normalized language name -> file path,
-    using filename stem. Example: 'french' -> VOCAB_DIR/French.jsonl.gz
+    using filename stem (e.g., French.jsonl.gz -> 'french').
     """
     files = iter_files(VOCAB_DIR, recursive=False, exts=VOCAB_SUPPORTED)
     m: Dict[str, Path] = {}
@@ -153,7 +174,7 @@ def list_language_files() -> Dict[str, Path]:
 
 
 def resolve_lang_files(langs: Tuple[str, ...]) -> List[Path]:
-    """Resolve user-selected languages to actual per-language files."""
+    """Resolve user-selected languages to original per-language files."""
     m = list_language_files()
     out: List[Path] = []
     for lang in langs:
@@ -165,158 +186,215 @@ def resolve_lang_files(langs: Tuple[str, ...]) -> List[Path]:
     return out
 
 
+def _lang_safe_from_source_file(source_fp: Path) -> str:
+    """
+    Your POS split uses the language filename stem (e.g., 'French') turned into safe_name.
+    """
+    name = source_fp.name
+    if name.lower().endswith(".jsonl.gz"):
+        stem = name[: -len(".jsonl.gz")]
+    elif name.lower().endswith(".jsonl"):
+        stem = name[: -len(".jsonl")]
+    else:
+        stem = name
+    return _safe_name(stem)
+
+
+def resolve_lang_pos_files(langs: Tuple[str, ...], pos: str | None) -> List[Path]:
+    """
+    Prefer POS-split .jsonl files if:
+      - pos is given
+      - the split file exists for EVERY selected language
+    Otherwise fall back to original per-language files.
+    """
+    if not pos:
+        return resolve_lang_files(langs)
+
+    if not VOCAB_POS_DIR.exists():
+        return resolve_lang_files(langs)
+
+    pk = _pos_key(pos)
+    src_map = list_language_files()
+
+    out: List[Path] = []
+    for lang in langs:
+        lk = _normalize_lang_key(lang)
+        lk = LANG_ALIASES.get(lk, lk)
+        src = src_map.get(lk)
+        if src is None:
+            return resolve_lang_files(langs)
+
+        lang_safe = _lang_safe_from_source_file(src)
+        split_fp = VOCAB_POS_DIR / f"{lang_safe}__{pk}.jsonl"
+        if not split_fp.exists():
+            return resolve_lang_files(langs)
+        out.append(split_fp)
+
+    return out
+
+
 # ----------------------------
-# POS + Category options (scanned per language file, cached)
+# POS + category options (fast with split files)
 # ----------------------------
 
 @st.cache_data(show_spinner=True)
-def scan_pos_to_categories_for_file(
-    file_path: str,
-    max_records: int = 80_000,
-    max_unique_categories_total: int = 6000,
-    max_unique_categories_per_pos: int = 2500,
-) -> Tuple[List[str], Dict[str, List[str]]]:
+def list_pos_keys_for_language(lang: str) -> List[str]:
     """
-    Scan one language file and return:
-      - list of POS present
-      - mapping POS -> list of categories present in that POS
+    Discover POS keys for one language by looking at split files:
+      <LangSafe>__<POS>.jsonl
 
-    The caps keep this fast and prevent runaway memory.
+    Returns POS keys (already sanitized), sorted.
+    Falls back to scanning original file if split dir missing.
     """
-    fp = Path(file_path)
+    if VOCAB_POS_DIR.exists():
+        src_map = list_language_files()
+        lk = _normalize_lang_key(lang)
+        lk = LANG_ALIASES.get(lk, lk)
+        src = src_map.get(lk)
+        if src is None:
+            return []
+        lang_safe = _lang_safe_from_source_file(src)
 
+        keys: List[str] = []
+        for fp in VOCAB_POS_DIR.glob(f"{lang_safe}__*.jsonl"):
+            # extract pos_key from filename
+            # e.g. French__Adjective.jsonl -> Adjective
+            name = fp.name
+            prefix = f"{lang_safe}__"
+            if not name.startswith(prefix):
+                continue
+            pos_part = name[len(prefix) :]
+            if pos_part.lower().endswith(".jsonl"):
+                pos_part = pos_part[: -len(".jsonl")]
+            if pos_part:
+                keys.append(pos_part)
+        return sorted(set(keys))
+
+    # Fallback: scan the source file (slower)
+    files = resolve_lang_files((lang,))
+    if not files:
+        return []
     pos_set: set[str] = set()
-    pos_to_cats: Dict[str, set[str]] = {}
+    for e in iter_jsonl_records(files[0]):
+        pos = e.get("pos")
+        if isinstance(pos, str) and pos.strip():
+            pos_set.add(_pos_key(pos))
+    return sorted(pos_set)
 
-    # track category counts to cap per POS and overall
-    total_cats: set[str] = set()
 
+@st.cache_data(show_spinner=True)
+def scan_categories_for_lang_and_pos(
+    lang: str,
+    pos: str,
+    max_records: int = 200_000,
+    max_unique: int = 5000,
+) -> List[str]:
+    """
+    Get categories present for (language, pos).
+
+    Prefer split file <LangSafe>__<POS>.jsonl, which is fast.
+    Fallback: scan original file and filter by pos (slower).
+    """
+    cats: set[str] = set()
+    pk = _pos_key(pos)
+
+    # prefer split file
+    if VOCAB_POS_DIR.exists():
+        src_map = list_language_files()
+        lk = _normalize_lang_key(lang)
+        lk = LANG_ALIASES.get(lk, lk)
+        src = src_map.get(lk)
+        if src is not None:
+            lang_safe = _lang_safe_from_source_file(src)
+            split_fp = VOCAB_POS_DIR / f"{lang_safe}__{pk}.jsonl"
+            if split_fp.exists():
+                n = 0
+                for e in iter_jsonl_records(split_fp):
+                    n += 1
+                    if n > max_records:
+                        break
+                    for c in vocab_record_categories(e):
+                        if c:
+                            cats.add(c)
+                            if len(cats) >= max_unique:
+                                break
+                    if len(cats) >= max_unique:
+                        break
+                return sorted(cats)
+
+    # fallback: scan original & filter pos
+    files = resolve_lang_files((lang,))
+    if not files:
+        return []
     n = 0
-    for e in iter_jsonl_records(fp):
+    for e in iter_jsonl_records(files[0]):
         n += 1
         if n > max_records:
             break
-
-        pos = e.get("pos")
-        if isinstance(pos, str) and pos:
-            pos_set.add(pos)
-        else:
-            continue  # categories are POS-scoped for our UI, skip unknown POS
-
-        if len(total_cats) >= max_unique_categories_total:
+        if e.get("pos") != pos:
             continue
-
-        cats = vocab_record_categories(e)
-        if not cats:
-            continue
-
-        bucket = pos_to_cats.setdefault(pos, set())
-        if len(bucket) >= max_unique_categories_per_pos:
-            continue
-
-        for c in cats:
-            if not isinstance(c, str) or not c:
-                continue
-            if len(total_cats) >= max_unique_categories_total:
-                break
-            if len(bucket) >= max_unique_categories_per_pos:
-                break
-            bucket.add(c)
-            total_cats.add(c)
-
-    pos_list = sorted(pos_set)
-    pos_to_cat_list = {p: sorted(cs) for p, cs in pos_to_cats.items()}
-    return pos_list, pos_to_cat_list
-
-
-def _combine_pos_lists(pos_lists: List[List[str]], intersect: bool) -> List[str]:
-    sets = [set(xs) for xs in pos_lists if xs]
-    if not sets:
-        return []
-    return sorted(set.intersection(*sets) if intersect else set.union(*sets))
-
-
-def _combine_category_maps(
-    maps: List[Dict[str, List[str]]],
-    pos_filter: str | None,
-    intersect: bool,
-) -> List[str]:
-    """
-    Combine categories for a given POS across languages.
-    - If pos_filter is None: return [] (UI should prompt user to choose POS first
-      if they want POS-scoped categories).
-    - If intersect=True: only categories present in ALL languages for that POS.
-    """
-    if not pos_filter:
-        return []
-
-    cat_sets: List[set[str]] = []
-    for m in maps:
-        cats = m.get(pos_filter) or []
-        cat_sets.append(set(cats))
-
-    if not cat_sets:
-        return []
-
-    if intersect:
-        out = set.intersection(*cat_sets) if all(cat_sets) else set()
-    else:
-        out = set.union(*cat_sets)
-
-    return sorted(out)
+        for c in vocab_record_categories(e):
+            if c:
+                cats.add(c)
+                if len(cats) >= max_unique:
+                    break
+        if len(cats) >= max_unique:
+            break
+    return sorted(cats)
 
 
 @st.cache_data(show_spinner=True)
 def get_pos_options_for_langs(langs: Tuple[str, ...]) -> List[str]:
     """
     POS options for selected languages.
-    If exactly 2 languages: intersection of POS sets.
-    Else: union.
+    - If exactly 2 languages: intersection of POS keys
+    - Else: union
     """
-    files = resolve_lang_files(langs)
-    if not files:
+    pos_sets: List[set[str]] = []
+    for lang in langs:
+        pos_sets.append(set(list_pos_keys_for_language(lang)))
+
+    if not pos_sets:
         return []
 
-    pos_lists: List[List[str]] = []
-    for fp in files:
-        pos_list, _ = scan_pos_to_categories_for_file(str(fp))
-        pos_lists.append(pos_list)
-
-    intersect = len(files) == 2
-    return _combine_pos_lists(pos_lists, intersect=intersect)
+    if len(langs) == 2:
+        out = set.intersection(*pos_sets) if all(pos_sets) else set()
+    else:
+        out = set.union(*pos_sets)
+    return sorted(out)
 
 
 @st.cache_data(show_spinner=True)
 def get_category_options_for_langs_and_pos(langs: Tuple[str, ...], pos: str | None) -> List[str]:
     """
-    Category options are POS-scoped:
-      A) If a POS is selected, show only categories present in that POS.
-      B) If exactly 2 languages, show the INTERSECTION of categories in that POS.
-         (i.e., only categories present in both languages for that POS)
-      Else: union.
+    Categories depend on POS:
+      A) If POS selected, categories are only those present in that POS
+      B) If exactly 2 languages, categories are intersection across the two languages (within that POS)
+         else union.
     """
     if not pos:
         return []
 
-    files = resolve_lang_files(langs)
-    if not files:
+    cat_sets: List[set[str]] = []
+    for lang in langs:
+        cat_sets.append(set(scan_categories_for_lang_and_pos(lang, pos)))
+
+    if not cat_sets:
         return []
 
-    maps: List[Dict[str, List[str]]] = []
-    for fp in files:
-        _, pos_to_cats = scan_pos_to_categories_for_file(str(fp))
-        maps.append(pos_to_cats)
-
-    intersect = len(files) == 2
-    return _combine_category_maps(maps, pos_filter=pos, intersect=intersect)
+    if len(langs) == 2:
+        out = set.intersection(*cat_sets) if all(cat_sets) else set()
+    else:
+        out = set.union(*cat_sets)
+    return sorted(out)
 
 
 # ----------------------------
-# User-driven loading: scan only selected language files, stop early at limit
+# Loading entries (fast with split files)
 # ----------------------------
 
 @st.cache_data(show_spinner=True)
-def load_vocab_entries_filtered_from_lang_files(
+def load_vocab_entries_filtered(
     langs: Tuple[str, ...],
     pos: str | None,
     cat: str | None,
@@ -324,17 +402,27 @@ def load_vocab_entries_filtered_from_lang_files(
     limit_rows: int,
 ) -> pd.DataFrame:
     """
-    Scan ONLY the per-language files for langs, collect matching rows, stop at limit_rows.
+    Load matching entries for selected languages.
+    - If pos is set AND split files exist for all langs: scan only those small .jsonl files (fast)
+    - Else: scan original per-language files (could be slower)
+    Stops at limit_rows.
     """
-    files = resolve_lang_files(langs)
+    files = resolve_lang_pos_files(langs, pos)
     q = (word_query or "").strip().lower()
 
     rows: List[dict] = []
 
     for fp in files:
         for e in iter_jsonl_records(fp):
-            if pos and e.get("pos") != pos:
-                continue
+            # If we are using split files, pos filter is implicitly satisfied.
+            if pos and fp.name.lower().endswith(".jsonl.gz"):
+                # fallback case (not split): need to filter pos
+                if e.get("pos") != pos:
+                    continue
+            elif pos and not fp.name.lower().endswith(".jsonl.gz"):
+                # split file: no need to check pos
+                pass
+
             if cat:
                 cats = vocab_record_categories(e)
                 if cat not in cats:

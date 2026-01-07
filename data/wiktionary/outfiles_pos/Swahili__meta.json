@@ -1,0 +1,27 @@
+{
+  "language_file": "Swahili.jsonl.gz",
+  "language": "Swahili",
+  "pos_counts": {
+    "noun": 10218,
+    "verb": 6029,
+    "adj": 819,
+    "name": 709,
+    "adv": 215,
+    "num": 145,
+    "intj": 132,
+    "prefix": 101,
+    "suffix": 61,
+    "infix": 52,
+    "prep": 34,
+    "conj": 30,
+    "particle": 30,
+    "phrase": 30,
+    "proverb": 26,
+    "pron": 24,
+    "prep_phrase": 15,
+    "det": 5,
+    "symbol": 3,
+    "interfix": 2,
+    "character": 1
+  }
+}

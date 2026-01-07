@@ -1,0 +1,24 @@
+{
+  "language_file": "Chichewa.jsonl.gz",
+  "language": "Chichewa",
+  "pos_counts": {
+    "noun": 788,
+    "verb": 208,
+    "name": 195,
+    "prefix": 22,
+    "infix": 10,
+    "pron": 10,
+    "adv": 8,
+    "particle": 6,
+    "conj": 5,
+    "num": 5,
+    "phrase": 5,
+    "adj": 3,
+    "intj": 3,
+    "character": 2,
+    "prep": 2,
+    "suffix": 2,
+    "det": 1,
+    "proverb": 1
+  }
+}
