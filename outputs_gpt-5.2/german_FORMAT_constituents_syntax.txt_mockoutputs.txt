@@ -1,0 +1,45 @@
+Constituents:
+  Features:
+    x-Constituent: [x-NP, x-VP, x-AP, x-PP, x-AdvP, x-CP]
+
+  Rules:
+    x-Constituent_x-NP:
+      applies: {x-Constituent: x-NP}
+      pattern: "[Determiner] [AdjectivePhrase] Noun [PrepositionalPhrase] [RelativeClause] [PossessivePronoun]"
+      examples:
+        - "der große Hund"
+      note: "Determiner obligatory in singular count nouns, unless proper noun or bare plural"
+
+    x-Constituent_x-VP:
+      applies: {x-Constituent: x-VP}
+      pattern: "[Auxiliary] Verb [Object (NP/CP)] [AdverbPhrase] [PrepositionalPhrase] [SubordinateClause (CP)]"
+      examples:
+        - "hat den Hund gesehen"
+      note: "verb-second in main clauses, verb-final in subordinates"
+
+    x-Constituent_x-AP:
+      applies: {x-Constituent: x-AP}
+      pattern: "[DegreeMarker] Adjective [Complement (PP/CP)]"
+      examples:
+        - "sehr schön"
+      note: "adjective inflects for case/number/gender of NP"
+
+    x-Constituent_x-PP:
+      applies: {x-Constituent: x-PP}
+      pattern: "Preposition + NP [AdverbPhrase]"
+      examples:
+        - "mit dem Hund"
+      note: "preposition governs case (acc/dat/gen)"
+
+    x-Constituent_x-AdvP:
+      applies: {x-Constituent: x-AdvP}
+      pattern: "[DegreeMarker] Adverb"
+      examples:
+        - "sehr schnell"
+
+    x-Constituent_x-CP:
+      applies: {x-Constituent: x-CP}
+      pattern: "[Complementizer] Subject (NP) [Adverbials] VP"
+      examples:
+        - "dass er den Hund sieht"
+      note: "subordinate clauses require verb-final order"

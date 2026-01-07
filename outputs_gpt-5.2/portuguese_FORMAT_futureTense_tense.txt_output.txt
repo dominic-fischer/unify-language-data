@@ -1,4 +1,4 @@
-PortugueseFuture:
+Future:
   Features:
     u-Tense: [u-fut]
     u-Aspect:

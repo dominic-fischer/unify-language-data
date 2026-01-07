@@ -1,4 +1,4 @@
-ZuluFuture:
+Future:
   Features:
     zu-Future-type: [zu-immediate, zu-distant]
     zu-Verb-type: [zu-copula-ukuba]

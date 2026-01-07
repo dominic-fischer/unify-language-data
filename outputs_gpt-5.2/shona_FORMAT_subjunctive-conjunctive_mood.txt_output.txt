@@ -1,4 +1,4 @@
-ShonaSubjunctive:
+Subjunctive:
   Features:
     u-Mood:
     - u-sbjv

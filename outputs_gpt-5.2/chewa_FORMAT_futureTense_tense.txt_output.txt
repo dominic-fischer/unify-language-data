@@ -1,4 +1,4 @@
-ChewaFuture:
+Future:
   Features:
     u-Tense: [u-fut]
     u-Aspect: [u-hab, u-prog, u-ipfv]

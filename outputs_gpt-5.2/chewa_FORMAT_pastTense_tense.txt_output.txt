@@ -1,4 +1,4 @@
-ChewaPast:
+Past:
   Features:
     ny-Tense-type:
     - ny-past-remote-continuous

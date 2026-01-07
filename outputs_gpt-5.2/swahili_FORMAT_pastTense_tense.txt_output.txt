@@ -1,4 +1,4 @@
-Swahili:
+Past:
   Features:
     sw-TAM:
     - sw-past

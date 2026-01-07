@@ -1,4 +1,4 @@
-FrenchInterrogativeFormation:
+DerivationalMorphology:
   Features:
     x-Clausetype:
     - x-int-yes-no

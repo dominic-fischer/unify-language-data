@@ -1,4 +1,4 @@
-DerivationFormationMorphology:
+DerivationalMorphology:
   Features:
     u-Part-of-Speech:
     - u-n

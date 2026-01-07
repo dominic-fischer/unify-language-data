@@ -6,6 +6,10 @@ from io import StringIO
 from pathlib import Path
 from ruamel.yaml import YAML
 
+# schema_first_lines.json is a normal json in the same directory
+SCHEMA_FIRST_LINES = json.loads(Path("testing_validation/schema_first_lines.json").read_text(encoding="utf-8"))
+
+
 # File suffixes that require negation handling
 NEGATION_FILES = [
     "past.txt",
@@ -36,6 +40,16 @@ yaml.width = 1000  # prevent line wrapping
 # We'll still do our own merging, but this prevents ruamel from hard-failing
 # if something slips through.
 yaml.allow_duplicate_keys = True
+
+def get_first_content_line(text: str) -> tuple[int, str] | None:
+    """
+    Returns (line_index, line_text) of the first non-empty, non-comment line.
+    """
+    for i, line in enumerate(text.splitlines()):
+        stripped = line.strip()
+        if stripped and not stripped.startswith("#"):
+            return i, stripped
+    return None
 
 
 def make_rule_name(applies: dict) -> str:
@@ -203,6 +217,31 @@ def validate_file(path: Path, fix: bool = False) -> list[str]:
 
     errors = []
     modified = False
+
+        # --- 0) First-line schema check
+    # remove whats before the first _ and after the last _
+    mod_path = path.name.split("_", 1)[-1].rsplit("_", 1)[0]
+    expected_first = SCHEMA_FIRST_LINES.get(mod_path)
+    if expected_first:
+        text = path.read_text(encoding="utf-8")
+        first = get_first_content_line(text)
+
+        if first is None:
+            errors.append(
+                f"[{path.name}] File is empty; expected first line '{expected_first}'"
+            )
+        else:
+            idx, actual = first
+            if actual != expected_first:
+                if fix:
+                    lines = text.splitlines(True)
+                    lines[idx] = expected_first + "\n"
+                    path.write_text("".join(lines), encoding="utf-8")
+                else:
+                    errors.append(
+                        f"[{path.name}] First line mismatch: "
+                        f"expected '{expected_first}', got '{actual}'"
+                    )
 
     for category, cat_obj in data.items():
         rules = cat_obj.get("Rules", {})

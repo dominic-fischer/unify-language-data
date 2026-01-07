@@ -1,4 +1,4 @@
-Syntax:
+Constituents:
   Features:
     x-Clausetype:
     - x-main

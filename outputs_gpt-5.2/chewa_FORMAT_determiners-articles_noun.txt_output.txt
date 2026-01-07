@@ -1,4 +1,4 @@
-Noun:
+Determiner:
   Features:
     u-Gender: [u-bantu1-23]
     u-Number: [u-sg, u-pl]

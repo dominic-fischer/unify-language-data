@@ -1,14 +1,14 @@
 
 import os
 import sys
-schema_dir = "schemas/"
+schema_dir = "../schemas/"
 schema_de_dir = schema_dir + "lang-de/"
 import json
 from pathlib import Path
 
-grammar_schema_text = Path("testing_validation/ref_schemas/grammar_schema.json").read_text(encoding="utf-8")
-unimorph_schema_text = Path("testing_validation/ref_schemas/unimorph_schema.json").read_text(encoding="utf-8")     
-custom_schema_text = Path("testing_validation/ref_schemas/custom_schema.json").read_text(encoding="utf-8")
+grammar_schema_text = Path("../testing_validation/ref_schemas/grammar_schema.json").read_text(encoding="utf-8")
+unimorph_schema_text = Path("../testing_validation/ref_schemas/unimorph_schema.json").read_text(encoding="utf-8")     
+custom_schema_text = Path("../testing_validation/ref_schemas/custom_schema.json").read_text(encoding="utf-8")
 
 langs = ["chewa", "shona", "swahili", "zulu", "french", "italian", "portuguese", "romanian", "spanish"]
 langs_w_abbrevs = {
@@ -22,8 +22,8 @@ langs_w_abbrevs = {
     "romanian": "ro",
     "spanish": "es"
 }
-mappings_docx_dir = "mappings_docx/"
-mappings_wikipedia_dir = "mappings_wikipedia/"
+mappings_docx_dir = "../mappings_docx/"
+mappings_wikipedia_dir = "../mappings_wikipedia/"
 langs_w_files = {lang: None for lang in langs}
 
 for lang in langs_w_files:
@@ -157,12 +157,14 @@ for lang, mapping_file_paths in langs_w_files.items():
 
 
             # save sys_prompt and prompt to a file for later use
-            out_dir = "prompts/"
+            # Disabled saving prompts to files for now
+            """
+            out_dir = "../prompts/"
             os.makedirs(out_dir, exist_ok=True)
             out_filepath = os.path.join(out_dir, f"{lang}_{filename}_prompt.txt")
             with open(out_filepath, "w", encoding="utf-8") as out_f:
                 out_f.write(f"SYSTEM PROMPT:\n{sys_prompt}\n\n")
                 out_f.write(f"USER PROMPT:\n{prompt}\n")
-
+            """
 
             

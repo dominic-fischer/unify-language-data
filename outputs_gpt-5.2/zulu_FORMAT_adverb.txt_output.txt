@@ -1,4 +1,4 @@
-Adverb:
+Adverbs:
   Features:
     x-Process: [x-prefixation, x-conversion]
 

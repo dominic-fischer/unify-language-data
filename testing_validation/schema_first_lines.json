@@ -1,0 +1,20 @@
+{
+    "FORMAT_adjective.txt": "Adjective:",
+    "FORMAT_adverb.txt": "Adverbs:",
+    "FORMAT_agreement_concord.txt": "Agreement:",
+    "FORMAT_clauses_syntax.txt": "Clauses:",
+    "FORMAT_conditional_mood.txt": "Conditionals:",
+    "FORMAT_constituents_syntax.txt": "Constituents:",
+    "FORMAT_derivation-formation_morphology.txt": "DerivationalMorphology:",
+    "FORMAT_determiners-articles_noun.txt": "Determiner:",
+    "FORMAT_futureTense_tense.txt": "Future:",
+    "FORMAT_imperative_mood.txt": "Imperative:",
+    "FORMAT_negation.txt": "Negation:",
+    "FORMAT_noun.txt": "Noun:",
+    "FORMAT_passive_voice.txt": "Passive:",
+    "FORMAT_pastTense_tense.txt": "Past:",
+    "FORMAT_presentTense_tense.txt": "Present:",
+    "FORMAT_pronoun.txt": "Pronoun:",
+    "FORMAT_reported-indirect.txt": "ReportedSpeech:",
+    "FORMAT_subjunctive-conjunctive_mood.txt": "Subjunctive:"
+}

@@ -1,0 +1,77 @@
+Determiner:
+  Features:
+    u-Definiteness: [u-def, u-indf]
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+
+  Rules:
+    u-Definiteness_u-def:
+      applies: {u-Definiteness: u-def}
+      forms:
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-nom}
+          form: "der"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-acc}
+          form: "den"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-dat}
+          form: "dem"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-gen}
+          form: "des"
+
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-nom}
+          form: "die"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-acc}
+          form: "die"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-dat}
+          form: "der"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-gen}
+          form: "der"
+
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-nom}
+          form: "das"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-acc}
+          form: "das"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-dat}
+          form: "dem"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-gen}
+          form: "des"
+
+        - features: {u-Number: u-pl, u-Case: u-nom}
+          form: "die"
+        - features: {u-Number: u-pl, u-Case: u-acc}
+          form: "die"
+        - features: {u-Number: u-pl, u-Case: u-dat}
+          form: "den"
+        - features: {u-Number: u-pl, u-Case: u-gen}
+          form: "der"
+
+    u-Definiteness_u-indf:
+      applies: {u-Definiteness: u-indf}
+      forms:
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-nom}
+          form: "ein"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-acc}
+          form: "einen"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-dat}
+          form: "einem"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-gen}
+          form: "eines"
+
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-nom}
+          form: "eine"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-acc}
+          form: "eine"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-dat}
+          form: "einer"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-gen}
+          form: "einer"
+
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-nom}
+          form: "ein"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-acc}
+          form: "ein"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-dat}
+          form: "einem"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-gen}
+          form: "eines"
+      note: "no plural indefinite"
