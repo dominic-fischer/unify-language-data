@@ -10,6 +10,7 @@ venv/
 # Input and output files
 infiles/
 outfiles/
+outfiles_pos/
 *.jsonl
 
 # Notes (personal, not code)

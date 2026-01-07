@@ -4,6 +4,7 @@ import json
 
 import pandas as pd
 import streamlit as st
+from app_data.vocab import VOCAB_POS_DIR
 
 from config import LANGS, VOCAB_DIR
 from app_data.vocab import (
@@ -52,8 +53,8 @@ def render_vocab_details(details_json: str) -> None:
 def render_vocab_tab() -> None:
     st.subheader("Vocab (Wiktionary)")
 
-    if not VOCAB_DIR.exists():
-        st.error(f"Vocab directory missing: {VOCAB_DIR}")
+    if not VOCAB_DIR.exists() and not VOCAB_POS_DIR.exists():
+        st.error(f"Vocab directory missing: {VOCAB_DIR} (and no split dir at {VOCAB_POS_DIR})")
         st.stop()
 
     vocab_mode = st.radio("Mode", ["Browse", "Compare by meaning"], horizontal=True, key="v_mode")

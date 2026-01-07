@@ -154,27 +154,53 @@ LANG_ALIASES = {
 @st.cache_data(show_spinner=False)
 def list_language_files() -> Dict[str, Path]:
     """
-    Build mapping from normalized language name -> file path,
-    using filename stem (e.g., French.jsonl.gz -> 'french').
+    Map normalized language -> a representative file.
+
+    Priority:
+      1) outfiles/ per-language source files (French.jsonl.gz)
+      2) outfiles_pos/ split files (French__Adjective.jsonl), if outfiles/ not present
     """
-    files = iter_files(VOCAB_DIR, recursive=False, exts=VOCAB_SUPPORTED)
     m: Dict[str, Path] = {}
-    for fp in files:
-        name = fp.name
-        if name.lower().endswith(".jsonl.gz"):
-            stem = name[: -len(".jsonl.gz")]
-        elif name.lower().endswith(".jsonl"):
-            stem = name[: -len(".jsonl")]
-        else:
-            continue
-        key = _normalize_lang_key(stem)
-        if key:
-            m[key] = fp
+
+    # 1) Prefer original per-language source files if available
+    if VOCAB_DIR.exists():
+        files = iter_files(VOCAB_DIR, recursive=False, exts=VOCAB_SUPPORTED)
+        for fp in files:
+            name = fp.name
+            if name.lower().endswith(".jsonl.gz"):
+                stem = name[: -len(".jsonl.gz")]
+            elif name.lower().endswith(".jsonl"):
+                stem = name[: -len(".jsonl")]
+            else:
+                continue
+            key = _normalize_lang_key(stem)
+            if key:
+                m[key] = fp
+        if m:
+            return m
+
+    # 2) Fallback: infer languages from split files in outfiles_pos/
+    if VOCAB_POS_DIR.exists():
+        for fp in VOCAB_POS_DIR.glob("*.jsonl"):
+            # Expect: <LangSafe>__<POS>.jsonl
+            name = fp.name
+            if "__" not in name:
+                continue
+            lang_part = name.split("__", 1)[0]
+            # lang_part is "LangSafe" (e.g., French)
+            key = _normalize_lang_key(lang_part)
+            if key and key not in m:
+                m[key] = fp
+
     return m
 
 
 def resolve_lang_files(langs: Tuple[str, ...]) -> List[Path]:
-    """Resolve user-selected languages to original per-language files."""
+    """
+    Resolve user-selected languages to:
+      - original per-language files if available
+      - otherwise, any representative split file for that language
+    """
     m = list_language_files()
     out: List[Path] = []
     for lang in langs:
