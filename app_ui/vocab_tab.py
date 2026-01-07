@@ -32,18 +32,15 @@ from app_ui.common import non_empty_columns
 def _get_config_value(key: str, default: str = "") -> str:
     """Get config from Streamlit secrets (Cloud) with safe local fallbacks.
 
-    - Streamlit Cloud: define values in the app's Secrets.
-    - Local dev: either set environment variables or rely on the provided defaults.
-
-    Important: Accessing st.secrets when no secrets.toml exists raises
-    StreamlitSecretNotFoundError, so we guard with try/except.
+    Resolution order:
+      1) environment variable
+      2) st.secrets
+      3) default (hard-coded)
     """
-    # 1) Environment variables are the simplest for local dev / CI
     v = os.environ.get(key)
     if isinstance(v, str) and v.strip():
         return v.strip()
 
-    # 2) Streamlit secrets (Cloud). This can raise if no secrets.toml exists locally.
     try:
         v2 = st.secrets.get(key, "")
         if isinstance(v2, str) and v2.strip():
@@ -51,11 +48,34 @@ def _get_config_value(key: str, default: str = "") -> str:
     except StreamlitSecretNotFoundError:
         pass
     except Exception:
-        # Best-effort: don't fail the app just because secrets aren't configured.
         pass
 
-    # 3) Code default
     return default
+
+
+def _ensure_vocab_data(pos_zip_url: str, outfiles_zip_url: str) -> None:
+    """Make sure BOTH datasets exist (POS shards + full outfiles)."""
+    # POS shards: needed for POS/category discovery
+    if not VOCAB_POS_DIR.exists():
+        if not pos_zip_url:
+            st.error(
+                f"Missing vocab split data at {VOCAB_POS_DIR}. "
+                "Configure OUTFILES_POS_ZIP_URL in Streamlit Secrets (or env var)."
+            )
+            st.stop()
+        with st.spinner("Downloading vocab split data (one-time)..."):
+            ensure_zip_extracted(pos_zip_url, VOCAB_POS_DIR)
+
+    # Full dataset: ensures language mapping is stable and browsing works without POS
+    if not VOCAB_DIR.exists():
+        if not outfiles_zip_url:
+            st.error(
+                f"Missing full vocab data at {VOCAB_DIR}. "
+                "Configure OUTFILES_ZIP_URL in Streamlit Secrets (or env var)."
+            )
+            st.stop()
+        with st.spinner("Downloading full vocab data (one-time)..."):
+            ensure_zip_extracted(outfiles_zip_url, VOCAB_DIR)
 
 
 def render_vocab_details(details_json: str) -> None:
@@ -92,7 +112,7 @@ def render_vocab_details(details_json: str) -> None:
 def render_vocab_tab() -> None:
     st.subheader("Vocab (Wiktionary)")
 
-    # ---- Ensure data is present (download from GitHub Release if missing) ----
+    # ---- URLs (secrets/env/default) ----
     pos_zip_url = _get_config_value(
         "OUTFILES_POS_ZIP_URL",
         "https://github.com/dominic-fischer/unify-language-data/releases/download/data-v1/outfiles_pos.zip",
@@ -102,16 +122,8 @@ def render_vocab_tab() -> None:
         "https://github.com/dominic-fischer/unify-language-data/releases/download/data-v1/outfiles.zip",
     )
 
-    # We need outfiles_pos to populate POS/category menus quickly.
-    if not VOCAB_POS_DIR.exists():
-        if not pos_zip_url:
-            st.error(f"Missing vocab split data at {VOCAB_POS_DIR}. Configure OUTFILES_POS_ZIP_URL in Streamlit Secrets.")
-            st.stop()
-        with st.spinner("Downloading vocab split data (one-time)..."):
-            ensure_zip_extracted(pos_zip_url, VOCAB_POS_DIR)
-
-    # We don't download outfiles/ yet; only if the user wants browsing without POS later.
-
+    # ---- Ensure BOTH datasets exist ----
+    _ensure_vocab_data(pos_zip_url=pos_zip_url, outfiles_zip_url=outfiles_zip_url)
 
     vocab_mode = st.radio("Mode", ["Browse", "Compare by meaning"], horizontal=True, key="v_mode")
 
@@ -140,19 +152,7 @@ def render_vocab_tab() -> None:
 
         v_pos_val = st.selectbox("POS (optional)", options=[""] + pos_options, index=0, key="v_pos") or None
 
-        # If user wants to browse WITHOUT selecting a POS, we need the full outfiles/ (gz) dataset.
-        # Otherwise, scanning a "representative split file" is not correct for POS-less browsing.
-        if v_pos_val is None and not VOCAB_DIR.exists():
-            if not outfiles_zip_url:
-                st.info("To browse without selecting a POS, configure OUTFILES_ZIP_URL in Streamlit Secrets (or select a POS).")
-                st.stop()
-            with st.spinner("Downloading full vocab data (one-time)..."):
-                ensure_zip_extracted(outfiles_zip_url, VOCAB_DIR)
-
-
         # Categories depend on POS:
-        # A) POS-scoped categories only
-        # B) if 2 languages: intersection within POS
         cat_options = get_category_options_for_langs_and_pos(tuple(v_langs), v_pos_val)
 
         v_cat_val = st.selectbox(
@@ -191,7 +191,6 @@ def render_vocab_tab() -> None:
         v_hidden = {"details_json"}
         cols = [c for c in non_empty_columns(df) if c not in v_hidden]
 
-        # Show which files got scanned (pos-shards if pos selected and available)
         scanned_files = resolve_lang_pos_files(tuple(v_langs), v_pos_val)
 
         st.caption(
@@ -231,7 +230,6 @@ def render_vocab_tab() -> None:
         word_q = st.text_input("Optional: restrict words (substring)", value="", key="v_compare_word_q").strip()
         threshold = st.slider("Meaning overlap threshold", 0.10, 0.9, 0.35, 0.05, key="v_compare_thresh")
 
-        # With split files, this can be much higher without pain
         scan_limit_each = st.slider("Scan limit per language", 50, 10000, 1000, 500, key="v_compare_scan_each")
 
         df1 = load_vocab_entries_filtered(
@@ -283,7 +281,6 @@ def render_vocab_tab() -> None:
         only_matches = st.checkbox("Only show matched meanings", value=True, key="v_only_matches")
         if only_matches:
             df_align = df_align[df_align["_sim"] >= threshold].copy()
-
 
         df_out = (
             df_align.groupby("meaning", as_index=False)
