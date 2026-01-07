@@ -12,6 +12,7 @@ infiles/
 outfiles/
 outfiles_pos/
 *.jsonl
+*.zip
 
 # Notes (personal, not code)
 junk/
