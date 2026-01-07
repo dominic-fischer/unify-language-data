@@ -1,0 +1,20 @@
+Agreement:
+  Features:
+    x-Domain:
+    - x-subject-verb
+    - x-noun-adjective
+  Rules:
+    x-Domain_x-subject-verb:
+      applies: {x-Domain: x-subject-verb}
+      pattern: "verb takes a subject marker (kenn-/subjektsilbe) prefixed before the verb; the marker usually follows the phonological shape of the word beginning"
+      examples:
+      - "Va-nhu va-no-enda mu-sango."
+      - "asi ini ndi-no-da kuenda uko !"
+      note: "independent personal pronouns (ini, iwe, iye, isu, imwi, ivo) are used only for emphasis; otherwise person subject markers are used"
+
+    x-Domain_x-noun-adjective:
+      applies: {x-Domain: x-noun-adjective}
+      pattern: "an adjective concord (adjektivsilbe) is prefixed to the adjective to link it to the noun; it usually resembles the noun's beginning"
+      examples:
+      - "vanhu vapenyu"
+      - "gava mhenyu"

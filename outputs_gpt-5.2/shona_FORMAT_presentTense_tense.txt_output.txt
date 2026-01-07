@@ -1,0 +1,20 @@
+Present:
+  Features:
+    u-Tense: [u-prs]
+    u-Mood: [u-cond]
+    sn-Conditional-marker: ["-ka-", "-chi-"]
+    sn-Conditional-neg-infix: ["-sa-"]
+
+  Rules:
+    u-Tense_u-prs__u-Mood_u-cond:
+      applies: {u-Tense: u-prs, u-Mood: u-cond}
+      patterns:
+      - pattern: "(Kana) _SUBJ_-ka-_VERB_ _SUBJ_-no/cha/nga-_VERB_"
+        examples:
+        - "(Kana) ndi-ka-siya ndi-no/cha/nga-rasika."
+      - pattern: "(Kana) _SUBJ_-chi-_VERB_ _SUBJ_-no/cha/nga-_VERB_"
+        note: "Alternatively, in the positive, -chi- can be used instead of -ka-."
+      - pattern: "_SUBJ_-ka-sa-_VERB_ ha-_SUBJ_-goni _VERB_"
+        note: "For negation, only -sa- is inserted after -ka-."
+        examples:
+        - "Ndi-ka-sa-siya ha-ndi-goni kurasika."

@@ -1,0 +1,256 @@
+Noun:
+  Features:
+    zu-Noun-class: [zu-1, zu-1a, zu-2, zu-2a, zu-3, zu-4, zu-5, zu-6, zu-7, zu-8, zu-9, zu-10, zu-11, zu-14, zu-15, zu-17]
+    u-Number: [u-sg, u-pl]
+    x-Form-type: [x-standalone, x-clitic]
+    x-Domain: [x-noun-adjective]
+    u-Case: [u-gen]
+    zu-Noun-form: [zu-full, zu-simple, zu-locative, zu-copulative]
+
+  Usage:
+    zu-full-form:
+      applies: {zu-Noun-form: zu-full}
+      note: "The full form (with augment) is the default noun form, used in most circumstances such as subject or object."
+      examples:
+        - "umúntu 'person' (full form)"
+        - "abántu 'people' (full form)"
+    zu-simple-form:
+      applies: {zu-Noun-form: zu-simple}
+      note: "The simple/short form drops the augment and has specific uses (e.g. vocative, after demonstratives, with certain interrogatives, and in some negative/relative environments)."
+      examples:
+        - "Babá, ngisîze! 'Father, help me!'"
+        - "ló muntu 'this person'"
+        - "muntu muphí? 'which person?'"
+        - "Angibóni bantu 'I don't see any people'"
+
+  Rules:
+    zu-Noun-class_zu-1:
+      applies: {zu-Noun-class: zu-1}
+      forms:
+        - features: {zu-Noun-form: zu-full}
+          form: "um(u)-"
+        - features: {zu-Noun-form: zu-simple}
+          form: "m(u)-"
+      examples:
+        - "umúntu 'person'"
+    zu-Noun-class_zu-2:
+      applies: {zu-Noun-class: zu-2}
+      forms:
+        - features: {zu-Noun-form: zu-full}
+          form: "aba- / abe-"
+        - features: {zu-Noun-form: zu-simple}
+          form: "ba- / be-"
+      examples:
+        - "abántu 'people'"
+        - "ábafána 'boys'"
+        - "abángani 'friends'"
+    zu-Noun-class_zu-1a:
+      applies: {zu-Noun-class: zu-1a}
+      forms:
+        - features: {zu-Noun-form: zu-full}
+          form: "u-"
+      examples:
+        - "úbabá '(my) father'"
+    zu-Noun-class_zu-2a:
+      applies: {zu-Noun-class: zu-2a}
+      forms:
+        - features: {zu-Noun-form: zu-full}
+          form: "ō-"
+        - features: {zu-Noun-form: zu-simple}
+          form: "bō-"
+      examples:
+        - "ṓbabá '(my) fathers'"
+    zu-Noun-class_zu-3:
+      applies: {zu-Noun-class: zu-3}
+      forms:
+        - features: {zu-Noun-form: zu-full}
+          form: "um(u)-"
+        - features: {zu-Noun-form: zu-simple}
+          form: "m(u)-"
+      examples:
+        - "uḿlenze 'leg'"
+    zu-Noun-class_zu-4:
+      applies: {zu-Noun-class: zu-4}
+      forms:
+        - features: {zu-Noun-form: zu-full}
+          form: "imi-"
+        - features: {zu-Noun-form: zu-simple}
+          form: "mi-"
+      examples:
+        - "imílenze 'legs'"
+    zu-Noun-class_zu-5:
+      applies: {zu-Noun-class: zu-5}
+      forms:
+        - features: {zu-Noun-form: zu-full}
+          form: "ī- / ili-"
+        - features: {zu-Noun-form: zu-simple}
+          form: "li-"
+      examples:
+        - "ī́qandá 'egg'"
+        - "itafula 'table'"
+    zu-Noun-class_zu-6:
+      applies: {zu-Noun-class: zu-6}
+      forms:
+        - features: {zu-Noun-form: zu-full}
+          form: "ama-"
+        - features: {zu-Noun-form: zu-simple}
+          form: "ma-"
+      examples:
+        - "amáqandá 'eggs'"
+        - "amatafula 'tables'"
+    zu-Noun-class_zu-7:
+      applies: {zu-Noun-class: zu-7}
+      forms:
+        - features: {zu-Noun-form: zu-full}
+          form: "isi-"
+        - features: {zu-Noun-form: zu-simple}
+          form: "si-"
+      examples:
+        - "isícebi 'rich person'"
+        - "isíbongo 'surname'"
+        - "isifiso 'wish'"
+    zu-Noun-class_zu-8:
+      applies: {zu-Noun-class: zu-8}
+      forms:
+        - features: {zu-Noun-form: zu-full}
+          form: "izi-"
+        - features: {zu-Noun-form: zu-simple}
+          form: "zi-"
+      examples:
+        - "izicêbi 'rich people'"
+        - "izifiso 'wishes'"
+    zu-Noun-class_zu-9:
+      applies: {zu-Noun-class: zu-9}
+      forms:
+        - features: {zu-Noun-form: zu-full}
+          form: "in-"
+        - features: {zu-Noun-form: zu-simple}
+          form: "n-"
+      examples:
+        - "înjà 'dog'"
+        - "indlu 'house'"
+    zu-Noun-class_zu-10:
+      applies: {zu-Noun-class: zu-10}
+      forms:
+        - features: {zu-Noun-form: zu-full}
+          form: "izin-"
+        - features: {zu-Noun-form: zu-simple}
+          form: "zin-"
+      examples:
+        - "ízinjá 'dogs'"
+        - "izindlu 'houses'"
+    zu-Noun-class_zu-11:
+      applies: {zu-Noun-class: zu-11}
+      forms:
+        - features: {zu-Noun-form: zu-full}
+          form: "ū- / ulu-"
+        - features: {zu-Noun-form: zu-simple}
+          form: "lu-"
+      examples:
+        - "ū́phaphé 'feather'"
+        - "ulwandle 'sea'"
+    zu-Noun-class_zu-14:
+      applies: {zu-Noun-class: zu-14}
+      forms:
+        - features: {zu-Noun-form: zu-full}
+          form: "ubu-"
+        - features: {zu-Noun-form: zu-simple}
+          form: "bu-"
+      examples:
+        - "ubuhle 'beauty'"
+    zu-Noun-class_zu-15:
+      applies: {zu-Noun-class: zu-15}
+      forms:
+        - features: {zu-Noun-form: zu-full}
+          form: "uku-"
+        - features: {zu-Noun-form: zu-simple}
+          form: "ku-"
+      examples:
+        - "ukúkhanya 'light'"
+        - "ukuhlangana 'relationship, connection'"
+    zu-Noun-class_zu-17:
+      applies: {zu-Noun-class: zu-17}
+      forms:
+        - features: {zu-Noun-form: zu-full}
+          form: "uku-"
+        - features: {zu-Noun-form: zu-simple}
+          form: "ku-"
+      examples:
+        - "úkúdlá 'food / right hand side'"
+
+    u-Number_u-pl:
+      applies: {u-Number: u-pl}
+      note: "A plural is normally formed by switching the noun to the corresponding plural class (often the next higher class). For class 11 nouns, the plural is class 10."
+      examples:
+        - "umuntu (class 1) → abantu (class 2)"
+        - "umuthi (class 3) → imithi (class 4)"
+        - "ulwandle (class 11) → izinwandle (class 10)"
+
+    x-Domain_x-noun-adjective:
+      applies: {x-Domain: x-noun-adjective}
+      note: "The noun class determines agreement prefixes on other parts of speech such as adjectives."
+      examples:
+        - "umfana omkhulu 'big boy'"
+        - "isihlahla esikhulu 'large tree'"
+
+    u-Case_u-gen:
+      applies: {u-Case: u-gen}
+      note: "The possessive form expresses association similar to English 'of' and is placed after the possessed noun; it takes a possessive prefix agreeing with the class of the possessed noun."
+      examples:
+        - "ū́phahla lwéndlu 'the roof of the house'"
+        - "ámasôndo êbhási 'the wheels of the bus'"
+        - "úkushísa kwoḿlilo 'the heat of the fire'"
+      patterns:
+        - pattern: "_N(possessed)_ + _POSS-PREFIX(class of possessed)_ + _N(possessor)_"
+
+    zu-Noun-form_zu-locative:
+      applies: {zu-Noun-form: zu-locative}
+      note: "The locative is a noun form indicating location associated with the noun; it can translate as 'in/at/on/to/from'. Formation depends on noun class."
+      patterns:
+        - note: "For class 1(a) and 2(a), locative is formed by prefixing kú- and dropping the augment."
+          pattern: "kú- + _noun(simple)_"
+          examples:
+            - "umúntu → kumúntu"
+            - "abántu → kubántu"
+            - "úbabá → kúbabá"
+            - "ṓbabá → kṓbabá"
+            - "u-Okthoba → ku-Okthoba"
+        - note: "For nouns not in class 1 or 2, replace the augment with e- (or o- for class 11); most nouns also take the locative suffix -ini with vowel changes."
+          pattern: "_AUG(replaced)_ + _noun-stem_ + _LOC-SUFFIX_"
+          examples:
+            - "uḿlenze → emlénzeni"
+            - "îsó → êswéni"
+            - "ámánzi → émánzini"
+            - "índlebé → éndlebéni"
+            - "ínkungú → énkungwíni"
+            - "ū́phahla → ōpháhleni"
+      endings:
+        - features: {}
+          form: "-eni"
+          note: "Used when the stem final vowel is -a or -e (a + ini → eni; e + ini → eni)."
+        - features: {}
+          form: "-ini"
+          note: "Used when the stem final vowel is -i (i + ini → ini)."
+        - features: {}
+          form: "-weni"
+          note: "Used when the stem final vowel is -o (o + ini → weni)."
+        - features: {}
+          form: "-wini"
+          note: "Used when the stem final vowel is -u (u + ini → wini)."
+
+    zu-Noun-form_zu-copulative:
+      applies: {zu-Noun-form: zu-copulative}
+      note: "The copulative noun form expresses identity ('be') by prefixing an identifying prefix whose form depends on the noun’s initial vowel/class."
+      patterns:
+        - pattern: "ng- + _noun_"
+          note: "Used if the noun begins with a, e, o or u."
+          examples:
+            - "ngumama"
+        - pattern: "y̤- + _noun_"
+          note: "Used if the noun begins with i."
+          examples:
+            - "y̤intómbazâne"
+        - pattern: "w̤- + _noun_"
+          note: "Used for class 11 nouns."
+          examples:
+            - "w̤ūphâhla lwéndlu"

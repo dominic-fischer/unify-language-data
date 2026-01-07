@@ -1,0 +1,232 @@
+Adjective:
+  Features:
+    u-Number:
+    - u-sg
+    - u-pl
+    u-Gender:
+    - u-masc
+    - u-fem
+    u-Comparison:
+    - u-cmpr
+    - u-sprl
+    - u-ab
+    x-Domain:
+    - x-noun-adjective
+
+  Rules:
+    x-Domain_x-noun-adjective:
+      applies: {x-Domain: x-noun-adjective}
+      patterns:
+      - pattern: "_noun_ _adjective_"
+        examples:
+        - "casa branca"
+        - "campos verdes"
+        note: "Adjectives normally follow the nouns that they modify."
+      - pattern: "_adjective_ _noun_"
+        examples:
+        - "um grande homem"
+        - "um homem grande"
+        note: "Some adjectives often precede the noun; position can affect meaning. Reverse order is generally limited to poetic language."
+
+    u-Gender_u-fem__u-Number_u-sg:
+      applies: {u-Gender: u-fem, u-Number: u-sg}
+      patterns:
+      - forms:
+        - {features: {}, pattern: "_masc_ + a"}
+        examples:
+        - "branco → branca"
+        - "francês → francesa"
+        - "grandão → grandona"
+        - "conservador → conservadora"
+        note: "Basic feminine formation in -a as illustrated in the paradigms."
+      - forms:
+        - {features: {}, form: "verde"}
+        - {features: {}, form: "superior"}
+        - {features: {}, form: "feliz"}
+        - {features: {}, form: "central"}
+        - {features: {}, form: "civil"}
+        - {features: {}, form: "fácil"}
+        - {features: {}, form: "azul"}
+        examples:
+        - "verde → verde"
+        - "superior → superior"
+        - "feliz → feliz"
+        - "central → central"
+        - "civil → civil"
+        - "fácil → fácil"
+        - "azul → azul"
+        note: "Some adjectives have the same masculine and feminine singular form."
+      - forms:
+        - {features: {}, pattern: "_masc_(-eu) → _fem_(-eia)"}
+        examples:
+        - "europeu → europeia"
+        note: "A feminine adjective ending in -eia may correspond to a masculine adjective ending in -eu."
+
+    u-Gender_u-masc__u-Number_u-pl:
+      applies: {u-Gender: u-masc, u-Number: u-pl}
+      patterns:
+      - forms:
+        - {features: {}, pattern: "_sg_ + s"}
+        examples:
+        - "branco → brancos"
+        - "francês → franceses"
+        - "motor → motores"
+        - "grandão → grandões"
+        - "conservador → conservadores"
+        - "europeu → europeus"
+        - "verde → verdes"
+        - "superior → superiores"
+        note: "Basic plural formation in -s as illustrated in the paradigms."
+      - forms:
+        - {features: {}, form: "civis"}
+        - {features: {}, form: "fáceis"}
+        - {features: {}, form: "azuis"}
+        examples:
+        - "civil → civis"
+        - "fácil → fáceis"
+        - "azul → azuis"
+        note: "Some adjectives form the masculine plural with changes illustrated by the examples."
+
+    u-Gender_u-fem__u-Number_u-pl:
+      applies: {u-Gender: u-fem, u-Number: u-pl}
+      patterns:
+      - forms:
+        - {features: {}, pattern: "_fem.sg_ + s"}
+        examples:
+        - "branca → brancas"
+        - "francesa → francesas"
+        - "motriz → motrizes"
+        - "grandona → grandonas"
+        - "conservadora → conservadoras"
+        - "europeia → europeias"
+        - "verde → verdes"
+        - "superior → superiores"
+        note: "Feminine plural is generally formed by adding -s to the feminine singular, as illustrated."
+
+    u-Number_u-sg__u-Comparison_u-ab:
+      applies: {u-Number: u-sg, u-Comparison: u-ab}
+      patterns:
+      - pattern: "muito _adjective_"
+        examples:
+        - "muito lindo"
+        - "muito belo"
+        - "muito caro"
+        note: "Analytic absolute superlative enhances meaning without explicit comparison."
+      - pattern: "_stem_ + íssimo"
+        examples:
+        - "lindo → lindíssimo"
+        - "belo → belíssimo"
+        - "caro → caríssimo"
+        note: "Synthetic absolute superlative form (elative)."
+
+    u-Comparison_u-cmpr:
+      applies: {u-Comparison: u-cmpr}
+      patterns:
+      - pattern: "mais _adjective_ (do) que"
+        examples:
+        - "mais alto (do) que"
+        - "mais belo"
+        - "mais caro"
+        note: "Comparison is regularly expressed analytically with mais."
+      - forms:
+        - {features: {}, form: "melhor"}
+        - {features: {}, form: "pior"}
+        - {features: {}, form: "menor"}
+        - {features: {}, form: "maior"}
+        examples:
+        - "bom → melhor"
+        - "mau → pior"
+        - "pequeno → menor"
+        - "grande → maior"
+        note: "A few adjectives have suppletive comparative forms."
+
+    u-Comparison_u-sprl:
+      applies: {u-Comparison: u-sprl}
+      patterns:
+      - pattern: "o mais _adjective_"
+        examples:
+        - "o mais alto"
+        - "o mais belo"
+        - "o mais caro"
+        note: "Superlative is formed analytically with o mais."
+      - forms:
+        - {features: {}, form: "o melhor"}
+        - {features: {}, form: "o pior"}
+        - {features: {}, form: "o menor"}
+        - {features: {}, form: "o maior"}
+        examples:
+        - "bom → o melhor"
+        - "mau → o pior"
+        - "pequeno → o menor"
+        - "grande → o maior"
+        note: "A few adjectives have suppletive superlatives."
+
+    u-Gender_u-masc__u-Number_u-sg:
+      applies: {u-Gender: u-masc, u-Number: u-sg}
+      forms:
+      - {features: {}, form: "simples"}
+      - {features: {}, form: "reles"}
+      - {features: {}, form: "azul-claro"}
+      - {features: {}, form: "laranja"}
+      - {features: {}, form: "verde-oliva"}
+      - {features: {}, form: "ultravioleta"}
+      examples:
+      - "simples (sg.m) → simples"
+      - "azul-claro (sg.m) → azul-claro"
+      note: "Some adjectives are invariable, usually those ending in -s in the singular and some (generally compound) colour adjectives."
+
+    u-Gender_u-fem__u-Number_u-sg__u-Comparison_u-ab:
+      applies: {u-Gender: u-fem, u-Number: u-sg, u-Comparison: u-ab}
+      forms:
+      - {features: {}, form: "ótimo"}
+      - {features: {}, form: "péssimo"}
+      - {features: {}, form: "mínimo"}
+      - {features: {}, form: "máximo"}
+      examples:
+      - "bom → ótimo"
+      - "mau → péssimo"
+      - "pequeno → mínimo"
+      - "grande → máximo"
+      note: "Some adjectives have suppletive absolute superlative forms."
+
+    u-Gender_u-masc__u-Number_u-sg__u-Comparison_u-ab:
+      applies: {u-Gender: u-masc, u-Number: u-sg, u-Comparison: u-ab}
+      forms:
+      - {features: {}, form: "ótimo"}
+      - {features: {}, form: "péssimo"}
+      - {features: {}, form: "mínimo"}
+      - {features: {}, form: "máximo"}
+      examples:
+      - "bom → ótimo"
+      - "mau → péssimo"
+      - "pequeno → mínimo"
+      - "grande → máximo"
+      note: "Some adjectives have suppletive absolute superlative forms."
+
+    u-Gender_u-masc__u-Number_u-sg__u-Comparison_u-cmpr:
+      applies: {u-Gender: u-masc, u-Number: u-sg, u-Comparison: u-cmpr}
+      forms:
+      - {features: {}, form: "melhor"}
+      - {features: {}, form: "pior"}
+      - {features: {}, form: "menor"}
+      - {features: {}, form: "maior"}
+      examples:
+      - "bom → melhor"
+      - "mau → pior"
+      - "pequeno → menor"
+      - "grande → maior"
+      note: "Suppletive comparative forms (listed as invariant word forms)."
+
+    u-Gender_u-masc__u-Number_u-sg__u-Comparison_u-sprl:
+      applies: {u-Gender: u-masc, u-Number: u-sg, u-Comparison: u-sprl}
+      forms:
+      - {features: {}, form: "o melhor"}
+      - {features: {}, form: "o pior"}
+      - {features: {}, form: "o menor"}
+      - {features: {}, form: "o maior"}
+      examples:
+      - "bom → o melhor"
+      - "mau → o pior"
+      - "pequeno → o menor"
+      - "grande → o maior"
+      note: "Suppletive superlative forms expressed with the definite article o."

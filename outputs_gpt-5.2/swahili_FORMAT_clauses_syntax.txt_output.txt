@@ -1,0 +1,6 @@
+Clauses:
+  Features:
+    x-Clausetype: [x-main, x-subordinate, x-int-yes-no, x-int-wh, x-excl]
+    x-Word-order: [x-V2, x-Vfinal, x-V1]
+
+  Rules: {}

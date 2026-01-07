@@ -1,0 +1,40 @@
+Negation:
+  Features:
+    x-Negation-type: [x-clause, x-constituent]
+    u-Part-of-Speech: [u-v, u-adj, u-adv]
+    x-Domain: [x-noun-adjective]
+
+  Rules:
+    x-Negation-type_x-clause:
+      applies: {x-Negation-type: x-clause}
+      patterns:
+        - pattern: "polite imperative: subject marker + -sa + verb"
+          examples:
+            - "Musazvidye moyo!"
+          note: "Polite commands can derive from a negated verb by inserting -sa after the subject marker; the imperative has no separate negation and uses this polite-imperative negation."
+
+    u-Part-of-Speech_u-adj__x-Domain_x-noun-adjective:
+      applies: {u-Part-of-Speech: u-adj, x-Domain: x-noun-adjective}
+      patterns:
+        - pattern: "subject marker + -si- + -na + noun"
+          examples:
+            - "Ndiye munhu asina ruremekedzo."
+          note: "Negation is formed with the negation of 'have' (-si- -na) followed by a noun."
+
+        - pattern: "subject marker + -si- + -na + infinitive"
+          examples:
+            - "mùnhu asina kutaura."
+          note: "Same as nominal-adjective negation, but the noun is replaced by a substantivized verb (infinitive)."
+
+    u-Part-of-Speech_u-adv__x-Negation-type_x-constituent:
+      applies: {u-Part-of-Speech: u-adv, x-Negation-type: x-constituent}
+      patterns:
+        - pattern: "pasina + noun"
+          examples:
+            - "Anoseka pasina mufaro"
+          note: "Negation of nominal adverbs."
+
+        - pattern: "pasina + infinitive"
+          examples:
+            - "Anomhanya pasina kukurumidza."
+          note: "Negation of verbal adverbs."

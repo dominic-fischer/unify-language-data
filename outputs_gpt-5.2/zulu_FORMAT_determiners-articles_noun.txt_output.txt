@@ -1,0 +1,300 @@
+Noun:
+  Features:
+    u-Gender: [u-bantu1-23]
+    u-Number: [u-sg, u-pl]
+    x-Form-type: [x-standalone]
+    zul-NounClass: ["1", "1a", "2", "2a", "3", "4", "5", "6", "7", "8", "9", "10", "11", "14", "15", "17]
+    zul-Prefix-form: [zul-full, zul-simple]
+
+  Rules:
+    zul-NounClass_1__zul-Prefix-form_zul-full:
+      applies: {zul-NounClass: "1", zul-Prefix-form: zul-full}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "um(u)- + STEM"
+      examples: ["umúntu 'person'"]
+
+    zul-NounClass_1__zul-Prefix-form_zul-simple:
+      applies: {zul-NounClass: "1", zul-Prefix-form: zul-simple}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "m(u)- + STEM"
+
+    zul-NounClass_2__zul-Prefix-form_zul-full:
+      applies: {zul-NounClass: "2", zul-Prefix-form: zul-full}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
+          pattern: "aba- + STEM"
+        - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
+          pattern: "abe- + STEM"
+          note: "variant given in the class table"
+      examples: ["abántu 'people'"]
+
+    zul-NounClass_2__zul-Prefix-form_zul-simple:
+      applies: {zul-NounClass: "2", zul-Prefix-form: zul-simple}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
+          pattern: "ba- + STEM"
+        - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
+          pattern: "be- + STEM"
+          note: "variant given in the class table"
+
+    zul-NounClass_1a__zul-Prefix-form_zul-full:
+      applies: {zul-NounClass: "1a", zul-Prefix-form: zul-full}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "u- + STEM"
+      examples: ["úbabá '(my) father'"]
+
+    zul-NounClass_2a__zul-Prefix-form_zul-full:
+      applies: {zul-NounClass: "2a", zul-Prefix-form: zul-full}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
+          pattern: "ō- + STEM"
+      examples: ["ṓbabá '(my) fathers'"]
+
+    zul-NounClass_2a__zul-Prefix-form_zul-simple:
+      applies: {zul-NounClass: "2a", zul-Prefix-form: zul-simple}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
+          pattern: "bō- + STEM"
+
+    zul-NounClass_3__zul-Prefix-form_zul-full:
+      applies: {zul-NounClass: "3", zul-Prefix-form: zul-full}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "um(u)- + STEM"
+      examples: ["uḿlenze 'leg'"]
+
+    zul-NounClass_3__zul-Prefix-form_zul-simple:
+      applies: {zul-NounClass: "3", zul-Prefix-form: zul-simple}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "m(u)- + STEM"
+
+    zul-NounClass_4__zul-Prefix-form_zul-full:
+      applies: {zul-NounClass: "4", zul-Prefix-form: zul-full}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
+          pattern: "imi- + STEM"
+      examples: ["imílenze 'legs'"]
+
+    zul-NounClass_4__zul-Prefix-form_zul-simple:
+      applies: {zul-NounClass: "4", zul-Prefix-form: zul-simple}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
+          pattern: "mi- + STEM"
+
+    zul-NounClass_5__zul-Prefix-form_zul-full:
+      applies: {zul-NounClass: "5", zul-Prefix-form: zul-full}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "ī- + STEM"
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "ili- + STEM"
+      examples: ["ī́qandá 'egg'"]
+
+    zul-NounClass_5__zul-Prefix-form_zul-simple:
+      applies: {zul-NounClass: "5", zul-Prefix-form: zul-simple}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "li- + STEM"
+
+    zul-NounClass_6__zul-Prefix-form_zul-full:
+      applies: {zul-NounClass: "6", zul-Prefix-form: zul-full}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
+          pattern: "ama- + STEM"
+      examples: ["amáqandá 'eggs'"]
+
+    zul-NounClass_6__zul-Prefix-form_zul-simple:
+      applies: {zul-NounClass: "6", zul-Prefix-form: zul-simple}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
+          pattern: "ma- + STEM"
+
+    zul-NounClass_7__zul-Prefix-form_zul-full:
+      applies: {zul-NounClass: "7", zul-Prefix-form: zul-full}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "isi- + STEM"
+      examples: ["isícebi 'rich person'", "isihlahla 'tree'"]
+
+    zul-NounClass_7__zul-Prefix-form_zul-simple:
+      applies: {zul-NounClass: "7", zul-Prefix-form: zul-simple}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "si- + STEM"
+
+    zul-NounClass_8__zul-Prefix-form_zul-full:
+      applies: {zul-NounClass: "8", zul-Prefix-form: zul-full}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
+          pattern: "izi- + STEM"
+      examples: ["izicêbi 'rich people'"]
+
+    zul-NounClass_8__zul-Prefix-form_zul-simple:
+      applies: {zul-NounClass: "8", zul-Prefix-form: zul-simple}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
+          pattern: "zi- + STEM"
+
+    zul-NounClass_9__zul-Prefix-form_zul-full:
+      applies: {zul-NounClass: "9", zul-Prefix-form: zul-full}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "in- + STEM"
+      examples: ["înjà 'dog'", "índlu 'house'"]
+
+    zul-NounClass_9__zul-Prefix-form_zul-simple:
+      applies: {zul-NounClass: "9", zul-Prefix-form: zul-simple}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "n- + STEM"
+          note: "simple prefix has no syllables in class 9"
+
+    zul-NounClass_10__zul-Prefix-form_zul-full:
+      applies: {zul-NounClass: "10", zul-Prefix-form: zul-full}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
+          pattern: "izin- + STEM"
+      examples: ["ízinjá 'dogs'"]
+
+    zul-NounClass_10__zul-Prefix-form_zul-simple:
+      applies: {zul-NounClass: "10", zul-Prefix-form: zul-simple}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
+          pattern: "zin- + STEM"
+
+    zul-NounClass_11__zul-Prefix-form_zul-full:
+      applies: {zul-NounClass: "11", zul-Prefix-form: zul-full}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "ū- + STEM"
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "ulu- + STEM"
+      examples: ["ū́phaphé 'feather'"]
+
+    zul-NounClass_11__zul-Prefix-form_zul-simple:
+      applies: {zul-NounClass: "11", zul-Prefix-form: zul-simple}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "lu- + STEM"
+
+    zul-NounClass_14__zul-Prefix-form_zul-full:
+      applies: {zul-NounClass: "14", zul-Prefix-form: zul-full}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "ubu- + STEM"
+      examples: ["ubúhlalú 'bead(s)'"]
+
+    zul-NounClass_14__zul-Prefix-form_zul-simple:
+      applies: {zul-NounClass: "14", zul-Prefix-form: zul-simple}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "bu- + STEM"
+
+    zul-NounClass_15__zul-Prefix-form_zul-full:
+      applies: {zul-NounClass: "15", zul-Prefix-form: zul-full}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "uku- + STEM"
+      examples: ["ukúkhanya 'light'"]
+
+    zul-NounClass_15__zul-Prefix-form_zul-simple:
+      applies: {zul-NounClass: "15", zul-Prefix-form: zul-simple}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "ku- + STEM"
+
+    zul-NounClass_17__zul-Prefix-form_zul-full:
+      applies: {zul-NounClass: "17", zul-Prefix-form: zul-full}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "uku- + STEM"
+      examples: ["úkúdlá 'food / right hand side'"]
+
+    zul-NounClass_17__zul-Prefix-form_zul-simple:
+      applies: {zul-NounClass: "17", zul-Prefix-form: zul-simple}
+      forms:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
+          pattern: "ku- + STEM"
+
+Determiner:
+  Features:
+    u-Gender: [u-bantu1-23]
+    u-Number: [u-sg, u-pl]
+    zul-NounClass: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "14", "15"]
+    zul-Deixis: [zul-prox, zul-dist]
+    zul-Determiner-type: [zul-dem]
+
+  Rules:
+    zul-Determiner-type_zul-dem:
+      applies: {zul-Determiner-type: zul-dem}
+      patterns:
+        - note: "Demonstratives are placed before the associated noun."
+          forms:
+            - features: {zul-NounClass: "1", u-Number: u-sg, zul-Deixis: zul-prox}
+              form: "lo"
+            - features: {zul-NounClass: "1", u-Number: u-sg, zul-Deixis: zul-dist}
+              form: "lowo"
+
+            - features: {zul-NounClass: "2", u-Number: u-pl, zul-Deixis: zul-prox}
+              form: "laba"
+            - features: {zul-NounClass: "2", u-Number: u-pl, zul-Deixis: zul-dist}
+              form: "labo"
+
+            - features: {zul-NounClass: "3", u-Number: u-sg, zul-Deixis: zul-prox}
+              form: "lo"
+            - features: {zul-NounClass: "3", u-Number: u-sg, zul-Deixis: zul-dist}
+              form: "lowo"
+
+            - features: {zul-NounClass: "4", u-Number: u-pl, zul-Deixis: zul-prox}
+              form: "le"
+            - features: {zul-NounClass: "4", u-Number: u-pl, zul-Deixis: zul-dist}
+              form: "leyo"
+
+            - features: {zul-NounClass: "5", u-Number: u-sg, zul-Deixis: zul-prox}
+              form: "leli"
+            - features: {zul-NounClass: "5", u-Number: u-sg, zul-Deixis: zul-dist}
+              form: "lelo"
+
+            - features: {zul-NounClass: "6", u-Number: u-pl, zul-Deixis: zul-prox}
+              form: "la"
+            - features: {zul-NounClass: "6", u-Number: u-pl, zul-Deixis: zul-dist}
+              form: "lawo"
+
+            - features: {zul-NounClass: "7", u-Number: u-sg, zul-Deixis: zul-prox}
+              form: "lesi"
+            - features: {zul-NounClass: "7", u-Number: u-sg, zul-Deixis: zul-dist}
+              form: "leso"
+
+            - features: {zul-NounClass: "8", u-Number: u-pl, zul-Deixis: zul-prox}
+              form: "lezi"
+            - features: {zul-NounClass: "8", u-Number: u-pl, zul-Deixis: zul-dist}
+              form: "lezo"
+
+            - features: {zul-NounClass: "9", u-Number: u-sg, zul-Deixis: zul-prox}
+              form: "le"
+            - features: {zul-NounClass: "9", u-Number: u-sg, zul-Deixis: zul-dist}
+              form: "leyo"
+
+            - features: {zul-NounClass: "10", u-Number: u-pl, zul-Deixis: zul-prox}
+              form: "lezi"
+            - features: {zul-NounClass: "10", u-Number: u-pl, zul-Deixis: zul-dist}
+              form: "lezo"
+
+            - features: {zul-NounClass: "11", u-Number: u-sg, zul-Deixis: zul-prox}
+              form: "lolu"
+            - features: {zul-NounClass: "11", u-Number: u-sg, zul-Deixis: zul-dist}
+              form: "lolo"
+
+            - features: {zul-NounClass: "14", u-Number: u-sg, zul-Deixis: zul-prox}
+              form: "lobu"
+            - features: {zul-NounClass: "14", u-Number: u-sg, zul-Deixis: zul-dist}
+              form: "lobo"
+
+            - features: {zul-NounClass: "15", u-Number: u-sg, zul-Deixis: zul-prox}
+              form: "lokhu"
+            - features: {zul-NounClass: "15", u-Number: u-sg, zul-Deixis: zul-dist}
+              form: "lokho"

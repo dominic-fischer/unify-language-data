@@ -1,0 +1,78 @@
+Pronoun:
+  Features:
+    u-Deixis: [u-prox, u-remt]
+    u-Number: [u-pl, u-sg]
+    u-Person: [u-1, u-2, u-3]
+    x-Form-type: [x-standalone, x-clitic]
+    x-Pronoun-type: [x-pers, x-dem, x-int, x-rel, x-poss]
+
+  Usage:
+    sw-na-plus-pronoun:
+      applies: {x-Form-type: x-clitic}
+      note: "With 'na' ('with'/'and'), Swahili uses a combining/clitic pronoun (reference/combining stem) rather than the standalone form; for class 1/2 singular the form is irregular (naye)."
+      examples: ["nami", "nawe", "naye", "nasi", "nanyi", "nao"]
+
+  Rules:
+    x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers}
+      patterns:
+      - forms:
+        - {features: {u-Person: u-1, u-Number: u-sg, x-Form-type: x-standalone}, form: "mimi"}
+        - {features: {u-Person: u-2, u-Number: u-sg, x-Form-type: x-standalone}, form: "wewe"}
+        - {features: {u-Person: u-3, u-Number: u-sg, x-Form-type: x-standalone}, form: "yeye"}
+        - {features: {u-Person: u-1, u-Number: u-pl, x-Form-type: x-standalone}, form: "sisi"}
+        - {features: {u-Person: u-2, u-Number: u-pl, x-Form-type: x-standalone}, form: "nyinyi"}
+        - {features: {u-Person: u-2, u-Number: u-pl, x-Form-type: x-standalone}, form: "ninyi"}
+        - {features: {u-Person: u-3, u-Number: u-pl, x-Form-type: x-standalone}, form: "wao"}
+      - forms:
+        - {features: {u-Person: u-1, u-Number: u-sg, x-Form-type: x-clitic}, form: "-mi"}
+        - {features: {u-Person: u-2, u-Number: u-sg, x-Form-type: x-clitic}, form: "-we"}
+        - {features: {u-Person: u-3, u-Number: u-sg, x-Form-type: x-clitic}, form: "-ye"}
+        - {features: {u-Person: u-1, u-Number: u-pl, x-Form-type: x-clitic}, form: "-si"}
+        - {features: {u-Person: u-2, u-Number: u-pl, x-Form-type: x-clitic}, form: "-nyi"}
+        - {features: {u-Person: u-3, u-Number: u-pl, x-Form-type: x-clitic}, form: "-o"}
+      note: "Personal pronouns do not inflect for case: the same form is used for subject and object (e.g. sisi 'we/us')."
+
+    x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss}
+      patterns:
+      - endings:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "-ngu"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "-ko"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, form: "-ke"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "-tu"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "-nu"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "-o"}
+      - endings:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "-angu"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "-ako"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, form: "-ake"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "-etu"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "-enu"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "-ao"}
+      note: "Possessive pronouns are expressed with possessive/genitive suffixes; sources list both a set with -ngu/-ko/-ke/-tu/-nu/-o and a set with -angu/-ako/-ake/-etu/-enu/-ao."
+
+    x-Pronoun-type_x-dem:
+      applies: {x-Pronoun-type: x-dem}
+      forms:
+      - {features: {u-Deixis: u-prox}, form: "huyu"}
+      - {features: {u-Deixis: u-remt}, form: "yule"}
+      note: "Demonstratives vary by noun class; examples shown for class 1/2 singular: huyu 'this', yule 'that'."
+
+    x-Pronoun-type_x-int:
+      applies: {x-Pronoun-type: x-int}
+      forms:
+      - {features: {}, form: "yupi?"}
+      note: "Interrogative 'which?' is formed with the class marker plus -pi; exception: class 1/2 singular yupi?."
+
+    x-Pronoun-type_x-rel:
+      applies: {x-Pronoun-type: x-rel}
+      patterns:
+      - pattern: "amba- + {reference/combining pronoun}"
+        examples: ["Mwanaume ambaye ni-li-(m)-ona a-me-ondoka."]
+      - pattern: "{relative verb form with class marker} -li- + {reference/combining pronoun} + {verb stem}"
+        examples: ["Mwanaume ni-li-ye-(m)-ona a-me-ondoka."]
+      note: "Relative constructions can be formed either with amba- plus the reference/combining pronoun, or with a relative verb form containing -li- plus the reference/combining pronoun."
+
+  Notes:
+  - "Personal pronouns have both standalone (independent) and combining (clitic) forms used with words such as na and ndi-."

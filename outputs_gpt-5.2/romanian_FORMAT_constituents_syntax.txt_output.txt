@@ -1,0 +1,54 @@
+Constituents:
+  Features:
+    x-Domain: [x-noun-adjective]
+    x-Clausetype: [x-main, x-subordinate]
+    u-Part-of-Speech: [u-adj]
+
+  Rules:
+    x-Domain_x-noun-adjective__u-Part-of-Speech_u-adj:
+      applies: {x-Domain: x-noun-adjective, u-Part-of-Speech: u-adj}
+      patterns:
+        - pattern: "Adjective as attribute (modifies a noun/pronoun/numeral)"
+          examples:
+            - "Băiatul blond este aici."
+          note: "Attribute: adjective defines a noun, pronoun, or numeral."
+        - pattern: "Adjective as adjectival complement (modifies a copulative verb)"
+          examples:
+            - "Băiatul este blond."
+          note: "Adjectival complement: adjective defines a copulative verb."
+
+Syntax:
+  Features:
+    x-Clausetype: [x-main, x-subordinate]
+
+  Rules:
+    x-Clausetype_x-main:
+      applies: {x-Clausetype: x-main}
+      pattern: "Main clause (stand-alone meaning within a complex sentence)"
+      examples:
+        - "Am văzut copiii din curtea școlii."
+      note: "Within a complex sentence, a main clause does not rely on another clause to be fully understood."
+
+    x-Clausetype_x-subordinate:
+      applies: {x-Clausetype: x-subordinate}
+      pattern: "Subordinate clause (depends on a main clause; determines/defines an element of another clause)"
+      examples:
+        - "Am văzut copiii care sunt în curtea școlii."
+      note: "A subordinate clause cannot have stand-alone meaning; it relies on a main clause."
+
+    x-Clausetype_x-main__x-Clausetype_x-main:
+      applies: {x-Clausetype: x-main, x-Clausetype: x-main}
+      patterns:
+        - pattern: "Two main clauses linked by a coordinating conjunction"
+          examples:
+            - "Ana este o fată și Ion este un băiat."
+        - pattern: "Two main clauses linked by juxtaposition (comma)"
+          examples:
+            - "Am păzit palatul, palatul era și foarte greu de păzit."
+      note: "Coordinating conjunctions coordinate an existing clause with another clause, making the new clause of the same type."
+
+    x-Clausetype_x-subordinate__x-Clausetype_x-subordinate:
+      applies: {x-Clausetype: x-subordinate, x-Clausetype: x-subordinate}
+      pattern: "Two subordinate clauses can be joined by a coordinating conjunction"
+      examples:
+        - "V-am spus despre băiatul care este la mine în clasă, și care este foarte bun la matematică."

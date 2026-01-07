@@ -1,0 +1,32 @@
+ShonaSubjunctive:
+  Features:
+    u-Mood:
+    - u-sbjv
+
+  Usage:
+    polite-requests-wishes:
+      applies: {u-Mood: u-sbjv}
+      note: "Used for polite requests and wishes."
+      examples:
+      - "Mundipe chingwa."
+
+    kuti-after-verbs-of-wishing-wanting-requesting:
+      applies: {u-Mood: u-sbjv}
+      note: "Used after 'kuti' ('that') following verbs of wishing, wanting, and requesting."
+      examples:
+      - "Tinoda kuti muuye kunzvimbo yedu."
+
+    kuti-purpose-result:
+      applies: {u-Mood: u-sbjv}
+      note: "Used after 'kuti' in the sense of 'so that'/'in order that'."
+      examples:
+      - "Tinoenda nhasi kuti tikurumidze kusvika."
+
+  Rules:
+    u-Mood_u-sbjv:
+      applies: {u-Mood: u-sbjv}
+      pattern: "verb ends in '-e' (subjunctive), unlike the indicative"
+      examples:
+      - "Mundipe chingwa."
+      - "Tinoda kuti muuye kunzvimbo yedu."
+      - "Tinoenda nhasi kuti tikurumidze kusvika."

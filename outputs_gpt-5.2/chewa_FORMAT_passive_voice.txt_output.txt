@@ -1,0 +1,19 @@
+Passive:
+  Features:
+    u-Voice: [u-pass]
+    x-Process: [x-prefixation]
+
+  Rules:
+    u-Voice_u-pass:
+      applies: {u-Voice: u-pass}
+      patterns:
+      - pattern: "{agent} ndi + {verb}"
+        note: "The agent (German ‘von’) is marked with ‘ndi’ (‘with’) in Chichewa; contraction can occur."
+      - pattern: "ndi + ku -> n’ku / naku"
+        note: "‘ndi + ku’ can be shortened to ‘n’ku’/‘naku’; ‘ku’ can function as an object marker or a tense syllable."
+        examples:
+        - "Ndidzabwera kwa inu n’ku-dza-ku-thandiza-ni."
+      - pattern: "{V1 (finite)} ... ndi {INF} (instead of a second finite verb)"
+        note: "When someone performs multiple actions in sequence, the infinitive is often used instead of the second verb form."
+        examples:
+        - "Ndidzabwera kwa inu nakuthandiza."

@@ -1,0 +1,81 @@
+ChewaFuture:
+  Features:
+    u-Tense: [u-fut]
+    u-Aspect: [u-hab, u-prog, u-ipfv]
+    ny-Tense-type: [ny-near-future, ny-remote-future, ny-ka-future, ny-no-marker-future]
+    ny-Aspect-marker: [ny-ma, ny-ka, ny-dza, ny-ngo]
+    x-Clausetype: [x-main, x-subordinate]
+
+  Usage:
+    ny-near-future:
+      applies: {u-Tense: u-fut, ny-Tense-type: ny-near-future}
+      note: "Near future ('today')."
+      examples:
+        - "ndí-gula 'I'll buy (today)' (near future)"
+    ny-remote-future:
+      applies: {u-Tense: u-fut, ny-Tense-type: ny-remote-future}
+      note: "Remote future ('tomorrow or later')."
+      examples:
+        - "ndí-dzá-gula 'I will buy (tomorrow or in future)'"
+        - "ndi-dzá-gula 'I'll buy (tomorrow or later)' (remote future)"
+    ny-ka-future:
+      applies: {u-Tense: u-fut, ny-Tense-type: ny-ka-future}
+      note: "Future with -ká-; may presuppose an unspoken conditional ('if I go there/when I get there')."
+      examples:
+        - "ndí-ká-gula 'I will buy (when I get there)'"
+        - "ndí-ká-gula 'I will buy' (if I go there, or when I get there)"
+    ny-no-marker-future:
+      applies: {u-Tense: u-fut, ny-Tense-type: ny-no-marker-future}
+      note: "One future tense has no tense-marker."
+      examples:
+        - "ndí-gula 'I will buy (soon)'"
+
+  Negation:
+    pattern: "sí-/si- + subject prefix + (tense-marker) + verb"
+    note: "Negative main-verb tenses use the prefix sí- (with tonal differences)."
+    examples:
+      - "si-ndi-dza-gúla 'I won't buy'"
+
+  Rules:
+    ny-Tense-type_ny-remote-future:
+      applies: {u-Tense: u-fut, ny-Tense-type: ny-remote-future}
+      patterns:
+        - pattern: "subject prefix + -dzá- + verb"
+          examples:
+            - "ndí-dzá-gula 'I will buy (tomorrow or in future)'"
+    ny-Tense-type_ny-ka-future:
+      applies: {u-Tense: u-fut, ny-Tense-type: ny-ka-future}
+      patterns:
+        - pattern: "subject prefix + -ká- + verb"
+          examples:
+            - "ndí-ká-gula 'I will buy (when I get there)'"
+    ny-Tense-type_ny-no-marker-future:
+      applies: {u-Tense: u-fut, ny-Tense-type: ny-no-marker-future}
+      patterns:
+        - pattern: "subject prefix + verb (no tense-marker)"
+          examples:
+            - "ndí-gula 'I will buy (soon)'"
+    ny-Tense-type_ny-near-future:
+      applies: {u-Tense: u-fut, ny-Tense-type: ny-near-future}
+      patterns:
+        - pattern: "subject prefix + verb"
+          examples:
+            - "ndí-gula 'I'll buy (today)' (near future)"
+    x-Clausetype_x-subordinate__u-Tense_u-fut:
+      applies: {x-Clausetype: x-subordinate, u-Tense: u-fut}
+      patterns:
+        - pattern: "subject prefix + -ka- + -dzá- + verb"
+          note: "Subordinate ('when/if') series uses toneless -ka-; can combine with future -dzá-."
+          examples:
+            - "ndi-ka-dzá-gula 'if in future I buy'"
+        - pattern: "subject prefix + -ka- + verb"
+          note: "Subordinate ('when/if') series uses toneless -ka-."
+          examples:
+            - "ndi-ka-gula 'when/if I buy'"
+    ny-Aspect-marker_ny-ka__ny-Aspect-marker_ny-dza:
+      applies: {ny-Aspect-marker: ny-ka, ny-Aspect-marker: ny-dza}
+      pattern: "-ka- … -ka/dza-"
+      note: "In the second clause, choose -ka- or -dza- depending on meaning ('go-and-do' vs. 'come-and-do')."
+      examples:
+        - "Ndi-ka-dzá-fika kunyumba ndi-dzá-samba."
+        - "Ndi-ka-dzá-fika kwanu ndi-ká-puma."

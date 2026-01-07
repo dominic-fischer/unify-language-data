@@ -1,0 +1,166 @@
+Adjective:
+  Features:
+    u-Gender:
+    - u-masc
+    - u-fem
+    u-Number:
+    - u-sg
+    - u-pl
+    u-Comparison:
+    - u-cmpr
+    - u-sprl
+    - u-ab
+
+  Rules:
+    u-Gender_u-masc__u-Number_u-sg:
+      applies: {u-Gender: u-masc, u-Number: u-sg}
+      patterns:
+      - pattern: "_stem_ + _ending_"
+        endings:
+        - {features: {u-Gender: u-masc, u-Number: u-sg}, form: "o", note: "Case 1 adjective ending"}
+        - {features: {u-Gender: u-masc, u-Number: u-sg}, form: "e", note: "Case 2 adjective ending"}
+
+    u-Gender_u-masc__u-Number_u-pl:
+      applies: {u-Gender: u-masc, u-Number: u-pl}
+      pattern: "_stem_ + i"
+      note: "Masculine plural is -i in both Case 1 and Case 2 adjective patterns."
+
+    u-Gender_u-fem__u-Number_u-sg:
+      applies: {u-Gender: u-fem, u-Number: u-sg}
+      patterns:
+      - pattern: "_stem_ + _ending_"
+        endings:
+        - {features: {u-Gender: u-fem, u-Number: u-sg}, form: "a", note: "Case 1 adjective ending"}
+        - {features: {u-Gender: u-fem, u-Number: u-sg}, form: "e", note: "Case 2 adjective ending"}
+
+    u-Gender_u-fem__u-Number_u-pl:
+      applies: {u-Gender: u-fem, u-Number: u-pl}
+      patterns:
+      - pattern: "_stem_ + _ending_"
+        endings:
+        - {features: {u-Gender: u-fem, u-Number: u-pl}, form: "e", note: "Case 1 adjective ending"}
+        - {features: {u-Gender: u-fem, u-Number: u-pl}, form: "i", note: "Case 2 adjective ending"}
+
+    u-Comparison_u-cmpr:
+      applies: {u-Comparison: u-cmpr}
+      patterns:
+      - pattern: "più + _adj_ + di + _NP_"
+        examples:
+        - "sono più alto di te"
+      - pattern: "meno + _adj_ + di + _NP_"
+        examples:
+        - "tu sei meno alto di me"
+      - pattern: "_adj_ + come + _NP_"
+        examples:
+        - "sono alto come te"
+
+    u-Comparison_u-sprl:
+      applies: {u-Comparison: u-sprl}
+      patterns:
+      - pattern: "il più + _adj_ + fra + _NP_"
+        examples:
+        - "sono il più alto fra gli uomini"
+      - pattern: "il meno + _adj_ + di + _NP_"
+        examples:
+        - "sono il meno forte del campionato"
+
+    u-Comparison_u-ab:
+      applies: {u-Comparison: u-ab}
+      patterns:
+      - pattern: "troppo + _adj_"
+        examples:
+        - "sei troppo buono"
+        note: "Absolute comparative ('too') is formed with troppo before the adjective."
+      - pattern: "_adj_ + issimo"
+        examples:
+        - "intelligente → intelligentissimo"
+        - "sporco → sporchissimo"
+        note: "Absolute superlative is formed by adding -issimo to the adjective."
+      - pattern: "_adj_ + errimo"
+        examples:
+        - "aspro → asperrimo"
+        - "celebre → celeberrimo"
+        note: "If the two letters before the last vowel are pr or br, the r is removed and -errimo is used."
+      - pattern: "molto + _adj_"
+        note: "Another way to form the absolute superlative is to place molto before the adjective."
+      - pattern: "assai + _adj_"
+        note: "Another way to form the absolute superlative is to place assai before the adjective."
+      - forms:
+        - {features: {u-Comparison: u-cmpr}, form: "migliore", note: "Irregular comparative of buono (variant: più buono)."}
+        - {features: {u-Comparison: u-ab}, form: "ottimo", note: "Irregular absolute superlative of buono (variant: buonissimo)."}
+        - {features: {u-Comparison: u-cmpr}, form: "peggiore", note: "Irregular comparative of cattivo (variant: più cattivo)."}
+        - {features: {u-Comparison: u-ab}, form: "pessimo", note: "Irregular absolute superlative of cattivo (variant: cattivissimo)."}
+        - {features: {u-Comparison: u-cmpr}, form: "maggiore", note: "Irregular comparative of grande (variant: più grande)."}
+        - {features: {u-Comparison: u-ab}, form: "massimo", note: "Irregular absolute superlative of grande (variant: grandissimo)."}
+        - {features: {u-Comparison: u-cmpr}, form: "minore", note: "Irregular comparative of piccolo (variant: più piccolo)."}
+        - {features: {u-Comparison: u-ab}, form: "minimo", note: "Irregular absolute superlative of piccolo (variant: piccolissimo)."}
+
+    x-Domain_x-noun-adjective:
+      applies: {x-Domain: x-noun-adjective}
+      patterns:
+      - pattern: "_N_ + _ADJ_"
+        note: "Unmarked placement for most adjectives is after the noun."
+        examples:
+        - "un libro rosso"
+      - pattern: "_ADJ_ + _N_"
+        note: "Some common classes (beauty, age, goodness, size) are unmarked before the noun; after the noun can be used for emphasis. Adjective-after-noun can change meaning or indicate restrictiveness."
+        examples:
+        - "un rosso libro"
+        - "un buon uomo"
+        - "un uomo buono"
+
+    x-Domain_x-noun-determiner:
+      applies: {x-Domain: x-noun-determiner}
+      patterns:
+      - forms:
+        - {features: {u-Person: u-1, u-Gender: u-masc, u-Number: u-sg}, form: "mio"}
+        - {features: {u-Person: u-1, u-Gender: u-masc, u-Number: u-pl}, form: "miei"}
+        - {features: {u-Person: u-1, u-Gender: u-fem, u-Number: u-sg}, form: "mia"}
+        - {features: {u-Person: u-1, u-Gender: u-fem, u-Number: u-pl}, form: "mie"}
+        - {features: {u-Person: u-2, u-Gender: u-masc, u-Number: u-sg}, form: "tuo"}
+        - {features: {u-Person: u-2, u-Gender: u-masc, u-Number: u-pl}, form: "tuoi"}
+        - {features: {u-Person: u-2, u-Gender: u-fem, u-Number: u-sg}, form: "tua"}
+        - {features: {u-Person: u-2, u-Gender: u-fem, u-Number: u-pl}, form: "tue"}
+        - {features: {u-Person: u-3, u-Gender: u-masc, u-Number: u-sg}, form: "suo"}
+        - {features: {u-Person: u-3, u-Gender: u-masc, u-Number: u-pl}, form: "suoi"}
+        - {features: {u-Person: u-3, u-Gender: u-fem, u-Number: u-sg}, form: "sua"}
+        - {features: {u-Person: u-3, u-Gender: u-fem, u-Number: u-pl}, form: "sue"}
+        - {features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-masc, x-Note: "1st plural"}, form: "nostro"}
+        - {features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-masc, x-Note: "1st plural"}, form: "nostri"}
+        - {features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-fem, x-Note: "1st plural"}, form: "nostra"}
+        - {features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-fem, x-Note: "1st plural"}, form: "nostre"}
+        - {features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-masc, x-Note: "2nd plural"}, form: "vostro"}
+        - {features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-masc, x-Note: "2nd plural"}, form: "vostri"}
+        - {features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-fem, x-Note: "2nd plural"}, form: "vostra"}
+        - {features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-fem, x-Note: "2nd plural"}, form: "vostre"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "loro", note: "Exception: loro does not agree in gender/number."}
+      - pattern: "_DEF.ART_ + _POSS.ADJs_ + _N_"
+        note: "In most cases the possessive adjective is used with a definite article."
+        examples:
+        - "Ho perso la mia penna."
+        - "Mi piace il mio lavoro."
+        - "Hanno rubato la mia automobile!"
+      - pattern: "_INDF.ART_ + _POSS.ADJs_ + _N_"
+        note: "Possessive adjective can also occur with an indefinite article."
+        examples:
+        - "Un mio amico mi ha detto che..."
+        - "Ho visto una sua foto."
+        - "Luca è un mio amico."
+      - pattern: "_N_(family member) + _POSS.ADJs_"
+        note: "Exception: when the possessive refers to an individual family member (unless described/characterised), the article is omitted."
+        examples:
+        - "Laura è mia sorella"
+        - "Ieri ho visto mia sorella Diana"
+        - "Questa penna è di mia zia."
+      - pattern: "_N_ + _POSS.ADJs_"
+        note: "For emphasis, possessive adjectives are sometimes placed after the noun (e.g., with colpa, casa, merito, piacere; or in address)."
+        examples:
+        - "È colpa sua."
+        - "Oh dio mio!"
+        - "Arrivederci, amico mio!"
+        - "Vorresti andare a casa mia?"
+      - pattern: "proprio + _N_"
+        note: "If the antecedent of a third person possessive (as an object) is the subject, proprio can be used instead of suo."
+        examples:
+        - "Marco e Maria hanno discusso di filosofia. Marco ha scelto il proprio punto di vista."
+        - "Marco e Maria hanno discusso di filosofia. Marco ha scelto il suo punto di vista."

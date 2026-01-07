@@ -1,0 +1,298 @@
+Noun:
+  Features:
+    u-Number: [u-sg, u-pl]
+    sn-NounClass: [sn-1, sn-2, sn-3, sn-4, sn-5, sn-6, sn-7, sn-8, sn-9, sn-10, sn-11, sn-12, sn-13, sn-14, sn-15, sn-16, sn-17, sn-18, sn-21]
+    sn-DemonstrativeType: [sn-I, sn-II, sn-III, sn-IV, sn-with-II]
+    x-Pronoun-type: [x-dem, x-pers, x-poss, x-rel]
+
+  Rules:
+    sn-NounClass_sn-1:
+      applies: {sn-NounClass: sn-1}
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "m(u)- + _stem_"
+      examples:
+        - "munhu"
+      note: "main class (people), singular prefix m(u)-"
+
+    sn-NounClass_sn-2:
+      applies: {sn-NounClass: sn-2}
+      forms:
+        - features: {u-Number: u-pl}
+          pattern: "va- + _stem_"
+      examples:
+        - "vanhu"
+      note: "main class (people), plural prefix va-"
+
+    sn-NounClass_sn-3:
+      applies: {sn-NounClass: sn-3}
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "mu- + _stem_"
+      examples:
+        - "mugwagwa"
+      note: "main class (things), singular prefix mu-"
+
+    sn-NounClass_sn-4:
+      applies: {sn-NounClass: sn-4}
+      forms:
+        - features: {u-Number: u-pl}
+          pattern: "mi- + _stem_"
+      examples:
+        - "migwagwa"
+      note: "main class (things), plural prefix mi-"
+
+    sn-NounClass_sn-5:
+      applies: {sn-NounClass: sn-5}
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "_stem_"
+      examples:
+        - "zai"
+      note: "main class (loanwords), singular has no class prefix"
+
+    sn-NounClass_sn-6:
+      applies: {sn-NounClass: sn-6}
+      forms:
+        - features: {u-Number: u-pl}
+          pattern: "ma- + _stem_"
+      examples:
+        - "mazai"
+      note: "main class, plural prefix ma-; unlike other plurals, ma- is added to the beginning rather than replacing the singular prefix"
+
+    sn-NounClass_sn-7:
+      applies: {sn-NounClass: sn-7}
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "ch(i)- + _stem_"
+      examples:
+        - "chikoro"
+      note: "main class (abstracta ch-), singular prefix ch(i)-"
+
+    sn-NounClass_sn-8:
+      applies: {sn-NounClass: sn-8}
+      forms:
+        - features: {u-Number: u-pl}
+          pattern: "zv(i)- + _stem_"
+      examples:
+        - "zvikoro"
+      note: "main class, plural prefix zv(i)-"
+
+    sn-NounClass_sn-9:
+      applies: {sn-NounClass: sn-9}
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "(_stem_) or (i- + _stem_)"
+      examples:
+        - "tsoka"
+        - "imba"
+      note: "main class, singular has either no prefix or i-"
+
+    sn-NounClass_sn-10:
+      applies: {sn-NounClass: sn-10}
+      forms:
+        - features: {u-Number: u-pl}
+          pattern: "(_stem_) or (dzi- + _stem_)"
+      examples:
+        - "tsoka"
+        - "dzimba"
+      note: "main class, plural has either no prefix or dzi-"
+
+    sn-NounClass_sn-11:
+      applies: {sn-NounClass: sn-11}
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "ru- + _stem_"
+      examples:
+        - "rubatsiro"
+      note: "main class (abstracta / pluralless ru-), singular prefix ru-"
+
+    sn-NounClass_sn-14:
+      applies: {sn-NounClass: sn-14}
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "h(u)- + _stem_"
+      examples:
+        - "hupenyu"
+      note: "main class (abstracta / pluralless u-), singular prefix h(u)-"
+
+    sn-NounClass_sn-12:
+      applies: {sn-NounClass: sn-12}
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "ka- + _stem_"
+      examples:
+        - "kamwana"
+      note: "diminutive class, singular prefix ka-"
+
+    sn-NounClass_sn-13:
+      applies: {sn-NounClass: sn-13}
+      forms:
+        - features: {u-Number: u-pl}
+          pattern: "tu- + _stem_"
+      examples:
+        - "tuvana"
+      note: "diminutive class, plural prefix tu-"
+
+    sn-NounClass_sn-15:
+      applies: {sn-NounClass: sn-15}
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "ku- + _stem_"
+      examples:
+        - "kutya"
+      note: "substantivized verbs: only a singular form exists corresponding to the infinitive (ku-)"
+
+    sn-NounClass_sn-16:
+      applies: {sn-NounClass: sn-16}
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "ku- + _stem_"
+      examples:
+        - "kuchikoro"
+      note: "locative class: place (large-scale) with ku-"
+
+    sn-NounClass_sn-17:
+      applies: {sn-NounClass: sn-17}
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "pa- + _stem_"
+      examples:
+        - "patafura"
+      note: "locative class: exact point/location with pa-"
+
+    sn-NounClass_sn-18:
+      applies: {sn-NounClass: sn-18}
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "mu- + _stem_"
+      examples:
+        - "mumba"
+      note: "locative class: inside/temporal ('in') with mu-"
+
+    sn-NounClass_sn-21:
+      applies: {sn-NounClass: sn-21}
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "zi- + _stem_"
+        - features: {u-Number: u-pl}
+          pattern: "zi- + _stem_"
+      examples:
+        - "zimunhu"
+        - "zivanhu"
+      note: "augmentative class: both singular and plural use zi-"
+
+    sn-NounClass_sn-12__sn-NounClass_sn-13__x-Process_x-prefixation:
+      applies: {sn-NounClass: sn-12, x-Process: x-prefixation}
+      patterns:
+        - pattern: "tu- + (plural form of the base noun)"
+          note: "diminutive plural: the class prefix tu- is added to the plural of the noun being diminutivized"
+      note: "diminutive class 12/13 requires double declension in the plural"
+
+    sn-NounClass_sn-21__x-Process_x-prefixation:
+      applies: {sn-NounClass: sn-21, x-Process: x-prefixation}
+      patterns:
+        - pattern: "zi- + (plural form of the base noun)"
+          note: "augmentative plural: the class prefix zi- is added to the plural of the noun being augmentativized"
+      note: "augmentative class 21 requires double declension in the plural"
+
+    x-Pronoun-type_x-dem__sn-DemonstrativeType_sn-I:
+      applies: {x-Pronoun-type: x-dem, sn-DemonstrativeType: sn-I}
+      pattern: "class marker vowel + class marker"
+      examples:
+        - "munhu uyu"
+      note: "Demonstrative I ('this'): built from marker vowel + marker syllable; exceptions include class 1/2 sg uyu, class 3/4 sg uyu, class 7/8 pl aya"
+
+    x-Pronoun-type_x-dem__sn-DemonstrativeType_sn-II:
+      applies: {x-Pronoun-type: x-dem, sn-DemonstrativeType: sn-II}
+      pattern: "class marker vowel + property syllable"
+      examples:
+        - "munhu uyo"
+      note: "Demonstrative II ('that'): built from marker vowel + property syllable; exceptions include class 1/2 sg uyo, class 3/4 sg uyo, class 7/8 pl ayo"
+
+    x-Pronoun-type_x-dem__sn-DemonstrativeType_sn-III:
+      applies: {x-Pronoun-type: x-dem, sn-DemonstrativeType: sn-III}
+      pattern: "class marker + no"
+      examples:
+        - "munhu uno"
+      note: "Demonstrative III ('this here', autoreferential): built from class marker + no; exception class 1/2 sg uno"
+
+    x-Pronoun-type_x-dem__sn-DemonstrativeType_sn-IV:
+      applies: {x-Pronoun-type: x-dem, sn-DemonstrativeType: sn-IV}
+      pattern: "class marker + ye"
+      examples:
+        - "munhu uye"
+      note: "Demonstrative IV ('that known one'): built from class marker + ye; exception class 1/2 sg uye"
+
+    x-Pronoun-type_x-dem__sn-DemonstrativeType_sn-with-II:
+      applies: {x-Pronoun-type: x-dem, sn-DemonstrativeType: sn-with-II}
+      pattern: "na + (Demonstrative II without initial vowel)"
+      note: "To combine 'with' (na) and demonstrative II, prefix na and drop the initial vowel; exception: class 1/2 sg naye"
+
+    x-Pronoun-type_x-dem__x-Process_x-suffixation:
+      applies: {x-Pronoun-type: x-dem, x-Process: x-suffixation}
+      pattern: "(class marker) + -pi"
+      note: "Interrogative 'which?': attach -pi to the class marker"
+
+    x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers}
+      forms:
+        - features: {u-Person: u-1, u-Number: u-sg}
+          form: "ini"
+        - features: {u-Person: u-2, u-Number: u-sg}
+          form: "iwe"
+        - features: {u-Person: u-3, u-Number: u-sg}
+          form: "iye"
+        - features: {u-Person: u-1, u-Number: u-pl}
+          form: "isu"
+        - features: {u-Person: u-2, u-Number: u-pl}
+          form: "imwi"
+        - features: {u-Person: u-3, u-Number: u-pl}
+          form: "ivo"
+      note: "personal pronouns are identical for subject and object"
+
+    x-Pronoun-type_x-pers__x-Process_x-compounding:
+      applies: {x-Pronoun-type: x-pers, x-Process: x-compounding}
+      forms:
+        - features: {u-Person: u-1, u-Number: u-sg}
+          form: "neni"
+          note: "'with me'"
+        - features: {u-Person: u-2, u-Number: u-sg}
+          form: "newe"
+          note: "'with you (sg)'"
+        - features: {u-Person: u-3, u-Number: u-sg}
+          form: "naye"
+          note: "'with him/her'"
+        - features: {u-Person: u-1, u-Number: u-pl}
+          form: "nesu"
+          note: "'with us'"
+        - features: {u-Person: u-2, u-Number: u-pl}
+          form: "nemwi"
+          note: "'with you (pl)'"
+        - features: {u-Person: u-3, u-Number: u-pl}
+          form: "navo"
+          note: "'with them'"
+
+    x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss}
+      patterns:
+        - pattern: "(possessive syllable prefix) + -ngu"
+          note: "1SG 'my'"
+        - pattern: "(possessive syllable prefix) + -ko"
+          note: "2SG 'your'"
+        - pattern: "(possessive syllable prefix) + -ke"
+          note: "3SG 'his/her'"
+        - pattern: "(E-possessive syllable prefix) + -du"
+          note: "1PL 'our'"
+        - pattern: "(E-possessive syllable prefix) + -nyu"
+          note: "2PL 'your (pl)'"
+        - pattern: "(possessive syllable prefix) + -vo"
+          note: "3PL 'their'"
+
+    x-Pronoun-type_x-rel:
+      applies: {x-Pronoun-type: x-rel}
+      pattern: "possessive syllable + verb"
+      examples:
+        - "Murume wa-ndaka-(mu-)ona aka-tiza."
+        - "Zvandichataura."
+      note: "relative constructions are formed with the possessive syllable prefixed to the verb"

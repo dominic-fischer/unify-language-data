@@ -1,0 +1,10 @@
+Future:
+  Features:
+    u-Tense: [u-fut]
+
+  Rules:
+    u-Tense_u-fut:
+      applies: {u-Tense: u-fut}
+      note: "No future tense information provided in the source data."
+      patterns:
+        - note: "No future tense patterns, forms, or usage examples provided."

@@ -1,0 +1,49 @@
+Negation:
+  Features:
+    x-Negation-type: [x-clause]
+
+  Rules:
+    x-Negation-type_x-clause:
+      applies: {x-Negation-type: x-clause}
+      patterns:
+        - pattern: "subject + ne + (unstressed object pronouns) + finite verb (or gerund) + connegative (+ past participle/etc.)"
+          examples:
+            - "Je les ai pris → Je ne les ai pas pris."
+            - "Je ne sais pas."
+            - "Il ne fume plus."
+            - "Nous n'avons vu personne."
+            - "Elle n'a rien bu."
+            - "Je n'ai aucune idée."
+            - "Vous ne mangez que des légumes ?"
+          note: "Standard negation is bipartite: ne before the tense-marked verb and before any unstressed object pronouns; the connegative follows the finite verb (or gerund). Common connegatives include pas, plus, jamais, nulle part, guère, point/aucunement/nullement (literary), rien, personne, aucun (also nul, literary), and restrictive que."
+        - pattern: "(...) ne + connegative + infinitive"
+          examples:
+            - "Je voudrais regarder un film et ne pas m'endormir."
+            - "Il prétend ne pas fumer."
+            - "Il prétend ne jamais fumer."
+            - "Il prétend ne rien fumer."
+          note: "With an infinitive, both parts of negation (ne + connegative) precede the targeted verb."
+        - pattern: "negative subject (rien/personne) + ne + finite verb"
+          examples:
+            - "Rien n'est certain."
+            - "Personne n'est arrivé."
+          note: "Rien and personne can serve as subject; they appear clause-initial, before ne."
+        - pattern: "ne + multiple connegatives"
+          examples:
+            - "Elle n'a plus jamais rien dit à personne."
+            - "Elle n'a pas vu personne."
+          note: "Multiple negative words can co-occur; without pas the interpretation is usually a simple negation. With pas plus another negative word, a double-negation reading usually arises; this construction is criticised."
+        - pattern: "(colloquial) finite verb + connegative (without ne)"
+          examples:
+            - "J'ai pas pu venir."
+          note: "In colloquial French, ne is often dropped; written ambiguity may arise with plus."
+        - pattern: "(literary) ne + (pouvoir/savoir/oser/cesser) (without connegative)"
+          examples:
+            - "Je n'ai pu venir."
+          note: "In mostly literary constructions, ne alone can express negation with pouvoir, savoir, oser, and cesser."
+        - pattern: "(formal, subordinate finite clause) (...) ne (...) (expletive; not negative)"
+          examples:
+            - "J'ai peur que cela ne se reproduise."
+            - "Il est arrivé avant que nous n'ayons commencé."
+            - "Ils sont plus nombreux que tu ne le crois."
+          note: "Expletive ne occurs in finite subordinate clauses (never before an infinitive), especially literary; it does not signify negation. Contexts include complements of verbs of fear/avoidance (craindre, avoir peur, empêcher, éviter), doubt/denial (douter, nier), adverbial clauses with avant que, à moins que, de peur/crainte que, and comparatives of inequality (plus, moins, meilleur, etc.)."

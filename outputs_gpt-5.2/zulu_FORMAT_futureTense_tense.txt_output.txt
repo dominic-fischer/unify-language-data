@@ -1,0 +1,62 @@
+ZuluFuture:
+  Features:
+    zu-Future-type: [zu-immediate, zu-distant]
+    zu-Verb-type: [zu-copula-ukuba]
+    x-Negation-type: [x-clause]
+
+  Negation:
+    examples:
+      - "Angizuba uthisha."
+      - "Ngeke ngibe uthisa."
+
+  Rules:
+    zu-Future-type_zu-immediate:
+      applies: {zu-Future-type: zu-immediate}
+      patterns:
+        - pattern: "[subj1]zo(ku)[obj]...a"
+          note: "Principal affirmative immediate future."
+        - pattern: "[subjP]zo(ku)[obj]...a"
+          note: "Participial affirmative immediate future."
+        - pattern: "a[subj2]zu(ku)[obj]...a"
+          note: "Principal negative immediate future."
+        - pattern: "[subjP]ngezu(ku)[obj]...a"
+          note: "Participial negative immediate future."
+      note: "Immediate future uses z (vs y in the distant future). Generally contraction levels 4 or 5 are used; with monosyllabic verbs or verbs beginning with vowels, contraction proceeds only to level 3 so that -ku- remains."
+      examples:
+        - "Ngizokuza."
+        - "Angizukuza."
+        - "Ngizokwakha."
+        - "Angizukwakha."
+        - "Ngizomsiza."
+        - "Angizokumsiza."
+
+    zu-Future-type_zu-distant:
+      applies: {zu-Future-type: zu-distant}
+      patterns:
+        - pattern: "[subj1]yo(ku)[obj]...a"
+          note: "Principal affirmative distant future."
+        - pattern: "[subjP]yo(ku)[obj]...a"
+          note: "Participial affirmative distant future."
+        - pattern: "a[subj2]yu(ku)[obj]...a"
+          note: "Principal negative distant future."
+        - pattern: "[subjP]ngeyu(ku)[obj]...a"
+          note: "Participial negative distant future."
+      note: "Distant future uses y (vs z in the immediate future). In the most contracted form, the distinction between immediate and distant future disappears."
+      examples:
+        - "Ngiyokuza."
+        - "Angiyukuza."
+        - "Ngiyokwakha."
+        - "Angiyukwakha."
+        - "Ngiyomsiza."
+        - "Angiyokumsiza."
+
+    zu-Verb-type_zu-copula-ukuba__zu-Future-type_zu-immediate:
+      applies: {zu-Verb-type: zu-copula-ukuba, zu-Future-type: zu-immediate}
+      note: "In the future one uses 'ukuba', exactly according to the normal future tense formation."
+      forms:
+        - features: {u-Polarity: u-pos}
+          form: "Ngizoba uthisha."
+        - features: {u-Polarity: u-neg}
+          form: "Angizuba uthisha."
+        - features: {u-Polarity: u-neg}
+          form: "Ngeke ngibe uthisa."

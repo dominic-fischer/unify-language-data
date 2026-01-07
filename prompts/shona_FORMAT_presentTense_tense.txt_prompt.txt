@@ -162,8 +162,8 @@ There are also other optional fields at the top level, 'Negation' and 'Usage'. '
 
 INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
-- Rephrase content where necessary, but do NOT add new facts.
-- Merge overlapping information into a single coherent description.
+- Rephrase and reformat content where necessary, but do NOT add new facts.
+- Merge overlapping information into a single coherent description in English.
 - Preserve the hierarchy and ordering of the reference schema.
 - Ignore any information that is not relevant to the topic at hand.
 

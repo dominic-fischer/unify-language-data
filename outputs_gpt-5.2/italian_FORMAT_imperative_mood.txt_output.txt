@@ -1,0 +1,52 @@
+Imperative:
+  Features:
+    u-Mood: [u-imp]
+    u-Person: [u-1, u-2, u-3]
+    u-Number: [u-sg, u-pl]
+    ita-Conjugation: [ita-1, ita-2, ita-3]
+    ita-VerbClass: [ita-isc]
+
+  Rules:
+    u-Mood_u-imp:
+      applies: {u-Mood: u-imp}
+      patterns:
+      - pattern: "(tu) _verb_!"
+        examples:
+        - "parla!"
+        - "temi!"
+        - "parti!"
+        note: "2nd person singular imperative form."
+
+      - pattern: "(noi) _verb_!"
+        examples:
+        - "parliamo!"
+        - "temiamo!"
+        - "partiamo!"
+        note: "Borrowed from the present subjunctive; only technically an imperative in 2SG and 2PL."
+
+      - pattern: "(voi) _verb_!"
+        examples:
+        - "parlate!"
+        - "temete!"
+        - "partite!"
+        note: "2nd person plural imperative form."
+
+      - pattern: "(Ella) _verb_!"
+        examples:
+        - "parli!"
+        - "tema!"
+        - "parta!"
+        note: "Borrowed from the present subjunctive; only technically an imperative in 2SG and 2PL."
+
+      - pattern: "(Essi/Esse) _verb_!"
+        examples:
+        - "parlino!"
+        - "temano!"
+        - "partano!"
+        note: "Borrowed from the present subjunctive; only technically an imperative in 2SG and 2PL."
+
+    u-Mood_u-imp__ita-VerbClass_ita-isc:
+      applies: {u-Mood: u-imp, ita-VerbClass: ita-isc}
+      pattern: "Insert -isc- in all imperative forms except (noi) and (voi)."
+      note: "Applies to verbs such as 'capire'."
+      negation: "u-Mood_u-imp"

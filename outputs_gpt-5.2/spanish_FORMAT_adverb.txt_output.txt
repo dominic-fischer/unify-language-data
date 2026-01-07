@@ -1,0 +1,69 @@
+Adverbs:
+  Features:
+    u-Comparison: [u-cmpr, u-sprl]
+    x-Process: [x-base-form, x-adj-as-adv, x-suffixation, x-complex]
+
+  Rules:
+    x-Process_x-base-form:
+      applies: {x-Process: x-base-form}
+      pattern: "lexical adverb base form"
+      examples:
+      - "muy"
+      - "poco"
+      - "lejos"
+      - "mucho"
+      - "casi"
+
+    x-Process_x-suffixation:
+      applies: {x-Process: x-suffixation}
+      pattern: "adjective (feminine singular) + mente"
+      examples:
+      - "claro → clara → claramente"
+      - "rápido → rápida → rápidamente"
+      - "natural → naturalmente"
+      - "triste → tristemente"
+      - "audaz → audazmente"
+
+    x-Process_x-adj-as-adv:
+      applies: {x-Process: x-adj-as-adv}
+      pattern: "adjective form reused as adverb (identical form)"
+      examples:
+      - "temprano"
+      - "lento"
+      - "hondo"
+      note: "some adverbs are identical to their adjectival counterparts"
+
+    x-Process_x-complex:
+      applies: {x-Process: x-complex}
+      pattern: "fixed adverbial phrase"
+      examples:
+      - "a menudo"
+      - "en todas partes"
+      - "de repente"
+      - "por fin"
+      - "sin embargo"
+
+    u-Comparison_u-cmpr:
+      applies: {u-Comparison: u-cmpr}
+      patterns:
+      - pattern: "más + adverb"
+        examples:
+        - "más temprano"
+        - "más rápidamente"
+      - pattern: "menos + adverb"
+        examples:
+        - "menos interesantemente"
+      note: "comparative formed with más or menos before the adverb"
+
+    u-Comparison_u-sprl:
+      applies: {u-Comparison: u-sprl}
+      pattern: "lo + (más/menos) + adverb (+ qualifier phrase)"
+      examples:
+      - "lo más rápidamente que puedas"
+      - "lo más interesantemente de todos"
+      - "lo menos claramente de ellos"
+      note: "superlative formed by placing neuter article lo before the comparative; typically with an additional qualifier phrase"
+
+  Notes:
+  - "In sequences of adverbs ending in -mente, -mente is dropped from all but the final adverb; the others appear as feminine singular adjective forms (e.g., 'rápida y fácilmente', 'lenta, cuidosa, y duchamente', 'parcial o completamente')."
+  - "Irregular adverb forms: 'bueno' → 'bien', 'malo' → 'mal'."

@@ -1,0 +1,20 @@
+Clauses:
+  Features:
+    x-Clausetype: [x-main, x-subordinate]
+  Rules:
+    x-Domain_x-subject-verb__u-Part-of-Speech_u-conj:
+      applies: {x-Domain: x-subject-verb, u-Part-of-Speech: u-conj}
+      patterns:
+        - pattern: "Clause1 + coordinating conjunction + Clause2"
+          examples:
+            - "Ana este o fată și Ion este un băiat."
+          note: "Coordinating conjunctions coordinate an existing clause with another clause; the new clause is of the same type as the other one."
+        - pattern: "Clause1 + ',' + Clause2"
+          examples:
+            - "Am păzit palatul, palatul era și foarte greu de păzit."
+          note: "Juxtaposition with a comma can achieve the same effect as coordinating conjunctions for linking two main clauses."
+        - pattern: "Head + subordinate clause + coordinating conjunction + subordinate clause"
+          examples:
+            - "V-am spus despre băiatul care este la mine în clasă, și care este foarte bun la matematică."
+          note: "Two subordinate clauses can be joined by a coordinating conjunction."
+      note: "Coordinating conjunction types (list not exhaustive): copulative: și, nici, precum și; adversative: dar/însă/ci, iar; disjunctive: sau/ori/fie; conclusive: deci/așadar, în concluzie, prin urmare."

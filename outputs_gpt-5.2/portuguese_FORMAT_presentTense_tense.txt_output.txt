@@ -1,0 +1,38 @@
+Present:
+  Features:
+    u-Mood: [u-ind]
+    u-Tense: [u-prs]
+    u-Polarity: [u-pos, u-neg]
+    x-Domain: [x-subject-verb]
+    pt-Construction: [pt-synthetic, pt-estar-gerund, pt-estar-a-inf]
+  Usage:
+    pt-synthetic:
+      applies: {u-Mood: u-ind, u-Tense: u-prs}
+      note: "Indicative mood is used in the main clauses of declarative sentences; present tense is a synthetic verb form."
+      examples:
+      - "cantamos ('we sing')"
+  Negation:
+    examples:
+    - "não cantes! ('don't sing!')"
+  Rules:
+    u-Mood_u-ind__u-Tense_u-prs__pt-Construction_pt-synthetic:
+      applies: {u-Mood: u-ind, u-Tense: u-prs, pt-Construction: pt-synthetic}
+      forms:
+      - features: {u-Person: u-1, u-Number: u-pl}
+        form: "cantamos"
+      examples:
+      - "cantamos ('we sing')"
+
+    u-Mood_u-ind__u-Tense_u-prs__pt-Construction_pt-estar-gerund:
+      applies: {u-Mood: u-ind, u-Tense: u-prs, pt-Construction: pt-estar-gerund}
+      pattern: "{estar (present)} + {gerund}"
+      examples:
+      - "estou falando ('I am speaking')"
+      note: "Construction with the gerund is the rule in Brazil; also found in southern and insular Portugal and in Portuguese literature."
+
+    u-Mood_u-ind__u-Tense_u-prs__pt-Construction_pt-estar-a-inf:
+      applies: {u-Mood: u-ind, u-Tense: u-prs, pt-Construction: pt-estar-a-inf}
+      pattern: "{estar (present)} + a + {infinitive}"
+      examples:
+      - "estou a falar ('I am speaking')"
+      note: "In European Portuguese an alternative construction with 'a' + infinitive has appeared and replaced the gerund construction in central and northern Portugal."

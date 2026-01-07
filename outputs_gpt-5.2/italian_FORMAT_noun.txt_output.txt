@@ -1,0 +1,207 @@
+Noun:
+  Features:
+    u-Part-of-Speech: [u-n]
+    u-Gender: [u-masc, u-fem]
+    u-Number: [u-sg, u-pl]
+    it-NounClass: [it-o-i, it-a-e, it-e-i-common, it-o-a-mobile, it-a-i-masc, it-ie-ie, it-invariable, it-irregular-plural, it-altered]
+
+  Rules:
+    it-NounClass_it-o-i:
+      applies: {it-NounClass: it-o-i}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Gender: u-masc, u-Number: u-sg}
+          form: "o"
+        - features: {u-Gender: u-masc, u-Number: u-pl}
+          form: "i"
+      examples:
+        - "cappello → cappelli"
+        - "amico → amici"
+
+    it-NounClass_it-a-e:
+      applies: {it-NounClass: it-a-e}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Gender: u-fem, u-Number: u-sg}
+          form: "a"
+        - features: {u-Gender: u-fem, u-Number: u-pl}
+          form: "e"
+      examples:
+        - "macchina → macchine"
+        - "amica → amiche"
+
+    it-NounClass_it-e-i-common:
+      applies: {it-NounClass: it-e-i-common}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Number: u-sg}
+          form: "e"
+        - features: {u-Number: u-pl}
+          form: "i"
+      examples:
+        - "comandante → comandanti"
+        - "cane → cani"
+        - "parete → pareti"
+        - "fede → fedi"
+
+    it-NounClass_it-o-a-mobile:
+      applies: {it-NounClass: it-o-a-mobile}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Gender: u-masc, u-Number: u-sg}
+          form: "o"
+        - features: {u-Gender: u-fem, u-Number: u-pl}
+          form: "a"
+      examples:
+        - "lenzuolo → lenzuola"
+        - "uovo → uova"
+      note: "historically neuter (Latin 2nd declension -um/-a): masculine in singular, feminine plural"
+
+    it-NounClass_it-a-i-masc:
+      applies: {it-NounClass: it-a-i-masc}
+      pattern: "_stem_ + _ending_"
+      endings:
+        - features: {u-Gender: u-masc, u-Number: u-sg}
+          form: "a"
+        - features: {u-Gender: u-masc, u-Number: u-pl}
+          form: "i"
+      examples:
+        - "atleta → atleti"
+      note: "masculine nouns ending in -a"
+
+    it-NounClass_it-ie-ie:
+      applies: {it-NounClass: it-ie-ie}
+      endings:
+        - features: {u-Gender: u-fem, u-Number: u-sg}
+          form: "ie"
+        - features: {u-Gender: u-fem, u-Number: u-pl}
+          form: "ie"
+      examples:
+        - "specie → specie"
+
+    it-NounClass_it-invariable:
+      applies: {it-NounClass: it-invariable}
+      pattern: "plural identical to singular"
+      examples:
+        - "città → città"
+        - "gru → gru"
+        - "caffè → caffè"
+        - "film → film"
+        - "manager → manager"
+      note: "includes nouns ending in a letter other than -a/-e/-o, nouns ending in a stressed vowel, and non-integrated loanwords; in these cases only the article carries gender/number"
+
+    it-NounClass_it-irregular-plural:
+      applies: {it-NounClass: it-irregular-plural}
+      forms:
+        - features: {u-Number: u-sg}
+          form: "uomo"
+        - features: {u-Number: u-pl}
+          form: "uomini"
+        - features: {u-Number: u-sg}
+          form: "dio"
+        - features: {u-Number: u-pl}
+          form: "dei"
+        - features: {u-Number: u-sg}
+          form: "bue"
+        - features: {u-Number: u-pl}
+          form: "buoi"
+        - features: {u-Number: u-sg}
+          form: "tempio"
+        - features: {u-Number: u-pl}
+          form: "templi"
+      examples:
+        - "uomo → uomini"
+        - "dio → dei"
+        - "bue → buoi"
+        - "tempio → templi"
+      note: "genuine irregular plurals (plurali irregolari) listed in the source"
+
+    it-NounClass_it-altered:
+      applies: {it-NounClass: it-altered}
+      patterns:
+        - pattern: "_base_ + -ino"
+          examples:
+            - "tavolo → tavolino"
+          note: "diminutive"
+        - pattern: "_base_ + -etto"
+          examples:
+            - "libro → libretto"
+          note: "diminutive"
+        - pattern: "_base_ + -atto"
+          examples:
+            - "cerbia → cerbiatto"
+          note: "diminutive"
+        - pattern: "_base_ + -ello"
+          examples:
+            - "bambino → bambinello"
+          note: "diminutive"
+        - pattern: "_base_ + -icello"
+          examples:
+            - "monte → monticello"
+          note: "diminutive"
+        - pattern: "_base_ + -icciolo"
+          examples:
+            - "porto → porticciolo"
+          note: "diminutive"
+        - pattern: "_base_ + -acchio"
+          examples:
+            - "orso → orsacchio"
+          note: "diminutive"
+        - pattern: "_base_ + -uccio"
+          examples:
+            - "cavallo → cavalluccio"
+          note: "term of endearment"
+        - pattern: "_base_ + -acchiotto"
+          examples:
+            - "orso → orsacchiotto"
+          note: "term of endearment"
+        - pattern: "_base_ + -iciattolo"
+          examples:
+            - "fiume → fiumiciattolo"
+          note: "term of endearment"
+        - pattern: "_base_ + -olo"
+          examples:
+            - "figlio → figliolo"
+          note: "term of endearment (also figliuolo)"
+        - pattern: "_base_ + -otto"
+          examples:
+            - "cucciolo → cucciolotto"
+          note: "term of endearment"
+        - pattern: "_base_ + -one"
+          examples:
+            - "libro → librone"
+          note: "augmentative"
+        - pattern: "_base_ + -accione"
+          examples:
+            - "uomo → omaccione"
+          note: "augmentative"
+        - pattern: "_base_ + -accio"
+          examples:
+            - "libro → libraccio"
+          note: "pejorative"
+        - pattern: "_base_ + -astro"
+          examples:
+            - "medico → medicastro"
+          note: "pejorative"
+        - pattern: "_base_ + -ucolo"
+          examples:
+            - "poeta → poetucolo"
+          note: "pejorative"
+        - pattern: "_base_ + -onzolo"
+          examples:
+            - "medico → mediconzolo"
+          note: "pejorative"
+        - pattern: "_base_ + -uncolo"
+          examples:
+            - "uomo → omuncolo"
+          note: "pejorative"
+        - pattern: "_base_ + -otto"
+          examples:
+            - "contadino → contadinotto"
+          note: "pejorative"
+      note: "altered nouns: diminutives, terms of endearment, augmentatives, pejoratives; multiple suffixes may be combined (e.g. libro → libretto, libricino, libercolo, libraccio, libraccione); uomo has stem om- in altered forms (omino, ometto, omone, omaccio, omaccione)"
+
+  Notes:
+    - "Nouns inflect for number (singular/plural) and have grammatical gender (masculine/feminine); when nouns refer to people/animals with natural gender, grammatical gender typically corresponds."
+    - "Italian historical neuter has merged with masculine; a subgroup (often from Latin 2nd declension neuters) shows masculine singular with feminine plural."
+    - "Subclauses and infinitives are masculine."

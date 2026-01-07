@@ -1,0 +1,21 @@
+Adverbs:
+  Features:
+    u-Part-of-Speech: [u-adv]
+    x-Process: [x-base-form, x-adj-as-adv]
+
+  Rules:
+    x-Process_x-base-form:
+      applies: {x-Process: x-base-form}
+      pattern: "invariant lexical adverb"
+      note: "Romanian adverbs are invariant."
+      examples:
+        - "bine"
+
+    x-Process_x-adj-as-adv:
+      applies: {x-Process: x-adj-as-adv}
+      pattern: "adverb identical to the corresponding adjective in masculine singular form (invariable)"
+      note: "Adverbs usually determine verbs, but can also modify a clause or an entire sentence."
+      examples:
+        - "frumos (adj. masc.sg.) → frumos (adv.)"
+        - "Băieții sunt jucători buni. → Băieții joacă bine."
+        - "Cântecul acesta este frumos. → Cântăreața cântă frumos."

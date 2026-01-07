@@ -1,0 +1,159 @@
+Determiner:
+  Features:
+    x-Determiner-type: [x-demonstrative, x-interrogative, x-possessive]
+    u-Number: [u-sg, u-pl]
+    u-Gender: [u-bantu1-23]
+  Rules:
+    x-Determiner-type_x-demonstrative:
+      applies: {x-Determiner-type: x-demonstrative}
+      patterns:
+        - note: "Type I: demonstrative formed as class marker vowel + class marker; exceptions for some classes."
+          forms:
+            - features: {u-Gender: u-bantu1-23}
+              pattern: "Kennsilbenvokal + Kennsilbe"
+          examples: ["munhu uyu"]
+        - note: "Type II: demonstrative formed as class marker vowel + descriptive syllable; exceptions for some classes."
+          forms:
+            - features: {u-Gender: u-bantu1-23}
+              pattern: "Kennsilbenvokal + Eigenschaftssilbe"
+          examples: ["munhu uyo"]
+        - note: "Type III: demonstrative formed as class marker + no; exceptions for class 1/2 singular."
+          forms:
+            - features: {u-Gender: u-bantu1-23}
+              pattern: "Kennsilbe + no"
+          examples: ["munhu uno"]
+        - note: "Type IV: demonstrative formed as class marker + ye; exceptions for class 1/2 singular."
+          forms:
+            - features: {u-Gender: u-bantu1-23}
+              pattern: "Kennsilbe + ye"
+          examples: ["munhu uye"]
+        - note: "Demonstrative inventories by noun class (selected forms as listed)."
+          forms:
+            - features: {u-Gender: u-bantu1-23, u-Number: u-sg}
+              form: "uyu"
+              note: "class 1; also listed for class 3 singular"
+            - features: {u-Gender: u-bantu1-23, u-Number: u-pl}
+              form: "ava"
+              note: "class 2"
+            - features: {u-Gender: u-bantu1-23, u-Number: u-sg}
+              form: "iyi"
+              note: "class 4; also listed for class 9"
+            - features: {u-Gender: u-bantu1-23, u-Number: u_pl}
+              form: "idzi"
+              note: "class 10"
+            - features: {u-Gender: u-bantu1-23, u-Number: u_pl}
+              form: "aya"
+              note: "class 6"
+            - features: {u-Gender: u-bantu1-23, u-Number: u-sg}
+              form: "ichi"
+              note: "class 7"
+            - features: {u-Gender: u-bantu1-23, u-Number: u-pl}
+              form: "izvi"
+              note: "class 8"
+    x-Determiner-type_x-interrogative:
+      applies: {x-Determiner-type: x-interrogative}
+      note: "To ask which one, use the class marker and attach -pi."
+      forms:
+        - features: {u-Gender: u-bantu1-23}
+          pattern: "Kennsilbe + -pi"
+      examples: ["api?", "upi?", "ripi?", "chipi?", "dzipi?"]
+    x-Determiner-type_x-possessive:
+      applies: {x-Determiner-type: x-possessive}
+      note: "Possessives are formed with a class-dependent possessive prefix plus a person/number suffix."
+      endings:
+        - features: {u-Person: u-1, u-Number: u-sg}
+          form: "-ngu"
+        - features: {u-Person: u-2, u-Number: u-sg}
+          form: "-ko"
+        - features: {u-Person: u-3, u-Number: u-sg}
+          form: "-ke"
+        - features: {u-Person: u-1, u-Number: u-pl}
+          form: "-du"
+          note: "requires E-possessive prefix"
+        - features: {u-Person: u-2, u-Number: u-pl}
+          form: "-nyu"
+          note: "requires E-possessive prefix"
+        - features: {u-Person: u-3, u-Number: u-pl}
+          form: "-vo"
+      examples: ["Besitzsilbe + -ngu", "E-Besitzsilbe + -du"]
+
+Article:
+  Features:
+    u-Part-of-Speech: [u-art]
+  Rules:
+    u-Part-of-Speech_u-art:
+      applies: {u-Part-of-Speech: u-art}
+      note: "No article forms are provided in the source data."
+      patterns:
+        - pattern: ""
+          examples: ["(no data)"]
+
+Noun:
+  Features:
+    u-Gender: [u-bantu1-23]
+    u-Number: [u-sg, u-pl]
+    x-Noun-class: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "21"]
+    x-Process: [x-prefixation]
+  Rules:
+    x-Process_x-prefixation__u-Part-of-Speech_u-n:
+      applies: {x-Process: x-prefixation, u-Part-of-Speech: u-n}
+      note: "Noun class prefixes mark singular/plural. To pluralize a noun, replace the singular prefix with the plural prefix; exception: plural prefix ma- is added to the beginning of the word."
+      patterns:
+        - note: "Main classes (examples as listed)."
+          forms:
+            - features: {x-Noun-class: "1", u-Number: u-sg}
+              form: "m(u)-"
+            - features: {x-Noun-class: "2", u-Number: u-pl}
+              form: "va-"
+            - features: {x-Noun-class: "3", u-Number: u-sg}
+              form: "mu-"
+            - features: {x-Noun-class: "4", u-Number: u-pl}
+              form: "mi-"
+            - features: {x-Noun-class: "5", u-Number: u-sg}
+              form: "-"
+            - features: {x-Noun-class: "6", u-Number: u-pl}
+              form: "ma-"
+              note: "plural prefix ma- is attached directly to the word beginning"
+            - features: {x-Noun-class: "7", u-Number: u-sg}
+              form: "ch(i)-"
+            - features: {x-Noun-class: "8", u-Number: u-pl}
+              form: "zv(i)-"
+            - features: {x-Noun-class: "9", u-Number: u-sg}
+              form: "- / i-"
+            - features: {x-Noun-class: "10", u-Number: u-pl}
+              form: "- / dzi-"
+            - features: {x-Noun-class: "11", u-Number: u-sg}
+              form: "ru-"
+            - features: {x-Noun-class: "14", u-Number: u-sg}
+              form: "h(u)-"
+          examples: ["munhu/vanhu", "mugwagwa/migwagwa", "zai/mazai", "chikoro/zvikoro", "tsoka, imba / tsoka, dzimba", "rubatsiro", "hupenyu"]
+        - note: "Additional classes (examples as listed)."
+          forms:
+            - features: {x-Noun-class: "12", u-Number: u-sg}
+              form: "ka-"
+            - features: {x-Noun-class: "13", u-Number: u-pl}
+              form: "tu-"
+            - features: {x-Noun-class: "15", u-Number: u-sg}
+              form: "ku-"
+              note: "verbal nouns / infinitive-like; only a singular form is stated"
+            - features: {x-Noun-class: "16"}
+              form: "ku-"
+              note: "locative (large area)"
+            - features: {x-Noun-class: "17"}
+              form: "pa-"
+              note: "locative (exact point)"
+            - features: {x-Noun-class: "18"}
+              form: "mu-"
+              note: "locative (inside; also temporal)"
+            - features: {x-Noun-class: "21"}
+              form: "zi-"
+              note: "augmentative; singular and plural listed with zi-"
+          examples: ["kamwana/tuvana", "kutya", "kuchikoro", "patafura", "mumba", "zimunhu/zivanhu"]
+        - note: "Diminutive (12/13) and augmentative (21): in plural they are 'doubly declined' by adding their class prefix (tu-/zi-) to the plural of the base noun."
+          forms:
+            - features: {x-Noun-class: "13", u-Number: u-pl}
+              pattern: "tu- + (plural of base noun)"
+            - features: {x-Noun-class: "21", u-Number: u-pl}
+              pattern: "zi- + (plural of base noun)"
+        - note: "Locative: when a location is expressed with a noun (e.g. 'in the school'), the noun belongs to a locative class and the sentence must be adjusted accordingly."
+          examples: ["kuchikoro"]

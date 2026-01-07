@@ -1,0 +1,31 @@
+Clauses:
+  Features:
+    x-Clausetype: [x-main, x-int-yes-no, x-int-wh]
+    x-Word-order: [x-V1]
+
+  Rules:
+    x-Clausetype_x-main:
+      applies: {x-Clausetype: x-main}
+      pattern: "S V O"
+      note: "Italian is primarily SVO, but has relatively free word order (e.g. SOV, VSO, OVS) especially for emphasis and, in literature, for style and metre."
+      examples:
+        - "Davide è arrivato in ufficio."
+        - "È arrivato Davide in ufficio."
+        - "È arrivato in ufficio."
+        - "(Lui) è arrivato in ufficio."
+
+    x-Clausetype_x-int-yes-no:
+      applies: {x-Clausetype: x-int-yes-no}
+      pattern: "… ? (rising intonation)"
+      note: "Yes/no questions are typically formed by rising intonation; there is usually no other special marker."
+      examples:
+        - "Davide è arrivato in ufficio?"
+        - "È arrivato Davide in ufficio?"
+
+    x-Clausetype_x-int-wh__x-Word-order_x-V1:
+      applies: {x-Clausetype: x-int-wh, x-Word-order: x-V1}
+      pattern: "Wh-word + … ?"
+      note: "Wh-movement usually occurs; intonation and context help distinguish questions from affirmative statements."
+      examples:
+        - "Perché Davide è arrivato in ufficio?"
+        - "Chi è arrivato in ufficio?"

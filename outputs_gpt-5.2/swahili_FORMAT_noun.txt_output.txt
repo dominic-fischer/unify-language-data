@@ -1,0 +1,304 @@
+Noun:
+  Features:
+    u-Gender: [u-bantu1-23]
+    u-Number: [u-sg, u-pl]
+    u-Animacy: [u-anim, u-inan]
+    sw-NounClass: [sw-1, sw-2, sw-3, sw-4, sw-5, sw-6, sw-7, sw-8, sw-9, sw-10, sw-11, sw-14, sw-15, sw-16, sw-17, sw-18]
+
+  Rules:
+    sw-NounClass_sw-1:
+      applies: {sw-NounClass: sw-1}
+      pattern: "_prefix_ + _stem_"
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "m- (before consonant) / mw- (before vowel)"
+      examples:
+        - "mtu"
+      note: "Class 1; typically humans/animate; singular."
+
+    sw-NounClass_sw-2:
+      applies: {sw-NounClass: sw-2}
+      pattern: "_prefix_ + _stem_"
+      forms:
+        - features: {u-Number: u-pl}
+          pattern: "wa- (before consonant) / w- (before vowel)"
+      examples:
+        - "watu"
+        - "wasichana"
+        - "wasimamizi"
+      note: "Class 2; typically humans/animate; plural."
+
+    sw-NounClass_sw-3:
+      applies: {sw-NounClass: sw-3}
+      pattern: "_prefix_ + _stem_"
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "m- (before consonant) / mw- (before vowel)"
+      examples:
+        - "mzizi"
+        - "mti"
+      note: "Class 3; typically plants/inanimate; singular."
+
+    sw-NounClass_sw-4:
+      applies: {sw-NounClass: sw-4}
+      pattern: "_prefix_ + _stem_"
+      forms:
+        - features: {u-Number: u-pl}
+          pattern: "mi- (before consonant) / my- (before vowel)"
+      examples:
+        - "mizizi"
+        - "miti"
+      note: "Class 4; typically plants/inanimate; plural."
+
+    sw-NounClass_sw-5:
+      applies: {sw-NounClass: sw-5}
+      pattern: "_prefix_ + _stem_"
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "∅ / ji-"
+      examples:
+        - "neno"
+        - "jicho"
+      note: "Class 5; various (incl. loanwords/abstracts). Frequently without a prefix."
+
+    sw-NounClass_sw-6:
+      applies: {sw-NounClass: sw-6}
+      pattern: "_prefix_ + _stem_"
+      forms:
+        - features: {u-Number: u-pl}
+          form: "ma-"
+      examples:
+        - "maneno"
+        - "macho"
+        - "maji"
+        - "mazungumzo"
+      note: "Class 6; plural of class 5; also contains many liquid nouns and some verb-derived nouns."
+
+    sw-NounClass_sw-7:
+      applies: {sw-NounClass: sw-7}
+      pattern: "_prefix_ + _stem_"
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "ki- (before consonant); ch-/ki- (before vowel)"
+      examples:
+        - "kitu"
+        - "kitabu"
+        - "kifuniko"
+        - "kisukari"
+      note: "Class 7; various (incl. many man-made tools, languages, diminutives); singular."
+
+    sw-NounClass_sw-8:
+      applies: {sw-NounClass: sw-8}
+      pattern: "_prefix_ + _stem_"
+      forms:
+        - features: {u-Number: u-pl}
+          pattern: "vi- (before consonant); vy-/vi- (before vowel)"
+      examples:
+        - "vitu"
+        - "vitabu"
+        - "vita"
+      note: "Class 8; plural of class 7; plural."
+
+    sw-NounClass_sw-9:
+      applies: {sw-NounClass: sw-9}
+      pattern: "_prefix_ + _stem_"
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "N- / ∅ (often without prefix); ny- (before vowel)"
+      examples:
+        - "nchi"
+        - "chupa"
+        - "simba"
+        - "ndege"
+      note: "Class 9; often animals/inanimate; singular. Classes 9/10 are frequently without any prefix."
+
+    sw-NounClass_sw-10:
+      applies: {sw-NounClass: sw-10}
+      pattern: "_prefix_ + _stem_"
+      forms:
+        - features: {u-Number: u-pl}
+          pattern: "N- / ∅; ny- (before vowel)"
+      examples:
+        - "nchi"
+        - "simba"
+        - "funguo"
+        - "ndege"
+      note: "Class 10; plural counterpart of class 9; also the plural class for class 11 nouns."
+
+    sw-NounClass_sw-11:
+      applies: {sw-NounClass: sw-11}
+      pattern: "_prefix_ + _stem_"
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "u- (also u-/uw-/w- before vowel)"
+      examples:
+        - "ulimi"
+        - "ufunguo"
+      note: "Class 11; includes many abstract nouns; plural is typically class 10."
+
+    sw-NounClass_sw-14:
+      applies: {sw-NounClass: sw-14}
+      pattern: "_prefix_ + _stem_"
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "u- (also u-/uw-/w- before vowel)"
+      examples:
+        - "utu"
+        - "usiku"
+      note: "Class 14; abstract nouns; usually has no plural, but class 6 is used in rare cases."
+
+    sw-NounClass_sw-15:
+      applies: {sw-NounClass: sw-15}
+      pattern: "_prefix_ + _stem_"
+      forms:
+        - features: {u-Number: u-sg}
+          pattern: "ku- (also kw- before vowel)"
+      examples:
+        - "kucheka"
+        - "kula"
+      note: "Class 15; infinitives/substantivized verbs; only a singular form exists corresponding to the infinitive."
+
+    sw-NounClass_sw-16:
+      applies: {sw-NounClass: sw-16}
+      pattern: "_stem_ + -ni"
+      examples:
+        - "mahali"
+      note: "Locative class 16; proximate/exact locatives. The only inherent locative noun is mahali."
+
+    sw-NounClass_sw-17:
+      applies: {sw-NounClass: sw-17}
+      pattern: "_stem_ + -ni"
+      examples:
+        - "nyumbani kwa Rehema"
+      note: "Locative class 17; distal/approximate locatives. Locatives can be formed by adding -ni to the base noun (with listed restrictions)."
+
+    sw-NounClass_sw-18:
+      applies: {sw-NounClass: sw-18}
+      pattern: "_stem_ + -ni"
+      examples:
+        - "chumbani mwa Daudi"
+      note: "Locative class 18; interior locatives. Locatives constitute their own classes and use their own concords."
+
+    u-Number_u-pl__x-Process_x-prefixation:
+      applies: {u-Number: u-pl, x-Process: x-prefixation}
+      patterns:
+        - pattern: "Replace the singular class prefix with the plural class prefix."
+          examples:
+            - "mtu → watu"
+            - "mzizi → mizizi"
+            - "kitu → vitu"
+          note: "Default plural formation switches to the next higher class (odd=singular, even=plural)."
+        - pattern: "For class 11 nouns, plural is class 10."
+          examples:
+            - "ulimi → ndimi"
+        - pattern: "The plural prefix ma- is added directly to the beginning of the word (rather than replacing the singular prefix)."
+          examples:
+            - "neno → maneno"
+      note: "Plural formation is generally by switching noun class; class 11 uses class 10; ma- behaves as an exception in prefix attachment."
+
+    sw-NounClass_sw-11__u-Number_u-pl:
+      applies: {sw-NounClass: sw-11, u-Number: u-pl}
+      pattern: "Apply class-10 plural with the N- prefix; adjust the nasal prefix by the N! rule."
+      patterns:
+        - pattern: "N- before ch, d, g, j, z → n-"
+          examples:
+            - "uduvi → nduvi"
+        - pattern: "N- before b, p, v → m-"
+          examples:
+            - "ubao → mbao"
+        - pattern: "N- before a, e, i, o, u → ny-"
+          examples:
+            - "wimbo → nyimbo"
+        - pattern: "N- before l, r → nd-"
+          examples:
+            - "ulimi → ndimi"
+        - pattern: "N- before f, h, k, m, n, s, t, w, y → ∅"
+          examples:
+            - "urafiki → rafiki"
+      note: "For (some) u-/w- class-11 nouns forming a plural, the initial u-/w- is replaced by N- with phonological adjustments (N! rule)."
+
+    x-Process_x-prefixation__sw-NounClass_sw-7:
+      applies: {x-Process: x-prefixation, sw-NounClass: sw-7}
+      pattern: "Diminutive formation uses class 7/8 prefixes ki- (sg) and vi- (pl)."
+      patterns:
+        - pattern: "From classes 1/2, replace the class prefix with ji- before adding ki-/vi-."
+          examples:
+            - "mji, miji → ki-ji-ji, vi-ji-ji"
+        - pattern: "From classes 5/6, drop the original class prefix (if any) before adding ki-/vi-."
+          examples:
+            - "kombe, makombe → ki-kombe, vi-kombe"
+        - pattern: "From classes 7/8, replace the class prefix with ji- before adding ki-/vi-."
+          examples:
+            - "kitabu, vitabu → ki-ji-tabu, vi-ji-tabu"
+        - pattern: "From classes 9/10, drop the original class prefix before adding ki-/vi-."
+          examples:
+            - "ngoma → ki-goma, vi-goma"
+        - pattern: "From classes 11/14, drop the original class prefix before adding ki-/vi-."
+          examples:
+            - "uwanja, nyanja → ki-wanja, vi-wanja"
+      note: "Swahili does not have a separate 12/13 diminutive class; diminutives fall into 7/8. For plural diminutives, vi- is sufficient to mark plural; the base noun is not additionally pluralized."
+
+    x-Process_x-prefixation__sw-NounClass_sw-6:
+      applies: {x-Process: x-prefixation, sw-NounClass: sw-6}
+      pattern: "Augmentative formation uses class 5/6 morphology (sg: ∅/ji-, pl: ma-)."
+      patterns:
+        - pattern: "From classes 1/2, replace the class prefix with ji- (sg) / ma-ji- (pl)."
+          examples:
+            - "mtu, watu → ji-tu, ma-ji-tu"
+        - pattern: "From class 5/6, replace the class prefix with ji- (sg) / ma-ji- (pl)."
+          examples:
+            - "kombe, makombe → ji-kombe, ma-ji-kombe"
+        - pattern: "From class 7/8, drop the class prefix (sg) and use ma- for plural."
+          examples:
+            - "kikapu, vikapu → kapu, ma-kapu"
+        - pattern: "From class 9/10, drop the class prefix (sg) and use ma- for plural."
+          examples:
+            - "mfuko → fuko, ma-fuko"
+        - pattern: "From class 11/14, replace the class prefix with ji- (sg) / ma-ji- (pl)."
+          examples:
+            - "uwanja, nyanja → ji-wanja, ma-ji-wanja"
+      note: "Swahili does not have a separate augmentative class; augmentatives use class 5/6 morphology."
+
+    u-Animacy_u-anim__x-Domain_x-subject-verb:
+      applies: {u-Animacy: u-anim, x-Domain: x-subject-verb}
+      pattern: "Animate nouns not in classes 1/2 take class 1/2 agreement prefixes (concords) as if they belonged to class 1/2."
+      examples:
+        - "Kifaru mkubwa alianguka. ↔ Vifaru wakubwa walianguka."
+        - "Ndege mkubwa alianguka. ↔ Ndege wakubwa walianguka."
+      note: "Animacy affects concord; nouns referring to people/animals may take 1/2 agreement even when their morphological class is different."
+
+    u-Animacy_u-inan__x-Domain_x-subject-verb:
+      applies: {u-Animacy: u-inan, x-Domain: x-subject-verb}
+      pattern: "Inanimate nouns take concords of their own noun class."
+      examples:
+        - "Ndege kubwa ilianguka. ↔ Ndege kubwa zilianguka."
+      note: "Inanimates follow the noun's morphological class for agreement."
+
+    x-Process_x-suffixation__sw-NounClass_sw-17:
+      applies: {x-Process: x-suffixation, sw-NounClass: sw-17}
+      pattern: "Locative derivation by adding -ni to the noun."
+      examples:
+        - "Wapo barabarani."
+        - "Watoto wanakwenda shuleni."
+      note: "To express meanings of locative prepositions, -ni is added to the head noun; omitted with proper names. Locative use is not available for place proper nouns, animate nouns, recent loanwords, and some other nouns."
+
+    x-Process_x-compounding:
+      applies: {x-Process: x-compounding}
+      patterns:
+        - pattern: "Compound-like meaning via genitive construction: N1 + GEN(-a) + N2."
+          examples:
+            - "mpira wa kikapu"
+        - pattern: "Compound-like meaning via juxtaposition: N1 + N2."
+          examples:
+            - "fundi viatu"
+            - "fundi baskeli"
+            - "punda milia / punda-milia / pundamilia"
+      note: "The head noun precedes modifiers; writing of compounds varies (together, hyphenated, or separate)."
+
+    x-Process_x-compounding__u-Number_u-pl:
+      applies: {x-Process: x-compounding, u-Number: u-pl}
+      pattern: "Some compounds have irregular plural forms with number marking on both elements."
+      examples:
+        - "mwanamke → wanawake"
+        - "mwanamume → wanaume"
+      note: "These compounds are formed from mwana plus mke/mume; plural may affect both parts."

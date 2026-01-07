@@ -1,0 +1,123 @@
+Swahili:
+  Features:
+    sw-TAM:
+    - sw-past
+    - sw-past-neg
+    - sw-perfect
+    - sw-perfect-neg
+    - sw-pluperfect
+    - sw-pluperfect-neg
+    - sw-imperfect
+    - sw-imperfect-neg
+    - sw-perfect-continuous
+    - sw-perfect-continuous-neg
+    - sw-situational
+    - sw-consecutive-past
+
+  Usage:
+    sw-past:
+      note: "Used to talk about actions or states in the past, whether near or distant."
+      examples:
+      - "Alikwenda."
+      - "Nilikula."
+    sw-perfect:
+      note: "Indicates a past action/situation with relevance to the present moment."
+      examples:
+      - "Amekwenda."
+      - "Nimekula."
+    sw-perfect-neg:
+      note: "Some sources describe the negative perfect with -ja- as implying 'not yet'; this can be made explicit with bado."
+      examples:
+      - "Hajaenda."
+      - "Sijala."
+    sw-situational:
+      note: "Used for a simultaneous/background action or situation in subordinate clauses (roughly 'if/when')."
+      examples:
+      - "Ni-ki-enda."
+    sw-consecutive-past:
+      note: "In narratives with multiple past events, the first verb commonly takes -li- and following verbs take -ka- (roughly 'and then')."
+      examples:
+      - "Ni-li-m-piga simu, ni-ka-tembea kwake, ni-ka-fanya kila kitu."
+      - "Tulicheza soka tukashinda."
+      - "Tulicheza soka na kushinda."
+
+  Rules:
+    sw-TAM_sw-past:
+      applies: {sw-TAM: sw-past}
+      pattern: "[SUBJ]-li-([OBJ]/EXT)-STEM"
+      examples:
+      - "Ni-li-enda."
+      - "A-li-kwenda."
+    sw-TAM_sw-past-neg:
+      applies: {sw-TAM: sw-past-neg}
+      pattern: "[NEG.SUBJ]-ku-([OBJ])-STEM"
+      examples:
+      - "Si-kw-enda."
+      - "Ha-ku-kwenda."
+      - "Si-ku-la."
+    sw-TAM_sw-perfect:
+      applies: {sw-TAM: sw-perfect}
+      pattern: "[SUBJ]-me-([OBJ]/EXT)-STEM"
+      examples:
+      - "Tu-me-ondoka."
+      - "A-me-penda."
+      - "A-me-sha-fika."
+    sw-TAM_sw-perfect-neg:
+      applies: {sw-TAM: sw-perfect-neg}
+      pattern: "[NEG.SUBJ]-ja-([OBJ]/(EXT))-STEM"
+      examples:
+      - "Hatu-ja-ondoka."
+      - "Haja-enda."
+      - "Ha-ja-penda."
+    sw-TAM_sw-pluperfect:
+      applies: {sw-TAM: sw-pluperfect}
+      pattern: "[SUBJ]-li-kuwa [SUBJ]-me-STEM"
+      examples:
+      - "Ni-li-kuwa ni-me-kula."
+    sw-TAM_sw-pluperfect-neg:
+      applies: {sw-TAM: sw-pluperfect-neg}
+      patterns:
+      - pattern: "[SUBJ]-kuwa [NEG.SUBJ]-ja-STEM"
+        examples:
+        - "Si-kuwa ni-me-kula."
+      - pattern: "[SUBJ]-li-kuwa [NEG.SUBJ]-ja-STEM"
+        examples:
+        - "Ni-li-kuwa Si-ja-kula."
+    sw-TAM_sw-imperfect:
+      applies: {sw-TAM: sw-imperfect}
+      pattern: "[SUBJ]-li-kuwa [SUBJ]-ki-STEM"
+      examples:
+      - "A-li-kuwa a-ki-la."
+    sw-TAM_sw-imperfect-neg:
+      applies: {sw-TAM: sw-imperfect-neg}
+      patterns:
+      - pattern: "[SUBJ]-kuwa [NEG.SUBJ]-STEM"
+        examples:
+        - "A-li-kuwa Ha-li."
+      - pattern: "[NEG.SUBJ]-kuwa [SUBJ]-ki-STEM"
+        examples:
+        - "Ha-kuwa Ha-ki-kula."
+    sw-TAM_sw-perfect-continuous:
+      applies: {sw-TAM: sw-perfect-continuous}
+      pattern: "[SUBJ]-me-kuwa [SUBJ]-ki-STEM"
+      examples:
+      - "Wa-me-kuwa wa-ki-jaribu."
+    sw-TAM_sw-perfect-continuous-neg:
+      applies: {sw-TAM: sw-perfect-continuous-neg}
+      patterns:
+      - pattern: "[SUBJ]-me-kuwa [NEG.SUBJ]-STEM"
+        examples:
+        - "Wa-me-kuwa Hawa-jaribu."
+      - pattern: "[NEG.SUBJ]-kuwa [SUBJ]-me-STEM"
+        examples:
+        - "Hawa-kuwa Wa-me-jaribu."
+    sw-TAM_sw-situational:
+      applies: {sw-TAM: sw-situational}
+      pattern: "[SUBJ]-ki-([OBJ])-STEM"
+      examples:
+      - "Ni-ki-enda."
+    sw-TAM_sw-consecutive-past:
+      applies: {sw-TAM: sw-consecutive-past}
+      pattern: "[SUBJ]-ka-([OBJ])-STEM"
+      examples:
+      - "Ni-ka-enda."

@@ -1,0 +1,73 @@
+Subjunctive:
+  Features:
+    u-Mood: [u-sbjv]
+    u-Tense: [u-prs, u-pst]
+    u-Person: [u-1, u-2, u-3]
+    u-Number: [u-sg, u-pl]
+
+  Usage:
+    DesireDemandEmotion:
+      applies: {u-Mood: u-sbjv}
+      note: "Subjunctive is used to express a wish or desire, a demand, an emotion, or similar connotations."
+      examples:
+      - "Quiero que seas muy ambicioso."
+      - "Me alegro de que Marta traiga la comida."
+      - "Es una lástima que llegues tarde."
+    DoubtDenialUncertainty:
+      applies: {u-Mood: u-sbjv}
+      note: "Subjunctive is also used to convey doubt, denial, or uncertainty."
+      examples:
+      - "Busco un amigo que sea simpático."
+      - "No hay ningún autor que lo escriba."
+      - "Es posible que ella sepa mucho."
+      - "No parece que tengan mucho dinero."
+
+  Rules:
+    u-Mood_u-sbjv__u-Tense_u-prs:
+      applies: {u-Mood: u-sbjv, u-Tense: u-prs}
+      patterns:
+      - pattern: "For -ar verbs: take the present indicative 1SG (yo) form and replace final '-o' with 'e'; other persons use the corresponding present subjunctive endings."
+        endings:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "es"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, form: "e"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "emos"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "éis"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "en"}
+        examples:
+        - "yo hable"
+        - "tú hables"
+        - "él hable"
+        - "nosotros hablemos"
+        - "vosotros habléis"
+        - "ellos hablen"
+      - pattern: "For -er/-ir verbs: take the present indicative 1SG (yo) form and replace final '-o' with 'a'; other persons use the corresponding present subjunctive endings."
+        endings:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "a"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "as"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, form: "a"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "amos"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "áis"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "an"}
+        examples:
+        - "yo coma"
+        - "tú comas"
+        - "él coma"
+        - "nosotros comamos"
+        - "vosotros comáis"
+        - "ellos coman"
+        - "yo viva"
+        - "tú vivas"
+        - "él viva"
+        - "nosotros vivamos"
+        - "vosotros viváis"
+        - "ellos vivan"
+
+    u-Mood_u-sbjv__u-Tense_u-pst:
+      applies: {u-Mood: u-sbjv, u-Tense: u-pst}
+      patterns:
+      - pattern: "Imperfect subjunctive has two forms (-ra and -se), which are largely interchangeable."
+        examples:
+        - "hubiera"
+        - "hubiese"
+        note: "The choice between -ra and -se is largely a matter of personal taste and dialect."

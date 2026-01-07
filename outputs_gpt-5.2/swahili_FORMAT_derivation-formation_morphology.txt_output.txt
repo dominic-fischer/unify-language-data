@@ -1,0 +1,67 @@
+DerivationalMorphology:
+  Features:
+    u-Part-of-Speech:
+    - u-n
+    - u-v
+    x-Process:
+    - x-prefixation
+    - x-suffixation
+    u-Gender:
+    - u-bantu1-23
+    u-Number:
+    - u-sg
+    - u-pl
+    u-Valency:
+    - u-caus
+    - u-appl
+    - u-recp
+    u-Voice:
+    - u-pass
+
+  Rules:
+    u-Gender_u-bantu1-23__u-Number_u-sg__u-Part-of-Speech_u-n__x-Process_x-prefixation:
+      applies: {u-Gender: u-bantu1-23, u-Number: u-sg, u-Part-of-Speech: u-n, x-Process: x-prefixation}
+      patterns:
+      - pattern: "ka- + _stem_"
+        note: "diminutive class prefix (singular)"
+
+    u-Gender_u-bantu1-23__u-Number_u-pl__u-Part-of-Speech_u-n__x-Process_x-prefixation:
+      applies: {u-Gender: u-bantu1-23, u-Number: u-pl, u-Part-of-Speech: u-n, x-Process: x-prefixation}
+      patterns:
+      - pattern: "tu- + _stem_"
+        note: "diminutive class prefix (plural)"
+      - pattern: "ti- + _stem_"
+        note: "diminutive class prefix (plural)"
+
+    u-Part-of-Speech_u-v__u-Voice_u-pass__x-Process_x-suffixation:
+      applies: {u-Part-of-Speech: u-v, u-Voice: u-pass, x-Process: x-suffixation}
+      pattern: "_stem_ + passive suffix (must be last)"
+      examples:
+      - "-andika → -andikwa"
+      - "-andikisha → -andikishwa"
+      - "-andikia → -andikiwa"
+      - "-andikianisha → -andikianishwa"
+      - "-likianisha → -likianishwa"
+      note: "passive suffix must always be last in Swahili when suffixes are stacked"
+
+    u-Part-of-Speech_u-v__u-Valency_u-caus__x-Process_x-suffixation:
+      applies: {u-Part-of-Speech: u-v, u-Valency: u-caus, x-Process: x-suffixation}
+      examples:
+      - "-andika → -andikisha"
+      - "-andikiana → -andikianisha"
+      - "-likiana → -likianisha"
+
+    u-Part-of-Speech_u-v__u-Valency_u-appl__x-Process_x-suffixation:
+      applies: {u-Part-of-Speech: u-v, u-Valency: u-appl, x-Process: x-suffixation}
+      examples:
+      - "-andika → -andikia"
+      - "-lika → -likia"
+
+    u-Part-of-Speech_u-v__u-Valency_u-recp__x-Process_x-suffixation:
+      applies: {u-Part-of-Speech: u-v, u-Valency: u-recp, x-Process: x-suffixation}
+      examples:
+      - "-andikia → -andikiana"
+      - "-likia → -likiana"
+
+  Notes:
+  - "In diminutive/augmentative formation, the added syllables may attach either to the stem or to an already existing prefix; in some languages this can lead to 'double' plural marking (both diminutive/augmentative and regular class prefixes pluralized)."

@@ -1,0 +1,235 @@
+Agreement:
+  Features:
+    x-Domain:
+    - x-subject-verb
+    - x-noun-adjective
+    x-Process:
+    - x-prefixation
+    u-Person:
+    - u-1
+    - u-2
+    - u-3
+    u-Number:
+    - u-sg
+    - u-pl
+    u-Animacy:
+    - u-anim
+    - u-inan
+    u-Polarity:
+    - u-pos
+    - u-neg
+    u-Gender:
+    - u-bantu1-23
+
+  Rules:
+    x-Domain_x-subject-verb:
+      applies: {x-Domain: x-subject-verb}
+      pattern: "subject concord prefix attaches before the verb stem (after any tense marker); when the subject is a noun, the concord matches the noun class; personal pronouns are typically omitted unless emphasized"
+      examples:
+      - "Wa-tu wa-na-enda msitu-ni."
+      - "Lakini mimi ni-na-taka kwenda huko."
+      - "Tunakwenda sasa."
+      - "Sisi tunakwenda sasa."
+      note: "subject concord is generally obligatory, except in the infinitive, habitual, and imperative forms"
+
+    x-Domain_x-subject-verb__u-Polarity_u-neg:
+      applies: {x-Domain: x-subject-verb, u-Polarity: u-neg}
+      pattern: "negative subject concords are formed by prefixing ha- to the beginning; irregular forms: si- (1SG), hu- (2SG), ha- (3SG class 1/animate)"
+      examples:
+      - "si-"
+      - "hu-"
+      - "ha-"
+
+    x-Domain_x-subject-verb__u-Polarity_u-pos:
+      applies: {x-Domain: x-subject-verb, u-Polarity: u-pos}
+      forms:
+      - features: {u-Person: u-1, u-Number: u-sg}
+        form: "ni-"
+      - features: {u-Person: u-2, u-Number: u-sg}
+        form: "u-"
+      - features: {u-Person: u-1, u-Number: u-pl}
+        form: "tu-"
+      - features: {u-Person: u-2, u-Number: u-pl}
+        form: "m(w)-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 1"
+        form: "a-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 2"
+        form: "wa-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 3"
+        form: "u-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 4"
+        form: "i-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 5"
+        form: "li-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 6"
+        form: "ya-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 7"
+        form: "ki-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 8"
+        form: "vi-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 9"
+        form: "i-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 10"
+        form: "zi-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 11"
+        form: "u-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 14"
+        form: "u-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 15"
+        form: "ku-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 16"
+        form: "pa-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 17"
+        form: "ku-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 18"
+        form: "m(u)-"
+      note: "class 1 uses yu- (instead of a-) as the subject of a locative copula; negative hayu- is formed regularly with ha-"
+
+    x-Domain_x-subject-verb__u-Animacy_u-anim:
+      applies: {x-Domain: x-subject-verb, u-Animacy: u-anim}
+      pattern: "animate nouns not in classes 1/2 generally take class 1 (singular) / class 2 (plural) agreement on related elements"
+      examples:
+      - "Kifaru mkubwa alianguka."
+      - "Vifaru wakubwa walianguka."
+      - "Ndege mkubwa alianguka."
+      - "Ndege wakubwa walianguka."
+
+    x-Domain_x-subject-verb__u-Animacy_u-inan:
+      applies: {x-Domain: x-subject-verb, u-Animacy: u-inan}
+      pattern: "inanimate nouns take agreement matching their noun class"
+      examples:
+      - "Ndege kubwa ilianguka."
+      - "Ndege kubwa zilianguka."
+
+    x-Domain_x-subject-verb__u-Animacy_u-anim__u-Gender_u-bantu1-23:
+      applies: {x-Domain: x-subject-verb, u-Animacy: u-anim, u-Gender: u-bantu1-23}
+      pattern: "class 9/10 animals generally take class 1 agreement in the singular"
+      examples:
+      - "Ng'ombe wetu amekufa."
+
+    x-Domain_x-subject-verb__u-Animacy_u-anim__u-Number_u-pl:
+      applies: {x-Domain: x-subject-verb, u-Animacy: u-anim, u-Number: u-pl}
+      pattern: "class 9/10 animals may take class 10 agreement on pronominal genitives in the plural"
+      examples:
+      - "Ng'ombe zetu wamekufa."
+
+    x-Domain_x-subject-verb__x-Process_x-prefixation:
+      applies: {x-Domain: x-subject-verb, x-Process: x-prefixation}
+      pattern: "object concord (if used) is inserted after the subject concord and any tense marker and before the verb stem"
+      examples:
+      - "Tu-na-m-(w)ona."
+      note: "object concord is generally optional; it may be omitted if the object is clear from context"
+
+    x-Domain_x-subject-verb__x-Process_x-prefixation__u-Polarity_u-pos:
+      applies: {x-Domain: x-subject-verb, x-Process: x-prefixation, u-Polarity: u-pos}
+      forms:
+      - features: {u-Person: u-1, u-Number: u-sg}
+        form: "ni-"
+      - features: {u-Person: u-2, u-Number: u-sg}
+        form: "ku-"
+      - features: {u-Person: u-1, u-Number: u-pl}
+        form: "tu-"
+      - features: {u-Person: u-2, u-Number: u-pl}
+        form: "wa-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 1 object"
+        form: "m(w)-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 2 object"
+        form: "wa-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 3 object"
+        form: "u-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 4 object"
+        form: "i-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 5 object"
+        form: "li-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 6 object"
+        form: "ya-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 7 object"
+        form: "ki-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 8 object"
+        form: "vi-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 9 object"
+        form: "i-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 10 object"
+        form: "zi-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 11 object"
+        form: "u-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 14 object"
+        form: "u-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 15 object"
+        form: "ku-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 16 object"
+        form: "pa-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 17 object"
+        form: "ku-"
+      - features: {u-Gender: u-bantu1-23}
+        note: "noun class 18 object"
+        form: "m(u)-"
+      - features: {u-Person: u-0}
+        note: "reflexive object"
+        form: "ji-"
+      examples:
+      - "Ninamwona."
+      - "ninajitetea"
+      - "anajiona"
+      note: "reflexive prefix occurs only as an object and refers back to the subject"
+
+    x-Domain_x-noun-adjective:
+      applies: {x-Domain: x-noun-adjective}
+      pattern: "adjective takes a concordant prefix matching the noun class; for animate nouns outside classes 1/2, adjective agreement follows class 1/2"
+      examples:
+      - "Mwanaume mkubwa alianguka."
+      - "Wanaume wakubwa walianguka."
+      - "Kitabu kikubwa kilianguka."
+      - "Vitabu vikubwa vilianguka."
+      - "Uso mzuri unatosha."
+      - "Nyuso nzuri zinatosha."
+      - "Kifaru mkubwa alianguka."
+      - "Vifaru wakubwa walianguka."
+      - "Ndege mkubwa alianguka."
+      - "Ndege kubwa ilianguka."
+
+    u-Case_u-gen:
+      applies: {u-Case: u-gen}
+      pattern: "possessive relation uses a genitive marker agreeing with the head noun"
+      examples:
+      - "Mwana wa mwanamke anakula."
+      note: "used primarily for subjective genitives"
+
+    u-Case_u-rel:
+      applies: {u-Case: u-rel}
+      pattern: "relative linkage uses a relative/property marker agreeing with the head noun; template: subject concord – li – relative/property marker – verb stem"
+      examples:
+      - "Dirisha li-li-lo-funguliwa ni kero."
+      - "Dirisha Ni-li-lo-fungua jana sasa li-me-vunjika."
+      note: "the relative/property marker corresponds to the genitive marker, with -a changing to -o"

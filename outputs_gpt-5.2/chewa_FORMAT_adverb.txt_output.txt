@@ -1,0 +1,28 @@
+Adverbs:
+  Features:
+    x-Process: [x-prefixation]
+    u-Polarity: [u-pos, u-neg]
+    u-Part-of-Speech: [u-adv]
+
+  Rules:
+    u-Part-of-Speech_u-adv__u-Polarity_u-pos__x-Process_x-prefixation:
+      applies: {u-Part-of-Speech: u-adv, x-Process: x-prefixation, u-Polarity: u-pos}
+      patterns:
+      - pattern: "mwa- + nominal base"
+        examples:
+        - "Akuthamanga mwachangu."
+        note: "Adverbs can be formed from nominal bases with mwa-."
+      - pattern: "mo- + verbal base"
+        examples:
+        - "Akuthamanga mofulumira."
+        note: "Adverbs can be formed from verbal bases with mo-."
+
+    u-Part-of-Speech_u-adv__u-Polarity_u-neg__x-Process_x-prefixation:
+      applies: {u-Part-of-Speech: u-adv, x-Process: x-prefixation, u-Polarity: u-neg}
+      patterns:
+      - pattern: "mopanda + nominal base"
+        examples:
+        - "Akuthamanga mopanda changu."
+      - pattern: "mo- + sa- + verbal base"
+        examples:
+        - "Akuthamanga mosafulumira."

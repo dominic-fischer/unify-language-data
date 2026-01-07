@@ -1,0 +1,117 @@
+Present:
+  Features:
+    u-Tense: [u-pst]
+    u-Aspect: [u-pfv, u-ipfv]
+    u-Person: [u-1, u-2, u-3]
+    u-Number: [u-sg, u-pl]
+    u-Mood: [u-ind]
+    es-Conjugation: [es-ar, es-er, es-ir]
+    es-Politeness: [es-familiar, es-formal]
+
+  Usage:
+    es-preterite:
+      applies: {u-Tense: u-pst, u-Aspect: u-pfv, u-Mood: u-ind}
+      note: "Used for past actions or events viewed as instantaneous or completed."
+      examples:
+      - "Ella se murió ayer."
+      - "Pablo apagó las luces."
+      - "Yo me comí el arroz."
+      - "Te cortaste el pelo."
+    es-imperfect:
+      applies: {u-Tense: u-pst, u-Aspect: u-ipfv, u-Mood: u-ind}
+      note: "Used for past actions or states viewed as ongoing/continuing in the past."
+      examples:
+      - "Yo era cómico en el pasado."
+      - "Usted comía mucho."
+      - "Ellos escuchaban la radio."
+    es-preterite-vs-imperfect:
+      note: "Both can co-occur: a completed event (preterite) can interrupt an ongoing past action/state (imperfect)."
+      examples:
+      - "Ellos escuchaban la radio cuando oyeron un ruido afuera."
+      - "Yo estaba en mi cuarto cuando usted entró."
+      - "Era un día muy tranquilo cuando eso pasó."
+
+  Rules:
+    u-Tense_u-pst__u-Aspect_u-pfv__u-Mood_u-ind__es-Conjugation_es-ar:
+      applies: {u-Tense: u-pst, u-Aspect: u-pfv, u-Mood: u-ind, es-Conjugation: es-ar}
+      pattern: "_stem_ + _ending_"
+      endings:
+      - {features: {u-Person: u-1, u-Number: u-sg}, form: "é"}
+      - {features: {u-Person: u-2, u-Number: u-sg, es-Politeness: es-familiar}, form: "aste"}
+      - {features: {u-Person: u-3, u-Number: u-sg}, form: "ó"}
+      - {features: {u-Person: u-1, u-Number: u-pl}, form: "amos"}
+      - {features: {u-Person: u-2, u-Number: u-pl, es-Politeness: es-familiar}, form: "asteis"}
+      - {features: {u-Person: u-3, u-Number: u-pl}, form: "aron"}
+      note: "For -ar verbs, the 1pl form is identical to the present indicative."
+      examples:
+      - "hablar → hablé, hablaste, habló, hablamos, hablasteis, hablaron"
+
+    u-Tense_u-pst__u-Aspect_u-pfv__u-Mood_u-ind__es-Conjugation_es-er:
+      applies: {u-Tense: u-pst, u-Aspect: u-pfv, u-Mood: u-ind, es-Conjugation: es-er}
+      pattern: "_stem_ + _ending_"
+      endings:
+      - {features: {u-Person: u-1, u-Number: u-sg}, form: "í"}
+      - {features: {u-Person: u-2, u-Number: u-sg, es-Politeness: es-familiar}, form: "iste"}
+      - {features: {u-Person: u-3, u-Number: u-sg}, form: "ió"}
+      - {features: {u-Person: u-1, u-Number: u-pl}, form: "imos"}
+      - {features: {u-Person: u-2, u-Number: u-pl, es-Politeness: es-familiar}, form: "isteis"}
+      - {features: {u-Person: u-3, u-Number: u-pl}, form: "ieron"}
+      note: "-er and -ir verbs share the same preterite endings."
+      examples:
+      - "comer → comí, comiste, comió, comimos, comisteis, comieron"
+
+    u-Tense_u-pst__u-Aspect_u-pfv__u-Mood_u-ind__es-Conjugation_es-ir:
+      applies: {u-Tense: u-pst, u-Aspect: u-pfv, u-Mood: u-ind, es-Conjugation: es-ir}
+      pattern: "_stem_ + _ending_"
+      endings:
+      - {features: {u-Person: u-1, u-Number: u-sg}, form: "í"}
+      - {features: {u-Person: u-2, u-Number: u-sg, es-Politeness: es-familiar}, form: "iste"}
+      - {features: {u-Person: u-3, u-Number: u-sg}, form: "ió"}
+      - {features: {u-Person: u-1, u-Number: u-pl}, form: "imos"}
+      - {features: {u-Person: u-2, u-Number: u-pl, es-Politeness: es-familiar}, form: "isteis"}
+      - {features: {u-Person: u-3, u-Number: u-pl}, form: "ieron"}
+      note: "For -ir verbs, the 1pl form is identical to the present indicative."
+      examples:
+      - "vivir → viví, viviste, vivió, vivimos, vivisteis, vivieron"
+
+    u-Tense_u-pst__u-Aspect_u-ipfv__u-Mood_u-ind__es-Conjugation_es-ar:
+      applies: {u-Tense: u-pst, u-Aspect: u-ipfv, u-Mood: u-ind, es-Conjugation: es-ar}
+      pattern: "_stem_ + _ending_"
+      endings:
+      - {features: {u-Person: u-1, u-Number: u-sg}, form: "aba"}
+      - {features: {u-Person: u-2, u-Number: u-sg, es-Politeness: es-familiar}, form: "abas"}
+      - {features: {u-Person: u-3, u-Number: u-sg}, form: "aba"}
+      - {features: {u-Person: u-1, u-Number: u-pl}, form: "ábamos"}
+      - {features: {u-Person: u-2, u-Number: u-pl, es-Politeness: es-familiar}, form: "abais"}
+      - {features: {u-Person: u-3, u-Number: u-pl}, form: "aban"}
+      note: "In the imperfect, 1sg and 3sg share the same form."
+      examples:
+      - "hablar → hablaba, hablabas, hablaba, hablábamos, hablabais, hablaban"
+
+    u-Tense_u-pst__u-Aspect_u-ipfv__u-Mood_u-ind__es-Conjugation_es-er:
+      applies: {u-Tense: u-pst, u-Aspect: u-ipfv, u-Mood: u-ind, es-Conjugation: es-er}
+      pattern: "_stem_ + _ending_"
+      endings:
+      - {features: {u-Person: u-1, u-Number: u-sg}, form: "ía"}
+      - {features: {u-Person: u-2, u-Number: u-sg, es-Politeness: es-familiar}, form: "ías"}
+      - {features: {u-Person: u-3, u-Number: u-sg}, form: "ía"}
+      - {features: {u-Person: u-1, u-Number: u-pl}, form: "íamos"}
+      - {features: {u-Person: u-2, u-Number: u-pl, es-Politeness: es-familiar}, form: "íais"}
+      - {features: {u-Person: u-3, u-Number: u-pl}, form: "ían"}
+      note: "In the imperfect, 1sg and 3sg share the same form; -er and -ir verbs share the same imperfect endings."
+      examples:
+      - "comer → comía, comías, comía, comíamos, comíais, comían"
+
+    u-Tense_u-pst__u-Aspect_u-ipfv__u-Mood_u-ind__es-Conjugation_es-ir:
+      applies: {u-Tense: u-pst, u-Aspect: u-ipfv, u-Mood: u-ind, es-Conjugation: es-ir}
+      pattern: "_stem_ + _ending_"
+      endings:
+      - {features: {u-Person: u-1, u-Number: u-sg}, form: "ía"}
+      - {features: {u-Person: u-2, u-Number: u-sg, es-Politeness: es-familiar}, form: "ías"}
+      - {features: {u-Person: u-3, u-Number: u-sg}, form: "ía"}
+      - {features: {u-Person: u-1, u-Number: u-pl}, form: "íamos"}
+      - {features: {u-Person: u-2, u-Number: u-pl, es-Politeness: es-familiar}, form: "íais"}
+      - {features: {u-Person: u-3, u-Number: u-pl}, form: "ían"}
+      note: "In the imperfect, 1sg and 3sg share the same form; -er and -ir verbs share the same imperfect endings."
+      examples:
+      - "vivir → vivía, vivías, vivía, vivíamos, vivíais, vivían"

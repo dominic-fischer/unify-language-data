@@ -1,0 +1,19 @@
+DerivationalMorphology:
+  Features:
+    x-Process: [x-prefixation]
+    u-Number:
+    - u-sg
+    - u-pl
+
+  Rules:
+    u-Number_u-sg__x-Process_x-prefixation:
+      applies: {u-Number: u-sg, x-Process: x-prefixation}
+      patterns:
+      - pattern: "ka- + _stem_"
+        note: "diminutive singular; often uses a separate, relatively consistent class"
+
+    u-Number_u-pl__x-Process_x-prefixation:
+      applies: {u-Number: u-pl, x-Process: x-prefixation}
+      patterns:
+      - pattern: "tu-/ti- + _stem_"
+        note: "diminutive plural; often uses a separate, relatively consistent class"

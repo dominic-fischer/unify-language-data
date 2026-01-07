@@ -1,0 +1,13 @@
+Passive:
+  Features:
+    u-Voice: [u-pass]
+    x-Domain: [x-subject-verb]
+
+  Rules:
+    u-Voice_u-pass:
+      applies: {u-Voice: u-pass}
+      patterns:
+      - pattern: "{zu-verb-stem}-w-a"
+        note: "To form the passive, insert -w- before the final -a."
+      - pattern: "ng- (before a-/e-/o-/u-) / y- (before -i)"
+        note: "Marks the agent phrase corresponding to 'von' ('by'): -ng- before a/e/o/u, and -y- before i."

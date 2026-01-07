@@ -1,0 +1,34 @@
+Constituents:
+  Features:
+    x-Constituent: [x-NP, x-VP, x-AP, x-PP, x-AdvP, x-CP]
+
+  Rules:
+    x-Constituent_x-NP:
+      applies: {x-Constituent: x-NP}
+      pattern: "[...]"
+      note: "No relevant constituent structure information provided in the source data."
+
+    x-Constituent_x-VP:
+      applies: {x-Constituent: x-VP}
+      pattern: "[...]"
+      note: "No relevant constituent structure information provided in the source data."
+
+    x-Constituent_x-AP:
+      applies: {x-Constituent: x-AP}
+      pattern: "[...]"
+      note: "No relevant constituent structure information provided in the source data."
+
+    x-Constituent_x-PP:
+      applies: {x-Constituent: x-PP}
+      pattern: "[...]"
+      note: "No relevant constituent structure information provided in the source data."
+
+    x-Constituent_x-AdvP:
+      applies: {x-Constituent: x-AdvP}
+      pattern: "[...]"
+      note: "No relevant constituent structure information provided in the source data."
+
+    x-Constituent_x-CP:
+      applies: {x-Constituent: x-CP}
+      pattern: "[...]"
+      note: "No relevant constituent structure information provided in the source data."

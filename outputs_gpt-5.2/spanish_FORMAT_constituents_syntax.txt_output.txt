@@ -1,0 +1,42 @@
+Syntax:
+  Features:
+    x-Clausetype: [x-main, x-subordinate, x-int-yes-no]
+    x-Domain: [x-subject-verb]
+    x-Word-order: [x-V1, x-V2, x-Vfinal]
+
+  Rules:
+    x-Domain_x-subject-verb__x-Clausetype_x-main:
+      applies: {x-Domain: x-subject-verb, x-Clausetype: x-main}
+      patterns:
+        - pattern: "Subject Verb Object"
+          examples:
+            - "Mi amigo escribió el libro"
+          note: "Unmarked order for affirmative declarative sentences."
+        - pattern: "Verb Subject Object"
+          note: "Relatively common; especially when focus is not the subject or direct object."
+          examples:
+            - "Hace pocos años escribió mi amigo un libro"
+            - "¿Escribió mi amigo el libro?"
+        - pattern: "Verb Object Subject"
+          note: "Relatively common; especially when focus is not the subject or direct object."
+          examples:
+            - "Hace pocos años escribió un libro mi amigo"
+        - pattern: "Object Verb Subject"
+          note: "Often used when the direct object is the topic and the subject is part of the comment; commonly with a direct object pronoun doubling the topicalized object."
+          examples:
+            - "El libro lo escribió mi amigo"
+        - pattern: "Verb Object"
+          note: "Subject pronouns are often dropped, yielding clauses with no explicitly stated subject."
+
+    x-Clausetype_x-subordinate:
+      applies: {x-Clausetype: x-subordinate}
+      pattern: "… que Verb Subject …"
+      note: "In many dependent clauses, the verb precedes the subject to avoid final verb position."
+      examples:
+        - "Este es el libro que escribió mi amigo"
+
+    x-Clausetype_x-int-yes-no:
+      applies: {x-Clausetype: x-int-yes-no}
+      note: "Yes/no questions are generally distinguished from declaratives by context and intonation; VSO is usual but not obligatory."
+      examples:
+        - "¿Escribió mi amigo el libro?"

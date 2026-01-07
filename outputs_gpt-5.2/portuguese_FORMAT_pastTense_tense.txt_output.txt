@@ -1,0 +1,109 @@
+Past:
+  Features:
+    pt-Tense-type:
+    - pt-preterite
+    - pt-imperfect
+    - pt-pluperfect
+    - pt-past-progressive
+    - pt-past-future-periphrasis
+    - pt-future-in-the-past-periphrasis
+    - pt-conditional
+    - pt-future-of-the-past-periphrasis
+
+  Usage:
+    pt-preterite:
+      applies: {pt-Tense-type: pt-preterite}
+      note: "A synthetic past tense (in indicative mood). Example shown with different standard forms in European vs Brazilian Portuguese."
+      examples:
+      - "cantámos (EP) / cantamos (BP) \"we sang\""
+    pt-imperfect:
+      applies: {pt-Tense-type: pt-imperfect}
+      examples:
+      - "cantávamos \"we were singing\""
+    pt-pluperfect:
+      applies: {pt-Tense-type: pt-pluperfect}
+      examples:
+      - "cantáramos \"we had sung\""
+    pt-conditional:
+      applies: {pt-Tense-type: pt-conditional}
+      note: "Often called \"future of the past\" in Brazilian grammars; in Portugal usually treated as a separate conditional mood."
+      examples:
+      - "cantaríamos \"we would sing\""
+    pt-past-progressive:
+      applies: {pt-Tense-type: pt-past-progressive}
+      note: "Progressive meaning is built with estar plus either the gerund (rule in Brazil; also in southern/insular Portugal and in literature) or with a + infinitive (an alternative construction in European Portuguese; replaces the ancient syntax in central and northern Portugal)."
+      examples:
+      - "estava falando / (EU) estava a falar \"I was speaking\""
+      - "estive falando / (EU) estive a falar \"I was speaking [for a while]\" / \"I have been speaking [for a while]\""
+      - "estivera falando / (EU) estivera a falar \"I had been speaking\""
+    pt-past-future-periphrasis:
+      applies: {pt-Tense-type: pt-past-future-periphrasis}
+      examples:
+      - "íamos falar \"we were going to speak\""
+    pt-future-in-the-past-periphrasis:
+      applies: {pt-Tense-type: pt-future-in-the-past-periphrasis}
+      note: "Used as the non-modal \"future of the past\" periphrasis with imperfect of ir + infinitive."
+      examples:
+      - "ele disse que ia cantar \"he said that he would sing\""
+    pt-future-of-the-past-periphrasis:
+      applies: {pt-Tense-type: pt-future-of-the-past-periphrasis}
+      examples:
+      - "iríamos falar \"we would speak\" / \"we would be going to speak\""
+
+  Rules:
+    pt-Tense-type_pt-preterite:
+      applies: {pt-Tense-type: pt-preterite}
+      forms:
+      - features: {}
+        form: "cantámos (EP)"
+      - features: {}
+        form: "cantamos (BP)"
+      examples:
+      - "cantámos (EP) / cantamos (BP)"
+    pt-Tense-type_pt-imperfect:
+      applies: {pt-Tense-type: pt-imperfect}
+      forms:
+      - features: {}
+        form: "cantávamos"
+      examples:
+      - "cantávamos"
+    pt-Tense-type_pt-pluperfect:
+      applies: {pt-Tense-type: pt-pluperfect}
+      forms:
+      - features: {}
+        form: "cantáramos"
+      examples:
+      - "cantáramos"
+    pt-Tense-type_pt-conditional:
+      applies: {pt-Tense-type: pt-conditional}
+      forms:
+      - features: {}
+        form: "cantaríamos"
+      examples:
+      - "cantaríamos"
+    pt-Tense-type_pt-past-progressive:
+      applies: {pt-Tense-type: pt-past-progressive}
+      pattern: "estar (finite) + (gerund OR a + infinitive)"
+      examples:
+      - "estava falando / estava a falar"
+      - "estive falando / estive a falar"
+      - "estivera falando / estivera a falar"
+      - "se estivesse falando / se estivesse a falar"
+      - "tenho estado falando / tenho estado a falar"
+      - "teríamos estado falando / teríamos estado a falar"
+      note: "The alternative (a + infinitive) is described as European Portuguese; the gerund is described as the rule in Brazil."
+    pt-Tense-type_pt-past-future-periphrasis:
+      applies: {pt-Tense-type: pt-past-future-periphrasis}
+      pattern: "ir (imperfect finite) + infinitive"
+      examples:
+      - "íamos falar"
+    pt-Tense-type_pt-future-in-the-past-periphrasis:
+      applies: {pt-Tense-type: pt-future-in-the-past-periphrasis}
+      pattern: "ir (imperfect finite) + infinitive"
+      examples:
+      - "ia cantar"
+    pt-Tense-type_pt-future-of-the-past-periphrasis:
+      applies: {pt-Tense-type: pt-future-of-the-past-periphrasis}
+      pattern: "ir (conditional finite) + infinitive"
+      examples:
+      - "iríamos falar"

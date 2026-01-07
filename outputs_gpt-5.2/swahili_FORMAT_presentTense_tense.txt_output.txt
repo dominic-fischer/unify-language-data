@@ -1,0 +1,134 @@
+Present:
+  Features:
+    u-Tense: [u-prs]
+    u-Polarity: [u-pos, u-neg]
+    sw-Tense-type: ["sw-definite-present", "sw-indefinite-present", "sw-present-habitual"]
+    sw-Verb-type: ["sw-common-verb", "sw-short-verb", "sw-loan-verb"]
+
+  Usage:
+    sw-definite-present:
+      applies: {u-Tense: u-prs, sw-Tense-type: "sw-definite-present"}
+      note: "Sometimes termed the 'definite present' and formed with -na-."
+      examples:
+      - "Anakwenda."
+      - "Unaandika."
+      - "Tunajibu."
+      - "(Ni)nakula."
+    sw-indefinite-present:
+      applies: {u-Tense: u-prs, sw-Tense-type: "sw-indefinite-present"}
+      note: "Sometimes termed the 'indefinite present' and formed with -a-. In modern standard Swahili there is no great difference in meaning from the -na- present; this form is more or less obsolete and rarely used, except frequently in media headlines."
+      examples:
+      - "Aenda."
+      - "Waandika."
+      - "Twajibu."
+      - "Nala."
+    sw-present-habitual:
+      applies: {u-Tense: u-prs, sw-Tense-type: "sw-present-habitual"}
+      note: "Habitual present formed with hu-."
+      examples:
+      - "hu-enda"
+      - "Huandiki."
+
+  Negation:
+    pattern: "[NEG.SUBJ]([OBJ]) + _stem_ (+ -i for verbs with final -a)"
+    note: "No distinction is made in the negative between the -na- ('definite') and -a- ('indefinite') present: both are negated the same way."
+    examples:
+    - "Si endi."
+    - "Haendi."
+    - "Sili."
+    - "Hatujibu."
+
+  Rules:
+    u-Tense_u-prs__u-Polarity_u-pos__sw-Tense-type_sw-definite-present__sw-Verb-type_sw-common-verb:
+      applies: {u-Tense: u-prs, u-Polarity: u-pos, sw-Tense-type: "sw-definite-present", sw-Verb-type: "sw-common-verb"}
+      patterns:
+      - pattern: "[SUBJ] + na + _stem_ + a"
+        examples:
+        - "Anaenda."
+        - "Unaandika."
+        - "Tunajibu."
+      - pattern: "[SUBJ] + na + [OBJ] + _stem_ + a"
+        examples:
+        - "[SUBJ]na[OBJ]___a"
+      note: "Often shortened in 1sg so that ni- collapses into -na- and becomes inaudible (and unwritten), e.g. (ni)nakula."
+
+    u-Tense_u-prs__u-Polarity_u-pos__sw-Tense-type_sw-definite-present__sw-Verb-type_sw-short-verb:
+      applies: {u-Tense: u-prs, u-Polarity: u-pos, sw-Tense-type: "sw-definite-present", sw-Verb-type: "sw-short-verb"}
+      patterns:
+      - pattern: "[SUBJ] + na + ku + _stem_ + a"
+        examples:
+        - "(Ni)nakula."
+      - pattern: "[SUBJ] + na + [OBJ] + _stem_ + a"
+        examples:
+        - "[SUBJ]na[OBJ]___a"
+      note: "Short verbs retain -ku- in the -na- present tense."
+
+    u-Tense_u-prs__u-Polarity_u-pos__sw-Tense-type_sw-definite-present__sw-Verb-type_sw-loan-verb:
+      applies: {u-Tense: u-prs, u-Polarity: u-pos, sw-Tense-type: "sw-definite-present", sw-Verb-type: "sw-loan-verb"}
+      patterns:
+      - pattern: "[SUBJ] + na + _stem_"
+        examples:
+        - "[SUBJ]na___"
+      - pattern: "[SUBJ] + na + [OBJ] + _stem_"
+        examples:
+        - "[SUBJ]na[OBJ]___"
+
+    u-Tense_u-prs__u-Polarity_u-pos__sw-Tense-type_sw-indefinite-present__sw-Verb-type_sw-common-verb:
+      applies: {u-Tense: u-prs, u-Polarity: u-pos, sw-Tense-type: "sw-indefinite-present", sw-Verb-type: "sw-common-verb"}
+      patterns:
+      - pattern: "[SUBJ] + a + _stem_ + a"
+        examples:
+        - "Aenda."
+        - "Waandika."
+      - pattern: "[SUBJ] + a + [OBJ] + _stem_ + a"
+        examples:
+        - "[SUBJ[a]]a[OBJ]___a"
+
+    u-Tense_u-prs__u-Polarity_u-pos__sw-Tense-type_sw-indefinite-present__sw-Verb-type_sw-short-verb:
+      applies: {u-Tense: u-prs, u-Polarity: u-pos, sw-Tense-type: "sw-indefinite-present", sw-Verb-type: "sw-short-verb"}
+      patterns:
+      - pattern: "[SUBJ] + a + _stem_ + a"
+        examples:
+        - "Nala."
+      - pattern: "[SUBJ] + a + [OBJ] + _stem_ + a"
+        examples:
+        - "[SUBJ[a]]a[OBJ]___a"
+      note: "Short verbs lose the -ku- extension in the -a- present tense."
+
+    u-Tense_u-prs__u-Polarity_u-pos__sw-Tense-type_sw-indefinite-present__sw-Verb-type_sw-loan-verb:
+      applies: {u-Tense: u-prs, u-Polarity: u-pos, sw-Tense-type: "sw-indefinite-present", sw-Verb-type: "sw-loan-verb"}
+      patterns:
+      - pattern: "[SUBJ] + a + _stem_"
+        examples:
+        - "[SUBJ[a]]a___"
+      - pattern: "[SUBJ] + a + [OBJ] + _stem_"
+        examples:
+        - "[SUBJ[a]]a[OBJ]___"
+
+    u-Tense_u-prs__u-Polarity_u-pos__sw-Tense-type_sw-present-habitual:
+      applies: {u-Tense: u-prs, u-Polarity: u-pos, sw-Tense-type: "sw-present-habitual"}
+      pattern: "hu + _stem_"
+      examples:
+      - "hu-enda"
+      - "Huandiki."
+
+    u-Tense_u-prs__u-Polarity_u-neg:
+      applies: {u-Tense: u-prs, u-Polarity: u-neg}
+      patterns:
+      - pattern: "[NEG.SUBJ] + _stem_ + i"
+        examples:
+        - "Si endi."
+        - "Haendi."
+        - "Sili."
+        - "Huandiki."
+      - pattern: "[NEG.SUBJ] + [OBJ] + _stem_ + i"
+        examples:
+        - "[NEG.SUBJ][OBJ]___i"
+      - pattern: "[NEG.SUBJ] + _stem_"
+        examples:
+        - "[NEG.SUBJ]___"
+        - "Hatujibu."
+      - pattern: "[NEG.SUBJ] + [OBJ] + _stem_"
+        examples:
+        - "[NEG.SUBJ][OBJ]___"
+      note: "For verbs with final -a, the final -a changes to -i in the negative. For loan verbs there is no -a suffix to be changed to -i."

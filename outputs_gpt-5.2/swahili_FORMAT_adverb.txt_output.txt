@@ -1,0 +1,28 @@
+Adverbs:
+  Features:
+    x-Process: [x-prefixation, x-adj-as-adv]
+
+  Rules:
+    x-Process_x-prefixation:
+      applies: {x-Process: x-prefixation}
+      patterns:
+      - pattern: "kwa + Noun"
+        examples:
+        - "Anakimbia kwa kasi."
+      - pattern: "bila + Noun"
+        examples:
+        - "Anakimbia bila kasi."
+      note: "As with nouns, a (substantivized) infinitive can replace the noun."
+    x-Process_x-adj-as-adv:
+      applies: {x-Process: x-adj-as-adv}
+      patterns:
+      - pattern: "vi- + (true adjective)"
+        examples:
+        - "Tunafanya hiki vizuri."
+      - forms:
+        - features: {}
+          form: "haraka"
+        examples:
+        - "Mbweha hukimbia haraka."
+        - "Mbweha haraka"
+        note: "Adverbs from Arabic-origin adjectives can be used directly."

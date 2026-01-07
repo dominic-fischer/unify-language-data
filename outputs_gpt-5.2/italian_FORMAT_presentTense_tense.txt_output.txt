@@ -1,0 +1,32 @@
+Present:
+  Features:
+    u-Tense: [u-prs]
+    u-Mood: [u-ind]
+    u-Aspect: [u-prf, u-prog, u-prosp]
+
+  Rules:
+    u-Tense_u-prs__u-Mood_u-ind:
+      applies: {u-Tense: u-prs, u-Mood: u-ind}
+      patterns:
+      - pattern: "indicativo presente"
+        examples:
+        - "faccio"
+        note: "Simple present indicative."
+      - pattern: "{avere/essere (finite, present)} + past participle"
+        examples:
+        - "ho fatto"
+        note: "Present perfect (passato prossimo), a compound tense expressing perfect aspect."
+      - pattern: "{stare (finite, present)} + gerund"
+        examples:
+        - "sto facendo"
+        note: "Present continuous/progressive (presente progressivo), a periphrastic construction expressing progressive aspect."
+      - pattern: "{stare (finite, present)} + per + infinitive"
+        examples:
+        - "sto per fare"
+        note: "Prospective periphrasis expressing 'about to' meaning."
+
+  Notes:
+  - "Aspects other than habitual and imperfective (e.g., perfect, progressive, prospective) are rendered by periphrastic structures and may or may not be perceived as different tenses by different speakers."
+  - "Compound tenses expressing perfect aspect are formed with auxiliary avere ('to have') for transitive verbs and some intransitive verbs, and essere ('to be') for the remaining intransitive verbs, plus the past participle."
+  - "Progressive aspect is rendered by stare plus the gerund."
+  - "Prospective aspect is formed with stare plus the preposition per and the infinitive."

@@ -104,8 +104,8 @@ for lang, mapping_file_paths in langs_w_files.items():
 
                 "INSTRUCTIONS:\n"
                 "- Use ONLY the information present in the provided data.\n"
-                "- Rephrase content where necessary, but do NOT add new facts.\n"
-                "- Merge overlapping information into a single coherent description.\n"
+                "- Rephrase and reformat content where necessary, but do NOT add new facts.\n"
+                "- Merge overlapping information into a single coherent description in English.\n"
                 "- Preserve the hierarchy and ordering of the reference schema.\n"
                 "- Ignore any information that is not relevant to the topic at hand.\n\n"
 

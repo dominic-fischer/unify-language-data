@@ -1,0 +1,40 @@
+Past:
+  Features:
+    sn-Tense-type:
+    - sn-remote-past
+    - sn-recent-past
+    - sn-conditional-past
+
+  Rules:
+    sn-Tense-type_sn-remote-past:
+      applies: {sn-Tense-type: sn-remote-past}
+      patterns:
+      - pattern: "_subject prefix_ + ka + nga + (ri / si + ri)"
+        examples:
+        - "Ndakanga ndiri mudzidzisi."
+        - "Ndakanga ndisiri mudzidzisi."
+        note: "For the verb 'to be', remote past can be formed with -nga- combined with the remote past syllable ka; negation uses -si- instead of the negative prefix ha-."
+      - pattern: "_subject prefix_ + i + ve"
+        examples:
+        - "Ndaive mudzidzisi."
+        note: "Alternative, simpler remote-past formation for the verb 'to be' using the stem va- (shown here as -ve)."
+
+    sn-Tense-type_sn-recent-past:
+      applies: {sn-Tense-type: sn-recent-past}
+      pattern: "_subject prefix_ + nga + (ri / si + ri)"
+      examples:
+      - "Ndanga ndiri mudzidzisi."
+      - "Ndanga ndisiri mudzidzisi."
+      note: "For the verb 'to be', recent past uses -nga-; negation uses -si- instead of the negative prefix ha-."
+
+    sn-Tense-type_sn-conditional-past:
+      applies: {sn-Tense-type: sn-conditional-past}
+      patterns:
+      - pattern: "Dai + _perfect form_, _subject prefix_ + nga + dai + _perfect form_"
+        examples:
+        - "Dai nda-ka-zvara mwana, ndi-nga-dai nda-ka-fara."
+        note: "Past conditional uses the auxiliary dai together with -nga-."
+      - pattern: "Dai + _subject prefix_ + sina + _verb_, _subject prefix_ + nga + dai + _subject prefix_ + sina + _verb_"
+        examples:
+        - "Dai ndi-sina kuva no-mwana, ndi-nga-dai ndi-sina kufara."
+        note: "For negation in the past conditional, a periphrastic construction with sina 'not have' is used."

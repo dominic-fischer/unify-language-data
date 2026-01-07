@@ -1,0 +1,139 @@
+Pronoun:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Number: [u-sg, u-pl]
+    u-Deixis: [u-prox, u-remt]
+    x-Pronoun-type: [x-pers, x-dem, x-poss, x-int, x-rel]
+    x-Form-type: [x-standalone, x-clitic]
+    zul-Noun-class: ["1", "1a", "2", "2a", "3", "4", "5", "6", "7", "8", "9", "10", "11", "14", "15", "17"]
+
+  Usage:
+    x-Pronoun-type_x-pers:
+      note: "Zulu is a pro-drop language: because subject and object are marked on the verb, personal pronouns are mostly used for emphasis."
+    u-Person_u-2__u-Number_u-sg:
+      note: "Adults are addressed with 2nd person plural; 2nd person singular is considered impolite in normal usage and is used towards children or clearly lower-ranking persons."
+
+  Rules:
+    x-Pronoun-type_x-pers__x-Form-type_x-standalone:
+      applies: {x-Pronoun-type: x-pers, x-Form-type: x-standalone}
+      forms:
+      - {features: {u-Person: u-1, u-Number: u-sg}, form: "mina"}
+      - {features: {u-Person: u-2, u-Number: u-sg}, form: "wena"}
+      - {features: {u-Person: u-1, u-Number: u-pl}, form: "thina"}
+      - {features: {u-Person: u-2, u-Number: u-pl}, form: "nina"}
+      - {features: {u-Person: u-3, zul-Noun-class: "1"}, form: "yena"}
+      - {features: {u-Person: u-3, zul-Noun-class: "1a"}, form: "yena"}
+      - {features: {u-Person: u-3, zul-Noun-class: "2"}, form: "bona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "2a"}, form: "bona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "3"}, form: "wona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "4"}, form: "yona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "5"}, form: "lona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "6"}, form: "wona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "7"}, form: "sona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "8"}, form: "zona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "9"}, form: "yona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "10"}, form: "zona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "11"}, form: "lona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "14"}, form: "bona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "15"}, form: "khona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "17"}, form: "khona"}
+
+    x-Pronoun-type_x-pers__x-Form-type_x-clitic:
+      applies: {x-Pronoun-type: x-pers, x-Form-type: x-clitic}
+      forms:
+      - {features: {u-Person: u-1, u-Number: u-sg}, form: "-mi"}
+      - {features: {u-Person: u-2, u-Number: u-sg}, form: "-we"}
+      - {features: {u-Person: u-1, u-Number: u-pl}, form: "-thi"}
+      - {features: {u-Person: u-2, u-Number: u-pl}, form: "-ni"}
+      - {features: {u-Person: u-3, zul-Noun-class: "1"}, form: "-ye"}
+      - {features: {u-Person: u-3, zul-Noun-class: "1a"}, form: "-ye"}
+      - {features: {u-Person: u-3, zul-Noun-class: "2"}, form: "-bo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "2a"}, form: "-bo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "3"}, form: "-wo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "4"}, form: "-yo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "5"}, form: "-lo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "6"}, form: "-wo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "7"}, form: "-so"}
+      - {features: {u-Person: u-3, zul-Noun-class: "8"}, form: "-zo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "9"}, form: "-yo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "10"}, form: "-zo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "11"}, form: "-lo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "14"}, form: "-bo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "15"}, form: "-kho"}
+      - {features: {u-Person: u-3, zul-Noun-class: "17"}, form: "-kho"}
+
+    x-Pronoun-type_x-dem:
+      applies: {x-Pronoun-type: x-dem}
+      patterns:
+      - forms:
+        - {features: {u-Deixis: u-prox, zul-Noun-class: "1"}, form: "lo"}
+        - {features: {u-Deixis: u-prox, zul-Noun-class: "2"}, form: "laba"}
+        - {features: {u-Deixis: u-prox, zul-Noun-class: "3"}, form: "lo"}
+        - {features: {u-Deixis: u-prox, zul-Noun-class: "4"}, form: "le"}
+        - {features: {u-Deixis: u-prox, zul-Noun-class: "5"}, form: "leli"}
+        - {features: {u-Deixis: u-prox, zul-Noun-class: "6"}, form: "la"}
+        - {features: {u-Deixis: u-prox, zul-Noun-class: "7"}, form: "lesi"}
+        - {features: {u-Deixis: u-prox, zul-Noun-class: "8"}, form: "lezi"}
+        - {features: {u-Deixis: u-prox, zul-Noun-class: "9"}, form: "le"}
+        - {features: {u-Deixis: u-prox, zul-Noun-class: "10"}, form: "lezi"}
+        - {features: {u-Deixis: u-prox, zul-Noun-class: "11"}, form: "lolu"}
+        - {features: {u-Deixis: u-prox, zul-Noun-class: "14"}, form: "lobu"}
+        - {features: {u-Deixis: u-prox, zul-Noun-class: "15"}, form: "lokhu"}
+        note: "Proximal demonstratives (‘this’)."
+      - forms:
+        - {features: {u-Deixis: u-remt, zul-Noun-class: "1"}, form: "lowo"}
+        - {features: {u-Deixis: u-remt, zul-Noun-class: "2"}, form: "labo"}
+        - {features: {u-Deixis: u-remt, zul-Noun-class: "3"}, form: "lowo"}
+        - {features: {u-Deixis: u-remt, zul-Noun-class: "4"}, form: "leyo"}
+        - {features: {u-Deixis: u-remt, zul-Noun-class: "5"}, form: "lelo"}
+        - {features: {u-Deixis: u-remt, zul-Noun-class: "6"}, form: "lawo"}
+        - {features: {u-Deixis: u-remt, zul-Noun-class: "7"}, form: "leso"}
+        - {features: {u-Deixis: u-remt, zul-Noun-class: "8"}, form: "lezo"}
+        - {features: {u-Deixis: u-remt, zul-Noun-class: "9"}, form: "leyo"}
+        - {features: {u-Deixis: u-remt, zul-Noun-class: "10"}, form: "lezo"}
+        - {features: {u-Deixis: u-remt, zul-Noun-class: "11"}, form: "lolo"}
+        - {features: {u-Deixis: u-remt, zul-Noun-class: "14"}, form: "lobo"}
+        - {features: {u-Deixis: u-remt, zul-Noun-class: "15"}, form: "lokho"}
+        note: "Distal demonstratives (‘that’)."
+
+    x-Pronoun-type_x-int:
+      applies: {x-Pronoun-type: x-int}
+      patterns:
+      - forms:
+        - {features: {zul-Noun-class: "1"}, form: "muphi?"}
+        - {features: {zul-Noun-class: "2"}, form: "baphi?"}
+        - {features: {zul-Noun-class: "3"}, form: "muphi?"}
+        - {features: {zul-Noun-class: "4"}, form: "miphi?"}
+        - {features: {zul-Noun-class: "5"}, form: "liphi?"}
+        - {features: {zul-Noun-class: "6"}, form: "maphi?"}
+        - {features: {zul-Noun-class: "7"}, form: "siphi?"}
+        - {features: {zul-Noun-class: "8"}, form: "ziphi?"}
+        - {features: {zul-Noun-class: "9"}, form: "iphi?"}
+        - {features: {zul-Noun-class: "10"}, form: "ziphi?"}
+        - {features: {zul-Noun-class: "11"}, form: "luphi?"}
+        - {features: {zul-Noun-class: "14"}, form: "buphi?"}
+        - {features: {zul-Noun-class: "15"}, form: "kuphi?"}
+        note: "Interrogative ‘which?’ formed from the class marker + -phi; before class markers with a- and u-, an initial m- is added."
+
+    x-Pronoun-type_x-rel:
+      applies: {x-Pronoun-type: x-rel}
+      pattern: "e- + {following verb form}"
+      examples:
+      - "Indoda e-ngi-yi-bon-ile i-hamb-ile."
+      note: "Relative constructions: add e- before the following verb form."
+
+    x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss}
+      forms:
+      - {features: {u-Person: u-1, u-Number: u-sg}, form: "-mi", note: "possessive pronoun suffix/stem (used with possessive prefix) 'my'."}
+      - {features: {u-Person: u-2, u-Number: u-sg}, form: "-kho", note: "possessive pronoun suffix/stem (used with possessive prefix) 'your (sg)'."}
+      - {features: {u-Person: u-3, u-Number: u-sg}, form: "-khe", note: "possessive pronoun suffix/stem (used with possessive prefix) 'his/her'."}
+      - {features: {u-Person: u-1, u-Number: u-pl}, form: "-ethu", note: "possessive pronoun suffix/stem (used with possessive prefix); in this form the -a is omitted."}
+      - {features: {u-Person: u-2, u-Number: u-pl}, form: "-enyu", note: "possessive pronoun suffix/stem (used with possessive prefix); in this form the -a is omitted."}
+      - {features: {u-Person: u-3, u-Number: u-pl}, form: "-bo", note: "possessive pronoun suffix/stem (used with possessive prefix) 'their'."}
+
+  Notes:
+  - "Pronouns behave in many ways like nouns, having locative, possessive and copulative forms; the copulative form uses the identifying prefix yi-."
+  - "Demonstrative pronouns are placed before the associated noun (also described as possible before or after a noun in another source)."
+  - "Personal pronouns are identical for subject and object."
+  - "To combine a demonstrative of type II (‘that’) with ‘with’, na is inserted before the second syllable (exception: class 1/2 singular uses naye)."

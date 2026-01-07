@@ -1,0 +1,220 @@
+Pronoun:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Number: [u-sg, u-pl]
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Case: [u-nom, u-acc, u-dat, u-gen, u-voc]
+    u-Deixis: [u-prox, u-remt]
+    u-Politeness: [u-infml, u-form]
+    x-Pronoun-type: [x-pers, x-refl, x-poss, x-dem, x-int, x-rel]
+    x-Form-type: [x-standalone, x-clitic]
+
+  Rules:
+    x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers}
+      forms:
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-nom}, form: "eu"}
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-nom}, form: "tu"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-nom}, form: "el"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-nom}, form: "ea"}
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-nom}, form: "noi"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-nom}, form: "voi"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc, u-Case: u-nom}, form: "ei"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem, u-Case: u-nom}, form: "ele"}
+
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc, x-Form-type: x-standalone}, form: "(pe) mine"}
+      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc, x-Form-type: x-clitic}, form: "mă"}
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-acc, x-Form-type: x-standalone}, form: "(pe) tine"}
+      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-acc, x-Form-type: x-clitic}, form: "te"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-acc, x-Form-type: x-standalone}, form: "(pe) el"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-acc, x-Form-type: x-clitic}, form: "îl"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-acc, x-Form-type: x-standalone}, form: "(pe) ea"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-acc, x-Form-type: x-clitic}, form: "o"}
+
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-acc, x-Form-type: x-standalone}, form: "(pe) noi"}
+      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-acc, x-Form-type: x-clitic}, form: "ne"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-acc, x-Form-type: x-standalone}, form: "(pe) voi"}
+      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-acc, x-Form-type: x-clitic}, form: "vă"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc, u-Case: u-acc, x-Form-type: x-standalone}, form: "(pe) ei"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc, u-Case: u-acc, x-Form-type: x-clitic}, form: "îi"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem, u-Case: u-acc, x-Form-type: x-standalone}, form: "(pe) ele"}
+      - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem, u-Case: u-acc, x-Form-type: x-clitic}, form: "le"}
+      note: "Personal pronouns have nominative, accusative, dative, and genitive forms; accusative has stressed (standalone) and unstressed (clitic) forms."
+
+    u-Case_u-voc__x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers, u-Case: u-voc}
+      pattern: "same forms as nominative"
+      note: "Vocative personal pronouns take the same forms as the nominative."
+
+    u-Case_u-acc__x-Form-type_x-standalone:
+      applies: {u-Case: u-acc, x-Form-type: x-standalone}
+      note: "Stressed accusative pronouns are used after the verb in non-inverted phrases; they are often omitted except for emphasis."
+      examples: ["Îl văd.", "Îl văd pe el."]
+
+    u-Case_u-acc__x-Form-type_x-clitic:
+      applies: {u-Case: u-acc, x-Form-type: x-clitic}
+      note: "Unstressed accusative pronouns are used before the verb in non-inverted phrases."
+      examples: ["Îl văd."]
+
+    x-Pronoun-type_x-pers__u-Case_u-dat:
+      applies: {x-Pronoun-type: x-pers, u-Case: u-dat}
+      forms:
+      - {features: {u-Person: u-1, u-Number: u-sg, x-Form-type: x-standalone}, form: "mie"}
+      - {features: {u-Person: u-1, u-Number: u-sg, x-Form-type: x-clitic}, form: "îmi"}
+      - {features: {u-Person: u-2, u-Number: u-sg, x-Form-type: x-standalone}, form: "ție"}
+      - {features: {u-Person: u-2, u-Number: u-sg, x-Form-type: x-clitic}, form: "îți"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, x-Form-type: x-standalone}, form: "lui"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, x-Form-type: x-clitic}, form: "îi"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, x-Form-type: x-standalone}, form: "ei"}
+      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, x-Form-type: x-clitic}, form: "îi"}
+
+      - {features: {u-Person: u-1, u-Number: u-pl, x-Form-type: x-standalone}, form: "nouă"}
+      - {features: {u-Person: u-1, u-Number: u-pl, x-Form-type: x-clitic}, form: "ne"}
+      - {features: {u-Person: u-2, u-Number: u-pl, x-Form-type: x-standalone}, form: "vouă"}
+      - {features: {u-Person: u-2, u-Number: u-pl, x-Form-type: x-clitic}, form: "vă"}
+      - {features: {u-Person: u-3, u-Number: u-pl, x-Form-type: x-standalone}, form: "lor"}
+      - {features: {u-Person: u-3, u-Number: u-pl, x-Form-type: x-clitic}, form: "le"}
+      note: "Dative has stressed (standalone) and unstressed (clitic) forms."
+
+    x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss}
+      patterns:
+      - forms:
+        - {features: {u-Person: u-1, u-Number: u-sg, u-Gender: u-masc, u-Case: u-gen}, form: "al meu"}
+        - {features: {u-Person: u-1, u-Number: u-sg, u-Gender: u-neut, u-Case: u-gen}, form: "al meu"}
+        - {features: {u-Person: u-1, u-Number: u-sg, u-Gender: u-fem, u-Case: u-gen}, form: "a mea"}
+        - {features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-masc, u-Case: u-gen}, form: "ai mei"}
+        - {features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-neut, u-Case: u-gen}, form: "ale mele"}
+        - {features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-fem, u-Case: u-gen}, form: "ale mele"}
+
+        - {features: {u-Person: u-2, u-Number: u-sg, u-Gender: u-masc, u-Case: u-gen}, form: "al tău"}
+        - {features: {u-Person: u-2, u-Number: u-sg, u-Gender: u-neut, u-Case: u-gen}, form: "al tău"}
+        - {features: {u-Person: u-2, u-Number: u-sg, u-Gender: u-fem, u-Case: u-gen}, form: "a ta"}
+        - {features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-masc, u-Case: u-gen}, form: "ai tăi"}
+        - {features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-neut, u-Case: u-gen}, form: "ale tale"}
+        - {features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-fem, u-Case: u-gen}, form: "ale tale"}
+
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-gen}, form: "al lui"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-gen}, form: "al lui"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-gen}, form: "a lui"}
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc, u-Case: u-gen}, form: "ai lui"}
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-neut, u-Case: u-gen}, form: "ale lui"}
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem, u-Case: u-gen}, form: "ale lui"}
+
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-gen}, form: "al ei"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-gen}, form: "al ei"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-gen}, form: "a ei"}
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc, u-Case: u-gen}, form: "ai ei"}
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-neut, u-Case: u-gen}, form: "ale ei"}
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem, u-Case: u-gen}, form: "ale ei"}
+
+        - {features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-masc, u-Case: u-gen}, form: "al nostru"}
+        - {features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-neut, u-Case: u-gen}, form: "al nostru"}
+        - {features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-fem, u-Case: u-gen}, form: "a noastră"}
+        - {features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-masc, u-Case: u-gen}, form: "ai noștri"}
+        - {features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-neut, u-Case: u-gen}, form: "ale noastre"}
+        - {features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-fem, u-Case: u-gen}, form: "ale noastre"}
+
+        - {features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-masc, u-Case: u-gen}, form: "al vostru"}
+        - {features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-neut, u-Case: u-gen}, form: "al vostru"}
+        - {features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-fem, u-Case: u-gen}, form: "a voastră"}
+        - {features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-masc, u-Case: u-gen}, form: "ai voștri"}
+        - {features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-neut, u-Case: u-gen}, form: "ale voastre"}
+        - {features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-fem, u-Case: u-gen}, form: "ale voastre"}
+
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc, u-Case: u-gen}, form: "al lor"}
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-neut, u-Case: u-gen}, form: "al lor"}
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem, u-Case: u-gen}, form: "a lor"}
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc, u-Case: u-gen}, form: "ai lor"}
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-neut, u-Case: u-gen}, form: "ale lor"}
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem, u-Case: u-gen}, form: "ale lor"}
+      note: "Genitive (possessive) forms inflect according to the possessor; in the third person, the genitive is retained."
+
+    x-Pronoun-type_x-refl:
+      applies: {x-Pronoun-type: x-refl}
+      patterns:
+      - forms:
+        - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc, x-Form-type: x-standalone}, form: "pe mine"}
+        - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc, x-Form-type: x-clitic}, form: "mă"}
+        - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-acc, x-Form-type: x-standalone}, form: "pe noi"}
+        - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-acc, x-Form-type: x-clitic}, form: "ne"}
+        - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-acc, x-Form-type: x-standalone}, form: "pe tine"}
+        - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-acc, x-Form-type: x-clitic}, form: "te"}
+        - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-acc, x-Form-type: x-standalone}, form: "pe voi"}
+        - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-acc, x-Form-type: x-clitic}, form: "vă"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Case: u-acc, x-Form-type: x-standalone}, form: "pe sine"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Case: u-acc, x-Form-type: x-clitic}, form: "se"}
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-acc, x-Form-type: x-standalone}, form: "pe sine"}
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-acc, x-Form-type: x-clitic}, form: "se"}
+      - forms:
+        - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-dat, x-Form-type: x-standalone}, form: "mie"}
+        - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-dat, x-Form-type: x-clitic}, form: "îmi"}
+        - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-dat, x-Form-type: x-standalone}, form: "nouă"}
+        - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-dat, x-Form-type: x-clitic}, form: "ne"}
+        - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-dat, x-Form-type: x-standalone}, form: "ție"}
+        - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-dat, x-Form-type: x-clitic}, form: "îți"}
+        - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-dat, x-Form-type: x-standalone}, form: "vouă"}
+        - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-dat, x-Form-type: x-clitic}, form: "vă"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Case: u-dat, x-Form-type: x-standalone}, form: "sieși"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Case: u-dat, x-Form-type: x-clitic}, form: "își"}
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-dat, x-Form-type: x-standalone}, form: "sieși"}
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-dat, x-Form-type: x-clitic}, form: "își"}
+      note: "Reflexive pronouns match personal pronouns except in the 3rd person, which has distinct forms."
+
+    u-Politeness_u-form__x-Pronoun-type_x-pers:
+      applies: {u-Politeness: u-form, x-Pronoun-type: x-pers}
+      patterns:
+      - forms:
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "dumneata"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "domnia ta"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "dumneavoastră"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "domniile voastre"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc}, form: "dumnealui"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc}, form: "domnia lui"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem}, form: "dumneaei"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem}, form: "domnia ei"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "dumnealor"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "domniile lor"}
+      note: "Polite pronouns exist only for 2nd and 3rd person; they generally have the same form in all cases, except dumneata which has genitive/dative dumitale."
+
+    x-Pronoun-type_x-dem:
+      applies: {x-Pronoun-type: x-dem}
+      patterns:
+      - forms:
+        - {features: {u-Deixis: u-prox, u-Number: u-sg, u-Gender: u-masc}, form: "acesta/ăsta"}
+        - {features: {u-Deixis: u-prox, u-Number: u-pl, u-Gender: u-masc}, form: "aceștia/ăștia"}
+        - {features: {u-Deixis: u-remt, u-Number: u-sg, u-Gender: u-masc}, form: "acela/ăla"}
+        - {features: {u-Deixis: u-remt, u-Number: u-pl, u-Gender: u-masc}, form: "aceia/ăia"}
+
+        - {features: {u-Deixis: u-prox, u-Number: u-sg, u-Gender: u-neut}, form: "acesta/ăsta"}
+        - {features: {u-Deixis: u-prox, u-Number: u-pl, u-Gender: u-neut}, form: "acestea/ăstea"}
+        - {features: {u-Deixis: u-remt, u-Number: u-sg, u-Gender: u-neut}, form: "acela/ăla"}
+        - {features: {u-Deixis: u-remt, u-Number: u-pl, u-Gender: u-neut}, form: "acelea/alea"}
+
+        - {features: {u-Deixis: u-prox, u-Number: u-sg, u-Gender: u-fem}, form: "aceasta/asta"}
+        - {features: {u-Deixis: u-prox, u-Number: u-pl, u-Gender: u-fem}, form: "acestea/ăstea"}
+        - {features: {u-Deixis: u-remt, u-Number: u-sg, u-Gender: u-fem}, form: "aceea/aia"}
+        - {features: {u-Deixis: u-remt, u-Number: u-pl, u-Gender: u-fem}, form: "acelea/alea"}
+      note: "Demonstratives include proximity vs remoteness forms (with formal/informal variants shown as alternatives)."
+
+    x-Pronoun-type_x-int:
+      applies: {x-Pronoun-type: x-int}
+      forms:
+      - {features: {}, form: "cine"}
+      - {features: {}, form: "(a/al/ai/ale) cui"}
+      - {features: {}, form: "care"}
+      - {features: {}, form: "pe care"}
+      - {features: {}, form: "ce"}
+      - {features: {}, form: "(a/al/ai/ale) cărui(a)/cărei(a)/căror(a)"}
+      note: "Interrogative pronouns are identical in form to relative pronouns, differing in usage."
+
+    x-Pronoun-type_x-rel:
+      applies: {x-Pronoun-type: x-rel}
+      forms:
+      - {features: {}, form: "cine"}
+      - {features: {}, form: "(a/al/ai/ale) cui"}
+      - {features: {}, form: "care"}
+      - {features: {}, form: "pe care"}
+      - {features: {}, form: "ce"}
+      - {features: {}, form: "(a/al/ai/ale) cărui(a)/cărei(a)/căror(a)"}
+      note: "Relative pronouns are identical in form to interrogative pronouns, differing in usage."

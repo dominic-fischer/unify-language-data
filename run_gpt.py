@@ -20,6 +20,9 @@ langs = ["chewa", "shona", "swahili", "zulu", "french", "italian", "portuguese",
 schema_dir = "schemas/"
 schema_de_dir = schema_dir + "lang-de/"
 save_dir = f"outputs_{used_model}"
+# create the save directory if it does not exist
+if not os.path.exists(save_dir):
+    os.makedirs(save_dir)
 
 for lang in langs:
     for current_file in os.listdir(schema_de_dir):
@@ -63,8 +66,3 @@ for lang in langs:
         # run the files testing_validation/_validate_grammar.py, _validate_grammar_extended.py, _validate_features.py to validate the output
         print(f"\tOutput saved to {save_dir}/{save_filename}")
         output_filepath = os.path.join(save_dir, save_filename)
-
-# run the validation scripts
-subprocess.run([sys.executable, "testing_validation/_validate_grammar.py", save_dir])
-subprocess.run([sys.executable, "testing_validation/_validate_grammar_extended.py", save_dir, "--fix"])
-subprocess.run([sys.executable, "testing_validation/_validate_features.py", save_dir])

@@ -1,0 +1,41 @@
+Passive:
+  Features:
+    u-Voice: [u-pass]
+    x-Domain: [x-subject-verb]
+
+  Rules:
+    u-Voice_u-pass:
+      applies: {u-Voice: u-pass}
+      patterns:
+      - pattern: "{sw-verb} + passive suffix inserted before final -a"
+        endings:
+        - features: {}
+          form: "-w-"
+          note: "Inserted before the final -a (often realized as -wa)."
+        note: "Passive formation uses a suffix with -w- before the final -a."
+      - forms:
+        - features: {}
+          form: "-wa"
+          note: "Generally used passive suffix."
+        - features: {}
+          form: "-iwa"
+          note: "Used with verb stems ending in l or the semivowels w/y (but not ny)."
+        - features: {}
+          form: "-ewa"
+          note: "Like -iwa when the preceding syllable contains e or o."
+        - features: {}
+          form: "-lewa"
+          note: "Used by some verbs ending in -ea/-oa sequences."
+        - features: {}
+          form: "-liwa"
+          note: "Used by some verbs ending in -ia/-ua sequences; also used to avoid inaudible -wa after /o/ or /u/."
+        note: "Passive allomorphs depend on verb-stem ending and surrounding vowels."
+      - forms:
+        - features: {}
+          form: "-uawa"
+          note: "Irregular passive of -ua 'to kill' (regular -uliwa is occasionally used)."
+        note: "Irregular passive form."
+      - pattern: "{passive clause} (agent optionally expressed with 'na' + NP)"
+        note: "The agent ('by') is expressed with na when included; it may be omitted."
+        examples:
+        - "Nilipigwa na mwalimu."

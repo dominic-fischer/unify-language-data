@@ -1,0 +1,52 @@
+Present:
+  Features:
+    u-Tense: [u-prs]
+    x-Clauseform: [x-principal, x-participial]
+    u-Polarity: [u-pos, u-neg]
+
+  Negation:
+    pattern: "Principal: a[subj2][obj]...i; Participial: [subjP]nga[obj]...i"
+    examples:
+    - "Akahambi."
+    - "Akangisizi."
+    - "Abangabantu."
+
+  Usage:
+    prs-default:
+      note: "The present tense is the default tense, used to indicate events in the present; it corresponds to the English simple present or continuous present."
+      examples:
+      - "Uyahamba."
+      - "Uhamba ekuseni."
+      - "Ungisiza namhlanje."
+
+  Rules:
+    u-Tense_u-prs__x-Clauseform_x-principal__u-Polarity_u-pos:
+      applies: {u-Tense: u-prs, x-Clauseform: x-principal, u-Polarity: u-pos}
+      pattern: "[subj1](ya)[obj]...a"
+      note: "The infix -ya- is used whenever the form has lengthening on the penultimate syllable, i.e. when it occurs finally in the sentence."
+      examples:
+      - "Uyahamba."
+      - "Uhamba ekuseni."
+      - "Uyangisiza."
+      - "Ungisiza namhlanje."
+      - "Usiza uyise."
+
+    u-Tense_u-prs__x-Clauseform_x-principal__u-Polarity_u-neg:
+      applies: {u-Tense: u-prs, x-Clauseform: x-principal, u-Polarity: u-neg}
+      pattern: "a[subj2][obj]...i"
+      examples:
+      - "Akahambi."
+      - "Akangisizi."
+
+    u-Tense_u-prs__x-Clauseform_x-participial__u-Polarity_u-pos:
+      applies: {u-Tense: u-prs, x-Clauseform: x-participial, u-Polarity: u-pos}
+      pattern: "[subjP][obj]...a"
+      examples:
+      - "Ukhuluma edla."
+      - "Ngambona engasebenzi."
+
+    u-Tense_u-prs__x-Clauseform_x-participial__u-Polarity_u-neg:
+      applies: {u-Tense: u-prs, x-Clauseform: x-participial, u-Polarity: u-neg}
+      pattern: "[subjP]nga[obj]...i"
+      examples:
+      - "Ngambona engasebenzi."
