@@ -31,25 +31,25 @@ Subjunctive:
       - "Woza lapha uzame futhi!"
 
   Rules:
-    u-Mood_u-sbjv__u-Tense_u-prs__u-Polarity_u-pos:
+    u-Mood_u-sbjv__u-Polarity_u-pos__u-Tense_u-prs:
       applies: {u-Mood: u-sbjv, u-Tense: u-prs, u-Polarity: u-pos}
       pattern: "[subj2][obj]...e"
       note: "Unlike the indicative, subjunctive verbs end in -e."
       examples:
       - "Ngicela ningiphe isinkwa."
 
-    u-Mood_u-sbjv__u-Tense_u-prs__u-Polarity_u-neg:
+    u-Mood_u-sbjv__u-Polarity_u-neg__u-Tense_u-prs:
       applies: {u-Mood: u-sbjv, u-Tense: u-prs, u-Polarity: u-neg}
       pattern: "[subj2]nga[obj]...i"
       examples:
       - "Ubaba ufuna ukuthi ngingahambi lapho."
 
-    u-Mood_u-sbjv__u-Tense_u-pst__u-Polarity_u-pos:
+    u-Mood_u-sbjv__u-Polarity_u-pos__u-Tense_u-pst:
       applies: {u-Mood: u-sbjv, u-Tense: u-pst, u-Polarity: u-pos}
       pattern: "[subj1]a[obj]...a"
       note: "Affirmative past subjunctive is identical to the affirmative remote past, except that the infix -a- is short; in regular Zulu spelling this distinction is not marked."
 
-    u-Mood_u-sbjv__u-Tense_u-pst__u-Polarity_u-neg:
+    u-Mood_u-sbjv__u-Polarity_u-neg__u-Tense_u-pst:
       applies: {u-Mood: u-sbjv, u-Tense: u-pst, u-Polarity: u-neg}
       patterns:
       - pattern: "a[subj1]anga[obj]...a"

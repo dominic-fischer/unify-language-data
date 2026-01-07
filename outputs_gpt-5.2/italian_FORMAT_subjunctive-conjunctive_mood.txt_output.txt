@@ -4,6 +4,8 @@ Subjunctive:
     u-Tense: [u-prs, u-pst]
     u-Person: [u-1, u-2, u-3]
     u-Number: [u-sg, u-pl]
+    x-Process:
+    - x-suffixation
 
   Usage:
     desire-doubt-emotion-impending:

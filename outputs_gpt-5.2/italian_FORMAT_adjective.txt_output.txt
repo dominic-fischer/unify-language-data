@@ -11,6 +11,9 @@ Adjective:
     - u-sprl
     - u-ab
 
+    x-Domain:
+    - x-noun-adjective
+    - x-noun-determiner
   Rules:
     u-Gender_u-masc__u-Number_u-sg:
       applies: {u-Gender: u-masc, u-Number: u-sg}

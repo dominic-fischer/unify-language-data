@@ -1,215 +1,333 @@
 Determiner:
   Features:
-    u-Animacy: [u-hum]
-    u-Gender: [u-bantu1-23]
-    x-Pronoun-type: [x-dem]
-    x-Form-type: [x-standalone]
-
+    u-Animacy:
+    - u-hum
+    u-Gender:
+    - u-bantu1-23
+    x-Pronoun-type:
+    - x-dem
+    x-Form-type:
+    - x-standalone
   Rules:
     x-Pronoun-type_x-dem:
-      applies: {x-Pronoun-type: x-dem}
+      applies:
+        x-Pronoun-type: x-dem
       patterns:
-        - pattern: "<noun> <demonstrative>"
-          examples:
-            - "mtoto huyu"
-          note: "Demonstratives can be used adjectivally with a noun, generally following it."
-        - pattern: "<demonstrative> <noun>"
-          note: "A demonstrative can precede the noun for emphasis; before a noun it can be slightly more article-like."
-        - forms:
-            - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
-              form: "huyu"
-              note: "Class 1 (m-) proximal."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
-              form: "yule"
-              note: "Class 1 (m-) distal."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
-              form: "huyo"
-              note: "Class 1 (m-) medial/referential."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
-              form: "hawa"
-              note: "Class 2 (wa-) proximal."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
-              form: "wale"
-              note: "Class 2 (wa-) distal."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
-              form: "hao"
-              note: "Class 2 (wa-) medial/referential."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
-              form: "huu"
-              note: "Class 3 (m-) proximal; also class 11/14 (u-) proximal."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
-              form: "ule"
-              note: "Class 3 (m-) distal; also class 11/14 (u-) distal."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
-              form: "huo"
-              note: "Class 3 (m-) medial/referential; also class 11/14 (u-) medial/referential."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
-              form: "hii"
-              note: "Class 4 (mi-) proximal; also class 9 (N-) proximal."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
-              form: "ile"
-              note: "Class 4 (mi-) distal; also class 9 (N-) distal."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
-              form: "hiyo"
-              note: "Class 4 (mi-) medial/referential; also class 9 (N-) medial/referential."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
-              form: "hili"
-              note: "Class 5 (ji-) proximal."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
-              form: "lile"
-              note: "Class 5 (ji-) distal."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
-              form: "hilo"
-              note: "Class 5 (ji-) medial/referential."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
-              form: "haya"
-              note: "Class 6 (ma-) proximal."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
-              form: "yale"
-              note: "Class 6 (ma-) distal."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
-              form: "hayo"
-              note: "Class 6 (ma-) medial/referential."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
-              form: "hiki"
-              note: "Class 7 (ki-) proximal."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
-              form: "kile"
-              note: "Class 7 (ki-) distal."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-sg, x-Form-type: x-standalone}
-              form: "hicho"
-              note: "Class 7 (ki-) medial/referential."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
-              form: "hivi"
-              note: "Class 8 (vi-) proximal."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
-              form: "vile"
-              note: "Class 8 (vi-) distal."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
-              form: "hivyo"
-              note: "Class 8 (vi-) medial/referential."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
-              form: "hizi"
-              note: "Class 10 (N-) proximal."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
-              form: "zile"
-              note: "Class 10 (N-) distal."
-            - features: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Form-type: x-standalone}
-              form: "hizo"
-              note: "Class 10 (N-) medial/referential."
-            - features: {u-Gender: u-bantu1-23, x-Form-type: x-standalone}
-              form: "huku"
-              note: "Class 15 (ku-) proximal; also class 17 (-ni/ku-) proximal."
-            - features: {u-Gender: u-bantu1-23, x-Form-type: x-standalone}
-              form: "kule"
-              note: "Class 15 (ku-) distal; also class 17 (-ni/ku-) distal."
-            - features: {u-Gender: u-bantu1-23, x-Form-type: x-standalone}
-              form: "huko"
-              note: "Class 15 (ku-) medial/referential; also class 17 (-ni/ku-) medial/referential."
-            - features: {u-Gender: u-bantu1-23, x-Form-type: x-standalone}
-              form: "hapa"
-              note: "Class 16 (-ni/pa-) proximal."
-            - features: {u-Gender: u-bantu1-23, x-Form-type: x-standalone}
-              form: "pale"
-              note: "Class 16 (-ni/pa-) distal."
-            - features: {u-Gender: u-bantu1-23, x-Form-type: x-standalone}
-              form: "hapo"
-              note: "Class 16 (-ni/pa-) medial/referential."
-            - features: {u-Gender: u-bantu1-23, x-Form-type: x-standalone}
-              form: "humu"
-              note: "Class 18 (-ni/m-) proximal."
-            - features: {u-Gender: u-bantu1-23, x-Form-type: x-standalone}
-              form: "mle"
-              note: "Class 18 (-ni/m-) distal."
-            - features: {u-Gender: u-bantu1-23, x-Form-type: x-standalone}
-              form: "humo"
-              note: "Class 18 (-ni/m-) medial/referential."
-      note: "Demonstratives can be used as pronouns (standing alone) or adjectivally (with a noun)."
-
+      - pattern: <noun> <demonstrative>
+        examples:
+        - mtoto huyu
+        note: Demonstratives can be used adjectivally with a noun, generally following it.
+      - pattern: <demonstrative> <noun>
+        note: A demonstrative can precede the noun for emphasis; before a noun it can be slightly more article-like.
+      - forms:
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-sg
+            x-Form-type: x-standalone
+          form: huyu
+          note: Class 1 (m-) proximal.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-sg
+            x-Form-type: x-standalone
+          form: yule
+          note: Class 1 (m-) distal.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-sg
+            x-Form-type: x-standalone
+          form: huyo
+          note: Class 1 (m-) medial/referential.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-pl
+            x-Form-type: x-standalone
+          form: hawa
+          note: Class 2 (wa-) proximal.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-pl
+            x-Form-type: x-standalone
+          form: wale
+          note: Class 2 (wa-) distal.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-pl
+            x-Form-type: x-standalone
+          form: hao
+          note: Class 2 (wa-) medial/referential.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-sg
+            x-Form-type: x-standalone
+          form: huu
+          note: Class 3 (m-) proximal; also class 11/14 (u-) proximal.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-sg
+            x-Form-type: x-standalone
+          form: ule
+          note: Class 3 (m-) distal; also class 11/14 (u-) distal.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-sg
+            x-Form-type: x-standalone
+          form: huo
+          note: Class 3 (m-) medial/referential; also class 11/14 (u-) medial/referential.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-pl
+            x-Form-type: x-standalone
+          form: hii
+          note: Class 4 (mi-) proximal; also class 9 (N-) proximal.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-pl
+            x-Form-type: x-standalone
+          form: ile
+          note: Class 4 (mi-) distal; also class 9 (N-) distal.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-pl
+            x-Form-type: x-standalone
+          form: hiyo
+          note: Class 4 (mi-) medial/referential; also class 9 (N-) medial/referential.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-sg
+            x-Form-type: x-standalone
+          form: hili
+          note: Class 5 (ji-) proximal.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-sg
+            x-Form-type: x-standalone
+          form: lile
+          note: Class 5 (ji-) distal.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-sg
+            x-Form-type: x-standalone
+          form: hilo
+          note: Class 5 (ji-) medial/referential.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-pl
+            x-Form-type: x-standalone
+          form: haya
+          note: Class 6 (ma-) proximal.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-pl
+            x-Form-type: x-standalone
+          form: yale
+          note: Class 6 (ma-) distal.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-pl
+            x-Form-type: x-standalone
+          form: hayo
+          note: Class 6 (ma-) medial/referential.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-sg
+            x-Form-type: x-standalone
+          form: hiki
+          note: Class 7 (ki-) proximal.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-sg
+            x-Form-type: x-standalone
+          form: kile
+          note: Class 7 (ki-) distal.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-sg
+            x-Form-type: x-standalone
+          form: hicho
+          note: Class 7 (ki-) medial/referential.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-pl
+            x-Form-type: x-standalone
+          form: hivi
+          note: Class 8 (vi-) proximal.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-pl
+            x-Form-type: x-standalone
+          form: vile
+          note: Class 8 (vi-) distal.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-pl
+            x-Form-type: x-standalone
+          form: hivyo
+          note: Class 8 (vi-) medial/referential.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-pl
+            x-Form-type: x-standalone
+          form: hizi
+          note: Class 10 (N-) proximal.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-pl
+            x-Form-type: x-standalone
+          form: zile
+          note: Class 10 (N-) distal.
+        - features:
+            u-Gender: u-bantu1-23
+            u-Number: u-pl
+            x-Form-type: x-standalone
+          form: hizo
+          note: Class 10 (N-) medial/referential.
+        - features:
+            u-Gender: u-bantu1-23
+            x-Form-type: x-standalone
+          form: huku
+          note: Class 15 (ku-) proximal; also class 17 (-ni/ku-) proximal.
+        - features:
+            u-Gender: u-bantu1-23
+            x-Form-type: x-standalone
+          form: kule
+          note: Class 15 (ku-) distal; also class 17 (-ni/ku-) distal.
+        - features:
+            u-Gender: u-bantu1-23
+            x-Form-type: x-standalone
+          form: huko
+          note: Class 15 (ku-) medial/referential; also class 17 (-ni/ku-) medial/referential.
+        - features:
+            u-Gender: u-bantu1-23
+            x-Form-type: x-standalone
+          form: hapa
+          note: Class 16 (-ni/pa-) proximal.
+        - features:
+            u-Gender: u-bantu1-23
+            x-Form-type: x-standalone
+          form: pale
+          note: Class 16 (-ni/pa-) distal.
+        - features:
+            u-Gender: u-bantu1-23
+            x-Form-type: x-standalone
+          form: hapo
+          note: Class 16 (-ni/pa-) medial/referential.
+        - features:
+            u-Gender: u-bantu1-23
+            x-Form-type: x-standalone
+          form: humu
+          note: Class 18 (-ni/m-) proximal.
+        - features:
+            u-Gender: u-bantu1-23
+            x-Form-type: x-standalone
+          form: mle
+          note: Class 18 (-ni/m-) distal.
+        - features:
+            u-Gender: u-bantu1-23
+            x-Form-type: x-standalone
+          form: humo
+          note: Class 18 (-ni/m-) medial/referential.
+      note: Demonstratives can be used as pronouns (standing alone) or adjectivally (with a noun).
 Noun:
   Features:
-    u-Gender: [u-bantu1-23]
-    u-Number: [u-sg, u-pl]
-
+    u-Gender:
+    - u-bantu1-23
+    u-Number:
+    - u-sg
+    - u-pl
+    x-Process:
+    - x-prefixation
   Rules:
     u-Gender_u-bantu1-23__u-Number_u-sg:
-      applies: {u-Gender: u-bantu1-23, u-Number: u-sg}
+      applies:
+        u-Gender: u-bantu1-23
+        u-Number: u-sg
       patterns:
-        - pattern: "m-<stem>"
-          examples: ["mtu", "mzizi"]
-          note: "Class 1 and 3 singular."
-        - pattern: "<stem>"
-          examples: ["neno"]
-          note: "Class 5 singular has no class prefix."
-        - pattern: "ki-<stem>"
-          examples: ["kitu"]
-          note: "Class 7 singular."
-        - pattern: "N-/∅<stem>"
-          examples: ["nchi"]
-          note: "Class 9 singular has n- or no overt prefix."
-        - pattern: "u-<stem>"
-          examples: ["ulimi"]
-          note: "Class 11+14 singular (treated together here)."
-        - pattern: "ku-<stem>"
-          examples: ["kucheka"]
-          note: "Class 15 (verbal noun/infinitive); only a singular form exists."
-        - form: "mahali"
-          examples: ["mahali"]
-          note: "Locative class (place/area) consists of this single word."
+      - pattern: m-<stem>
+        examples:
+        - mtu
+        - mzizi
+        note: Class 1 and 3 singular.
+      - pattern: <stem>
+        examples:
+        - neno
+        note: Class 5 singular has no class prefix.
+      - pattern: ki-<stem>
+        examples:
+        - kitu
+        note: Class 7 singular.
+      - pattern: N-/∅<stem>
+        examples:
+        - nchi
+        note: Class 9 singular has n- or no overt prefix.
+      - pattern: u-<stem>
+        examples:
+        - ulimi
+        note: Class 11+14 singular (treated together here).
+      - pattern: ku-<stem>
+        examples:
+        - kucheka
+        note: Class 15 (verbal noun/infinitive); only a singular form exists.
     u-Gender_u-bantu1-23__u-Number_u-pl:
-      applies: {u-Gender: u-bantu1-23, u-Number: u-pl}
+      applies:
+        u-Gender: u-bantu1-23
+        u-Number: u-pl
       patterns:
-        - pattern: "wa-<stem>"
-          examples: ["watu"]
-          note: "Class 2 plural (pairs with class 1)."
-        - pattern: "mi-<stem>"
-          examples: ["mizizi"]
-          note: "Class 4 plural (pairs with class 3)."
-        - pattern: "ma-<stem>"
-          examples: ["maneno"]
-          note: "Class 6 plural (pairs with class 5)."
-        - pattern: "vi-<stem>"
-          examples: ["vitu"]
-          note: "Class 8 plural (pairs with class 7)."
-        - pattern: "N-/∅<stem>"
-          examples: ["nchi"]
-          note: "Class 10 plural (pairs with class 9) has n- or no overt prefix."
-        - pattern: "n-<stem>"
-          examples: ["ndimi"]
-          note: "Class 11 uses plural class 10; class 14 sometimes uses plural class 6."
-      note: "To form plurals, the plural prefix replaces the singular prefix; exception: plural ma- is added at the beginning of the word."
-
+      - pattern: wa-<stem>
+        examples:
+        - watu
+        note: Class 2 plural (pairs with class 1).
+      - pattern: mi-<stem>
+        examples:
+        - mizizi
+        note: Class 4 plural (pairs with class 3).
+      - pattern: ma-<stem>
+        examples:
+        - maneno
+        note: Class 6 plural (pairs with class 5).
+      - pattern: vi-<stem>
+        examples:
+        - vitu
+        note: Class 8 plural (pairs with class 7).
+      - pattern: N-/∅<stem>
+        examples:
+        - nchi
+        note: Class 10 plural (pairs with class 9) has n- or no overt prefix.
+      - pattern: n-<stem>
+        examples:
+        - ndimi
+        note: Class 11 uses plural class 10; class 14 sometimes uses plural class 6.
+      note: 'To form plurals, the plural prefix replaces the singular prefix; exception: plural ma- is added at the beginning of the word.'
     u-Gender_u-bantu1-23__u-Number_u-pl__x-Process_x-prefixation:
-      applies: {u-Gender: u-bantu1-23, u-Number: u-pl, x-Process: x-prefixation}
+      applies:
+        u-Gender: u-bantu1-23
+        u-Number: u-pl
+        x-Process: x-prefixation
       patterns:
-        - pattern: "n- + stem-initial (-ch, -d, -g, -j, -z) -> n-<stem>"
-          examples: ["uduvi -> nduvi"]
-          note: "N-rule (N!)."
-        - pattern: "n- + stem-initial (-b, -p, -v) -> m-<stem>"
-          examples: ["ubao -> mbao"]
-          note: "N-rule (N!)."
-        - pattern: "n- + stem-initial vowel (-a, -e, -i, -o, -u) -> ny-<stem>"
-          examples: ["wimbo -> nyimbo"]
-          note: "N-rule (N!)."
-        - pattern: "n- + stem-initial (-l, -r) -> nd-<stem>"
-          examples: ["ulimi -> ndimi"]
-          note: "N-rule (N!)."
-        - pattern: "n- + stem-initial (-f, -h, -k, -m, -n, -s, -t, -w, -y) -> <stem>"
-          examples: ["urafiki -> rafiki"]
-          note: "N-rule (N!)."
-      note: "For class 11/14 plurals with n-, the word may be modified for pronunciation (N-rule, abbreviated N!)."
-
+      - pattern: n- + stem-initial (-ch, -d, -g, -j, -z) -> n-<stem>
+        examples:
+        - uduvi -> nduvi
+        note: N-rule (N!).
+      - pattern: n- + stem-initial (-b, -p, -v) -> m-<stem>
+        examples:
+        - ubao -> mbao
+        note: N-rule (N!).
+      - pattern: n- + stem-initial vowel (-a, -e, -i, -o, -u) -> ny-<stem>
+        examples:
+        - wimbo -> nyimbo
+        note: N-rule (N!).
+      - pattern: n- + stem-initial (-l, -r) -> nd-<stem>
+        examples:
+        - ulimi -> ndimi
+        note: N-rule (N!).
+      - pattern: n- + stem-initial (-f, -h, -k, -m, -n, -s, -t, -w, -y) -> <stem>
+        examples:
+        - urafiki -> rafiki
+        note: N-rule (N!).
+      note: For class 11/14 plurals with n-, the word may be modified for pronunciation (N-rule, abbreviated N!).
 Article:
   Features:
-    u-Definiteness: [u-def, u-indf]
-
-  Rules:
-    u-Definiteness_u-def__u-Definiteness_u-indf:
-      applies: {u-Definiteness: u-def, u-Definiteness: u-indf}
-      note: "Swahili has no articles; a bare noun can be interpreted as definite or indefinite depending on context."
-      examples:
-        - "Nitaleta kikombe kesho."
-        - "Nitakileta kikombe kesho."
-        - "Nita(ki)leta hicho kikombe kesho."
-        - "Nita(ki)leta kikombe hicho kesho."
-        - "Nita(ki)leta kile kikombe kesho."
+    u-Definiteness:
+    - u-def
+    - u-indf
+  Rules: {}

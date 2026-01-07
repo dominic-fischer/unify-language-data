@@ -1,142 +1,158 @@
 Imperative:
   Features:
-    u-Mood: [u-imp, u-sbjv]
-    u-Number: [u-sg, u-pl]
-    u-Polarity: [u-pos, u-neg]
-    x-Process: [x-prefixation, x-suffixation]
-
+    u-Mood:
+    - u-imp
+    - u-sbjv
+    u-Number:
+    - u-sg
+    - u-pl
+    u-Polarity:
+    - u-pos
+    - u-neg
+    x-Process:
+    - x-prefixation
   Usage:
     direct-commands:
-      applies: {u-Mood: u-imp}
-      note: "Used to issue direct commands; can occur either alone or with an object prefix."
+      applies:
+        u-Mood: u-imp
+      note: Used to issue direct commands; can occur either alone or with an object prefix.
       examples:
-      - "Angalia! Angalieni! \"Look!\""
-      - "Nisaidie! Nisaidieni! \"Help me!\""
-
+      - Angalia! Angalieni! "Look!"
+      - Nisaidie! Nisaidieni! "Help me!"
   Negation:
     examples:
-    - "Usinywe! Msinywe! \"Don't drink!\""
-    note: "There is no actual negative imperative form; the equivalent is achieved with the negative subjunctive."
-
+    - Usinywe! Msinywe! "Don't drink!"
+    note: There is no actual negative imperative form; the equivalent is achieved with the negative subjunctive.
   Rules:
-    u-Mood_u-imp__u-Polarity_u-pos__u-Number_u-sg:
-      applies: {u-Mood: u-imp, u-Polarity: u-pos, u-Number: u-sg}
-      patterns:
-      - pattern: "_stem_-a"
-        examples:
-        - "Angalia! \"Look!\""
-        - "Kunywa! \"Drink!\""
-        note: "Common verbs: imperative singular uses the verb stem (final -a)."
-      - pattern: "[OBJ] + _stem_-e"
-        examples:
-        - "Ni-angalie! \"Look at me!\""
-        - "Mwangalie! \"Look at her!\""
-        - "Nisaidie! \"Help me!\""
-        - "Yanywe! \"Drink it!\""
-        note: "With an object prefix (including reflexive ji-), the final -a becomes -e."
-      - pattern: "ku + _stem_-a"
-        note: "Short verbs: use the full infinitive instead of the bare stem."
-      - pattern: "[OBJ] + _stem_-e"
-        note: "Short verbs: with an object prefix, the imperative uses the same [OBJ]+...-e pattern."
-      - pattern: "_loan-stem_"
-        note: "Loan verbs: imperative singular uses the stem as given."
-      - pattern: "[OBJ] + _loan-stem_"
-        note: "Loan verbs: with an object prefix, add the object prefix."
-
-    u-Mood_u-imp__u-Polarity_u-pos__u-Number_u-pl:
-      applies: {u-Mood: u-imp, u-Polarity: u-pos, u-Number: u-pl}
-      patterns:
-      - pattern: "_stem_-eni"
-        examples:
-        - "Angalieni! \"Look!\""
-        - "Kunyweni! \"Drink!\""
-        note: "Common verbs: plural addressed to multiple people uses -ni (realized as -eni with -a stems)."
-      - pattern: "[OBJ] + _stem_-eni"
-        examples:
-        - "Mwangalieni! \"Look at her!\""
-        - "Nisaidieni! \"Help me!\""
-        - "Yanyweni! \"Drink it!\""
-        - "Jifunzeni! \"Learn!\""
-        note: "With an object prefix, keep the [OBJ]+...-e and add plural -ni (realized as -eni)."
-      - pattern: "ku + _stem_-eni"
-        note: "Short verbs: plural uses the full infinitive with -ni (ku___eni)."
-      - pattern: "_loan-stem_ + ni"
-        note: "Loan verbs: plural uses suffix -ni."
-      - pattern: "[OBJ] + _loan-stem_ + ni"
-        note: "Loan verbs: with an object prefix, add -ni."
-
     u-Mood_u-sbjv__u-Polarity_u-neg:
-      applies: {u-Mood: u-sbjv, u-Polarity: u-neg}
-      pattern: "SUBJ + si + _stem_-e"
+      applies:
+        u-Mood: u-sbjv
+        u-Polarity: u-neg
+      pattern: SUBJ + si + _stem_-e
       examples:
-      - "Usinywe! \"Don't drink!\""
-      - "Msinywe! \"Don't drink!\""
-      - "Usimwangalie! \"Don't look at her!\""
-      - "Msimwangalie! \"Don't look at her!\""
-      - "Usijifunze! \"Don't learn!\""
-      - "Msijifunze! \"Don't learn!\""
-      note: "Negative commands use the negative subjunctive: SUBJ- si- ...-e (e.g., Usi-/Msi-)."
-
+      - Usinywe! "Don't drink!"
+      - Msinywe! "Don't drink!"
+      - Usimwangalie! "Don't look at her!"
+      - Msimwangalie! "Don't look at her!"
+      - Usijifunze! "Don't learn!"
+      - Msijifunze! "Don't learn!"
+      note: 'Negative commands use the negative subjunctive: SUBJ- si- ...-e (e.g., Usi-/Msi-).'
     u-Mood_u-imp__x-Process_x-prefixation:
-      applies: {u-Mood: u-imp, x-Process: x-prefixation}
+      applies:
+        u-Mood: u-imp
+        x-Process: x-prefixation
       forms:
       - features: {}
-        form: "jifunze"
-        note: "Imperative of -jifunza with reflexive ji- (object prefix), not *jifunza."
+        form: jifunze
+        note: Imperative of -jifunza with reflexive ji- (object prefix), not *jifunza.
       examples:
-      - "Jifunze! Jifunzeni! \"Learn!\""
-      note: "Reflexive ji- counts as an object prefix and triggers final -e."
-
-    u-Mood_u-imp__x-Process_x-suffixation:
-      applies: {u-Mood: u-imp, x-Process: x-suffixation}
-      endings:
-      - features: {u-Number: u-pl}
-        form: "-ni"
-        note: "Used when addressing multiple people."
-      note: "The suffix -ni marks plural imperative; -eni occurs with -a stems."
-
+      - Jifunze! Jifunzeni! "Learn!"
+      note: Reflexive ji- counts as an object prefix and triggers final -e.
     u-Mood_u-imp__u-Polarity_u-pos:
-      applies: {u-Mood: u-imp, u-Polarity: u-pos}
+      applies:
+        u-Mood: u-imp
+        u-Polarity: u-pos
       forms:
-      - features: {u-Number: u-sg}
-        form: "njoo"
-        note: "Irregular imperative of kuja \"to come\"."
-      - features: {u-Number: u-pl}
-        form: "njooni"
-        note: "Plural of njoo."
-      - features: {u-Number: u-sg}
-        form: "nenda"
-        note: "Irregular imperative of kwenda \"to go\"."
-      - features: {u-Number: u-pl}
-        form: "nendeni"
-        note: "Plural of nenda."
-      - features: {u-Number: u-sg}
-        form: "lete"
-        note: "Irregular imperative of kuleta \"to bring\"."
-      - features: {u-Number: u-pl}
-        form: "leteni"
-        note: "Plural of lete."
-      - features: {u-Number: u-sg}
-        form: "wacha"
-        note: "Informal imperative form of -acha."
-      - features: {u-Number: u-pl}
-        form: "wacheni"
-        note: "Plural of wacha."
-      - features: {u-Number: u-sg}
-        form: "iwe"
-        note: "Irregular imperative of kuwa \"to be\"; rarely used."
-      - features: {u-Number: u-pl}
-        form: "iweni"
-        note: "Plural of iwe; rarely used."
-      - features: {u-Number: u-sg}
-        form: "kuwa"
-        note: "Regular imperative form of kuwa \"to be\" (used more frequently than iwe)."
-      - features: {u-Number: u-pl}
-        form: "kuweni"
-        note: "Plural of kuwa."
-      note: "Some verbs have irregular imperatives; regular forms may be heard and may be interpreted as less polite."
-
+      - features:
+          u-Number: u-sg
+        form: njoo
+        note: Irregular imperative of kuja "to come".
+      - features:
+          u-Number: u-pl
+        form: njooni
+        note: Plural of njoo.
+      - features:
+          u-Number: u-sg
+        form: nenda
+        note: Irregular imperative of kwenda "to go".
+      - features:
+          u-Number: u-pl
+        form: nendeni
+        note: Plural of nenda.
+      - features:
+          u-Number: u-sg
+        form: lete
+        note: Irregular imperative of kuleta "to bring".
+      - features:
+          u-Number: u-pl
+        form: leteni
+        note: Plural of lete.
+      - features:
+          u-Number: u-sg
+        form: wacha
+        note: Informal imperative form of -acha.
+      - features:
+          u-Number: u-pl
+        form: wacheni
+        note: Plural of wacha.
+      - features:
+          u-Number: u-sg
+        form: iwe
+        note: Irregular imperative of kuwa "to be"; rarely used.
+      - features:
+          u-Number: u-pl
+        form: iweni
+        note: Plural of iwe; rarely used.
+      - features:
+          u-Number: u-sg
+        form: kuwa
+        note: Regular imperative form of kuwa "to be" (used more frequently than iwe).
+      - features:
+          u-Number: u-pl
+        form: kuweni
+        note: Plural of kuwa.
+      note: Some verbs have irregular imperatives; regular forms may be heard and may be interpreted as less polite.
+    u-Mood_u-imp__u-Number_u-sg__u-Polarity_u-pos:
+      applies:
+        u-Mood: u-imp
+        u-Polarity: u-pos
+        u-Number: u-sg
+      patterns:
+      - pattern: _stem_-a
+        examples:
+        - Angalia! "Look!"
+        - Kunywa! "Drink!"
+        note: 'Common verbs: imperative singular uses the verb stem (final -a).'
+      - pattern: '[OBJ] + _stem_-e'
+        examples:
+        - Ni-angalie! "Look at me!"
+        - Mwangalie! "Look at her!"
+        - Nisaidie! "Help me!"
+        - Yanywe! "Drink it!"
+        note: With an object prefix (including reflexive ji-), the final -a becomes -e.
+      - pattern: ku + _stem_-a
+        note: 'Short verbs: use the full infinitive instead of the bare stem.'
+      - pattern: '[OBJ] + _stem_-e'
+        note: 'Short verbs: with an object prefix, the imperative uses the same [OBJ]+...-e pattern.'
+      - pattern: _loan-stem_
+        note: 'Loan verbs: imperative singular uses the stem as given.'
+      - pattern: '[OBJ] + _loan-stem_'
+        note: 'Loan verbs: with an object prefix, add the object prefix.'
+    u-Mood_u-imp__u-Number_u-pl__u-Polarity_u-pos:
+      applies:
+        u-Mood: u-imp
+        u-Polarity: u-pos
+        u-Number: u-pl
+      patterns:
+      - pattern: _stem_-eni
+        examples:
+        - Angalieni! "Look!"
+        - Kunyweni! "Drink!"
+        note: 'Common verbs: plural addressed to multiple people uses -ni (realized as -eni with -a stems).'
+      - pattern: '[OBJ] + _stem_-eni'
+        examples:
+        - Mwangalieni! "Look at her!"
+        - Nisaidieni! "Help me!"
+        - Yanyweni! "Drink it!"
+        - Jifunzeni! "Learn!"
+        note: With an object prefix, keep the [OBJ]+...-e and add plural -ni (realized as -eni).
+      - pattern: ku + _stem_-eni
+        note: 'Short verbs: plural uses the full infinitive with -ni (ku___eni).'
+      - pattern: _loan-stem_ + ni
+        note: 'Loan verbs: plural uses suffix -ni.'
+      - pattern: '[OBJ] + _loan-stem_ + ni'
+        note: 'Loan verbs: with an object prefix, add -ni.'
   Notes:
-  - "The change to -e (incl. in plural) is applied only to verb stems ending in -a."
-  - "The imperative has no own negation; it uses the negation of the subjunctive."
-  - "With short verbs, the whole infinitive is used instead of the bare stem."
+  - The change to -e (incl. in plural) is applied only to verb stems ending in -a.
+  - The imperative has no own negation; it uses the negation of the subjunctive.
+  - With short verbs, the whole infinitive is used instead of the bare stem.

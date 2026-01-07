@@ -29,20 +29,6 @@ Past:
       examples:
       - "feci"
 
-    it-Tense-type_it-passato-prossimo__it-Auxiliary_it-avere:
-      applies: {it-Tense-type: it-passato-prossimo, it-Auxiliary: it-avere}
-      pattern: "avere (present finite) + past participle"
-      note: "In compound perfect tenses, avere is used for transitive verbs and some intransitive verbs."
-      examples:
-      - "ho fatto"
-
-    it-Tense-type_it-passato-prossimo__it-Auxiliary_it-essere:
-      applies: {it-Tense-type: it-passato-prossimo, it-Auxiliary: it-essere}
-      pattern: "essere (present finite) + past participle"
-      note: "In compound perfect tenses, essere is used for the remaining intransitive verbs; reflexive verbs and unaccusative verbs use essere."
-      examples:
-      - "sono vissuto"
-
     it-Tense-type_it-trapassato-prossimo:
       applies: {it-Tense-type: it-trapassato-prossimo}
       pattern: "past perfect: auxiliary (imperfect finite) + past participle"
@@ -96,3 +82,17 @@ Past:
       forms:
       - features: {}
         form: "fatto"
+    it-Auxiliary_it-avere__it-Tense-type_it-passato-prossimo:
+      applies: {it-Tense-type: it-passato-prossimo, it-Auxiliary: it-avere}
+      pattern: "avere (present finite) + past participle"
+      note: "In compound perfect tenses, avere is used for transitive verbs and some intransitive verbs."
+      examples:
+      - "ho fatto"
+
+    it-Auxiliary_it-essere__it-Tense-type_it-passato-prossimo:
+      applies: {it-Tense-type: it-passato-prossimo, it-Auxiliary: it-essere}
+      pattern: "essere (present finite) + past participle"
+      note: "In compound perfect tenses, essere is used for the remaining intransitive verbs; reflexive verbs and unaccusative verbs use essere."
+      examples:
+      - "sono vissuto"
+

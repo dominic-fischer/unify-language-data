@@ -9,45 +9,45 @@ Clauses:
       applies: {u-Mood: u-sbjv}
       note: "Expresses hypothetical situations, wishes and requests; also used for consecutive action, and as a complement to certain auxiliary verbs and conjunctions."
       examples:
-        - "Ngamtshela ahambe."
-        - "Woza lapha uzame futhi!"
-        - "Umane ahleke."
-        - "Wāvuka wagqoka wahamba."
-        - "Wābaleka wangabheka emuva."
+      - "Ngamtshela ahambe."
+      - "Woza lapha uzame futhi!"
+      - "Umane ahleke."
+      - "Wāvuka wagqoka wahamba."
+      - "Wābaleka wangabheka emuva."
 
   Rules:
-    u-Mood_u-sbjv__u-Tense_u-prs__u-Polarity_u-pos:
+    u-Mood_u-sbjv__u-Polarity_u-pos__u-Tense_u-prs:
       applies: {u-Mood: u-sbjv, u-Tense: u-prs, u-Polarity: u-pos}
       pattern: "[subj2][obj]...e"
       examples:
-        - "Woza lapha uzame futhi!"
-        - "Umane ahleke."
+      - "Woza lapha uzame futhi!"
+      - "Umane ahleke."
 
-    u-Mood_u-sbjv__u-Tense_u-prs__u-Polarity_u-neg:
+    u-Mood_u-sbjv__u-Polarity_u-neg__u-Tense_u-prs:
       applies: {u-Mood: u-sbjv, u-Tense: u-prs, u-Polarity: u-neg}
       pattern: "[subj2]nga[obj]...i"
       examples:
-        - "Wābaleka wangabheka emuva."
+      - "Wābaleka wangabheka emuva."
 
-    u-Mood_u-sbjv__u-Tense_u-pst__u-Polarity_u-pos:
+    u-Mood_u-sbjv__u-Polarity_u-pos__u-Tense_u-pst:
       applies: {u-Mood: u-sbjv, u-Tense: u-pst, u-Polarity: u-pos}
       pattern: "[subj1]a[obj]...a"
       examples:
-        - "Ngamtshela ahambe."
+      - "Ngamtshela ahambe."
       note: "Affirmative past subjunctive is identical to the affirmative remote past, except that the infix -a- is short; in standard Zulu spelling vowel length is not marked."
 
-    u-Mood_u-sbjv__u-Tense_u-pst__u-Polarity_u-neg:
+    u-Mood_u-sbjv__u-Polarity_u-neg__u-Tense_u-pst:
       applies: {u-Mood: u-sbjv, u-Tense: u-pst, u-Polarity: u-neg}
       patterns:
-        - pattern: "a[subj1]anga[obj]...a"
-          examples:
-            - "a[subj1]anga[obj]...a"
-          note: "Uncontracted form."
-        - pattern: "[subj1]anga[obj]...a"
-          examples:
-            - "[subj1]anga[obj]...a"
-          note: "Contracted to a greater degree."
-        - pattern: "a[subj1]a[obj]...a"
-          examples:
-            - "a[subj1]a[obj]...a"
-          note: "Contracted to a greater degree."
+      - pattern: "a[subj1]anga[obj]...a"
+        examples:
+        - "a[subj1]anga[obj]...a"
+        note: "Uncontracted form."
+      - pattern: "[subj1]anga[obj]...a"
+        examples:
+        - "[subj1]anga[obj]...a"
+        note: "Contracted to a greater degree."
+      - pattern: "a[subj1]a[obj]...a"
+        examples:
+        - "a[subj1]a[obj]...a"
+        note: "Contracted to a greater degree."

@@ -1,0 +1,17 @@
+{
+  "pt-Tense-type": [
+    "pt-preterite",
+    "pt-imperfect",
+    "pt-pluperfect",
+    "pt-past-progressive",
+    "pt-past-future-periphrasis",
+    "pt-future-in-the-past-periphrasis",
+    "pt-conditional",
+    "pt-future-of-the-past-periphrasis"
+  ],
+  "pt-Construction": [
+    "pt-synthetic",
+    "pt-estar-gerund",
+    "pt-estar-a-inf"
+  ]
+}

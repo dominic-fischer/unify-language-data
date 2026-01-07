@@ -39,7 +39,7 @@ Present:
     - "Hatujibu."
 
   Rules:
-    u-Tense_u-prs__u-Polarity_u-pos__sw-Tense-type_sw-definite-present__sw-Verb-type_sw-common-verb:
+    sw-Tense-type_sw-definite-present__sw-Verb-type_sw-common-verb__u-Polarity_u-pos__u-Tense_u-prs:
       applies: {u-Tense: u-prs, u-Polarity: u-pos, sw-Tense-type: "sw-definite-present", sw-Verb-type: "sw-common-verb"}
       patterns:
       - pattern: "[SUBJ] + na + _stem_ + a"
@@ -52,7 +52,7 @@ Present:
         - "[SUBJ]na[OBJ]___a"
       note: "Often shortened in 1sg so that ni- collapses into -na- and becomes inaudible (and unwritten), e.g. (ni)nakula."
 
-    u-Tense_u-prs__u-Polarity_u-pos__sw-Tense-type_sw-definite-present__sw-Verb-type_sw-short-verb:
+    sw-Tense-type_sw-definite-present__sw-Verb-type_sw-short-verb__u-Polarity_u-pos__u-Tense_u-prs:
       applies: {u-Tense: u-prs, u-Polarity: u-pos, sw-Tense-type: "sw-definite-present", sw-Verb-type: "sw-short-verb"}
       patterns:
       - pattern: "[SUBJ] + na + ku + _stem_ + a"
@@ -63,7 +63,7 @@ Present:
         - "[SUBJ]na[OBJ]___a"
       note: "Short verbs retain -ku- in the -na- present tense."
 
-    u-Tense_u-prs__u-Polarity_u-pos__sw-Tense-type_sw-definite-present__sw-Verb-type_sw-loan-verb:
+    sw-Tense-type_sw-definite-present__sw-Verb-type_sw-loan-verb__u-Polarity_u-pos__u-Tense_u-prs:
       applies: {u-Tense: u-prs, u-Polarity: u-pos, sw-Tense-type: "sw-definite-present", sw-Verb-type: "sw-loan-verb"}
       patterns:
       - pattern: "[SUBJ] + na + _stem_"
@@ -73,7 +73,7 @@ Present:
         examples:
         - "[SUBJ]na[OBJ]___"
 
-    u-Tense_u-prs__u-Polarity_u-pos__sw-Tense-type_sw-indefinite-present__sw-Verb-type_sw-common-verb:
+    sw-Tense-type_sw-indefinite-present__sw-Verb-type_sw-common-verb__u-Polarity_u-pos__u-Tense_u-prs:
       applies: {u-Tense: u-prs, u-Polarity: u-pos, sw-Tense-type: "sw-indefinite-present", sw-Verb-type: "sw-common-verb"}
       patterns:
       - pattern: "[SUBJ] + a + _stem_ + a"
@@ -84,7 +84,7 @@ Present:
         examples:
         - "[SUBJ[a]]a[OBJ]___a"
 
-    u-Tense_u-prs__u-Polarity_u-pos__sw-Tense-type_sw-indefinite-present__sw-Verb-type_sw-short-verb:
+    sw-Tense-type_sw-indefinite-present__sw-Verb-type_sw-short-verb__u-Polarity_u-pos__u-Tense_u-prs:
       applies: {u-Tense: u-prs, u-Polarity: u-pos, sw-Tense-type: "sw-indefinite-present", sw-Verb-type: "sw-short-verb"}
       patterns:
       - pattern: "[SUBJ] + a + _stem_ + a"
@@ -95,7 +95,7 @@ Present:
         - "[SUBJ[a]]a[OBJ]___a"
       note: "Short verbs lose the -ku- extension in the -a- present tense."
 
-    u-Tense_u-prs__u-Polarity_u-pos__sw-Tense-type_sw-indefinite-present__sw-Verb-type_sw-loan-verb:
+    sw-Tense-type_sw-indefinite-present__sw-Verb-type_sw-loan-verb__u-Polarity_u-pos__u-Tense_u-prs:
       applies: {u-Tense: u-prs, u-Polarity: u-pos, sw-Tense-type: "sw-indefinite-present", sw-Verb-type: "sw-loan-verb"}
       patterns:
       - pattern: "[SUBJ] + a + _stem_"
@@ -105,14 +105,14 @@ Present:
         examples:
         - "[SUBJ[a]]a[OBJ]___"
 
-    u-Tense_u-prs__u-Polarity_u-pos__sw-Tense-type_sw-present-habitual:
+    sw-Tense-type_sw-present-habitual__u-Polarity_u-pos__u-Tense_u-prs:
       applies: {u-Tense: u-prs, u-Polarity: u-pos, sw-Tense-type: "sw-present-habitual"}
       pattern: "hu + _stem_"
       examples:
       - "hu-enda"
       - "Huandiki."
 
-    u-Tense_u-prs__u-Polarity_u-neg:
+    u-Polarity_u-neg__u-Tense_u-prs:
       applies: {u-Tense: u-prs, u-Polarity: u-neg}
       patterns:
       - pattern: "[NEG.SUBJ] + _stem_ + i"

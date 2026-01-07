@@ -6,7 +6,8 @@ Present:
     u-Number: [u-sg, u-pl]
     u-Mood: [u-ind]
     es-Conjugation: [es-ar, es-er, es-ir]
-    es-Politeness: [es-familiar, es-formal]
+    es-Politeness:
+    - es-familiar
 
   Usage:
     es-preterite:
@@ -32,7 +33,7 @@ Present:
       - "Era un día muy tranquilo cuando eso pasó."
 
   Rules:
-    u-Tense_u-pst__u-Aspect_u-pfv__u-Mood_u-ind__es-Conjugation_es-ar:
+    es-Conjugation_es-ar__u-Aspect_u-pfv__u-Mood_u-ind__u-Tense_u-pst:
       applies: {u-Tense: u-pst, u-Aspect: u-pfv, u-Mood: u-ind, es-Conjugation: es-ar}
       pattern: "_stem_ + _ending_"
       endings:
@@ -46,7 +47,7 @@ Present:
       examples:
       - "hablar → hablé, hablaste, habló, hablamos, hablasteis, hablaron"
 
-    u-Tense_u-pst__u-Aspect_u-pfv__u-Mood_u-ind__es-Conjugation_es-er:
+    es-Conjugation_es-er__u-Aspect_u-pfv__u-Mood_u-ind__u-Tense_u-pst:
       applies: {u-Tense: u-pst, u-Aspect: u-pfv, u-Mood: u-ind, es-Conjugation: es-er}
       pattern: "_stem_ + _ending_"
       endings:
@@ -60,7 +61,7 @@ Present:
       examples:
       - "comer → comí, comiste, comió, comimos, comisteis, comieron"
 
-    u-Tense_u-pst__u-Aspect_u-pfv__u-Mood_u-ind__es-Conjugation_es-ir:
+    es-Conjugation_es-ir__u-Aspect_u-pfv__u-Mood_u-ind__u-Tense_u-pst:
       applies: {u-Tense: u-pst, u-Aspect: u-pfv, u-Mood: u-ind, es-Conjugation: es-ir}
       pattern: "_stem_ + _ending_"
       endings:
@@ -74,7 +75,7 @@ Present:
       examples:
       - "vivir → viví, viviste, vivió, vivimos, vivisteis, vivieron"
 
-    u-Tense_u-pst__u-Aspect_u-ipfv__u-Mood_u-ind__es-Conjugation_es-ar:
+    es-Conjugation_es-ar__u-Aspect_u-ipfv__u-Mood_u-ind__u-Tense_u-pst:
       applies: {u-Tense: u-pst, u-Aspect: u-ipfv, u-Mood: u-ind, es-Conjugation: es-ar}
       pattern: "_stem_ + _ending_"
       endings:
@@ -88,7 +89,7 @@ Present:
       examples:
       - "hablar → hablaba, hablabas, hablaba, hablábamos, hablabais, hablaban"
 
-    u-Tense_u-pst__u-Aspect_u-ipfv__u-Mood_u-ind__es-Conjugation_es-er:
+    es-Conjugation_es-er__u-Aspect_u-ipfv__u-Mood_u-ind__u-Tense_u-pst:
       applies: {u-Tense: u-pst, u-Aspect: u-ipfv, u-Mood: u-ind, es-Conjugation: es-er}
       pattern: "_stem_ + _ending_"
       endings:
@@ -102,7 +103,7 @@ Present:
       examples:
       - "comer → comía, comías, comía, comíamos, comíais, comían"
 
-    u-Tense_u-pst__u-Aspect_u-ipfv__u-Mood_u-ind__es-Conjugation_es-ir:
+    es-Conjugation_es-ir__u-Aspect_u-ipfv__u-Mood_u-ind__u-Tense_u-pst:
       applies: {u-Tense: u-pst, u-Aspect: u-ipfv, u-Mood: u-ind, es-Conjugation: es-ir}
       pattern: "_stem_ + _ending_"
       endings:

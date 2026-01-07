@@ -19,7 +19,7 @@ def save_json(path: Path, data: dict):
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding="utf-8")
 
 
-def check_features_in_applies(applies: dict, base_path: Path, errors: list[str]):
+def check_features_in_applies(applies: dict, base_path: Path, errors: list[str], lang: str ):
     unimorph_schema = load_json(
         base_path / "unimorph_schema_w_expl.json"
     )
@@ -28,6 +28,18 @@ def check_features_in_applies(applies: dict, base_path: Path, errors: list[str])
 
     modified_custom = False
     modified_lang = {}
+
+    langs_w_abbrevs = {
+        "chewa": "ny",
+        "shona": "sn",
+        "swahili": "sw",
+        "zulu": "zu",
+        "french": "fr",
+        "italian": "it",
+        "portuguese": "pt",
+        "romanian": "ro",
+        "spanish": "es"
+    }
 
     for feat, val in applies.items():
         vals = val if isinstance(val, list) else [val]
@@ -60,25 +72,30 @@ def check_features_in_applies(applies: dict, base_path: Path, errors: list[str])
                     modified_custom = True
 
         else:
-            prefix = feat.split("-")[0]
-            lang_dir = base_path
-            lang_file = lang_dir / f"lang-{prefix}_schema.json"
-            # if directory doesn't exist, create dir + file together
-            if not lang_dir.exists():
-                lang_dir.mkdir(parents=True, exist_ok=True)
-                save_json(lang_file, {})  # create new file with empty dict
+            # Use your authoritative prefix for this file's language
+            lang_prefix = langs_w_abbrevs[lang]  # you said this exists in your project
+            canon_feat = normalize_lang_feature(feat, lang_prefix)
+
+            lang_file = base_path / f"lang-{lang_prefix}_schema.json"
+
+            # Ensure lang schema file exists (directory already exists)
+            if not lang_file.exists():
+                print(f"🟢 Missing {lang_file.name}, creating it")
+                save_json(lang_file, {})
 
             schema = load_json(lang_file)
 
-            if feat not in schema:
-                print(f"🟢 Not yet in {lang_file.name}, adding {feat}")
-                schema[feat] = []
+            if canon_feat not in schema:
+                print(f"🟢 Not yet in {lang_file.name}, adding {canon_feat} (from {feat})")
+                schema[canon_feat] = []
                 modified_lang[lang_file] = schema
+
             for v in vals:
-                if v not in schema.get(feat, []):
-                    print(f"🟢 Not yet in {lang_file.name}, adding {feat}={v}")
-                    schema[feat].append(v)
+                if v not in schema.get(canon_feat, []):
+                    print(f"🟢 Not yet in {lang_file.name}, adding {canon_feat}={v}")
+                    schema[canon_feat].append(v)
                     modified_lang[lang_file] = schema
+
 
     # save changes if any
     if modified_custom:
@@ -86,6 +103,17 @@ def check_features_in_applies(applies: dict, base_path: Path, errors: list[str])
     if modified_lang:
         for f, schema in modified_lang.items():
             save_json(f, schema)
+
+def normalize_lang_feature(feat: str, lang_prefix: str) -> str:
+    """
+    Remove any existing prefix and apply the correct lang prefix.
+    Examples:
+      "ny-Aspect-marker" -> "ny-Aspect-marker" (unchanged if already correct)
+      "sw-Aspect-marker" -> "ny-Aspect-marker" (re-prefixed)
+      "Aspect-marker"    -> "ny-Aspect-marker"
+    """
+    base = feat.split("-", 1)[1] if "-" in feat else feat
+    return f"{lang_prefix}-{base}"
 
 
 def validate_file(path: Path, base_path: Path) -> list[str]:
@@ -95,29 +123,31 @@ def validate_file(path: Path, base_path: Path) -> list[str]:
         with path.open("r", encoding="utf-8") as f:
             data = yaml.load(f)
 
+    lang = path.stem.split("_")[0]
+
     errors = []
 
     for _, cat_obj in data.items():
         # 1) Features
         for feat, vals in cat_obj.get("Features", {}).items():
-            check_features_in_applies({feat: vals}, base_path, errors)
+            check_features_in_applies({feat: vals}, base_path, errors, lang)
 
         # 2) Usage
         for _, usage_obj in cat_obj.get("Usage", {}).items():
             applies = usage_obj.get("applies", {})
             if applies:
-                check_features_in_applies(applies, base_path, errors)
+                check_features_in_applies(applies, base_path, errors, lang)
 
         # 3) Negation
         neg = cat_obj.get("Negation", {})
         if "applies" in neg:
-            check_features_in_applies(neg["applies"], base_path, errors)
+            check_features_in_applies(neg["applies"], base_path, errors, lang)
 
         # 4) Rules
         for _, rule_obj in cat_obj.get("Rules", {}).items():
             applies = rule_obj.get("applies", {})
             if applies:
-                check_features_in_applies(applies, base_path, errors)
+                check_features_in_applies(applies, base_path, errors, lang)
 
     return errors
 

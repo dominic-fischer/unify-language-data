@@ -1,39 +1,60 @@
 Pronoun:
   Features:
-    u-Person: [u-1, u-2, u-3]
-    u-Number: [u-sg, u-pl]
-    u-Gender: [u-masc, u-fem]
-    u-Case: [u-nom, u-acc, u-dat]
-    x-Pronoun-type: [x-pers, x-dem, x-int, x-rel, x-poss]
-    x-Domain: [x-subject-verb]
+    u-Person:
+    - u-1
+    - u-2
+    - u-3
+    u-Number:
+    - u-sg
+    - u-pl
+    u-Gender:
+    - u-masc
+    - u-fem
+    u-Case:
+    - u-acc
+    - u-dat
+    x-Pronoun-type:
+    - x-pers
+    - x-dem
+    - x-int
+    - x-rel
+    - x-poss
+    x-Domain:
+    - x-subject-verb
   Usage:
     Pro-drop:
-      applies: {x-Domain: x-subject-verb}
-      note: "Because Spanish verb conjugation reflects the person and number of its subject, subject pronouns are usually omitted, except when needed for emphasis or disambiguation."
+      applies:
+        x-Domain: x-subject-verb
+      note: Because Spanish verb conjugation reflects the person and number of its subject, subject pronouns are usually omitted, except when needed for emphasis or disambiguation.
   Rules:
-    x-Pronoun-type_x-pers:
-      applies: {x-Pronoun-type: x-pers}
-      note: "Personal pronouns vary by grammatical person; Spanish has multiple second-person forms differing by number, formality/social relation, and geographical region."
     u-Case_u-dat:
-      applies: {u-Case: u-dat}
+      applies:
+        u-Case: u-dat
       patterns:
-      - pattern: "le"
-        note: "Preferred (etymological) usage: indirect object function is carried by le regardless of gender."
-      - pattern: "la"
-        note: "Non-preferred variant: la used as an indirect object (laísmo)."
-        examples: ["La dijeron que se callara."]
-      - pattern: "lo"
-        note: "Non-preferred variant: lo used as an indirect object (loísmo)."
-        examples: ["Lo dijeron que se callara."]
-      examples: ["Le dijeron que se callara."]
-      note: "In the Academy's preferred usage, the person who is told something is an indirect object; le is used for both genders."
+      - pattern: le
+        note: 'Preferred (etymological) usage: indirect object function is carried by le regardless of gender.'
+      - pattern: la
+        note: 'Non-preferred variant: la used as an indirect object (laísmo).'
+        examples:
+        - La dijeron que se callara.
+      - pattern: lo
+        note: 'Non-preferred variant: lo used as an indirect object (loísmo).'
+        examples:
+        - Lo dijeron que se callara.
+      examples:
+      - Le dijeron que se callara.
+      note: In the Academy's preferred usage, the person who is told something is an indirect object; le is used for both genders.
     u-Case_u-acc:
-      applies: {u-Case: u-acc}
+      applies:
+        u-Case: u-acc
       patterns:
-      - pattern: "lo / la"
-        note: "Preferred (etymological) usage: direct object function is carried by lo or la according to the gender of the antecedent, regardless of animacy."
-      - pattern: "le"
-        note: "Condoned by the Academy as a direct object form for masculine, animate antecedents (male humans); otherwise treated as leísmo."
-        examples: ["Le miraron."]
-      examples: ["lo miraron", "la miraron"]
-      note: "Use of le as a direct object outside the condoned context is called leísmo; normative alternatives are lo or la depending on gender."
+      - pattern: lo / la
+        note: 'Preferred (etymological) usage: direct object function is carried by lo or la according to the gender of the antecedent, regardless of animacy.'
+      - pattern: le
+        note: Condoned by the Academy as a direct object form for masculine, animate antecedents (male humans); otherwise treated as leísmo.
+        examples:
+        - Le miraron.
+      examples:
+      - lo miraron
+      - la miraron
+      note: Use of le as a direct object outside the condoned context is called leísmo; normative alternatives are lo or la depending on gender.

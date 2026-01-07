@@ -20,7 +20,7 @@ Present:
       - "Ungisiza namhlanje."
 
   Rules:
-    u-Tense_u-prs__x-Clauseform_x-principal__u-Polarity_u-pos:
+    u-Polarity_u-pos__u-Tense_u-prs__x-Clauseform_x-principal:
       applies: {u-Tense: u-prs, x-Clauseform: x-principal, u-Polarity: u-pos}
       pattern: "[subj1](ya)[obj]...a"
       note: "The infix -ya- is used whenever the form has lengthening on the penultimate syllable, i.e. when it occurs finally in the sentence."
@@ -31,21 +31,21 @@ Present:
       - "Ungisiza namhlanje."
       - "Usiza uyise."
 
-    u-Tense_u-prs__x-Clauseform_x-principal__u-Polarity_u-neg:
+    u-Polarity_u-neg__u-Tense_u-prs__x-Clauseform_x-principal:
       applies: {u-Tense: u-prs, x-Clauseform: x-principal, u-Polarity: u-neg}
       pattern: "a[subj2][obj]...i"
       examples:
       - "Akahambi."
       - "Akangisizi."
 
-    u-Tense_u-prs__x-Clauseform_x-participial__u-Polarity_u-pos:
+    u-Polarity_u-pos__u-Tense_u-prs__x-Clauseform_x-participial:
       applies: {u-Tense: u-prs, x-Clauseform: x-participial, u-Polarity: u-pos}
       pattern: "[subjP][obj]...a"
       examples:
       - "Ukhuluma edla."
       - "Ngambona engasebenzi."
 
-    u-Tense_u-prs__x-Clauseform_x-participial__u-Polarity_u-neg:
+    u-Polarity_u-neg__u-Tense_u-prs__x-Clauseform_x-participial:
       applies: {u-Tense: u-prs, x-Clauseform: x-participial, u-Polarity: u-neg}
       pattern: "[subjP]nga[obj]...i"
       examples:

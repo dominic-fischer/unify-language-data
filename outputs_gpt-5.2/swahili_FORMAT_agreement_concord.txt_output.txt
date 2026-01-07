@@ -10,7 +10,6 @@ Agreement:
     - u-2
     - u-3
     u-Number:
-    - u-sg
     - u-pl
     u-Animacy:
     - u-anim
@@ -21,6 +20,9 @@ Agreement:
     u-Gender:
     - u-bantu1-23
 
+    u-Case:
+    - u-gen
+    - u-rel
   Rules:
     x-Domain_x-subject-verb:
       applies: {x-Domain: x-subject-verb}
@@ -32,7 +34,43 @@ Agreement:
       - "Sisi tunakwenda sasa."
       note: "subject concord is generally obligatory, except in the infinitive, habitual, and imperative forms"
 
-    x-Domain_x-subject-verb__u-Polarity_u-neg:
+    x-Domain_x-subject-verb__x-Process_x-prefixation:
+      applies: {x-Domain: x-subject-verb, x-Process: x-prefixation}
+      pattern: "object concord (if used) is inserted after the subject concord and any tense marker and before the verb stem"
+      examples:
+      - "Tu-na-m-(w)ona."
+      note: "object concord is generally optional; it may be omitted if the object is clear from context"
+
+    x-Domain_x-noun-adjective:
+      applies: {x-Domain: x-noun-adjective}
+      pattern: "adjective takes a concordant prefix matching the noun class; for animate nouns outside classes 1/2, adjective agreement follows class 1/2"
+      examples:
+      - "Mwanaume mkubwa alianguka."
+      - "Wanaume wakubwa walianguka."
+      - "Kitabu kikubwa kilianguka."
+      - "Vitabu vikubwa vilianguka."
+      - "Uso mzuri unatosha."
+      - "Nyuso nzuri zinatosha."
+      - "Kifaru mkubwa alianguka."
+      - "Vifaru wakubwa walianguka."
+      - "Ndege mkubwa alianguka."
+      - "Ndege kubwa ilianguka."
+
+    u-Case_u-gen:
+      applies: {u-Case: u-gen}
+      pattern: "possessive relation uses a genitive marker agreeing with the head noun"
+      examples:
+      - "Mwana wa mwanamke anakula."
+      note: "used primarily for subjective genitives"
+
+    u-Case_u-rel:
+      applies: {u-Case: u-rel}
+      pattern: "relative linkage uses a relative/property marker agreeing with the head noun; template: subject concord – li – relative/property marker – verb stem"
+      examples:
+      - "Dirisha li-li-lo-funguliwa ni kero."
+      - "Dirisha Ni-li-lo-fungua jana sasa li-me-vunjika."
+      note: "the relative/property marker corresponds to the genitive marker, with -a changing to -o"
+    u-Polarity_u-neg__x-Domain_x-subject-verb:
       applies: {x-Domain: x-subject-verb, u-Polarity: u-neg}
       pattern: "negative subject concords are formed by prefixing ha- to the beginning; irregular forms: si- (1SG), hu- (2SG), ha- (3SG class 1/animate)"
       examples:
@@ -40,7 +78,7 @@ Agreement:
       - "hu-"
       - "ha-"
 
-    x-Domain_x-subject-verb__u-Polarity_u-pos:
+    u-Polarity_u-pos__x-Domain_x-subject-verb:
       applies: {x-Domain: x-subject-verb, u-Polarity: u-pos}
       forms:
       - features: {u-Person: u-1, u-Number: u-sg}
@@ -101,7 +139,7 @@ Agreement:
         form: "m(u)-"
       note: "class 1 uses yu- (instead of a-) as the subject of a locative copula; negative hayu- is formed regularly with ha-"
 
-    x-Domain_x-subject-verb__u-Animacy_u-anim:
+    u-Animacy_u-anim__x-Domain_x-subject-verb:
       applies: {x-Domain: x-subject-verb, u-Animacy: u-anim}
       pattern: "animate nouns not in classes 1/2 generally take class 1 (singular) / class 2 (plural) agreement on related elements"
       examples:
@@ -110,33 +148,26 @@ Agreement:
       - "Ndege mkubwa alianguka."
       - "Ndege wakubwa walianguka."
 
-    x-Domain_x-subject-verb__u-Animacy_u-inan:
+    u-Animacy_u-inan__x-Domain_x-subject-verb:
       applies: {x-Domain: x-subject-verb, u-Animacy: u-inan}
       pattern: "inanimate nouns take agreement matching their noun class"
       examples:
       - "Ndege kubwa ilianguka."
       - "Ndege kubwa zilianguka."
 
-    x-Domain_x-subject-verb__u-Animacy_u-anim__u-Gender_u-bantu1-23:
+    u-Animacy_u-anim__u-Gender_u-bantu1-23__x-Domain_x-subject-verb:
       applies: {x-Domain: x-subject-verb, u-Animacy: u-anim, u-Gender: u-bantu1-23}
       pattern: "class 9/10 animals generally take class 1 agreement in the singular"
       examples:
       - "Ng'ombe wetu amekufa."
 
-    x-Domain_x-subject-verb__u-Animacy_u-anim__u-Number_u-pl:
+    u-Animacy_u-anim__u-Number_u-pl__x-Domain_x-subject-verb:
       applies: {x-Domain: x-subject-verb, u-Animacy: u-anim, u-Number: u-pl}
       pattern: "class 9/10 animals may take class 10 agreement on pronominal genitives in the plural"
       examples:
       - "Ng'ombe zetu wamekufa."
 
-    x-Domain_x-subject-verb__x-Process_x-prefixation:
-      applies: {x-Domain: x-subject-verb, x-Process: x-prefixation}
-      pattern: "object concord (if used) is inserted after the subject concord and any tense marker and before the verb stem"
-      examples:
-      - "Tu-na-m-(w)ona."
-      note: "object concord is generally optional; it may be omitted if the object is clear from context"
-
-    x-Domain_x-subject-verb__x-Process_x-prefixation__u-Polarity_u-pos:
+    u-Polarity_u-pos__x-Domain_x-subject-verb__x-Process_x-prefixation:
       applies: {x-Domain: x-subject-verb, x-Process: x-prefixation, u-Polarity: u-pos}
       forms:
       - features: {u-Person: u-1, u-Number: u-sg}
@@ -204,32 +235,3 @@ Agreement:
       - "anajiona"
       note: "reflexive prefix occurs only as an object and refers back to the subject"
 
-    x-Domain_x-noun-adjective:
-      applies: {x-Domain: x-noun-adjective}
-      pattern: "adjective takes a concordant prefix matching the noun class; for animate nouns outside classes 1/2, adjective agreement follows class 1/2"
-      examples:
-      - "Mwanaume mkubwa alianguka."
-      - "Wanaume wakubwa walianguka."
-      - "Kitabu kikubwa kilianguka."
-      - "Vitabu vikubwa vilianguka."
-      - "Uso mzuri unatosha."
-      - "Nyuso nzuri zinatosha."
-      - "Kifaru mkubwa alianguka."
-      - "Vifaru wakubwa walianguka."
-      - "Ndege mkubwa alianguka."
-      - "Ndege kubwa ilianguka."
-
-    u-Case_u-gen:
-      applies: {u-Case: u-gen}
-      pattern: "possessive relation uses a genitive marker agreeing with the head noun"
-      examples:
-      - "Mwana wa mwanamke anakula."
-      note: "used primarily for subjective genitives"
-
-    u-Case_u-rel:
-      applies: {u-Case: u-rel}
-      pattern: "relative linkage uses a relative/property marker agreeing with the head noun; template: subject concord – li – relative/property marker – verb stem"
-      examples:
-      - "Dirisha li-li-lo-funguliwa ni kero."
-      - "Dirisha Ni-li-lo-fungua jana sasa li-me-vunjika."
-      note: "the relative/property marker corresponds to the genitive marker, with -a changing to -o"

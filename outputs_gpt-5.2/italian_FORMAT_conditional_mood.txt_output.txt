@@ -1,91 +1,74 @@
 Conditionals:
   Features:
-    u-Mood: [u-cond]
-    u-Tense: [u-prs, u-pst]
-    x-Clausetype: [x-apodosis]
-    u-Person: [u-1, u-2, u-3]
-    u-Number: [u-sg, u-pl]
+    u-Mood:
+    - u-cond
+    u-Tense:
+    - u-prs
+    - u-pst
+    x-Clausetype:
+    - x-apodosis
+    u-Person:
+    - u-1
+    - u-2
+    - u-3
+    u-Number:
+    - u-sg
+    - u-pl
   Usage:
     conditional-meaning:
-      applies: {u-Mood: u-cond}
-      note: "Refers to an action that is possible or probable, but dependent upon a condition."
+      applies:
+        u-Mood: u-cond
+      note: Refers to an action that is possible or probable, but dependent upon a
+        condition.
       examples:
-      - "Io andrei in spiaggia, ma fa troppo freddo."
+      - Io andrei in spiaggia, ma fa troppo freddo.
   Rules:
     u-Mood_u-cond__u-Tense_u-prs:
-      applies: {u-Mood: u-cond, u-Tense: u-prs}
+      applies:
+        u-Mood: u-cond
+        u-Tense: u-prs
       patterns:
-      - pattern: "Base uses the same stem as the future indicative: -are > -er-, -ere > -er-, -ire > -ir-; add conditional endings."
+      - pattern: 'Base uses the same stem as the future indicative: -are > -er-, -ere
+          > -er-, -ire > -ir-; add conditional endings.'
         examples:
-        - "parlerei"
-        - "temerei"
-        - "partirei"
+        - parlerei
+        - temerei
+        - partirei
         endings:
-        - features: {u-Person: u-1, u-Number: u-sg}
-          form: "-ei"
-        - features: {u-Person: u-2, u-Number: u-sg}
-          form: "-esti"
-        - features: {u-Person: u-3, u-Number: u-sg}
-          form: "-ebbe"
-        - features: {u-Person: u-1, u-Number: u-pl}
-          form: "-emmo"
-        - features: {u-Person: u-2, u-Number: u-pl}
-          form: "-este"
-        - features: {u-Person: u-3, u-Number: u-pl}
-          form: "-ebbero"
-      - pattern: "Some verbs have irregular conditional stems."
-        examples:
-        - "andrei"
-        forms:
-        - features: {}
-          pattern: "Andare: Andr-"
-        - features: {}
-          pattern: "Avere: Avr-"
-        - features: {}
-          pattern: "Bere: Berr-"
-        - features: {}
-          pattern: "Dare: Dar-"
-        - features: {}
-          pattern: "Dovere: Dovr-"
-        - features: {}
-          pattern: "Essere: Sar-"
-        - features: {}
-          pattern: "Fare: Far-"
-        - features: {}
-          pattern: "Godere: Godr-"
-        - features: {}
-          pattern: "Potere: Potr-"
-        - features: {}
-          pattern: "Rimanere: Rimarr-"
-        - features: {}
-          pattern: "Sapere: Sapr-"
-        - features: {}
-          pattern: "Sedere: Sedr-"
-        - features: {}
-          pattern: "Stare: Star-"
-        - features: {}
-          pattern: "Tenere: Terr-"
-        - features: {}
-          pattern: "Vedere: Vedr-"
-        - features: {}
-          pattern: "Venire: Verr-"
-        - features: {}
-          pattern: "Vivere: Vivr-"
-        - features: {}
-          pattern: "Volere: Vorr-"
-
+        - features:
+            u-Person: u-1
+            u-Number: u-sg
+          form: -ei
+        - features:
+            u-Person: u-2
+            u-Number: u-sg
+          form: -esti
+        - features:
+            u-Person: u-3
+            u-Number: u-sg
+          form: -ebbe
+        - features:
+            u-Person: u-1
+            u-Number: u-pl
+          form: -emmo
+        - features:
+            u-Person: u-2
+            u-Number: u-pl
+          form: -este
+        - features:
+            u-Person: u-3
+            u-Number: u-pl
+          form: -ebbero
     u-Mood_u-cond__u-Tense_u-pst:
-      applies: {u-Mood: u-cond, u-Tense: u-pst}
-      pattern: "Auxiliary (avere/essere) in the conditional + past participle."
+      applies:
+        u-Mood: u-cond
+        u-Tense: u-pst
+      pattern: Auxiliary (avere/essere) in the conditional + past participle.
       examples:
-      - "Sarei andato in città, se avessi saputo che ci andavano loro."
-
-    u-Mood_u-cond__x-Clausetype_x-apodosis:
-      applies: {u-Mood: u-cond, x-Clausetype: x-apodosis}
-      examples:
-      - "Mangerei un sacco adesso, se non stessi cercando di fare colpo su queste ragazze."
-      - "Sarei andato in città, se avessi saputo che ci andavano loro."
-
+      - Sarei andato in città, se avessi saputo che ci andavano loro.
   Notes:
-  - "Many speakers often use the imperfect instead of the conditional and subjunctive; prescriptivists usually view this as incorrect, but it is frequent in colloquial speech and tolerated in all but high registers and in most writing."
-  - "Conditional can express 'could' (potere), 'should' (dovere), and 'would like' (volere) when these verbs are used in the conditional."
+  - Many speakers often use the imperfect instead of the conditional and subjunctive;
+    prescriptivists usually view this as incorrect, but it is frequent in colloquial
+    speech and tolerated in all but high registers and in most writing.
+  - Conditional can express 'could' (potere), 'should' (dovere), and 'would like'
+    (volere) when these verbs are used in the conditional.

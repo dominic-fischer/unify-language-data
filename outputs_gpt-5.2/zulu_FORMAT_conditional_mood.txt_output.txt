@@ -1,7 +1,11 @@
 Conditionals:
   Features:
-    u-Mood: [u-cond, u-pot, u-sbjv, u-ind]
-    u-Tense: [u-prs, u-fut, u-pst]
+    u-Mood:
+    - u-ind
+    - u-pot
+    - u-sbjv
+    u-Tense:
+    - u-pst
     u-Polarity: [u-neg]
     x-Clausetype: [x-protasis, x-apodosis]
   Usage:

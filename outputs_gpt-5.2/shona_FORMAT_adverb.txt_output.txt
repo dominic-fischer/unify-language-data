@@ -5,25 +5,25 @@ Adverbs:
     u-Part-of-Speech: [u-n, u-v]
 
   Rules:
-    x-Process_x-compounding__u-Part-of-Speech_u-n__u-Polarity_u-pos:
+    u-Part-of-Speech_u-n__u-Polarity_u-pos__x-Process_x-compounding:
       applies: {x-Process: x-compounding, u-Part-of-Speech: u-n, u-Polarity: u-pos}
       pattern: "ne + Noun"
       examples:
       - "Anoseka nemufaro."
 
-    x-Process_x-compounding__u-Part-of-Speech_u-n__u-Polarity_u-neg:
+    u-Part-of-Speech_u-n__u-Polarity_u-neg__x-Process_x-compounding:
       applies: {x-Process: x-compounding, u-Part-of-Speech: u-n, u-Polarity: u-neg}
       pattern: "pasina + Noun"
       examples:
       - "Anoseka pasina mufaro"
 
-    x-Process_x-compounding__u-Part-of-Speech_u-v__u-Polarity_u-pos:
+    u-Part-of-Speech_u-v__u-Polarity_u-pos__x-Process_x-compounding:
       applies: {x-Process: x-compounding, u-Part-of-Speech: u-v, u-Polarity: u-pos}
       pattern: "ne + Infinitive"
       examples:
       - "Anomhanya nekukurumidza."
 
-    x-Process_x-compounding__u-Part-of-Speech_u-v__u-Polarity_u-neg:
+    u-Part-of-Speech_u-v__u-Polarity_u-neg__x-Process_x-compounding:
       applies: {x-Process: x-compounding, u-Part-of-Speech: u-v, u-Polarity: u-neg}
       pattern: "pasina + Infinitive"
       examples:

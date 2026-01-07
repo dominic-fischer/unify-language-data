@@ -1,58 +1,59 @@
 PortugueseFuture:
   Features:
     u-Tense: [u-fut]
-    u-Aspect: [u-prog, u-pfv, u-ipfv, u-prf]
+    u-Aspect:
+    - u-prog
     u-Polarity: [u-neg]
-    u-Mood: [u-subjv]
+    u-Mood: [u-sbjv]
     x-Domain: [x-subject-verb]
 
   Negation:
     examples:
-      - "não cantes!"
+    - "não cantes!"
 
   Usage:
     SyntheticFuture:
       applies: {u-Tense: u-fut}
       note: "The synthetic future has largely disappeared from everyday speech and is generally replaced by ir + infinitive."
       examples:
-        - "cantaremos"
-        - "falaremos"
+      - "cantaremos"
+      - "falaremos"
     IrPlusInfinitive:
       applies: {u-Tense: u-fut}
       note: "In spoken language, ir + infinitive almost completely replaces the synthetic future."
       examples:
-        - "vou cantar"
-        - "vamos falar"
+      - "vou cantar"
+      - "vamos falar"
 
   Rules:
     u-Tense_u-fut__x-Domain_x-subject-verb:
       applies: {u-Tense: u-fut, x-Domain: x-subject-verb}
       patterns:
-        - pattern: "synthetic future (finite verb)"
-          examples:
-            - "cantaremos"
-          note: "Synthetic future tense."
-        - pattern: "ir (finite) + infinitive"
-          examples:
-            - "vou cantar"
-            - "vamos falar"
-          note: "Periphrastic future; commonly used in speech."
+      - pattern: "synthetic future (finite verb)"
+        examples:
+        - "cantaremos"
+        note: "Synthetic future tense."
+      - pattern: "ir (finite) + infinitive"
+        examples:
+        - "vou cantar"
+        - "vamos falar"
+        note: "Periphrastic future; commonly used in speech."
 
-    u-Tense_u-fut__u-Aspect_u-prog:
-      applies: {u-Tense: u-fut, u-Aspect: u-prog}
-      patterns:
-        - pattern: "estar (future) + gerund"
-          examples:
-            - "estarei falando"
-        - pattern: "estar (future) + a + infinitive"
-          examples:
-            - "estarei a falar"
-
-    u-Mood_u-subjv__u-Tense_u-fut:
-      applies: {u-Mood: u-subjv, u-Tense: u-fut}
+    u-Mood_u-sbjv__u-Tense_u-fut:
+      applies: {u-Mood: u-sbjv, u-Tense: u-fut}
       pattern: "synthetic future subjunctive (finite verb)"
       examples:
-        - "se cantarmos"
-        - "quando estiver falando"
-        - "quando estiver a falar"
+      - "se cantarmos"
+      - "quando estiver falando"
+      - "quando estiver a falar"
       note: "The synthetic future subjunctive is still in common use."
+    u-Aspect_u-prog__u-Tense_u-fut:
+      applies: {u-Tense: u-fut, u-Aspect: u-prog}
+      patterns:
+      - pattern: "estar (future) + gerund"
+        examples:
+        - "estarei falando"
+      - pattern: "estar (future) + a + infinitive"
+        examples:
+        - "estarei a falar"
+

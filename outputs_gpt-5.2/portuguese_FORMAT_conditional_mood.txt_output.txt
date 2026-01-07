@@ -1,8 +1,11 @@
 Conditionals:
   Features:
     u-Mood: [u-cond, u-ind, u-sbjv]
-    u-Tense: [u-prs, u-pst]
+    u-Tense:
+    - u-pst
     x-Clausetype: [x-protasis, x-apodosis]
+    x-Process:
+    - x-complex
   Rules:
     u-Mood_u-sbjv__u-Tense_u-pst__x-Clausetype_x-protasis:
       applies: {u-Mood: u-sbjv, u-Tense: u-pst, x-Clausetype: x-protasis}

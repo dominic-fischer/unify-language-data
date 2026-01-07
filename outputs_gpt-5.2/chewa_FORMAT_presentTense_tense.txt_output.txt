@@ -7,20 +7,20 @@ Present:
     x-Clausetype: [x-main, x-protasis, x-apodosis]
 
   Rules:
-    u-Tense_u-prs__u-Aspect_u-prog__x-Clausetype_x-main:
+    u-Aspect_u-prog__u-Tense_u-prs__x-Clausetype_x-main:
       applies: {u-Tense: u-prs, u-Aspect: u-prog, x-Clausetype: x-main}
       pattern: "_subject-prefix_ + -ku- + _verb-stem_"
       examples:
       - "ndi-ku-gúla 'I am buying'"
 
-    u-Tense_u-prs__u-Aspect_u-hab__x-Clausetype_x-main:
+    u-Aspect_u-hab__u-Tense_u-prs__x-Clausetype_x-main:
       applies: {u-Tense: u-prs, u-Aspect: u-hab, x-Clausetype: x-main}
       pattern: "_subject-prefix_ + -ma- + _verb-stem_"
       examples:
       - "ndí-ma-gúla 'I usually buy'"
       - "ndí-ma-gúla 'I buy (regularly)'"
 
-    u-Tense_u-prs__u-Mood_u-cond__x-Clausetype_x-protasis:
+    u-Mood_u-cond__u-Tense_u-prs__x-Clausetype_x-protasis:
       applies: {u-Tense: u-prs, u-Mood: u-cond, x-Clausetype: x-protasis}
       patterns:
       - pattern: "_subject-prefix_ + -ka- + _verb-stem_"
@@ -33,7 +33,7 @@ Present:
         - "Ndi-ka-má-ku-óna-ni ndí-ma-kondwéra."
       note: "Present conditional protasis uses toneless -ka- meaning 'when/if'; it can combine with the aspect-marker -má- 'always/usually'."
 
-    u-Tense_u-prs__u-Mood_u-cond__x-Clausetype_x-apodosis:
+    u-Mood_u-cond__u-Tense_u-prs__x-Clausetype_x-apodosis:
       applies: {u-Tense: u-prs, u-Mood: u-cond, x-Clausetype: x-apodosis}
       patterns:
       - pattern: "_subject-prefix_ + -ma- + _verb-stem_"

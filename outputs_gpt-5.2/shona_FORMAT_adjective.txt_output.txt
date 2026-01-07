@@ -3,6 +3,11 @@ Adjective:
     u-Comparison:
     - u-cmpr
 
+    x-Domain:
+    - x-noun-adjective
+    x-Process:
+    - x-compounding
+    - x-prefixation
   Rules:
     x-Domain_x-noun-adjective:
       applies: {x-Domain: x-noun-adjective}

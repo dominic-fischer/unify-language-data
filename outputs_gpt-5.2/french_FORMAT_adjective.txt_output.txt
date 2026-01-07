@@ -1,10 +1,8 @@
 Adjective:
   Features:
     u-Gender:
-    - u-masc
     - u-fem
     u-Number:
-    - u-sg
     - u-pl
     u-Polarity:
     - u-pos
@@ -12,76 +10,74 @@ Adjective:
     - x-noun-adjective
     x-Form-type:
     - x-standalone
-
   Rules:
     x-Domain_x-noun-adjective:
-      applies: {x-Domain: x-noun-adjective}
-      pattern: "_adjective_ agrees with the noun it modifies in gender and number"
+      applies:
+        x-Domain: x-noun-adjective
+      pattern: _adjective_ agrees with the noun it modifies in gender and number
       examples:
-      - "un prince turc / une princesse turque / des princes turcs / des princesses turques"
-      - "un grand empereur / une grande impératrice / de grands empereurs / de grandes impératrices"
-
+      - un prince turc / une princesse turque / des princes turcs / des princesses turques
+      - un grand empereur / une grande impératrice / de grands empereurs / de grandes impératrices
     u-Gender_u-fem:
-      applies: {u-Gender: u-fem}
+      applies:
+        u-Gender: u-fem
       patterns:
-      - pattern: "_masc.sg_ + e"
+      - pattern: _masc.sg_ + e
         examples:
-        - "civil → civile"
-        - "lourd → lourde"
-        note: "The added -e is silent; it can trigger pronunciation of a final mute consonant."
-      - pattern: "_masc.sg_ (ending -e) → unchanged"
+        - civil → civile
+        - lourd → lourde
+        note: The added -e is silent; it can trigger pronunciation of a final mute consonant.
+      - pattern: _masc.sg_ (ending -e) → unchanged
         examples:
-        - "riche → riche"
+        - riche → riche
       - forms:
-        - {features: {u-Gender: u-fem, u-Number: u-sg}, form: "belle", note: "feminine singular of beau"}
-        - {features: {u-Gender: u-fem, u-Number: u-sg}, form: "blanche", note: "feminine singular of blanc"}
+        - features:
+            u-Gender: u-fem
+            u-Number: u-sg
+          form: belle
+          note: feminine singular of beau
+        - features:
+            u-Gender: u-fem
+            u-Number: u-sg
+          form: blanche
+          note: feminine singular of blanc
         examples:
-        - "beau → belle"
-        - "blanc → blanche"
-        note: "Some adjectives have irregular feminine spellings."
-      - pattern: "minor orthographic changes may occur (accent placement, consonant doubling, consonant replacement)"
+        - beau → belle
+        - blanc → blanche
+        note: Some adjectives have irregular feminine spellings.
+      - pattern: minor orthographic changes may occur (accent placement, consonant doubling, consonant replacement)
         examples:
-        - "bon → bonne"
-        - "heureux → heureuse"
-
+        - bon → bonne
+        - heureux → heureuse
     u-Number_u-pl:
-      applies: {u-Number: u-pl}
+      applies:
+        u-Number: u-pl
       patterns:
-      - pattern: "_singular_ + s"
-        note: "The plural -s is usually mute; in liaison it is pronounced [z]. Liaison after plural adjectives is common and even obligatory in standard usage."
-      - pattern: "_masc.sg_ ending in -s/-x/-z → unchanged (masc.pl)"
+      - pattern: _singular_ + s
+        note: The plural -s is usually mute; in liaison it is pronounced [z]. Liaison after plural adjectives is common and even obligatory in standard usage.
+      - pattern: _masc.sg_ ending in -s/-x/-z → unchanged (masc.pl)
         examples:
-        - "doux → doux"
-      - pattern: "_masc.sg_ ending in -eau (some adjectives) → masc.pl + x"
+        - doux → doux
+      - pattern: _masc.sg_ ending in -eau (some adjectives) → masc.pl + x
         examples:
-        - "nouveau → nouveaux"
-      - pattern: "_masc.sg_ ending in -al → masc.pl + aux"
+        - nouveau → nouveaux
+      - pattern: _masc.sg_ ending in -al → masc.pl + aux
         examples:
-        - "central → centraux"
-      - pattern: "feminine plural follows the general plural rule"
+        - central → centraux
+      - pattern: feminine plural follows the general plural rule
         examples:
-        - "centrale → centrales"
-
+        - centrale → centrales
     x-Form-type_x-standalone:
-      applies: {x-Form-type: x-standalone}
+      applies:
+        x-Form-type: x-standalone
       patterns:
-      - pattern: "Some adjectives have an additional masculine singular form used in liaison before a noun beginning with a vowel or mute h."
-        forms:
-        - {features: {u-Gender: u-masc, u-Number: u-sg}, form: "beau", note: "used before consonant"}
-        - {features: {u-Gender: u-masc, u-Number: u-sg}, form: "bel", note: "used before vowel or mute h (liaison form)"}
+      - pattern: This older liaison form can also appear in fixed phrases.
         examples:
-        - "un beau jardin"
-        - "un bel homme"
-        - "une belle femme"
-        - "de beaux enfants"
-        - "de belles maisons"
-      - pattern: "This older liaison form can also appear in fixed phrases."
-        examples:
-        - "Philippe le Bel vs. Philippe le Beau"
-
+        - Philippe le Bel vs. Philippe le Beau
     u-Polarity_u-pos:
-      applies: {u-Polarity: u-pos}
-      pattern: "Plural adjective liaison: _adjective(pl)_‿_noun(vowel-initial)_"
+      applies:
+        u-Polarity: u-pos
+      pattern: 'Plural adjective liaison: _adjective(pl)_‿_noun(vowel-initial)_'
       examples:
-      - "de grands empereurs"
-      note: "The plural liaison consonant is [z]."
+      - de grands empereurs
+      note: The plural liaison consonant is [z].

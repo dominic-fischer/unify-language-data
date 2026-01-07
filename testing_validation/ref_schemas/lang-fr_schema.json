@@ -1,0 +1,34 @@
+{
+  "fr-Noun-gender-regularity": [
+    "fr-corresponds-to-natural-gender",
+    "fr-fixed-grammatical-gender",
+    "fr-gender-varies-by-number",
+    "fr-gender-varies-by-usage",
+    "fr-gender-changes-meaning"
+  ],
+  "fr-Plural-formation": [
+    "fr-plural-s",
+    "fr-plural-x"
+  ],
+  "fr-Countability": [
+    "fr-uncountable-usually-sg",
+    "fr-uncountable-plural",
+    "fr-countability-differs-from-english"
+  ],
+  "fr-Gender-trends-by-ending": [
+    "fr-trend-ending-e-fem",
+    "fr-ending-sion-fem",
+    "fr-ending-tion-fem",
+    "fr-ending-aison-fem",
+    "fr-ending-ite-fem",
+    "fr-ending-logie-fem",
+    "fr-ending-aire-masc",
+    "fr-ending-isme-masc",
+    "fr-ending-eme-masc",
+    "fr-ending-ege-masc",
+    "fr-double-consonant-before-e-masc"
+  ],
+  "fr-Noun-clause-gender": [
+    "fr-noun-clause-masc"
+  ]
+}

@@ -1,88 +1,106 @@
 Conditionals:
   Features:
-    u-Tense: [u-prs, u-pst, u-fut]
-    u-Aspect: [u-hab, u-prosp, u-prog]
-    u-Polarity: [u-pos, u-neg]
-    x-Clausetype: [x-protasis, x-apodosis]
+    u-Tense:
+    - u-prs
+    - u-pst
+    - u-fut
+    u-Aspect:
+    - u-hab
+    - u-prosp
+    - u-prog
+    u-Polarity:
+    - u-pos
+    - u-neg
+    x-Clausetype:
+    - x-protasis
   Rules:
-    x-Clausetype_x-apodosis:
-      applies: {x-Clausetype: x-apodosis}
-      note: "In conditional sentences, the protasis has a conditional form; the main clause (apodosis) uses potential (for past), or present or future. Other formations are also possible."
-      examples:
-      - "Ndí-ka-da-khála ndi mwana ndi-ka-dá-kondwera."
-      - "Ndi-ka-má-ku-óna-ni ndí-ma-kondwéra."
-      - "Ndi-ka-fika kunyumba ndi-ká-komana ndi banja langa."
-      - "Ndi-ka-dzá-fika kunyumba ndi-dzá-samba."
-      - "Ndi-ka-dzá-fika kwanu ndi-ká-puma."
-
     u-Polarity_u-pos__u-Tense_u-pst__x-Clausetype_x-protasis:
-      applies: {u-Tense: u-pst, u-Polarity: u-pos, x-Clausetype: x-protasis}
-      pattern: "{SUBJ}-ka-na-{VERB}"
+      applies:
+        u-Tense: u-pst
+        u-Polarity: u-pos
+        x-Clausetype: x-protasis
+      pattern: '{SUBJ}-ka-na-{VERB}'
       examples:
-      - "Ndí-ka-da-khála ndi mwana ndi-ka-dá-kondwera."
-      note: "Conditional past (protasis)."
-
+      - Ndí-ka-da-khála ndi mwana ndi-ka-dá-kondwera.
+      note: Conditional past (protasis).
     u-Aspect_u-hab__u-Polarity_u-pos__u-Tense_u-prs__x-Clausetype_x-protasis:
-      applies: {u-Tense: u-prs, u-Aspect: u-hab, u-Polarity: u-pos, x-Clausetype: x-protasis}
-      pattern: "{SUBJ}-kama-{OBJ?}-{VERB}"
+      applies:
+        u-Tense: u-prs
+        u-Aspect: u-hab
+        u-Polarity: u-pos
+        x-Clausetype: x-protasis
+      pattern: '{SUBJ}-kama-{OBJ?}-{VERB}'
       examples:
-      - "Ndi-ka-má-ku-óna-ni ndí-ma-kondwéra."
-      note: "Habitual conditional (protasis): -kama- … with habitual -ma- in the paired clause."
-
+      - Ndi-ka-má-ku-óna-ni ndí-ma-kondwéra.
+      note: 'Habitual conditional (protasis): -kama- … with habitual -ma- in the paired clause.'
     u-Polarity_u-pos__u-Tense_u-prs__x-Clausetype_x-protasis:
-      applies: {u-Tense: u-prs, u-Polarity: u-pos, x-Clausetype: x-protasis}
+      applies:
+        u-Tense: u-prs
+        u-Polarity: u-pos
+        x-Clausetype: x-protasis
       patterns:
-      - pattern: "{SUBJ}-ka-{VERB}"
+      - pattern: '{SUBJ}-ka-{VERB}'
         examples:
-        - "Ndi-ka-fika kunyumba ndí-komana ndi banja langa."
-        note: "Conditional present (protasis); described as 'probable'."
-      - pattern: "{SUBJ}-ka-(/chi-)-{VERB}"
-        note: "Conditional present (protasis) variant with optional chi- (as listed in the paradigm)."
-      - pattern: "{SUBJ}-ka-dzá-{VERB}"
+        - Ndi-ka-fika kunyumba ndí-komana ndi banja langa.
+        note: Conditional present (protasis); described as 'probable'.
+      - pattern: '{SUBJ}-ka-(/chi-)-{VERB}'
+        note: Conditional present (protasis) variant with optional chi- (as listed in the paradigm).
+      - pattern: '{SUBJ}-ka-dzá-{VERB}'
         examples:
-        - "Ndi-ka-dzá-fika kunyumba ndi-dzá-samba."
-        - "Ndi-ka-dzá-fika kwanu ndi-ká-puma."
-        note: "Future-oriented conditional protasis with -kadza-."
-
+        - Ndi-ka-dzá-fika kunyumba ndi-dzá-samba.
+        - Ndi-ka-dzá-fika kwanu ndi-ká-puma.
+        note: Future-oriented conditional protasis with -kadza-.
     u-Aspect_u-prosp__u-Polarity_u-pos__u-Tense_u-fut__x-Clausetype_x-protasis:
-      applies: {u-Tense: u-fut, u-Aspect: u-prosp, u-Polarity: u-pos, x-Clausetype: x-protasis}
-      pattern: "{SUBJ}-ka-dzá-{VERB}"
+      applies:
+        u-Tense: u-fut
+        u-Aspect: u-prosp
+        u-Polarity: u-pos
+        x-Clausetype: x-protasis
+      pattern: '{SUBJ}-ka-dzá-{VERB}'
       examples:
-      - "Ndi-ka-dzá-fika kunyumba ndi-dzá-samba."
-      note: "Conditional future (protasis) with prospective marker -dzá-."
-
+      - Ndi-ka-dzá-fika kunyumba ndi-dzá-samba.
+      note: Conditional future (protasis) with prospective marker -dzá-.
     u-Aspect_u-prog__u-Polarity_u-pos__u-Tense_u-fut__x-Clausetype_x-protasis:
-      applies: {u-Tense: u-fut, u-Aspect: u-prog, u-Polarity: u-pos, x-Clausetype: x-protasis}
-      pattern: "{SUBJ}-ka-má-dza-{VERB}"
-      note: "Conditional future continuous (protasis) with má-dza- (as listed in the paradigm)."
-
+      applies:
+        u-Tense: u-fut
+        u-Aspect: u-prog
+        u-Polarity: u-pos
+        x-Clausetype: x-protasis
+      pattern: '{SUBJ}-ka-má-dza-{VERB}'
+      note: Conditional future continuous (protasis) with má-dza- (as listed in the paradigm).
     u-Polarity_u-neg__u-Tense_u-prs__x-Clausetype_x-protasis:
-      applies: {u-Tense: u-prs, u-Polarity: u-neg, x-Clausetype: x-protasis}
-      pattern: "{SUBJ}-ka-panda ku-{VERB}"
+      applies:
+        u-Tense: u-prs
+        u-Polarity: u-neg
+        x-Clausetype: x-protasis
+      pattern: '{SUBJ}-ka-panda ku-{VERB}'
       examples:
-      - "Ndí-ka-na-pánda kupita, sí-ndí-ka-ná-kondwa."
-      note: "Negative conditionals use auxiliary -panda 'not have' + ku- infinitive."
-
+      - Ndí-ka-na-pánda kupita, sí-ndí-ka-ná-kondwa.
+      note: Negative conditionals use auxiliary -panda 'not have' + ku- infinitive.
     u-Polarity_u-neg__u-Tense_u-pst__x-Clausetype_x-protasis:
-      applies: {u-Tense: u-pst, u-Polarity: u-neg, x-Clausetype: x-protasis}
-      pattern: "{SUBJ}-ka-na-panda ku-{VERB}"
+      applies:
+        u-Tense: u-pst
+        u-Polarity: u-neg
+        x-Clausetype: x-protasis
+      pattern: '{SUBJ}-ka-na-panda ku-{VERB}'
       examples:
-      - "Ndí-ka-na-pánda kupita, sí-ndí-ka-ná-kondwa."
-      note: "Negative conditional past (protasis)."
-
+      - Ndí-ka-na-pánda kupita, sí-ndí-ka-ná-kondwa.
+      note: Negative conditional past (protasis).
     u-Polarity_u-neg__u-Tense_u-fut__x-Clausetype_x-protasis:
-      applies: {u-Tense: u-fut, u-Polarity: u-neg, x-Clausetype: x-protasis}
-      pattern: "{SUBJ}-ka-dzá-panda ku-{VERB}"
-      note: "Negative conditional future (protasis), with -dzá- on the auxiliary (as listed in the paradigm)."
-
+      applies:
+        u-Tense: u-fut
+        u-Polarity: u-neg
+        x-Clausetype: x-protasis
+      pattern: '{SUBJ}-ka-dzá-panda ku-{VERB}'
+      note: Negative conditional future (protasis), with -dzá- on the auxiliary (as listed in the paradigm).
 Mood:
   Features:
-    u-Mood: [u-pot]
-    u-Tense: [u-pst, u-prs, u-fut]
-    x-Clausetype: [x-apodosis]
-  Rules:
-    u-Mood_u-pot__x-Clausetype_x-apodosis:
-      applies: {u-Mood: u-pot, x-Clausetype: x-apodosis}
-      note: "Potential mood is used in the main clause (apodosis) for past-time conditionals."
-      examples:
-      - "Ndí-ka-da-khála ndi mwana ndi-ka-dá-kondwera."
+    u-Mood:
+    - u-pot
+    u-Tense:
+    - u-pst
+    - u-prs
+    - u-fut
+    x-Clausetype:
+    - x-apodosis
+  Rules: {}

@@ -3,171 +3,218 @@ Adjective:
     x-Position:
     - x-postnominal
     x-Adjective-type:
-    - x-true
-    - x-relative
     - x-nominal
+    - x-relative
     - x-verbal
     x-Concord-type:
-    - x-adjective-concord
-    - x-relative-concord
     - x-copulative-concord
     u-Polarity:
-    - u-pos
     - u-neg
-
   Rules:
     x-Position_x-postnominal:
-      applies: {x-Position: x-postnominal}
-      pattern: "NOUN + (CONCORD matching noun class) + ADJECTIVE"
+      applies:
+        x-Position: x-postnominal
+      pattern: NOUN + (CONCORD matching noun class) + ADJECTIVE
       examples:
-      - "Ikati elihle."
-      - "Inja enhle."
-      note: "Adjectives follow the noun they modify and require a prefix (concord) whose class matches the noun."
-
-    x-Adjective-type_x-true:
-      applies: {x-Adjective-type: x-true}
-      patterns:
-      - pattern: "NOUN + adjective concord + true-adjective stem"
-        examples:
-        - "Ikati elihle."
-        - "Abantu abaningi."
-        - "Umuntu omdala."
-        - "Umuntu omude."
-        - "Inja enhle."
-        note: "True adjectives form a closed class; no new true adjectives are created."
-      - pattern: "NOUN + copulative concord + true-adjective stem"
-        examples:
-        - "Ikati lihle."
-        - "Abantu baningi."
-        - "Umuntu mdala."
-        - "Umuntu mude."
-        - "Inja nhle."
-        note: "When used predicatively, the first vowel is dropped from the adjective concord (copulative concord)."
-      forms:
-      - {features: {}, form: "-de", note: "tall, long, high"}
-      - {features: {}, form: "-fishane", note: "short"}
-      - {features: {}, form: "-ncane", note: "small, few, young"}
-      - {features: {}, form: "-khulu", note: "big, large"}
-      - {features: {}, form: "-bi", note: "ugly, bad, evil"}
-      - {features: {}, form: "-hle", note: "beautiful, good"}
-      - {features: {}, form: "-sha", note: "new, young"}
-      - {features: {}, form: "-dala", note: "old"}
-      - {features: {}, form: "-ningi", note: "many"}
-      - {features: {}, form: "-bili", note: "two"}
-      - {features: {}, form: "-thathu", note: "three"}
-      - {features: {}, form: "-ne", note: "four"}
-      - {features: {}, form: "-hlanu", note: "five"}
-      - {features: {}, form: "-ngaki", note: "how many?"}
-
-    x-Concord-type_x-adjective-concord:
-      applies: {x-Concord-type: x-adjective-concord}
-      patterns:
-      - pattern: "adjective concord is formed from the full noun prefix (with vowel coalescence)"
-        note: "The adjective concord can be seen as being formed by prefixing a to the full noun prefix, subject to vowel coalescence with the initial vowel of the noun prefix."
-      - pattern: "u- → o-; i- → e-"
-        note: "Adjective concord vowel changes described for adjective syllable formation."
-      - pattern: "long vs short adjective concord: long form used when the adjective stem is monosyllabic"
-        examples:
-        - "Umuntu omdala."
-        - "Umuntu omude."
-        note: "-dala uses om- and -de uses omu- due to stem length (monosyllabic vs not)."
-      forms:
-      - {features: {x-Concord-type: x-adjective-concord}, form: "om(u)-", note: "class 1, 1a; class 3; also listed for 2nd sing."}
-      - {features: {x-Concord-type: x-adjective-concord}, form: "aba-", note: "class 2, 2a"}
-      - {features: {x-Concord-type: x-adjective-concord}, form: "emi-", note: "class 4"}
-      - {features: {x-Concord-type: x-adjective-concord}, form: "eli-", note: "class 5"}
-      - {features: {x-Concord-type: x-adjective-concord}, form: "ama-", note: "class 6"}
-      - {features: {x-Concord-type: x-adjective-concord}, form: "esi-", note: "class 7"}
-      - {features: {x-Concord-type: x-adjective-concord}, form: "ezin-[c]", note: "class 8; class 10"}
-      - {features: {x-Concord-type: x-adjective-concord}, form: "en-[c]", note: "class 9"}
-      - {features: {x-Concord-type: x-adjective-concord}, form: "olu-", note: "class 11"}
-      - {features: {x-Concord-type: x-adjective-concord}, form: "obu-", note: "class 14"}
-      - {features: {x-Concord-type: x-adjective-concord}, form: "oku-", note: "class 15; class 17"}
-      - {features: {x-Concord-type: x-adjective-concord}, form: "engim(u)-", note: "1st singular"}
-      - {features: {x-Concord-type: x-adjective-concord}, form: "om(u)-", note: "2nd singular"}
-      - {features: {x-Concord-type: x-adjective-concord}, form: "esiba-", note: "1st plural"}
-      - {features: {x-Concord-type: x-adjective-concord}, form: "eniba-", note: "2nd plural"}
-      note: "Class 8's adjective concord defaults to an additional n not present in nouns."
-
+      - Ikati elihle.
+      - Inja enhle.
+      note: Adjectives follow the noun they modify and require a prefix (concord) whose class matches the noun.
     x-Concord-type_x-copulative-concord:
-      applies: {x-Concord-type: x-copulative-concord}
-      pattern: "copulative concord = adjective/relative regular concord with first vowel dropped"
+      applies:
+        x-Concord-type: x-copulative-concord
+      pattern: copulative concord = adjective/relative regular concord with first vowel dropped
       examples:
-      - "Ikati lihle."
-      - "Umsebenzi ulula."
-      - "Inja nhle."
+      - Ikati lihle.
+      - Umsebenzi ulula.
+      - Inja nhle.
       forms:
-      - {features: {x-Concord-type: x-copulative-concord}, form: "ngim(u)-", note: "1st singular (true adjectives)"}
-      - {features: {x-Concord-type: x-copulative-concord}, form: "um(u)-", note: "2nd singular (true adjectives)"}
-      - {features: {x-Concord-type: x-copulative-concord}, form: "siba-", note: "1st plural (true adjectives)"}
-      - {features: {x-Concord-type: x-copulative-concord}, form: "niba-", note: "2nd plural (true adjectives)"}
-      - {features: {x-Concord-type: x-copulative-concord}, form: "m(u)-", note: "class 1, 1a; class 3 (true adjectives)"}
-      - {features: {x-Concord-type: x-copulative-concord}, form: "ba-", note: "class 2, 2a (true adjectives)"}
-      - {features: {x-Concord-type: x-copulative-concord}, form: "mi-", note: "class 4 (true adjectives)"}
-      - {features: {x-Concord-type: x-copulative-concord}, form: "li-", note: "class 5 (true adjectives)"}
-      - {features: {x-Concord-type: x-copulative-concord}, form: "ma-", note: "class 6 (true adjectives)"}
-      - {features: {x-Concord-type: x-copulative-concord}, form: "si-", note: "class 7 (true adjectives)"}
-      - {features: {x-Concord-type: x-copulative-concord}, form: "zin-[c]", note: "class 8; class 10 (true adjectives)"}
-      - {features: {x-Concord-type: x-copulative-concord}, form: "in-[c]", note: "class 9 (true adjectives)"}
-      - {features: {x-Concord-type: x-copulative-concord}, form: "lu-", note: "class 11 (true adjectives)"}
-      - {features: {x-Concord-type: x-copulative-concord}, form: "bu-", note: "class 14 (true adjectives)"}
-      - {features: {x-Concord-type: x-copulative-concord}, form: "ku-", note: "class 15; class 17 (true adjectives)"}
-
+      - features:
+          x-Concord-type: x-copulative-concord
+        form: ngim(u)-
+        note: 1st singular (true adjectives)
+      - features:
+          x-Concord-type: x-copulative-concord
+        form: um(u)-
+        note: 2nd singular (true adjectives)
+      - features:
+          x-Concord-type: x-copulative-concord
+        form: siba-
+        note: 1st plural (true adjectives)
+      - features:
+          x-Concord-type: x-copulative-concord
+        form: niba-
+        note: 2nd plural (true adjectives)
+      - features:
+          x-Concord-type: x-copulative-concord
+        form: m(u)-
+        note: class 1, 1a; class 3 (true adjectives)
+      - features:
+          x-Concord-type: x-copulative-concord
+        form: ba-
+        note: class 2, 2a (true adjectives)
+      - features:
+          x-Concord-type: x-copulative-concord
+        form: mi-
+        note: class 4 (true adjectives)
+      - features:
+          x-Concord-type: x-copulative-concord
+        form: li-
+        note: class 5 (true adjectives)
+      - features:
+          x-Concord-type: x-copulative-concord
+        form: ma-
+        note: class 6 (true adjectives)
+      - features:
+          x-Concord-type: x-copulative-concord
+        form: si-
+        note: class 7 (true adjectives)
+      - features:
+          x-Concord-type: x-copulative-concord
+        form: zin-[c]
+        note: class 8; class 10 (true adjectives)
+      - features:
+          x-Concord-type: x-copulative-concord
+        form: in-[c]
+        note: class 9 (true adjectives)
+      - features:
+          x-Concord-type: x-copulative-concord
+        form: lu-
+        note: class 11 (true adjectives)
+      - features:
+          x-Concord-type: x-copulative-concord
+        form: bu-
+        note: class 14 (true adjectives)
+      - features:
+          x-Concord-type: x-copulative-concord
+        form: ku-
+        note: class 15; class 17 (true adjectives)
     x-Adjective-type_x-relative:
-      applies: {x-Adjective-type: x-relative}
-      pattern: "NOUN + relative concord + relative stem"
-      note: "Relatives are an open class; many English adjectives have corresponding relatives in Zulu."
+      applies:
+        x-Adjective-type: x-relative
+      pattern: NOUN + relative concord + relative stem
+      note: Relative concords are formed in parallel to adjective concords, but use the subject concord as the base.
       forms:
-      - {features: {x-Concord-type: x-relative-concord}, form: "engi-", note: "1st singular (regular)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "o-", note: "2nd singular; class 1, 1a; class 3 (regular)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "esi-", note: "1st plural; class 7 (regular)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "eni-", note: "2nd plural (regular)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "aba-", note: "class 2, 2a (regular)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "e-", note: "class 4; class 9 (regular)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "eli-", note: "class 5 (regular)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "a-", note: "class 6 (regular)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "ezi-", note: "class 8; class 10 (regular)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "olu-", note: "class 11 (regular)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "obu-", note: "class 14 (regular)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "oku-", note: "class 15; class 17 (regular)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "ngi-", note: "1st singular (copulative)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "u-", note: "2nd singular; class 1, 1a; class 3 (copulative)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "si-", note: "1st plural; class 7 (copulative)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "ni-", note: "2nd plural (copulative)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "ba-", note: "class 2, 2a (copulative)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "i-", note: "class 4; class 9 (copulative)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "li-", note: "class 5 (copulative)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "a-", note: "class 6 (copulative)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "zi-", note: "class 8; class 10 (copulative)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "lu-", note: "class 11 (copulative)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "bu-", note: "class 14 (copulative)"}
-      - {features: {x-Concord-type: x-relative-concord}, form: "ku-", note: "class 15; class 17 (copulative)"}
-      note: "Relative concords are formed in parallel to adjective concords, but use the subject concord as the base."
-
+      - features:
+          x-Concord-type: x-relative-concord
+        form: engi-
+        note: 1st singular (regular)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: o-
+        note: 2nd singular; class 1, 1a; class 3 (regular)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: esi-
+        note: 1st plural; class 7 (regular)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: eni-
+        note: 2nd plural (regular)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: aba-
+        note: class 2, 2a (regular)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: e-
+        note: class 4; class 9 (regular)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: eli-
+        note: class 5 (regular)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: a-
+        note: class 6 (regular)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: ezi-
+        note: class 8; class 10 (regular)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: olu-
+        note: class 11 (regular)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: obu-
+        note: class 14 (regular)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: oku-
+        note: class 15; class 17 (regular)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: ngi-
+        note: 1st singular (copulative)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: u-
+        note: 2nd singular; class 1, 1a; class 3 (copulative)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: si-
+        note: 1st plural; class 7 (copulative)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: ni-
+        note: 2nd plural (copulative)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: ba-
+        note: class 2, 2a (copulative)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: i-
+        note: class 4; class 9 (copulative)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: li-
+        note: class 5 (copulative)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: a-
+        note: class 6 (copulative)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: zi-
+        note: class 8; class 10 (copulative)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: lu-
+        note: class 11 (copulative)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: bu-
+        note: class 14 (copulative)
+      - features:
+          x-Concord-type: x-relative-concord
+        form: ku-
+        note: class 15; class 17 (copulative)
     x-Adjective-type_x-nominal:
-      applies: {x-Adjective-type: x-nominal}
+      applies:
+        x-Adjective-type: x-nominal
       patterns:
-      - pattern: "na/ne/no + NOUN"
+      - pattern: na/ne/no + NOUN
         examples:
-        - "Ungumuntu unomusa."
-      - pattern: "nge + na/ne/no + NOUN"
+        - Ungumuntu unomusa.
+      - pattern: nge + na/ne/no + NOUN
         examples:
-        - "Ungumuntu ungenomusa."
-      note: "Nominal adjectives are formed with a marker (Kennsilbe) plus a noun."
-
+        - Ungumuntu ungenomusa.
+      note: Nominal adjectives are formed with a marker (Kennsilbe) plus a noun.
     x-Adjective-type_x-verbal:
-      applies: {x-Adjective-type: x-verbal}
+      applies:
+        x-Adjective-type: x-verbal
       patterns:
-      - pattern: "adjective syllable + verb stem"
+      - pattern: adjective syllable + verb stem
         examples:
-        - "lo ngumsebenza olula"
-        note: "Verbs can be used adjectivally using the 'property syllable' (Eigenschaftssilbe)."
-      - pattern: "subject + marker (Kennsilbe) + verb stem (predicative)"
+        - lo ngumsebenza olula
+        note: Verbs can be used adjectivally using the 'property syllable' (Eigenschaftssilbe).
+      - pattern: subject + marker (Kennsilbe) + verb stem (predicative)
         examples:
-        - "Umsebenzi ulula."
-        note: "If the predicative adjective is a verb describing a state, the marker (Kennsilbe) is used."
-
+        - Umsebenzi ulula.
+        note: If the predicative adjective is a verb describing a state, the marker (Kennsilbe) is used.
     u-Polarity_u-neg:
-      applies: {u-Polarity: u-neg}
-      pattern: "a- + Kennsilbe(V) + predicative adjective"
-      note: "Exception: in noun class 7/8 the Kennsilbe(V) changes to -ka-."
+      applies:
+        u-Polarity: u-neg
+      pattern: a- + Kennsilbe(V) + predicative adjective
+      note: 'Exception: in noun class 7/8 the Kennsilbe(V) changes to -ka-.'

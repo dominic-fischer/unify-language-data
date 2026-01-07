@@ -1,6 +1,7 @@
 Passive:
   Features:
-    u-Voice: [u-act, u-pass]
+    u-Voice:
+    - u-pass
     x-Passive-type: [x-process]
     x-Clausetype: [x-main]
 

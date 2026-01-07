@@ -4,6 +4,8 @@ Pronoun:
     u-Number: [u-sg, u-pl]
     u-Deixis: [u-prox, u-med, u-remt]
     x-Pronoun-type: [x-pers, x-refl, x-dem, x-poss]
+    x-Process:
+    - x-prefixation
 
   Rules:
     x-Pronoun-type_x-pers:
@@ -51,7 +53,11 @@ Pronoun:
       examples:
       - "aquele lápis – \"that pencil\" (over there, away from both of us)"
 
-    x-Pronoun-type_x-dem__x-Process_x-prefixation:
+    x-Pronoun-type_x-refl:
+      applies: {x-Pronoun-type: x-refl}
+      pattern: "reflexive objects (as a distinct object type) are distinguished in the third person"
+      note: "mentioned as part of the third-person object distinction for personal pronouns"
+    x-Process_x-prefixation__x-Pronoun-type_x-dem:
       applies: {x-Pronoun-type: x-dem, x-Process: x-prefixation}
       patterns:
       - pattern: "de + este/esta/estes/estas/isto → deste/desta/destes/destas/disto; de + esse/essa/esses/essas/isso → desse/dessa/desses/dessas/disso; de + aquele/aquela/aqueles/aquelas/aquilo → daquele/daquela/daqueles/daquelas/daquilo"
@@ -64,7 +70,3 @@ Pronoun:
       - pattern: "a + aquele/aquela/aqueles/aquelas/aquilo → àquele/àquela/àqueles/àquelas/àquilo"
       note: "demonstratives form contractions with certain preceding prepositions"
 
-    x-Pronoun-type_x-refl:
-      applies: {x-Pronoun-type: x-refl}
-      pattern: "reflexive objects (as a distinct object type) are distinguished in the third person"
-      note: "mentioned as part of the third-person object distinction for personal pronouns"

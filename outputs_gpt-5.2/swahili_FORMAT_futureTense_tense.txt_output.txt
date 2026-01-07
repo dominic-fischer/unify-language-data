@@ -5,10 +5,10 @@ Future:
 
   Negation:
     examples:
-      - "Hatakwenda."
-      - "Sitakula."
-      - "Hutaandika."
-      - "Hatutajibu."
+    - "Hatakwenda."
+    - "Sitakula."
+    - "Hutaandika."
+    - "Hatutajibu."
     note: "Negative future uses a negative subject prefix; the TAM marker is -ta- and some speakers use -to-."
 
   Usage:
@@ -16,38 +16,38 @@ Future:
       applies: {u-Tense: u-fut}
       note: "Formed with the TAM prefix -ta-."
       examples:
-        - "Atakwenda."
-        - "Nitakula."
-        - "Utaandika."
-        - "Tutajibu."
+      - "Atakwenda."
+      - "Nitakula."
+      - "Utaandika."
+      - "Tutajibu."
 
   Rules:
-    u-Tense_u-fut__u-Polarity_u-pos:
+    u-Polarity_u-pos__u-Tense_u-fut:
       applies: {u-Tense: u-fut, u-Polarity: u-pos}
       patterns:
-        - pattern: "[SUBJ]-ta- STEM (-a)"
-          examples:
-            - "Atakwenda."
-            - "Utaandika."
-            - "Tutajibu."
-        - pattern: "[SUBJ]-ta-[OBJ]- STEM (-a)"
-          note: "Object prefixes may occur."
+      - pattern: "[SUBJ]-ta- STEM (-a)"
+        examples:
+        - "Atakwenda."
+        - "Utaandika."
+        - "Tutajibu."
+      - pattern: "[SUBJ]-ta-[OBJ]- STEM (-a)"
+        note: "Object prefixes may occur."
       note: "The future tense is formed with the prefix -ta-."
 
-    u-Tense_u-fut__u-Polarity_u-neg:
+    u-Polarity_u-neg__u-Tense_u-fut:
       applies: {u-Tense: u-fut, u-Polarity: u-neg}
       patterns:
-        - pattern: "[NEG.SUBJ]-ta- STEM (-a)"
-          examples:
-            - "Hatakwenda."
-            - "Sitakula."
-            - "Hutaandika."
-            - "Hatutajibu."
-          note: "Usual negative future."
-        - pattern: "[NEG.SUBJ]-ta-[OBJ]- STEM (-a)"
-          note: "Object prefixes may occur."
-        - pattern: "[NEG.SUBJ]-to- STEM (-a)"
-          note: "Variant used by some speakers."
-        - pattern: "[NEG.SUBJ]-to-[OBJ]- STEM (-a)"
-          note: "Variant with object prefix."
+      - pattern: "[NEG.SUBJ]-ta- STEM (-a)"
+        examples:
+        - "Hatakwenda."
+        - "Sitakula."
+        - "Hutaandika."
+        - "Hatutajibu."
+        note: "Usual negative future."
+      - pattern: "[NEG.SUBJ]-ta-[OBJ]- STEM (-a)"
+        note: "Object prefixes may occur."
+      - pattern: "[NEG.SUBJ]-to- STEM (-a)"
+        note: "Variant used by some speakers."
+      - pattern: "[NEG.SUBJ]-to-[OBJ]- STEM (-a)"
+        note: "Variant with object prefix."
       note: "Negative future uses the negative subject prefix and typically keeps -ta-; -to- is also used by some speakers."

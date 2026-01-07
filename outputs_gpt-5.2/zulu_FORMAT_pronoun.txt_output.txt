@@ -14,54 +14,6 @@ Pronoun:
       note: "Adults are addressed with 2nd person plural; 2nd person singular is considered impolite in normal usage and is used towards children or clearly lower-ranking persons."
 
   Rules:
-    x-Pronoun-type_x-pers__x-Form-type_x-standalone:
-      applies: {x-Pronoun-type: x-pers, x-Form-type: x-standalone}
-      forms:
-      - {features: {u-Person: u-1, u-Number: u-sg}, form: "mina"}
-      - {features: {u-Person: u-2, u-Number: u-sg}, form: "wena"}
-      - {features: {u-Person: u-1, u-Number: u-pl}, form: "thina"}
-      - {features: {u-Person: u-2, u-Number: u-pl}, form: "nina"}
-      - {features: {u-Person: u-3, zul-Noun-class: "1"}, form: "yena"}
-      - {features: {u-Person: u-3, zul-Noun-class: "1a"}, form: "yena"}
-      - {features: {u-Person: u-3, zul-Noun-class: "2"}, form: "bona"}
-      - {features: {u-Person: u-3, zul-Noun-class: "2a"}, form: "bona"}
-      - {features: {u-Person: u-3, zul-Noun-class: "3"}, form: "wona"}
-      - {features: {u-Person: u-3, zul-Noun-class: "4"}, form: "yona"}
-      - {features: {u-Person: u-3, zul-Noun-class: "5"}, form: "lona"}
-      - {features: {u-Person: u-3, zul-Noun-class: "6"}, form: "wona"}
-      - {features: {u-Person: u-3, zul-Noun-class: "7"}, form: "sona"}
-      - {features: {u-Person: u-3, zul-Noun-class: "8"}, form: "zona"}
-      - {features: {u-Person: u-3, zul-Noun-class: "9"}, form: "yona"}
-      - {features: {u-Person: u-3, zul-Noun-class: "10"}, form: "zona"}
-      - {features: {u-Person: u-3, zul-Noun-class: "11"}, form: "lona"}
-      - {features: {u-Person: u-3, zul-Noun-class: "14"}, form: "bona"}
-      - {features: {u-Person: u-3, zul-Noun-class: "15"}, form: "khona"}
-      - {features: {u-Person: u-3, zul-Noun-class: "17"}, form: "khona"}
-
-    x-Pronoun-type_x-pers__x-Form-type_x-clitic:
-      applies: {x-Pronoun-type: x-pers, x-Form-type: x-clitic}
-      forms:
-      - {features: {u-Person: u-1, u-Number: u-sg}, form: "-mi"}
-      - {features: {u-Person: u-2, u-Number: u-sg}, form: "-we"}
-      - {features: {u-Person: u-1, u-Number: u-pl}, form: "-thi"}
-      - {features: {u-Person: u-2, u-Number: u-pl}, form: "-ni"}
-      - {features: {u-Person: u-3, zul-Noun-class: "1"}, form: "-ye"}
-      - {features: {u-Person: u-3, zul-Noun-class: "1a"}, form: "-ye"}
-      - {features: {u-Person: u-3, zul-Noun-class: "2"}, form: "-bo"}
-      - {features: {u-Person: u-3, zul-Noun-class: "2a"}, form: "-bo"}
-      - {features: {u-Person: u-3, zul-Noun-class: "3"}, form: "-wo"}
-      - {features: {u-Person: u-3, zul-Noun-class: "4"}, form: "-yo"}
-      - {features: {u-Person: u-3, zul-Noun-class: "5"}, form: "-lo"}
-      - {features: {u-Person: u-3, zul-Noun-class: "6"}, form: "-wo"}
-      - {features: {u-Person: u-3, zul-Noun-class: "7"}, form: "-so"}
-      - {features: {u-Person: u-3, zul-Noun-class: "8"}, form: "-zo"}
-      - {features: {u-Person: u-3, zul-Noun-class: "9"}, form: "-yo"}
-      - {features: {u-Person: u-3, zul-Noun-class: "10"}, form: "-zo"}
-      - {features: {u-Person: u-3, zul-Noun-class: "11"}, form: "-lo"}
-      - {features: {u-Person: u-3, zul-Noun-class: "14"}, form: "-bo"}
-      - {features: {u-Person: u-3, zul-Noun-class: "15"}, form: "-kho"}
-      - {features: {u-Person: u-3, zul-Noun-class: "17"}, form: "-kho"}
-
     x-Pronoun-type_x-dem:
       applies: {x-Pronoun-type: x-dem}
       patterns:
@@ -131,6 +83,54 @@ Pronoun:
       - {features: {u-Person: u-1, u-Number: u-pl}, form: "-ethu", note: "possessive pronoun suffix/stem (used with possessive prefix); in this form the -a is omitted."}
       - {features: {u-Person: u-2, u-Number: u-pl}, form: "-enyu", note: "possessive pronoun suffix/stem (used with possessive prefix); in this form the -a is omitted."}
       - {features: {u-Person: u-3, u-Number: u-pl}, form: "-bo", note: "possessive pronoun suffix/stem (used with possessive prefix) 'their'."}
+
+    x-Form-type_x-standalone__x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers, x-Form-type: x-standalone}
+      forms:
+      - {features: {u-Person: u-1, u-Number: u-sg}, form: "mina"}
+      - {features: {u-Person: u-2, u-Number: u-sg}, form: "wena"}
+      - {features: {u-Person: u-1, u-Number: u-pl}, form: "thina"}
+      - {features: {u-Person: u-2, u-Number: u-pl}, form: "nina"}
+      - {features: {u-Person: u-3, zul-Noun-class: "1"}, form: "yena"}
+      - {features: {u-Person: u-3, zul-Noun-class: "1a"}, form: "yena"}
+      - {features: {u-Person: u-3, zul-Noun-class: "2"}, form: "bona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "2a"}, form: "bona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "3"}, form: "wona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "4"}, form: "yona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "5"}, form: "lona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "6"}, form: "wona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "7"}, form: "sona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "8"}, form: "zona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "9"}, form: "yona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "10"}, form: "zona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "11"}, form: "lona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "14"}, form: "bona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "15"}, form: "khona"}
+      - {features: {u-Person: u-3, zul-Noun-class: "17"}, form: "khona"}
+
+    x-Form-type_x-clitic__x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers, x-Form-type: x-clitic}
+      forms:
+      - {features: {u-Person: u-1, u-Number: u-sg}, form: "-mi"}
+      - {features: {u-Person: u-2, u-Number: u-sg}, form: "-we"}
+      - {features: {u-Person: u-1, u-Number: u-pl}, form: "-thi"}
+      - {features: {u-Person: u-2, u-Number: u-pl}, form: "-ni"}
+      - {features: {u-Person: u-3, zul-Noun-class: "1"}, form: "-ye"}
+      - {features: {u-Person: u-3, zul-Noun-class: "1a"}, form: "-ye"}
+      - {features: {u-Person: u-3, zul-Noun-class: "2"}, form: "-bo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "2a"}, form: "-bo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "3"}, form: "-wo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "4"}, form: "-yo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "5"}, form: "-lo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "6"}, form: "-wo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "7"}, form: "-so"}
+      - {features: {u-Person: u-3, zul-Noun-class: "8"}, form: "-zo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "9"}, form: "-yo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "10"}, form: "-zo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "11"}, form: "-lo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "14"}, form: "-bo"}
+      - {features: {u-Person: u-3, zul-Noun-class: "15"}, form: "-kho"}
+      - {features: {u-Person: u-3, zul-Noun-class: "17"}, form: "-kho"}
 
   Notes:
   - "Pronouns behave in many ways like nouns, having locative, possessive and copulative forms; the copulative form uses the identifying prefix yi-."

@@ -1,0 +1,19 @@
+{
+  "es-Tense-type": [
+    "es-preterite",
+    "es-imperfect"
+  ],
+  "es-Verbclass": [
+    "es-AR",
+    "es-ER",
+    "es-IR"
+  ],
+  "es-Conjugation": [
+    "es-ar",
+    "es-er",
+    "es-ir"
+  ],
+  "es-Politeness": [
+    "es-familiar"
+  ]
+}

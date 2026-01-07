@@ -11,47 +11,47 @@ Clauses:
     x-Clausetype_x-main:
       applies: {x-Clausetype: x-main}
       patterns:
-        - pattern: "il y a + NP (+ PP)"
-          examples:
-            - "Il y a deux bergers et quinze moutons dans le pré."
-          note: "French existential clause; impersonal construction with il y a (infinitive: y avoir)."
-        - pattern: "il y aura + NP"
-          examples:
-            - "Il y aura beaucoup à manger."
-          note: "Tense can be marked on avoir while remaining impersonal."
-        - pattern: "il y aurait + NP"
-          examples:
-            - "Il y aurait deux morts et cinq blessés dans l'accident."
-          note: "Conditional form used (e.g., in news reporting) with the same impersonal construction."
-        - pattern: "il n'y avait + NP"
-          examples:
-            - "Il n'y avait personne chez les Martin."
-          note: "Negated existential with il y avoir."
-        - pattern: "... il y a + time expression"
-          examples:
-            - "Je l'ai vu il y a deux jours."
-            - "Il y avait longtemps que je ne l'avais pas vu."
-            - "Le langage d'il y a cent ans est très différent de celui d'aujourd'hui."
-          note: "Also used to express time elapsed since an event (similar to English 'ago' / 'it has been')."
+      - pattern: "il y a + NP (+ PP)"
+        examples:
+        - "Il y a deux bergers et quinze moutons dans le pré."
+        note: "French existential clause; impersonal construction with il y a (infinitive: y avoir)."
+      - pattern: "il y aura + NP"
+        examples:
+        - "Il y aura beaucoup à manger."
+        note: "Tense can be marked on avoir while remaining impersonal."
+      - pattern: "il y aurait + NP"
+        examples:
+        - "Il y aurait deux morts et cinq blessés dans l'accident."
+        note: "Conditional form used (e.g., in news reporting) with the same impersonal construction."
+      - pattern: "il n'y avait + NP"
+        examples:
+        - "Il n'y avait personne chez les Martin."
+        note: "Negated existential with il y avoir."
+      - pattern: "... il y a + time expression"
+        examples:
+        - "Je l'ai vu il y a deux jours."
+        - "Il y avait longtemps que je ne l'avais pas vu."
+        - "Le langage d'il y a cent ans est très différent de celui d'aujourd'hui."
+        note: "Also used to express time elapsed since an event (similar to English 'ago' / 'it has been')."
 
     u-Politeness_u-infm:
       applies: {u-Politeness: u-infm}
       patterns:
-        - pattern: "y a [j] + NP (+ PP)"
-          examples:
-            - "Y a deux bergers et quinze moutons dans le pré."
-        - pattern: "y aura [joʁa] + NP"
-          examples:
-            - "Y aura beaucoup à manger."
-        - pattern: "y avait [javɛ] + NP"
-          examples:
-            - "Y avait personne chez les Martin."
-        - pattern: "... y a [j] + time expression"
-          examples:
-            - "Je l'ai vu y a deux jours."
-          note: "In informal speech, il y is typically reduced to [j]."
+      - pattern: "y a [j] + NP (+ PP)"
+        examples:
+        - "Y a deux bergers et quinze moutons dans le pré."
+      - pattern: "y aura [joʁa] + NP"
+        examples:
+        - "Y aura beaucoup à manger."
+      - pattern: "y avait [javɛ] + NP"
+        examples:
+        - "Y avait personne chez les Martin."
+      - pattern: "... y a [j] + time expression"
+        examples:
+        - "Je l'ai vu y a deux jours."
+        note: "In informal speech, il y is typically reduced to [j]."
 
-    u-Person_u-3__u-Number_u-sg:
+    u-Number_u-sg__u-Person_u-3:
       applies: {u-Person: u-3, u-Number: u-sg}
       pattern: "il y + avoir(conjugated) + ..."
       note: "As an impersonal verb, avoir may be conjugated for tense/mood, but always remains third person singular in this construction."

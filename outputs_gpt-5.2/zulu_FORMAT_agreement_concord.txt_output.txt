@@ -12,17 +12,13 @@ Agreement:
     u-Gender:
     - u-bantu1-23
     x-Form-type:
-    - x-standalone
     - x-clitic
     u-Mood:
-    - u-ind
     - u-sbjv
     u-Polarity:
-    - u-pos
     - u-neg
     u-Finiteness:
     - u-fin
-    - u-nfin
     u-Valency:
     - u-tr
 
@@ -109,7 +105,26 @@ Agreement:
       - "Ngimnika isipho."
       note: "Object concord occurs after the subject (and any tense marker) and before the verb stem; it matches the object class/person. It is optional even when an overt object NP follows the verb, and can mark specificity/definiteness."
 
-    x-Form-type_x-clitic__u-Polarity_u-neg:
+    u-Mood_u-sbjv__x-Form-type_x-clitic:
+      applies: {u-Mood: u-sbjv, x-Form-type: x-clitic}
+      note: "Verbs marked for the subjunctive mood use the secondary subject concord set (subj2)."
+      forms:
+      - features: {u-Person: u-1, u-Number: u-sg}
+        form: "ngí-"
+      - features: {u-Person: u-2, u-Number: u-sg}
+        form: "(w)ú-"
+      - features: {u-Person: u-1, u-Number: u-pl}
+        form: "sí-"
+      - features: {u-Person: u-2, u-Number: u-pl}
+        form: "ní-"
+      - features: {u-Gender: u-bantu1-23}
+        form: "(k)á-"
+        note: "Noun class 1."
+      - features: {u-Gender: u-bantu1-23}
+        form: "bá-"
+        note: "Noun class 2."
+
+    u-Polarity_u-neg__x-Form-type_x-clitic:
       applies: {x-Form-type: x-clitic, u-Polarity: u-neg}
       forms:
       - features: {u-Person: u-1, u-Number: u-sg}
@@ -168,26 +183,7 @@ Agreement:
         note: "Secondary subject concord (subj2), noun class 17."
       note: "Secondary subject concords are used on verbs marked with negation (and also on subjunctive-marked verbs). Parenthesized segments are used when the prefix is not word-initial."
 
-    u-Mood_u-sbjv__x-Form-type_x-clitic:
-      applies: {u-Mood: u-sbjv, x-Form-type: x-clitic}
-      note: "Verbs marked for the subjunctive mood use the secondary subject concord set (subj2)."
-      forms:
-      - features: {u-Person: u-1, u-Number: u-sg}
-        form: "ngí-"
-      - features: {u-Person: u-2, u-Number: u-sg}
-        form: "(w)ú-"
-      - features: {u-Person: u-1, u-Number: u-pl}
-        form: "sí-"
-      - features: {u-Person: u-2, u-Number: u-pl}
-        form: "ní-"
-      - features: {u-Gender: u-bantu1-23}
-        form: "(k)á-"
-        note: "Noun class 1."
-      - features: {u-Gender: u-bantu1-23}
-        form: "bá-"
-        note: "Noun class 2."
-
-    x-Form-type_x-clitic__u-Finiteness_u-fin:
+    u-Finiteness_u-fin__x-Form-type_x-clitic:
       applies: {x-Form-type: x-clitic, u-Finiteness: u-fin}
       forms:
       - features: {u-Person: u-1, u-Number: u-sg}
@@ -246,7 +242,7 @@ Agreement:
         note: "Participial subject concord (subjP), noun class 17."
       note: "Participial subject concords are used in participial verb forms regardless of tense; they are like secondary subject concords, except final a→e where applicable."
 
-    x-Form-type_x-clitic__u-Valency_u-tr:
+    u-Valency_u-tr__x-Form-type_x-clitic:
       applies: {x-Form-type: x-clitic, u-Valency: u-tr}
       forms:
       - features: {u-Person: u-1, u-Number: u-sg}

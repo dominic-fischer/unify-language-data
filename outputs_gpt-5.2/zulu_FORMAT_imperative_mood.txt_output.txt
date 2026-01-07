@@ -9,56 +9,56 @@ Imperative:
     direct_commands:
       note: "Used to issue direct commands."
       examples:
-        - "Yidlá!"
-        - "Yenzá!"
-        - "Síza!"
+      - "Yidlá!"
+      - "Yenzá!"
+      - "Síza!"
 
   Rules:
-    u-Mood_u-imp__x-Form-type_x-standalone__u-Number_u-sg__u-Politeness_u-low:
-      applies: {u-Mood: u-imp, x-Form-type: x-standalone, u-Number: u-sg, u-Politeness: u-low}
-      patterns:
-        - pattern: "(yi- / y-) + _verb-stem_ + a"
-          examples:
-            - "Yidlá!"
-            - "Yenzá!"
-          note: "Used when addressing a lower-ranked person; yi- is used with monosyllabic stems; y- is a shortened form used when the stem begins with a vowel."
-        - pattern: "_verb-stem_"
-          examples:
-            - "Síza!"
-          note: "Imperative may be the bare verb stem."
-
-    u-Mood_u-imp__x-Form-type_x-standalone__u-Number_u-pl__u-Politeness_u-high:
-      applies: {u-Mood: u-imp, x-Form-type: x-standalone, u-Number: u-pl, u-Politeness: u-high}
-      patterns:
-        - pattern: "(yi- / y- / wo-) + _verb-stem_ + ani"
-          examples:
-            - "Yidláni!"
-            - "Yenzáni!"
-            - "Sizáni!"
-          note: "Plural with suffix -ni is used when addressing multiple people; also used for a higher-ranked/respect person. yi- is used with monosyllabic stems; y- is used when the stem begins with a vowel. Exceptionally, -za 'to come' uses wo- (e.g., woza, wozani)."
-        - pattern: "_verb-stem_ + ni"
-          note: "Plural/respect form described as verb stem plus -ni."
-
     u-Mood_u-imp__x-Form-type_x-clitic:
       applies: {u-Mood: u-imp, x-Form-type: x-clitic}
       patterns:
-        - pattern: "[object-prefix] + _verb-stem_ + e"
-          examples:
-            - "Yídle!"
-            - "Kwenze!"
-            - "Ngisize!"
-          note: "Imperative with an object prefix."
-        - pattern: "[object-prefix] + _verb-stem_ + eni"
-          examples:
-            - "Yidleni!"
-            - "Kwenzeni!"
-            - "Ngisizeni!"
-          note: "Plural/respect form of imperative with an object prefix."
+      - pattern: "[object-prefix] + _verb-stem_ + e"
+        examples:
+        - "Yídle!"
+        - "Kwenze!"
+        - "Ngisize!"
+        note: "Imperative with an object prefix."
+      - pattern: "[object-prefix] + _verb-stem_ + eni"
+        examples:
+        - "Yidleni!"
+        - "Kwenzeni!"
+        - "Ngisizeni!"
+        note: "Plural/respect form of imperative with an object prefix."
 
     u-Mood_u-imp__u-Politeness_u-high:
       applies: {u-Mood: u-imp, u-Politeness: u-high}
       forms:
-        - features: {u-Politeness: u-high}
-          pattern: "mu-sa + infinitive"
-        - features: {u-Politeness: u-high, u-Number: u-pl}
-          pattern: "mu-sa-ni + infinitive"
+      - features: {u-Politeness: u-high}
+        pattern: "mu-sa + infinitive"
+      - features: {u-Politeness: u-high, u-Number: u-pl}
+        pattern: "mu-sa-ni + infinitive"
+    u-Mood_u-imp__u-Number_u-sg__u-Politeness_u-low__x-Form-type_x-standalone:
+      applies: {u-Mood: u-imp, x-Form-type: x-standalone, u-Number: u-sg, u-Politeness: u-low}
+      patterns:
+      - pattern: "(yi- / y-) + _verb-stem_ + a"
+        examples:
+        - "Yidlá!"
+        - "Yenzá!"
+        note: "Used when addressing a lower-ranked person; yi- is used with monosyllabic stems; y- is a shortened form used when the stem begins with a vowel."
+      - pattern: "_verb-stem_"
+        examples:
+        - "Síza!"
+        note: "Imperative may be the bare verb stem."
+
+    u-Mood_u-imp__u-Number_u-pl__u-Politeness_u-high__x-Form-type_x-standalone:
+      applies: {u-Mood: u-imp, x-Form-type: x-standalone, u-Number: u-pl, u-Politeness: u-high}
+      patterns:
+      - pattern: "(yi- / y- / wo-) + _verb-stem_ + ani"
+        examples:
+        - "Yidláni!"
+        - "Yenzáni!"
+        - "Sizáni!"
+        note: "Plural with suffix -ni is used when addressing multiple people; also used for a higher-ranked/respect person. yi- is used with monosyllabic stems; y- is used when the stem begins with a vowel. Exceptionally, -za 'to come' uses wo- (e.g., woza, wozani)."
+      - pattern: "_verb-stem_ + ni"
+        note: "Plural/respect form described as verb stem plus -ni."
+

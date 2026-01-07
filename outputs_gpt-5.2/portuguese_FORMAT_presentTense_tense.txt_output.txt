@@ -15,7 +15,7 @@ Present:
     examples:
     - "não cantes! ('don't sing!')"
   Rules:
-    u-Mood_u-ind__u-Tense_u-prs__pt-Construction_pt-synthetic:
+    pt-Construction_pt-synthetic__u-Mood_u-ind__u-Tense_u-prs:
       applies: {u-Mood: u-ind, u-Tense: u-prs, pt-Construction: pt-synthetic}
       forms:
       - features: {u-Person: u-1, u-Number: u-pl}
@@ -23,14 +23,14 @@ Present:
       examples:
       - "cantamos ('we sing')"
 
-    u-Mood_u-ind__u-Tense_u-prs__pt-Construction_pt-estar-gerund:
+    pt-Construction_pt-estar-gerund__u-Mood_u-ind__u-Tense_u-prs:
       applies: {u-Mood: u-ind, u-Tense: u-prs, pt-Construction: pt-estar-gerund}
       pattern: "{estar (present)} + {gerund}"
       examples:
       - "estou falando ('I am speaking')"
       note: "Construction with the gerund is the rule in Brazil; also found in southern and insular Portugal and in Portuguese literature."
 
-    u-Mood_u-ind__u-Tense_u-prs__pt-Construction_pt-estar-a-inf:
+    pt-Construction_pt-estar-a-inf__u-Mood_u-ind__u-Tense_u-prs:
       applies: {u-Mood: u-ind, u-Tense: u-prs, pt-Construction: pt-estar-a-inf}
       pattern: "{estar (present)} + a + {infinitive}"
       examples:

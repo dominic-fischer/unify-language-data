@@ -1,173 +1,50 @@
 Noun:
   Features:
-    u-Gender: [u-masc, u-fem]
-    u-Number: [u-sg, u-pl]
-    fr-Noun-gender-regularity: [fr-corresponds-to-natural-gender, fr-fixed-grammatical-gender, fr-gender-varies-by-number, fr-gender-varies-by-usage, fr-gender-changes-meaning]
-    fr-Plural-formation: [fr-plural-s, fr-plural-x, fr-plural-invariable, fr-plural-al-aux, fr-plural-ail-aux, fr-plural-irregular, fr-plural-irregular-pronunciation]
-    fr-Countability: [fr-uncountable-usually-sg, fr-uncountable-plural, fr-countability-differs-from-english]
-    fr-Gender-trends-by-ending: [fr-trend-ending-e-fem, fr-ending-sion-fem, fr-ending-tion-fem, fr-ending-aison-fem, fr-ending-ite-fem, fr-ending-logie-fem, fr-ending-aire-masc, fr-ending-isme-masc, fr-ending-eme-masc, fr-ending-ege-masc, fr-double-consonant-before-e-masc]
-    fr-Noun-clause-gender: [fr-noun-clause-masc]
-
+    u-Gender:
+    - u-masc
+    - u-fem
+    u-Number:
+    - u-sg
+    - u-pl
+    fr-Noun-gender-regularity:
+    - fr-corresponds-to-natural-gender
+    - fr-fixed-grammatical-gender
+    - fr-gender-varies-by-number
+    - fr-gender-varies-by-usage
+    - fr-gender-changes-meaning
+    fr-Plural-formation:
+    - fr-plural-s
+    - fr-plural-x
+    fr-Countability:
+    - fr-uncountable-usually-sg
+    - fr-uncountable-plural
+    - fr-countability-differs-from-english
+    fr-Gender-trends-by-ending:
+    - fr-trend-ending-e-fem
+    - fr-ending-sion-fem
+    - fr-ending-tion-fem
+    - fr-ending-aison-fem
+    - fr-ending-ite-fem
+    - fr-ending-logie-fem
+    - fr-ending-aire-masc
+    - fr-ending-isme-masc
+    - fr-ending-eme-masc
+    - fr-ending-ege-masc
+    - fr-double-consonant-before-e-masc
+    fr-Noun-clause-gender:
+    - fr-noun-clause-masc
   Rules:
-    u-Gender_u-masc__fr-Noun-clause-gender_fr-noun-clause-masc:
-      applies: {u-Gender: u-masc, fr-Noun-clause-gender: fr-noun-clause-masc}
-      note: "Noun clauses are masculine."
-
-    u-Gender_u-masc__fr-Noun-gender-regularity_fr-corresponds-to-natural-gender:
-      applies: {u-Gender: u-masc, fr-Noun-gender-regularity: fr-corresponds-to-natural-gender}
-      note: "For nouns referring to humans, grammatical gender usually corresponds to natural gender; a mixed-gender plural is masculine."
-      examples:
-        - "un chanteur"
-
-    u-Gender_u-fem__fr-Noun-gender-regularity_fr-corresponds-to-natural-gender:
-      applies: {u-Gender: u-fem, fr-Noun-gender-regularity: fr-corresponds-to-natural-gender}
-      note: "For nouns referring to humans, grammatical gender usually corresponds to natural gender; often there are distinct masculine and feminine nouns."
-      examples:
-        - "une chanteuse"
-        - "une cantatrice"
-
-    fr-Noun-gender-regularity_fr-fixed-grammatical-gender:
-      applies: {fr-Noun-gender-regularity: fr-fixed-grammatical-gender}
-      note: "Some nouns retain a fixed grammatical gender regardless of natural gender; some may have different standards by variety."
-      examples:
-        - "personne (always feminine)"
-        - "professeur (standard French: masculine)"
-        - "une professeure (Canadian French; increasingly common in European French)"
-
-    fr-Noun-gender-regularity_fr-gender-varies-by-number:
-      applies: {fr-Noun-gender-regularity: fr-gender-varies-by-number}
-      note: "Some (rare) nouns change gender according to number."
-      examples:
-        - "amour: masculine singular, feminine plural"
-        - "délice: masculine singular, feminine plural"
-
-    fr-Noun-gender-regularity_fr-gender-varies-by-usage:
-      applies: {fr-Noun-gender-regularity: fr-gender-varies-by-usage}
-      note: "Some nouns may change gender depending on usage (rare)."
-      examples:
-        - "orgue: masculine; emphatic plural for a church organ can be feminine (les grandes orgues)"
-        - "gens: usually masculine but can trigger feminine agreement when certain adjectives precede it"
-
-    fr-Noun-gender-regularity_fr-gender-changes-meaning:
-      applies: {fr-Noun-gender-regularity: fr-gender-changes-meaning}
-      note: "Some nouns change meaning depending on grammatical gender."
-      examples:
-        - "le critique (a critic) / la critique (criticism)"
-        - "le livre (a book) / la livre (the pound: weight/currency)"
-        - "le voile (veil) / la voile (sail)"
-
-    fr-Gender-trends-by-ending_fr-trend-ending-e-fem:
-      applies: {fr-Gender-trends-by-ending: fr-trend-ending-e-fem}
-      note: "Broad trend: nouns ending in -e tend to be feminine, though there are exceptions."
-      examples:
-        - "une étoile"
-        - "une voiture"
-
-    fr-Gender-trends-by-ending_fr-double-consonant-before-e-masc:
-      applies: {fr-Gender-trends-by-ending: fr-double-consonant-before-e-masc}
-      note: "Many nouns ending in -e preceded by double consonants are masculine."
-      examples:
-        - "un cadre"
-        - "un arbre"
-        - "un signe"
-        - "un meuble"
-
-    fr-Gender-trends-by-ending_fr-ending-sion-fem:
-      applies: {fr-Gender-trends-by-ending: fr-ending-sion-fem}
-      note: "Endings like -sion occur almost exclusively with feminine nouns."
-
-    fr-Gender-trends-by-ending_fr-ending-tion-fem:
-      applies: {fr-Gender-trends-by-ending: fr-ending-tion-fem}
-      note: "Endings like -tion occur almost exclusively with feminine nouns."
-
-    fr-Gender-trends-by-ending_fr-ending-aison-fem:
-      applies: {fr-Gender-trends-by-ending: fr-ending-aison-fem}
-      note: "Endings like -aison occur almost exclusively with feminine nouns."
-
-    fr-Gender-trends-by-ending_fr-ending-ite-fem:
-      applies: {fr-Gender-trends-by-ending: fr-ending-ite-fem}
-      note: "Endings like -ité occur almost exclusively with feminine nouns."
-
-    fr-Gender-trends-by-ending_fr-ending-logie-fem:
-      applies: {fr-Gender-trends-by-ending: fr-ending-logie-fem}
-      note: "Endings like -logie occur almost exclusively with feminine nouns."
-
-    fr-Gender-trends-by-ending_fr-ending-aire-masc:
-      applies: {fr-Gender-trends-by-ending: fr-ending-aire-masc}
-      note: "Endings like -aire occur almost exclusively with masculine nouns."
-
-    fr-Gender-trends-by-ending_fr-ending-isme-masc:
-      applies: {fr-Gender-trends-by-ending: fr-ending-isme-masc}
-      note: "Endings like -isme occur almost exclusively with masculine nouns."
-
-    fr-Gender-trends-by-ending_fr-ending-eme-masc:
-      applies: {fr-Gender-trends-by-ending: fr-ending-eme-masc}
-      note: "Endings like -ème occur almost exclusively with masculine nouns."
-
-    fr-Gender-trends-by-ending_fr-ending-ege-masc:
-      applies: {fr-Gender-trends-by-ending: fr-ending-ege-masc}
-      note: "Endings like -ège occur almost exclusively with masculine nouns."
-
     fr-Plural-formation_fr-plural-s:
-      applies: {fr-Plural-formation: fr-plural-s}
-      pattern: "_sg_ + s"
-      note: "Orthographically, the plural is usually formed from the singular by adding -s."
+      applies:
+        fr-Plural-formation: fr-plural-s
+      pattern: _sg_ + s
+      note: Orthographically, the plural is usually formed from the singular by adding -s.
       examples:
-        - "maison → maisons"
-
+      - maison → maisons
     fr-Plural-formation_fr-plural-x:
-      applies: {fr-Plural-formation: fr-plural-x}
-      pattern: "_sg_ + x"
-      note: "Nouns ending in -au, -eu, and -ou often take -x in the plural."
+      applies:
+        fr-Plural-formation: fr-plural-x
+      pattern: _sg_ + x
+      note: Nouns ending in -au, -eu, and -ou often take -x in the plural.
       examples:
-        - "jeu → jeux"
-
-    fr-Plural-formation_fr-plural-invariable:
-      applies: {fr-Plural-formation: fr-plural-invariable}
-      note: "Nouns ending in -s, -x, or -z in the singular are unchanged in the plural in spelling and pronunciation."
-      examples:
-        - "croix → croix"
-
-    fr-Plural-formation_fr-plural-al-aux:
-      applies: {fr-Plural-formation: fr-plural-al-aux}
-      note: "In speech, many plurals are homophonous with singular; a major set with distinct spoken plurals includes nouns ending in -al with plural -aux."
-      examples:
-        - "cheval → chevaux"
-
-    fr-Plural-formation_fr-plural-ail-aux:
-      applies: {fr-Plural-formation: fr-plural-ail-aux}
-      note: "A few nouns ending in -ail also have plural -aux."
-      examples:
-        - "travail → travaux"
-
-    fr-Plural-formation_fr-plural-irregular:
-      applies: {fr-Plural-formation: fr-plural-irregular}
-      note: "Some nouns have completely irregular plurals, with alternative plurals in certain meanings/uses."
-      examples:
-        - "aïeul → aïeux (but aïeuls)"
-        - "ciel → cieux (but des ciels de lit)"
-        - "œil → yeux (but des œils-de-bœuf, des œils-de-perdrix)"
-
-    fr-Plural-formation_fr-plural-irregular-pronunciation:
-      applies: {fr-Plural-formation: fr-plural-irregular-pronunciation}
-      note: "Some nouns have regular plural spelling but irregular pronunciation."
-      examples:
-        - "bœuf [bœf] → bœufs [bø]"
-        - "œuf [œf] → œufs [ø]"
-        - "os [ɔs] → os [o]"
-
-    fr-Countability_fr-uncountable-usually-sg:
-      applies: {fr-Countability: fr-uncountable-usually-sg}
-      note: "Most uncountable nouns are grammatically treated as singular."
-
-    fr-Countability_fr-uncountable-plural:
-      applies: {fr-Countability: fr-uncountable-plural}
-      note: "Some uncountable nouns are grammatically plural."
-      examples:
-        - "les mathématiques"
-
-    fr-Countability_fr-countability-differs-from-english:
-      applies: {fr-Countability: fr-countability-differs-from-english}
-      note: "Some nouns uncountable in English are countable in French."
-      examples:
-        - "une information"
+      - jeu → jeux

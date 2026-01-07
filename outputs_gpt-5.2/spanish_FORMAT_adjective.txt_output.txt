@@ -8,42 +8,28 @@ Adjective:
     - u-fem
     x-Domain:
     - x-noun-adjective
-
+    x-Process:
+    - x-conversion
   Rules:
     x-Domain_x-noun-adjective:
-      applies: {x-Domain: x-noun-adjective}
+      applies:
+        x-Domain: x-noun-adjective
       patterns:
-      - pattern: "_noun_ + _adjective_"
-        note: "Adjectives usually follow the noun they modify."
+      - pattern: _noun_ + _adjective_
+        note: Adjectives usually follow the noun they modify.
         examples:
-        - "Mi casa roja"
-        - "la taza roja"
-        - "el vaso rojo"
-      - pattern: "_adjective_ + _noun_"
-        note: "Adjectives may precede the noun for emphasis or a poetic effect, stressing a particular quality."
+        - Mi casa roja
+        - la taza roja
+        - el vaso rojo
+      - pattern: _adjective_ + _noun_
+        note: Adjectives may precede the noun for emphasis or a poetic effect, stressing a particular quality.
         examples:
-        - "Mi roja casa"
-
-    u-Gender_u-fem__u-Number_u-sg:
-      applies: {u-Gender: u-fem, u-Number: u-sg}
-      examples:
-      - "la taza roja"
-
-    u-Gender_u-masc__u-Number_u-sg:
-      applies: {u-Gender: u-masc, u-Number: u-sg}
-      examples:
-      - "el vaso rojo"
-
-    u-Number_u-pl:
-      applies: {u-Number: u-pl}
-      note: "Adjectives agree in number with what they refer to."
-      examples:
-      - "los altos"
-
+        - Mi roja casa
     x-Process_x-conversion:
-      applies: {x-Process: x-conversion}
-      pattern: "_determiner_ + _adjective_"
-      note: "An adjective can stand in for a noun or pronoun; for people this carries no implication of condescension or rudeness."
+      applies:
+        x-Process: x-conversion
+      pattern: _determiner_ + _adjective_
+      note: An adjective can stand in for a noun or pronoun; for people this carries no implication of condescension or rudeness.
       examples:
-      - "los altos"
-      - "El grande"
+      - los altos
+      - El grande

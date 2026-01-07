@@ -1,7 +1,8 @@
 Subjunctive:
   Features:
     u-Mood: [u-sbjv]
-    u-Polarity: [u-pos, u-neg]
+    u-Polarity:
+    - u-neg
     ny-Subjunctive-infix: [ny-go-ka, ny-come-dza, ny-neg-habit-ma, ny-modal-nga]
     x-Process: [x-prefixation, x-suffixation]
 
@@ -46,25 +47,25 @@ Subjunctive:
       examples:
       - "Ndisathandíze."
 
-    u-Mood_u-sbjv__ny-Subjunctive-infix_ny-go-ka:
+    ny-Subjunctive-infix_ny-go-ka__u-Mood_u-sbjv:
       applies: {u-Mood: u-sbjv, ny-Subjunctive-infix: ny-go-ka}
       pattern: "_SUBJ(SubjectPrefix)_ + ká + _VerbStem_ + e"
       examples:
       - "Ndikáthandizé."
 
-    u-Mood_u-sbjv__ny-Subjunctive-infix_ny-come-dza:
+    ny-Subjunctive-infix_ny-come-dza__u-Mood_u-sbjv:
       applies: {u-Mood: u-sbjv, ny-Subjunctive-infix: ny-come-dza}
       pattern: "_SUBJ(SubjectPrefix)_ + dzá + _VerbStem_ + e"
       examples:
       - "Ndidzáthandizé."
 
-    u-Mood_u-sbjv__ny-Subjunctive-infix_ny-neg-habit-ma:
+    ny-Subjunctive-infix_ny-neg-habit-ma__u-Mood_u-sbjv:
       applies: {u-Mood: u-sbjv, ny-Subjunctive-infix: ny-neg-habit-ma}
       pattern: "_SUBJ(SubjectPrefix)_ + má + _VerbStem_ + e"
       examples:
       - "Ndimáthandizé."
 
-    u-Mood_u-sbjv__ny-Subjunctive-infix_ny-modal-nga:
+    ny-Subjunctive-infix_ny-modal-nga__u-Mood_u-sbjv:
       applies: {u-Mood: u-sbjv, ny-Subjunctive-infix: ny-modal-nga}
       pattern: "_SUBJ(SubjectPrefix)_ + nga + _VerbStem_ + e"
       examples:

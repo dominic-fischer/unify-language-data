@@ -5,7 +5,7 @@ Present:
     u-Aspect: [u-prf, u-prog, u-prosp]
 
   Rules:
-    u-Tense_u-prs__u-Mood_u-ind:
+    u-Mood_u-ind__u-Tense_u-prs:
       applies: {u-Tense: u-prs, u-Mood: u-ind}
       patterns:
       - pattern: "indicativo presente"

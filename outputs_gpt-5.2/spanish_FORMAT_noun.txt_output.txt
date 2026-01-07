@@ -1,16 +1,9 @@
 Noun:
   Features:
-    u-Gender: [u-masc, u-fem]
-
-  Rules:
-    u-Gender_u-masc:
-      applies: {u-Gender: u-masc}
-      note: "In Spanish, all nouns belong to one of two genders: masculine or feminine."
-
-    u-Gender_u-fem:
-      applies: {u-Gender: u-fem}
-      note: "In Spanish, all nouns belong to one of two genders: masculine or feminine."
-
+    u-Gender:
+    - u-masc
+    - u-fem
+  Rules: {}
   Notes:
-    - "Many adjectives change their form to agree in gender with the noun they modify."
-    - "For most nouns that refer to persons, grammatical gender matches biological gender."
+  - Many adjectives change their form to agree in gender with the noun they modify.
+  - For most nouns that refer to persons, grammatical gender matches biological gender.

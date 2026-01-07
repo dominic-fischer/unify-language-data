@@ -8,85 +8,77 @@ ChewaPast:
     - ny-past-perfect
     ny-Aspect-marker:
     - ny-ka
-    - ny-ma
-    - ny-dza
-    - ny-ngo
     ny-Polarity-type:
     - ny-si-prefix
     - ny-sa-infix
   Usage:
     ny-past-remote-continuous:
-      note: "Continuous: the effect of the action is still valid."
+      note: 'Continuous: the effect of the action is still valid.'
       examples:
-      - "Ndi-ná-thandíza. (I helped.)"
+      - Ndi-ná-thandíza. (I helped.)
     ny-past-recent-discontinuous:
-      note: "Discontinuous: the effect of the action is no longer valid."
+      note: 'Discontinuous: the effect of the action is no longer valid.'
       examples:
-      - "Ndi-na-thándiza. (I helped just now (but not anymore).)"
+      - Ndi-na-thándiza. (I helped just now (but not anymore).)
     ny-past-perfect:
-      note: "A compound tense (Past Perfect / Pluperfect) is formed with a composed construction."
+      note: A compound tense (Past Perfect / Pluperfect) is formed with a composed construction.
       examples:
-      - "Ndi-ná-li ndí-tá-thándiza. (I had helped.)"
+      - Ndi-ná-li ndí-tá-thándiza. (I had helped.)
   Rules:
     ny-Tense-type_ny-past-remote-continuous:
-      applies: {ny-Tense-type: ny-past-remote-continuous}
+      applies:
+        ny-Tense-type: ny-past-remote-continuous
       patterns:
-      - pattern: "_SUBJ_ + ná- + _VERB_"
+      - pattern: _SUBJ_ + ná- + _VERB_
         examples:
-        - "Ndi-ná-thandíza. (I helped.)"
-      - pattern: "sí- + _SUBJ_ + na- + _VERB_ + e"
+        - Ndi-ná-thandíza. (I helped.)
+      - pattern: sí- + _SUBJ_ + na- + _VERB_ + e
         examples:
-        - "Sí-ndí-na-thandíz-e. (I did not help.)"
+        - Sí-ndí-na-thandíz-e. (I did not help.)
     ny-Tense-type_ny-past-recent-discontinuous:
-      applies: {ny-Tense-type: ny-past-recent-discontinuous}
+      applies:
+        ny-Tense-type: ny-past-recent-discontinuous
       patterns:
-      - pattern: "_SUBJ_ + na- + _VERB_"
+      - pattern: _SUBJ_ + na- + _VERB_
         examples:
-        - "Ndi-na-thándiza. (I helped just now (but not anymore).)"
-      - pattern: "si- + _SUBJ_ + na- + _VERB_ + e"
+        - Ndi-na-thándiza. (I helped just now (but not anymore).)
+      - pattern: si- + _SUBJ_ + na- + _VERB_ + e
         examples:
-        - "Si-ndi-na-thandíz-e. (I have not helped yet.)"
+        - Si-ndi-na-thandíz-e. (I have not helped yet.)
     ny-Tense-type_ny-imperfect-remote:
-      applies: {ny-Tense-type: ny-imperfect-remote}
+      applies:
+        ny-Tense-type: ny-imperfect-remote
       patterns:
-      - pattern: "_SUBJ_ + nká- + _VERB_"
+      - pattern: _SUBJ_ + nká- + _VERB_
         examples:
-        - "Ndi-nká-thandíza. (I was helping / I used to help.)"
-      - pattern: "sí- + _SUBJ_ + nká- + _VERB_"
+        - Ndi-nká-thandíza. (I was helping / I used to help.)
+      - pattern: sí- + _SUBJ_ + nká- + _VERB_
         examples:
-        - "Sí-ndí-nká-thandíza. (I was not helping / I did not use to help.)"
+        - Sí-ndí-nká-thandíza. (I was not helping / I did not use to help.)
     ny-Tense-type_ny-past-habitual-imperfect-discontinuous:
-      applies: {ny-Tense-type: ny-past-habitual-imperfect-discontinuous}
+      applies:
+        ny-Tense-type: ny-past-habitual-imperfect-discontinuous
       patterns:
-      - pattern: "_SUBJ_ + ma- + _VERB_"
+      - pattern: _SUBJ_ + ma- + _VERB_
         examples:
-        - "Ndi-ma-thándiza. (I was helping / I used to help.)"
-      - pattern: "sí- + _SUBJ_ + ma- + _VERB_"
+        - Ndi-ma-thándiza. (I was helping / I used to help.)
+      - pattern: sí- + _SUBJ_ + ma- + _VERB_
         examples:
-        - "Sí-ndí-ma-thándiza. (I was not helping / I did not use to help.)"
-    ny-Tense-type_ny-past-remote-continuous__ny-Aspect-marker_ny-ka:
-      applies: {ny-Tense-type: ny-past-remote-continuous, ny-Aspect-marker: ny-ka}
-      pattern: "_SUBJ_ + ná- + ká- + _VERB_"
-      examples:
-      - "Ndi-ná-ká-thandiza. (I went to help.)"
+        - Sí-ndí-ma-thándiza. (I was not helping / I did not use to help.)
     ny-Tense-type_ny-past-perfect:
-      applies: {ny-Tense-type: ny-past-perfect}
+      applies:
+        ny-Tense-type: ny-past-perfect
       patterns:
-      - pattern: "_SUBJ_ + ná- + li + _SUBJ_ + tá- + _VERB_"
+      - pattern: _SUBJ_ + ná- + li + _SUBJ_ + tá- + _VERB_
         examples:
-        - "Ndi-ná-li ndí-tá-thándiza. (I had helped.)"
-      - pattern: "_SUBJ_ + ná- + li + _SUBJ_ + sa-na- + _VERB_ + e"
+        - Ndi-ná-li ndí-tá-thándiza. (I had helped.)
+      - pattern: _SUBJ_ + ná- + li + _SUBJ_ + sa-na- + _VERB_ + e
         examples:
-        - "Ndi-ná-li ndí-sa-na-thandíz-e. (I had not yet helped.)"
-    ny-Polarity-type_ny-si-prefix:
-      applies: {ny-Polarity-type: ny-si-prefix}
-      note: "Negative tenses (as main verbs) use the prefix sí-."
+        - Ndi-ná-li ndí-sa-na-thandíz-e. (I had not yet helped.)
+    ny-Aspect-marker_ny-ka__ny-Tense-type_ny-past-remote-continuous:
+      applies:
+        ny-Tense-type: ny-past-remote-continuous
+        ny-Aspect-marker: ny-ka
+      pattern: _SUBJ_ + ná- + ká- + _VERB_
       examples:
-      - "sí-ndí-gula (I don't buy)"
-      - "sí-ndi-na-gúle (I didn't buy)"
-    ny-Polarity-type_ny-sa-infix:
-      applies: {ny-Polarity-type: ny-sa-infix}
-      note: "Infinitives, participial verbs, and the subjunctive form their negative with -sa- after the subject prefix."
-      examples:
-      - "ndi-sa-gúle (I should not buy)"
-      - "ku-sa-gúla (not to buy)"
+      - Ndi-ná-ká-thandiza. (I went to help.)

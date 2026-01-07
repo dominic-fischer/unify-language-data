@@ -3,75 +3,57 @@ Past:
     zu-Tense-type:
     - zu-recent-past
     - zu-remote-past
-
+    u-Polarity:
+    - u-neg
   Usage:
     zu-recent-past:
-      note: "There are two different past tenses in Zulu: the recent past (also called the perfect) and the remote past. What is 'recent' versus 'remote' depends on the speaker. In colloquial language, the recent past is often preferred to the remote past."
+      note: 'There are two different past tenses in Zulu: the recent past (also called the perfect) and the remote past. What is ''recent'' versus ''remote'' depends on the speaker. In colloquial language, the recent past is often preferred to the remote past.'
       examples:
-      - "Sihambile. \"We went.\""
-      - "Sihambē izolo. \"We went yesterday.\""
+      - Sihambile. "We went."
+      - Sihambē izolo. "We went yesterday."
     zu-remote-past:
-      note: "The remote past is used to indicate the distant past, the past preceding the recent past, and as a narrative past."
+      note: The remote past is used to indicate the distant past, the past preceding the recent past, and as a narrative past.
       examples:
-      - "Sāhamba. \"We went.\""
-
+      - Sāhamba. "We went."
   Negation:
     examples:
-    - "Asihambanga. \"We did not go.\""
-    - "Asimbonanga. \"We have not seen/did not see him/her.\""
-    note: "The two past tenses share the same negative forms."
-
+    - Asihambanga. "We did not go."
+    - Asimbonanga. "We have not seen/did not see him/her."
+    note: The two past tenses share the same negative forms.
   Rules:
     zu-Tense-type_zu-recent-past:
-      applies: {zu-Tense-type: zu-recent-past}
+      applies:
+        zu-Tense-type: zu-recent-past
       patterns:
-      - pattern: "[subj1][obj]...ile/ē"
-        note: "The long form in -ile is found when the verb has a lengthened penultimate syllable (same as the present -ya-); otherwise the short form in -ē is used."
+      - pattern: '[subj1][obj]...ile/ē'
+        note: The long form in -ile is found when the verb has a lengthened penultimate syllable (same as the present -ya-); otherwise the short form in -ē is used.
         examples:
-        - "Sihambile. \"We went.\""
-        - "Sihambē izolo. \"We went yesterday.\""
-      - endings:
-        - features: {x-Process: x-suffixation}
-          form: "-ele"
-          note: "Used with verb stems ending in -ala, -ela."
-        - features: {x-Process: x-suffixation}
-          form: "-eme"
-          note: "Used with verb stems ending in -ama, -ema."
-        - features: {x-Process: x-suffixation}
-          form: "-ene"
-          note: "Used with verb stems ending in -ana, -ena."
-        - features: {x-Process: x-suffixation}
-          form: "-ese"
-          note: "Used with verb stems ending in -asa, -esa."
-        - features: {x-Process: x-suffixation}
-          form: "-iwe"
-          note: "Used with passive verb stems ending in -wa."
-        - features: {x-Process: x-suffixation}
-          form: "-ewe"
-          note: "Unique case: irregular passive -bulawa from -bulala."
-        note: "With verbs of certain endings, the recent past ending -ile is not used; instead the vowels of the last two syllables of the stem are changed. There is no distinction between long and short forms (-ile vs -ē) in these verbs."
+        - Sihambile. "We went."
+        - Sihambē izolo. "We went yesterday."
     zu-Tense-type_zu-remote-past:
-      applies: {zu-Tense-type: zu-remote-past}
+      applies:
+        zu-Tense-type: zu-remote-past
       patterns:
-      - pattern: "[subj1]ā[obj]...a"
+      - pattern: '[subj1]ā[obj]...a'
         examples:
-        - "Sāhamba. \"We went.\""
-      - pattern: "[subjP]ā[obj]...a"
-        note: "Participial form."
-    zu-Tense-type_zu-past-negative:
-      applies: {u-Polarity: u-neg}
+        - Sāhamba. "We went."
+      - pattern: '[subjP]ā[obj]...a'
+        note: Participial form.
+    u-Polarity_u-neg:
+      applies:
+        u-Polarity: u-neg
       patterns:
-      - pattern: "a[subj2][obj]...anga"
+      - pattern: a[subj2][obj]...anga
         examples:
-        - "Asihambanga. \"We did not go.\""
-        - "Asimbonanga. \"We have not seen/did not see him/her.\""
-      - pattern: "[subjP]nga[obj]...anga"
-        note: "Participial form."
+        - Asihambanga. "We did not go."
+        - Asimbonanga. "We have not seen/did not see him/her."
+      - pattern: '[subjP]nga[obj]...anga'
+        note: Participial form.
       - forms:
         - features: {}
-          form: "Besingesekhaya."
-          note: "For the past of the verb 'to be', in negation -nga- becomes -nge-."
+          form: Besingesekhaya.
+          note: For the past of the verb 'to be', in negation -nga- becomes -nge-.
         - features: {}
-          form: "Besingahambihamba."
-          note: "For the past of the verb 'to be', in negation -nga- becomes -nge-."
-        note: "For the past of the verb 'to be', one can use either the imperfect or the pluperfect; compared to other verbs, the only difference is that in negation the syllable -nga- becomes -nge-."
+          form: Besingahambihamba.
+          note: For the past of the verb 'to be', in negation -nga- becomes -nge-.
+        note: For the past of the verb 'to be', one can use either the imperfect or the pluperfect; compared to other verbs, the only difference is that in negation the syllable -nga- becomes -nge-.

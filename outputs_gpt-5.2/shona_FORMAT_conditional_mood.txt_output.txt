@@ -1,8 +1,10 @@
 Conditionals:
   Features:
     u-Tense: [u-prs, u-pst]
-    u-Mood: [u-cond, u-pot]
-    u-Polarity: [u-neg, u-pos]
+    u-Mood:
+    - u-cond
+    u-Polarity:
+    - u-neg
     x-Clausetype: [x-protasis, x-apodosis]
   Rules:
     u-Mood_u-cond__u-Tense_u-prs__x-Clausetype_x-protasis:
@@ -19,32 +21,32 @@ Conditionals:
       pattern: "{sbj}-no/{sbj}-cha/{sbj}-nga-{verb}"
       examples:
       - "(Kana) ndi-ka-siya ndi-no/cha/nga-rasika."
-    u-Mood_u-cond__u-Tense_u-prs__u-Polarity_u-neg__x-Clausetype_x-protasis:
-      applies: {u-Mood: u-cond, u-Tense: u-prs, u-Polarity: u-neg, x-Clausetype: x-protasis}
-      pattern: "{sbj}-ka-sa-{verb}"
-      examples:
-      - "Ndi-ka-sa-siya ha-ndi-goni kurasika."
-      note: "Negation formed by inserting -sa- after -ka-."
     u-Mood_u-cond__u-Tense_u-pst__x-Clausetype_x-protasis:
       applies: {u-Mood: u-cond, u-Tense: u-pst, x-Clausetype: x-protasis}
       pattern: "dai {sbj}-{perf}"
       examples:
       - "Dai nda-ka-zvara mwana, ndi-nga-dai nda-ka-fara."
       note: "Past conditional uses auxiliary dai with a perfect form."
-    u-Mood_u-cond__u-Tense_u-pst__u-Mood_u-pot__x-Clausetype_x-apodosis:
-      applies: {u-Mood: u-cond, u-Tense: u-pst, u-Mood: u-pot, x-Clausetype: x-apodosis}
+    u-Mood_u-cond__u-Polarity_u-neg__u-Tense_u-prs__x-Clausetype_x-protasis:
+      applies: {u-Mood: u-cond, u-Tense: u-prs, u-Polarity: u-neg, x-Clausetype: x-protasis}
+      pattern: "{sbj}-ka-sa-{verb}"
+      examples:
+      - "Ndi-ka-sa-siya ha-ndi-goni kurasika."
+      note: "Negation formed by inserting -sa- after -ka-."
+    u-Mood_u-cond__u-Tense_u-pst__x-Clausetype_x-apodosis:
+      applies: {u-Mood: u-cond, u-Tense: u-pst, x-Clausetype: x-apodosis}
       pattern: "{sbj}-nga-dai {sbj}-{perf}"
       examples:
       - "Dai nda-ka-zvara mwana, ndi-nga-dai nda-ka-fara."
       note: "Uses -nga- (potentiality infix) with dai plus perfect form."
-    u-Mood_u-cond__u-Tense_u-pst__u-Polarity_u-neg__x-Clausetype_x-protasis:
+    u-Mood_u-cond__u-Polarity_u-neg__u-Tense_u-pst__x-Clausetype_x-protasis:
       applies: {u-Mood: u-cond, u-Tense: u-pst, u-Polarity: u-neg, x-Clausetype: x-protasis}
       pattern: "dai {sbj}-sina {verb}"
       examples:
       - "Dai ndi-sina kuva no-mwana, ndi-nga-dai ndi-sina kufara."
       note: "Negation requires an auxiliary construction with sina ('not have')."
-    u-Mood_u-cond__u-Tense_u-pst__u-Polarity_u-neg__u-Mood_u-pot__x-Clausetype_x-apodosis:
-      applies: {u-Mood: u-cond, u-Tense: u-pst, u-Polarity: u-neg, u-Mood: u-pot, x-Clausetype: x-apodosis}
+    u-Mood_u-cond__u-Polarity_u-neg__u-Tense_u-pst__x-Clausetype_x-apodosis:
+      applies: {u-Mood: u-cond, u-Tense: u-pst, u-Polarity: u-neg, x-Clausetype: x-apodosis}
       pattern: "{sbj}-nga-dai {sbj}-sina {verb}"
       examples:
       - "Dai ndi-sina kuva no-mwana, ndi-nga-dai ndi-sina kufara."

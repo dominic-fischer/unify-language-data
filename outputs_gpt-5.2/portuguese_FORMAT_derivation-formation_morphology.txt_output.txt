@@ -3,7 +3,6 @@ DerivationFormationMorphology:
     u-Part-of-Speech:
     - u-n
     u-Number:
-    - u-sg
     - u-pl
     u-Gender:
     - u-masc

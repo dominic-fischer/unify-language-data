@@ -6,7 +6,7 @@ Present:
     sn-Conditional-neg-infix: ["-sa-"]
 
   Rules:
-    u-Tense_u-prs__u-Mood_u-cond:
+    u-Mood_u-cond__u-Tense_u-prs:
       applies: {u-Tense: u-prs, u-Mood: u-cond}
       patterns:
       - pattern: "(Kana) _SUBJ_-ka-_VERB_ _SUBJ_-no/cha/nga-_VERB_"

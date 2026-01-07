@@ -3,6 +3,8 @@ Imperative:
     u-Mood: [u-imp]
     u-Number: [u-sg, u-pl]
     u-Politeness: [u-low, u-high]
+    x-Process:
+    - x-prefixation
 
   Rules:
     u-Mood_u-imp__u-Number_u-sg__u-Politeness_u-low:

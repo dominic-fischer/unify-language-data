@@ -6,71 +6,26 @@ Adjective:
     - u-neg
     u-Comparison:
     - u-sprl
-
   Rules:
-    u-Part-of-Speech_u-adj:
-      applies: {u-Part-of-Speech: u-adj}
-      patterns:
-      - pattern: "_possessive-concord_ + _noun_"
-        examples:
-        - "Ndiye munthu wa ulemu."
-        note: "Nominal adjective formation from nouns: possessive concord + noun."
-      - pattern: "_property-syllable_ + _verb-stem_ + _noun_"
-        note: "Nominal adjective formation: property syllable + verb stem + noun."
-      - pattern: "_possessive-concord_ + _adjective-stem_"
-        note: "Verbal adjectives (monosyllabic adjective stems): possessive concord + base form."
-        examples:
-        - "Ndiye munthu wakuda."
-        - "kuda"
-      - pattern: "_property-syllable_ + _verb-stem_"
-        note: "Verbal adjectives (polysyllabic): property syllable + verb stem."
-        examples:
-        - "Ndiye munthu wocheza."
-        - "cheza"
-      - pattern: "_possessive-concord_ + _number-concord_(m-/mw-) + _adjective-stem_"
-        note: "Certain adjectives take a double prefix combining possessive concord and number concord."
-        examples:
-        - "mwaná wáḿkúlu"
-        - "aná áákúlu"
-        - "mwaná wáḿng'óno"
-        - "aná ááng'óno"
-        - "mwaná wámwámúna"
-        - "aná áámúna"
-        - "mwaná wáḿkázi"
-        - "aná áákázi"
-      forms:
-      - {features: {}, pattern: "_possessive-concord_ + -kulu"}
-      - {features: {}, pattern: "_possessive-concord_ + -ng’ono"}
-      - {features: {}, pattern: "_possessive-concord_ + -tali"}
-      - {features: {}, pattern: "_possessive-concord_ + -fupi"}
-      - {features: {}, pattern: "_property-syllable_ + -nse"}
-      - {features: {}, pattern: "_property-syllable_ + -kha"}
-      - {features: {}, pattern: "_initial-vowel_ + _property-syllable_ + -ina"}
-      - {features: {}, pattern: "_initial-vowel_ + _property-syllable_ + -eni…eni"}
-      - {features: {}, pattern: "_class-marker_ + li + _property-syllable_ + -nse"}
-      - {features: {}, pattern: "_possessive-concord_ + -mbiri"}
-      - {features: {}, pattern: "_possessive-concord_ + -tsopano"}
-      - {features: {}, pattern: "_possessive-concord_ + -kare"}
-      - {features: {}, pattern: "_possessive-concord_ + -chabe"}
-      - {features: {}, pattern: "_possessive-concord_ + -bwino"}
-
     u-Polarity_u-neg:
-      applies: {u-Polarity: u-neg}
+      applies:
+        u-Polarity: u-neg
       patterns:
-      - pattern: "_property-syllable_ + -panda + _noun_"
+      - pattern: _property-syllable_ + -panda + _noun_
         examples:
-        - "Ndiye munthu wopanda ulemu."
-        note: "Negation of nominal adjectives."
-      - pattern: "_property-syllable_ + sa + _verb-stem_"
+        - Ndiye munthu wopanda ulemu.
+        note: Negation of nominal adjectives.
+      - pattern: _property-syllable_ + sa + _verb-stem_
         examples:
-        - "Ndiye munthu wosada."
-        - "Ndiye munthu wosacheza."
-        note: "Negation of verbal adjectives uses the negative infinitive with -sa- before the verb stem."
-
+        - Ndiye munthu wosada.
+        - Ndiye munthu wosacheza.
+        note: Negation of verbal adjectives uses the negative infinitive with -sa-
+          before the verb stem.
     u-Comparison_u-sprl:
-      applies: {u-Comparison: u-sprl}
-      pattern: "_adjective-stem_~_adjective-stem_"
-      note: "Reduplication of the adjective stem expresses an elative or superlative."
+      applies:
+        u-Comparison: u-sprl
+      pattern: _adjective-stem_~_adjective-stem_
+      note: Reduplication of the adjective stem expresses an elative or superlative.
       examples:
-      - "nyumba yayikulu"
-      - "nyumba yayikulukulu"
+      - nyumba yayikulu
+      - nyumba yayikulukulu

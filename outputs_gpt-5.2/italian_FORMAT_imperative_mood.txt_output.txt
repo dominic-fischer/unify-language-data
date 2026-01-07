@@ -45,7 +45,7 @@ Imperative:
         - "partano!"
         note: "Borrowed from the present subjunctive; only technically an imperative in 2SG and 2PL."
 
-    u-Mood_u-imp__ita-VerbClass_ita-isc:
+    ita-VerbClass_ita-isc__u-Mood_u-imp:
       applies: {u-Mood: u-imp, ita-VerbClass: ita-isc}
       pattern: "Insert -isc- in all imperative forms except (noi) and (voi)."
       note: "Applies to verbs such as 'capire'."

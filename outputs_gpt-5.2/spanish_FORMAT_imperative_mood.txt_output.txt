@@ -6,7 +6,7 @@ Imperative:
     u-Politeness: [u-col, u-form]
 
   Rules:
-    u-Mood_u-imp__u-Person_u-2__u-Number_u-pl__u-Politeness_u-form:
+    u-Mood_u-imp__u-Number_u-pl__u-Person_u-2__u-Politeness_u-form:
       applies: {u-Mood: u-imp, u-Person: u-2, u-Number: u-pl, u-Politeness: u-form}
       forms:
       - features: {u-Politeness: u-form}
@@ -16,7 +16,7 @@ Imperative:
       - features: {u-Politeness: u-form}
         form: "¡Idos!"
 
-    u-Mood_u-imp__u-Person_u-2__u-Number_u-pl__u-Politeness_u-col:
+    u-Mood_u-imp__u-Number_u-pl__u-Person_u-2__u-Politeness_u-col:
       applies: {u-Mood: u-imp, u-Person: u-2, u-Number: u-pl, u-Politeness: u-col}
       pattern: "infinitive (used instead of the imperative)"
       examples:

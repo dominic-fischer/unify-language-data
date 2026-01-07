@@ -2,11 +2,8 @@ Adjective:
   Features:
     u-Number:
     - u-sg
-    - u-pl
     u-Gender:
     - u-masc
-    - u-neut
-    - u-fem
     u-Case:
     - u-dat
     - u-gen
@@ -41,27 +38,6 @@ Adjective:
       - "Băiatul este blond."
 
   Rules:
-    u-Number_u-sg__u-Number_u-pl:
-      applies: {u-Number: u-sg, u-Gender: u-masc}
-      patterns:
-      - pattern: "_stem_ (variable adjective; four distinct forms: masc.sg = neut.sg; fem.sg distinct; plural distinguishes masc vs fem/neut)"
-        examples:
-        - "amar → masc.sg amar; neut.sg amar; fem.sg amară; masc.pl amari; fem/neut.pl amare"
-        note: "Adjectives may inflect for number and gender; some have four distinct forms."
-      - pattern: "_stem_ (variable adjective; gender distinguished only in singular; plural uses -i for all genders)"
-        examples:
-        - "lung → masc.sg lung; neut.sg lung; fem.sg lungă; pl lungi"
-        note: "Some adjectives distinguish gender only in the singular, with -i in plural forms."
-      - pattern: "_stem_ (variable adjective; only number inflection)"
-        examples:
-        - "verde → sg verde; pl verzi"
-        note: "Some adjectives do not distinguish gender and only inflect for number."
-      - forms:
-        - features: {}
-          form: "oranj"
-          note: "Borrowed adjectives can be invariable, having just one form."
-        note: "Adjectives with more than one inflected form are called variable."
-
     u-Comparison_u-cmpr:
       applies: {u-Comparison: u-cmpr}
       patterns:
@@ -106,3 +82,24 @@ Adjective:
           form: "frumos"
           note: "Positive degree example."
         note: "Positive degree is the base form for comparison."
+    u-Gender_u-masc__u-Number_u-sg:
+      applies: {u-Number: u-sg, u-Gender: u-masc}
+      patterns:
+      - pattern: "_stem_ (variable adjective; four distinct forms: masc.sg = neut.sg; fem.sg distinct; plural distinguishes masc vs fem/neut)"
+        examples:
+        - "amar → masc.sg amar; neut.sg amar; fem.sg amară; masc.pl amari; fem/neut.pl amare"
+        note: "Adjectives may inflect for number and gender; some have four distinct forms."
+      - pattern: "_stem_ (variable adjective; gender distinguished only in singular; plural uses -i for all genders)"
+        examples:
+        - "lung → masc.sg lung; neut.sg lung; fem.sg lungă; pl lungi"
+        note: "Some adjectives distinguish gender only in the singular, with -i in plural forms."
+      - pattern: "_stem_ (variable adjective; only number inflection)"
+        examples:
+        - "verde → sg verde; pl verzi"
+        note: "Some adjectives do not distinguish gender and only inflect for number."
+      - forms:
+        - features: {}
+          form: "oranj"
+          note: "Borrowed adjectives can be invariable, having just one form."
+        note: "Adjectives with more than one inflected form are called variable."
+

@@ -1,70 +1,88 @@
 Pronoun:
   Features:
-    u-Person: [u-1, u-2, u-3]
-    u-Number: [u-sg, u-pl]
-    u-Politeness: [u-pol]
-    u-Deixis: [u-prox, u-remt]
-    x-Pronoun-type: [x-pers, x-dem, x-poss, x-int, x-rel]
-
+    u-Person:
+    - u-1
+    - u-2
+    - u-3
+    u-Number:
+    - u-sg
+    - u-pl
+    u-Politeness:
+    - u-pol
+    u-Deixis:
+    - u-prox
+    - u-remt
+    x-Pronoun-type:
+    - x-dem
+    - x-int
+    - x-pers
+    - x-rel
   Usage:
     u-Politeness_u-pol:
-      applies: {u-Politeness: u-pol}
-      note: "Adults should always be addressed in 2nd person plural; singular is considered impolite in normal usage and is only used towards children or clearly lower-ranked persons."
-
+      applies:
+        u-Politeness: u-pol
+      note: Adults should always be addressed in 2nd person plural; singular is considered impolite in normal usage and is only used towards children or clearly lower-ranked persons.
   Rules:
     x-Pronoun-type_x-pers:
-      applies: {x-Pronoun-type: x-pers}
-      note: "In Shona, personal pronouns are identical for subject and object."
+      applies:
+        x-Pronoun-type: x-pers
+      note: In Shona, personal pronouns are identical for subject and object.
       forms:
-      - {features: {u-Person: u-1, u-Number: u-sg}, form: "ini"}
-      - {features: {u-Person: u-2, u-Number: u-sg}, form: "iwe"}
-      - {features: {u-Person: u-3, u-Number: u-sg}, form: "iye"}
-      - {features: {u-Person: u-1, u-Number: u-pl}, form: "isu"}
-      - {features: {u-Person: u-2, u-Number: u-pl}, form: "imwi"}
-      - {features: {u-Person: u-3, u-Number: u-pl}, form: "ivo"}
-
+      - features:
+          u-Person: u-1
+          u-Number: u-sg
+        form: ini
+      - features:
+          u-Person: u-2
+          u-Number: u-sg
+        form: iwe
+      - features:
+          u-Person: u-3
+          u-Number: u-sg
+        form: iye
+      - features:
+          u-Person: u-1
+          u-Number: u-pl
+        form: isu
+      - features:
+          u-Person: u-2
+          u-Number: u-pl
+        form: imwi
+      - features:
+          u-Person: u-3
+          u-Number: u-pl
+        form: ivo
     x-Pronoun-type_x-dem:
-      applies: {x-Pronoun-type: x-dem}
-      note: "Shona distinguishes four types of demonstratives; demonstrative forms vary by noun class."
-      patterns:
-      - pattern: "_noun_ + (class marker vowel + class marker)"
-        note: "Demonstrative I ('this')"
-        forms:
-        - {features: {}, form: "munhu uyu"}
-      - pattern: "_noun_ + (class marker vowel + descriptive syllable)"
-        note: "Demonstrative II ('that')"
-        forms:
-        - {features: {}, form: "munhu uyo"}
-      - pattern: "_noun_ + (class marker + no)"
-        note: "Demonstrative III ('this here', autoreferential)"
-        forms:
-        - {features: {}, form: "munhu uno"}
-      - pattern: "_noun_ + (class marker + ye)"
-        note: "Demonstrative IV ('that known one')"
-        forms:
-        - {features: {}, form: "munhu uye"}
-
+      applies:
+        x-Pronoun-type: x-dem
+      note: Shona distinguishes four types of demonstratives; demonstrative forms vary by noun class.
+      patterns: []
     x-Pronoun-type_x-int:
-      applies: {x-Pronoun-type: x-int}
-      note: "To ask which one is meant, use the noun-class marker and add -pi."
+      applies:
+        x-Pronoun-type: x-int
+      note: To ask which one is meant, use the noun-class marker and add -pi.
       patterns:
-      - pattern: "_class-marker_ + pi"
-        examples: ["api?", "vapi?", "upi?", "ipi?", "ripi?", "zvipi?", "dzipi?", "rwupi?", "hwupi?", "kapi?", "twupi?", "kupi?", "zipi?", "papi?", "mupi?"]
-
+      - pattern: _class-marker_ + pi
+        examples:
+        - api?
+        - vapi?
+        - upi?
+        - ipi?
+        - ripi?
+        - zvipi?
+        - dzipi?
+        - rwupi?
+        - hwupi?
+        - kapi?
+        - twupi?
+        - kupi?
+        - zipi?
+        - papi?
+        - mupi?
     x-Pronoun-type_x-rel:
-      applies: {x-Pronoun-type: x-rel}
-      pattern: "relative constructions are formed with the possessive syllable attached before the verb"
+      applies:
+        x-Pronoun-type: x-rel
+      pattern: relative constructions are formed with the possessive syllable attached before the verb
       examples:
-      - "Murume wa-ndaka-(mu-)ona aka-tiza."
-      - "Zvandichataura."
-
-    x-Pronoun-type_x-poss:
-      applies: {x-Pronoun-type: x-poss}
-      note: "Possessive pronouns are formed with a possessive prefix (Besitzsilbe / E-Besitzsilbe) plus the following endings."
-      endings:
-      - {features: {u-Person: u-1, u-Number: u-sg}, form: "-ngu"}
-      - {features: {u-Person: u-2, u-Number: u-sg}, form: "-ko"}
-      - {features: {u-Person: u-3, u-Number: u-sg}, form: "-ke"}
-      - {features: {u-Person: u-1, u-Number: u-pl}, form: "-du"}
-      - {features: {u-Person: u-2, u-Number: u-pl}, form: "-nyu"}
-      - {features: {u-Person: u-3, u-Number: u-pl}, form: "-vo"}
+      - Murume wa-ndaka-(mu-)ona aka-tiza.
+      - Zvandichataura.
