@@ -1,12 +1,18 @@
 from __future__ import annotations
 
 import json
+import os
 
 import pandas as pd
 import streamlit as st
-from app_data.vocab import VOCAB_POS_DIR
+from streamlit.errors import StreamlitSecretNotFoundError
 
-from config import LANGS, VOCAB_DIR
+from pathlib import Path
+from app_data.bootstrap import ensure_zip_extracted
+
+from config import LANGS
+from app_data.vocab import VOCAB_DIR, VOCAB_POS_DIR
+
 from app_data.vocab import (
     align_meanings_two_langs,
     get_category_options_for_langs_and_pos,
@@ -17,6 +23,39 @@ from app_data.vocab import (
     vocab_record_meanings,
 )
 from app_ui.common import non_empty_columns
+
+
+# ----------------------------
+# Config helpers (local vs Streamlit Cloud)
+# ----------------------------
+
+def _get_config_value(key: str, default: str = "") -> str:
+    """Get config from Streamlit secrets (Cloud) with safe local fallbacks.
+
+    - Streamlit Cloud: define values in the app's Secrets.
+    - Local dev: either set environment variables or rely on the provided defaults.
+
+    Important: Accessing st.secrets when no secrets.toml exists raises
+    StreamlitSecretNotFoundError, so we guard with try/except.
+    """
+    # 1) Environment variables are the simplest for local dev / CI
+    v = os.environ.get(key)
+    if isinstance(v, str) and v.strip():
+        return v.strip()
+
+    # 2) Streamlit secrets (Cloud). This can raise if no secrets.toml exists locally.
+    try:
+        v2 = st.secrets.get(key, "")
+        if isinstance(v2, str) and v2.strip():
+            return v2.strip()
+    except StreamlitSecretNotFoundError:
+        pass
+    except Exception:
+        # Best-effort: don't fail the app just because secrets aren't configured.
+        pass
+
+    # 3) Code default
+    return default
 
 
 def render_vocab_details(details_json: str) -> None:
@@ -53,9 +92,26 @@ def render_vocab_details(details_json: str) -> None:
 def render_vocab_tab() -> None:
     st.subheader("Vocab (Wiktionary)")
 
-    if not VOCAB_DIR.exists() and not VOCAB_POS_DIR.exists():
-        st.error(f"Vocab directory missing: {VOCAB_DIR} (and no split dir at {VOCAB_POS_DIR})")
-        st.stop()
+    # ---- Ensure data is present (download from GitHub Release if missing) ----
+    pos_zip_url = _get_config_value(
+        "OUTFILES_POS_ZIP_URL",
+        "https://github.com/dominic-fischer/unify-language-data/releases/download/data-v1/outfiles_pos.zip",
+    )
+    outfiles_zip_url = _get_config_value(
+        "OUTFILES_ZIP_URL",
+        "https://github.com/dominic-fischer/unify-language-data/releases/download/data-v1/outfiles.zip",
+    )
+
+    # We need outfiles_pos to populate POS/category menus quickly.
+    if not VOCAB_POS_DIR.exists():
+        if not pos_zip_url:
+            st.error(f"Missing vocab split data at {VOCAB_POS_DIR}. Configure OUTFILES_POS_ZIP_URL in Streamlit Secrets.")
+            st.stop()
+        with st.spinner("Downloading vocab split data (one-time)..."):
+            ensure_zip_extracted(pos_zip_url, VOCAB_POS_DIR)
+
+    # We don't download outfiles/ yet; only if the user wants browsing without POS later.
+
 
     vocab_mode = st.radio("Mode", ["Browse", "Compare by meaning"], horizontal=True, key="v_mode")
 
@@ -83,6 +139,16 @@ def render_vocab_tab() -> None:
         st.subheader("Filters")
 
         v_pos_val = st.selectbox("POS (optional)", options=[""] + pos_options, index=0, key="v_pos") or None
+
+        # If user wants to browse WITHOUT selecting a POS, we need the full outfiles/ (gz) dataset.
+        # Otherwise, scanning a "representative split file" is not correct for POS-less browsing.
+        if v_pos_val is None and not VOCAB_DIR.exists():
+            if not outfiles_zip_url:
+                st.info("To browse without selecting a POS, configure OUTFILES_ZIP_URL in Streamlit Secrets (or select a POS).")
+                st.stop()
+            with st.spinner("Downloading full vocab data (one-time)..."):
+                ensure_zip_extracted(outfiles_zip_url, VOCAB_DIR)
+
 
         # Categories depend on POS:
         # A) POS-scoped categories only

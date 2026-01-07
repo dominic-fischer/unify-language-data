@@ -9,12 +9,19 @@ from typing import Dict, Iterable, List, Tuple
 import pandas as pd
 import streamlit as st
 
-from config import VOCAB_DIR, VOCAB_SUPPORTED
+import os
+from config import VOCAB_SUPPORTED
+
+# Cache dir on Streamlit Cloud (writable). Can be overridden by env var if you want.
+APP_CACHE_DIR = Path(os.environ.get("APP_CACHE_DIR", str(Path.home() / ".cache" / "unify-language-data")))
+VOCAB_DIR = APP_CACHE_DIR / "data" / "wiktionary" / "outfiles"
+VOCAB_POS_DIR = APP_CACHE_DIR / "data" / "wiktionary" / "outfiles_pos"
+
 from app_data.files import iter_files
 
 # If you created: data/wiktionary/outfiles_pos/
 # and VOCAB_DIR is: data/wiktionary/outfiles/
-VOCAB_POS_DIR = VOCAB_DIR.parent / "outfiles_pos"
+#VOCAB_POS_DIR = VOCAB_DIR.parent / "outfiles_pos"
 
 # ----------------------------
 # JSONL readers
