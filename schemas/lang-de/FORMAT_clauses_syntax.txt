@@ -16,7 +16,7 @@ Clauses:
       applies: {x-Clausetype: x-subordinate}
       pattern: "... Vfin-final."
       examples: 
-        - "weil er nach Hause geht"
+        - ", ...weil er nach Hause geht"
       note: "Introduced by subordinating conjunction; finite verb placed at end."
 
     u-Interrogativity_u-int:

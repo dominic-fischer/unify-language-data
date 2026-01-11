@@ -2,74 +2,36 @@ Conditionals:
   Features:
     u-Tense: [u-prs, u-pst, u-fut]
     u-Mood: [u-irr, u-real]
-    x-Clausetype: [x-protasis, x-apodosis]
-
-  Negation:
-    applies: {x-Negation-type: x-clause}
-    note: "Regular negation."
-    examples:
-    - "Auch wenn er nicht bald kommen sollte, gehen wir nicht ohne ihn."
   
   Rules:
-    u-Tense_u-fut__x-Clausetype_x-protasis:
-      applies: {u-Tense: u-fut, x-Clausetype: x-protasis}
-      pattern: "{de-praesens}"
+    u-Tense_u-fut:
+      applies: {u-Tense: u-fut}
+      pattern: "Present Tense + Future Tense"
       examples:
-      - "Wenn er kommt, ..."
+      - "Wenn er kommt, werden wir gehen."
 
-    u-Tense_u-fut__x-Clausetype_x-apodosis:
-      applies: {u-Tense: u-fut, x-Clausetype: x-apodosis}
-      pattern: "{de-futur-I}"
+    u-Mood_u-real__u-Tense_u-prs:
+      applies: {u-Tense: u-prs, u-Mood: u-real}
+      pattern: "Present Tense + Present Tense"
       examples:
-      - "..., werden wir gehen."
+      - "Wenn er kommt, gehen wir."
 
-    u-Mood_u-real__u-Tense_u-prs__x-Clausetype_x-protasis:
-      applies: {u-Tense: u-prs, x-Clausetype: x-protasis, u-Mood: u-real}
-      pattern: "{de-praesens}"
-      examples:
-      - "wenn er kommt, ..."
-
-    u-Mood_u-real__u-Tense_u-prs__x-Clausetype_x-apodosis:
-      applies: {u-Tense: u-prs, x-Clausetype: x-apodosis, u-Mood: u-real}
-      pattern: "{de-praesens}/{de-futur-I}"
-      examples:
-      - "..., gehen wir."
-
-
-    u-Mood_u-irr__u-Tense_u-prs__x-Clausetype_x-protasis:
-      applies: {u-Tense: u-prs, x-Clausetype: x-protasis, u-Mood: u-irr}
+    u-Mood_u-irr__u-Tense_u-prs:
+      applies: {u-Tense: u-prs, u-Mood: u-irr}
       patterns:
-      - pattern: "{de-konjunktiv-II} present (synthetic)"
+      - pattern: "Subjunctive II Present (synthetic) + Subjunctive II Present(synthetic)"
         examples:
-        - "Wenn er käme, ..."
-      - pattern: "{de-konjunktiv-II} present (periphrastic)"
-        examples:
-        - "Wenn er kommen würde, ..."
-        note: "dominant in modern usage"
-
-    u-Mood_u-irr__u-Tense_u-prs__x-Clausetype_x-apodosis:
-      applies: {u-Tense: u-prs, x-Clausetype: x-apodosis, u-Mood: u-irr}
-      patterns:
-      - pattern: "{de-konjunktiv-II} present (synthetic)"
-        examples:
-        - "..., gingen wir."
+        - "Wenn er käme, gingen wir."
         note: "less common in modern usage, survives with sein/haben/modals"
-      - pattern: "{de-konjunktiv-II} present (periphrastic)"
+      - pattern: "Subjunctive II Present (periphrastic) + Subjunctive II Present (periphrastic)"
         examples:
-        - "..., würden wir gehen."
+        - "Wenn er kommen würde, würden wir gehen."
         note: "dominant in modern usage"
-
 
     u-Mood_u-irr__u-Tense_u-pst__x-Clausetype_x-protasis:
       applies: {u-Tense: u-pst, x-Clausetype: x-protasis, u-Mood: u-irr}
-      pattern: "{de-konjunktiv-II} past"
+      pattern: "Subjunctive II Past"
       examples:
-      - "wenn er gegangen wäre, ..."
-
-    u-Mood_u-irr__u-Tense_u-pst__x-Clausetype_x-apodosis:
-      applies: {u-Tense: u-pst, x-Clausetype: x-apodosis, u-Mood: u-irr}
-      pattern: "{de-konjunktiv-II} past"
-      examples:
-      - "..., hätten wir gewonnen."
+      - "Wenn er nicht gegangen wäre, hätten wir gewonnen."
 
     

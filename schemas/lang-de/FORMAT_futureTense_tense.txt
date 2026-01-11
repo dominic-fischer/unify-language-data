@@ -1,36 +1,16 @@
 Future:
   Features:
-    de-Tense-type: [de-futur-I, de-futur-II]
-
-  Negation:
-    applies: {x-Negation-type: x-clause}
-    note: "Regular negation."
-    examples: 
-    - "Ich werde dich nicht sehen."
-    - "Ich werde dich nicht gesehen haben."
-
-  Usage:
-    de-futur-I:
-      applies: {u-Aspect: [u-prosp]}
-      examples:
-        - "u-prosp: Ich werde gehen."
-      note: "Used for future reference; can also have modal meaning ('probably')."
-
-    de-futur-II:
-      applies: {u-Aspect: [u-prf]}
-      examples:
-        - "u-prf: Ich werde gegangen sein."
-      note: "Future perfect; often expresses assumption about the past."
+    u-Aspect: [u-prosp, u-prf]
 
   Rules:
-    de-Tense-type_de-futur-I:
-      applies: {de-Tense-type: de-futur-I}
+    u-Aspect-type_u-prosp:
+      applies: {u-Aspect: u-prosp}
       pattern: "werden (finite) + infinitive"
       examples: 
         - "ich werde gehen"
 
-    de-Tense-type_de-futur-II:
-      applies: {de-Tense-type: de-futur-II}
+    u-Aspect_u-prf:
+      applies: {u-Aspect: u-prf}
       pattern: "werden (finite) + past participle + haben/sein infinitive"
       examples: 
         - "ich werde gegangen sein"

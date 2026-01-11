@@ -26,14 +26,13 @@ Adverbs:
       examples: 
       - "schnell → schneller"
 
-    u-Comparison_u-sprl_u-ab:
-      applies: {u-Comparison: [u-sprl, u-ab]}
-      pattern: "am _stem_ + sten"
-      examples: 
-      - "schnell → am schnellsten"
-
-    u-Comparison_u-sprl_u-rl:
-      applies: {u-Comparison: [u-sprl, u-rl]}
-      pattern: "Determiner _stem_ + ste"
-      examples:
-      - "schnell → schnellste"
+    u-Comparison_u-sprl:
+      applies: {u-Comparison: u-sprl}
+      patterns: 
+      - pattern: "am _stem_ + sten"
+        examples: 
+        - "schnell → am schnellsten"
+        note: "used predominatly adverbially, e.g. 'er rennt am schnellsten' (he runs the fastest)"
+      - pattern: "Determiner _stem_ + ste"
+        examples:
+        - "schnell → der/die/das schnellste"

@@ -4,14 +4,13 @@ DerivationalMorphology:
     - u-adj
     - u-n
     - u-v
-    x-Process: [x-prefixation, x-suffixation, x-compounding, x-conversion]
     u-Gender:
     - u-fem
     - u-neut
 
   Rules:
-    u-Gender_u-fem__u-Part-of-Speech_u-n__x-Process_x-suffixation:
-      applies: {u-Gender: u-fem, u-Part-of-Speech: u-n, x-Process: x-suffixation}
+    u-Gender_u-fem__u-Part-of-Speech_u-n:
+      applies: {u-Gender: u-fem, u-Part-of-Speech: u-n}
       patterns:
       - pattern: "_stem_ + heit"
         examples:
@@ -26,8 +25,8 @@ DerivationalMorphology:
         - "lesen → Lesung"
         note: "action/result nouns"
 
-    u-Gender_u-neut__u-Part-of-Speech_u-n__x-Process_x-suffixation:
-      applies: {u-Gender: u-neut, u-Part-of-Speech: u-n, x-Process: x-suffixation}
+    u-Gender_u-neut__u-Part-of-Speech_u-n:
+      applies: {u-Gender: u-neut, u-Part-of-Speech: u-n}
       patterns:
       - pattern: "_stem_ + chen"
         examples:
@@ -38,15 +37,15 @@ DerivationalMorphology:
         - "Fräulein"
         note: "diminutive, always neuter"
 
-    u-Part-of-Speech_u-n__x-Process_x-compounding:
-      applies: {u-Part-of-Speech: u-n, x-Process: x-compounding}
+    u-Part-of-Speech_u-n:
+      applies: {u-Part-of-Speech: u-n}
       pattern: "Noun + Noun"
       examples:
       - "Tisch + Decke → Tischdecke"
       note: "head-final; rightmost noun determines gender and meaning"
 
-    u-Gender_u-neut__u-Part-of-Speech_u-n__x-Process_x-conversion:
-      applies: {u-Part-of-Speech: u-n, u-Gender: u-neut, x-Process: x-conversion}
+    u-Gender_u-neut__u-Part-of-Speech_u-n:
+      applies: {u-Part-of-Speech: u-n, u-Gender: u-neut}
       patterns:
       - pattern: "Verb → Noun"
         examples:
@@ -57,8 +56,8 @@ DerivationalMorphology:
         - "grün → das Grün"
         note: "abstract quality, substance, or color"
 
-    u-Part-of-Speech_u-v__x-Process_x-prefixation:
-      applies: {u-Part-of-Speech: u-v, x-Process: x-prefixation}
+    u-Part-of-Speech_u-v:
+      applies: {u-Part-of-Speech: u-v}
       patterns:
       - pattern: "be- + _stem_"
         examples:
@@ -76,10 +75,6 @@ DerivationalMorphology:
         examples:
         - "verstehen → missverstehen"
         note: "negation/mis- prefix"
-
-    u-Part-of-Speech_u-v__x-Process_x-suffixation:
-      applies: {u-Part-of-Speech: u-v, x-Process: x-suffixation}
-      patterns:
       - pattern: "_stem_ + ieren"
         examples:
         - "passen → passieren"
@@ -89,8 +84,8 @@ DerivationalMorphology:
         - "modern → modernisieren"
         note: "productive for Latinate stems"
 
-    u-Part-of-Speech_u-adj__x-Process_x-prefixation:
-      applies: {u-Part-of-Speech: u-adj, x-Process: x-prefixation}
+    u-Part-of-Speech_u-adj:
+      applies: {u-Part-of-Speech: u-adj}
       patterns:
       - pattern: "un- + _stem_"
         examples:
@@ -100,10 +95,6 @@ DerivationalMorphology:
         examples:
         - "rational → irrational"
         note: "Latinate negation prefix; assimilation to following consonant"
-
-    u-Part-of-Speech_u-adj__x-Process_x-suffixation:
-      applies: {u-Part-of-Speech: u-adj, x-Process: x-suffixation}
-      patterns:
       - pattern: "_stem_ + lich"
         examples:
         - "Kind → kindlich"

@@ -5,28 +5,30 @@ Constituents:
   Rules:
     x-Constituent_x-NP:
       applies: {x-Constituent: x-NP}
-      pattern: "[Determiner] [AdjectivePhrase] Noun [PrepositionalPhrase] [RelativeClause] [PossessivePronoun]"
+      pattern: "[Determiner] [AdjectivePhrase] Noun [PrepositionalPhrase] [RelativeClause]"
       examples:
-        - "der große Hund"
+        - "der (große) Hund (mit dem braunen Fell, der aus dem Fenster schaut)"
       note: "Determiner obligatory in singular count nouns, unless proper noun or bare plural"
 
     x-Constituent_x-VP:
       applies: {x-Constituent: x-VP}
-      pattern: "[Auxiliary] Verb [Object (NP/CP)] [AdverbPhrase] [PrepositionalPhrase] [SubordinateClause (CP)]"
+      pattern: "Vfin* [Object (NP/CP)] [AdverbPhrase] [PrepositionalPhrase] [Vinf] Vfin**"
       examples:
-        - "hat den Hund gesehen"
-      note: "verb-second in main clauses, verb-final in subordinates"
+        - "Main Clause: hat den Hund (gestern in Garten) gesehen"
+        - "Main Clause + Subclause: glaubt nicht, dass er den Hund gestern im Garten gesehen hat"
+      - note: "the finite Verb moves to the end in subordinate clauses (e.g. VP2)."
 
     x-Constituent_x-AP:
       applies: {x-Constituent: x-AP}
       pattern: "[DegreeMarker] Adjective [Complement (PP/CP)]"
       examples:
         - "sehr schön"
-      note: "adjective inflects for case/number/gender of NP"
+        - "with PP: stolz auf seinen Sohn"
+        - "with CP: stolz, dass sein Sohn das Turnier gewonnen hat"
 
     x-Constituent_x-PP:
       applies: {x-Constituent: x-PP}
-      pattern: "Preposition + NP [AdverbPhrase]"
+      pattern: "Preposition + NP"
       examples:
         - "mit dem Hund"
       note: "preposition governs case (acc/dat/gen)"
@@ -39,7 +41,7 @@ Constituents:
 
     x-Constituent_x-CP:
       applies: {x-Constituent: x-CP}
-      pattern: "[Complementizer] Subject (NP) [Adverbials] VP"
+      pattern: "Complementizer Subject (NP) [Adverbials] VP"
       examples:
         - "dass er den Hund sieht"
       note: "subordinate clauses require verb-final order"
