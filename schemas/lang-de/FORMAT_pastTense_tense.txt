@@ -1,109 +1,78 @@
 Past:
   Features:
-    de-Tense-type:
-    - de-past-participle
-    - de-past-progressive
-    - de-perfekt
-    - de-plusquamperfekt
-    - de-praeteritum
-    de-Verbclass: [de-weak, de-strong, de-irregular]
+    u-Aspect: [u-prf, u-pfv, u-ipfv, u-hab, u-iter, u-prog]
+    x-Temp-Relation: [x-sim, x-anterior, x-posterior]
 
-  Usage:
-    de-praeteritum:
+  Rules:
+    Preterite:
+      title: "Preterite"
       applies: {u-Aspect: [u-hab, u-ipfv, u-iter, u-pfv]}
+      patterns:
+        - pattern: "_stem_ + te + _personal ending_"
+          title: "Weak Verbclass"
+          examples:
+          - "u-hab: Er kam jeden Tag."
+          - "u-ipfv: Es regnete, als er kam."
+          - "u-iter: Er klopfte immer wieder."
+          - "u-pfv: Er kam und setzte sich."
+        - pattern: "_ablauted stem_ + _personal ending_"
+          "title: Strong Verbclass"
+          examples:
+          - "ich ging"
+        - pattern: "suppletive forms"
+          title: "Irregular Verbclass"
+          examples:
+          - "ich war"
+          - "ich hatte"
       note: "The preterite is the default narrative past in written German. It expresses habitual actions (u-hab), ongoing background situations (u-ipfv), repeated or iterative actions (u-iter), and completed bounded events (u-pfv). In spoken German, often replaced by the perfect."
+
+    de-Tense-type_de-perfekt:
+      applies: {u-Aspect: [u-prf, u-hab, u-ipfv, u-iter, u-pfv]}
+      pattern: "haben/sein (present finite) + past participle"
       examples:
-      - "u-hab: Er kam jeden Tag."
-      - "u-ipfv: Es regnete, als er kam."
-      - "u-iter: Er klopfte immer wieder."
-      - "u-pfv: Er kam und setzte sich."
-    de-perfekt:
-      applies: {u-Aspect: [u-prf, u-pfv, u-ipfv, u-hab, u-iter]}
-      note: "The perfect is the preferred past form in spoken German. It encodes current relevance or resultative meaning (u-prf), but in usage also covers perfective (u-pfv), imperfective/background (u-ipfv), habitual (u-hab), and iterative (u-iter) readings depending on context."
-      examples:
-      - "u-prf: Ich habe gearbeitet."
+      - "u-prf: Ich habe fertig gearbeitet."
       - "u-pfv: Ich habe das Buch gelesen."
       - "u-ipfv: Ich habe gestern lange gelesen."
       - "u-hab: Ich habe oft Fußball gespielt."
       - "u-iter: Ich habe ihn mehrmals getroffen."
-    de-plusquamperfekt:
-      applies: {u-Aspect: [u-prf, u-pfv, u-ipfv, u-hab, u-iter]}
-      note: "The pluperfect is used for anteriority, i.e. to describe events prior to another past reference point. It highlights resultative or perfect (u-prf), but also accommodates perfective (u-pfv), imperfective (u-ipfv), habitual (u-hab), and iterative (u-iter) readings in narratives."
+      note: "The perfect is the preferred past form in spoken German. It encodes current relevance or resultative meaning (u-prf), but in usage also covers perfective (u-pfv), imperfective/background (u-ipfv), habitual (u-hab), and iterative (u-iter) readings depending on context."
+
+    Pluperfect:
+      title: "Pluperfect"
+      applies: {u-Aspect: [u-prf, u-hab, u-ipfv, u-iter, u-pfv], x-Temp-Relation: x-anterior}
+      pattern: "haben/sein (preterite finite) + past participle"
       examples:
       - "u-prf: Ich hatte gearbeitet."
       - "u-pfv: Ich hatte das Buch gelesen."
       - "u-ipfv: Ich hatte lange gelesen, als er kam."
       - "u-hab: Ich hatte oft dort gegessen."
       - "u-iter: Ich hatte ihn mehrmals gesehen."
-    de-past-progressive:
-      applies: {u-Aspect: [u-prog, u-ipfv]}
-      note: "The 'am'-progressive in the past is a colloquial form, highlighting an action in progress (u-prog). It can also serve as an imperfective marker (u-ipfv) for backgrounded ongoing activity. Rare in formal registers."
+      note: "The pluperfect is used for anteriority, i.e. to describe events prior to another past reference point. It highlights resultative or perfect (u-prf), but also accommodates perfective (u-pfv), imperfective (u-ipfv), habitual (u-hab), and iterative (u-iter) readings in narratives."
+
+    u-Aspect_u-prog:
+      applies: {u-Aspect: u-prog}
+      pattern: "sein (preterite finite) + am + Infinitiv"
       examples:
       - "u-prog: Ich war am Arbeiten."
       - "u-ipfv: Er war am Lesen."
+      note: "The 'am'-progressive in the past is a colloquial form, highlighting an action in progress (u-prog). It can also serve as an imperfective marker (u-ipfv) for backgrounded ongoing activity. Rare in formal registers."
 
 
-  Negation:
-    applies: {x-Negation-type: x-clause}
-    note: "Regular negation."
-    examples:
-    - "Ich ging nicht nach Hause"
-    - "Er ist/war auch nicht nach Hause gegangen"
-
-  Rules:
-    de-Tense-type_de-praeteritum__de-Verbclass_de-weak:
-      applies: {de-Tense-type: de-praeteritum, de-Verbclass: de-weak}
-      pattern: "_stem_ + te + _personal ending_"
-      examples:
-      - "ich machte"
-
-    de-Tense-type_de-praeteritum__de-Verbclass_de-strong:
-      applies: {de-Tense-type: de-praeteritum, de-Verbclass: de-strong}
-      pattern: "_ablauted stem_ + _personal ending_"
-      examples:
-      - "ich ging"
-
-    de-Tense-type_de-praeteritum__de-Verbclass_de-irregular:
-      applies: {de-Tense-type: de-praeteritum, de-Verbclass: de-irregular}
-      pattern: "suppletive forms"
-      examples:
-      - "ich war"
-      - "ich hatte"
-
-    de-Tense-type_de-perfekt:
-      applies: {de-Tense-type: de-perfekt}
-      pattern: "haben/sein (present finite) + past participle"
-      examples:
-      - "ich habe gesehen"
-      - "ich bin gegangen"
-
-    de-Tense-type_de-plusquamperfekt:
-      applies: {de-Tense-type: de-plusquamperfekt}
-      pattern: "haben/sein (preterite finite) + past participle"
-      examples:
-      - "ich hatte gesehen"
-      - "ich war gegangen"
-
-    de-Tense-type_de-past-progressive:
-      applies: {de-Tense-type: de-past-progressive}
-      pattern: "sein (preterite finite) + am + Infinitiv"
-      examples:
-      - "ich war am Arbeiten"
-
-    de-Tense-type_de-past-participle__de-Verbclass_de-weak:
+    PastParticiple:
+    title: "PastParticiple"
       applies: {de-Tense-type: de-past-participle, de-Verbclass: de-weak}
-      pattern: "ge- + {stem} + (e)t"
-      examples:
-      - "gemacht"
-      - "gearbeitet"
-      - "gespielt"
-      note: "Weak verbs: participle formed with -t, occasionally -et after certain stems."
-
-    de-Tense-type_de-past-participle__de-Verbclass_de-strong:
-      applies: {de-Tense-type: de-past-participle, de-Verbclass: de-strong}
-      pattern: "ge- + {ablauted stem} + en"
-      examples:
-      - "gesehen"
-      - "gegangen"
-      - "gefunden"
-      note: "Strong verbs: participle formed with -en and often stem vowel change (Ablaut)."
+      patterns: 
+      - pattern: "ge- + {stem} + (e)t"
+        title: "Weak Verbclass"
+        examples:
+        - "gemacht"
+        - "gearbeitet"
+        - "gespielt"
+        note: "Weak verbs: participle formed with -t, occasionally -et after certain stems."
+      - pattern: "ge- + {ablauted stem} + en"
+        title: "Weak Verbclass"
+        examples:
+        - "gesehen"
+        - "gegangen"
+        - "gefunden"
+        note: "Strong verbs: participle formed with -en and often stem vowel change (Ablaut)."
