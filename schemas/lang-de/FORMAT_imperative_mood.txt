@@ -3,12 +3,6 @@ Imperative:
     u-Person: [u-1, u-2, u-3]
     u-Number: [u-sg, u-pl]
 
-  Negation:
-    applies: {x-Negation-type: x-clause}
-    note: "Regular negation."
-    examples: 
-    - "Geh doch nicht dahin!"
-
   Rules:
     u-Number_u-sg__u-Person_u-2:
       applies: {u-Number: u-sg, u-Person: u-2}

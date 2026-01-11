@@ -9,12 +9,6 @@ ReportedSpeech:
   - "In either case, though, mood changes: Subjunctive I is the mood of reporting, Subjunctive II if forms coincide"
   - "Using 'dass' will trigger the inversion, as the sentence then becomes a subclause."
 
-  Negation:
-    applies: {x-Negation-type: x-clause}
-    note: "Regular negation."
-    examples:
-    - "Er sagte, er wolle den Kuchen nicht essen."
-
   Rules:
     u-Evidentiality_u-fh:
       applies: {u-Evidentiality: u-fh}
