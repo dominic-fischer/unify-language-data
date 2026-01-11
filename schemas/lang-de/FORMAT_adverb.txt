@@ -1,43 +1,24 @@
 Adverbs:
   Features:
     u-Comparison: [u-cmpr, u-sprl, u-rl, u-ab]
-    x-Process: [x-base-form, x-adj-as-adv, x-complex, x-modification]
+    u-Part-of-Speech: [u-adv, u-adj]
 
   Rules:
-    x-Process_x-base-form:
-      applies: {x-Process: x-base-form}
+    u-Part-of-Speech_u-adv:
+      applies: {u-Part-of-Speech: u-adv}
       pattern: "lexical base form"
       examples: 
       - "gestern"
       - "oft"
       - "bald"
 
-    x-Process_x-adj-as-adv:
-      applies: {x-Process: x-adj-as-adv}
+    u-Part-of-Speech_u-adj:
+      applies: {u-Part-of-Speech: u-adj}
       pattern: "adjective stem reused as adverb (uninflected)"
       examples: 
       - "schnell → schnell"
       - "laut → laut"
       note: "form identical to adjective"
-
-    x-Process_x-complex:
-      applies: {x-Process: x-complex}
-      pattern: "compound or prepositional phrase functioning adverbially"
-      examples: 
-      - "trotzdem"
-      - "auf einmal"
-      - "von selbst"
-      - "immerhin"
-      note: "not productive prefixation; historical compounds or fixed expressions. No comparative or superlative."
-
-    x-Process_x-modification:
-      applies: {x-Process: x-modification}
-      pattern: "degree/modality particles modifying adverb"
-      examples: 
-      - "sehr schnell"
-      - "zu spät"
-      - "gar nicht"
-      note: "no comparative or superlative."
 
     u-Comparison_u-cmpr:
       applies: {u-Comparison: u-cmpr}

@@ -1,27 +1,27 @@
 Agreement:
   Features:
-    x-Domain:
-    - x-noun-adjective
-    - x-noun-determiner
-    - x-subject-verb
+    u-Part-of-Speech:
+    - [u-n, u-adj] 
+    - [u-n, u-det] 
+    - [u-n, u-v] 
 
   Rules:
-    x-Domain_x-noun-adjective:
-      applies: {x-Domain: x-noun-adjective}
+    u-Part-of-Speech_u-n_u-adj:
+      applies: {u-Part-of-Speech: [u-n, u-adj] }
       pattern: "adjective inflected for case, number, gender of head noun"
       examples:
       - "ein schöner Hund"
       note: "endings follow strong/weak/mixed inflection depending on determiner"
 
-    x-Domain_x-noun-determiner:
-      applies: {x-Domain: x-noun-determiner}
+    u-Part-of-Speech_u-n_u-det:
+      applies: {u-Part-of-Speech: [u-n, u-det] }
       pattern: "determiner inflected for case, number, gender of head noun"
       examples:
       - "die großen Hunde"
       note: "paradigm identical to article system"
 
-    x-Domain_x-subject-verb:
-      applies: {x-Domain: x-subject-verb}
+    u-Part-of-Speech_u-n_u-v:
+      applies: {u-Part-of-Speech: [u-n, u-v] }
       pattern: "finite verb agrees with subject in person and number"
       examples:
       - "ich gehe"

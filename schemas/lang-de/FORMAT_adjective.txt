@@ -17,6 +17,13 @@ Adjective:
     - u-sprl
 
   Rules:
+    u-Comparison_u-cmpr:
+      applies: {u-Comparison: u-cmpr}
+      pattern: "_stem_ + er"
+      note: "often with umlaut"
+      examples:
+      - "schön → schöner"
+
     u-Comparison_u-sprl:
       applies: {u-Comparison: u-sprl}
       pattern: "am _stem_ + sten"
@@ -99,10 +106,4 @@ Adjective:
       - "schön → schöner Mann"
       - "schön → schöne Frau"
       note: "also called 'strong'; adjective endings show the full case/gender/number set, like definite articles"
-    u-Comparison_u-cmpr:
-      applies: {u-Comparison: u-cmpr}
-      pattern: "_stem_ + er"
-      note: "often with umlaut"
-      examples:
-      - "schön → schöner"
 

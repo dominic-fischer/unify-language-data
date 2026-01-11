@@ -3,11 +3,13 @@ Conditionals:
     u-Tense: [u-prs, u-pst, u-fut]
     u-Mood: [u-irr, u-real]
     x-Clausetype: [x-protasis, x-apodosis]
+
   Negation:
     applies: {x-Negation-type: x-clause}
     note: "Regular negation."
     examples:
     - "Auch wenn er nicht bald kommen sollte, gehen wir nicht ohne ihn."
+  
   Rules:
     u-Tense_u-fut__x-Clausetype_x-protasis:
       applies: {u-Tense: u-fut, x-Clausetype: x-protasis}
