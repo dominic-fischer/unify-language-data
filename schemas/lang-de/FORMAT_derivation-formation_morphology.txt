@@ -115,12 +115,12 @@ DerivationalMorphology:
         examples:
         - "Kind → kindlich"
         notes: 
-        - "‘like’ or ‘characteristic of’"
+        - "'like' or 'characteristic of'"
       - pattern: "_stem_ + bar"
         examples:
         - "essen → essbar"
         notes: 
-        - "possibility or capability (‘-able’)"
+        - "possibility or capability ('-able')"
       - pattern: "_stem_ + ig"
         examples:
         - "Sonne → sonnig"

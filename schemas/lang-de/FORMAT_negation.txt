@@ -10,11 +10,13 @@ Negation:
           examples: 
           - "Er rennt nicht heute"
           - "Nicht das Essen, sondern die Getränke hat er bezahlt"
-          note: "focuses on constituent rather than whole sentence"
+          notes: 
+          - "focuses on constituent rather than whole sentence"
         - pattern: "kein + noun"
           examples: 
           - "Ich habe keinen Hund gesehen"
-          note: "negates indefinite noun phrase; inflected like indefinite determiner"
+          notes: 
+          - "negates indefinite noun phrase; inflected like indefinite determiner"
 
     x-Negation-type_x-clause:
       applies: {x-Negation-type: x-clause}
@@ -23,11 +25,14 @@ Negation:
         examples: 
         - "Er will den Kuchen nicht essen"
         - "Er rennt heute nicht"
-        note: "Negated main clauses."
+        notes: 
+        - "Negated main clauses."
       - pattern: "main clause with Vfin, subordinating conjunction (...) nicht (...) final verb cluster"
         examples: 
         - "Er geht nach Hause, weil er nicht in der Schule bleiben will"
         - "..., weil er in der Schule jeden Tag nicht gut aufpasst"
         - "..., weil er in der Schule nicht jeden Tag gut aufpasst"
-        note: "Negated subclauses."
-      note: "If the entire sentence is to be negated, 'nicht' goes as far to the end as possible, but before the final verb cluster/the constituent it is supposed to negate. Note that for main- and subclauses, the principle of negation (finite/main verb - negation - final verb cluster) stays the same, apart from the subordinating conjunction intervening."
+        notes: 
+        - "Negated subclauses."
+      notes: 
+      - "If the entire sentence is to be negated, 'nicht' goes as far to the end as possible, but before the final verb cluster/the constituent it is supposed to negate. Note that for main- and subclauses, the principle of negation (finite/main verb - negation - final verb cluster) stays the same, apart from the subordinating conjunction intervening."

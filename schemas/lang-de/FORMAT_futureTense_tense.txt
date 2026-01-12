@@ -5,12 +5,14 @@ Future:
   Rules:
     u-Aspect-type_u-prosp:
       applies: {u-Aspect: u-prosp}
-      pattern: "werden (finite) + infinitive"
-      examples: 
-        - "ich werde gehen"
+      patterns: 
+      - pattern: "werden (finite) + infinitive"
+        examples: 
+          - "ich werde gehen"
 
     u-Aspect_u-prf:
       applies: {u-Aspect: u-prf}
-      pattern: "werden (finite) + past participle + haben/sein infinitive"
-      examples: 
-        - "ich werde gegangen sein"
+      patterns:
+      - pattern: "werden (finite) + past participle + haben/sein infinitive"
+        examples: 
+          - "ich werde gegangen sein"
