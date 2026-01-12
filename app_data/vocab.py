@@ -52,10 +52,57 @@ def iter_jsonl_records(path: Path) -> Iterable[dict]:
 # Record helpers
 # ----------------------------
 
+# fr:Sciences / It:Sciences / de:Foo
+_LANGCODE_PREFIX = re.compile(r"^[A-Za-z]{2,3}:\s*")
+
+# English language names you want stripped
+_LANGUAGE_NAMES = [
+    "French",
+    "Italian",
+    "Romanian",
+    "Spanish",
+    "Portuguese",
+    "Shona",
+    "Chichewa",
+    "Swahili",
+    "Zulu",
+]
+
+_LANGUAGE_RE = re.compile(
+    r"^(?:" + "|".join(re.escape(l) for l in _LANGUAGE_NAMES) + r")\s+",
+    re.IGNORECASE,
+)
+
+def normalize_category(cat: str) -> str | None:
+    c = (cat or "").strip()
+    if not c:
+        return None
+
+    # Drop "Category:" prefix
+    if c.lower().startswith("category:"):
+        c = c.split(":", 1)[1].strip()
+
+    # A) remove unwanted buckets
+    if c.startswith("Pages with") or c.startswith("entries with incorrect"):
+        return None
+    for lang in _LANGUAGE_NAMES:
+        if c.startswith(f"{lang} with"):
+            return None
+        if c.startswith(f"{lang} entries with incorrect"):
+            return None
+
+    # B1) remove language code prefixes (fr:, it:, etc.)
+    c = _LANGCODE_PREFIX.sub("", c).strip()
+
+    # B2) remove leading language names ("Italian doublets")
+    c = _LANGUAGE_RE.sub("", c).strip()
+
+    return c or None
 
 def vocab_record_categories(entry: dict) -> List[str]:
-    """Collect categories from entry.senses[].categories (if present)."""
+    """Collect *normalized* categories from entry.senses[].categories."""
     cats: List[str] = []
+
     senses = entry.get("senses") or []
     if isinstance(senses, list):
         for s in senses:
@@ -64,7 +111,9 @@ def vocab_record_categories(entry: dict) -> List[str]:
                 if isinstance(sc, list):
                     for c in sc:
                         if isinstance(c, str):
-                            cats.append(c)
+                            nc = normalize_category(c)
+                            if nc:
+                                cats.append(nc)
 
     # de-dup while preserving order
     seen = set()
