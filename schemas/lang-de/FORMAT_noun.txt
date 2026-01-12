@@ -8,7 +8,7 @@ Noun:
     u-Gender_u-fem:
       applies: {u-Gender: u-fem}
       endingparadigms: 
-      - endings:
+      - endingparadigm:
         - features: {u-Number: u-sg}
           ending: ""
         - features: {u-Number: u-pl}
@@ -18,7 +18,7 @@ Noun:
         - "eine Nacht → Nächte"
         notes: 
         - "feminine nouns with plural -e, often umlauted"
-      - endings:
+      - endingparadigm:
         - features: {u-Number: u-sg}
           ending: ""
         - features: {u-Number: u-pl}
@@ -32,7 +32,7 @@ Noun:
       applies: {u-Gender: u-neut}
       patterns:
       - pattern: "_stem_ + _ending_"
-        endings:
+        endingparadigm:
           - features: {u-Number: u-sg, u-Case: u-nom}
             ending: ""
           - features: {u-Number: u-sg, u-Case: u-acc}
@@ -49,7 +49,7 @@ Noun:
         - "ein Kind → Kinder"
         note: "common neuter plural type; Umlaut frequent"
       - pattern: "_stem_ + s"
-        endings:
+        endingparadigm:
           - features: {u-Number: u-sg}
             ending: ""
           - features: {u-Number: u-pl}
@@ -61,7 +61,7 @@ Noun:
     u-Gender_u-masc:
       applies: {u-Gender: u-masc}
       endingparadigms:
-      - endings:
+      - endingparadigm:
         - features: {u-Number: u-sg, u-Case: u-nom}
           ending: ""
         - features: {u-Number: u-sg, u-Case: u-acc}
@@ -80,7 +80,7 @@ Noun:
           ending: "e"
         examples: 
         - "ein Hund → Hunde"
-      - endings:
+      - endingparadigm:
         - features: {u-Number: u-sg, u-Case: u-nom}
           ending: "e"   # Junge
         - features: {u-Number: u-sg, u-Case: u-acc}

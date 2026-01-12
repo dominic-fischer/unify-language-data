@@ -4,48 +4,87 @@
   "type": "object",
 
   "$defs": {
-    "formparadigms": {
-      "type": "array",
-      "items": { "$ref": "#/$defs/forms" },
-      "minItems": 1
-    },
-    "endingparadigms": {
-      "type": "array",
-      "items": { "$ref": "#/$defs/endings" },
-      "minItems": 1
-    },
+
     "patterns": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/pattern_object" },
+      "minItems": 1
+    },
+    "pattern_object": {
       "type": "object",
       "properties": {
         "pattern": { "type": "string" },
-        "examples": { "$ref": "#/$defs/examples" },
         "notes": { "$ref": "#/$defs/notes" },
+        "examples": { "$ref": "#/$defs/examples" },
         "title": { "type": "string" }
       },
       "required": ["pattern"]
     },
-    "endings": {
+
+    "formparadigms": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/formparadigm_object" },
+      "minItems": 1
+    },
+    "formparadigm_object": {
       "type": "object",
       "properties": {
-        "features": { "type": "object" },
-        "ending": { "type": "string" },
+        "formparadigm": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/form_item" },
+          "minItems": 1
+        },
         "notes": { "$ref": "#/$defs/notes" },
         "examples": { "$ref": "#/$defs/examples" },
         "title": { "type": "string" }
       },
-      "required": ["features", "ending"]
+    "required": ["form_items"]
     },
-    "forms": {
+    "form_item": {
+      "type": "object",
+      "required": ["features", "form"],
+      "properties": {
+        "features": {
+          "type": "object"
+        },
+        "form": {
+          "type": "string"
+        }
+      }
+    },
+
+    "endingparadigms": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/endingparadigm_object" },
+      "minItems": 1
+    },
+    "endingparadigm_objects": {
       "type": "object",
       "properties": {
-        "features": { "type": "object" },
-        "form": { "type": "string" },
+        "endingparadigm": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ending_item" },
+          "minItems": 1
+        },
         "notes": { "$ref": "#/$defs/notes" },
         "examples": { "$ref": "#/$defs/examples" },
         "title": { "type": "string" }
       },
-      "required": ["features", "form"]
+      "required": ["ending_items"]
     },
+    "ending_item": {
+      "type": "object",
+      "required": ["features", "ending"],
+      "properties": {
+        "features": {
+          "type": "object"
+        },
+        "ending": {
+          "type": "string"
+        }
+      }
+    },
+
     "applies": {
       "type": "object",
       "description": "Feature-value constraints for the rule"
@@ -79,17 +118,12 @@
           "additionalProperties": {
             "type": "object",
             "properties": {
+              "title": { "type": "string"},
+              "notes": { "$ref": "#/$defs/notes" },
               "applies": { "$ref": "#/$defs/applies" },
-              "patterns": {
-                "type": "array",
-                "items": { "$ref": "#/$defs/patterns" }
-              },
-              "endingpara": {
-                "type": "array",
-                "items": { "$ref": "#/$defs/endings" }
-              },
-              "examples": { "$ref": "#/$defs/examples" },
-              "notes": { "$ref": "#/$defs/notes" }
+              "patterns": { "$ref": "#/$defs/patterns" },
+              "endingparadigms": { "$ref": "#/$defs/endingparadigms" },
+              "formparadigms": { "$ref": "#/$defs/formparadigms" }
             },
           "required":["applies"],
           "oneOf":[

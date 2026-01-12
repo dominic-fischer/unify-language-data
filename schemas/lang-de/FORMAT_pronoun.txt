@@ -11,7 +11,7 @@ Pronoun:
     x-Pronoun-type_x-pers:
       applies: {x-Pronoun-type: x-pers}
       formparadigms:
-      - forms:
+      - formparadigm:
         - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-nom}, form: "ich"}
         - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc}, form: "mich"}
         - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-dat}, form: "mir"}
@@ -51,14 +51,14 @@ Pronoun:
     x-Pronoun-type_x-dem:
       applies: {x-Pronoun-type: x-dem}
       formparadigms:
-      - forms:
+      - formparadigm:
         - {features: {u-Deixis: u-prox}, pattern: "dies- + {def-determiner-endings}", note: "proximal demonstrative"}
         - {features: {u-Deixis: u-remt}, pattern: "jen- + {def-determiner-endings}", note: "remote demonstrative"}
 
     x-Pronoun-type_x-int:
       applies: {x-Pronoun-type: x-int}
       formparadigms:
-      - forms:
+      - formparadigm:
         - {features: {u-Case: u-nom, u-Gender: u-masc}, form: "wer"}
         - {features: {u-Case: u-nom, u-Gender: u-fem}, form: "wer"}
         - {features: {u-Case: u-nom, u-Gender: u-neut}, form: "was"}
@@ -67,7 +67,7 @@ Pronoun:
         - {features: {u-Case: u-acc, u-Gender: u-neut}, form: "was"}
         - {features: {u-Case: u-dat}, form: "wem"}
         - {features: {u-Case: u-gen}, form: "wessen"}
-      - forms:
+      - formparadigm:
         - {features: {u-Case: u-nom, u-Gender: u-masc}, form: "welcher"}
         - {features: {u-Case: u-nom, u-Gender: u-fem}, form: "welche"}
         - {features: {u-Case: u-nom, u-Gender: u-neut}, form: "welches"}

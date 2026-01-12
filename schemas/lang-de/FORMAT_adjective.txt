@@ -40,7 +40,7 @@ Adjective:
     u-Definiteness_u-def:
       applies: {u-Definiteness: u-def}
       endingparadigms:
-      - endings:
+      - endingparadigm:
         - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-masc}, ending: "e"}
         - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-fem}, ending: "e"}
         - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-neut}, ending: "e"}
@@ -65,7 +65,7 @@ Adjective:
     u-Definiteness_u-indf:
       applies: {u-Definiteness: u-indf}
       endingparadigms:
-      - endings:
+      - endingparadigm:
         - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-masc}, ending: "er"}
         - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-fem}, ending: "e"}
         - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-neut}, ending: "es"}
@@ -90,7 +90,7 @@ Adjective:
     u-Definiteness_u-nspec:
       applies: {u-Definiteness: u-nspec}
       endingparadigms:
-      - endings:
+      - endingparadigm:
         - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-masc}, ending: "er"}
         - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-fem}, ending: "e"}
         - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-neut}, ending: "es"}

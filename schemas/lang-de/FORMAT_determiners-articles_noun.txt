@@ -9,7 +9,7 @@ Determiner:
     u-Definiteness_u-def:
       applies: {u-Definiteness: u-def}
       formparadigms:
-      - forms:
+      - formparadigm:
         - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-nom}
           form: "der"
         - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-acc}
@@ -48,8 +48,8 @@ Determiner:
 
     u-Definiteness_u-indf:
       applies: {u-Definiteness: u-indf}
-      forparadigms:
-      - forms:
+      formparadigms:
+      - formparadigm:
         - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-nom}
           form: "ein"
         - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-acc}
