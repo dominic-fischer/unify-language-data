@@ -1,7 +1,7 @@
 Clauses:
   Features:
     x-Clausetype: [x-main, x-subordinate]
-    u-Interrogativity: [u-decl, u-int, x-excl]
+    u-Interrogativity: [u-int, x-excl]
 
   Rules:
     x-Clausetype_x-main:

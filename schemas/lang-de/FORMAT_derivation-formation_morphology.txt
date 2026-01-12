@@ -41,19 +41,6 @@ DerivationalMorphology:
         - "Fräulein"
         notes: 
         - "diminutive, always neuter"
-
-    u-Part-of-Speech_u-n:
-      applies: {u-Part-of-Speech: u-n}
-      patterns: 
-      - pattern: "Noun + Noun"
-        examples:
-        - "Tisch + Decke → Tischdecke"
-        notes: 
-        - "head-final; rightmost noun determines gender and meaning"
-
-    u-Gender_u-neut__u-Part-of-Speech_u-n:
-      applies: {u-Part-of-Speech: u-n, u-Gender: u-neut}
-      patterns:
       - pattern: "Verb → Noun"
         examples:
         - "laufen → das Laufen"
@@ -127,3 +114,12 @@ DerivationalMorphology:
         - "Sonne → sonnig"
         notes: 
         - "possession or abundance"
+
+    u-Part-of-Speech_u-n:
+      applies: {u-Part-of-Speech: u-n}
+      patterns: 
+      - pattern: "Noun + Noun"
+        examples:
+        - "Tisch + Decke → Tischdecke"
+        notes: 
+        - "head-final; rightmost noun determines gender and meaning"

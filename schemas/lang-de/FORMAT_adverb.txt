@@ -1,6 +1,6 @@
 Adverbs:
   Features:
-    u-Comparison: [u-cmpr, u-sprl, u-rl, u-ab]
+    u-Comparison: [u-cmpr, u-sprl]
     u-Part-of-Speech: [u-adv, u-adj]
 
   Rules:

@@ -1,0 +1,8 @@
+Constituents
+	x-Constituent
+		x-NP
+		x-VP
+		x-AP
+		x-PP
+		x-AdvP
+		x-CP

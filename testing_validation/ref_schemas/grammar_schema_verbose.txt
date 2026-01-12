@@ -22,7 +22,6 @@ patterns
       notes?
       examples?
 
-
 formparadigms
     - title?
       notes?
@@ -31,7 +30,6 @@ formparadigms
           - features
             form
 
-
 endingparadigms
     - title
       notes
@@ -39,3 +37,5 @@ endingparadigms
       endingparadigm
           - features
             ending
+
+Use patterns for pattern-like grammar rules, endings if the paradigm consists of variations in endings, and forms if the paradigm is simply a specific set of forms.

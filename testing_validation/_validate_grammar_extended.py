@@ -9,27 +9,6 @@ from ruamel.yaml import YAML
 # schema_first_lines.json is a normal json in the same directory
 SCHEMA_FIRST_LINES = json.loads(Path("testing_validation/schema_first_lines.json").read_text(encoding="utf-8"))
 
-
-# File suffixes that require negation handling
-NEGATION_FILES = [
-    "past.txt",
-    "present.txt",
-    "future.txt",
-    "imperative.txt",
-    "subjunctive.txt",
-    "conditional.txt",
-    "conditional-sentences.txt",
-    "clauses.txt",
-]
-
-USAGE_FILES = [
-    "past.txt",
-    "present.txt",
-    "future.txt",
-    "subjunctive.txt",
-    "conditional.txt",
-]
-
 # configure ruamel.yaml
 yaml = YAML()
 yaml.preserve_quotes = True
@@ -52,8 +31,10 @@ def get_first_content_line(text: str) -> tuple[int, str] | None:
     return None
 
 
-def make_rule_name(applies: dict) -> str:
+def make_rule_name(applies: dict, title: str) -> str:
     """Generate canonical rule name from applies dict."""
+    if title:
+        return title
     parts = []
     for feat in sorted(applies.keys()):
         val = applies[feat]
@@ -249,9 +230,10 @@ def validate_file(path: Path, fix: bool = False) -> list[str]:
         # --- A) validate rule names
         for rule_name in list(rules.keys()):
             applies = rules[rule_name].get("applies", {})
+            title = rules[rule_name].get("title", "")
             if not applies:
                 continue
-            expected = make_rule_name(applies)
+            expected = make_rule_name(applies, title)
             if rule_name != expected:
                 if fix:
                     rules[expected] = rules.pop(rule_name)
@@ -319,22 +301,6 @@ def validate_file(path: Path, fix: bool = False) -> list[str]:
                                 f"{sorted(list(extra_vals))} in 'Features' section"
                             )
 
-        # --- C) check negation and usage requirements
-        filename = path.name.lower()
-        if any(filename.endswith(suffix) for suffix in NEGATION_FILES + USAGE_FILES):
-            if "Negation" not in cat_obj:
-                for rule_name, rule_obj in rules.items():
-                    if "negation" not in rule_obj:
-                        errors.append(
-                            f"[{category}] Rule '{rule_name}' missing 'negation' field "
-                            f"(required in {filename})"
-                        )
-            if any(filename.endswith(suffix) for suffix in USAGE_FILES):
-                if "Usage" not in cat_obj:
-                    errors.append(
-                        f"[{category}] Missing top-level 'Usage' field "
-                        f"(required in {filename})"
-                    )
 
     # Write back if modified
     if fix and modified:

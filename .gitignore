@@ -16,5 +16,6 @@ outfiles_pos/
 
 # Notes (personal, not code)
 junk/
+junk.py
 notes.txt
 *.key

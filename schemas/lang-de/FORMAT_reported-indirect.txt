@@ -14,7 +14,7 @@ ReportedSpeech:
         - "quotation preserves original tense/mood exactly"
 
     u-Evidentiality_u-quot__u-Tense_u-prs:
-      applies: {u-Evidentiality: u-quot, u-Interrogativity: u-decl, u-Tense: u-prs}
+      applies: {u-Evidentiality: u-quot, u-Tense: u-prs}
       patterns: 
       - pattern: "reporting verb + dass/Ø + {clause in Subjunctive I (present)}"
         examples:

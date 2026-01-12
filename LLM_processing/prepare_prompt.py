@@ -10,6 +10,9 @@ grammar_schema_text = Path("../testing_validation/ref_schemas/grammar_schema.jso
 unimorph_schema_text = Path("../testing_validation/ref_schemas/unimorph_schema.json").read_text(encoding="utf-8")     
 custom_schema_text = Path("../testing_validation/ref_schemas/custom_schema.json").read_text(encoding="utf-8")
 
+with open("../testing_validation/ref_schemas/grammar_schema_verbose.txt", encoding="utf8") as f:
+    grammar_schema_verbose = f.read()
+
 langs = ["chewa", "shona", "swahili", "zulu", "french", "italian", "portuguese", "romanian", "spanish"]
 langs_w_abbrevs = {
     "chewa": "ny",
@@ -87,20 +90,7 @@ for lang, mapping_file_paths in langs_w_files.items():
                 "VALIDATION SCHEMA (structure and headings must be followed exactly):\n"
                 f"{grammar_schema_text}\n\n"
 
-                "The schema consists of RULES, each applying to a specific grammatical FEATURE and its ATTRIBUTE.\n"
-
-                "Each Rule must contain:\n"
-                "- A name: built by joining feature-attribute pairs with an underscore, and a double underscore between different pairs.\n"
-                "- the 'applies' field: specifies to which feature-attribute pair the rule applies. Note that no two rules should have the same 'applies' field. In that case, the two rules should be combined to form one with a 'patterns' field.\n"
-                "- either a field 'pattern' or 'patterns' or 'forms':\n"
-                "   - a 'pattern' is a string-like template\n"
-                "   - 'patterns' is a list of sub-patterns, that each contain either 'pattern' or 'forms', and may include 'examples', 'notes' or 'endings.\n"
-                "   - 'forms' is a list of specific word forms. It must contain 'features' and either 'form' or 'pattern'. It may also include a 'note' field.\n"
-                "- it may include the fields 'notes', 'examples' or 'endings'.\n"
-                "   - 'endings' must include 'features' and 'form', and may include a 'note' field.\n"
-
-                "The 'Features' field on the same level as 'Rules' is the set of all features and their attributes used in the rules.\n"
-                "There are also other optional fields at the top level, 'Negation' and 'Usage'. 'Usage' is used to specify usage of a tense, 'Negation' is used to specify negation in that tense. They should only be used in schemas pertaining to tenses. Both may contain 'pattern', 'note' or 'examples' fields, 'Usage' may additionally contain 'applies'.\n\n"
+                f"{grammar_schema_verbose}\n\n"
 
                 "INSTRUCTIONS:\n"
                 "- Use ONLY the information present in the provided data.\n"
@@ -110,14 +100,10 @@ for lang, mapping_file_paths in langs_w_files.items():
                 "- Ignore any information that is not relevant to the topic at hand.\n\n"
 
                 "FEATURES AND THEIR VALUES:\n"
-                f"- Feature names and values are prefixed with either u-, x- or the language's abbreviation as a prefix.\n"
-                f"- Use the language prefix ONLY for language-specific features and values.\n"
-                "- Use the prefix \"u-\" for UniMorph features and values.\n"
-                "- Use the prefix \"x-\" for custom (non-UniMorph, cross-linguistic) features and values.\n"
-                "- When multiple representations are possible, prefer:\n"
-                "  1) UniMorph (\"u-\") features,\n"
-                "  2) then custom (\"x-\") features,\n"
-                f"  3) and only then language-specific features.\n\n"
+                f"- Feature names and values are prefixed with either u- or x-.\n"
+                "- \"u-\" if for UniMorph features and values, \"x-\" for custom (non-UniMorph, cross-linguistic) features and values.\n"
+                "- Whenever possible, use UniMorph prefixes."
+                "- Invent new features only if no appropriate UniMorph features exists."
                 "- Do NOT invent new features if an appropriate UniMorph feature exists.\n\n"
 
                 "Below are the features for reference:\n"

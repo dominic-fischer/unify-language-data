@@ -1,0 +1,9 @@
+Future
+	u-Aspect
+		u-hab	(Habitual)
+		u-ipfv	(Imperfective)
+		u-iter	(Iterative)
+		u-pfv	(Perfective)
+		u-prf	(Perfect)
+		u-prog	(Progressive)
+		u-prosp	(Prospective)

@@ -1,0 +1,10 @@
+Passive
+	u-Tense
+		u-1day	(Within 1 day)
+		u-fut	(Future)
+		u-hod	(Hodiernal)
+		u-immed	(Immediate)
+		u-prs	(Present)
+		u-pst	(Past)
+		u-rct	(Recent)
+		u-rmt	(Remote)

@@ -1,0 +1,7 @@
+Clauses
+	x-Clausetype
+		x-main
+		x-subordinate
+	u-Interrogativity
+		u-decl	(Declarative)
+		u-int	(Interrogative)

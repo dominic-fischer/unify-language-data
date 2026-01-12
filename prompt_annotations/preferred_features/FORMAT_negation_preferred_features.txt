@@ -1,0 +1,4 @@
+Negation
+	x-Negation-type
+		x-clause
+		x-constituent

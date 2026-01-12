@@ -1,0 +1,22 @@
+ReportedSpeech
+	u-Evidentiality
+		u-assum	(Assumed)
+		u-aud	(Auditory)
+		u-drct	(Direct)
+		u-fh	(Firsthand)
+		u-hrsy	(Hearsay)
+		u-infer	(Inferred)
+		u-nfh	(Non-firsthand)
+		u-nvsen	(Non-visual sensory)
+		u-quot	(Quotative)
+		u-rprt	(Reported)
+		u-sen	(Sensory)
+	u-Tense
+		u-1day	(Within 1 day)
+		u-fut	(Future)
+		u-hod	(Hodiernal)
+		u-immed	(Immediate)
+		u-prs	(Present)
+		u-pst	(Past)
+		u-rct	(Recent)
+		u-rmt	(Remote)

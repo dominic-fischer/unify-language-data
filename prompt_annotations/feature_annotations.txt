@@ -1,0 +1,24 @@
+Adjective:
+- Use u-comparison for rules about adjective comparison
+- Use u-Definiteness, u-Case, u-Number and u-Gender to account for morphological variation in adjectives
+- In addition, use u-Part-of-Speech for rules about adjective formation, i.e. u-adj for de-adjectival adjectives, u-v for de-verbal adjectives, u-n for de-nominal adjectives, etc.
+
+Adverbs:
+- Use u-Comparison for rules about adverb comparison
+- Use u-Part-of-Speech for rules about adverb formation, i.e. u-adj for de-adjectival adverbs, u-v for de-verbal adverbs, u-n for de-nominal adverbs, etc.
+
+Agreement:
+- Use u-Part-of-Speech to indicate which parts of speech agree with each other
+
+Clauses:
+- Use x-Clausetype for Rules about Syntax in a specific clausetype
+- Use u-Interrogativity for Rules about Syntax in different types of statements, i.e. declarative, exclamative or interrogative
+
+Conditionals:
+- Use u-Tense to indicate in which tense a particular conditional is set
+- Use u-Mood in case you need to disambiguate between different conditionals in the same tense, e.g., real and irreal in the present tense
+
+Constituents:
+- Use x-Constituent for rules about the different constituents in a language
+
+DerivationalMorphology

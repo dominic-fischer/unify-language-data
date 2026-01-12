@@ -1,0 +1,28 @@
+Present
+	u-Person
+		u-0	(Zero person)
+		u-1	(First person)
+		u-2	(Second person)
+		u-3	(Third person)
+		u-4	(Fourth person)
+		u-excl	(Exclusive)
+		u-incl	(Inclusive)
+		u-obv	(Obviative)
+		u-prx	(Proximate)
+	u-Number
+		u-du	(Dual)
+		u-gpauc	(Greater paucal)
+		u-grpl	(Greater plural)
+		u-invn	(Inverse)
+		u-pauc	(Paucal)
+		u-pl	(Plural)
+		u-sg	(Singular)
+		u-tri	(Trial)
+	u-Aspect
+		u-hab	(Habitual)
+		u-ipfv	(Imperfective)
+		u-iter	(Iterative)
+		u-pfv	(Perfective)
+		u-prf	(Perfect)
+		u-prog	(Progressive)
+		u-prosp	(Prospective)

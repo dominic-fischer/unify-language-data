@@ -86,7 +86,7 @@ Pronoun:
       - {pattern: "welch- + {def-determiner-endings}", notes: ["archaic/literary; no genitive forms, replaced by dessen/deren"]}
     
     x-Pronoun-type_x-poss:
-      applies: {x-Pronoun-type: x-poss, x-Form-type: x-standalone}
+      applies: {x-Pronoun-type: x-poss}
       patterns:
       - pattern: "stem + bare-adj-endings"
         notes: 

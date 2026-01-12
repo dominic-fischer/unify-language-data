@@ -1,36 +1,7 @@
 {
-  "x-Process": [
-    "x-base-form",
-    "x-adj-as-adv",
-    "x-complex",
-    "x-modification",
-    "x-prefixation",
-    "x-suffixation",
-    "x-compounding",
-    "x-conversion"
-  ],
-  "x-Domain": [
-    "x-noun-adjective",
-    "x-noun-determiner",
-    "x-subject-verb"
-  ],
   "x-Clausetype": [
     "x-main",
-    "x-subordinate",
-    "x-int-yes-no",
-    "x-int-wh",
-    "x-excl",
-    "x-protasis",
-    "x-apodosis"
-  ],
-  "x-Word-order": [
-    "x-V2",
-    "x-Vfinal",
-    "x-V1"
-  ],
-  "x-Negation-type": [
-    "x-clause",
-    "x-constituent"
+    "x-subordinate"
   ],
   "x-Constituent": [
     "x-NP",
@@ -40,9 +11,12 @@
     "x-AdvP",
     "x-CP"
   ],
-  "x-Passive-type": [
-    "x-process",
-    "x-state"
+  "x-Negation-type": [
+    "x-clause",
+    "x-constituent"
+  ],
+  "x-Temp-Relation": [
+    "x-anterior"
   ],
   "x-Pronoun-type": [
     "x-pers",
@@ -51,191 +25,5 @@
     "x-poss",
     "x-int",
     "x-rel"
-  ],
-  "x-Form-type": [
-    "x-standalone",
-    "x-clitic"
-  ],
-  "x-Noun-class": [
-    "cicw-1",
-    "cicw-10",
-    "cicw-12",
-    "cicw-13",
-    "cicw-14",
-    "cicw-15",
-    "cicw-16",
-    "cicw-17",
-    "cicw-18",
-    "cicw-2",
-    "cicw-3",
-    "cicw-4",
-    "cicw-5",
-    "cicw-6",
-    "cicw-7",
-    "cicw-8",
-    "cicw-9",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "10",
-    "11",
-    "12",
-    "13",
-    "14",
-    "15",
-    "16",
-    "17",
-    "18",
-    "21"
-  ],
-  "x-Noun-prefix": [
-    "cicw-mu-",
-    "cicw-m-",
-    "cicw-a-",
-    "cicw-mi-",
-    "cicw-chi-",
-    "cicw-zi-",
-    "cicw-i-",
-    "cicw-n-",
-    "cicw-ka-",
-    "cicw-ti-",
-    "cicw-u-",
-    "cicw-ku-",
-    "cicw-pa-",
-    "cicw-li-",
-    "cicw-ma-",
-    "cicw-zero"
-  ],
-  "x-Noun-class-pairing": [
-    "cicw-1/2",
-    "cicw-1a/2",
-    "cicw-3/4",
-    "cicw-5/6",
-    "cicw-7/8",
-    "cicw-9/10",
-    "cicw-12/13",
-    "cicw-14/6",
-    "cicw-15",
-    "cicw-16",
-    "cicw-17",
-    "cicw-18",
-    "cicw-invariant"
-  ],
-  "x-Number-change": [
-    "cicw-prefix-replacement",
-    "cicw-ma-added"
-  ],
-  "x-Deixis-type": [
-    "cicw-dem-I",
-    "cicw-dem-II",
-    "cicw-dem-III",
-    "cicw-dem-IV",
-    "cicw-interrog-dem"
-  ],
-  "x-Case-like-role": [
-    "cicw-with"
-  ],
-  "x-Deictic-imperative": [
-    "x-immediate"
-  ],
-  "x-Aspective-imperative": [
-    "x-go",
-    "x-come",
-    "x-just"
-  ],
-  "x-Object-preposing": [
-    "x-obj-preposed"
-  ],
-  "x-Object": [
-    "x-ndi"
-  ],
-  "x-Animacy": [
-    "x-human-animal",
-    "x-other",
-    "x-anim",
-    "x-inanim"
-  ],
-  "x-Pairing": [
-    "x-1-2",
-    "x-1a-2",
-    "x-1a-6",
-    "x-3-4",
-    "x-5-6",
-    "x-7-8",
-    "x-9-10",
-    "x-9-6",
-    "x-12-13",
-    "x-14-6",
-    "x-no-plural",
-    "x-no-singular",
-    "x-invariant"
-  ],
-  "x-Derivation": [
-    "x-infinitive-noun",
-    "x-locative-shift",
-    "x-dim",
-    "x-aug"
-  ],
-  "x-Gender": [
-    "ny-class1",
-    "ny-class2",
-    "ny-class3",
-    "ny-class4",
-    "ny-class5",
-    "ny-class6",
-    "ny-class7",
-    "ny-class8",
-    "ny-class9",
-    "ny-class10",
-    "ny-class12",
-    "ny-class13",
-    "ny-class14",
-    "ny-class15",
-    "ny-class16",
-    "ny-class17",
-    "ny-class18"
-  ],
-  "x-Case-like": [
-    "comitative"
-  ],
-  "x-Register": [
-    "x-informal",
-    "x-formal"
-  ],
-  "x-Determiner-type": [
-    "x-demonstrative",
-    "x-interrogative"
-  ],
-  "x-Politeness-type": [
-    "x-familiar",
-    "x-formal"
-  ],
-  "x-Adj-type": [
-    "x-true-inflecting",
-    "x-true-invariable",
-    "x-relative",
-    "x-genitive-a",
-    "x-ornative-enye"
-  ],
-  "x-Position": [
-    "x-postnominal"
-  ],
-  "x-Adjective-type": [
-    "x-nominal",
-    "x-relative",
-    "x-verbal"
-  ],
-  "x-Concord-type": [
-    "x-copulative-concord"
-  ],
-  "x-Clauseform": [
-    "x-principal",
-    "x-participial"
   ]
 }
