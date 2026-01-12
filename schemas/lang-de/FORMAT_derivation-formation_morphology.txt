@@ -15,15 +15,18 @@ DerivationalMorphology:
       - pattern: "_stem_ + heit"
         examples:
         - "schön → Schönheit"
-        note: "forms abstract nouns denoting qualities"
+        notes: 
+        - "forms abstract nouns denoting qualities"
       - pattern: "_stem_ + keit"
         examples:
         - "tapfer → Tapferkeit"
-        note: "forms abstract nouns denoting qualities"
+        notes: 
+        - "forms abstract nouns denoting qualities"
       - pattern: "_stem_ + ung"
         examples:
         - "lesen → Lesung"
-        note: "action/result nouns"
+        notes: 
+        - "action/result nouns"
 
     u-Gender_u-neut__u-Part-of-Speech_u-n:
       applies: {u-Gender: u-neut, u-Part-of-Speech: u-n}
@@ -31,18 +34,22 @@ DerivationalMorphology:
       - pattern: "_stem_ + chen"
         examples:
         - "Hund → Hündchen"
-        note: "diminutive, always neuter, often umlaut"
+        notes: 
+        - "diminutive, always neuter, often umlaut"
       - pattern: "_stem_ + lein"
         examples:
         - "Fräulein"
-        note: "diminutive, always neuter"
+        notes: 
+        - "diminutive, always neuter"
 
     u-Part-of-Speech_u-n:
       applies: {u-Part-of-Speech: u-n}
-      pattern: "Noun + Noun"
-      examples:
-      - "Tisch + Decke → Tischdecke"
-      note: "head-final; rightmost noun determines gender and meaning"
+      patterns: 
+      - pattern: "Noun + Noun"
+        examples:
+        - "Tisch + Decke → Tischdecke"
+        notes: 
+        - "head-final; rightmost noun determines gender and meaning"
 
     u-Gender_u-neut__u-Part-of-Speech_u-n:
       applies: {u-Part-of-Speech: u-n, u-Gender: u-neut}
@@ -54,7 +61,8 @@ DerivationalMorphology:
       - pattern: "Adjective → Noun"
         examples:
         - "grün → das Grün"
-        note: "abstract quality, substance, or color"
+        notes: 
+        - "abstract quality, substance, or color"
 
     u-Part-of-Speech_u-v:
       applies: {u-Part-of-Speech: u-v}
@@ -62,27 +70,33 @@ DerivationalMorphology:
       - pattern: "be- + _stem_"
         examples:
         - "sprechen → besprechen"
-        note: "adds transitivity, valency"
+        notes: 
+        - "adds transitivity, valency"
       - pattern: "ver- + _stem_"
         examples:
         - "kaufen → verkaufen"
-        note: "change, error, destruction, completion"
+        notes: 
+        - "change, error, destruction, completion"
       - pattern: "zer- + _stem_"
         examples:
         - "brechen → zerbrechen"
-        note: "destruction/disintegration"
+        notes: 
+        - "destruction/disintegration"
       - pattern: "miss- + _stem_"
         examples:
         - "verstehen → missverstehen"
-        note: "negation/mis- prefix"
+        notes: 
+        - "negation/mis- prefix"
       - pattern: "_stem_ + ieren"
         examples:
         - "passen → passieren"
-        note: "productive for Latinate stems"
+        notes: 
+        - "productive for Latinate stems"
       - pattern: "_stem_ + isieren"
         examples:
         - "modern → modernisieren"
-        note: "productive for Latinate stems"
+        notes: 
+        - "productive for Latinate stems"
 
     u-Part-of-Speech_u-adj:
       applies: {u-Part-of-Speech: u-adj}
@@ -90,20 +104,25 @@ DerivationalMorphology:
       - pattern: "un- + _stem_"
         examples:
         - "glücklich → unglücklich"
-        note: "productive negation prefix"
+        notes: 
+        - "productive negation prefix"
       - pattern: "in-/im-/ir-/il- + _stem_"
         examples:
         - "rational → irrational"
-        note: "Latinate negation prefix; assimilation to following consonant"
+        notes: 
+        - "Latinate negation prefix; assimilation to following consonant"
       - pattern: "_stem_ + lich"
         examples:
         - "Kind → kindlich"
-        note: "‘like’ or ‘characteristic of’"
+        notes: 
+        - "‘like’ or ‘characteristic of’"
       - pattern: "_stem_ + bar"
         examples:
         - "essen → essbar"
-        note: "possibility or capability (‘-able’)"
+        notes: 
+        - "possibility or capability (‘-able’)"
       - pattern: "_stem_ + ig"
         examples:
         - "Sonne → sonnig"
-        note: "possession or abundance"
+        notes: 
+        - "possession or abundance"

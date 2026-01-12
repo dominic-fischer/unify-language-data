@@ -8,22 +8,24 @@ Agreement:
   Rules:
     u-Part-of-Speech_u-n_u-adj:
       applies: {u-Part-of-Speech: [u-n, u-adj] }
-      pattern: "adjective inflected for case, number, gender of head noun"
-      examples:
-      - "ein schöner Hund"
-      note: "endings follow strong/weak/mixed inflection depending on determiner"
+      patterns:
+      - pattern: "adjective inflected for case, number, gender of head noun"
+        examples:
+        - "ein schöner Hund"
+        notes: 
+        - "endings follow strong/weak/mixed inflection depending on determiner"
 
     u-Part-of-Speech_u-n_u-det:
       applies: {u-Part-of-Speech: [u-n, u-det] }
-      pattern: "determiner inflected for case, number, gender of head noun"
-      examples:
-      - "die großen Hunde"
-      note: "paradigm identical to article system"
+      patterns:
+      - pattern: "determiner inflected for case, number, gender of head noun"
+        examples:
+        - "die großen Hunde"
 
     u-Part-of-Speech_u-n_u-v:
       applies: {u-Part-of-Speech: [u-n, u-v] }
-      pattern: "finite verb agrees with subject in person and number"
-      examples:
-      - "ich gehe"
-      - "wir gehen"
-      note: "obligatory agreement; 3sg endings distinct, others reduced"
+      patterns:
+      - pattern: "finite verb agrees with subject in person and number"
+        examples:
+        - "ich gehe"
+        - "wir gehen"

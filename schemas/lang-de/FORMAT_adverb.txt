@@ -6,33 +6,31 @@ Adverbs:
   Rules:
     u-Part-of-Speech_u-adv:
       applies: {u-Part-of-Speech: u-adv}
-      pattern: "lexical base form"
-      examples: 
-      - "gestern"
-      - "oft"
-      - "bald"
+      patterns:
+      - pattern: "lexical base form"
+        examples: 
+        - "gestern"
+        - "oft"
+        - "bald"
 
     u-Part-of-Speech_u-adj:
       applies: {u-Part-of-Speech: u-adj}
-      pattern: "adjective stem reused as adverb (uninflected)"
-      examples: 
-      - "schnell → schnell"
-      - "laut → laut"
-      note: "form identical to adjective"
+      patterns:
+      - pattern: "adjective stem reused as adverb (uninflected)"
+        examples: 
+        - "schnell → schnell"
+        - "laut → laut"
 
     u-Comparison_u-cmpr:
       applies: {u-Comparison: u-cmpr}
-      pattern: "_stem_ + er"
-      examples: 
-      - "schnell → schneller"
+      patterns:
+      - pattern: "stem + er"
+        examples: 
+        - "schnell → schneller"
 
     u-Comparison_u-sprl:
       applies: {u-Comparison: u-sprl}
       patterns: 
-      - pattern: "am _stem_ + sten"
+      - pattern: "am stem + sten"
         examples: 
         - "schnell → am schnellsten"
-        note: "used predominatly adverbially, e.g. 'er rennt am schnellsten' (he runs the fastest)"
-      - pattern: "Determiner _stem_ + ste"
-        examples:
-        - "schnell → der/die/das schnellste"

@@ -6,18 +6,22 @@ Clauses:
   Rules:
     x-Clausetype_x-main:
       applies: {x-Clausetype: x-main}
-      pattern: "... Vfin-2 ..."
-      examples: 
-        - "Heute geht er nach Hause."
-        - "Er geht heute nach Hause."
-      note: "Finite verb in second position; first slot (Vorfeld) can host subject, object, or adverbial."
+      patterns:
+      - pattern: "... Vfin-2 ..."
+        examples: 
+          - "Heute geht er nach Hause."
+          - "Er geht heute nach Hause."
+        notes: 
+        - "Finite verb in second position; first slot (Vorfeld) can host subject, object, or adverbial."
 
     x-Clausetype_x-subordinate:
       applies: {x-Clausetype: x-subordinate}
-      pattern: "... Vfin-final."
-      examples: 
-        - ", ...weil er nach Hause geht"
-      note: "Introduced by subordinating conjunction; finite verb placed at end."
+      patterns:
+      - pattern: "... Vfin-final."
+        examples: 
+          - ", ...weil er nach Hause geht"
+        notes: 
+        - "Introduced by subordinating conjunction; finite verb placed at end."
 
     u-Interrogativity_u-int:
       applies: {u-Interrogativity: u-int}
@@ -33,9 +37,11 @@ Clauses:
 
     u-Interrogativity_x-excl:
       applies: {u-Interrogativity: x-excl}
-      pattern: "Vfin-1 + subject + ...!"
-      examples:
-        - "Habe ich dir doch gesagt!"
-        - "Geh hinaus!"
-      note: "Imperatives are verb-initial, and so are the remaining exclamative main clauses: finite verb in initial position; express emphasis, surprise, or narrative style."
+      patterns:
+      - pattern: "Vfin-1 + subject + ...!"
+        examples:
+          - "Habe ich dir doch gesagt!"
+          - "Geh hinaus!"
+        notes: 
+        - "Imperatives are verb-initial, and so are the remaining exclamative main clauses: finite verb in initial position; express emphasis, surprise, or narrative style."
 
