@@ -11,7 +11,7 @@ import streamlit as st
 BASE_DIR = Path(__file__).resolve().parent
 
 # Grammar lives in ONE place now
-GRAMMAR_DIR = BASE_DIR / "outputs" / "outputs_gpt-5.2"
+GRAMMAR_DIR = BASE_DIR / "outputs_gpt-5.2"
 
 # Vocab lives here, files are *.jsonl.gz
 VOCAB_DIR = BASE_DIR / "data" / "wiktionary" / "outfiles"
