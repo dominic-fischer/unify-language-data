@@ -8,14 +8,14 @@ Past:
       title: "Preterite"
       applies: {u-Aspect: [u-hab, u-ipfv, u-iter, u-pfv]}
       patterns:
-        - pattern: "_stem_ + te + _personal ending_"
+        - pattern: "stem + te + personal ending"
           title: "Weak Verbclass"
           examples:
           - "u-hab: Er kam jeden Tag."
           - "u-ipfv: Es regnete, als er kam."
           - "u-iter: Er klopfte immer wieder."
           - "u-pfv: Er kam und setzte sich."
-        - pattern: "_ablauted stem_ + _personal ending_"
+        - pattern: "ablauted stem + personal ending"
           "title: Strong Verbclass"
           examples:
           - "ich ging"
@@ -70,7 +70,7 @@ Past:
         - "gespielt"
         note: "Weak verbs: participle formed with -t, occasionally -et after certain stems."
       - pattern: "ge- + {ablauted stem} + en"
-        title: "Weak Verbclass"
+        title: "Strong Verbclass"
         examples:
         - "gesehen"
         - "gegangen"

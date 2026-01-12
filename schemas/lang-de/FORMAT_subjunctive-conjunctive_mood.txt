@@ -13,7 +13,8 @@ Subjunctive:
     u-Tense_u-prs:
       applies: {u-Tense: u-prs}
       patterns: 
-      - pattern: "Subjunctive I: _present stem_ + _endings_"
+      - pattern: "_present stem_ + _endings_"
+        title: "Subjunctive I"
         endings:
         - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}       # ich habe
         - {features: {u-Person: u-2, u-Number: u-sg}, form: "est"}     # du habest
@@ -24,8 +25,10 @@ Subjunctive:
         examples:
         - "Er sagte, er sei krank."
         - "Die Zeitung berichtet, die Preise stiegen weiter."
-        note: "Subjunctive I (Konjunktiv I) is primarily used for indirect/reported speech, especially in formal registers (newspapers, academic writing). It marks distancing of the speaker from the truth of the proposition."
-      - pattern: "Subjunctive II (synthetic): _preterite stem (ablaut/umlaut)_ + _endings_"
+        notes: 
+        - "Subjunctive I (Konjunktiv I) is primarily used for indirect/reported speech, especially in formal registers (newspapers, academic writing). It marks distancing of the speaker from the truth of the proposition."
+      - pattern: "preterite stem (ablaut/umlaut) + endings"
+        title: "Subjunctive II (synthetic)"
         endings:
         - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}        # ich ginge
         - {features: {u-Person: u-2, u-Number: u-sg}, form: "est"}      # du gingest
@@ -36,12 +39,14 @@ Subjunctive:
         examples:
         - "Ich hätte gern einen Kaffee."
         - "Könnten Sie mir bitte helfen?"
-      - pattern: "Subjunctive II (periphrastic): würde (Konjunktiv II) + infinitive"
-        note: "Subjunctive II (Konjunktiv II) expresses counterfactuality, unreality, or politeness. In modern usage, synthetic forms survive mostly in a few verbs (sein, haben, modals), while the würde + infinitive construction dominates otherwise."
+        notes:
+        - "Subjunctive II (Konjunktiv II) expresses counterfactuality, unreality, or politeness. In modern usage, synthetic forms survive mostly in a few verbs (sein, haben, modals), while the würde + infinitive construction dominates otherwise."
+      - pattern: "würde (Konjunktiv II) + infinitive"
+        title: "Subjunctive II (periphrastic)"
+        notes: 
+        - "dominant form for most verbs in modern usage"
         examples:
         - "ich würde gehen"
-        note: "dominant form for most verbs in modern usage"
-        examples:
         - "Wenn ich Zeit hätte, käme ich vorbei."
         - "An deiner Stelle würde ich das nicht tun."
 
@@ -65,4 +70,5 @@ Subjunctive:
       - pattern: "Subjunctive II: würde (Konjunktiv II) + past participle + haben/sein infinitive"
         examples:
         - "ich würde gegangen sein"
-        note: "rare; equivalent to Future II under subjunctive"
+        notes: 
+        - "rare; equivalent to Future II under subjunctive"

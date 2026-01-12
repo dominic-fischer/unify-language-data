@@ -3,17 +3,15 @@ ReportedSpeech:
     u-Evidentiality: [u-fh, u-quot]
     u-Tense: [u-prs, u-pst, u-fut]
 
-  Notes:
-  - "The tense of the subordinate clause remains unchanged unless the reporting verb is in the past, in which case the reported tense is adjusted relative to it as outlined."
-  - "In either case, though, mood changes: Subjunctive I is the mood of reporting, Subjunctive II if forms coincide"
-  - "Using 'dass' will trigger the inversion, as the sentence then becomes a subclause."
-
   Rules:
     u-Evidentiality_u-fh:
       applies: {u-Evidentiality: u-fh}
-      pattern: "quote + _reporting verb_"
-      example: "Er sagte: 'Ich komme morgen.'"
-      note: "quotation preserves original tense/mood exactly"
+      patterns:
+      - pattern: "quote + _reporting verb_"
+        examples: 
+        - "Er sagte: 'Ich komme morgen.'"
+        notes: 
+        - "quotation preserves original tense/mood exactly"
 
     u-Evidentiality_u-quot__u-Tense_u-prs:
       applies: {u-Evidentiality: u-quot, u-Interrogativity: u-decl, u-Tense: u-prs}
@@ -36,16 +34,18 @@ ReportedSpeech:
 
     u-Evidentiality_u-quot__u-Tense_u-pst:
       applies: {u-Evidentiality: u-quot, u-Tense: u-pst}
-      pattern: "_reporting verb_ + dass/Ø + {clause in Subjunctive I (perfect)}"
-      examples: 
-      - "Er sagte, er sei gestern angekommen."
-      - "Ich fragte, ob er gestern angekommen sei."
-      - "Er erzählte, wie schön es gewesen sei."
+      patterns:
+      - pattern: "_reporting verb_ + dass/Ø + {clause in Subjunctive I (perfect)}"
+        examples: 
+        - "Er sagte, er sei gestern angekommen."
+        - "Ich fragte, ob er gestern angekommen sei."
+        - "Er erzählte, wie schön es gewesen sei."
 
     u-Evidentiality_u-quot__u-Tense_u-fut:
       applies: {u-Evidentiality: u-quot, u-Tense: u-fut}
-      pattern: "_reporting verb_ + dass/Ø + {clause in Subjunctive I (future)}"
-      examples: 
-      - "Er sagte, er werde morgen kommen."
-      - "Ich fragte, ob er nächste Woche ankommen werde."
-      - "'Es wird so schön (werden)!" --> Er meinte, dass es sehr schön werde/werden würde."
+      patterns:
+      - pattern: "_reporting verb_ + dass/Ø + {clause in Subjunctive I (future)}"
+        examples: 
+        - "Er sagte, er werde morgen kommen."
+        - "Ich fragte, ob er nächste Woche ankommen werde."
+        - "'Es wird so schön (werden)!" --> Er meinte, dass es sehr schön werde/werden würde."

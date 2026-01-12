@@ -10,49 +10,54 @@ Pronoun:
   Rules:
     x-Pronoun-type_x-pers:
       applies: {x-Pronoun-type: x-pers}
-      forms:
-      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-nom}, form: "ich"}
-      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc}, form: "mich"}
-      - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-dat}, form: "mir"}
+      formparadigms:
+      - forms:
+        - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-nom}, form: "ich"}
+        - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc}, form: "mich"}
+        - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-dat}, form: "mir"}
 
-      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-nom}, form: "du"}
-      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-acc}, form: "dich"}
-      - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-dat}, form: "dir"}
+        - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-nom}, form: "du"}
+        - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-acc}, form: "dich"}
+        - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-dat}, form: "dir"}
 
-      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-nom}, form: "er"}
-      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-acc}, form: "ihn"}
-      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-dat}, form: "ihm"}
-      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-nom}, form: "sie"}
-      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-acc}, form: "sie"}
-      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-dat}, form: "ihr"}
-      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-nom}, form: "es"}
-      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-acc}, form: "es"}
-      - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-dat}, form: "ihm"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-nom}, form: "er"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-acc}, form: "ihn"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-dat}, form: "ihm"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-nom}, form: "sie"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-acc}, form: "sie"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-dat}, form: "ihr"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-nom}, form: "es"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-acc}, form: "es"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut, u-Case: u-dat}, form: "ihm"}
 
-      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-nom}, form: "wir"}
-      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-acc}, form: "uns"}
-      - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-dat}, form: "uns"}
-      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-nom}, form: "ihr"}
-      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-acc}, form: "euch"}
-      - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-dat}, form: "euch"}
-      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-nom}, form: "sie"}
-      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-acc}, form: "sie"}
-      - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-dat}, form: "ihnen"}
+        - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-nom}, form: "wir"}
+        - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-acc}, form: "uns"}
+        - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-dat}, form: "uns"}
+        - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-nom}, form: "ihr"}
+        - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-acc}, form: "euch"}
+        - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-dat}, form: "euch"}
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-nom}, form: "sie"}
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-acc}, form: "sie"}
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-dat}, form: "ihnen"}
 
     x-Pronoun-type_x-refl:
       applies: {x-Pronoun-type: x-refl}
-      pattern: "pronouns in accusative/dative case"
-      note: "only in acc/dat, used obligatorily with reflexive verbs"
+      patterns: 
+      - pattern:
+        - "pronouns in accusative/dative case"
+        notes: 
+        - "only in acc/dat, used obligatorily with reflexive verbs"
 
     x-Pronoun-type_x-dem:
       applies: {x-Pronoun-type: x-dem}
-      forms:
-      - {features: {u-Deixis: u-prox}, pattern: "dies- + {def-determiner-endings}", note: "proximal demonstrative"}
-      - {features: {u-Deixis: u-remt}, pattern: "jen- + {def-determiner-endings}", note: "remote demonstrative"}
+      formparadigms:
+      - forms:
+        - {features: {u-Deixis: u-prox}, pattern: "dies- + {def-determiner-endings}", note: "proximal demonstrative"}
+        - {features: {u-Deixis: u-remt}, pattern: "jen- + {def-determiner-endings}", note: "remote demonstrative"}
 
     x-Pronoun-type_x-int:
       applies: {x-Pronoun-type: x-int}
-      patterns:
+      formparadigms:
       - forms:
         - {features: {u-Case: u-nom, u-Gender: u-masc}, form: "wer"}
         - {features: {u-Case: u-nom, u-Gender: u-fem}, form: "wer"}
@@ -62,7 +67,19 @@ Pronoun:
         - {features: {u-Case: u-acc, u-Gender: u-neut}, form: "was"}
         - {features: {u-Case: u-dat}, form: "wem"}
         - {features: {u-Case: u-gen}, form: "wessen"}
-      - {pattern: "welch- + {def-determiner-endings}"}
+      - forms:
+        - {features: {u-Case: u-nom, u-Gender: u-masc}, form: "welcher"}
+        - {features: {u-Case: u-nom, u-Gender: u-fem}, form: "welche"}
+        - {features: {u-Case: u-nom, u-Gender: u-neut}, form: "welches"}
+        - {features: {u-Case: u-acc, u-Gender: u-masc}, form: "welchen"}
+        - {features: {u-Case: u-acc, u-Gender: u-fem}, form: "welche"}
+        - {features: {u-Case: u-acc, u-Gender: u-neut}, form: "welches"}
+        - {features: {u-Case: u-dat, u-Gender: u-masc}, form: "welchem"}
+        - {features: {u-Case: u-dat, u-Gender: u-fem}, form: "welcher"}
+        - {features: {u-Case: u-dat, u-Gender: u-neut}, form: "welchem"}
+        - {features: {u-Case: u-gen, u-Gender: u-masc}, form: "welches"}
+        - {features: {u-Case: u-gen, u-Gender: u-fem}, form: "welcher"}
+        - {features: {u-Case: u-gen, u-Gender: u-neut}, form: "welches"}
 
     x-Pronoun-type_x-rel:
       applies: {x-Pronoun-type: x-rel}
@@ -72,11 +89,12 @@ Pronoun:
     
     x-Pronoun-type_x-poss:
       applies: {x-Pronoun-type: x-poss, x-Form-type: x-standalone}
-      - pattern: "_stem_ + _bare-adj-endings_"
+      patterns:
+      - pattern: "stem + bare-adj-endings"
         notes: 
         - "the stems are: mein-, dein-, sein-, ihr-, unser-, euer-, Ihr-"
         - "these are the standalone Forms"
-      - pattern: "_stem_ + _indef-determiner-endings_"
+      - pattern: "stem + indef-determiner-endings"
         notes: 
         - "the stems are: mein-, dein-, sein-, ihr-, unser-, euer-, Ihr-"
         - "these are the clitic forms"
