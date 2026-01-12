@@ -65,7 +65,7 @@ Finally, GPT was instructed to work strictly with the provided source material i
 
 The aim of this project is to synthesize existing linguistic description data into a structured, uniform format with the help of an LLM. The resulting interface allows users to browse and compare the two core components of language learning — **grammar** and **vocabulary** — across multiple languages.
 
-Currently supported languages include:
+Currently supported languages include[^1]:
 
 - **Romance languages**: French, Italian, Spanish, Portuguese, Romanian  
 - **Bantu languages**: Chichewa (Chewa, Nyanja), Chishona (Shona), Kiswahili (Swahili), isiZulu (Zulu)
@@ -90,7 +90,7 @@ This project was designed to address these issues by:
 
 #### Data Preparation
 
-Grammar data was sourced from textbook-style Word documents as well as Wikipedia articles. To make this data suitable for LLM processing, it was first converted into a unified, markdown-like format used consistently across sources. An example (from *Wikipedia: Italian Grammar*) is shown below:
+Grammar data was sourced from textbook-style Word documents[^2] as well as Wikipedia articles. To make this data suitable for LLM processing, it was first converted into a unified, markdown-like format used consistently across sources. An example (from *Wikipedia: Italian Grammar*) is shown below:
 
 ```
     # Italian grammar
@@ -102,7 +102,7 @@ Grammar data was sourced from textbook-style Word documents as well as Wikipedia
     Italian articles vary according to definiteness (definite, indefinite, and partitive), number, gender, and the initial sound of the subsequent word. Partitive articles compound the preposition di with the corresponding definite article, to express uncertain quantity. In the plural, they typically translate into English as 'few'; in the singular, typically as 'some'.
 ```
 
-For vocabulary data, the **Kaikki Wiktionary Archive** was used directly. Wiktionary’s entry structure served as the gold standard for vocabulary representation, even though it is not entirely consistent. Future work could involve augmenting this data with additional vocabulary sources or linking vocabulary more closely to grammar (for example, connecting inflection patterns to the words that follow them).
+For vocabulary data, the [**Kaikki Wiktionary Archive**](https://kaikki.org/) was used directly. Wiktionary’s entry structure served as the gold standard for vocabulary representation, even though it is not entirely consistent. Future work could involve augmenting this data with additional vocabulary sources or linking vocabulary more closely to grammar (for example, connecting inflection patterns to the words that follow them).
 
 The next step was defining a **gold-standard schema** for grammar descriptions that could be applied consistently across languages. Designing this schema required several iterations before arriving at a structure that was both simple and robust. The schema can be represented as follows:
 
@@ -132,7 +132,7 @@ The next step was defining a **gold-standard schema** for grammar descriptions t
 
 ```
 
-Eighteen grammar categories were defined, and for each of them a detailed **German reference schema** was created to guide the LLM. These reference schemas can be found in `schemas/lang-de/`.
+Eighteen grammar categories were defined[^3], and for each of them a detailed **German reference schema** was created to guide the LLM. These reference schemas can be found in `schemas/lang-de/`.
 
 ---
 
@@ -175,6 +175,6 @@ One major issue that is not yet fully resolved is application performance. The W
 
 ### Footnotes
 
-1. Grammar descriptions also exist for German. Unlike the others, these were created manually and serve as a gold standard for how the grammar schemas should look.  
-2. The textbook data was compiled by the author over several years from various sources, especially for lower-resource Bantu languages.  
-3. Grammar categories include: Adjectives, Adverbs, Agreement, Clauses, Conditionals, Constituents, Derivation, Determiners, Future Tense, Imperative, Negation, Nouns, Passive Voice, Past Tense, Present Tense, Pronouns, Reported Speech, Subjunctive.
+[^1]: Grammar descriptions also exist for German. Unlike the others, these were created manually and serve as a gold standard for how the grammar schemas should look.  
+[^2]: The textbook data was compiled by the author over several years from various sources, especially for lower-resource Bantu languages.  
+[^3]: Grammar categories include: Adjectives, Adverbs, Agreement, Clauses, Conditionals, Constituents, Derivation, Determiners, Future Tense, Imperative, Negation, Nouns, Passive Voice, Past Tense, Present Tense, Pronouns, Reported Speech, Subjunctive.
