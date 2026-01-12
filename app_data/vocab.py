@@ -552,6 +552,120 @@ def get_etymology_options_for_langs_and_pos(langs: Tuple[str, ...], pos: str | N
     return sorted(out)
 
 
+
+@st.cache_data(show_spinner=True)
+def scan_categories_for_lang_pos_and_ety(
+    lang: str,
+    pos: str,
+    ety: str | None,
+    max_records: int = 200_000,
+    max_unique: int = 5000,
+) -> List[str]:
+    cats: set[str] = set()
+    files = resolve_lang_pos_files((lang,), pos)
+
+    for fp in files:
+        n = 0
+        for e in iter_jsonl_records(fp):
+            n += 1
+            if n > max_records:
+                break
+
+            # When scanning unsplit data, enforce POS
+            if e.get("pos") != pos:
+                continue
+
+            if ety:
+                src_lbl = ety_source(vocab_record_etymology(e))
+                if src_lbl != ety:
+                    continue
+
+            for c in vocab_record_categories(e):
+                if c:
+                    cats.add(c)
+                    if len(cats) >= max_unique:
+                        break
+            if len(cats) >= max_unique:
+                break
+
+    return sorted(cats)
+
+
+@st.cache_data(show_spinner=True)
+def scan_etymologies_for_lang_pos_and_cat(
+    lang: str,
+    pos: str,
+    cat: str | None,
+    max_records: int = 200_000,
+    max_unique: int = 5000,
+) -> List[str]:
+    etys: set[str] = set()
+    files = resolve_lang_pos_files((lang,), pos)
+
+    for fp in files:
+        n = 0
+        for e in iter_jsonl_records(fp):
+            n += 1
+            if n > max_records:
+                break
+
+            if e.get("pos") != pos:
+                continue
+
+            if cat:
+                cats = vocab_record_categories(e)
+                if cat not in cats:
+                    continue
+
+            src_lbl = ety_source(vocab_record_etymology(e))
+            if src_lbl:
+                etys.add(src_lbl)
+                if len(etys) >= max_unique:
+                    break
+
+    return sorted(etys)
+
+
+@st.cache_data(show_spinner=True)
+def get_category_options_for_langs_pos_and_ety(
+    langs: Tuple[str, ...],
+    pos: str | None,
+    ety: str | None,
+    combine: str = "union",  # "union" | "intersection"
+) -> List[str]:
+    if not pos:
+        return []
+
+    sets: List[set[str]] = []
+    for lang in langs:
+        sets.append(set(scan_categories_for_lang_pos_and_ety(lang, pos, ety)))
+
+    if not sets:
+        return []
+    out = set.union(*sets) if combine == "union" else set.intersection(*sets)
+    return sorted(out)
+
+
+@st.cache_data(show_spinner=True)
+def get_etymology_options_for_langs_pos_and_cat(
+    langs: Tuple[str, ...],
+    pos: str | None,
+    cat: str | None,
+    combine: str = "union",  # "union" | "intersection"
+) -> List[str]:
+    if not pos:
+        return []
+
+    sets: List[set[str]] = []
+    for lang in langs:
+        sets.append(set(scan_etymologies_for_lang_pos_and_cat(lang, pos, cat)))
+
+    if not sets:
+        return []
+    out = set.union(*sets) if combine == "union" else set.intersection(*sets)
+    return sorted(out)
+
+
 # --- Etymology grouping helpers ---------------------------------------------
 
 _ETY_TYPE_RULES = [
