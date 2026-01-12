@@ -1,24 +1,109 @@
-Adjective:
-- Use u-comparison for rules about adjective comparison
-- Use u-Definiteness, u-Case, u-Number and u-Gender to account for morphological variation in adjectives
-- In addition, use u-Part-of-Speech for rules about adjective formation, i.e. u-adj for de-adjectival adjectives, u-v for de-verbal adjectives, u-n for de-nominal adjectives, etc.
+ADJECTIVE
+----------
+- Use u-Comparison for rules governing adjective comparison.
+- Use u-Definiteness, u-Case, u-Number, and u-Gender to capture morphological variation in adjectives.
+- Use u-Part-of-Speech to specify the source of adjective formation:
+  - u-adj for deadjectival adjectives
+  - u-v for deverbal adjectives
+  - u-n for denominal adjectives
 
-Adverbs:
-- Use u-Comparison for rules about adverb comparison
-- Use u-Part-of-Speech for rules about adverb formation, i.e. u-adj for de-adjectival adverbs, u-v for de-verbal adverbs, u-n for de-nominal adverbs, etc.
 
-Agreement:
-- Use u-Part-of-Speech to indicate which parts of speech agree with each other
+ADVERBS
+-------
+- Use u-Comparison for rules governing adverb comparison.
+- Use u-Part-of-Speech to specify the source of adverb formation:
+  - u-adj for deadjectival adverbs
+  - u-v for deverbal adverbs
+  - u-n for denominal adverbs
 
-Clauses:
-- Use x-Clausetype for Rules about Syntax in a specific clausetype
-- Use u-Interrogativity for Rules about Syntax in different types of statements, i.e. declarative, exclamative or interrogative
 
-Conditionals:
-- Use u-Tense to indicate in which tense a particular conditional is set
-- Use u-Mood in case you need to disambiguate between different conditionals in the same tense, e.g., real and irreal in the present tense
+AGREEMENT
+---------
+- Use u-Part-of-Speech to specify which parts of speech participate in agreement relations.
 
-Constituents:
-- Use x-Constituent for rules about the different constituents in a language
 
-DerivationalMorphology
+CLAUSES
+-------
+- Use x-Clausetype for syntactic differences between main and subclauses.
+- Use u-Interrogativity for syntactic differences between declarative, interrogative, and exclamative clauses.
+
+
+CONDITIONALS
+------------
+- Use u-Tense to indicate the tense of a conditional construction.
+- Use u-Mood to distinguish between different types of conditionals within the same tense (e.g., real vs. irrealis in the present tense).
+
+
+CONSTITUENTS
+------------
+- Use x-Constituent for rules governing the structure and behavior of constituents.
+
+
+DERIVATIONAL MORPHOLOGY
+-----------------------
+- Use u-Part-of-Speech to distinguish derivational rules that apply to different parts of speech.
+- Where necessary, use additional features (e.g., u-Gender) to distinguish subclasses within a part of speech.
+
+
+DETERMINERS
+-----------
+- Use u-Definiteness, u-Case, u-Number, and u-Gender to account for morphological variation in determiners.
+
+
+FUTURE TENSE
+------------
+- Use u-Aspect to indicate which aspectual distinctions are encoded by a future tense construction.
+
+
+IMPERATIVE
+----------
+- Use u-Person and u-Number to indicate which participants are addressed by an imperative.
+- If necessary, use additional features (e.g., u-Politeness) to distinguish imperatives across
+  registers or pragmatic types.
+
+
+NEGATION
+--------
+- Use x-Negation-type to specify the scope or target of negation in a given negation pattern.
+
+
+NOUNS
+-----
+- Use u-Case, u-Number, and u-Gender to account for morphological variation in nouns.
+
+
+PASSIVE
+-------
+- Use u-Tense to indicate the tense(s) in which a particular passive formation is used.
+- If necessary, use u-Voice to distinguish passive constructions from other voice types (e.g., active or middle).
+ 
+
+PAST TENSE
+----------
+- Use u-Aspect to indicate which aspectual distinctions are encoded by a past tense construction.
+
+
+PRESENT TENSE
+-------------
+- Use u-Aspect to indicate which aspectual distinctions are encoded by a present tense construction.
+- Use u-Person, u-Number, and, where relevant, u-Gender to account for subject-dependent present tense morphology.
+
+
+PRONOUNS
+--------
+- Use u-Case, u-Number, u-Person, and u-Gender to account for morphological variation in pronouns.
+- Use u-Deixis to indicate deictic distance distinctions.
+- Use x-Pronoun-type to distinguish between different pronoun classes.
+
+
+REPORTED SPEECH
+---------------
+- Use u-Evidentiality to distinguish between direct and indirect reported speech.
+- Use u-Tense to anchor reported speech temporally.
+
+
+SUBJUNCTIVE
+-----------
+- Use u-Tense to indicate the tense of the subjunctive construction.
+- Use u-Person, u-Number, and, where relevant, u-Gender to account for subject-dependent
+  subjunctive morphology.
