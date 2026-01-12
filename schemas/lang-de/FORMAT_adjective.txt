@@ -29,11 +29,11 @@ Adjective:
     u-Comparison_u-sprl:
       applies: {u-Comparison: u-sprl}
       patterns: 
-      - pattern "am stem + sten"
+      - pattern: "am stem + sten"
         examples:
         - "schön → am schönsten"
         - "besser → am besten"
-      - pattern: "Determiner _stem_ + ste"
+      - pattern: "Determiner stem + ste"
         examples:
         - "schnell → der/die/das schnellste"
 

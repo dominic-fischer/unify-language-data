@@ -30,30 +30,27 @@ Noun:
 
     u-Gender_u-neut:
       applies: {u-Gender: u-neut}
-      patterns:
-      - pattern: "_stem_ + _ending_"
-        endingparadigm:
-          - features: {u-Number: u-sg, u-Case: u-nom}
-            ending: ""
-          - features: {u-Number: u-sg, u-Case: u-acc}
-            ending: ""
-          - features: {u-Number: u-sg, u-Case: u-dat}
-            ending: ""
-          - features: {u-Number: u-sg, u-Case: u-gen}
-            ending: "es"
-          - features: {u-Number: u-pl}
-            ending: "er"
-          notes: 
-          - "often with Umlaut"
+      endingparadigms:
+      - endingparadigm:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          ending: ""
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          ending: ""
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          ending: ""
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          ending: "es"
+        - features: {u-Number: u-pl}
+          ending: "er"
+        notes: 
+        - "often with Umlaut"
         examples: 
         - "ein Kind → Kinder"
-        note: "common neuter plural type; Umlaut frequent"
-      - pattern: "_stem_ + s"
-        endingparadigm:
-          - features: {u-Number: u-sg}
-            ending: ""
-          - features: {u-Number: u-pl}
-            ending: "s"
+      - endingparadigm:
+        - features: {u-Number: u-sg}
+          ending: ""
+        - features: {u-Number: u-pl}
+          ending: "s"
         examples: 
         - "ein Auto → Autos"
         note: "loanwords and abbreviations; plural in -s"

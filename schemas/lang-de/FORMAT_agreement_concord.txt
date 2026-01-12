@@ -1,9 +1,10 @@
 Agreement:
   Features:
     u-Part-of-Speech:
-    - [u-n, u-adj] 
-    - [u-n, u-det] 
-    - [u-n, u-v] 
+    - u-n
+    - u-adj
+    - u-det
+    - u-v
 
   Rules:
     u-Part-of-Speech_u-n_u-adj:

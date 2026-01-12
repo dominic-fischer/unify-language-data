@@ -22,7 +22,7 @@ Passive:
         title: "Vorgangspassiv"
         examples: 
         - "Der Hund wird gesehen"
-      - pattern: "sein (present, finite) + Past Participle"¨
+      - pattern: "sein (present, finite) + Past Participle"
         title: "Zustandspassiv"
         examples: 
         - "Der Zaun ist gestrichen"

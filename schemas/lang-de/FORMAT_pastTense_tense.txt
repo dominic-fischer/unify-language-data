@@ -16,7 +16,7 @@ Past:
           - "u-iter: Er klopfte immer wieder."
           - "u-pfv: Er kam und setzte sich."
         - pattern: "ablauted stem + personal ending"
-          "title: Strong Verbclass"
+          title: "Strong Verbclass"
           examples:
           - "ich ging"
         - pattern: "suppletive forms"
@@ -59,7 +59,7 @@ Past:
 
 
     PastParticiple:
-    title: "PastParticiple"
+      title: "PastParticiple"
       applies: {de-Tense-type: de-past-participle, de-Verbclass: de-weak}
       patterns: 
       - pattern: "ge- + {stem} + (e)t"

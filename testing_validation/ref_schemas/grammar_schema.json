@@ -38,7 +38,7 @@
         "examples": { "$ref": "#/$defs/examples" },
         "title": { "type": "string" }
       },
-    "required": ["form_items"]
+    "required": ["formparadigm"]
     },
     "form_item": {
       "type": "object",
@@ -58,7 +58,7 @@
       "items": { "$ref": "#/$defs/endingparadigm_object" },
       "minItems": 1
     },
-    "endingparadigm_objects": {
+    "endingparadigm_object": {
       "type": "object",
       "properties": {
         "endingparadigm": {
@@ -70,7 +70,7 @@
         "examples": { "$ref": "#/$defs/examples" },
         "title": { "type": "string" }
       },
-      "required": ["ending_items"]
+      "required": ["endingparadigm"]
     },
     "ending_item": {
       "type": "object",

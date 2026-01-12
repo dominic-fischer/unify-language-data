@@ -7,14 +7,14 @@ Conditionals:
     u-Tense_u-fut:
       applies: {u-Tense: u-fut}
       patterns:
-      - pattern:"Present Tense + Future Tense"
+      - pattern: "Present Tense + Future Tense"
         examples:
         - "Wenn er kommt, werden wir gehen."
 
     u-Mood_u-real__u-Tense_u-prs:
       applies: {u-Tense: u-prs, u-Mood: u-real}
       patterns:
-      - pattern:"Present Tense + Present Tense"
+      - pattern: "Present Tense + Present Tense"
         examples:
         - "Wenn er kommt, gehen wir."
 
@@ -37,7 +37,7 @@ Conditionals:
     u-Mood_u-irr__u-Tense_u-pst:
       applies: {u-Tense: u-pst, u-Mood: u-irr}
       patterns:
-      - pattern:"Subjunctive II Past"
+      - pattern: "Subjunctive II Past"
         examples:
         - "Wenn er nicht gegangen wäre, hätten wir gewonnen."
 
