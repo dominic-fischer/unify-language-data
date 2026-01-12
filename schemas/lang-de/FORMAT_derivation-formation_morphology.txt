@@ -57,7 +57,8 @@ DerivationalMorphology:
       - pattern: "Verb → Noun"
         examples:
         - "laufen → das Laufen"
-        note: "gerund-like; infinitive as neuter noun"
+        notes: 
+        - "gerund-like; infinitive as neuter noun"
       - pattern: "Adjective → Noun"
         examples:
         - "grün → das Grün"

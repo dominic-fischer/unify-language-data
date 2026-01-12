@@ -24,13 +24,14 @@ ReportedSpeech:
         examples: 
         - "'Kommst du morgen?' --> Er fragte, ob ich morgen komme/käme."
         - "'Wann kommst du morgen?' --> Er fragte, wann ich morgen komme/käme."
-        note: "yes/no questions use 'ob', wh-questions use wh-word; tense follows same system as u-decls (pres, past, fut)"
+        notes: 
+        - "yes/no questions use 'ob', wh-questions use wh-word; tense follows same system as u-decls (pres, past, fut)"
       - pattern: "reporting verb + wie/was/dass für + {clause in Subjunctive I (present)}"
         examples: 
         - "'Ich freue mich so sehr!' --> Er brachte zum Ausdruck, wie sehr er sich freue."
         - "'Ich freue mich so sehr!' --> Er sagte, dass er sich sehr freue."
         notes:
-        - "'Sagen' does not license reported speech with 'wie'.
+        - "'Sagen' does not license reported speech with 'wie'."
 
     u-Evidentiality_u-quot__u-Tense_u-pst:
       applies: {u-Evidentiality: u-quot, u-Tense: u-pst}
@@ -48,4 +49,4 @@ ReportedSpeech:
         examples: 
         - "Er sagte, er werde morgen kommen."
         - "Ich fragte, ob er nächste Woche ankommen werde."
-        - "'Es wird so schön (werden)!" --> Er meinte, dass es sehr schön werde/werden würde."
+        - "'Es wird so schön (werden)!' --> Er meinte, dass es sehr schön werde/werden würde."

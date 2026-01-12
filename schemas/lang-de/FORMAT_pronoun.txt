@@ -43,17 +43,15 @@ Pronoun:
     x-Pronoun-type_x-refl:
       applies: {x-Pronoun-type: x-refl}
       patterns: 
-      - pattern:
-        - "pronouns in accusative/dative case"
+      - pattern: "pronouns in accusative/dative case"
         notes: 
         - "only in acc/dat, used obligatorily with reflexive verbs"
 
     x-Pronoun-type_x-dem:
       applies: {x-Pronoun-type: x-dem}
-      formparadigms:
-      - formparadigm:
-        - {features: {u-Deixis: u-prox}, pattern: "dies- + {def-determiner-endings}", note: "proximal demonstrative"}
-        - {features: {u-Deixis: u-remt}, pattern: "jen- + {def-determiner-endings}", note: "remote demonstrative"}
+      patterns:
+      - {pattern: "dies- + {def-determiner-endings}", notes: ["proximal demonstrative"]}
+      - {pattern: "jen- + {def-determiner-endings}", notes: ["remote demonstrative"]}
 
     x-Pronoun-type_x-int:
       applies: {x-Pronoun-type: x-int}
@@ -84,8 +82,8 @@ Pronoun:
     x-Pronoun-type_x-rel:
       applies: {x-Pronoun-type: x-rel}
       patterns:
-      - {pattern: "{determiner} (exceptions in gen. sg.)", note: "gen. sg. m./n. dessen, f. deren"}
-      - {pattern: "welch- + {def-determiner-endings}", note: "archaic/literary; no genitive forms, replaced by dessen/deren"}
+      - {pattern: "{determiner} (exceptions in gen. sg.)", notes: ["gen. sg. m./n. dessen, f. deren"]}
+      - {pattern: "welch- + {def-determiner-endings}", notes: ["archaic/literary; no genitive forms, replaced by dessen/deren"]}
     
     x-Pronoun-type_x-poss:
       applies: {x-Pronoun-type: x-poss, x-Form-type: x-standalone}

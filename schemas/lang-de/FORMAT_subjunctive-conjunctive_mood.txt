@@ -12,35 +12,34 @@ Subjunctive:
   Rules:
     u-Tense_u-prs:
       applies: {u-Tense: u-prs}
-      patterns: 
-      - pattern: "_present stem_ + _endings_"
-        title: "Subjunctive I"
-        endings:
-        - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}       # ich habe
-        - {features: {u-Person: u-2, u-Number: u-sg}, form: "est"}     # du habest
-        - {features: {u-Person: u-3, u-Number: u-sg}, form: "e"}       # er habe
-        - {features: {u-Person: u-1, u-Number: u-pl}, form: "en"}      # wir haben
-        - {features: {u-Person: u-2, u-Number: u-pl}, form: "et"}      # ihr habet
-        - {features: {u-Person: u-3, u-Number: u-pl}, form: "en"}      # sie haben
+      endingparadigms:
+      - title: "Subjunctive I"
+        endingparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, ending: "e"}       # ich habe
+        - {features: {u-Person: u-2, u-Number: u-sg}, ending: "est"}     # du habest
+        - {features: {u-Person: u-3, u-Number: u-sg}, ending: "e"}       # er habe
+        - {features: {u-Person: u-1, u-Number: u-pl}, ending: "en"}      # wir haben
+        - {features: {u-Person: u-2, u-Number: u-pl}, ending: "et"}      # ihr habet
+        - {features: {u-Person: u-3, u-Number: u-pl}, ending: "en"}      # sie haben
         examples:
         - "Er sagte, er sei krank."
         - "Die Zeitung berichtet, die Preise stiegen weiter."
         notes: 
         - "Subjunctive I (Konjunktiv I) is primarily used for indirect/reported speech, especially in formal registers (newspapers, academic writing). It marks distancing of the speaker from the truth of the proposition."
-      - pattern: "preterite stem (ablaut/umlaut) + endings"
-        title: "Subjunctive II (synthetic)"
-        endings:
-        - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}        # ich ginge
-        - {features: {u-Person: u-2, u-Number: u-sg}, form: "est"}      # du gingest
-        - {features: {u-Person: u-3, u-Number: u-sg}, form: "e"}        # er ginge
-        - {features: {u-Person: u-1, u-Number: u-pl}, form: "en"}       # wir gingen
-        - {features: {u-Person: u-2, u-Number: u-pl}, form: "et"}       # ihr ginget
-        - {features: {u-Person: u-3, u-Number: u-pl}, form: "en"}       # sie gingen
+      - title: "Subjunctive II (synthetic)"
+        endingparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, ending: "e"}        # ich ginge
+        - {features: {u-Person: u-2, u-Number: u-sg}, ending: "est"}      # du gingest
+        - {features: {u-Person: u-3, u-Number: u-sg}, ending: "e"}        # er ginge
+        - {features: {u-Person: u-1, u-Number: u-pl}, ending: "en"}       # wir gingen
+        - {features: {u-Person: u-2, u-Number: u-pl}, ending: "et"}       # ihr ginget
+        - {features: {u-Person: u-3, u-Number: u-pl}, ending: "en"}       # sie gingen
         examples:
         - "Ich hätte gern einen Kaffee."
         - "Könnten Sie mir bitte helfen?"
         notes:
         - "Subjunctive II (Konjunktiv II) expresses counterfactuality, unreality, or politeness. In modern usage, synthetic forms survive mostly in a few verbs (sein, haben, modals), while the würde + infinitive construction dominates otherwise."
+      patterns:
       - pattern: "würde (Konjunktiv II) + infinitive"
         title: "Subjunctive II (periphrastic)"
         notes: 
@@ -59,7 +58,8 @@ Subjunctive:
       - pattern: "Subjunctive II: hätte/wäre (Konjunktiv II) + past participle"
         examples:
         - "ich hätte gesagt, ich wäre gegangen"
-        note: "used for counterfactuals about the past"
+        notes: 
+        - "used for counterfactuals about the past"
 
     u-Tense_u-fut:
       applies: {u-Tense: u-fut}

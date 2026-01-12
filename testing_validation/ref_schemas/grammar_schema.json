@@ -18,7 +18,8 @@
         "examples": { "$ref": "#/$defs/examples" },
         "title": { "type": "string" }
       },
-      "required": ["pattern"]
+      "required": ["pattern"],
+      "additionalProperties": false
     },
 
     "formparadigms": {
@@ -38,7 +39,8 @@
         "examples": { "$ref": "#/$defs/examples" },
         "title": { "type": "string" }
       },
-    "required": ["formparadigm"]
+    "required": ["formparadigm"],
+    "additionalProperties": false
     },
     "form_item": {
       "type": "object",
@@ -70,7 +72,8 @@
         "examples": { "$ref": "#/$defs/examples" },
         "title": { "type": "string" }
       },
-      "required": ["endingparadigm"]
+      "required": ["endingparadigm"],
+      "additionalProperties": false
     },
     "ending_item": {
       "type": "object",
@@ -126,16 +129,15 @@
               "formparadigms": { "$ref": "#/$defs/formparadigms" }
             },
           "required":["applies"],
-          "oneOf":[
-            {"required":["patterns"],"not":{"anyOf":[{"required":["formparadigms"]},{"required":["endingparadigms"]}]}},
-            {"required":["formparadigms"],"not":{"anyOf":[{"required":["patterns"]},{"required":["endingparadigms"]}]}},
-            {"required":["endingparadigms"],"not":{"anyOf":[{"required":["patterns"]},{"required":["formparadigms"]}]}}
+          "anyOf":[
+            {"required":["patterns"]},
+            {"required":["formparadigms"]},
+            {"required":["endingparadigms"]}
           ]
           }
         }
       }
     }
   },
-
   "additionalProperties": false
 }

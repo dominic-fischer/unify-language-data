@@ -29,11 +29,13 @@ Clauses:
       - pattern: "Vfin-1 + subject + ...?"
         examples: 
           - "Geht er nach Hause?"
-        note: "Yes/no questions: finite verb in initial position."
+        notes: 
+        - "Yes/no questions: finite verb in initial position."
       - pattern: "Wh-word + Vfin-2 + subject + …?"
         examples: 
           - "Wohin geht er?"
-        note: "Wh-questions: wh-element initial, finite verb in second position."
+        notes: 
+        - "Wh-questions: wh-element initial, finite verb in second position."
 
     u-Interrogativity_x-excl:
       applies: {u-Interrogativity: x-excl}

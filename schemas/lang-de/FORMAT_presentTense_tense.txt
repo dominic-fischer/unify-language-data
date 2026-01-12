@@ -8,46 +8,49 @@ Present:
     Present:
       title: "Present"
       applies: {u-Aspect: [u-ipfv, u-hab, u-iter]}
-      patterns: 
-      - pattern: "_stem_ + _ending_"
+      endingparadigms:
+      - endingparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, ending: "e"}     # ich mache
+        - {features: {u-Person: u-2, u-Number: u-sg}, ending: "st"}    # du machst
+        - {features: {u-Person: u-3, u-Number: u-sg}, ending: "t"}     # er macht
+        - {features: {u-Person: u-1, u-Number: u-pl}, ending: "en"}    # wir machen
+        - {features: {u-Person: u-2, u-Number: u-pl}, ending: "t"}     # ihr macht
+        - {features: {u-Person: u-3, u-Number: u-pl}, ending: "en"}    # sie machen
         title: "Weak Verbclass"
-        endings:
-        - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}     # ich mache
-        - {features: {u-Person: u-2, u-Number: u-sg}, form: "st"}    # du machst
-        - {features: {u-Person: u-3, u-Number: u-sg}, form: "t"}     # er macht
-        - {features: {u-Person: u-1, u-Number: u-pl}, form: "en"}    # wir machen
-        - {features: {u-Person: u-2, u-Number: u-pl}, form: "t"}     # ihr macht
-        - {features: {u-Person: u-3, u-Number: u-pl}, form: "en"}    # sie machen
         examples:
         - "lemma: 'machen', stem: 'mach-'"
-      - pattern: "_stem/alteredStem_ + _ending_"
-        title: "Strong Verbclass"
-        endings:
-        - {features: {u-Person: u-1, u-Number: u-sg}, form: "e"}     # ich sehe
-        - {features: {u-Person: u-2, u-Number: u-sg}, form: "st"}    # du siehst
-        - {features: {u-Person: u-3, u-Number: u-sg}, form: "t"}     # er sieht
-        - {features: {u-Person: u-1, u-Number: u-pl}, form: "en"}    # wir sehen
-        - {features: {u-Person: u-2, u-Number: u-pl}, form: "t"}     # ihr seht
-        - {features: {u-Person: u-3, u-Number: u-pl}, form: "en"}    # sie sehen
-        note: "Stem vowel alternation occurs in 2sg and 3sg"
+      - title: "Strong Verbclass" 
+        endingparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, ending: "e"}     # ich sehe
+        - {features: {u-Person: u-2, u-Number: u-sg}, ending: "st"}    # du siehst
+        - {features: {u-Person: u-3, u-Number: u-sg}, ending: "t"}     # er sieht
+        - {features: {u-Person: u-1, u-Number: u-pl}, ending: "en"}    # wir sehen
+        - {features: {u-Person: u-2, u-Number: u-pl}, ending: "t"}     # ihr seht
+        - {features: {u-Person: u-3, u-Number: u-pl}, ending: "en"}    # sie sehen
+        notes: 
+        - "Stem vowel alternation occurs in 2sg and 3sg"
         examples:
         - "lemma: 'sehen', stem: 'seh-', altered stem: 'sieh-'"
         - "u-ipfv: Ich lese gerade ein Buch."
         - "u-hab: Er geht jeden Tag zur Arbeit."
         - "u-iter: Er ruft immer wieder an."
-      - pattern: "suppletive forms"
+      patterns:
+      - pattern: "suppletive endings"
         title: "Irregular Verbclass"
         examples:
         - "sein → ich bin, du bist, er ist"
         - "haben → ich habe, du hast, er hat"
         - "wissen → ich weiß, du weißt, er weiß"
-      note: "The simple present is the unmarked tense for present reference. It encodes ongoing situations (u-ipfv), habitual actions (u-hab), and repeated or iterative actions (u-iter). It can also be used for near-future reference in context."
+      notes: 
+      - "The simple present is the unmarked tense for present reference. It encodes ongoing situations (u-ipfv), habitual actions (u-hab), and repeated or iterative actions (u-iter). It can also be used for near-future reference in context."
 
     u-Aspect_u-prog:
       applies: {u-Aspect: u-prog}
-      pattern: "{sein (finite)} + am + Infinitiv"
-      examples:
-      - "ich bin am Arbeiten"
-      - "er ist am Lesen"
-      note: "The 'am'-progressive is a colloquial construction used mainly in spoken German. It highlights that an action is ongoing (u-prog), and often overlaps functionally with the simple present as an imperfective marker (u-ipfv). Less common in formal registers."
+      patterns: 
+      - pattern: "{sein (finite)} + am + Infinitiv"
+        examples:
+        - "ich bin am Arbeiten"
+        - "er ist am Lesen"
+        notes: 
+        - "The 'am'-progressive is a colloquial construction used mainly in spoken German. It highlights that an action is ongoing (u-prog), and often overlaps functionally with the simple present as an imperfective marker (u-ipfv). Less common in endingal registers."
       

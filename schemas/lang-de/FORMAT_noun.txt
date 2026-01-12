@@ -13,7 +13,8 @@ Noun:
           ending: ""
         - features: {u-Number: u-pl}
           ending: "e"
-          note: "often with Umlaut"
+          notes: 
+          - "often with Umlaut"
         examples: 
         - "eine Nacht → Nächte"
         notes: 
@@ -53,7 +54,8 @@ Noun:
           ending: "s"
         examples: 
         - "ein Auto → Autos"
-        note: "loanwords and abbreviations; plural in -s"
+        notes: 
+        - "loanwords and abbreviations; plural in -s"
 
     u-Gender_u-masc:
       applies: {u-Gender: u-masc}
