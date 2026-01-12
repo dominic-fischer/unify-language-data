@@ -1,8 +1,22 @@
 This repository's application can be found under: [Unify Language Data: Streamlit App](https://dominic-fischer-unify-language-data-app-qdypkn.streamlit.app/)
 
 ## Application Guide
+![The landing page](imgs/Interface.png)
+The interface is split into two main parts, Grammar and Vocab, which in turn offer each a "Browsing" and a "Compare" view.
 
-...
+### Grammar
+The grammar browsing view allows the user to input the language, the grammar topic and more fine-grained criteria to find certain grammar rules. Select a specific rule then expands it below to show all details.
+![The grammar browsing view](imgs/Grammar_browsing.png)
+
+The compare view is best suited to comparing two or more languages' grammar on certain topics, as illustrated by the comparative in German and Romanian.
+![The grammar compare view](imgs/Grammar_compare.png)
+
+### Vocab
+Similarly, the vocab browsing view lets the user specify filters to find words of a specific part of speech and, optionally, pertaining to a given topic or derived from a certain language. Clicking a word expands it below.
+![The vocab browsing view](imgs/Vocab_browsing.png)
+
+Again, analogously, the vocab compare view serves to compare languages; the only difference to the grammar being that the limit here is two languages.
+![The vocab compare view](imgs/Vocab_compare.png)
 
 ## Limitations
 
@@ -48,6 +62,6 @@ GPT-5.2 was then prompted with that prompt and produced the standardised grammar
 
 The generated schemas then had to be validated and, if necessary, fixed. This was done with ...
 
-[^1]:  Note that Grammar descriptions exist also for German. Unlike the others, these were manually done by the author to serve as a Gold Standard of how these grammar descriptions schema should look like. For more information, see [here](#why---the-motivation).
+[^1]: Note that Grammar descriptions exist also for German. Unlike the others, these were manually done by the author to serve as a Gold Standard of how these grammar descriptions schema should look like. For more information, see [here](#why---the-motivation).
 [^2]: ...
 [^3]: ...
