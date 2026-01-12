@@ -1,5 +1,4 @@
-ADJECTIVE
-----------
+FORMAT_adjective
 - Use u-Comparison for rules governing adjective comparison.
 - Use u-Definiteness, u-Case, u-Number, and u-Gender to capture morphological variation in adjectives.
 - Use u-Part-of-Speech to specify the source of adjective formation:
@@ -8,8 +7,7 @@ ADJECTIVE
   - u-n for denominal adjectives
 
 
-ADVERBS
--------
+FORMAT_adverb
 - Use u-Comparison for rules governing adverb comparison.
 - Use u-Part-of-Speech to specify the source of adverb formation:
   - u-adj for deadjectival adverbs
@@ -17,93 +15,77 @@ ADVERBS
   - u-n for denominal adverbs
 
 
-AGREEMENT
----------
+FORMAT_agreement_concord
 - Use u-Part-of-Speech to specify which parts of speech participate in agreement relations.
 
 
-CLAUSES
--------
+FORMAT_clauses_syntax
 - Use x-Clausetype for syntactic differences between main and subclauses.
 - Use u-Interrogativity for syntactic differences between declarative, interrogative, and exclamative clauses.
 
 
-CONDITIONALS
-------------
+FORMAT_conditional_mood
 - Use u-Tense to indicate the tense of a conditional construction.
 - Use u-Mood to distinguish between different types of conditionals within the same tense (e.g., real vs. irrealis in the present tense).
 
 
-CONSTITUENTS
-------------
+FORMAT_constituents_syntax
 - Use x-Constituent for rules governing the structure and behavior of constituents.
 
 
-DERIVATIONAL MORPHOLOGY
------------------------
+FORMAT_derivation-formation_morphology
 - Use u-Part-of-Speech to distinguish derivational rules that apply to different parts of speech.
 - Where necessary, use additional features (e.g., u-Gender) to distinguish subclasses within a part of speech.
 
 
-DETERMINERS
------------
+FORMAT_determiners-articles_noun
 - Use u-Definiteness, u-Case, u-Number, and u-Gender to account for morphological variation in determiners.
 
 
-FUTURE TENSE
-------------
+FORMAT_futureTense_tense
 - Use u-Aspect to indicate which aspectual distinctions are encoded by a future tense construction.
 
 
-IMPERATIVE
-----------
+FORMAT_imperative_mood
 - Use u-Person and u-Number to indicate which participants are addressed by an imperative.
 - If necessary, use additional features (e.g., u-Politeness) to distinguish imperatives across
   registers or pragmatic types.
 
 
-NEGATION
---------
+FORMAT_negation
 - Use x-Negation-type to specify the scope or target of negation in a given negation pattern.
 
 
-NOUNS
------
+FORMAT_noun
 - Use u-Case, u-Number, and u-Gender to account for morphological variation in nouns.
 
 
-PASSIVE
--------
+FORMAT_passive_voice
 - Use u-Tense to indicate the tense(s) in which a particular passive formation is used.
 - If necessary, use u-Voice to distinguish passive constructions from other voice types (e.g., active or middle).
  
 
-PAST TENSE
-----------
+FORMAT_pastTense_tense
 - Use u-Aspect to indicate which aspectual distinctions are encoded by a past tense construction.
 
 
-PRESENT TENSE
--------------
+FORMAT_presentTense_tense
 - Use u-Aspect to indicate which aspectual distinctions are encoded by a present tense construction.
 - Use u-Person, u-Number, and, where relevant, u-Gender to account for subject-dependent present tense morphology.
 
 
-PRONOUNS
---------
+FORMAT_pronoun
 - Use u-Case, u-Number, u-Person, and u-Gender to account for morphological variation in pronouns.
 - Use u-Deixis to indicate deictic distance distinctions.
 - Use x-Pronoun-type to distinguish between different pronoun classes.
 
 
-REPORTED SPEECH
----------------
+FORMAT_reported-indirect
 - Use u-Evidentiality to distinguish between direct and indirect reported speech.
 - Use u-Tense to anchor reported speech temporally.
 
 
-SUBJUNCTIVE
------------
+FORMAT_subjunctive-conjunctive_mood
 - Use u-Tense to indicate the tense of the subjunctive construction.
 - Use u-Person, u-Number, and, where relevant, u-Gender to account for subject-dependent
   subjunctive morphology.

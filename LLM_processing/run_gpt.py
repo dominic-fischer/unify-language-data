@@ -18,7 +18,7 @@ client = OpenAI(api_key=api_key)
 langs = ["chewa", "shona", "swahili", "zulu", "french", "italian", "portuguese", "romanian", "spanish"]
 schema_dir = "../schemas/"
 schema_de_dir = schema_dir + "lang-de/"
-save_dir = f"../outputs_{used_model}"
+save_dir = f"../outputs/outputs_{used_model}"
 # create the save directory if it does not exist
 if not os.path.exists(save_dir):
     os.makedirs(save_dir)

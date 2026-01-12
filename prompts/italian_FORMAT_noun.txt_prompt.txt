@@ -11,60 +11,103 @@ VALIDATION SCHEMA (structure and headings must be followed exactly):
   "type": "object",
 
   "$defs": {
-    "endings": {
-      "type": "object",
-      "properties": {
-        "features": { "type": "object" },
-        "form": { "type": "string" },
-        "note": { "type": "string" }
-      },
-      "required": ["features", "form"]
+
+    "patterns": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/pattern_object" },
+      "minItems": 1
     },
-    "forms": {
+    "pattern_object": {
       "type": "object",
       "properties": {
-        "features": { "type": "object" },
-        "form": { "type": "string" },
         "pattern": { "type": "string" },
-        "note": { "type": "string" }
+        "notes": { "$ref": "#/$defs/notes" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "title": { "type": "string" }
       },
-      "required": ["features"],
-      "oneOf": [
-        { "required": ["form"] },
-        { "required": ["pattern"] }
-      ]
+      "required": ["pattern"],
+      "additionalProperties": false
     },
+
+    "formparadigms": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/formparadigm_object" },
+      "minItems": 1
+    },
+    "formparadigm_object": {
+      "type": "object",
+      "properties": {
+        "formparadigm": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/form_item" },
+          "minItems": 1
+        },
+        "notes": { "$ref": "#/$defs/notes" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "title": { "type": "string" }
+      },
+    "required": ["formparadigm"],
+    "additionalProperties": false
+    },
+    "form_item": {
+      "type": "object",
+      "required": ["features", "form"],
+      "properties": {
+        "features": {
+          "type": "object"
+        },
+        "form": {
+          "type": "string"
+        }
+      }
+    },
+
+    "endingparadigms": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/endingparadigm_object" },
+      "minItems": 1
+    },
+    "endingparadigm_object": {
+      "type": "object",
+      "properties": {
+        "endingparadigm": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ending_item" },
+          "minItems": 1
+        },
+        "notes": { "$ref": "#/$defs/notes" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "title": { "type": "string" }
+      },
+      "required": ["endingparadigm"],
+      "additionalProperties": false
+    },
+    "ending_item": {
+      "type": "object",
+      "required": ["features", "ending"],
+      "properties": {
+        "features": {
+          "type": "object"
+        },
+        "ending": {
+          "type": "string"
+        }
+      }
+    },
+
     "applies": {
       "type": "object",
-      "description": "Feature-value constraints for the rule/usage"
+      "description": "Feature-value constraints for the rule"
     },
     "examples": {
       "type": "array",
       "items": { "type": "string" },
       "minItems": 1
     },
-    "patterns": {
-      "type": "object",
-      "properties": {
-        "pattern": { "type": "string" },
-        "examples": { "$ref": "#/$defs/examples" },
-        "note": { "$ref": "#/$defs/note" },
-        "endings": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/endings" }
-        },
-        "forms": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/forms" }
-        }
-      },
-      "oneOf": [
-        { "required": ["pattern"] },
-        { "required": ["forms"] }
-      ]
-    },
-    "note": {
-      "type": "string"
+    "notes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
     }
   },
 
@@ -80,85 +123,73 @@ VALIDATION SCHEMA (structure and headings must be followed exactly):
             "items": { "type": "string" }
           }
         },
-        "Usage": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "object",
-            "properties": {
-              "applies": { "$ref": "#/$defs/applies" },
-              "note": { "$ref": "#/$defs/note" },
-              "examples": { "$ref": "#/$defs/examples" }
-            },
-            "anyOf": [
-              { "required": ["applies"] },
-              { "required": ["note"] },
-              { "required": ["examples"] }
-            ]
-          }
-        },
-        "Negation": {
-          "type": "object",
-          "required": ["examples"],
-          "properties": {
-            "pattern": { "type": "string" },
-            "examples": { "$ref": "#/$defs/examples" },
-            "note": { "$ref": "#/$defs/note" }
-          }
-        },
         "Rules": {
           "type": "object",
           "additionalProperties": {
             "type": "object",
-            "required": ["applies"],
             "properties": {
+              "title": { "type": "string"},
+              "notes": { "$ref": "#/$defs/notes" },
               "applies": { "$ref": "#/$defs/applies" },
-              "pattern": { "type": "string" },
-              "patterns": {
-                "type": "array",
-                "items": { "$ref": "#/$defs/patterns" }
-              },
-              "endings": {
-                "type": "array",
-                "items": { "$ref": "#/$defs/endings" }
-              },
-              "forms": {
-                "type": "array",
-                "items": { "$ref": "#/$defs/forms" }
-              },
-              "examples": { "$ref": "#/$defs/examples" },
-              "note": { "$ref": "#/$defs/note" },
-              "negation": { "type": "string" }
+              "patterns": { "$ref": "#/$defs/patterns" },
+              "endingparadigms": { "$ref": "#/$defs/endingparadigms" },
+              "formparadigms": { "$ref": "#/$defs/formparadigms" }
             },
-            "anyOf": [
-              { "required": ["pattern"], "not": { "required": ["patterns"] } },
-              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
-              { "required": ["forms"], "not": { "required": ["patterns"] } }
-            ]
+          "required":["applies"],
+          "anyOf":[
+            {"required":["patterns"]},
+            {"required":["formparadigms"]},
+            {"required":["endingparadigms"]}
+          ]
           }
-        },
-        "Notes": {
-          "type": "array",
-          "items": { "type": "string" }
         }
       }
     }
   },
-
   "additionalProperties": false
 }
 
-The schema consists of RULES, each applying to a specific grammatical FEATURE and its ATTRIBUTE.
-Each Rule must contain:
-- A name: built by joining feature-attribute pairs with an underscore, and a double underscore between different pairs.
-- the 'applies' field: specifies to which feature-attribute pair the rule applies. Note that no two rules should have the same 'applies' field. In that case, the two rules should be combined to form one with a 'patterns' field.
-- either a field 'pattern' or 'patterns' or 'forms':
-   - a 'pattern' is a string-like template
-   - 'patterns' is a list of sub-patterns, that each contain either 'pattern' or 'forms', and may include 'examples', 'notes' or 'endings.
-   - 'forms' is a list of specific word forms. It must contain 'features' and either 'form' or 'pattern'. It may also include a 'note' field.
-- it may include the fields 'notes', 'examples' or 'endings'.
-   - 'endings' must include 'features' and 'form', and may include a 'note' field.
-The 'Features' field on the same level as 'Rules' is the set of all features and their attributes used in the rules.
-There are also other optional fields at the top level, 'Negation' and 'Usage'. 'Usage' is used to specify usage of a tense, 'Negation' is used to specify negation in that tense. They should only be used in schemas pertaining to tenses. Both may contain 'pattern', 'note' or 'examples' fields, 'Usage' may additionally contain 'applies'.
+The schema can be represented as follows:
+
+Title
+    Features
+        FeatureName1: [value1, value2, ...]
+        FeatureName2: [value1, value2, ...]
+
+    Rules
+        RuleName
+            title?
+            notes?
+            applies
+                feature1: value
+                feature2: value
+            (patterns | formparadigms | endingparadigms)+
+
+Any combination of patterns, formparadigms and endingparadigms is allowed. This is how they look in detail:
+
+patterns
+    - pattern
+      title?
+      notes?
+      examples?
+
+formparadigms
+    - title?
+      notes?
+      examples?
+      formparadigm
+          - features
+            form
+
+endingparadigms
+    - title
+      notes
+      examples
+      endingparadigm
+          - features
+            ending
+
+Use patterns for pattern-like grammar rules, endings if the paradigm consists of variations in endings, and forms if the paradigm is simply a specific set of forms.
 
 INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
@@ -168,16 +199,9 @@ INSTRUCTIONS:
 - Ignore any information that is not relevant to the topic at hand.
 
 FEATURES AND THEIR VALUES:
-- Feature names and values are prefixed with either u-, x- or the language's abbreviation as a prefix.
-- Use the language prefix ONLY for language-specific features and values.
-- Use the prefix "u-" for UniMorph features and values.
-- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
-- When multiple representations are possible, prefer:
-  1) UniMorph ("u-") features,
-  2) then custom ("x-") features,
-  3) and only then language-specific features.
-
-- Do NOT invent new features if an appropriate UniMorph feature exists.
+- Feature names and values are prefixed with either u- or x-.
+- "u-" if for UniMorph features and values, "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Whenever possible, use UniMorph prefixes.- Invent new features only if no appropriate UniMorph features exists.- Do NOT invent new features if an appropriate UniMorph feature exists.
 
 Below are the features for reference:
 UNIMORPH FEATURES AND VALUES:
@@ -433,38 +457,9 @@ UNIMORPH FEATURES AND VALUES:
 
 CUSTOM FEATURES AND VALUES:
 {
-  "x-Process": [
-    "x-base-form",
-    "x-adj-as-adv",
-    "x-complex",
-    "x-modification",
-    "x-prefixation",
-    "x-suffixation",
-    "x-compounding",
-    "x-conversion"
-  ],
-  "x-Domain": [
-    "x-subject-verb",
-    "x-noun-adjective",
-    "x-noun-determiner"
-  ],
   "x-Clausetype": [
     "x-main",
-    "x-subordinate",
-    "x-int-yes-no",
-    "x-int-wh",
-    "x-excl",
-    "x-protasis",
-    "x-apodosis"
-  ],
-  "x-Word-order": [
-    "x-V2",
-    "x-Vfinal",
-    "x-V1"
-  ],
-  "x-Negation-type": [
-    "x-clause",
-    "x-constituent"
+    "x-subordinate"
   ],
   "x-Constituent": [
     "x-NP",
@@ -474,9 +469,12 @@ CUSTOM FEATURES AND VALUES:
     "x-AdvP",
     "x-CP"
   ],
-  "x-Passive-type": [
-    "x-process",
-    "x-state"
+  "x-Negation-type": [
+    "x-clause",
+    "x-constituent"
+  ],
+  "x-Temp-Relation": [
+    "x-anterior"
   ],
   "x-Pronoun-type": [
     "x-pers",
@@ -485,10 +483,6 @@ CUSTOM FEATURES AND VALUES:
     "x-poss",
     "x-int",
     "x-rel"
-  ],
-  "x-Form-type": [
-    "x-standalone",
-    "x-clitic"
   ]
 }
 
@@ -507,6 +501,71 @@ You are a now tasked with normalizing grammatical descriptions for the language 
 
 The data you receive comes from multiple sources and relates to the following topics:
 noun.
+
+If possible, select features among the ones below:
+Noun
+	u-Gender
+		u-bantu1-23	(Bantu Noun Classes)
+		u-fem	(Feminine)
+		u-masc	(Masculine)
+		u-nakh1-8	(Nakh-Daghestanian Noun Classes)
+		u-neut	(Neuter)
+	u-Number
+		u-du	(Dual)
+		u-gpauc	(Greater paucal)
+		u-grpl	(Greater plural)
+		u-invn	(Inverse)
+		u-pauc	(Paucal)
+		u-pl	(Plural)
+		u-sg	(Singular)
+		u-tri	(Trial)
+	u-Case
+		u-abl	(Ablative)
+		u-abs	(Absolutive)
+		u-acc	(Accusative)
+		u-all	(Allative)
+		u-ante	(Near, in front of)
+		u-apprx	(Approximative)
+		u-apud	(Next to)
+		u-at	(At)
+		u-avr	(Aversive)
+		u-ben	(Benefactive)
+		u-byway	(Essive-modal)
+		u-circ	(Near)
+		u-com	(Comitative)
+		u-compv	(Comparative)
+		u-dat	(Dative)
+		u-eqtv	(Equative)
+		u-erg	(Ergative)
+		u-ess	(Essive)
+		u-frml	(Formal)
+		u-gen	(Genitive)
+		u-in	(In)
+		u-ins	(Instrumental)
+		u-inter	(Among)
+		u-nom	(Nominative)
+		u-noms	(Nominative, S-only)
+		u-on	(On)
+		u-onhr	(On (horizontal))
+		u-onvr	(On (vertical))
+		u-post	(Behind)
+		u-priv	(Privative)
+		u-prol	(Prolative/translative)
+		u-propr	(Proprietive)
+		u-prox	(Proximate)
+		u-prp	(Purposive)
+		u-prt	(Partitive)
+		u-rel	(Relative)
+		u-rem	(Distal)
+		u-sub	(Under)
+		u-term	(Terminative)
+		u-trans	(Translative)
+		u-vers	(Versative)
+		u-voc	(Vocative)
+
+The following may help guide you in your feature selection:
+- Use u-Case, u-Number, and u-Gender to account for morphological variation in nouns.
+
 
 SOURCE DATA:
 Source 1:
@@ -629,104 +688,95 @@ Noun:
     u-Gender: [u-masc, u-fem, u-neut]
     u-Number: [u-sg, u-pl]
     u-Case: [u-nom, u-acc, u-dat, u-gen]
-    de-Declension: [de-strong, de-weak, de-plural-en, de-plural-e, de-plural-er, de-plural-s]
 
   Rules:
-    de-Declension_de-plural-e__u-Gender_u-fem:
-      applies: {de-Declension: de-plural-e, u-Gender: u-fem}
-      pattern: "_stem_ + _ending_"
-      endings:
+    u-Gender_u-fem:
+      applies: {u-Gender: u-fem}
+      endingparadigms: 
+      - endingparadigm:
         - features: {u-Number: u-sg}
-          form: ""
+          ending: ""
         - features: {u-Number: u-pl}
-          form: "e"
-          note: "often with Umlaut"
-      examples: 
-      - "eine Nacht → Nächte"
-      note: "feminine nouns with plural -e, often umlauted"
-
-    de-Declension_de-plural-en__u-Gender_u-fem:
-      applies: {de-Declension: de-plural-en, u-Gender: u-fem}
-      pattern: "_stem_ + _ending_"
-      endings:
+          ending: "e"
+          notes: 
+          - "often with Umlaut"
+        examples: 
+        - "eine Nacht → Nächte"
+        notes: 
+        - "feminine nouns with plural -e, often umlauted"
+      - endingparadigm:
         - features: {u-Number: u-sg}
-          form: ""
+          ending: ""
         - features: {u-Number: u-pl}
-          form: "en"
-      examples: 
-      - "eine Frau → Frauen"
-      note: "default feminine pattern; plural in -(e)n"
+          ending: "en"
+        examples: 
+        - "eine Frau → Frauen"
+        notes: 
+        - "default feminine pattern; plural in -(e)n"
 
-    de-Declension_de-plural-er__u-Gender_u-neut:
-      applies: {de-Declension: de-plural-er, u-Gender: u-neut}
-      pattern: "_stem_ + _ending_"
-      endings:
+    u-Gender_u-neut:
+      applies: {u-Gender: u-neut}
+      endingparadigms:
+      - endingparadigm:
         - features: {u-Number: u-sg, u-Case: u-nom}
-          form: ""
+          ending: ""
         - features: {u-Number: u-sg, u-Case: u-acc}
-          form: ""
+          ending: ""
         - features: {u-Number: u-sg, u-Case: u-dat}
-          form: ""
+          ending: ""
         - features: {u-Number: u-sg, u-Case: u-gen}
-          form: "es"
+          ending: "es"
         - features: {u-Number: u-pl}
-          form: "er"
-          note: "often with Umlaut"
-      examples: 
-      - "ein Kind → Kinder"
-      note: "common neuter plural type; Umlaut frequent"
-
-    de-Declension_de-plural-s__u-Gender_u-neut:
-      applies: {de-Declension: de-plural-s, u-Gender: u-neut}
-      pattern: "_stem_ + s"
-      endings:
+          ending: "er"
+        notes: 
+        - "often with Umlaut"
+        examples: 
+        - "ein Kind → Kinder"
+      - endingparadigm:
         - features: {u-Number: u-sg}
-          form: ""
+          ending: ""
         - features: {u-Number: u-pl}
-          form: "s"
-      examples: 
-      - "ein Auto → Autos"
-      note: "loanwords and abbreviations; plural in -s"
+          ending: "s"
+        examples: 
+        - "ein Auto → Autos"
+        notes: 
+        - "loanwords and abbreviations; plural in -s"
 
-    de-Declension_de-strong__u-Gender_u-masc:
-      applies: {de-Declension: de-strong, u-Gender: u-masc}
-      pattern: "_stem_ + _ending_"
-      endings:
+    u-Gender_u-masc:
+      applies: {u-Gender: u-masc}
+      endingparadigms:
+      - endingparadigm:
         - features: {u-Number: u-sg, u-Case: u-nom}
-          form: ""
+          ending: ""
         - features: {u-Number: u-sg, u-Case: u-acc}
-          form: ""
+          ending: ""
         - features: {u-Number: u-sg, u-Case: u-dat}
-          form: ""
+          ending: ""
         - features: {u-Number: u-sg, u-Case: u-gen}
-          form: "es"
+          ending: "es"
         - features: {u-Number: u-pl, u-Case: u-nom}
-          form: "e"
+          ending: "e"
         - features: {u-Number: u-pl, u-Case: u-acc}
-          form: "e"
+          ending: "e"
         - features: {u-Number: u-pl, u-Case: u-dat}
-          form: "en"
+          ending: "en"
         - features: {u-Number: u-pl, u-Case: u-gen}
-          form: "e"
-      examples: 
-      - "ein Hund → Hunde"
-
-    de-Declension_de-weak__u-Gender_u-masc:
-      applies: {de-Declension: de-weak, u-Gender: u-masc}
-      pattern: "_stem_ + _ending_"
-      endings:
+          ending: "e"
+        examples: 
+        - "ein Hund → Hunde"
+      - endingparadigm:
         - features: {u-Number: u-sg, u-Case: u-nom}
-          form: "e"   # Junge
+          ending: "e"   # Junge
         - features: {u-Number: u-sg, u-Case: u-acc}
-          form: "en"  # Jungen
+          ending: "en"  # Jungen
         - features: {u-Number: u-sg, u-Case: u-dat}
-          form: "en"
+          ending: "en"
         - features: {u-Number: u-sg, u-Case: u-gen}
-          form: "en"
+          ending: "en"
         - features: {u-Number: u-pl}
-          form: "en"  # Jungen
-      examples: 
-      - "ein Junge → Jungen"
+          ending: "en"  # Jungen
+        examples: 
+        - "ein Junge → Jungen"
 
 
 

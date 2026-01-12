@@ -1,16 +1,33 @@
 
 import os
 import sys
-schema_dir = "../schemas/"
+schema_dir = "schemas/"
 schema_de_dir = schema_dir + "lang-de/"
 import json
 from pathlib import Path
 
-grammar_schema_text = Path("../testing_validation/ref_schemas/grammar_schema.json").read_text(encoding="utf-8")
-unimorph_schema_text = Path("../testing_validation/ref_schemas/unimorph_schema.json").read_text(encoding="utf-8")     
-custom_schema_text = Path("../testing_validation/ref_schemas/custom_schema.json").read_text(encoding="utf-8")
+def extract_section(text: str, header: str) -> list[str]:
+    lines = text.splitlines()
+    collecting = False
+    result = []
 
-with open("../testing_validation/ref_schemas/grammar_schema_verbose.txt", encoding="utf8") as f:
+    for line in lines:
+        if line.strip() == header:
+            collecting = True
+            continue
+
+        if collecting:
+            if line.strip() == "":
+                break
+            result.append(line)
+
+    return result
+
+grammar_schema_text = Path("testing_validation/ref_schemas/grammar_schema.json").read_text(encoding="utf-8")
+unimorph_schema_text = Path("testing_validation/ref_schemas/unimorph_schema.json").read_text(encoding="utf-8")     
+custom_schema_text = Path("testing_validation/ref_schemas/custom_schema.json").read_text(encoding="utf-8")
+annotation_file_text = Path("prompt_annotations/feature_annotations.txt").read_text(encoding="utf-8")
+with open("testing_validation/ref_schemas/grammar_schema_verbose.txt", encoding="utf8") as f:
     grammar_schema_verbose = f.read()
 
 langs = ["chewa", "shona", "swahili", "zulu", "french", "italian", "portuguese", "romanian", "spanish"]
@@ -25,8 +42,8 @@ langs_w_abbrevs = {
     "romanian": "ro",
     "spanish": "es"
 }
-mappings_docx_dir = "../mappings_docx/"
-mappings_wikipedia_dir = "../mappings_wikipedia/"
+mappings_docx_dir = "mappings_docx/"
+mappings_wikipedia_dir = "mappings_wikipedia/"
 langs_w_files = {lang: None for lang in langs}
 
 for lang in langs_w_files:
@@ -46,6 +63,11 @@ for lang, mapping_file_paths in langs_w_files.items():
     for filename in os.listdir(schema_de_dir):
         if filename.endswith(".txt"):
             filepath = os.path.join(schema_de_dir, filename)
+
+            feats_annotation = extract_section(annotation_file_text, filename.split(".")[0])
+            feats_annotation = "\n".join(feats_annotation)
+            preferred_feats = Path(f"prompt_annotations/preferred_features/{filename.split('.')[0]}_preferred_features.txt").read_text(encoding="utf-8")
+
             with open(filepath, "r", encoding="utf-8") as f:
                 reference_content = f.read()
             docx_matches = []
@@ -130,6 +152,9 @@ for lang, mapping_file_paths in langs_w_files.items():
                 f"The data you receive comes from multiple sources and relates to the following topics:\n"
                 f"{', '.join(topic_terms)}.\n\n"
 
+                f"If possible, select features among the ones below:\n{preferred_feats}\n"
+                f"The following may help guide you in your feature selection:\n{feats_annotation}\n\n\n"
+
                 "SOURCE DATA:\n"
                 f"{match_prompt}\n\n"
 
@@ -143,14 +168,11 @@ for lang, mapping_file_paths in langs_w_files.items():
 
 
             # save sys_prompt and prompt to a file for later use
-            # Disabled saving prompts to files for now
-            """
-            out_dir = "../prompts/"
+            out_dir = "prompts/"
             os.makedirs(out_dir, exist_ok=True)
             out_filepath = os.path.join(out_dir, f"{lang}_{filename}_prompt.txt")
             with open(out_filepath, "w", encoding="utf-8") as out_f:
                 out_f.write(f"SYSTEM PROMPT:\n{sys_prompt}\n\n")
                 out_f.write(f"USER PROMPT:\n{prompt}\n")
-            """
 
             

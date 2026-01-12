@@ -1,6 +1,0 @@
-Features:
-  u-Tense: [u-prs]
-Rules:
-  u-Tense_u-prs:
-    applies: {u-Tense: u-prs}
-    pattern: "_stem_ + _ending_"

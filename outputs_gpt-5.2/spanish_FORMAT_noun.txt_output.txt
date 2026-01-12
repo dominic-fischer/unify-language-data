@@ -1,9 +1,0 @@
-Noun:
-  Features:
-    u-Gender:
-    - u-masc
-    - u-fem
-  Rules: {}
-  Notes:
-  - Many adjectives change their form to agree in gender with the noun they modify.
-  - For most nouns that refer to persons, grammatical gender matches biological gender.

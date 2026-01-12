@@ -1,9 +1,0 @@
-Determiner:
-  Features:
-    u-Definiteness: [u-def]
-  Rules:
-    u-Definiteness_u-def:
-      applies: { u-Definiteness: u-def }
-      forms:
-        - features: { u-Number: u-sg, u-Case: u-nom }
-          form: "lo"

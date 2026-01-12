@@ -11,60 +11,103 @@ VALIDATION SCHEMA (structure and headings must be followed exactly):
   "type": "object",
 
   "$defs": {
-    "endings": {
-      "type": "object",
-      "properties": {
-        "features": { "type": "object" },
-        "form": { "type": "string" },
-        "note": { "type": "string" }
-      },
-      "required": ["features", "form"]
+
+    "patterns": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/pattern_object" },
+      "minItems": 1
     },
-    "forms": {
+    "pattern_object": {
       "type": "object",
       "properties": {
-        "features": { "type": "object" },
-        "form": { "type": "string" },
         "pattern": { "type": "string" },
-        "note": { "type": "string" }
+        "notes": { "$ref": "#/$defs/notes" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "title": { "type": "string" }
       },
-      "required": ["features"],
-      "oneOf": [
-        { "required": ["form"] },
-        { "required": ["pattern"] }
-      ]
+      "required": ["pattern"],
+      "additionalProperties": false
     },
+
+    "formparadigms": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/formparadigm_object" },
+      "minItems": 1
+    },
+    "formparadigm_object": {
+      "type": "object",
+      "properties": {
+        "formparadigm": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/form_item" },
+          "minItems": 1
+        },
+        "notes": { "$ref": "#/$defs/notes" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "title": { "type": "string" }
+      },
+    "required": ["formparadigm"],
+    "additionalProperties": false
+    },
+    "form_item": {
+      "type": "object",
+      "required": ["features", "form"],
+      "properties": {
+        "features": {
+          "type": "object"
+        },
+        "form": {
+          "type": "string"
+        }
+      }
+    },
+
+    "endingparadigms": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/endingparadigm_object" },
+      "minItems": 1
+    },
+    "endingparadigm_object": {
+      "type": "object",
+      "properties": {
+        "endingparadigm": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/ending_item" },
+          "minItems": 1
+        },
+        "notes": { "$ref": "#/$defs/notes" },
+        "examples": { "$ref": "#/$defs/examples" },
+        "title": { "type": "string" }
+      },
+      "required": ["endingparadigm"],
+      "additionalProperties": false
+    },
+    "ending_item": {
+      "type": "object",
+      "required": ["features", "ending"],
+      "properties": {
+        "features": {
+          "type": "object"
+        },
+        "ending": {
+          "type": "string"
+        }
+      }
+    },
+
     "applies": {
       "type": "object",
-      "description": "Feature-value constraints for the rule/usage"
+      "description": "Feature-value constraints for the rule"
     },
     "examples": {
       "type": "array",
       "items": { "type": "string" },
       "minItems": 1
     },
-    "patterns": {
-      "type": "object",
-      "properties": {
-        "pattern": { "type": "string" },
-        "examples": { "$ref": "#/$defs/examples" },
-        "note": { "$ref": "#/$defs/note" },
-        "endings": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/endings" }
-        },
-        "forms": {
-          "type": "array",
-          "items": { "$ref": "#/$defs/forms" }
-        }
-      },
-      "oneOf": [
-        { "required": ["pattern"] },
-        { "required": ["forms"] }
-      ]
-    },
-    "note": {
-      "type": "string"
+    "notes": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1
     }
   },
 
@@ -80,85 +123,73 @@ VALIDATION SCHEMA (structure and headings must be followed exactly):
             "items": { "type": "string" }
           }
         },
-        "Usage": {
-          "type": "object",
-          "additionalProperties": {
-            "type": "object",
-            "properties": {
-              "applies": { "$ref": "#/$defs/applies" },
-              "note": { "$ref": "#/$defs/note" },
-              "examples": { "$ref": "#/$defs/examples" }
-            },
-            "anyOf": [
-              { "required": ["applies"] },
-              { "required": ["note"] },
-              { "required": ["examples"] }
-            ]
-          }
-        },
-        "Negation": {
-          "type": "object",
-          "required": ["examples"],
-          "properties": {
-            "pattern": { "type": "string" },
-            "examples": { "$ref": "#/$defs/examples" },
-            "note": { "$ref": "#/$defs/note" }
-          }
-        },
         "Rules": {
           "type": "object",
           "additionalProperties": {
             "type": "object",
-            "required": ["applies"],
             "properties": {
+              "title": { "type": "string"},
+              "notes": { "$ref": "#/$defs/notes" },
               "applies": { "$ref": "#/$defs/applies" },
-              "pattern": { "type": "string" },
-              "patterns": {
-                "type": "array",
-                "items": { "$ref": "#/$defs/patterns" }
-              },
-              "endings": {
-                "type": "array",
-                "items": { "$ref": "#/$defs/endings" }
-              },
-              "forms": {
-                "type": "array",
-                "items": { "$ref": "#/$defs/forms" }
-              },
-              "examples": { "$ref": "#/$defs/examples" },
-              "note": { "$ref": "#/$defs/note" },
-              "negation": { "type": "string" }
+              "patterns": { "$ref": "#/$defs/patterns" },
+              "endingparadigms": { "$ref": "#/$defs/endingparadigms" },
+              "formparadigms": { "$ref": "#/$defs/formparadigms" }
             },
-            "anyOf": [
-              { "required": ["pattern"], "not": { "required": ["patterns"] } },
-              { "required": ["patterns"], "not": { "anyOf": [ { "required": ["pattern"] }, { "required": ["forms"] } ] } },
-              { "required": ["forms"], "not": { "required": ["patterns"] } }
-            ]
+          "required":["applies"],
+          "anyOf":[
+            {"required":["patterns"]},
+            {"required":["formparadigms"]},
+            {"required":["endingparadigms"]}
+          ]
           }
-        },
-        "Notes": {
-          "type": "array",
-          "items": { "type": "string" }
         }
       }
     }
   },
-
   "additionalProperties": false
 }
 
-The schema consists of RULES, each applying to a specific grammatical FEATURE and its ATTRIBUTE.
-Each Rule must contain:
-- A name: built by joining feature-attribute pairs with an underscore, and a double underscore between different pairs.
-- the 'applies' field: specifies to which feature-attribute pair the rule applies. Note that no two rules should have the same 'applies' field. In that case, the two rules should be combined to form one with a 'patterns' field.
-- either a field 'pattern' or 'patterns' or 'forms':
-   - a 'pattern' is a string-like template
-   - 'patterns' is a list of sub-patterns, that each contain either 'pattern' or 'forms', and may include 'examples', 'notes' or 'endings.
-   - 'forms' is a list of specific word forms. It must contain 'features' and either 'form' or 'pattern'. It may also include a 'note' field.
-- it may include the fields 'notes', 'examples' or 'endings'.
-   - 'endings' must include 'features' and 'form', and may include a 'note' field.
-The 'Features' field on the same level as 'Rules' is the set of all features and their attributes used in the rules.
-There are also other optional fields at the top level, 'Negation' and 'Usage'. 'Usage' is used to specify usage of a tense, 'Negation' is used to specify negation in that tense. They should only be used in schemas pertaining to tenses. Both may contain 'pattern', 'note' or 'examples' fields, 'Usage' may additionally contain 'applies'.
+The schema can be represented as follows:
+
+Title
+    Features
+        FeatureName1: [value1, value2, ...]
+        FeatureName2: [value1, value2, ...]
+
+    Rules
+        RuleName
+            title?
+            notes?
+            applies
+                feature1: value
+                feature2: value
+            (patterns | formparadigms | endingparadigms)+
+
+Any combination of patterns, formparadigms and endingparadigms is allowed. This is how they look in detail:
+
+patterns
+    - pattern
+      title?
+      notes?
+      examples?
+
+formparadigms
+    - title?
+      notes?
+      examples?
+      formparadigm
+          - features
+            form
+
+endingparadigms
+    - title
+      notes
+      examples
+      endingparadigm
+          - features
+            ending
+
+Use patterns for pattern-like grammar rules, endings if the paradigm consists of variations in endings, and forms if the paradigm is simply a specific set of forms.
 
 INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
@@ -168,16 +199,9 @@ INSTRUCTIONS:
 - Ignore any information that is not relevant to the topic at hand.
 
 FEATURES AND THEIR VALUES:
-- Feature names and values are prefixed with either u-, x- or the language's abbreviation as a prefix.
-- Use the language prefix ONLY for language-specific features and values.
-- Use the prefix "u-" for UniMorph features and values.
-- Use the prefix "x-" for custom (non-UniMorph, cross-linguistic) features and values.
-- When multiple representations are possible, prefer:
-  1) UniMorph ("u-") features,
-  2) then custom ("x-") features,
-  3) and only then language-specific features.
-
-- Do NOT invent new features if an appropriate UniMorph feature exists.
+- Feature names and values are prefixed with either u- or x-.
+- "u-" if for UniMorph features and values, "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Whenever possible, use UniMorph prefixes.- Invent new features only if no appropriate UniMorph features exists.- Do NOT invent new features if an appropriate UniMorph feature exists.
 
 Below are the features for reference:
 UNIMORPH FEATURES AND VALUES:
@@ -433,38 +457,9 @@ UNIMORPH FEATURES AND VALUES:
 
 CUSTOM FEATURES AND VALUES:
 {
-  "x-Process": [
-    "x-base-form",
-    "x-adj-as-adv",
-    "x-complex",
-    "x-modification",
-    "x-prefixation",
-    "x-suffixation",
-    "x-compounding",
-    "x-conversion"
-  ],
-  "x-Domain": [
-    "x-subject-verb",
-    "x-noun-adjective",
-    "x-noun-determiner"
-  ],
   "x-Clausetype": [
     "x-main",
-    "x-subordinate",
-    "x-int-yes-no",
-    "x-int-wh",
-    "x-excl",
-    "x-protasis",
-    "x-apodosis"
-  ],
-  "x-Word-order": [
-    "x-V2",
-    "x-Vfinal",
-    "x-V1"
-  ],
-  "x-Negation-type": [
-    "x-clause",
-    "x-constituent"
+    "x-subordinate"
   ],
   "x-Constituent": [
     "x-NP",
@@ -474,9 +469,12 @@ CUSTOM FEATURES AND VALUES:
     "x-AdvP",
     "x-CP"
   ],
-  "x-Passive-type": [
-    "x-process",
-    "x-state"
+  "x-Negation-type": [
+    "x-clause",
+    "x-constituent"
+  ],
+  "x-Temp-Relation": [
+    "x-anterior"
   ],
   "x-Pronoun-type": [
     "x-pers",
@@ -485,10 +483,6 @@ CUSTOM FEATURES AND VALUES:
     "x-poss",
     "x-int",
     "x-rel"
-  ],
-  "x-Form-type": [
-    "x-standalone",
-    "x-clitic"
   ]
 }
 
@@ -507,6 +501,26 @@ You are a now tasked with normalizing grammatical descriptions for the language 
 
 The data you receive comes from multiple sources and relates to the following topics:
 past tense, tense.
+
+If possible, select features among the ones below:
+Past
+	u-Aspect
+		u-hab	(Habitual)
+		u-ipfv	(Imperfective)
+		u-iter	(Iterative)
+		u-pfv	(Perfective)
+		u-prf	(Perfect)
+		u-prog	(Progressive)
+		u-prosp	(Prospective)
+	u-Finiteness
+		u-fin	(Finite)
+		u-nfin	(Nonfinite)
+	x-Temp-Relation
+		x-anterior
+
+The following may help guide you in your feature selection:
+- Use u-Aspect to indicate which aspectual distinctions are encoded by a past tense construction.
+
 
 SOURCE DATA:
 Source 1:
@@ -667,113 +681,93 @@ EXAMPLE OUTPUT (for German):
 Use this ONLY as an illustration of the format, do NOT copy any content from it.
 Past:
   Features:
-    de-Tense-type:
-    - de-past-participle
-    - de-past-progressive
-    - de-perfekt
-    - de-plusquamperfekt
-    - de-praeteritum
-    de-Verbclass: [de-weak, de-strong, de-irregular]
-
-  Usage:
-    de-praeteritum:
-      applies: {u-Aspect: [u-hab, u-ipfv, u-iter, u-pfv]}
-      note: "The preterite is the default narrative past in written German. It expresses habitual actions (u-hab), ongoing background situations (u-ipfv), repeated or iterative actions (u-iter), and completed bounded events (u-pfv). In spoken German, often replaced by the perfect."
-      examples:
-      - "u-hab: Er kam jeden Tag."
-      - "u-ipfv: Es regnete, als er kam."
-      - "u-iter: Er klopfte immer wieder."
-      - "u-pfv: Er kam und setzte sich."
-    de-perfekt:
-      applies: {u-Aspect: [u-prf, u-pfv, u-ipfv, u-hab, u-iter]}
-      note: "The perfect is the preferred past form in spoken German. It encodes current relevance or resultative meaning (u-prf), but in usage also covers perfective (u-pfv), imperfective/background (u-ipfv), habitual (u-hab), and iterative (u-iter) readings depending on context."
-      examples:
-      - "u-prf: Ich habe gearbeitet."
-      - "u-pfv: Ich habe das Buch gelesen."
-      - "u-ipfv: Ich habe gestern lange gelesen."
-      - "u-hab: Ich habe oft Fußball gespielt."
-      - "u-iter: Ich habe ihn mehrmals getroffen."
-    de-plusquamperfekt:
-      applies: {u-Aspect: [u-prf, u-pfv, u-ipfv, u-hab, u-iter]}
-      note: "The pluperfect is used for anteriority, i.e. to describe events prior to another past reference point. It highlights resultative or perfect (u-prf), but also accommodates perfective (u-pfv), imperfective (u-ipfv), habitual (u-hab), and iterative (u-iter) readings in narratives."
-      examples:
-      - "u-prf: Ich hatte gearbeitet."
-      - "u-pfv: Ich hatte das Buch gelesen."
-      - "u-ipfv: Ich hatte lange gelesen, als er kam."
-      - "u-hab: Ich hatte oft dort gegessen."
-      - "u-iter: Ich hatte ihn mehrmals gesehen."
-    de-past-progressive:
-      applies: {u-Aspect: [u-prog, u-ipfv]}
-      note: "The 'am'-progressive in the past is a colloquial form, highlighting an action in progress (u-prog). It can also serve as an imperfective marker (u-ipfv) for backgrounded ongoing activity. Rare in formal registers."
-      examples:
-      - "u-prog: Ich war am Arbeiten."
-      - "u-ipfv: Er war am Lesen."
-
-
-  Negation:
-    applies: {x-Negation-type: x-clause}
-    note: "Regular negation."
-    examples:
-    - "Ich ging nicht nach Hause"
-    - "Er ist/war auch nicht nach Hause gegangen"
+    u-Aspect: [u-prf, u-pfv, u-ipfv, u-hab, u-iter, u-prog]
+    u-Finiteness: [u-nfin]
+    x-Temp-Relation:
+    - x-anterior
 
   Rules:
-    de-Tense-type_de-praeteritum__de-Verbclass_de-weak:
-      applies: {de-Tense-type: de-praeteritum, de-Verbclass: de-weak}
-      pattern: "_stem_ + te + _personal ending_"
-      examples:
-      - "ich machte"
+    Preterite:
+      title: "Preterite"
+      applies: {u-Aspect: [u-hab, u-ipfv, u-iter, u-pfv]}
+      patterns:
+      - pattern: "stem + te + personal ending"
+        title: "Weak Verbclass"
+        examples:
+        - "u-hab: Er kam jeden Tag."
+        - "u-ipfv: Es regnete, als er kam."
+        - "u-iter: Er klopfte immer wieder."
+        - "u-pfv: Er kam und setzte sich."
+      - pattern: "ablauted stem + personal ending"
+        title: "Strong Verbclass"
+        examples:
+        - "ich ging"
+      - pattern: "suppletive forms"
+        title: "Irregular Verbclass"
+        examples:
+        - "ich war"
+        - "ich hatte"
+      notes:
+      - "The preterite is the default narrative past in written German. It expresses habitual actions (u-hab), ongoing background situations (u-ipfv), repeated or iterative actions (u-iter), and completed bounded events (u-pfv). In spoken German, often replaced by the perfect."
 
-    de-Tense-type_de-praeteritum__de-Verbclass_de-strong:
-      applies: {de-Tense-type: de-praeteritum, de-Verbclass: de-strong}
-      pattern: "_ablauted stem_ + _personal ending_"
-      examples:
-      - "ich ging"
+    Pluperfect:
+      title: "Pluperfect"
+      applies: {u-Aspect: [u-prf, u-hab, u-ipfv, u-iter, u-pfv], x-Temp-Relation: x-anterior}
+      patterns:
+      - pattern: "haben/sein (preterite finite) + past participle"
+        examples:
+        - "u-prf: Ich hatte gearbeitet."
+        - "u-pfv: Ich hatte das Buch gelesen."
+        - "u-ipfv: Ich hatte lange gelesen, als er kam."
+        - "u-hab: Ich hatte oft dort gegessen."
+        - "u-iter: Ich hatte ihn mehrmals gesehen."
+        notes:
+        - "The pluperfect is used for anteriority, i.e. to describe events prior to another past reference point. It highlights resultative or perfect (u-prf), but also accommodates perfective (u-pfv), imperfective (u-ipfv), habitual (u-hab), and iterative (u-iter) readings in narratives."
 
-    de-Tense-type_de-praeteritum__de-Verbclass_de-irregular:
-      applies: {de-Tense-type: de-praeteritum, de-Verbclass: de-irregular}
-      pattern: "suppletive forms"
-      examples:
-      - "ich war"
-      - "ich hatte"
+    u-Aspect_u-prog:
+      applies: {u-Aspect: u-prog}
+      patterns:
+      - pattern: "sein (preterite finite) + am + Infinitiv"
+        examples:
+        - "u-prog: Ich war am Arbeiten."
+        - "u-ipfv: Er war am Lesen."
+        notes:
+        - "The 'am'-progressive in the past is a colloquial form, highlighting an action in progress (u-prog). It can also serve as an imperfective marker (u-ipfv) for backgrounded ongoing activity. Rare in formal registers."
 
-    de-Tense-type_de-perfekt:
-      applies: {de-Tense-type: de-perfekt}
-      pattern: "haben/sein (present finite) + past participle"
-      examples:
-      - "ich habe gesehen"
-      - "ich bin gegangen"
+    PastParticiple:
+      title: "PastParticiple"
+      applies: {u-Finiteness: u-nfin}
+      patterns:
+      - pattern: "ge- + {stem} + (e)t"
+        title: "Weak Verbclass"
+        examples:
+        - "gemacht"
+        - "gearbeitet"
+        - "gespielt"
+        notes:
+        - "Weak verbs: participle formed with -t, occasionally -et after certain stems."
+      - pattern: "ge- + {ablauted stem} + en"
+        title: "Strong Verbclass"
+        examples:
+        - "gesehen"
+        - "gegangen"
+        - "gefunden"
+        notes:
+        - "Strong verbs: participle formed with -en and often stem vowel change (Ablaut)."
+    "Perfect":
+      title: "Perfect"
+      applies: {u-Aspect: [u-prf, u-hab, u-ipfv, u-iter, u-pfv]}
+      patterns:
+      - pattern: "haben/sein (present finite) + past participle"
+        examples:
+        - "u-prf: Ich habe fertig gearbeitet."
+        - "u-pfv: Ich habe das Buch gelesen."
+        - "u-ipfv: Ich habe gestern lange gelesen."
+        - "u-hab: Ich habe oft Fußball gespielt."
+        - "u-iter: Ich habe ihn mehrmals getroffen."
+        notes:
+        - "The perfect is the preferred past form in spoken German. It encodes current relevance or resultative meaning (u-prf), but in usage also covers perfective (u-pfv), imperfective/background (u-ipfv), habitual (u-hab), and iterative (u-iter) readings depending on context."
 
-    de-Tense-type_de-plusquamperfekt:
-      applies: {de-Tense-type: de-plusquamperfekt}
-      pattern: "haben/sein (preterite finite) + past participle"
-      examples:
-      - "ich hatte gesehen"
-      - "ich war gegangen"
-
-    de-Tense-type_de-past-progressive:
-      applies: {de-Tense-type: de-past-progressive}
-      pattern: "sein (preterite finite) + am + Infinitiv"
-      examples:
-      - "ich war am Arbeiten"
-
-    de-Tense-type_de-past-participle__de-Verbclass_de-weak:
-      applies: {de-Tense-type: de-past-participle, de-Verbclass: de-weak}
-      pattern: "ge- + {stem} + (e)t"
-      examples:
-      - "gemacht"
-      - "gearbeitet"
-      - "gespielt"
-      note: "Weak verbs: participle formed with -t, occasionally -et after certain stems."
-
-    de-Tense-type_de-past-participle__de-Verbclass_de-strong:
-      applies: {de-Tense-type: de-past-participle, de-Verbclass: de-strong}
-      pattern: "ge- + {ablauted stem} + en"
-      examples:
-      - "gesehen"
-      - "gegangen"
-      - "gefunden"
-      note: "Strong verbs: participle formed with -en and often stem vowel change (Ablaut)."
 
 
 

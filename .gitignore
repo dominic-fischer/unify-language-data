@@ -19,3 +19,6 @@ junk/
 junk.py
 notes.txt
 *.key
+
+outputs/outputs_gpt-5-nano/
+outputs/outputs_gpt-5.2_initial_run/
