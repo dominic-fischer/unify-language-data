@@ -12,13 +12,13 @@ import sys
 with open("api.key", "r") as f:
     api_key = f.read().strip()
 
-used_model = None
+used_model = "gpt-5.2"
 
 client = OpenAI(api_key=api_key)
 langs = ["chewa", "shona", "swahili", "zulu", "french", "italian", "portuguese", "romanian", "spanish"]
-schema_dir = "../schemas/"
+schema_dir = "schemas/"
 schema_de_dir = schema_dir + "lang-de/"
-save_dir = f"../outputs/outputs_{used_model}"
+save_dir = f"outputs/outputs_{used_model}"
 # create the save directory if it does not exist
 if not os.path.exists(save_dir):
     os.makedirs(save_dir)
@@ -31,7 +31,7 @@ for lang in langs:
             print(f"File '{save_dir}/{save_filename}' already exists, skipping...")
             continue
         
-        prompt_dir = "../prompts/"
+        prompt_dir = "prompts/"
         file = prompt_dir + f"/{lang}_{current_file}_prompt.txt"
         # if the prompt file does not exist, skip
         if not os.path.exists(file):

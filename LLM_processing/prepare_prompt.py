@@ -115,6 +115,11 @@ for lang, mapping_file_paths in langs_w_files.items():
                 f"{grammar_schema_verbose}\n"
 
                 "SCHEMA GUIDELINES:\n"
+                "Make sure to only set exactly:\n"
+                "   - ONE title\n"
+                "   - ONE field 'Features'\n"
+                "   - ONE field 'Rules'\n"
+                "   as specified in the schema.\n"
                 "- Use patterns for pattern-like grammar rules, endings if the paradigm consists of variations in endings, and forms if the paradigm is simply a specific set of forms."
                 "- Assign titles to individual patterns if and only if there are multiple patterns under the same rule.\n"
                 "- Assign titles to individual rules if and only if the following is the case:\n"

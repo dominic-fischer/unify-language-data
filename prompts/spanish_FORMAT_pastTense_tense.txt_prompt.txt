@@ -192,6 +192,11 @@ endingparadigms
 
 
 SCHEMA GUIDELINES:
+Make sure to only set exactly:
+   - ONE title
+   - ONE field 'Features'
+   - ONE field 'Rules'
+   as specified in the schema.
 - Use patterns for pattern-like grammar rules, endings if the paradigm consists of variations in endings, and forms if the paradigm is simply a specific set of forms.- Assign titles to individual patterns if and only if there are multiple patterns under the same rule.
 - Assign titles to individual rules if and only if the following is the case:
    - the rule in question is describing a tense
@@ -712,7 +717,8 @@ Past:
         - "gefunden"
         notes:
         - "Strong verbs: participle formed with -en and often stem vowel change (Ablaut)."
-    "Perfect":
+
+    Perfect:
       title: "Perfect"
       applies: {u-Aspect: [u-prf, u-hab, u-ipfv, u-iter, u-pfv]}
       patterns:
