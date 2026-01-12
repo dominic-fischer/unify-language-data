@@ -365,6 +365,28 @@ def list_pos_keys_for_language(lang: str) -> List[str]:
 
 
 @st.cache_data(show_spinner=True)
+def get_pos_options_for_langs(langs: Tuple[str, ...]) -> List[str]:
+    """
+    POS options for selected languages.
+    - If exactly 2 languages: intersection of POS keys
+    - Else: union
+    """
+    pos_sets: List[set[str]] = []
+    for lang in langs:
+        pos_sets.append(set(list_pos_keys_for_language(lang)))
+
+    if not pos_sets:
+        return []
+
+    if len(langs) == 2:
+        out = set.intersection(*pos_sets) if all(pos_sets) else set()
+    else:
+        out = set.union(*pos_sets)
+    return sorted(out)
+
+
+
+@st.cache_data(show_spinner=True)
 def scan_categories_for_lang_and_pos(
     lang: str,
     pos: str,
@@ -426,27 +448,6 @@ def scan_categories_for_lang_and_pos(
 
 
 @st.cache_data(show_spinner=True)
-def get_pos_options_for_langs(langs: Tuple[str, ...]) -> List[str]:
-    """
-    POS options for selected languages.
-    - If exactly 2 languages: intersection of POS keys
-    - Else: union
-    """
-    pos_sets: List[set[str]] = []
-    for lang in langs:
-        pos_sets.append(set(list_pos_keys_for_language(lang)))
-
-    if not pos_sets:
-        return []
-
-    if len(langs) == 2:
-        out = set.intersection(*pos_sets) if all(pos_sets) else set()
-    else:
-        out = set.union(*pos_sets)
-    return sorted(out)
-
-
-@st.cache_data(show_spinner=True)
 def get_category_options_for_langs_and_pos(langs: Tuple[str, ...], pos: str | None) -> List[str]:
     """
     Categories depend on POS:
@@ -471,6 +472,207 @@ def get_category_options_for_langs_and_pos(langs: Tuple[str, ...], pos: str | No
     return sorted(out)
 
 
+@st.cache_data(show_spinner=True)
+def scan_etymologies_for_lang_and_pos(
+    lang: str,
+    pos: str,
+    max_records: int = 200_000,
+    max_unique: int = 5000,
+) -> List[str]:
+    """
+    Returns short etymology *sources* (e.g. Latin/French/Proto-Bantu), not raw etymology strings.
+    """
+    out: set[str] = set()
+    pk = _pos_key(pos)
+
+    # prefer split file
+    if VOCAB_POS_DIR.exists():
+        src_map = list_language_files()
+        lk = _normalize_lang_key(lang)
+        lk = LANG_ALIASES.get(lk, lk)
+        src = src_map.get(lk)
+        if src is not None:
+            lang_safe = _lang_safe_from_source_file(src)
+            split_fp = VOCAB_POS_DIR / f"{lang_safe}__{pk}.jsonl"
+            if split_fp.exists():
+                n = 0
+                for e in iter_jsonl_records(split_fp):
+                    n += 1
+                    if n > max_records:
+                        break
+                    src_lbl = ety_source(vocab_record_etymology(e))
+                    if src_lbl:
+                        out.add(src_lbl)
+                        if len(out) >= max_unique:
+                            break
+                return sorted(out)
+
+    # fallback: scan original & filter pos
+    files = resolve_lang_files((lang,))
+    if not files:
+        return []
+
+    n = 0
+    for e in iter_jsonl_records(files[0]):
+        n += 1
+        if n > max_records:
+            break
+        if e.get("pos") != pos:
+            continue
+        src_lbl = ety_source(vocab_record_etymology(e))
+        if src_lbl:
+            out.add(src_lbl)
+            if len(out) >= max_unique:
+                break
+
+    return sorted(out)
+
+
+@st.cache_data(show_spinner=True)
+def get_etymology_options_for_langs_and_pos(langs: Tuple[str, ...], pos: str | None) -> List[str]:
+    """
+    Etymologies depend on POS:
+      - If POS selected, etymologies are only those present in that POS
+      - If exactly 2 languages: intersection across the two langs (within that POS), else union
+    """
+    if not pos:
+        return []
+
+    ety_sets: List[set[str]] = []
+    for lang in langs:
+        ety_sets.append(set(scan_etymologies_for_lang_and_pos(lang, pos)))
+
+    if not ety_sets:
+        return []
+
+    if len(langs) == 2:
+        out = set.intersection(*ety_sets) if all(ety_sets) else set()
+    else:
+        out = set.union(*ety_sets)
+    return sorted(out)
+
+
+# --- Etymology grouping helpers ---------------------------------------------
+
+_ETY_TYPE_RULES = [
+    ("borrowed", re.compile(r"\bborrowed from\b|\bloanword\b", re.I)),
+    ("inherited", re.compile(r"\binherited from\b", re.I)),
+    ("calque", re.compile(r"\bcalque\b|\bloan translation\b", re.I)),
+    ("compound", re.compile(r"\bcompound\b|\bfrom\b.+\+\s*.+", re.I)),
+    ("derived", re.compile(r"\bderived\b|\bfrom\b.+\b(via|ultimately)\b", re.I)),
+]
+
+def ety_type(ety: str | None) -> str:
+    t = (ety or "").strip()
+    if not t:
+        return ""
+    for name, rx in _ETY_TYPE_RULES:
+        if rx.search(t):
+            return name
+    return "other"
+
+# fr:Foo, it:Foo, sw:Foo etc. (sometimes appear)
+_LANGCODE_PREFIX = re.compile(r"^[A-Za-z]{2,3}:\s*")
+
+# A long-but-practical list of etymology “languages/stages” commonly mentioned in Wiktionary.
+# Includes broad IE coverage + Semitic + common areal contact languages + African/Bantu relevant items.
+_KNOWN_ETY_LANGS = [
+    # --- Proto & reconstructed
+    "Proto-Indo-European", "Proto-Afroasiatic", "Proto-Uralic", "Proto-Turkic",
+    "Proto-Semitic", "Proto-Berber", "Proto-Cushitic", "Proto-Bantu", "Proto-Niger-Congo",
+    "Proto-Atlantic-Congo", "Proto-Volta-Congo", "Proto-Quechuan", "Proto-Dravidian",
+
+    # --- Ancient / Classical
+    "Akkadian", "Sumerian", "Ancient Egyptian", "Coptic",
+    "Classical Latin", "Late Latin", "Vulgar Latin", "Medieval Latin",
+    "Ancient Greek", "Koine Greek", "Byzantine Greek", "Hellenistic Greek",
+    "Sanskrit", "Pali", "Prakrit", "Avestan", "Old Persian", "Middle Persian",
+    "Biblical Hebrew", "Mishnaic Hebrew", "Aramaic", "Syriac",
+    "Classical Arabic", "Quranic Arabic",
+
+    # --- Germanic (useful even if your app targets Romance/Bantu; etys often cite these)
+    "Proto-Germanic", "Gothic",
+    "Old English", "Middle English", "Early Modern English",
+    "Old Norse", "Old Swedish", "Old Danish",
+    "Old High German", "Middle High German",
+    "Old Saxon", "Old Frisian",
+
+    # --- Romance
+    "Latin", "Italian", "French", "Old French", "Middle French",
+    "Spanish", "Old Spanish", "Portuguese", "Old Portuguese",
+    "Catalan", "Occitan", "Old Occitan", "Romanian", "Sardinian",
+    "Venetian", "Neapolitan", "Sicilian", "Galician",
+    "Lombard", "Piedmontese", "Friulian",
+
+    # --- Slavic
+    "Proto-Slavic", "Old Church Slavonic",
+    "Russian", "Ukrainian", "Belarusian", "Polish", "Czech", "Slovak",
+    "Bulgarian", "Serbo-Croatian", "Croatian", "Serbian", "Slovenian", "Macedonian",
+
+    # --- Celtic
+    "Proto-Celtic", "Old Irish", "Middle Irish", "Irish",
+    "Scottish Gaelic", "Welsh", "Breton", "Cornish", "Manx",
+
+    # --- Iranian & Indo-Aryan
+    "Persian", "New Persian", "Dari", "Tajik", "Kurdish", "Pashto",
+    "Hindi", "Urdu", "Bengali", "Punjabi", "Marathi", "Gujarati", "Nepali", "Sinhala",
+
+    # --- Turkic / Mongolic / Tungusic
+    "Turkish", "Ottoman Turkish", "Azerbaijani", "Kazakh", "Kyrgyz", "Uzbek", "Turkmen",
+    "Mongolian", "Manchu",
+
+    # --- East & SE Asia
+    "Chinese", "Middle Chinese", "Old Chinese", "Mandarin", "Cantonese",
+    "Japanese", "Korean", "Vietnamese", "Thai", "Lao", "Khmer", "Burmese",
+
+    # --- Semitic (modern)
+    "Hebrew", "Yiddish", "Arabic", "Egyptian Arabic", "Levantine Arabic", "Maghrebi Arabic",
+    "Amharic", "Tigrinya", "Tigre", "Geʽez",
+    "Somali", "Oromo", "Afar", "Beja", "Hausa", "Berber", "Tamazight",
+
+    # --- South Asia (Dravidian)
+    "Tamil", "Telugu", "Kannada", "Malayalam",
+
+    # --- Africa (high-contact + relevant)
+    "Swahili", "Arabic (Swahili)",  # sometimes appears in templates
+    "English", "Afrikaans", "Dutch", "German",
+    "Xitsonga", "Tshivenda", "Sesotho", "Sepedi", "Setswana",
+    "isiZulu", "Zulu", "isiXhosa", "Xhosa", "siSwati", "Swati",
+    "Ndebele", "Northern Ndebele", "Southern Ndebele",
+    "Chichewa", "Chewa", "Nyanja", "Cinyanja",
+    "Shona", "Xitsonga", "Kikuyu", "Gikuyu",
+    "Luganda", "Ganda", "Kinyarwanda", "Kirundi", "Rundi",
+    "Lingala", "Kongo", "Kikongo",
+    "Chokwe", "Bemba", "Tonga", "Lozi", "Luba-Katanga", "Luba-Lulua",
+    "Makhuwa", "Yao", "Sena", "Tsonga",
+    "Xitsonga", "Ronga", "Changana",
+    "Fula", "Fulfulde", "Wolof", "Yoruba", "Igbo", "Ewe", "Twi", "Akan",
+    "Xitsonga",  # duplicates are fine; regex is deduped by set below
+    "Xitsonga",  # (you can remove duplicates later if you want)
+]
+
+# Deduplicate while keeping the list readable
+_KNOWN_ETY_LANGS = list(dict.fromkeys(_KNOWN_ETY_LANGS))
+
+# Match longest names first (e.g., "Old French" before "French")
+_LANG_MENTION_RE = re.compile(
+    r"\b(" + "|".join(re.escape(x) for x in sorted(_KNOWN_ETY_LANGS, key=len, reverse=True)) + r")\b",
+    re.I
+)
+
+def ety_source(ety: str | None) -> str:
+    """
+    Return a short grouping label (first mentioned language/stage).
+    This is intentionally heuristic.
+    """
+    t = (ety or "").strip()
+    if not t:
+        return ""
+    t = _LANGCODE_PREFIX.sub("", t).strip()
+    m = _LANG_MENTION_RE.search(t)
+    return (m.group(1) if m else "")
+
+
 # ----------------------------
 # Loading entries (fast with split files)
 # ----------------------------
@@ -480,8 +682,9 @@ def load_vocab_entries_filtered(
     langs: Tuple[str, ...],
     pos: str | None,
     cat: str | None,
-    word_query: str | None,
-    limit_rows: int,
+    ety: str | None = None,
+    word_query: str | None = None,
+    limit_rows: int = 5000,
 ) -> pd.DataFrame:
     """
     Load matching entries for selected languages.
@@ -509,6 +712,12 @@ def load_vocab_entries_filtered(
                 cats = vocab_record_categories(e)
                 if cat not in cats:
                     continue
+
+            if ety:
+                src_lbl = ety_source(vocab_record_etymology(e))
+                if src_lbl != ety:
+                    continue
+
 
             word = e.get("word") or e.get("lemma") or e.get("_key") or ""
             if q and isinstance(word, str):

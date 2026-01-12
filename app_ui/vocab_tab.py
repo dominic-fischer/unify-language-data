@@ -16,6 +16,7 @@ from app_data.vocab import VOCAB_DIR, VOCAB_POS_DIR
 from app_data.vocab import (
     align_meanings_two_langs,
     get_category_options_for_langs_and_pos,
+    get_etymology_options_for_langs_and_pos,
     get_pos_options_for_langs,
     load_vocab_entries_filtered,
     resolve_lang_files,
@@ -164,6 +165,18 @@ def render_vocab_tab() -> None:
             help="Choose a POS first to see categories available within that POS.",
         ) or None
 
+        ety_options = get_etymology_options_for_langs_and_pos(tuple(v_langs), v_pos_val)
+
+        v_ety_val = st.selectbox(
+            "Etymology source (optional)",
+            options=[""] + ety_options,
+            index=0,
+            key="v_ety",
+            disabled=(v_pos_val is None),
+            help="Choose a POS first to see etymologies available within that POS.",
+        ) or None
+
+
         limit_rows = st.slider("Max rows to load", 100, 5000, 1000, 100, key="v_limit_rows")
 
     # ----------------------------
@@ -176,9 +189,11 @@ def render_vocab_tab() -> None:
             langs=tuple(v_langs),
             pos=v_pos_val,
             cat=v_cat_val,
+            ety=v_ety_val,
             word_query=word_q,
             limit_rows=limit_rows,
         )
+
 
         if df.empty:
             st.warning("No entries matched your filters.")
