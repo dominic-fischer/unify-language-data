@@ -17,16 +17,19 @@ ReportedSpeech:
       applies: {u-Evidentiality: u-quot, u-Tense: u-prs}
       patterns: 
       - pattern: "reporting verb + dass/Ø + {clause in Subjunctive I (present)}"
+        title: "Declaratives Sentences"
         examples:
         - "'Ich komme morgen' --> Er sagte, er komme morgen."
         - "'Ich komme morgen' --> Er sagte, dass er morgen komme."
       - pattern: "reporting verb + ob/wh-word + {clause in Subjunctive I (present)}"
+        title: "Interrogative Sentences"
         examples: 
         - "'Kommst du morgen?' --> Er fragte, ob ich morgen komme/käme."
         - "'Wann kommst du morgen?' --> Er fragte, wann ich morgen komme/käme."
         notes: 
         - "yes/no questions use 'ob', wh-questions use wh-word; tense follows same system as u-decls (pres, past, fut)"
       - pattern: "reporting verb + wie/was/dass für + {clause in Subjunctive I (present)}"
+        title: "Exclamative Sentences"
         examples: 
         - "'Ich freue mich so sehr!' --> Er brachte zum Ausdruck, wie sehr er sich freue."
         - "'Ich freue mich so sehr!' --> Er sagte, dass er sich sehr freue."

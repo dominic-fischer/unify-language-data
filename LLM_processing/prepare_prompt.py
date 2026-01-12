@@ -67,7 +67,7 @@ for lang, mapping_file_paths in langs_w_files.items():
             feats_annotation = extract_section(annotation_file_text, filename.split(".")[0])
             feats_annotation = "\n".join(feats_annotation)
             preferred_feats = Path(f"prompt_annotations/preferred_features/{filename.split('.')[0]}_preferred_features.txt").read_text(encoding="utf-8")
-
+            preferred_feats = "\n".join(preferred_feats.splitlines()[1:])
             with open(filepath, "r", encoding="utf-8") as f:
                 reference_content = f.read()
             docx_matches = []
@@ -110,9 +110,17 @@ for lang, mapping_file_paths in langs_w_files.items():
                 "You are a linguist that specialises in distilling linguistic information. Your goal is to transform the data into a structure that satisfies the constraints specified in the validation schema provided.\n\n"
 
                 "VALIDATION SCHEMA (structure and headings must be followed exactly):\n"
-                f"{grammar_schema_text}\n\n"
+                f"{grammar_schema_text}\n\n\n"
 
-                f"{grammar_schema_verbose}\n\n"
+                f"{grammar_schema_verbose}\n"
+
+                "SCHEMA GUIDELINES:\n"
+                "- Use patterns for pattern-like grammar rules, endings if the paradigm consists of variations in endings, and forms if the paradigm is simply a specific set of forms."
+                "- Assign titles to individual patterns if and only if there are multiple patterns under the same rule.\n"
+                "- Assign titles to individual rules if and only if the following is the case:\n"
+                "   - the rule in question is describing a tense\n"
+                "   - the tense encodes more than one aspect\n"
+                "   In that case, the title of the rule is the name by which the tense is commonly known in English.\n\n"
 
                 "INSTRUCTIONS:\n"
                 "- Use ONLY the information present in the provided data.\n"
@@ -123,9 +131,9 @@ for lang, mapping_file_paths in langs_w_files.items():
 
                 "FEATURES AND THEIR VALUES:\n"
                 f"- Feature names and values are prefixed with either u- or x-.\n"
-                "- \"u-\" if for UniMorph features and values, \"x-\" for custom (non-UniMorph, cross-linguistic) features and values.\n"
-                "- Whenever possible, use UniMorph prefixes."
-                "- Invent new features only if no appropriate UniMorph features exists."
+                "- \"u-\" is for UniMorph features and values, \"x-\" for custom (non-UniMorph, cross-linguistic) features and values.\n"
+                "- Whenever possible, use UniMorph prefixes.\n"
+                "- Invent new features only if no appropriate UniMorph features exists.\n"
                 "- Do NOT invent new features if an appropriate UniMorph feature exists.\n\n"
 
                 "Below are the features for reference:\n"
@@ -152,7 +160,7 @@ for lang, mapping_file_paths in langs_w_files.items():
                 f"The data you receive comes from multiple sources and relates to the following topics:\n"
                 f"{', '.join(topic_terms)}.\n\n"
 
-                f"If possible, select features among the ones below:\n{preferred_feats}\n"
+                f"If possible, select features among the ones below:\n{preferred_feats}\n\n"
                 f"The following may help guide you in your feature selection:\n{feats_annotation}\n\n\n"
 
                 "SOURCE DATA:\n"

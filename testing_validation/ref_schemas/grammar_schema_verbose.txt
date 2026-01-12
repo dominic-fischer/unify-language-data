@@ -31,11 +31,10 @@ formparadigms
             form
 
 endingparadigms
-    - title
-      notes
-      examples
+    - title?
+      notes?
+      examples?
       endingparadigm
           - features
             ending
 
-Use patterns for pattern-like grammar rules, endings if the paradigm consists of variations in endings, and forms if the paradigm is simply a specific set of forms.

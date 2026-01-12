@@ -73,7 +73,8 @@ Past:
         - "gefunden"
         notes:
         - "Strong verbs: participle formed with -en and often stem vowel change (Ablaut)."
-    "Perfect":
+
+    Perfect:
       title: "Perfect"
       applies: {u-Aspect: [u-prf, u-hab, u-ipfv, u-iter, u-pfv]}
       patterns:

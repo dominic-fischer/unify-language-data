@@ -27,11 +27,13 @@ Clauses:
       applies: {u-Interrogativity: u-int}
       patterns: 
       - pattern: "Vfin-1 + subject + ...?"
+        title: "Yes-No-Questions"
         examples: 
           - "Geht er nach Hause?"
         notes: 
         - "Yes/no questions: finite verb in initial position."
       - pattern: "Wh-word + Vfin-2 + subject + …?"
+        title: "Wh-Questions"
         examples: 
           - "Wohin geht er?"
         notes: 

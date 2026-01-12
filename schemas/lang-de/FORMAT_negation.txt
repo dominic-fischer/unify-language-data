@@ -22,12 +22,12 @@ Negation:
       applies: {x-Negation-type: x-clause}
       patterns: 
       - pattern: "(...) finite/main verb (...) nicht (...) (final verb cluster)"
+        title: "Negated Main Clauses"
         examples: 
         - "Er will den Kuchen nicht essen"
         - "Er rennt heute nicht"
-        notes: 
-        - "Negated main clauses."
       - pattern: "main clause with Vfin, subordinating conjunction (...) nicht (...) final verb cluster"
+        title: "Negated Subclauses"
         examples: 
         - "Er geht nach Hause, weil er nicht in der Schule bleiben will"
         - "..., weil er in der Schule jeden Tag nicht gut aufpasst"

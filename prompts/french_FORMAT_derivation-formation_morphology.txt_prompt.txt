@@ -149,6 +149,7 @@ VALIDATION SCHEMA (structure and headings must be followed exactly):
   "additionalProperties": false
 }
 
+
 The schema can be represented as follows:
 
 Title
@@ -182,14 +183,20 @@ formparadigms
             form
 
 endingparadigms
-    - title
-      notes
-      examples
+    - title?
+      notes?
+      examples?
       endingparadigm
           - features
             ending
 
-Use patterns for pattern-like grammar rules, endings if the paradigm consists of variations in endings, and forms if the paradigm is simply a specific set of forms.
+
+SCHEMA GUIDELINES:
+- Use patterns for pattern-like grammar rules, endings if the paradigm consists of variations in endings, and forms if the paradigm is simply a specific set of forms.- Assign titles to individual patterns if and only if there are multiple patterns under the same rule.
+- Assign titles to individual rules if and only if the following is the case:
+   - the rule in question is describing a tense
+   - the tense encodes more than one aspect
+   In that case, the title of the rule is the name by which the tense is commonly known in English.
 
 INSTRUCTIONS:
 - Use ONLY the information present in the provided data.
@@ -200,8 +207,10 @@ INSTRUCTIONS:
 
 FEATURES AND THEIR VALUES:
 - Feature names and values are prefixed with either u- or x-.
-- "u-" if for UniMorph features and values, "x-" for custom (non-UniMorph, cross-linguistic) features and values.
-- Whenever possible, use UniMorph prefixes.- Invent new features only if no appropriate UniMorph features exists.- Do NOT invent new features if an appropriate UniMorph feature exists.
+- "u-" is for UniMorph features and values, "x-" for custom (non-UniMorph, cross-linguistic) features and values.
+- Whenever possible, use UniMorph prefixes.
+- Invent new features only if no appropriate UniMorph features exists.
+- Do NOT invent new features if an appropriate UniMorph feature exists.
 
 Below are the features for reference:
 UNIMORPH FEATURES AND VALUES:
@@ -503,7 +512,6 @@ The data you receive comes from multiple sources and relates to the following to
 derivation, formation, morphology.
 
 If possible, select features among the ones below:
-DerivationalMorphology
 	u-Part-of-Speech
 		u-adj	(Adjective)
 		u-adp	(Adposition)
