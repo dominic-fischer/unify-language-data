@@ -1,0 +1,10 @@
+Determiner:
+  Features:
+    u-Gender: [u-masc, u-fem]
+    u-Number: [u-sg, u-pl]
+  Rules:
+    Inflects-for-gender-and-number:
+      applies: {}
+      patterns:
+      - pattern: "Determiners inflect for gender (masculine/feminine) and number (singular/plural)."
+        examples: ["el", "un", "este", "mucho", "alguno"]

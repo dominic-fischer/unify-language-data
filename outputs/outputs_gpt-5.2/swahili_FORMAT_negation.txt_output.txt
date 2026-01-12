@@ -1,0 +1,45 @@
+Negation:
+  Features:
+    x-Negation-type: [x-clause, x-constituent]
+
+  Rules:
+    x-Negation-type_x-clause:
+      applies: {x-Negation-type: x-clause}
+      patterns:
+        - pattern: "ha- + (subject marker) + verb stem"
+          notes:
+            - "The general negative prefix is ha-."
+            - "In class 1/2 singular, the negative prefix + subject marker combination changes: 1SG si- (instead of ha-ni), 2SG hu- (instead of ha-u), 3SG ha- (instead of ha-a)."
+        - pattern: "ha-ja- + verb stem"
+          examples:
+            - "Ha-ja-penda."
+          notes:
+            - "This negated present perfect is used as the 'not-yet' form."
+        - pattern: "(subject marker) + -si- + verb stem"
+          examples:
+            - "Tunaondoka leo (ili) tusichelewe kufika."
+          notes:
+            - "Negation is formed by inserting -si-."
+        - pattern: "subject marker + -si- + object marker + verb stem + -e"
+          examples:
+            - "Usinipe mkate!"
+          notes:
+            - "Negated polite requests are formed with the negated subjunctive."
+            - "Structure: (subject marker) – si – (object marker) – verb stem in -e."
+
+    x-Negation-type_x-constituent:
+      applies: {x-Negation-type: x-constituent}
+      patterns:
+        - pattern: "bila + noun"
+          examples:
+            - "Yeye ni mtu bila heshima."
+          notes:
+            - "Negates a nominal property by using bila with a noun."
+        - pattern: "verb + bila + noun"
+          examples:
+            - "Anakimbia bila kasi."
+        - pattern: "adjectival relative: replace -li- with -si-"
+          examples:
+            - "Dirisha lisilofungwa limevunjika."
+          notes:
+            - "For negation, -li- is replaced by -si- in verbal adjectives."

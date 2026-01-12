@@ -1,0 +1,71 @@
+Adjective:
+  Features:
+    u-Number:
+    - u-sg
+    - u-pl
+    u-Gender:
+    - u-masc
+    - u-fem
+
+  Rules:
+    Agreement_u-Gender_u-Number:
+      applies: {}
+      notes:
+      - "Adjectives agree in gender and number with the noun they modify."
+      formparadigms:
+      - title: "Four-form agreement paradigm"
+        notes:
+        - "French adjectives have four forms: masculine singular, feminine singular, masculine plural, feminine plural."
+        examples:
+        - "un prince turc / une princesse turque / des princes turcs / des princesses turques"
+        formparadigm:
+        - features: {u-Gender: u-masc, u-Number: u-sg}
+          form: "masculine singular"
+        - features: {u-Gender: u-fem, u-Number: u-sg}
+          form: "feminine singular"
+        - features: {u-Gender: u-masc, u-Number: u-pl}
+          form: "masculine plural"
+        - features: {u-Gender: u-fem, u-Number: u-pl}
+          form: "feminine plural"
+
+    u-Gender_u-fem__u-Number_u-sg:
+      applies: {u-Gender: u-fem, u-Number: u-sg}
+      patterns:
+      - pattern: "masculine singular + e"
+        notes:
+        - "The feminine singular is normally formed by adding -e to the basic (masculine singular) form."
+        - "If the basic form ends in -e, it is left unchanged in the feminine."
+        examples:
+        - "civil → civile"
+        - "riche → riche"
+      - pattern: "irregular feminine formation"
+        notes:
+        - "Other minor changes may occur (e.g., accent placement, consonant doubling or replacement)."
+        - "Some feminine forms are irregular."
+        examples:
+        - "lourd → lourde"
+        - "bon → bonne"
+        - "heureux → heureuse"
+        - "beau → belle"
+        - "blanc → blanche"
+
+    u-Number_u-pl:
+      applies: {u-Number: u-pl}
+      notes:
+      - "Plural -s is usually mute, but pronounced [z] in liaison with a following noun that begins with a vowel."
+      - "Liaison after plural adjectives is common and even obligatory in standard usage."
+      patterns:
+      - pattern: "plural -s → [z] in liaison before vowel-initial noun"
+        examples:
+        - "de grands empereurs"
+        - "de grandes impératrices"
+    u-Gender_u-masc__u-Number_u-sg:
+      applies: {u-Gender: u-masc, u-Number: u-sg}
+      notes:
+      - "A few adjectives have an additional masculine singular form used in liaison before a noun beginning with a vowel or a mute h."
+      patterns:
+      - pattern: "special masculine singular liaison form before vowel/mute h"
+        examples:
+        - "un beau jardin / un bel homme"
+        - "Philippe le Bel vs. Philippe le Beau"
+

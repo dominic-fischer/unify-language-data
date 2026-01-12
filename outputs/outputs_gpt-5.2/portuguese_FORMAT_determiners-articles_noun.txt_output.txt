@@ -1,0 +1,39 @@
+Determiner:
+  Features:
+    u-Definiteness: [u-def, u-indf]
+    u-Gender: [u-masc, u-fem]
+    u-Number: [u-sg, u-pl]
+
+  Rules:
+    u-Definiteness_u-def:
+      applies: {u-Definiteness: u-def}
+      formparadigms:
+      - formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "o"
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "el"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "a"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "os"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "as"
+
+    u-Definiteness_u-indf:
+      applies: {u-Definiteness: u-indf}
+      notes:
+      - "The noun after the indefinite article may be elided; in this case the article is equivalent to English 'one' (singular) or 'some' (plural)."
+      examples:
+      - "quero um também"
+      - "quero uns também"
+      formparadigms:
+      - formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "um"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "uma"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "uns"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "umas"

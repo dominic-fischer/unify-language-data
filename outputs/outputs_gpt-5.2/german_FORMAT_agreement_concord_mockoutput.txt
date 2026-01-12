@@ -1,0 +1,32 @@
+Agreement:
+  Features:
+    u-Part-of-Speech:
+    - u-n
+    - u-adj
+    - u-det
+    - u-v
+
+  Rules:
+    u-Part-of-Speech_u-n_u-adj:
+      applies: {u-Part-of-Speech: [u-n, u-adj] }
+      patterns:
+      - pattern: "adjective inflected for case, number, gender of head noun"
+        examples:
+        - "ein schöner Hund"
+        notes: 
+        - "endings follow strong/weak/mixed inflection depending on determiner"
+
+    u-Part-of-Speech_u-n_u-det:
+      applies: {u-Part-of-Speech: [u-n, u-det] }
+      patterns:
+      - pattern: "determiner inflected for case, number, gender of head noun"
+        examples:
+        - "die großen Hunde"
+
+    u-Part-of-Speech_u-n_u-v:
+      applies: {u-Part-of-Speech: [u-n, u-v] }
+      patterns:
+      - pattern: "finite verb agrees with subject in person and number"
+        examples:
+        - "ich gehe"
+        - "wir gehen"

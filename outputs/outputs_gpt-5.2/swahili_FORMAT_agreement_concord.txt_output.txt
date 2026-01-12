@@ -1,0 +1,52 @@
+Agreement:
+  Features:
+    u-Part-of-Speech:
+    - u-n
+    - u-pro
+    - u-adj
+    - u-v
+
+  Rules:
+    u-Part-of-Speech_u-n_u-v:
+      applies: {u-Part-of-Speech: [u-n, u-v]}
+      patterns:
+      - pattern: "relative linkage uses a class-matching relative/property marker in a construction: subject concord – li – relative/property concord – verb stem"
+        examples:
+        - "Dirisha li-li-lo-funguliwa ni kero."
+        - "Dirisha Ni-li-lo-fungua jana sasa li-me-vunjika."
+        notes:
+        - "the relative/property marker corresponds to the possessive marker, with final -a changing to -o"
+    u-Part-of-Speech_u-pro_u-v:
+      applies: {u-Part-of-Speech: [u-pro, u-v]}
+      patterns:
+      - pattern: "personal pronouns are used for emphasis; otherwise person is shown by the subject concord on the verb"
+        examples:
+        - "Lakini mimi ni-na-taka kwenda huko."
+        - "Tunakwenda sasa."
+        - "Sisi tunakwenda sasa."
+        notes:
+        - "the personal pronouns Mimi, Wewe, Yeye, Sisi, Ninyi, Wao are only mentioned when emphasis is intended"
+
+    u-Part-of-Speech_u-n_u-adj:
+      applies: {u-Part-of-Speech: [u-n, u-adj]}
+      patterns:
+      - pattern: "inanimate nouns take concords matching their own noun class on related words"
+        examples:
+        - "Ndege kubwa ilianguka."
+        - "Ndege kubwa zilianguka."
+
+    u-Part-of-Speech_u-n_u-pro:
+      applies: {u-Part-of-Speech: [u-n, u-pro]}
+      patterns:
+      - pattern: "possessive/genitive pronominal forms take a concord prefix matching the noun class of the possessed noun"
+        examples:
+        - "Mama yetu mkubwa alianguka."
+        - "Mama zetu wakubwa walianguka."
+        - "Baba yangu wa kambo alianguka."
+        - "Baba zangu wa kambo walianguka."
+        - "Rafiki yangu anaishi hapa."
+        - "(Ma)rafiki zangu wanaishi hapa."
+        notes:
+        - "the possessive/genitive construction is used to express possession between nouns"
+        - "for a group of close human-relationship nouns in classes 9/10, genitive pronominal forms are frequently inflected with class 9/10 concords (e.g. y- in singular, z- in plural), while other concords in the clause follow the animate 1/2 pattern"
+

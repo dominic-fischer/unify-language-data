@@ -1,0 +1,15 @@
+Passive:
+  Features:
+    u-Voice: [u-pass]
+
+  Rules:
+    u-Voice_u-pass:
+      applies: {u-Voice: u-pass}
+      patterns:
+      - pattern: "SUBJ + (TAM) + VERB + -w- (passive) + (final vowel) + (agent marked with na- ‘by/with’)"
+        notes:
+        - "The agent (‘by’) is marked with na ‘with/by’."
+        - "na contracts with pronouns (see pronouns)."
+        examples:
+        - "Nda-i-roh-wa na-ye."
+        - "Achaurayiwa nazo."

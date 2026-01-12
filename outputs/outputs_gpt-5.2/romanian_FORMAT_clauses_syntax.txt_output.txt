@@ -1,0 +1,27 @@
+Clauses:
+  Features:
+    x-Clausetype: [x-main, x-subordinate]
+
+  Rules:
+    x-Clausetype_x-main:
+      applies: {x-Clausetype: x-main}
+      patterns:
+        - pattern: "Clause1 + coordinating conjunction + Clause2"
+          notes:
+            - "Coordinating conjunctions do not determine the clause type of the clause they link; the coordinated clause is of the same type as the other clause."
+          examples:
+            - "Ana este o fată și Ion este un băiat."
+        - pattern: "Clause1 , Clause2 (juxtaposition with comma)"
+          notes:
+            - "Two main clauses can be linked by juxtaposition using a comma."
+          examples:
+            - "Am păzit palatul, palatul era și foarte greu de păzit."
+
+    x-Clausetype_x-subordinate:
+      applies: {x-Clausetype: x-subordinate}
+      patterns:
+        - pattern: "SubordinateClause1 + coordinating conjunction + SubordinateClause2"
+          notes:
+            - "Coordinating conjunctions can also join subordinate clauses; the joined subordinate clauses remain of the same type."
+          examples:
+            - "V-am spus despre băiatul care este la mine în clasă, și care este foarte bun la matematică."

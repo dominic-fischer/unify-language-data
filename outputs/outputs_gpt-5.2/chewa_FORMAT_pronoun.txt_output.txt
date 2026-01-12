@@ -1,0 +1,76 @@
+Pronoun:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Number: [u-sg, u-pl]
+    u-Gender: [u-bantu1-23]
+    u-Deixis: [u-prox, u-remt]
+    x-Pronoun-type: [x-pers, x-dem, x-poss, x-int, x-rel]
+
+  Rules:
+    x-Pronoun-type_x-dem:
+      applies: {x-Pronoun-type: x-dem}
+      patterns:
+      - pattern: "ndi + NP; ndi + pronoun → na- + demonstrative type II with initial vowel deleted"
+        notes:
+        - "exception: class 1/2 singular 'naye'"
+        examples:
+        - "Mphatso wapita ndi Kondwani."
+        - "Mphatso wapita naye."
+
+    x-Pronoun-type_x-int:
+      applies: {x-Pronoun-type: x-int}
+      patterns:
+      - pattern: "agreement marker + -ti"
+        notes:
+        - "used to ask 'which?'; based on the agreement marker of the intended noun class"
+        - "exception: class 1/2 singular 'uti'"
+        examples:
+        - "Mtengo uti?"
+        - "Chiti?"
+
+    x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers}
+      notes:
+      - "Subject and object personal pronouns are identical."
+      - "Adults are addressed in 2nd person plural; singular is considered impolite in normal usage (used only toward children or clearly lower-ranked persons)."
+      formparadigms:
+      - formparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "ine"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "iwe"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, form: "iye"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "ife"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "inu"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "iwo"}
+      - formparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "nane"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "nawe"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, form: "naye"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "nafe"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "nane"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "nawo"}
+
+    x-Pronoun-type_x-rel:
+      applies: {x-Pronoun-type: x-rel}
+      patterns:
+      - pattern: "agreement marker + mene"
+        notes:
+        - "exception: class 1/2 singular m’mene"
+        examples:
+        - "Zinthu zi-mene mwa-nena dzulo."
+      - pattern: "descriptive syllable + mwe"
+        notes:
+        - "exception: class 1/2 singular yemwe"
+        - "this option is described as more strongly emphasized"
+        examples:
+        - "Mawu omwe mwa-gwiri-tsa ntchito."
+
+    x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss}
+      endingparadigms:
+      - endingparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, ending: "-nga"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, ending: "-ko"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, ending: "-ke"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, ending: "-tu"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, ending: "-nu"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, ending: "-wo"}

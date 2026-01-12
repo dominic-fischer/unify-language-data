@@ -1,0 +1,205 @@
+Adjective:
+  Features:
+    u-Number:
+    - u-sg
+    - u-pl
+    u-Gender:
+    - u-masc
+    - u-fem
+    u-Comparison:
+    - u-cmpr
+    - u-sprl
+    - u-ab
+
+  Rules:
+    Agreement_u-Gender_u-Number:
+      applies: {}
+      notes:
+      - "Adjectives inflect for gender and number in patterns broadly similar to nouns."
+      endingparadigms:
+      - title: "Adjectives in -o/-a (four-way agreement)"
+        endingparadigm:
+        - features: {u-Gender: u-masc, u-Number: u-sg}
+          ending: "-o"
+        - features: {u-Gender: u-masc, u-Number: u-pl}
+          ending: "-i"
+        - features: {u-Gender: u-fem, u-Number: u-sg}
+          ending: "-a"
+        - features: {u-Gender: u-fem, u-Number: u-pl}
+          ending: "-e"
+        examples:
+        - "il cappello nero, i cappelli neri"
+        - "la bella macchina, le belle macchine"
+      - title: "Adjectives in -e (two-way agreement)"
+        endingparadigm:
+        - features: {u-Number: u-sg}
+          ending: "-e"
+        - features: {u-Number: u-pl}
+          ending: "-i"
+        examples:
+        - "il/la comandante intelligente, i/le comandanti intelligenti"
+      - title: "Adjectives with invariable form (agreement carried by article)"
+        notes:
+        - "In these cases, only the article carries information about gender and number."
+        endingparadigm:
+        - features: {}
+          ending: "Ø (singular = plural)"
+        examples:
+        - "il/la manager trendy, i/le manager trendy"
+
+    u-Comparison_u-cmpr:
+      applies: {u-Comparison: u-cmpr}
+      patterns:
+      - title: "Superiority / inferiority"
+        pattern: "più / meno + adjective (+ di)"
+        examples:
+        - "sono più alto di te"
+        - "tu sei meno alto di me"
+      - title: "Equative comparison"
+        pattern: "adjective + come"
+        examples:
+        - "sono alto come te"
+
+    u-Comparison_u-sprl:
+      applies: {u-Comparison: u-sprl}
+      patterns:
+      - title: "Relative superlative"
+        pattern: "definite article + più / meno + adjective (+ fra/di)"
+        examples:
+        - "sono il più alto fra gli uomini"
+        - "sono il meno forte del campionato"
+
+    u-Comparison_u-ab:
+      applies: {u-Comparison: u-ab}
+      patterns:
+      - title: "Absolute comparative (intensification with troppo)"
+        pattern: "troppo + adjective"
+        examples:
+        - "sei troppo buono"
+      - title: "Absolute superlative (synthetic)"
+        pattern: "adjective + -issimo"
+        examples:
+        - "intelligente → intelligentissimo"
+        - "sporco → sporchissimo"
+      - title: "Absolute superlative (allomorph)"
+        notes:
+        - "If the two letters before the last vowel are pr or br, the r is removed and -errimo is used."
+        pattern: "adjective + -errimo"
+        examples:
+        - "aspro → asperrimo"
+        - "celebre → celeberrimo"
+      - title: "Absolute superlative (periphrastic)"
+        pattern: "molto / assai + adjective"
+        examples:
+        - "molto sporco"
+
+    IrregularComparison:
+      applies: {}
+      formparadigms:
+      - formparadigm:
+        - features: {}
+          form: "buono → migliore / più buono; ottimo / buonissimo"
+        - features: {}
+          form: "cattivo → peggiore / più cattivo; pessimo / cattivissimo"
+        - features: {}
+          form: "grande → maggiore / più grande; massimo / grandissimo"
+        - features: {}
+          form: "piccolo → minore / più piccolo; minimo / piccolissimo"
+
+    PossessiveAdjectives:
+      applies: {}
+      formparadigms:
+      - notes:
+        - "With the exception of 3rd person plural loro, possessive adjectives must agree with the gender and number of the noun they modify."
+        formparadigm:
+        - features: {u-Person: u-1, u-Number: u-sg, u-Gender: u-masc}
+          form: "mio"
+        - features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-masc}
+          form: "miei"
+        - features: {u-Person: u-1, u-Number: u-sg, u-Gender: u-fem}
+          form: "mia"
+        - features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-fem}
+          form: "mie"
+        - features: {u-Person: u-2, u-Number: u-sg, u-Gender: u-masc}
+          form: "tuo"
+        - features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-masc}
+          form: "tuoi"
+        - features: {u-Person: u-2, u-Number: u-sg, u-Gender: u-fem}
+          form: "tua"
+        - features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-fem}
+          form: "tue"
+        - features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc}
+          form: "suo"
+        - features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc}
+          form: "suoi"
+        - features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem}
+          form: "sua"
+        - features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem}
+          form: "sue"
+        - features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-masc}
+          form: "nostro"
+        - features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-masc}
+          form: "nostri"
+        - features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-fem}
+          form: "nostra"
+        - features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-fem}
+          form: "nostre"
+        - features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-masc}
+          form: "vostro"
+        - features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-masc}
+          form: "vostri"
+        - features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-fem}
+          form: "vostra"
+        - features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-fem}
+          form: "vostre"
+        - features: {u-Person: u-3, u-Number: u-pl}
+          form: "loro"
+      patterns:
+      - title: "With definite article (most cases)"
+        pattern: "definite article + possessive adjective + noun"
+        examples:
+        - "Ho perso la mia penna."
+        - "Mi piace il mio lavoro."
+        - "Hanno rubato la mia automobile!"
+      - title: "With indefinite article (sometimes)"
+        pattern: "indefinite article + possessive adjective + noun"
+        examples:
+        - "Un mio amico mi ha detto che..."
+        - "Ho visto una sua foto."
+        - "Luca è un mio amico."
+      - title: "No article with individual family member (exception)"
+        notes:
+        - "Exception: when the possessive refers to an individual family member (unless the family member is described or characterised in some way)."
+        pattern: "possessive adjective + family-member noun"
+        examples:
+        - "Laura è mia sorella"
+        - "Ieri ho visto mia sorella Diana"
+        - "Questa penna è di mia zia."
+      - title: "Postnominal possessive for emphasis"
+        pattern: "noun + possessive adjective"
+        examples:
+        - "È colpa sua."
+        - "Oh dio mio!"
+        - "Arrivederci, amico mio!"
+        - "Vorresti andare a casa mia?"
+      - title: "proprio vs suo (disambiguation)"
+        notes:
+        - "If the antecedent of a third person possessive (used as an object) is the subject, proprio can be used instead of suo."
+        pattern: "proprio (instead of suo)"
+        examples:
+        - "Marco ha scelto il proprio punto di vista."
+        - "Marco ha scelto il suo punto di vista."
+
+    DemonstrativeAdjectives:
+      applies: {}
+      formparadigms:
+      - notes:
+        - "Italian originally had three degrees of demonstrative adjectives: questo, quello, codesto."
+        - "Modern usage largely includes the meaning of codesto in quello; codesto is rare and mainly Tuscan."
+        formparadigm:
+        - features: {}
+          form: "questo"
+        - features: {}
+          form: "quello"
+        - features: {}
+          form: "codesto"

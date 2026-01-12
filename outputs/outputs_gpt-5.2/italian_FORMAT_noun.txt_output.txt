@@ -1,0 +1,243 @@
+Noun:
+  Features:
+    u-Gender: [u-masc, u-fem]
+    u-Number:
+    - u-pl
+
+  Rules:
+    u-Gender_u-masc:
+      applies: {u-Gender: u-masc}
+      endingparadigms:
+      - title: "-o nouns"
+        endingparadigm:
+        - features: {u-Number: u-sg}
+          ending: "o"
+        - features: {u-Number: u-pl}
+          ending: "i"
+        examples:
+        - "cappello → cappelli"
+      - title: "historically neuter (mobile gender) -o/-a"
+        endingparadigm:
+        - features: {u-Number: u-sg}
+          ending: "o"
+        - features: {u-Number: u-pl}
+          ending: "a"
+        examples:
+        - "lenzuolo → lenzuola"
+        - "uovo → uova"
+        notes:
+        - "a subgroup of nouns historically neuter has merged with masculine in the singular but has plural in -a (often treated as feminine plural)."
+      - title: "-a nouns (masculine)"
+        endingparadigm:
+        - features: {u-Number: u-sg}
+          ending: "a"
+        - features: {u-Number: u-pl}
+          ending: "i"
+        examples:
+        - "atleta → atleti"
+      formparadigms:
+      - title: "irregular plurals"
+        formparadigm:
+        - features: {u-Number: u-sg}
+          form: "uomo"
+        - features: {u-Number: u-pl}
+          form: "uomini"
+        examples:
+        - "uomo → uomini"
+      - formparadigm:
+        - features: {u-Number: u-sg}
+          form: "dio"
+        - features: {u-Number: u-pl}
+          form: "dei"
+        examples:
+        - "dio → dei"
+      - formparadigm:
+        - features: {u-Number: u-sg}
+          form: "bue"
+        - features: {u-Number: u-pl}
+          form: "buoi"
+        examples:
+        - "bue → buoi"
+      - formparadigm:
+        - features: {u-Number: u-sg}
+          form: "tempio"
+        - features: {u-Number: u-pl}
+          form: "templi"
+        examples:
+        - "tempio → templi"
+        notes:
+        - "the plural retains -l- to distinguish it from tempi (plural of tempo)."
+
+    u-Gender_u-fem:
+      applies: {u-Gender: u-fem}
+      endingparadigms:
+      - title: "-a nouns"
+        endingparadigm:
+        - features: {u-Number: u-sg}
+          ending: "a"
+        - features: {u-Number: u-pl}
+          ending: "e"
+        examples:
+        - "macchina → macchine"
+      - title: "-e/-i nouns (common for masculine and feminine)"
+        endingparadigm:
+        - features: {u-Number: u-sg}
+          ending: "e"
+        - features: {u-Number: u-pl}
+          ending: "i"
+        examples:
+        - "parete → pareti"
+      - title: "-ie invariable nouns"
+        endingparadigm:
+        - features: {u-Number: u-sg}
+          ending: "ie"
+        - features: {u-Number: u-pl}
+          ending: "ie"
+        examples:
+        - "specie → specie"
+      formparadigms:
+      - formparadigm:
+        - features: {u-Number: u-sg}
+          form: "braccio"
+        - features: {u-Number: u-pl}
+          form: "braccia"
+        title: "mobile gender (historically neuter) with plural in -a"
+        examples:
+        - "braccio → braccia"
+      - formparadigm:
+        - features: {u-Number: u-sg}
+          form: "ginocchio"
+        - features: {u-Number: u-pl}
+          form: "ginocchia"
+        examples:
+        - "ginocchio → ginocchia"
+      - formparadigm:
+        - features: {u-Number: u-sg}
+          form: "sopracciglio"
+        - features: {u-Number: u-pl}
+          form: "sopracciglia"
+        examples:
+        - "sopracciglio → sopracciglia"
+      - formparadigm:
+        - features: {u-Number: u-sg}
+          form: "dito"
+        - features: {u-Number: u-pl}
+          form: "dita"
+        examples:
+        - "dito → dita"
+      - formparadigm:
+        - features: {u-Number: u-sg}
+          form: "cervello"
+        - features: {u-Number: u-pl}
+          form: "cervella"
+        examples:
+        - "cervello → cervella"
+      - formparadigm:
+        - features: {u-Number: u-sg}
+          form: "anello"
+        - features: {u-Number: u-pl}
+          form: "anella"
+        examples:
+        - "anello → anella"
+      notes:
+      - "some nouns historically neuter have a feminine (or sometimes masculine) plural; in several cases an alternative masculine plural exists, sometimes with a different meaning."
+
+    PluralSpellingChanges:
+      applies: {}
+      patterns:
+      - title: "-io (/jo/) nouns"
+        pattern: "most masculine words ending in -io pronounced /jo/ drop -o and thus end in -i in the plural"
+        examples:
+        - "vecchio → vecchi"
+        - "funzionario → funzionari"
+        - "esempio → esempi"
+      - title: "-cio/-gio nouns"
+        pattern: "words in -cio and -gio form plurals in -ci and -gi"
+        examples:
+        - "bacio → baci"
+      - title: "-cia/-gia nouns (rule of thumb)"
+        pattern: "words in -cia and -gia form plurals in -ce/-ge if the letter before the suffix is a consonant, and in -cie/-gie if the letter before the suffix is a vowel"
+        examples:
+        - "frangia → frange"
+        - "faccia → facce"
+        - "camicia → camicie"
+        - "ciliegia → ciliegie"
+        notes:
+        - "when the i is stressed, it always remains in the plural."
+      - title: "-co/-go nouns (rule of thumb)"
+        pattern: "plurals are often -chi/-ghi if the letter before the suffix is a consonant or a stressed vowel, and often -ci/-gi if it is an unstressed vowel"
+        examples:
+        - "fungo → funghi"
+        - "stecco → stecchi"
+        - "mago → maghi"
+        - "fuoco → fuochi"
+        - "comico → comici"
+        - "medico → medici"
+        notes:
+        - "there are exceptions."
+      - title: "-logo nouns (rule of thumb)"
+        pattern: "in words ending with -logo, the plural is usually -gi when it means 'expert/student' and -ghi when it means 'speech/reasoning'"
+        examples:
+        - "archeologo → archeologi"
+        - "catalogo → cataloghi"
+      - title: "-ca/-ga nouns"
+        pattern: "words in -ca and -ga form plurals in -che and -ghe"
+        examples:
+        - "amica → amiche"
+
+    AlterationSuffixes:
+      applies: {}
+      patterns:
+      - pattern: "diminutive suffixes: -ino, -etto, -atto, -ello, -icello, -icciolo, -acchio"
+        examples:
+        - "tavolo → tavolino"
+        - "libro → libretto"
+        - "cerbia → cerbiatto"
+        - "bambino → bambinello"
+        - "monte → monticello"
+        - "porto → porticciolo"
+        - "orso → orsacchio"
+      - pattern: "terms of endearment suffixes: -uccio, -acchiotto, -iciattolo, -olo, -otto"
+        examples:
+        - "cavallo → cavalluccio"
+        - "orso → orsacchiotto"
+        - "fiume → fiumiciattolo"
+        - "figlio → figliolo"
+        - "cucciolo → cucciolotto"
+      - pattern: "augmentative suffixes: -one, -accione"
+        examples:
+        - "libro → librone"
+        - "uomo → omaccione"
+      - pattern: "pejorative suffixes: -accio, -astro, -ucolo, -onzolo, -uncolo, -otto"
+        examples:
+        - "libro → libraccio"
+        - "medico → medicastro"
+        - "poeta → poetucolo"
+        - "medico → mediconzolo"
+        - "uomo → omuncolo"
+        - "contadino → contadinotto"
+      - pattern: "alterations can be combined; in altered forms uomo becomes om-"
+        examples:
+        - "libro → libricino"
+        - "libro → libercolo"
+        - "uomo → omino"
+        - "uomo → ometto"
+        - "uomo → omone"
+        - "uomo → omaccio"
+    u-Number_u-pl:
+      applies: {u-Number: u-pl}
+      patterns:
+      - pattern: "nouns ending in a letter other than -a, -e, or -o are normally invariable in the plural"
+        examples:
+        - "gru → gru"
+        - "film → film"
+      - pattern: "nouns ending in a stressed vowel are normally invariable in the plural"
+        examples:
+        - "città → città"
+        - "caffè → caffè"
+      - pattern: "non-integrated loanwords are invariable in the plural"
+        examples:
+        - "manager → manager"
+        notes:
+        - "in such cases, only the article carries gender/number marking."
+

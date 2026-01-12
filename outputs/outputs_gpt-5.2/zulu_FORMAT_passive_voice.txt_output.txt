@@ -1,0 +1,11 @@
+Passive:
+  Features:
+    u-Voice: [u-pass]
+
+  Rules:
+    u-Voice_u-pass:
+      applies: {u-Voice: u-pass}
+      patterns:
+      - pattern: "-ng- (before a-/e-/o-/u-) OR -y- (before i-) marks 'by' (agent phrase)"
+        notes:
+        - "The equivalent of 'by' in a passive is marked with -ng- before a/e/o/u and -y- before i."

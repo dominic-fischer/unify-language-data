@@ -1,0 +1,33 @@
+Future:
+  Features:
+    u-Aspect: [u-prosp]
+
+  Rules:
+    u-Aspect_u-prosp:
+      applies: {u-Aspect: u-prosp}
+      patterns:
+      - pattern: "subject prefix + -dzá- + verb stem"
+        examples:
+        - "ndí-dzá-gula"
+        - "ndi-dzá-samba"
+        notes:
+        - "-dzá- expresses remote future ('tomorrow or later')."
+      - pattern: "subject prefix + -ká- + verb stem"
+        examples:
+        - "ndí-ká-gula"
+        - "ndi-ká-puma"
+        notes:
+        - "-ká- is a future that may presuppose an unspoken conditional clause ('if/when I get there')."
+      - pattern: "subject prefix + verb stem (no tense-marker)"
+        examples:
+        - "ndí-gula"
+        notes:
+        - "Used as a near future ('soon', 'today')."
+      - pattern: "subject prefix + -ka- + -dzá- + verb stem"
+        examples:
+        - "ndi-ka-dzá-gula"
+        - "Ndi-ka-dzá-fika kunyumba ndi-dzá-samba."
+        - "Ndi-ka-dzá-fika kwanu ndi-ká-puma."
+        notes:
+        - "Occurs in conditional clauses ('if in future ...')."
+        - "In conditional clauses, the choice between -ka- and -dza- depends on meaning ('go and do' vs 'come and do')."

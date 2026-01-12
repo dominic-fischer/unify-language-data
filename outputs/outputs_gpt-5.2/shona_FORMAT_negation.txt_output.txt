@@ -1,0 +1,35 @@
+Negation:
+  Features:
+    x-Negation-type: [x-clause, x-constituent]
+
+  Rules:
+    x-Negation-type_x-clause:
+      applies: {x-Negation-type: x-clause}
+      patterns:
+        - pattern: "subject marker + -sa + verb"
+          notes:
+            - "Used for wishes/polite requests derived from a negated verb."
+            - "The imperative has no separate negation; it uses the negation of the polite request."
+          examples:
+            - "Musazvidye moyo!"
+
+    x-Negation-type_x-constituent:
+      applies: {x-Negation-type: x-constituent}
+      patterns:
+        - pattern: "subject marker + si + na + noun"
+          notes:
+            - "Negation is formed with the negation of 'have'."
+            - "Used for negating nominal adjectives."
+          examples:
+            - "Ndiye munhu asina ruremekedzo."
+        - pattern: "subject marker + si + na + infinitive"
+          notes:
+            - "Same pattern as for nominal adjectives, but the noun is replaced by a substantivized verb (infinitive)."
+          examples:
+            - "munhu asina kutaura."
+        - pattern: "pasina + noun"
+          examples:
+            - "Anoseka pasina mufaro"
+        - pattern: "pasina + infinitive"
+          examples:
+            - "Anomhanya pasina kukurumidza."

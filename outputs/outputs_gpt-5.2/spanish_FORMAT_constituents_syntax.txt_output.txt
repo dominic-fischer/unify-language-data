@@ -1,0 +1,15 @@
+Constituents:
+  Features:
+    x-Constituent:
+    - x-CP
+
+  Rules:
+    x-Constituent_x-CP:
+      applies: {x-Constituent: x-CP}
+      patterns:
+      - pattern: "V S O"
+        examples:
+        - "¿Escribió mi amigo el libro?"
+        notes:
+        - "In questions, VSO is usual but not obligatory."
+        - "Yes/no questions, regardless of constituent order, are generally distinguished from declaratives by context and intonation."

@@ -1,0 +1,73 @@
+Noun:
+  Features:
+    u-Gender: [u-bantu1-23]
+    u-Number: [u-sg, u-pl]
+
+  Rules:
+    u-Gender_u-bantu1-23:
+      applies: {u-Gender: u-bantu1-23}
+      formparadigms:
+      - title: "Main noun classes (singular/plural class prefix replacement)"
+        notes:
+        - "To form the plural, the plural prefix replaces the singular prefix; exception: plural ma- is added directly to the beginning of the word."
+        formparadigm:
+        - features: {u-Number: u-sg, x-NounClass: x-1}
+          form: "m(u)-"
+        - features: {u-Number: u-pl, x-NounClass: x-2}
+          form: "va-"
+        - features: {u-Number: u-sg, x-NounClass: x-3}
+          form: "mu-"
+        - features: {u-Number: u-pl, x-NounClass: x-4}
+          form: "mi-"
+        - features: {u-Number: u-sg, x-NounClass: x-5}
+          form: "-"
+        - features: {u-Number: u-pl, x-NounClass: x-6}
+          form: "ma-"
+        - features: {u-Number: u-sg, x-NounClass: x-7}
+          form: "ch(i)-"
+        - features: {u-Number: u-pl, x-NounClass: x-8}
+          form: "zv(i)-"
+        - features: {u-Number: u-sg, x-NounClass: x-9}
+          form: "- / i-"
+        - features: {u-Number: u-pl, x-NounClass: x-10}
+          form: "- / dzi-"
+        - features: {u-Number: u-sg, x-NounClass: x-11}
+          form: "ru-"
+        - features: {u-Number: u-sg, x-NounClass: x-14}
+          form: "h(u)-"
+        examples:
+        - "munhu (class 1 sg) → vanhu (class 2 pl)"
+        - "mugwagwa (class 3 sg) → migwagwa (class 4 pl)"
+        - "zai (class 5 sg) → mazai (class 6 pl)"
+        - "chikoro (class 7 sg) → zvikoro (class 8 pl)"
+        - "tsoka, imba (class 9 sg) → tsoka, dzimba (class 10 pl)"
+        - "rubatsiro (class 11 sg)"
+        - "hupenyu (class 14 sg)"
+      - title: "Additional classes"
+        formparadigm:
+        - features: {u-Number: u-sg, x-NounClass: x-12}
+          form: "ka-"
+        - features: {u-Number: u-pl, x-NounClass: x-13}
+          form: "tu-"
+        - features: {u-Number: u-sg, x-NounClass: x-15}
+          form: "ku-"
+        - features: {u-Number: u-sg, x-NounClass: x-16}
+          form: "ku-"
+        - features: {u-Number: u-sg, x-NounClass: x-17}
+          form: "pa-"
+        - features: {u-Number: u-sg, x-NounClass: x-18}
+          form: "mu-"
+        - features: {u-Number: u-sg, x-NounClass: x-21}
+          form: "zi-"
+        - features: {u-Number: u-pl, x-NounClass: x-21}
+          form: "zi-"
+        notes:
+        - "Class 15: verbs can be nominalized; only a singular form exists corresponding to the infinitive."
+        - "Classes 12/13 (diminutive) and class 21 (augmentative): in the plural, the class prefixes tu- and zi- are attached to the plural of the noun being diminished/augmented."
+        examples:
+        - "kamwana (class 12 sg) / tuvana (class 13 pl)"
+        - "kutya (class 15)"
+        - "kuchikoro (class 16)"
+        - "patafura (class 17)"
+        - "mumba (class 18)"
+        - "zimunhu (class 21 sg) / zivanhu (class 21 pl)"

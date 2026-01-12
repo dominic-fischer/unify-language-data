@@ -1,0 +1,55 @@
+ReportedSpeech:
+  Features:
+    u-Evidentiality: [u-fh, u-quot]
+    u-Tense: [u-prs, u-pst, u-fut]
+
+  Rules:
+    u-Evidentiality_u-fh:
+      applies: {u-Evidentiality: u-fh}
+      patterns:
+      - pattern: "quote + reporting verb"
+        examples: 
+        - "Er sagte: 'Ich komme morgen.'"
+        notes: 
+        - "quotation preserves original tense/mood exactly"
+
+    u-Evidentiality_u-quot__u-Tense_u-prs:
+      applies: {u-Evidentiality: u-quot, u-Tense: u-prs}
+      patterns: 
+      - pattern: "reporting verb + dass/Ø + {clause in Subjunctive I (present)}"
+        title: "Declaratives Sentences"
+        examples:
+        - "'Ich komme morgen' --> Er sagte, er komme morgen."
+        - "'Ich komme morgen' --> Er sagte, dass er morgen komme."
+      - pattern: "reporting verb + ob/wh-word + {clause in Subjunctive I (present)}"
+        title: "Interrogative Sentences"
+        examples: 
+        - "'Kommst du morgen?' --> Er fragte, ob ich morgen komme/käme."
+        - "'Wann kommst du morgen?' --> Er fragte, wann ich morgen komme/käme."
+        notes: 
+        - "yes/no questions use 'ob', wh-questions use wh-word; tense follows same system as u-decls (pres, past, fut)"
+      - pattern: "reporting verb + wie/was/dass für + {clause in Subjunctive I (present)}"
+        title: "Exclamative Sentences"
+        examples: 
+        - "'Ich freue mich so sehr!' --> Er brachte zum Ausdruck, wie sehr er sich freue."
+        - "'Ich freue mich so sehr!' --> Er sagte, dass er sich sehr freue."
+        notes:
+        - "'Sagen' does not license reported speech with 'wie'."
+
+    u-Evidentiality_u-quot__u-Tense_u-pst:
+      applies: {u-Evidentiality: u-quot, u-Tense: u-pst}
+      patterns:
+      - pattern: "reporting verb + dass/Ø + {clause in Subjunctive I (perfect)}"
+        examples: 
+        - "Er sagte, er sei gestern angekommen."
+        - "Ich fragte, ob er gestern angekommen sei."
+        - "Er erzählte, wie schön es gewesen sei."
+
+    u-Evidentiality_u-quot__u-Tense_u-fut:
+      applies: {u-Evidentiality: u-quot, u-Tense: u-fut}
+      patterns:
+      - pattern: "reporting verb + dass/Ø + {clause in Subjunctive I (future)}"
+        examples: 
+        - "Er sagte, er werde morgen kommen."
+        - "Ich fragte, ob er nächste Woche ankommen werde."
+        - "'Es wird so schön (werden)!' --> Er meinte, dass es sehr schön werde/werden würde."

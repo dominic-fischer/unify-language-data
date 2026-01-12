@@ -1,0 +1,201 @@
+Determiner:
+  Features:
+    u-Gender: [u-bantu1-23]
+  Rules:
+    u-Gender_u-bantu1-23:
+      applies: {u-Gender: u-bantu1-23}
+      formparadigms:
+      - title: "Demonstrative I (this)"
+        formparadigm:
+        - features: {x-NounClass: "1"}
+          form: "uyu"
+        - features: {x-NounClass: "2"}
+          form: "awa"
+        - features: {x-NounClass: "3"}
+          form: "uwu"
+        - features: {x-NounClass: "4"}
+          form: "iyi"
+        - features: {x-NounClass: "5"}
+          form: "ili"
+        - features: {x-NounClass: "6"}
+          form: "awa"
+        - features: {x-NounClass: "7"}
+          form: "ichi"
+        - features: {x-NounClass: "8"}
+          form: "izi"
+        - features: {x-NounClass: "9"}
+          form: "iyi"
+        - features: {x-NounClass: "10"}
+          form: "izi"
+        - features: {x-NounClass: "12"}
+          form: "aka"
+        - features: {x-NounClass: "13"}
+          form: "iti"
+        - features: {x-NounClass: "14"}
+          form: "uwu"
+        - features: {x-NounClass: "15"}
+          form: "uku"
+        - features: {x-NounClass: "16"}
+          form: "uku"
+        - features: {x-NounClass: "17"}
+          form: "apa"
+        - features: {x-NounClass: "18"}
+          form: "umu"
+      - title: "Demonstrative II (that)"
+        formparadigm:
+        - features: {x-NounClass: "1"}
+          form: "uyo"
+        - features: {x-NounClass: "2"}
+          form: "awo"
+        - features: {x-NounClass: "3"}
+          form: "uwo"
+        - features: {x-NounClass: "4"}
+          form: "iyo"
+        - features: {x-NounClass: "5"}
+          form: "ilo"
+        - features: {x-NounClass: "6"}
+          form: "awo"
+        - features: {x-NounClass: "7"}
+          form: "icho"
+        - features: {x-NounClass: "8"}
+          form: "izo"
+        - features: {x-NounClass: "9"}
+          form: "iyo"
+        - features: {x-NounClass: "10"}
+          form: "izo"
+        - features: {x-NounClass: "12"}
+          form: "ako"
+        - features: {x-NounClass: "13"}
+          form: "ito"
+        - features: {x-NounClass: "14"}
+          form: "uwo"
+        - features: {x-NounClass: "15"}
+          form: "uko"
+        - features: {x-NounClass: "16"}
+          form: "uko"
+        - features: {x-NounClass: "17"}
+          form: "apo"
+        - features: {x-NounClass: "18"}
+          form: "umo"
+      - title: "Demonstrative III (this here)"
+        formparadigm:
+        - features: {x-NounClass: "1"}
+          form: "uno"
+        - features: {x-NounClass: "2"}
+          form: "ano"
+        - features: {x-NounClass: "3"}
+          form: "uno"
+        - features: {x-NounClass: "4"}
+          form: "ino"
+        - features: {x-NounClass: "5"}
+          form: "lino"
+        - features: {x-NounClass: "6"}
+          form: "ano"
+        - features: {x-NounClass: "7"}
+          form: "chino"
+        - features: {x-NounClass: "8"}
+          form: "zino"
+        - features: {x-NounClass: "9"}
+          form: "ino"
+        - features: {x-NounClass: "10"}
+          form: "zino"
+        - features: {x-NounClass: "12"}
+          form: "kano"
+        - features: {x-NounClass: "13"}
+          form: "tino"
+        - features: {x-NounClass: "14"}
+          form: "uno"
+        - features: {x-NounClass: "15"}
+          form: "kuno"
+        - features: {x-NounClass: "16"}
+          form: "kuno"
+        - features: {x-NounClass: "17"}
+          form: "pano"
+        - features: {x-NounClass: "18"}
+          form: "muno"
+      - title: "Demonstrative IV (that, known)"
+        formparadigm:
+        - features: {x-NounClass: "1"}
+          form: "uja"
+        - features: {x-NounClass: "2"}
+          form: "aja"
+        - features: {x-NounClass: "3"}
+          form: "uja"
+        - features: {x-NounClass: "4"}
+          form: "ija"
+        - features: {x-NounClass: "5"}
+          form: "lija"
+        - features: {x-NounClass: "6"}
+          form: "aja"
+        - features: {x-NounClass: "7"}
+          form: "chija"
+        - features: {x-NounClass: "8"}
+          form: "zija"
+        - features: {x-NounClass: "9"}
+          form: "ija"
+        - features: {x-NounClass: "10"}
+          form: "zija"
+        - features: {x-NounClass: "12"}
+          form: "kaja"
+        - features: {x-NounClass: "13"}
+          form: "tija"
+        - features: {x-NounClass: "14"}
+          form: "uja"
+        - features: {x-NounClass: "15"}
+          form: "kuja"
+        - features: {x-NounClass: "16"}
+          form: "kuja"
+        - features: {x-NounClass: "17"}
+          form: "paja"
+        - features: {x-NounClass: "18"}
+          form: "muja"
+      - title: "Interrogative demonstrative (which?)"
+        formparadigm:
+        - features: {x-NounClass: "1"}
+          form: "uti?"
+        - features: {x-NounClass: "2"}
+          form: "ati?"
+        - features: {x-NounClass: "3"}
+          form: "uti?"
+        - features: {x-NounClass: "4"}
+          form: "iti?"
+        - features: {x-NounClass: "5"}
+          form: "liti?"
+        - features: {x-NounClass: "6"}
+          form: "ati?"
+        - features: {x-NounClass: "7"}
+          form: "chiti?"
+        - features: {x-NounClass: "8"}
+          form: "ziti?"
+        - features: {x-NounClass: "9"}
+          form: "iti?"
+        - features: {x-NounClass: "10"}
+          form: "ziti?"
+        - features: {x-NounClass: "12"}
+          form: "kati?"
+        - features: {x-NounClass: "13"}
+          form: "titi?"
+        - features: {x-NounClass: "14"}
+          form: "uti?"
+        - features: {x-NounClass: "15"}
+          form: "kuti?"
+        - features: {x-NounClass: "16"}
+          form: "kuti?"
+        - features: {x-NounClass: "17"}
+          form: "pati?"
+        - features: {x-NounClass: "18"}
+          form: "muti?"
+      notes:
+      - "Demonstratives are shown with class-conditioned forms (noun-class concord)."
+
+Noun:
+  Features:
+    u-Gender: [u-bantu1-23]
+    u-Number: [u-sg, u-pl]
+  Rules:
+    u-Gender_u-bantu1-23:
+      applies: {u-Gender: u-bantu1-23}
+      patterns:
+      - pattern: "Irregular class pairings are possible (especially with loanwords); a noun may take class 9 concords in the singular but class 6 in the plural (e.g. bánki ~ mabánki)."
+        notes:
+        - "Where the noun prefix is absent or ambiguous, concords can be used to determine noun class."

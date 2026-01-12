@@ -1,0 +1,44 @@
+Subjunctive:
+  Features:
+    u-Tense: [u-prs, u-pst]
+    u-Polarity: [u-pos, u-neg]
+
+  Rules:
+    u-Tense_u-prs:
+      applies: {u-Tense: u-prs}
+      patterns:
+      - pattern: "[subj2][obj]...e"
+        title: "affirmative"
+        notes:
+        - "In contrast to the indicative, subjunctive verbs end in -e."
+        - "Used for polite requests and wishes."
+        - "Used after verbs of wishing, wanting, and requesting/ordering."
+        - "Used after 'ukuze'/'ukuthi' meaning '(so) that / in order that'."
+        - "Used for hypothetical situations, wishes and requests; also for consecutive action; and as a complement to certain auxiliary verbs and conjunctions."
+        examples:
+        - "Ngicela ningiphe isinkwa."
+        - "Wayefuna ngimnike isinkwa"
+        - "Siyahamba namuhla ukuze sifike maduze."
+      - pattern: "[subj2]nga[obj]...i"
+        title: "negative"
+        notes:
+        - "Negation uses the marker -nga- and the verb stem ends in -i."
+        examples:
+        - "Ubaba ufuna ukuthi ngingahambi lapho."
+        - "Wābaleka wangabheka emuva."
+
+    u-Tense_u-pst:
+      applies: {u-Tense: u-pst}
+      patterns:
+      - pattern: "[subj1]a[obj]...a"
+        title: "affirmative"
+        notes:
+        - "The affirmative past subjunctive is identical to the affirmative remote past, except that the infix -a- is short; in regular Zulu spelling vowel length is not marked."
+        examples:
+        - "Ngamtshela ahambe."
+      - pattern: "a[subj1]anga[obj]...a; [subj1]anga[obj]...a; a[subj1]a[obj]...a"
+        title: "negative"
+        notes:
+        - "Three alternative negative past forms, contracted to different degrees; the first form is the uncontracted form."
+        examples:
+        - "Wābaleka wangabheka emuva."

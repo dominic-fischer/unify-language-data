@@ -1,0 +1,37 @@
+Passive:
+  Features:
+    u-Tense: [u-prs, u-pst, u-fut]
+    u-Voice: [u-pass]
+
+  Rules:
+    u-Tense_u-pst__u-Voice_u-pass:
+      applies: {u-Tense: u-pst, u-Voice: u-pass}
+      patterns:
+      - pattern: "ser (finite, past) + Past Participle (of lexical verb) (+ por + Agent)"
+        examples:
+        - "O queijo foi comido pelo rato."
+
+    u-Tense_u-fut__u-Voice_u-pass:
+      applies: {u-Tense: u-fut, u-Voice: u-pass}
+      patterns:
+      - pattern: "ser (finite, future) + Past Participle (of lexical verb) (+ por + Agent)"
+        examples:
+        - "A ária será cantada por aquela senhora."
+
+    u-Tense_u-prs__u-Voice_u-pass:
+      applies: {u-Tense: u-prs, u-Voice: u-pass}
+      patterns:
+      - pattern: "ser (finite, present) + Past Participle (of lexical verb) (+ por + Agent)"
+        notes:
+        - "The auxiliary ser appears in the same mood and tense as the corresponding active verb."
+        examples:
+        - "O queijo é comido pelo rato."
+
+    u-Voice_u-pass:
+      applies: {u-Voice: u-pass}
+      patterns:
+      - pattern: "se + Verb (finite) (subject not expressed)"
+        notes:
+        - "Extends to some intransitive verbs, yielding an impersonal construction with no expressed subject."
+        examples:
+        - "Comeu-se, bebeu-se e bailou-se."

@@ -1,0 +1,58 @@
+Future:
+  Features:
+    u-Aspect: [u-prf, u-prosp]
+    u-Polarity: [u-neg, u-pos]
+    u-Tense: [u-fut]
+
+  Rules:
+    u-Polarity_u-pos__u-Tense_u-fut:
+      applies: {u-Tense: u-fut, u-Polarity: u-pos}
+      patterns:
+      - pattern: "SUBJ – ta – STEM"
+        examples:
+        - "wa – ta – kula"
+        - "Atakwenda."
+        - "Nitakula."
+        - "Utaandika."
+        - "Tutajibu."
+
+    u-Polarity_u-neg__u-Tense_u-fut:
+      applies: {u-Tense: u-fut, u-Polarity: u-neg}
+      patterns:
+      - title: "usual"
+        pattern: "NEG.SUBJ – ta – STEM"
+        examples:
+        - "hawa – ta – kula"
+        - "Hatakwenda."
+        - "Sitakula."
+        - "Hutaandika."
+        - "Hatutajibu."
+      - title: "variant"
+        pattern: "NEG.SUBJ – to – STEM"
+        notes:
+        - "In the negative future, some speakers use -to- instead of -ta-."
+        examples:
+        - "hatokuja"
+
+    "Future perfect":
+      title: "Future perfect"
+      applies: {u-Aspect: u-prf, u-Tense: u-fut, u-Polarity: u-neg}
+      patterns:
+      - title: "main verb negated"
+        pattern: "SUBJ – ta – kuwa NEGSUBJ – ja – STEM"
+        examples:
+        - "M – ta – kuwa Ham – ja – shaza"
+      - title: "auxiliary negated"
+        pattern: "NEGSUBJ – ta – kuwa SUBJ – me – STEM"
+        examples:
+        - "Si – ta – kuwa Ni – me – shaza"
+
+    u-Aspect_u-prosp__u-Tense_u-fut:
+      applies: {u-Aspect: u-prosp, u-Tense: u-fut}
+      patterns:
+      - pattern: "SUBJ – ta – STEM"
+        notes:
+        - "The future tense is formed with the prefix -ta-."
+        examples:
+        - "Atakwenda."
+        - "Nitakula."

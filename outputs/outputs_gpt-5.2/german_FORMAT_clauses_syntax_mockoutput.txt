@@ -1,0 +1,51 @@
+Clauses:
+  Features:
+    x-Clausetype: [x-main, x-subordinate]
+    u-Interrogativity: [u-int, x-excl]
+
+  Rules:
+    x-Clausetype_x-main:
+      applies: {x-Clausetype: x-main}
+      patterns:
+      - pattern: "... Vfin-2 ..."
+        examples: 
+          - "Heute geht er nach Hause."
+          - "Er geht heute nach Hause."
+        notes: 
+        - "Finite verb in second position; first slot (Vorfeld) can host subject, object, or adverbial."
+
+    x-Clausetype_x-subordinate:
+      applies: {x-Clausetype: x-subordinate}
+      patterns:
+      - pattern: "... Vfin-final."
+        examples: 
+          - ", ...weil er nach Hause geht"
+        notes: 
+        - "Introduced by subordinating conjunction; finite verb placed at end."
+
+    u-Interrogativity_u-int:
+      applies: {u-Interrogativity: u-int}
+      patterns: 
+      - pattern: "Vfin-1 + subject + ...?"
+        title: "Yes-No-Questions"
+        examples: 
+          - "Geht er nach Hause?"
+        notes: 
+        - "Yes/no questions: finite verb in initial position."
+      - pattern: "Wh-word + Vfin-2 + subject + …?"
+        title: "Wh-Questions"
+        examples: 
+          - "Wohin geht er?"
+        notes: 
+        - "Wh-questions: wh-element initial, finite verb in second position."
+
+    u-Interrogativity_x-excl:
+      applies: {u-Interrogativity: x-excl}
+      patterns:
+      - pattern: "Vfin-1 + subject + ...!"
+        examples:
+          - "Habe ich dir doch gesagt!"
+          - "Geh hinaus!"
+        notes: 
+        - "Imperatives are verb-initial, and so are the remaining exclamative main clauses: finite verb in initial position; express emphasis, surprise, or narrative style."
+

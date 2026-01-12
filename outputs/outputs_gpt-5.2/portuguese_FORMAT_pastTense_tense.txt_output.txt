@@ -1,0 +1,70 @@
+Past:
+  Features:
+    u-Aspect: [u-pfv, u-ipfv, u-prog]
+    u-Finiteness: [u-fin, u-nfin]
+    x-Temp-Relation: [x-anterior]
+
+  Rules:
+    Preterite:
+      title: "Preterite"
+      applies: {u-Aspect: u-pfv, u-Finiteness: u-fin}
+      formparadigms:
+      - formparadigm:
+        - features: {}
+          form: "cantámos (EP), cantamos (BP)"
+        examples:
+        - "cantámos (EP), cantamos (BP) \"we sang\""
+      notes:
+      - "Listed as a past tense in the indicative mood."
+
+    Pluperfect:
+      title: "Pluperfect"
+      applies: {u-Aspect: u-pfv, u-Finiteness: u-fin, x-Temp-Relation: x-anterior}
+      formparadigms:
+      - formparadigm:
+        - features: {}
+          form: "cantáramos"
+        examples:
+        - "cantáramos \"we had sung\""
+      notes:
+      - "Listed as a past tense in the indicative mood."
+
+    u-Aspect_u-ipfv__u-Finiteness_u-fin:
+      applies: {u-Aspect: u-ipfv, u-Finiteness: u-fin}
+      formparadigms:
+      - formparadigm:
+        - features: {}
+          form: "cantávamos"
+        examples:
+        - "cantávamos \"we were singing\""
+      - formparadigm:
+        - features: {}
+          form: "estava falando / estava a falar"
+        examples:
+        - "estava falando/ a falar (imperfective: \"I was speaking\" [at the moment])"
+      notes:
+      - "Listed as a past tense in the indicative mood."
+      - "Occurs in progressive constructions with estar + gerund, or (in European Portuguese) estar a + infinitive."
+
+    u-Aspect_u-prog__u-Finiteness_u-nfin:
+      applies: {u-Aspect: u-prog, u-Finiteness: u-nfin}
+      patterns:
+      - pattern: "estar + gerund"
+        examples:
+        - "estar falando \"to be speaking\""
+      - pattern: "estar a + infinitive"
+        examples:
+        - "estar a falar \"to be speaking\""
+      notes:
+      - "A non-finite progressive construction is listed as estar falando / estar a falar (\"to be speaking\")."
+      - "European Portuguese uses a + infinitive as an alternative to the gerund; the gerund is the rule in Brazil."
+
+    u-Aspect_u-prog__u-Finiteness_u-fin__x-Temp-Relation_x-anterior:
+      applies: {u-Aspect: u-prog, u-Finiteness: u-fin, x-Temp-Relation: x-anterior}
+      patterns:
+      - pattern: "estivera + gerund"
+        examples:
+        - "estivera falando (\"I had been speaking\")"
+      - pattern: "estivera a + infinitive"
+        examples:
+        - "estivera a falar (\"I had been speaking\")"

@@ -1,0 +1,114 @@
+Pronoun:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Gender: [u-bantu1-23]
+    u-Number: [u-sg, u-pl]
+    u-Deixis: [u-prox, u-remt]
+    x-Pronoun-type: [x-pers, x-dem, x-poss, x-rel]
+  Rules:
+    x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers}
+      notes:
+      - "Personal pronouns have the same form for subject and object."
+      - "Personal pronouns occur as an independent form (used alone) and as a combining stem (used when prefixes are added)."
+      - "The independent form consists of the combining stem with na added at the end."
+      formparadigms:
+      - title: "Independent personal pronouns"
+        formparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "mina"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "wena"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "thina"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "nina"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-bantu1-23}, form: "yena"}
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-bantu1-23}, form: "bona"}
+      - title: "Combining stems"
+        formparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "-mi"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "-we"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "-thi"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "-ni"}
+        - {features: {u-Gender: u-bantu1-23}, form: "-ye"}
+        - {features: {u-Gender: u-bantu1-23}, form: "-bo"}
+        - {features: {u-Gender: u-bantu1-23}, form: "-wo"}
+        - {features: {u-Gender: u-bantu1-23}, form: "-yo"}
+        - {features: {u-Gender: u-bantu1-23}, form: "-lo"}
+        - {features: {u-Gender: u-bantu1-23}, form: "-so"}
+        - {features: {u-Gender: u-bantu1-23}, form: "-zo"}
+        - {features: {u-Gender: u-bantu1-23}, form: "-kho"}
+      - title: "Independent + 'na' (with)"
+        formparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "nami"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "nawe"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-bantu1-23}, form: "naye"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "nathi"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "nani"}
+        - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-bantu1-23}, form: "nabo"}
+    x-Pronoun-type_x-dem:
+      applies: {x-Pronoun-type: x-dem}
+      notes:
+      - "There is one demonstrative pronoun form for each noun class it can refer to."
+      - "Demonstratives can stand alone or combine with a noun."
+      patterns:
+      - title: "Proximal"
+        pattern: "prefix the relative concord with l-"
+        notes:
+        - "meaning: 'this' (near the speaker)"
+      - title: "Distal"
+        pattern: "replace the final vowel of the proximal demonstrative with -o; for single-syllable forms insert a semivowel (w or y)"
+        notes:
+        - "meaning: 'that' (not near the speaker)"
+      - title: "Remote"
+        pattern: "suffix -yā or -yana to the proximal demonstrative after changing final -o of the distal form to -a"
+        notes:
+        - "meaning: 'yonder' (far from both speaker and listener, but within sight)"
+      formparadigms:
+      - title: "Demonstratives by noun class"
+        formparadigm:
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-prox}, form: "ló, lóna"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-remt}, form: "lówo"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-remt}, form: "lowayā́, lowayána"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-prox}, form: "lába"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-remt}, form: "lábo"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-remt}, form: "labayā́, labayána"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-prox}, form: "lé, léna"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-remt}, form: "léyo"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-remt}, form: "leyayā́, leyayána"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-prox}, form: "léli"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-remt}, form: "lélo"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-remt}, form: "leliyā́, leliyána"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-prox}, form: "lá, lána"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-remt}, form: "láwo"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-remt}, form: "lawayā́, lawayána"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-prox}, form: "lési"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-remt}, form: "léso"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-remt}, form: "lesiyā́, lesiyána"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-prox}, form: "lézi"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-remt}, form: "lézo"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-remt}, form: "leziyā́, leziyána"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-prox}, form: "lólu"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-remt}, form: "lólo"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-remt}, form: "loluyā́, loluyána"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-prox}, form: "lóbu"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-remt}, form: "lóbo"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-remt}, form: "lobuyā́, lobuyána"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-prox}, form: "lókhu"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-remt}, form: "lókho"}
+        - {features: {u-Gender: u-bantu1-23, u-Deixis: u-remt}, form: "lokhuyā́, lokhuyána"}
+    x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss}
+      notes:
+      - "Possessive pronouns are formed with a possessive prefix plus a possessive stem."
+      formparadigms:
+      - formparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "-mi"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "-kho"}
+        - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-bantu1-23}, form: "-khe"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "-ethu"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "-enyu"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "-bo"}
+    x-Pronoun-type_x-rel:
+      applies: {x-Pronoun-type: x-rel}
+      patterns:
+      - pattern: "e- + verb form"
+      examples:
+      - "Indoda e-ngi-yi-bon-ile i-hamb-ile."

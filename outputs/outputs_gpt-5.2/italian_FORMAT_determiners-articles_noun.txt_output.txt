@@ -1,0 +1,46 @@
+Determiner:
+  Features:
+    u-Definiteness: [u-def, u-indf]
+    u-Gender: [u-masc, u-fem]
+    u-Number: [u-sg, u-pl]
+
+  Rules:
+    u-Definiteness_u-def:
+      applies: {u-Definiteness: u-def}
+      formparadigms:
+      - title: "Definite article forms"
+        notes:
+        - "Forms vary by gender, number, and the initial sound of the following word."
+        formparadigm:
+        - features: {u-Gender: u-masc, u-Number: u-sg}
+          form: "il"
+        - features: {u-Gender: u-masc, u-Number: u-sg}
+          form: "lo"
+        - features: {u-Gender: u-masc, u-Number: u-sg}
+          form: "l'"
+        - features: {u-Gender: u-masc, u-Number: u-pl}
+          form: "i"
+        - features: {u-Gender: u-masc, u-Number: u-pl}
+          form: "gli"
+        - features: {u-Gender: u-fem, u-Number: u-sg}
+          form: "la"
+        - features: {u-Gender: u-fem, u-Number: u-sg}
+          form: "l'"
+        - features: {u-Gender: u-fem, u-Number: u-pl}
+          form: "le"
+
+    u-Definiteness_u-indf:
+      applies: {u-Definiteness: u-indf}
+      formparadigms:
+      - title: "Indefinite article forms"
+        notes:
+        - "Forms vary by gender and the initial sound of the following word."
+        formparadigm:
+        - features: {u-Gender: u-masc, u-Number: u-sg}
+          form: "un"
+        - features: {u-Gender: u-masc, u-Number: u-sg}
+          form: "uno"
+        - features: {u-Gender: u-fem, u-Number: u-sg}
+          form: "una"
+        - features: {u-Gender: u-fem, u-Number: u-sg}
+          form: "un'"

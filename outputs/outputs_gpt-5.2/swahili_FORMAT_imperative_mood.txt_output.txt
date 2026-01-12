@@ -1,0 +1,83 @@
+Imperative:
+  Features:
+    u-Person: [u-2]
+    u-Number: [u-sg, u-pl]
+    u-Polarity: [u-pos, u-neg]
+
+  Rules:
+    u-Number_u-sg__u-Person_u-2__u-Polarity_u-pos:
+      applies: {u-Polarity: u-pos, u-Person: u-2, u-Number: u-sg}
+      patterns:
+      - pattern: "stem(-a)"
+        examples:
+        - "Angalia!"
+        - "Kunywa!"
+        - "Saidia!"
+        - "Jibu!"
+      - pattern: "[OBJ] + stem-e"
+        examples:
+        - "Ni-angalie!"
+        - "Nisaidie!"
+        - "Nijibu!"
+        - "Mwangalie!"
+        - "Yanywe!"
+        - "Jifunze!"
+        notes:
+        - "The imperative can occur alone or with an object prefix."
+        - "With an object prefix (including reflexive ji-), the final -a becomes -e."
+      notes:
+      - "For short verbs, the full infinitive is used instead of the bare stem."
+
+    u-Number_u-pl__u-Person_u-2__u-Polarity_u-pos:
+      applies: {u-Polarity: u-pos, u-Person: u-2, u-Number: u-pl}
+      patterns:
+      - pattern: "stem-eni"
+        examples:
+        - "Angalieni!"
+        - "Kunyweni!"
+        - "Saidieni!"
+      - pattern: "[OBJ] + stem-eni"
+        examples:
+        - "Nisaidieni!"
+        - "Nijibuni!"
+        - "Mwangalieni!"
+        - "Yanyweni!"
+        - "Jifunzeni!"
+        notes:
+        - "The plural form is used when addressing multiple people."
+      notes:
+      - "The change to -e in the plural is only applied for verb stems ending in -a."
+
+    u-Number_u-sg__u-Person_u-2__u-Polarity_u-neg:
+      applies: {u-Polarity: u-neg, u-Person: u-2, u-Number: u-sg}
+      patterns:
+      - pattern: "u- + si + (optionally OBJ) + stem-e"
+        examples:
+        - "Usinywe!"
+        - "Usiangalie!"
+        - "Usisaidie!"
+        - "Usijibu!"
+        - "Usiyanywe!"
+        - "Usimwangalie!"
+        - "Usinisaidie!"
+        - "Usinijibu!"
+        - "Usijifunze!"
+        notes:
+        - "There is no dedicated negative imperative; the negative equivalent uses the negative subjunctive."
+
+    u-Number_u-pl__u-Person_u-2__u-Polarity_u-neg:
+      applies: {u-Polarity: u-neg, u-Person: u-2, u-Number: u-pl}
+      patterns:
+      - pattern: "m- + si + (optionally OBJ) + stem-e"
+        examples:
+        - "Msinywe!"
+        - "Msiangalie!"
+        - "Msisaidie!"
+        - "Msijibu!"
+        - "Msiyanywe!"
+        - "Msimwangalie!"
+        - "Msinisaidie!"
+        - "Msinijibu!"
+        - "Msijifunze!"
+        notes:
+        - "There is no dedicated negative imperative; the negative equivalent uses the negative subjunctive."

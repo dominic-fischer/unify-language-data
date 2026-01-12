@@ -1,0 +1,61 @@
+Subjunctive:
+  Features:
+    u-Tense: [u-prs, u-pst]
+    u-Person: [u-1, u-2, u-3]
+    u-Number: [u-sg, u-pl]
+
+  Rules:
+    u-Tense_u-prs:
+      applies: {u-Tense: u-prs}
+      notes:
+      - "Used to express a wish or desire, a demand, an emotion, uncertainty, or doubt in present-time contexts."
+      - "Also used for doubt, denial, or uncertainty (e.g., hypothetical/unknown referents, non-existence, possibility, lack of certainty)."
+      - "Certain verbs/phrases trigger the subjunctive (e.g., dudar, negar, esperar, alegrarse de, temer, sentir, pedir, aconsejar, exigir, desear, querer, mandar; es necesario que, conviene que, no parece que, es dudoso que, es probable que, no creo que, importa que, parece mentira que)."
+      - "Some expressions of certainty take the indicative instead (e.g., es verdad que, es obvio que, es seguro que, parece que, es evidente que, creo que)."
+      endingparadigms:
+      - title: "-ar verbs (present subjunctive endings)"
+        endingparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, ending: "e"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, ending: "es"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, ending: "e"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, ending: "emos"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, ending: "éis"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, ending: "en"}
+        examples:
+        - "Quiero que seas muy ambicioso."
+        - "Es una lástima que llegues tarde."
+      - title: "-er/-ir verbs (present subjunctive endings)"
+        endingparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, ending: "a"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, ending: "as"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, ending: "a"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, ending: "amos"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, ending: "áis"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, ending: "an"}
+        examples:
+        - "Me alegro de que Marta traiga la comida."
+        - "Es posible que ella sepa mucho."
+      patterns:
+      - pattern: "Derive 1SG present subjunctive from 1SG present indicative by replacing final -o with the opposite theme vowel: -ar → -e; -er/-ir → -a"
+        examples:
+        - "yo hablo → yo hable"
+        - "yo como → yo coma"
+        - "yo vivo → yo viva"
+      - pattern: "Vos present subjunctive: either vos uses forms derived from vosotros (e.g., hablés, comás, escribás) or uses the tú forms (hables, comas, escribas)"
+        notes:
+        - "Vos forms derived from vosotros are expected and used in Central America."
+        - "The Royal Spanish Academy (following Argentinian usage) recommends using the tú forms with vos."
+        examples:
+        - "Vos hablés; vos comás; vos escribás"
+        - "Vos hables; vos comas; vos escribas"
+
+    u-Tense_u-pst:
+      applies: {u-Tense: u-pst}
+      notes:
+      - "Imperfect subjunctive is formed for basically the same reasons as the present subjunctive, but is used for other tenses and time frames."
+      - "Two imperfect subjunctive form sets (-se and -ra; e.g., hubiese/hubiera from haber) are largely interchangeable; choice depends on dialect and personal preference."
+      patterns:
+      - pattern: "Imperfect subjunctive has two largely interchangeable form sets: -se vs -ra (e.g., hubiese vs hubiera)"
+        examples:
+        - "hubiese"
+        - "hubiera"

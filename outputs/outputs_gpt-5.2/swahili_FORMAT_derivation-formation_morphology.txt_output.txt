@@ -1,0 +1,31 @@
+DerivationalMorphology:
+  Features:
+    u-Part-of-Speech:
+    - u-n
+    - u-v
+    u-Gender:
+    - u-bantu1-23
+
+  Rules:
+    u-Gender_u-bantu1-23__u-Part-of-Speech_u-n:
+      applies: {u-Part-of-Speech: u-n, u-Gender: u-bantu1-23}
+      patterns:
+      - pattern: "ka- (SG) / tu- or ti- (PL) + _stem_"
+        notes:
+        - "diminutives often use a dedicated additional class with relatively consistent prefixes"
+        - "diminutive/augmentative syllables may attach either to the stem or to an already existing prefix"
+        - "in plural formation, some languages show double plural marking: both diminutive/augmentative and regular class prefixes may be pluralized"
+
+    u-Part-of-Speech_u-v:
+      applies: {u-Part-of-Speech: u-v}
+      patterns:
+      - pattern: "_stem_ + (derivational suffixes)* + PASS"
+        notes:
+        - "suffixes can be stacked to form long verb stems with specific meanings"
+        - "the passive suffix must always be last in Swahili"
+        examples:
+        - "-andika → -andikwa"
+        - "-andika → -andikisha → -andikishwa"
+        - "-andika → -andikia → -andikiwa"
+        - "-andika → -andikia → -andikiana → -andikianisha → -andikianishwa"
+        - "-la → -lika → -likia → -likiana → -likianisha → -likianishwa"

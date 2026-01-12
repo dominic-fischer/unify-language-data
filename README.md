@@ -1,4 +1,4 @@
-This repository's application can be found under: https://dominic-fischer-unify-language-data-app-qdypkn.streamlit.app/
+This repository's application can be found under: [Unify Language Data: Streamlit App](https://dominic-fischer-unify-language-data-app-qdypkn.streamlit.app/)
 
 ## Application Guide
 
@@ -13,8 +13,6 @@ This repository's application can be found under: https://dominic-fischer-unify-
 The aim of this project is to provide an interface where users can browse and compare the two core components of language learning - grammar and vocabulary - across different languages. Currently, supported languages[^1] include the Romance languages French, Italian, Spanish, Portuguese and Romanian, the Bantu languages Chichewa (Chewa, Nyanja), Chishona (Shona), Kiswahili (Swahili), isiZulu (Zulu).
 
 The interface, split according to the two categories Grammar and Vocabular, allows learners to interact with structured and uniform information sourced from Wikipedia and textbook descriptions of the languages, synthesised by GPT-5.2 on that basis.
-
-[^1] Note that Grammar descriptions exist also for German. Unlike the others, these were manually done by the author to serve as a Gold Standard of how these grammar descriptions schema should look like. For more information, see [here][#Why---The-Motivation].
 
 ### Why? - The Motivation
 
@@ -33,7 +31,7 @@ C) facilitates flexible and dynamic display of the data according to a number of
 
 The first step was to bring the Grammar data, sourced from textbook-like word documents[^2] as well as Wikipedia Articles into a style that would allow for GPT-5.2 to efficiently process the data and bring it into the specified format.
 
-For the Vocabulary data, the [Kaikki][https://kaikki.org/] Wiktionary archive was used as is: the wiktionary style of keeping vocabulary records was used as the Gold Standard (even if it is not entirely consistent within itself). Future work could look into augmenting that data with external Vocabulary sources, and even tying these in with the Grammar (e.g., linking inflection patterns to the words that follow it).
+For the Vocabulary data, the [Kaikki](https://kaikki.org/) Wiktionary archive was used as is: the wiktionary style of keeping vocabulary records was used as the Gold Standard (even if it is not entirely consistent within itself). Future work could look into augmenting that data with external Vocabulary sources, and even tying these in with the Grammar (e.g., linking inflection patterns to the words that follow it).
 
 The second step was then to specify that format, which was actually a major difficulty and needed multiple passes until a functional schema was devised. This resulted in 18 separate schemas [^3]
 
@@ -50,5 +48,6 @@ GPT-5.2 was then prompted with that prompt and produced the standardised grammar
 
 The generated schemas then had to be validated and, if necessary, fixed. This was done with ...
 
-[^2]...
-[^3]...
+[^1]:  Note that Grammar descriptions exist also for German. Unlike the others, these were manually done by the author to serve as a Gold Standard of how these grammar descriptions schema should look like. For more information, see [here](#why---the-motivation).
+[^2]: ...
+[^3]: ...

@@ -1,0 +1,35 @@
+Clauses:
+  Features:
+    x-Clausetype:
+    - x-subordinate
+
+  Rules:
+    x-Clausetype_x-subordinate:
+      applies: {x-Clausetype: x-subordinate}
+      notes:
+      - "The subjunctive is used for hypothetical situations, wishes, and requests."
+      - "It is also used for consecutive action, and as a complement to certain auxiliary verbs and conjunctions."
+      formparadigms:
+      - title: "Subjunctive (present vs past; affirmative vs negative)"
+        formparadigm:
+        - features: {u-Polarity: u-pos, u-Tense: u-prs}
+          form: "[subj2][obj]...e"
+        - features: {u-Polarity: u-neg, u-Tense: u-prs}
+          form: "[subj2]nga[obj]...i"
+        - features: {u-Polarity: u-pos, u-Tense: u-pst}
+          form: "[subj1]a[obj]...a"
+        - features: {u-Polarity: u-neg, u-Tense: u-pst}
+          form: "a[subj1]anga[obj]...a"
+        - features: {u-Polarity: u-neg, u-Tense: u-pst}
+          form: "[subj1]anga[obj]...a"
+        - features: {u-Polarity: u-neg, u-Tense: u-pst}
+          form: "a[subj1]a[obj]...a"
+        notes:
+        - "The affirmative past subjunctive is identical to the affirmative remote past, except that the infix -a- is short; in regular Zulu spelling (without vowel length marking) the distinction is not visible."
+        - "The three alternative negative past forms are contracted to different degrees; the first listed form is uncontracted."
+        examples:
+        - "Ngamtshela ahambe."
+        - "Woza lapha uzame futhi!"
+        - "Umane ahleke."
+        - "Wāvuka wagqoka wahamba."
+        - "Wābaleka wangabheka emuva."

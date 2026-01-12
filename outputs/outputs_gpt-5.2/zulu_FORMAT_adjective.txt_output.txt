@@ -1,0 +1,161 @@
+Adjective:
+  Features:
+    u-Gender:
+    - u-bantu1-23
+    u-Number:
+    - u-sg
+    - u-pl
+
+    u-Part-of-Speech:
+    - u-adj
+    - u-n
+    - u-v
+    u-Polarity:
+    - u-neg
+  Rules:
+    Agreement_position:
+      applies: {}
+      patterns:
+      - pattern: "adjective follows the noun; adjective takes a concord prefix matching the noun class"
+        notes:
+        - "In the wider sense, multiple modifier types are treated as adjectives; they differ by the concord prefix used."
+        examples:
+        - "Abantu abaningi"
+        - "Inja enhle"
+        - "Ikati elihle"
+
+    Relatives_concord_regular_vs_copulative:
+      applies: {}
+      notes:
+      - "Relatives are an open class."
+      - "Relatives use the relative concord; formation parallels true adjectives, but uses the subject concord as the base."
+      formparadigms:
+      - title: "Relative concords by class (regular vs copulative)"
+        formparadigm:
+        - features: {u-Gender: u-bantu1-23, x-Class: "1st singular", x-FormType: x-regular}
+          form: "engi-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "1st singular", x-FormType: x-copulative}
+          form: "ngi-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "2nd singular", x-FormType: x-regular}
+          form: "o-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "2nd singular", x-FormType: x-copulative}
+          form: "u-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "1st plural", x-FormType: x-regular}
+          form: "esi-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "1st plural", x-FormType: x-copulative}
+          form: "si-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "2nd plural", x-FormType: x-regular}
+          form: "eni-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "2nd plural", x-FormType: x-copulative}
+          form: "ni-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "1/1a", x-FormType: x-regular}
+          form: "o-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "1/1a", x-FormType: x-copulative}
+          form: "u-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "2/2a", x-FormType: x-regular}
+          form: "aba-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "2/2a", x-FormType: x-copulative}
+          form: "ba-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "3", x-FormType: x-regular}
+          form: "o-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "3", x-FormType: x-copulative}
+          form: "u-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "4", x-FormType: x-regular}
+          form: "e-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "4", x-FormType: x-copulative}
+          form: "i-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "5", x-FormType: x-regular}
+          form: "eli-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "5", x-FormType: x-copulative}
+          form: "li-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "6", x-FormType: x-regular}
+          form: "a-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "6", x-FormType: x-copulative}
+          form: "a-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "7", x-FormType: x-regular}
+          form: "esi-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "7", x-FormType: x-copulative}
+          form: "si-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "8", x-FormType: x-regular}
+          form: "ezi-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "8", x-FormType: x-copulative}
+          form: "zi-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "9", x-FormType: x-regular}
+          form: "e-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "9", x-FormType: x-copulative}
+          form: "i-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "10", x-FormType: x-regular}
+          form: "ezi-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "10", x-FormType: x-copulative}
+          form: "zi-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "11", x-FormType: x-regular}
+          form: "olu-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "11", x-FormType: x-copulative}
+          form: "lu-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "14", x-FormType: x-regular}
+          form: "obu-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "14", x-FormType: x-copulative}
+          form: "bu-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "15", x-FormType: x-regular}
+          form: "oku-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "15", x-FormType: x-copulative}
+          form: "ku-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "17", x-FormType: x-regular}
+          form: "oku-"
+        - features: {u-Gender: u-bantu1-23, x-Class: "17", x-FormType: x-copulative}
+          form: "ku-"
+
+    Additional_property_syllables_for_persons:
+      applies: {}
+      patterns:
+      - pattern: "nge- / we- / ye- / so- / no- / bo- + stem"
+      notes:
+      - "Special property syllables for 'persons' are listed for use with certain adjectives."
+
+    Property_syllable_adjectives_nke_dwa:
+      applies: {}
+      patterns:
+      - pattern: "property syllable + -nke"
+        examples:
+        - "(-nke) 'all/whole/every'"
+      - pattern: "property syllable + -dwa"
+        examples:
+        - "(-dwa) 'alone'"
+    u-Part-of-Speech_u-adj:
+      applies: {u-Part-of-Speech: u-adj}
+      patterns:
+      - pattern: "u- → o-"
+      - pattern: "i- → e-"
+      notes:
+      - "Formation of the adjective syllable/concord involves vowel coalescence at the beginning of the word."
+
+    u-Part-of-Speech_u-n:
+      applies: {u-Part-of-Speech: u-n}
+      patterns:
+      - pattern: "na/ne/no + noun"
+        examples:
+        - "Ungumuntu unomusa"
+      notes:
+      - "Nominal adjectives are formed with a copulative marker (Kennsilbe) na/ne/no plus a noun."
+
+    u-Part-of-Speech_u-n__u-Polarity_u-neg:
+      applies: {u-Part-of-Speech: u-n, u-Polarity: u-neg}
+      patterns:
+      - pattern: "nge + na/ne/no + noun"
+        examples:
+        - "Ungumuntu ungenomusa"
+
+    u-Part-of-Speech_u-v:
+      applies: {u-Part-of-Speech: u-v}
+      patterns:
+      - pattern: "copulative marker + verb stem (state verb)"
+        examples:
+        - "Umsebenzi ulula"
+
+    u-Polarity_u-neg:
+      applies: {u-Polarity: u-neg}
+      patterns:
+      - pattern: "a- + copulative marker (V) + predicative adjective"
+      notes:
+      - "Exception: in noun class 7/8 the copulative marker (V) changes to -ka-."
+

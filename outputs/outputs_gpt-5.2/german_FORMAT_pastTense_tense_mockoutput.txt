@@ -1,0 +1,90 @@
+Past:
+  Features:
+    u-Aspect: [u-prf, u-pfv, u-ipfv, u-hab, u-iter, u-prog]
+    u-Finiteness: [u-nfin]
+    x-Temp-Relation:
+    - x-anterior
+
+  Rules:
+    Preterite:
+      title: "Preterite"
+      applies: {u-Aspect: [u-hab, u-ipfv, u-iter, u-pfv]}
+      patterns:
+      - pattern: "stem + te + personal ending"
+        title: "Weak Verbclass"
+        examples:
+        - "u-hab: Er kam jeden Tag."
+        - "u-ipfv: Es regnete, als er kam."
+        - "u-iter: Er klopfte immer wieder."
+        - "u-pfv: Er kam und setzte sich."
+      - pattern: "ablauted stem + personal ending"
+        title: "Strong Verbclass"
+        examples:
+        - "ich ging"
+      - pattern: "suppletive forms"
+        title: "Irregular Verbclass"
+        examples:
+        - "ich war"
+        - "ich hatte"
+      notes:
+      - "The preterite is the default narrative past in written German. It expresses habitual actions (u-hab), ongoing background situations (u-ipfv), repeated or iterative actions (u-iter), and completed bounded events (u-pfv). In spoken German, often replaced by the perfect."
+
+    Pluperfect:
+      title: "Pluperfect"
+      applies: {u-Aspect: [u-prf, u-hab, u-ipfv, u-iter, u-pfv], x-Temp-Relation: x-anterior}
+      patterns:
+      - pattern: "haben/sein (preterite finite) + past participle"
+        examples:
+        - "u-prf: Ich hatte gearbeitet."
+        - "u-pfv: Ich hatte das Buch gelesen."
+        - "u-ipfv: Ich hatte lange gelesen, als er kam."
+        - "u-hab: Ich hatte oft dort gegessen."
+        - "u-iter: Ich hatte ihn mehrmals gesehen."
+        notes:
+        - "The pluperfect is used for anteriority, i.e. to describe events prior to another past reference point. It highlights resultative or perfect (u-prf), but also accommodates perfective (u-pfv), imperfective (u-ipfv), habitual (u-hab), and iterative (u-iter) readings in narratives."
+
+    u-Aspect_u-prog:
+      applies: {u-Aspect: u-prog}
+      patterns:
+      - pattern: "sein (preterite finite) + am + Infinitiv"
+        examples:
+        - "u-prog: Ich war am Arbeiten."
+        - "u-ipfv: Er war am Lesen."
+        notes:
+        - "The 'am'-progressive in the past is a colloquial form, highlighting an action in progress (u-prog). It can also serve as an imperfective marker (u-ipfv) for backgrounded ongoing activity. Rare in formal registers."
+
+    PastParticiple:
+      title: "PastParticiple"
+      applies: {u-Finiteness: u-nfin}
+      patterns:
+      - pattern: "ge- + {stem} + (e)t"
+        title: "Weak Verbclass"
+        examples:
+        - "gemacht"
+        - "gearbeitet"
+        - "gespielt"
+        notes:
+        - "Weak verbs: participle formed with -t, occasionally -et after certain stems."
+      - pattern: "ge- + {ablauted stem} + en"
+        title: "Strong Verbclass"
+        examples:
+        - "gesehen"
+        - "gegangen"
+        - "gefunden"
+        notes:
+        - "Strong verbs: participle formed with -en and often stem vowel change (Ablaut)."
+
+    Perfect:
+      title: "Perfect"
+      applies: {u-Aspect: [u-prf, u-hab, u-ipfv, u-iter, u-pfv]}
+      patterns:
+      - pattern: "haben/sein (present finite) + past participle"
+        examples:
+        - "u-prf: Ich habe fertig gearbeitet."
+        - "u-pfv: Ich habe das Buch gelesen."
+        - "u-ipfv: Ich habe gestern lange gelesen."
+        - "u-hab: Ich habe oft Fußball gespielt."
+        - "u-iter: Ich habe ihn mehrmals getroffen."
+        notes:
+        - "The perfect is the preferred past form in spoken German. It encodes current relevance or resultative meaning (u-prf), but in usage also covers perfective (u-pfv), imperfective/background (u-ipfv), habitual (u-hab), and iterative (u-iter) readings depending on context."
+

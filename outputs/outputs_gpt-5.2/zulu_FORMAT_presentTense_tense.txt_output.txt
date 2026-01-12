@@ -1,0 +1,31 @@
+Present:
+  Features:
+    u-Aspect: [u-ipfv, u-prog]
+    u-Tense:
+    - u-prs
+  Rules:
+    Present:
+      title: "Present"
+      applies: {u-Tense: u-prs}
+      patterns:
+      - pattern: "[subj1](ya)[obj]...a"
+        title: "Principal affirmative"
+        notes:
+        - "The infix -ya- is used whenever the form has lengthening on the penultimate syllable, i.e. when it occurs finally in the sentence."
+        examples:
+        - "Uyahamba., 'He is going.'"
+        - "Uhamba ekuseni., 'He is going in the morning.'"
+        - "Uyangisiza., 'He is helping me.'"
+        - "Ungisiza namhlanje., 'He is helping me today.'"
+        - "Usiza uyise., 'He is helping his father.'"
+      - pattern: "a[subj2][obj]...i"
+        title: "Principal negative"
+        examples:
+        - "Akahambi., 'He is not going.'"
+        - "Akangisizi., 'He isn't helping me.'"
+      - pattern: "[subjP][obj]...a"
+        title: "Participial affirmative"
+      - pattern: "[subjP]nga[obj]...i"
+        title: "Participial negative"
+      notes:
+      - "The present tense is the default tense, used to indicate events in the present. It corresponds to the English simple present or continuous present."

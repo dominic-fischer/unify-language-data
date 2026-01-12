@@ -1,0 +1,63 @@
+Constituents:
+  Features:
+    x-Constituent:
+    - x-AdvP
+    - x-NP
+    - x-VP
+
+  Rules:
+    x-Constituent_x-VP:
+      applies: {x-Constituent: x-VP}
+      patterns:
+      - pattern: "S V O"
+        notes:
+        - "Italian is generally an SVO language."
+      - pattern: "SVO | SOV | VSO | OVS | etc."
+        notes:
+        - "Italian has relatively free word order; alternative orders are used especially for emphasis and, in literature, for style and metre."
+        examples:
+        - "È arrivato Davide in ufficio."
+        - "Davide è arrivato in ufficio."
+      - pattern: "(Subject pronoun) V ..."
+        notes:
+        - "The subject is usually omitted when it is a pronoun; distinctive verb conjugations make it redundant."
+        - "Subject pronouns are emphatic when used."
+        examples:
+        - "È arrivato in ufficio."
+        - "(Lui) è arrivato in ufficio."
+      - pattern: "Yes/no question: Declarative clause + rising intonation"
+        notes:
+        - "Questions are formed by rising intonation at the end of the sentence; usually there is no other special marker."
+        - "Intonation and context are important to recognize questions from affirmative statements."
+        examples:
+        - "Davide è arrivato in ufficio?"
+        - "È arrivato Davide in ufficio?"
+      - pattern: "Wh-question: Wh-word + clause (wh-movement usually occurs)"
+        notes:
+        - "Wh-movement usually occurs in questions."
+        examples:
+        - "Perché Davide è arrivato in ufficio?"
+        - "Chi è arrivato in ufficio?"
+
+    x-Constituent_x-NP:
+      applies: {x-Constituent: x-NP}
+      patterns:
+      - pattern: "Noun Adjective"
+        notes:
+        - "In general, adjectives come after the noun they modify."
+      - pattern: "Adjective Noun"
+        notes:
+        - "Adjectives coming before the noun indicate essential quality of the noun."
+      - pattern: "Demonstrative Noun"
+        notes:
+        - "Demonstratives (e.g. questo 'this', quello 'that') come before the noun."
+      - pattern: "(Certain adjective inflected like demonstratives) Noun"
+        notes:
+        - "A few particular adjectives (e.g. bello) may be inflected like demonstratives and placed before the noun."
+
+    x-Constituent_x-AdvP:
+      applies: {x-Constituent: x-AdvP}
+      patterns:
+      - pattern: "Verb Adverb"
+        notes:
+        - "In general, adverbs come after the verb."

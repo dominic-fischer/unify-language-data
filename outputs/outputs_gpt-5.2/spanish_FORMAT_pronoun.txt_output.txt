@@ -1,0 +1,31 @@
+Pronoun:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Gender: [u-masc, u-fem]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-acc, u-dat, u-nom]
+    x-Pronoun-type:
+    - x-pers
+
+  Rules:
+    x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers}
+      patterns:
+      - pattern: "RAE 'etymological' distribution of third-person object clitics"
+        notes:
+        - "Indirect object function is carried by le regardless of gender."
+        - "Direct object function is carried by la (feminine) or lo (masculine), regardless of animacy."
+      - pattern: "RAE-condoned le as direct object (leísmo)"
+        notes:
+        - "The Academy condones le as a direct object form for masculine, animate antecedents (male humans)."
+      - pattern: "non-normative object-pronoun uses"
+        notes:
+        - "Leísmo: use of le as a direct object."
+        - "Laísmo/loísmo: use of la/lo as indirect objects."
+        examples:
+        - "Leísmo: Le miraron."
+        - "Normative: lo miraron / la miraron."
+        - "Laísmo: La dijeron que se callara."
+        - "Normative: Le dijeron que se callara."
+        - "Loísmo: Lo dijeron que se callara."
+        - "Normative: Le dijeron que se callara."

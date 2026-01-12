@@ -1,0 +1,23 @@
+Present:
+  Features:
+    u-Aspect: [u-hab, u-prog]
+
+  Rules:
+    Present:
+      title: "Present"
+      applies: {u-Aspect: [u-hab, u-prog]}
+      patterns:
+      - pattern: "{SM}-ku-{V}"
+        title: "Progressive"
+        examples:
+        - "ndi-ku-gúla 'I am buying'"
+        notes:
+        - "In the present tense, this pattern expresses progressive meaning ('currently')."
+      - pattern: "{SM}-ma-{V}"
+        title: "Habitual"
+        examples:
+        - "ndí-ma-gúla 'I buy (regularly)'"
+        notes:
+        - "In the present tense, this pattern expresses habitual meaning ('regularly')."
+      notes:
+      - "In the present tense only, there is a distinction between habitual and progressive."

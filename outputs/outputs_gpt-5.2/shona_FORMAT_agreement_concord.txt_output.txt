@@ -1,0 +1,58 @@
+Agreement:
+  Features:
+    u-Part-of-Speech:
+    - u-n
+    - u-pro
+    - u-adj
+    - u-v
+
+  Rules:
+    u-Part-of-Speech_u-v_u-n:
+      applies:
+        u-Part-of-Speech:
+        - u-v
+        - u-n
+      patterns:
+      - pattern: "an object marker (Objektsilbe) can be inserted after the subject marker (and any tense marker) and before the verb stem; it generally corresponds to the subject marker series but differs due to its word-internal position"
+        examples:
+        - "Ti-no-ona munhu uyu."
+        - "Ti-no-mu-ona (munhu uyu)."
+        notes:
+        - "The object marker may be omitted if the sentence structure already makes the object clear."
+
+    u-Part-of-Speech_u-v_u-pro:
+      applies:
+        u-Part-of-Speech:
+        - u-v
+        - u-pro
+      patterns:
+      - pattern: "personal pronouns can be subjects; if not emphasized, person subject markers are used instead of independent pronouns"
+        examples:
+        - "asi ini ndi-no-da kuenda uko!"
+        notes:
+        - "Personal pronouns listed in the source: ini, iwe, iye, isu, imwi, ivo."
+
+    u-Part-of-Speech_u-n_u-n:
+      applies:
+        u-Part-of-Speech:
+        - u-n
+        - u-n
+      patterns:
+      - pattern: "possessive concord (Besitzsilbe) links a possessed noun to a possessor; its basic form ends in -a, but in combination with nouns it appears with -e"
+        examples:
+        - "mwana we-vabereki"
+        - "mwana we-ungwaru"
+        notes:
+        - "The source distinguishes subjective vs attributive genitive uses."
+
+    u-Part-of-Speech_u-n_u-adj:
+      applies:
+        u-Part-of-Speech:
+        - u-n
+        - u-adj
+      patterns:
+      - pattern: "a perfect-based construction can be used to describe a noun adjectivally"
+        examples:
+        - "bhiza raka-ngwara"
+        notes:
+        - "Gloss in the source indicates a predicative meaning ('was (and is) clever') used attributively ('the clever horse')."

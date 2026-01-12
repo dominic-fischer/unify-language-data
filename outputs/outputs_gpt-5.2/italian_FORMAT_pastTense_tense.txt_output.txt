@@ -1,0 +1,95 @@
+Past:
+  Features:
+    u-Aspect: [u-hab, u-ipfv, u-pfv, u-prf, u-prog, u-prosp]
+    u-Finiteness: [u-nfin]
+    x-Temp-Relation:
+    - x-anterior
+
+  Rules:
+    u-Aspect_u-hab_u-ipfv:
+      applies: {u-Aspect: [u-hab, u-ipfv]}
+      formparadigms:
+      - formparadigm:
+        - features: {}
+          form: "facevo"
+        notes:
+        - "Listed as indicativo imperfetto; English equivalents given are 'I used to do' (habitual) and 'I was doing' (imperfective)."
+
+    u-Aspect_u-pfv:
+      applies: {u-Aspect: u-pfv}
+      formparadigms:
+      - formparadigm:
+        - features: {}
+          form: "feci"
+        notes:
+        - "Listed as passato remoto; English equivalent given is 'I did'."
+
+    "Present perfect":
+      title: "Present perfect"
+      applies: {u-Aspect: u-prf}
+      patterns:
+      - pattern: "avere/essere (finite) + past participle"
+        examples:
+        - "ho fatto"
+      notes:
+      - "Listed as passato prossimo with example ho fatto."
+      - "Compound tenses expressing perfect aspect are formed with auxiliary avere ('to have') for transitive verbs and some intransitive verbs, and essere ('to be') for the remaining intransitive verbs, plus the past participle."
+
+    "Pluperfect":
+      title: "Pluperfect"
+      applies: {u-Aspect: u-prf, x-Temp-Relation: x-anterior}
+      formparadigms:
+      - formparadigm:
+        - features: {}
+          form: "ebbi fatto"
+        notes:
+        - "Listed as trapassato remoto; English equivalent given is 'I had done'."
+
+    u-Aspect_u-prog:
+      applies: {u-Aspect: u-prog}
+      patterns:
+      - pattern: "stare (finite) + gerund"
+        examples:
+        - "stavo facendo"
+      notes:
+      - "Listed as passato progressivo with example stavo facendo."
+      - "Progressive aspect is rendered by verb stare plus the gerund."
+
+    u-Aspect_u-prosp:
+      applies: {u-Aspect: u-prosp}
+      patterns:
+      - pattern: "stare (finite) + per + infinitive"
+        examples:
+        - "io sto per fare"
+      notes:
+      - "Prospective aspect is formed with stare plus the preposition per and the infinitive."
+
+    u-Aspect_u-prf__u-Finiteness_u-nfin:
+      applies: {u-Finiteness: u-nfin, u-Aspect: u-prf}
+      formparadigms:
+      - formparadigm:
+        - features: {}
+          form: "avendo fatto"
+        notes:
+        - "Listed as gerundio passato with English equivalent 'having done'."
+
+    u-Finiteness_u-nfin:
+      applies: {u-Finiteness: u-nfin}
+      formparadigms:
+      - formparadigm:
+        - features: {}
+          form: "fatto"
+        notes:
+        - "Listed as participio passato with English equivalent 'done'."
+
+    x-Temp-Relation_x-anterior:
+      applies: {x-Temp-Relation: x-anterior}
+      patterns:
+      - pattern: "main clause: simple tense (future/present/passato prossimo) + subordinate clause: past subjunctive"
+        examples:
+        - "Penso che Davide sia stato intelligente."
+      - pattern: "main clause: past imperfect or perfect + subordinate clause: pluperfect subjunctive"
+        examples:
+        - "Pensavo che Davide fosse stato intelligente."
+      notes:
+      - "Consecutio temporum governs tense relations between principal and subordinate clauses; for anteriority the subordinate clause uses the past subjunctive with a simple-tense main clause, and the pluperfect subjunctive with a past imperfect or perfect main clause."

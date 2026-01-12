@@ -1,0 +1,6 @@
+Clauses:
+  Features:
+    x-Clausetype: [x-main, x-subordinate]
+    u-Interrogativity: [u-decl, u-int]
+
+  Rules: {}

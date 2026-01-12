@@ -1,0 +1,45 @@
+Pronoun:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Gender: [u-masc, u-fem]
+    u-Number: [u-sg, u-pl]
+    x-Pronoun-type: [x-pers, x-refl, x-dem, x-poss, x-int, x-rel]
+
+  Rules:
+    Pronoun-features-and-reference:
+      applies: {}
+      patterns:
+      - pattern: "pronoun varies in gender (masculine/feminine), number (singular/plural), and sometimes person"
+        notes:
+        - "The pronoun takes the meaning of the word or group of words it replaces (its referent)."
+      - pattern: "pronoun meaning depends on context (deictic vs. textual: anaphoric/cataphoric)"
+        notes:
+        - "The meaning of a cataphoric pronoun depends on context or on the element it refers to."
+      - pattern: "pronoun has the same syntactic characteristics as the noun it can replace"
+        notes:
+        - "Pronouns can replace a noun in the sentence."
+
+    Pronoun-inflection-by-role:
+      applies: {}
+      patterns:
+      - pattern: "pronouns can be inflected to indicate their role in a clause (e.g., subject, direct object)"
+        notes:
+        - "Pronouns can also be inflected for person, gender, and number of their referent."
+        - "Not all inflectional distinctions are necessarily present at once."
+
+    Non-pro-drop-and-impersonal-pronoun:
+      applies: {}
+      patterns:
+      - pattern: "French is a non-pro-drop language"
+        notes:
+        - "Pronouns are therefore prominent in French."
+      - pattern: "impersonal verbs use the impersonal pronoun il"
+        notes:
+        - "Example mentioned: pleuvoir ‘to rain’."
+
+    Object-pronouns-as-clitics:
+      applies: {}
+      patterns:
+      - pattern: "French object pronouns are clitics"
+        notes:
+        - "Some are very frequent in everyday speech; French has been described as approaching polypersonal agreement."

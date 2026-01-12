@@ -1,0 +1,24 @@
+Subjunctive:
+  Features:
+    u-Mood: [u-sbjv]
+
+  Rules:
+    u-Mood_u-sbjv:
+      applies: {u-Mood: u-sbjv}
+      endingparadigms:
+      - endingparadigm:
+        - {features: {}, ending: "e"}
+        notes:
+        - "In contrast to the indicative, verbs in the subjunctive end in -e."
+        examples:
+        - "Mundipe chingwa."
+      patterns:
+      - pattern: "subjunctive (verb-final -e) used for polite requests and wishes"
+        examples:
+        - "Mundipe chingwa."
+      - pattern: "kuti + subjunctive after verbs of wishing, wanting, and requesting/ordering"
+        examples:
+        - "Tinoda kuti muuye kunzvimbo yedu."
+      - pattern: "kuti + subjunctive expressing purpose/result ('so that/in order that')"
+        examples:
+        - "Tinoenda nhasi kuti tikurumidze kusvika."

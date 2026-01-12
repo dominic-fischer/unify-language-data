@@ -1,0 +1,31 @@
+Adverbs:
+  Features:
+    u-Part-of-Speech:
+    - u-n
+    - u-v
+    u-Polarity: [u-neg, u-pos]
+
+  Rules:
+    u-Part-of-Speech_u-n:
+      applies: {u-Part-of-Speech: u-n}
+      patterns:
+      - pattern: "mwa- + nominal base (adverb from a noun/nominal expression)"
+        examples:
+        - "changu → mwachangu"
+        - "Akuthamanga mwachangu."
+      - pattern: "mopanda + nominal base (negative adverbial expression)"
+        examples:
+        - "mopanda changu"
+        - "Akuthamanga mopanda changu."
+
+    u-Part-of-Speech_u-v:
+      applies: {u-Part-of-Speech: u-v}
+      patterns:
+      - pattern: "mo- + verbal base (adverb from a verb)"
+        examples:
+        - "kufulumira → mofulumira"
+        - "Akuthamanga mofulumira."
+      - pattern: "mo- + sa- + verbal base (negative adverb from a verb)"
+        examples:
+        - "mosafulumira"
+        - "Akuthamanga mosafulumira."

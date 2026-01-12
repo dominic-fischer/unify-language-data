@@ -1,0 +1,77 @@
+DerivationalMorphology:
+  Features:
+    u-Interrogativity:
+    - u-int
+    x-Question-type:
+    - x-yn
+    - x-info
+    x-Register:
+    - x-informal
+    - x-neutral
+    - x-formal
+
+  Rules:
+    u-Interrogativity_u-int__x-Question-type_x-yn:
+      applies: {u-Interrogativity: u-int, x-Question-type: x-yn}
+      patterns:
+      - pattern: "Declarative clause + rising intonation"
+        notes:
+        - "described as the simplest and most informal way to form yes/no questions"
+        - "common in informal spoken French; relatively uncommon in more formal spoken French or written French"
+        examples:
+        - "Elle va rester ici ?"
+        - "Je peux mettre mes photos au mur ?"
+      - pattern: "est-ce que + declarative clause"
+        notes:
+        - "may be used in any style of French: formal, informal, spoken, or written"
+        examples:
+        - "Est-ce qu'elle va rester ici ?"
+        - "Est-ce que je peux mettre mes photos au mur ?"
+      - pattern: "Declarative clause + n'est-ce pas"
+        notes:
+        - "tag-question-like structure; pronounced [n‿ɛs pɑ]"
+        examples:
+        - "Tu es Jane, n'est-ce pas ?"
+        - "Tu parles anglais, n'est-ce pas ?"
+      - pattern: "Subject–verb inversion (formal/written): V–SUBJ"
+        notes:
+        - "typically used in formal and written French"
+        - "if the subject is an unstressed pronoun, it changes places with the verb it agrees with"
+        - "if the subject is not an unstressed pronoun, add an unstressed subject pronoun agreeing with the subject after the verb"
+        - "when inversion creates adjacency of two vowels, insert ⟨t⟩ between them"
+        - "only the most formal French inverts the verb with 'je'; replacing 'je' with est-ce que is described as more common"
+        examples:
+        - "Es-tu content ?"
+        - "Pierre est-il content ?"
+        - "A-t-il 17 ans ?"
+
+    u-Interrogativity_u-int__x-Question-type_x-info:
+      applies: {u-Interrogativity: u-int, x-Question-type: x-info}
+      patterns:
+      - pattern: "Replace an item with a question word/phrase + rising intonation (wh-word may be sentence-initial or sentence-final)"
+        notes:
+        - "described as the simplest and generally most informal way"
+        - "the question word/phrase may occur at the beginning or end of the sentence depending on what is replaced"
+        examples:
+        - "L'étudiant(e) téléphonera à son député quand ?"
+        - "Qui téléphonera à son député demain ?"
+      - pattern: "Replace an item with a question word/phrase + front the question word/phrase"
+        notes:
+        - "described as common and informal"
+        examples:
+        - "Qui vous avez vu ?"
+        - "À qui Marcel a écrit ?"
+      - pattern: "Fronted question word/phrase + est-ce que + declarative clause"
+        notes:
+        - "may be used in all styles of French"
+        examples:
+        - "Qui est-ce que vous avez vu ?"
+        - "À qui est-ce que Marcel a écrit ?"
+      - pattern: "Fronted question word/phrase + subject–verb inversion (most formal): V–SUBJ"
+        notes:
+        - "described as typically the most formal form; found in written and formal spoken French"
+        - "if the subject is an unstressed pronoun, it switches places with the verb"
+        - "if the subject is not an unstressed pronoun, an unstressed subject pronoun is added after the verb"
+        examples:
+        - "Qui avez-vous vu ?"
+        - "Qui Robert a-t-il rencontré ?"

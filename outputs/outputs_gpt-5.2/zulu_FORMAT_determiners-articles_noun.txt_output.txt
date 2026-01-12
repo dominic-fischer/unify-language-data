@@ -1,0 +1,88 @@
+Determiner:
+  Features:
+    u-Gender: [u-bantu1-23]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-loc]
+
+  Rules:
+    u-Gender_u-bantu1-23:
+      notes:
+      - "Zulu nouns consist of a prefix and a stem."
+      - "Nouns are grouped into noun classes based on their prefix; class numbers follow the Proto-Bantu system, creating gaps where classes are missing."
+      applies: {u-Gender: u-bantu1-23}
+      formparadigms:
+      - title: "Noun class prefixes (singular/plural pairing)"
+        notes:
+        - "Plural is normally formed by switching a noun to the next higher class (odd-numbered classes singular, even-numbered classes plural), except class 14 is singular in meaning."
+        - "For class 11 nouns, the plural is class 10."
+        - "Classes 14, 15 and 17 usually have no plural; in rare instances class 6 is used to form a plural for these nouns."
+        formparadigm:
+        - features: {x-NounClass: x-1, u-Number: u-sg}
+          form: "umu- (u-)"
+        - features: {x-NounClass: x-2, u-Number: u-pl}
+          form: "aba-"
+        - features: {x-NounClass: x-1a, u-Number: u-sg}
+          form: "u-"
+        - features: {x-NounClass: x-2a, u-Number: u-pl}
+          form: "o-"
+        - features: {x-NounClass: x-3, u-Number: u-sg}
+          form: "umu-"
+        - features: {x-NounClass: x-4, u-Number: u-pl}
+          form: "imi-"
+        - features: {x-NounClass: x-5, u-Number: u-sg}
+          form: "i-"
+        - features: {x-NounClass: x-6, u-Number: u-pl}
+          form: "ama-"
+        - features: {x-NounClass: x-7, u-Number: u-sg}
+          form: "isi-"
+        - features: {x-NounClass: x-8, u-Number: u-pl}
+          form: "izi-"
+        - features: {x-NounClass: x-9, u-Number: u-sg}
+          form: "in-"
+        - features: {x-NounClass: x-10, u-Number: u-pl}
+          form: "izin-"
+        - features: {x-NounClass: x-11, u-Number: u-sg}
+          form: "ulu-"
+        - features: {x-NounClass: x-14, u-Number: u-sg}
+          form: "ubu-"
+        - features: {x-NounClass: x-15, u-Number: u-sg}
+          form: "uku-"
+
+    u-Case_u-loc:
+      notes:
+      - "Locatives can have translations such as 'in', 'at', 'on', 'to' or 'from'."
+      applies: {u-Case: u-loc}
+      patterns:
+      - title: "Classes 1(a) and 2(a)"
+        pattern: "kú- + noun (drop augment)"
+        notes:
+        - "For nouns in class 1(a) or 2(a), the locative is formed by prefixing kú- to the noun and dropping the augment."
+        examples:
+        - "umúntu → kumúntu"
+        - "abántu → kubántu"
+        - "úbabá → kúbabá"
+        - "ṓbabá → kṓbabá"
+        - "u-Okthoba → ku-Okthoba"
+      - title: "Other classes (augment replacement + suffix)"
+        pattern: "replace augment with e- (or o- in class 11) (+ usually add -ini with vowel alternations)"
+        notes:
+        - "For nouns not in class 1 or 2, replace the augment with e-, or with o- for class 11 nouns."
+        - "Most nouns also take a locative suffix -ini, triggering the following changes: a+ini→eni; e+ini→eni; i+ini→ini; o+ini→weni; u+ini→wini."
+        examples:
+        - "uḿlenze → emlénzeni"
+        - "îsó → êswéni"
+        - "ámánzi → émánzini"
+        - "índlebé → éndlebéni"
+        - "ínkungú → énkungwíni"
+        - "ū́phahla → ōpháhleni"
+      - title: "Locative without suffix"
+        pattern: "augment replacement only (no -ini)"
+        notes:
+        - "Some nouns form locatives without the suffix, using just the prefix; this includes most place names and some regular nouns."
+        examples:
+        - "îGóli → êGóli"
+        - "îndlé → êndlé"
+        - "îkhânda → êkhânda"
+        - "îkhâya → êkhâya"
+        - "úbusûku → ébusûku"
+        - "ínyákatho → ényákatho"

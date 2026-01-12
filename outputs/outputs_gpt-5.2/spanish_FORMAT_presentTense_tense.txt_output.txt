@@ -1,0 +1,10 @@
+Present:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Number: [u-sg, u-pl]
+
+  Rules:
+    u-Number_u-sg_u-pl__u-Person_u-1_u-2_u-3:
+      applies: {u-Person: [u-1, u-2, u-3], u-Number: [u-sg, u-pl]}
+      patterns:
+      - pattern: "No present tense information provided in the source data."

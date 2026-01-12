@@ -1,0 +1,70 @@
+Imperative:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Number: [u-sg, u-pl]
+
+  Rules:
+    u-Number_u-sg__u-Person_u-2:
+      applies: {u-Person: u-2, u-Number: u-sg}
+      formparadigms:
+      - formparadigm:
+        - features: {x-Conjugation: x-1}
+          form: "parla!"
+        - features: {x-Conjugation: x-2}
+          form: "temi!"
+        - features: {x-Conjugation: x-3}
+          form: "parti!"
+      notes:
+      - "Technically, the only real imperative forms are the second-person singular and plural."
+
+    u-Number_u-pl__u-Person_u-2:
+      applies: {u-Person: u-2, u-Number: u-pl}
+      formparadigms:
+      - formparadigm:
+        - features: {x-Conjugation: x-1}
+          form: "parlate!"
+        - features: {x-Conjugation: x-2}
+          form: "temete!"
+        - features: {x-Conjugation: x-3}
+          form: "partite!"
+      notes:
+      - "Technically, the only real imperative forms are the second-person singular and plural."
+
+    u-Number_u-sg__u-Person_u-3:
+      applies: {u-Person: u-3, u-Number: u-sg}
+      formparadigms:
+      - formparadigm:
+        - features: {x-Conjugation: x-1}
+          form: "parli!"
+        - features: {x-Conjugation: x-2}
+          form: "tema!"
+        - features: {x-Conjugation: x-3}
+          form: "parta!"
+      notes:
+      - "Imperative forms for persons other than 2sg and 2pl are borrowed from the present subjunctive."
+
+    u-Number_u-pl__u-Person_u-1:
+      applies: {u-Person: u-1, u-Number: u-pl}
+      formparadigms:
+      - formparadigm:
+        - features: {x-Conjugation: x-1}
+          form: "parliamo!"
+        - features: {x-Conjugation: x-2}
+          form: "temiamo!"
+        - features: {x-Conjugation: x-3}
+          form: "partiamo!"
+      notes:
+      - "Imperative forms for persons other than 2sg and 2pl are borrowed from the present subjunctive."
+
+    u-Number_u-pl__u-Person_u-3:
+      applies: {u-Person: u-3, u-Number: u-pl}
+      formparadigms:
+      - formparadigm:
+        - features: {x-Conjugation: x-1}
+          form: "parlino!"
+        - features: {x-Conjugation: x-2}
+          form: "temano!"
+        - features: {x-Conjugation: x-3}
+          form: "partano!"
+      notes:
+      - "Imperative forms for persons other than 2sg and 2pl are borrowed from the present subjunctive."

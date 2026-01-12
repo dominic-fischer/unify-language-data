@@ -1,0 +1,117 @@
+Adjective:
+  Features:
+    u-Gender:
+    - u-bantu1-23
+    u-Comparison:
+    - u-cmpr
+
+    u-Part-of-Speech:
+    - u-n
+    - u-v
+    u-Polarity:
+    - u-neg
+  Rules:
+    AdjectivalPerfectConstruction:
+      applies: {}
+      patterns:
+      - pattern: "noun + perfect construction"
+        notes:
+        - "A perfect construction can be used to describe nouns adjectivally."
+        examples:
+        - "bhiza raka-ngwara"
+
+    u-Comparison_u-cmpr:
+      applies: {u-Comparison: u-cmpr}
+      patterns:
+      - title: "Suffixation"
+        pattern: "adjective stem + sa"
+        examples:
+        - "muti murefusa"
+      - title: "Reduplication"
+        pattern: "reduplication of the adjective stem"
+        examples:
+        - "chibage chidikidiki"
+    u-Gender_u-bantu1-23:
+      applies: {u-Gender: u-bantu1-23}
+      formparadigms:
+      - title: "Class 5 (sg.) / Class 9 (sg.) / Class 10 (pl.) stem alternations"
+        formparadigm:
+        - features: {x-NounClass: x-5_sg}
+          form: "guru"
+        - features: {x-NounClass: x-9_sg}
+          form: "huru"
+        - features: {x-NounClass: x-10_pl}
+          form: "huru"
+        - features: {x-NounClass: x-5_sg}
+          form: "hono"
+        - features: {x-NounClass: x-9_sg}
+          form: "hono"
+        - features: {x-NounClass: x-10_pl}
+          form: "hono"
+        - features: {x-NounClass: x-5_sg}
+          form: "gadzi"
+        - features: {x-NounClass: x-9_sg}
+          form: "hadzi"
+        - features: {x-NounClass: x-10_pl}
+          form: "hadzi"
+        - features: {x-NounClass: x-5_sg}
+          form: "mhenyu"
+        - features: {x-NounClass: x-9_sg}
+          form: "mhenyu"
+        - features: {x-NounClass: x-10_pl}
+          form: "mhenyu"
+        - features: {x-NounClass: x-5_sg}
+          form: "jena"
+        - features: {x-NounClass: x-9_sg}
+          form: "chena"
+        - features: {x-NounClass: x-10_pl}
+          form: "chena"
+        - features: {x-NounClass: x-5_sg}
+          form: "dema"
+        - features: {x-NounClass: x-9_sg}
+          form: "nhema"
+        - features: {x-NounClass: x-10_pl}
+          form: "nhema"
+        - features: {x-NounClass: x-5_sg}
+          form: "dzvuku"
+        - features: {x-NounClass: x-9_sg}
+          form: "tsvuku"
+        - features: {x-NounClass: x-10_pl}
+          form: "dzvuku"
+        - features: {x-NounClass: x-5_sg}
+          form: "idzwa"
+        - features: {x-NounClass: x-9_sg}
+          form: "itsva"
+        - features: {x-NounClass: x-10_pl}
+          form: "itsva"
+        notes:
+        - "Some true adjectives show special forms in classes without their own prefix (illustrated for class 5/9/10)."
+
+    u-Part-of-Speech_u-n:
+      applies: {u-Part-of-Speech: u-n}
+      patterns:
+      - pattern: "E-possessive syllable + noun"
+        examples:
+        - "Ndiye munhu we ruremekedzo."
+
+    u-Part-of-Speech_u-n__u-Polarity_u-neg:
+      applies: {u-Part-of-Speech: u-n, u-Polarity: u-neg}
+      patterns:
+      - pattern: "marker + si + na + noun"
+        notes:
+        - "Negation is formed with the negation of ‘have’."
+        examples:
+        - "Ndiye munhu asina ruremekedzo."
+
+    u-Part-of-Speech_u-v:
+      applies: {u-Part-of-Speech: u-v}
+      patterns:
+      - pattern: "zva + ka + verb stem"
+        examples:
+        - "munhu wakataura"
+      - pattern: "marker + si + na + infinitive"
+        notes:
+        - "Negation follows the pattern of nominal adjectives, but the noun is replaced by the substantivized verb (infinitive)."
+        examples:
+        - "munhu asina kutaura"
+

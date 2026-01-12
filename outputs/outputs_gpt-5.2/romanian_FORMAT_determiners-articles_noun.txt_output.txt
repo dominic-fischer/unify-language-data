@@ -1,0 +1,169 @@
+Determiner:
+  Features:
+    u-Definiteness: [u-def, u-indf]
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-gen, u-dat]
+
+  Rules:
+    u-Definiteness_u-def:
+      applies: {u-Definiteness: u-def}
+      notes:
+      - "Romanian definite articles are usually enclitic (attached to the end of the noun) rather than placed before it."
+      - "With adjective + noun order (used for emphasis), the definite article and any case marker are applied to the adjective instead of the noun."
+      endingparadigms:
+      - title: "Nominative/Accusative definite enclitics"
+        endingparadigm:
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-nom}
+          ending: "-ul / -l / -le"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-acc}
+          ending: "-ul / -l / -le"
+        - features: {u-Gender: u-masc, u-Number: u-pl, u-Case: u-nom}
+          ending: "-i"
+        - features: {u-Gender: u-masc, u-Number: u-pl, u-Case: u-acc}
+          ending: "-i"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-nom}
+          ending: "-a"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-acc}
+          ending: "-a"
+        - features: {u-Gender: u-fem, u-Number: u-pl, u-Case: u-nom}
+          ending: "-le"
+        - features: {u-Gender: u-fem, u-Number: u-pl, u-Case: u-acc}
+          ending: "-le"
+        examples:
+        - "codru – codrul"
+        - "frate – fratele"
+        - "tată – tatăl"
+        - "casă – casa"
+        - "floare – floarea"
+        - "cutie – cutia"
+        - "stea – steaua"
+      - title: "Genitive/Dative definite enclitics"
+        endingparadigm:
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-gen}
+          ending: "-lui"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-dat}
+          ending: "-lui"
+        - features: {u-Gender: u-masc, u-Number: u-pl, u-Case: u-gen}
+          ending: "-lor"
+        - features: {u-Gender: u-masc, u-Number: u-pl, u-Case: u-dat}
+          ending: "-lor"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-gen}
+          ending: "-ei"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-dat}
+          ending: "-ei"
+        - features: {u-Gender: u-fem, u-Number: u-pl, u-Case: u-gen}
+          ending: "-lor"
+        - features: {u-Gender: u-fem, u-Number: u-pl, u-Case: u-dat}
+          ending: "-lor"
+        examples:
+        - "studentului bun"
+        - "bunului student"
+
+    u-Definiteness_u-indf:
+      applies: {u-Definiteness: u-indf}
+      notes:
+      - "The Romanian indefinite article is placed before the noun."
+      - "Nouns in the vocative case cannot be determined by an indefinite article."
+      - "With adjective + noun order (used for emphasis), the indefinite article and any case marker are applied to the adjective instead of the noun."
+      formparadigms:
+      - title: "Indefinite article forms"
+        formparadigm:
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-nom}
+          form: "un"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-acc}
+          form: "un"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-gen}
+          form: "unui"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-dat}
+          form: "unui"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-nom}
+          form: "o"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-acc}
+          form: "o"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-gen}
+          form: "unei"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-dat}
+          form: "unei"
+        - features: {u-Gender: u-masc, u-Number: u-pl, u-Case: u-nom}
+          form: "niște"
+        - features: {u-Gender: u-masc, u-Number: u-pl, u-Case: u-acc}
+          form: "niște"
+        - features: {u-Gender: u-fem, u-Number: u-pl, u-Case: u-nom}
+          form: "niște"
+        - features: {u-Gender: u-fem, u-Number: u-pl, u-Case: u-acc}
+          form: "niște"
+        - features: {u-Number: u-pl, u-Case: u-gen}
+          form: "unor"
+        - features: {u-Number: u-pl, u-Case: u-dat}
+          form: "unor"
+        examples:
+        - "un copil – niște copii"
+        - "unui copil – unor copii"
+        - "un loc – niște locuri"
+        - "unui loc – unor locuri"
+        - "o masă – niște mese"
+        - "unei mese – unor mese"
+        - "un student bun"
+        - "unui student bun"
+        - "un bun student"
+        - "unui bun student"
+
+    GenitivalArticle:
+      applies: {}
+      notes:
+      - "In some contexts a noun in the genitive requires a genitival (possessive) article."
+      formparadigms:
+      - title: "Genitival article (used with genitive noun)"
+        formparadigm:
+        - features: {u-Gender: u-masc, u-Number: u-sg}
+          form: "al"
+        - features: {u-Gender: u-neut, u-Number: u-sg}
+          form: "al"
+        - features: {u-Gender: u-fem, u-Number: u-sg}
+          form: "a"
+        - features: {u-Gender: u-masc, u-Number: u-pl}
+          form: "ai"
+        - features: {u-Gender: u-neut, u-Number: u-pl}
+          form: "ale"
+        - features: {u-Gender: u-fem, u-Number: u-pl}
+          form: "ale"
+        examples:
+        - "o hartă a Chinei"
+      - title: "Genitive/Dative forms (used only with a possessive pronoun)"
+        notes:
+        - "These forms are described as rarely used (especially the singular ones)."
+        formparadigm:
+        - features: {u-Gender: u-masc, u-Number: u-sg}
+          form: "alui"
+        - features: {u-Gender: u-fem, u-Number: u-sg}
+          form: "alei"
+        - features: {u-Number: u-pl}
+          form: "alor"
+
+    DemonstrativeArticle:
+      applies: {}
+      notes:
+      - "The demonstrative article is used to emphasize the relative superlative of adjectives."
+      formparadigms:
+      - formparadigm:
+        - features: {u-Gender: u-masc, u-Number: u-sg}
+          form: "cel"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-gen}
+          form: "celui"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-dat}
+          form: "celui"
+        - features: {u-Gender: u-fem, u-Number: u-sg}
+          form: "cea"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-gen}
+          form: "celei"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-dat}
+          form: "celei"
+        - features: {u-Gender: u-masc, u-Number: u-pl}
+          form: "cei"
+        - features: {u-Gender: u-fem, u-Number: u-pl}
+          form: "cele"
+        - features: {u-Number: u-pl, u-Case: u-gen}
+          form: "celor"
+        - features: {u-Number: u-pl, u-Case: u-dat}
+          form: "celor"

@@ -1,0 +1,36 @@
+Adverbs:
+  Features:
+    u-Part-of-Speech: [u-adv, u-adj]
+    u-Comparison: [u-sprl]
+
+  Rules:
+    u-Part-of-Speech_u-adj:
+      applies: {u-Part-of-Speech: u-adj}
+      patterns:
+      - pattern: "feminine singular adjective form + mente"
+        examples:
+        - "lenta → lentamente"
+      - pattern: "adjectives ending in -re or -le: drop final -e + mente"
+        examples:
+        - "facile → facilmente"
+        - "particolare → particolarmente"
+
+    u-Comparison_u-sprl:
+      applies: {u-Comparison: u-sprl}
+      patterns:
+      - pattern: "absolute superlative adjective form + mente"
+        examples:
+        - "lentissimamente"
+        - "facilissimamente"
+
+    u-Part-of-Speech_u-adv:
+      applies: {u-Part-of-Speech: u-adv}
+      patterns:
+      - pattern: "lexical adverb (mostly derived from Latin)"
+        examples:
+        - "quando"
+        - "dove"
+        - "come"
+        - "perché"
+        - "mai"
+        - "sempre"

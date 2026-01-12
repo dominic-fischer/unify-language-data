@@ -1,0 +1,51 @@
+Conditionals:
+  Features:
+    u-Tense: [u-prs, u-pst]
+    u-Mood: [u-cond, u-pot]
+    u-Polarity:
+    - u-neg
+
+  Rules:
+    u-Mood_u-cond:
+      applies: {u-Mood: u-cond}
+      patterns:
+      - pattern: "Conditional marker -ka- combined with tense markers"
+        notes:
+        - "The conditional is characterized by the syllable -ka-, which can combine with different tense syllables."
+      - pattern: "(Kana) + conditional clause with -ka-"
+        examples:
+        - "(Kana) ndi-ka-siya ndi-no/cha/nga-rasika."
+      - pattern: "In affirmative clauses, -chi- can be used instead of -ka-"
+        notes:
+        - "Alternative positive conditional marker: -chi- instead of -ka-."
+
+    u-Tense_u-prs:
+      applies: {u-Tense: u-prs}
+      patterns:
+      - pattern: "(Kana) + ndi-ka- + VERB, MAIN-CLAUSE verb may be marked with -no- / -cha- / -nga-"
+        examples:
+        - "(Kana) ndi-ka-siya ndi-no/cha/nga-rasika."
+
+    u-Polarity_u-neg__u-Tense_u-prs:
+      applies: {u-Tense: u-prs, u-Polarity: u-neg}
+      patterns:
+      - pattern: "Insert -sa- after -ka- for negation"
+        examples:
+        - "Ndi-ka-sa-siya ha-ndi-goni kurasika."
+
+    u-Mood_u-pot__u-Tense_u-pst:
+      applies: {u-Tense: u-pst, u-Mood: u-pot}
+      patterns:
+      - pattern: "Past conditional uses auxiliary dai and potentiality infix -nga-"
+        notes:
+        - "In the past, the conditional uses the auxiliary verb dai and -nga- (infix for potentiality)."
+      - pattern: "Dai + perfect form, then MAIN CLAUSE with -nga-dai + perfect"
+        examples:
+        - "Dai nda-ka-zvara mwana, ndi-nga-dai nda-ka-fara."
+
+    u-Polarity_u-neg__u-Tense_u-pst:
+      applies: {u-Tense: u-pst, u-Polarity: u-neg}
+      patterns:
+      - pattern: "Negation uses auxiliary construction with sina ('not have')"
+        examples:
+        - "Dai ndi-sina kuva no-mwana, ndi-nga-dai ndi-sina kufara."

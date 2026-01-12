@@ -1,0 +1,20 @@
+DerivationalMorphology:
+  Features:
+    u-Part-of-Speech:
+    - u-n
+    u-Gender:
+    - u-bantu1-23
+
+  Rules:
+    u-Gender_u-bantu1-23__u-Part-of-Speech_u-n:
+      applies: {u-Gender: u-bantu1-23, u-Part-of-Speech: u-n}
+      patterns:
+      - pattern: "ka- (SG) / tu-~ti- (PL) + _stem_"
+        notes:
+        - "Diminutive formation often uses an additional, relatively consistent noun class: ka- for singular and tu-/ti- for plural."
+      - pattern: "Augmentative or diminutive syllable attaches to _stem_ OR to an already existing prefix"
+        notes:
+        - "Diminutive/augmentative material may be attached either to the noun stem or to an already present class prefix."
+      - pattern: "Plural can be marked twice: diminutive/augmentative class prefix pluralized AND regular class prefix pluralized"
+        notes:
+        - "In some languages, plural formation may be doubled due to both diminutive/augmentative and regular class prefixes being put into the plural."

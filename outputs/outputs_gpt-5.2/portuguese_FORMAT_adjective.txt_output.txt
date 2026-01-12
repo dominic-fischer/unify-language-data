@@ -1,0 +1,414 @@
+Adjective:
+  Features:
+    u-Number:
+    - u-sg
+    - u-pl
+    u-Gender:
+    - u-masc
+    - u-fem
+    u-Comparison:
+    - u-cmpr
+    - u-sprl
+
+  Rules:
+    x-Position_default:
+      applies: {}
+      patterns:
+      - pattern: "N + Adj"
+        notes:
+        - "Adjectives normally follow the nouns that they modify."
+        examples:
+        - "casa branca"
+        - "campos verdes"
+      - pattern: "Adj + N"
+        notes:
+        - "Reverse order is generally limited to poetic language."
+        - "Some adjectives (e.g. bom, belo, grande) often precede the noun."
+        - "Some adjectives can change meaning depending on position."
+        examples:
+        - "branca casa"
+        - "verdes campos"
+        - "um grande homem"
+        - "um homem grande"
+
+    x-Agreement_gender-number:
+      applies: {}
+      formparadigms:
+      - title: "-o / -a adjectives"
+        formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "branco"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "branca"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "brancos"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "brancas"
+        examples:
+        - "branco / branca / brancos / brancas"
+      - title: "-ês / -esa adjectives"
+        formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "francês"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "francesa"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "franceses"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "francesas"
+        examples:
+        - "francês / francesa / franceses / francesas"
+      - title: "motriz pattern"
+        formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "motor"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "motriz"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "motores"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "motrizes"
+        examples:
+        - "motor / motriz / motores / motrizes"
+      - title: "-ão / -ona adjectives"
+        formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "grandão"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "grandona"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "grandões"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "grandonas"
+        examples:
+        - "grandão / grandona / grandões / grandonas"
+      - title: "-dor / -dora adjectives"
+        formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "conservador"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "conservadora"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "conservadores"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "conservadoras"
+        examples:
+        - "conservador / conservadora / conservadores / conservadoras"
+      - title: "-eu / -eia adjectives"
+        notes:
+        - "A feminine adjective ending in -eia may correspond either to a masculine adjective ending in -eu (e.g. europeu, europeia) or to one ending in -eio (e.g. feio, feia)."
+        formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "europeu"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "europeia"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "europeus"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "europeias"
+        examples:
+        - "europeu / europeia / europeus / europeias"
+      - title: "invariable across gender; plural in -s"
+        formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "verde"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "verde"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "verdes"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "verdes"
+        examples:
+        - "verde / verdes"
+      - title: "invariable across gender; plural in -es"
+        formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "feliz"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "feliz"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "felizes"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "felizes"
+        examples:
+        - "feliz / felizes"
+      - title: "invariable across gender; plural in -ais"
+        formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "central"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "central"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "centrais"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "centrais"
+        examples:
+        - "central / centrais"
+      - title: "invariable across gender; plural in -is"
+        formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "civil"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "civil"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "civis"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "civis"
+        examples:
+        - "civil / civis"
+      - title: "invariable across gender; plural in -eis"
+        formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "fácil"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "fácil"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "fáceis"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "fáceis"
+        examples:
+        - "fácil / fáceis"
+      - title: "invariable across gender; plural in -uis"
+        formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "azul"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "azul"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "azuis"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "azuis"
+        examples:
+        - "azul / azuis"
+
+    x-Agreement_invariable:
+      applies: {}
+      formparadigms:
+      - notes:
+        - "Some adjectives are invariable, usually ones whose singular form ending is -s, and a few colour adjectives (generally compound ones)."
+        formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "simples"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "simples"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "simples"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "simples"
+        examples:
+        - "simples (sg/pl; masc/fem)"
+      - formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "reles"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "reles"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "reles"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "reles"
+        examples:
+        - "reles (sg/pl; masc/fem)"
+      - formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "azul-claro"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "azul-claro"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "azul-claro"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "azul-claro"
+        examples:
+        - "azul-claro (invariable)"
+      - formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "laranja"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "laranja"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "laranja"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "laranja"
+        examples:
+        - "laranja (invariable)"
+      - formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "verde-oliva"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "verde-oliva"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "verde-oliva"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "verde-oliva"
+        examples:
+        - "verde-oliva (invariable)"
+      - formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "ultravioleta"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "ultravioleta"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "ultravioleta"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "ultravioleta"
+        examples:
+        - "ultravioleta (invariable)"
+
+    x-Agreement_irregular_bom-mau:
+      applies: {}
+      formparadigms:
+      - title: "bom"
+        formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "bom"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "boa"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "bons"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "boas"
+        examples:
+        - "bom / boa / bons / boas"
+      - title: "mau"
+        formparadigm:
+        - features: {u-Number: u-sg, u-Gender: u-masc}
+          form: "mau"
+        - features: {u-Number: u-sg, u-Gender: u-fem}
+          form: "má"
+        - features: {u-Number: u-pl, u-Gender: u-masc}
+          form: "maus"
+        - features: {u-Number: u-pl, u-Gender: u-fem}
+          form: "más"
+        examples:
+        - "mau / má / maus / más"
+
+    u-Comparison_u-cmpr:
+      applies: {u-Comparison: u-cmpr}
+      patterns:
+      - pattern: "mais + Adj"
+        notes:
+        - "Comparison of adjectives is regularly expressed analytically with the adverb mais."
+        examples:
+        - "mais alto (do) que"
+        - "mais belo"
+        - "mais caro"
+
+    u-Comparison_u-sprl:
+      applies: {u-Comparison: u-sprl}
+      patterns:
+      - pattern: "o mais + Adj"
+        examples:
+        - "o mais alto"
+        - "o mais belo"
+        - "o mais caro"
+      - pattern: "suppletive superlative (definite): o + comparative form"
+        examples:
+        - "o melhor"
+        - "o pior"
+        - "o menor"
+        - "o maior"
+
+    x-Comparison_absolute-superlative:
+      applies: {}
+      patterns:
+      - pattern: "muito + Adj"
+        notes:
+        - "Absolute superlative (also called elative) enhances meaning without explicit comparison; can be analytic."
+        examples:
+        - "muito lindo"
+        - "muito belo"
+        - "muito caro"
+      - pattern: "synthetic absolute superlative form"
+        notes:
+        - "Absolute superlative can be synthetic."
+        examples:
+        - "lindíssimo"
+        - "belíssimo"
+        - "caríssimo"
+      - pattern: "suppletive absolute superlative forms"
+        examples:
+        - "ótimo"
+        - "péssimo"
+        - "mínimo"
+        - "máximo"
+
+    x-Comparison_suppletion:
+      applies: {}
+      formparadigms:
+      - title: "bom"
+        formparadigm:
+        - features: {}
+          form: "melhor"
+        - features: {}
+          form: "ótimo"
+        - features: {}
+          form: "o melhor"
+        notes:
+        - "Some adjectives have suppletive comparative/superlative forms."
+        examples:
+        - "bom → melhor; ótimo; o melhor"
+      - title: "mau"
+        formparadigm:
+        - features: {}
+          form: "pior"
+        - features: {}
+          form: "péssimo"
+        - features: {}
+          form: "o pior"
+        examples:
+        - "mau → pior; péssimo; o pior"
+      - title: "pequeno"
+        formparadigm:
+        - features: {}
+          form: "menor"
+        - features: {}
+          form: "mínimo"
+        - features: {}
+          form: "o menor"
+        examples:
+        - "pequeno → menor; mínimo; o menor"
+      - title: "grande"
+        formparadigm:
+        - features: {}
+          form: "maior"
+        - features: {}
+          form: "máximo"
+        - features: {}
+          form: "o maior"
+        examples:
+        - "grande → maior; máximo; o maior"
+
+    x-Copula_ser-estar_with-adjectives:
+      applies: {}
+      patterns:
+      - pattern: "ser + Adj"
+        notes:
+        - "Used for characteristic properties."
+        - "With adjectives of appearance, ser means 'to be'."
+        examples:
+        - "Sou tonta"
+        - "É sujo"
+        - "É aberta"
+        - "Ele é triste"
+        - "Como és? / Como você é?"
+        - "Que linda ela é!"
+        - "Não sou católico"
+        - "És português"
+        - "É homem"
+        - "Somos espertos"
+      - pattern: "estar + Adj"
+        notes:
+        - "Used for states."
+        - "With adjectives of appearance, estar means 'to look'."
+        - "States of life and death are expressed with estar."
+        - "Católico with estar can be figurative."
+        examples:
+        - "Estou tonta"
+        - "Está sujo"
+        - "Está aberta"
+        - "(Ele) Está triste"
+        - "Como estás? / Como você está?"
+        - "Que linda ela está!"
+        - "Está vivo"
+        - "Está morto"
+        - "Eu não estou muito católico"
+        - "O tempo hoje não está muito católico."

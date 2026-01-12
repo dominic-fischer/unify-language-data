@@ -1,0 +1,121 @@
+Pronoun:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Gender: [u-bantu1-23]
+    u-Number: [u-sg, u-pl]
+    u-Deixis: [u-prox, u-remt]
+    x-Pronoun-type: [x-pers, x-dem, x-poss, x-int, x-rel]
+
+  Rules:
+    x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers}
+      notes:
+      - "Swahili personal pronouns have no case inflection; the same form is used for subject and object."
+      - "Two main forms are described: an independent form and a combining stem used with words such as na 'with' and ndi- 'it is'."
+      - "The 2PL independent form nyinyi may alternatively appear as ninyi."
+      formparadigms:
+      - title: "Independent forms"
+        formparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "mimi"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "wewe"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, form: "yeye"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "sisi"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "nyinyi"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "ninyi"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "wao"}
+      - title: "Combining stems (suffixes)"
+        formparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "-mi"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "-we"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, form: "-ye"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "-si"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "-nyi"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "-o"}
+
+    x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss}
+      notes:
+      - "Possessive (genitive) pronoun stems are used with a genitive prefix corresponding to the noun class of the possessed noun."
+      formparadigms:
+      - title: "Genitive suffixes / stems"
+        formparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "-angu"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "-ako"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, form: "-ake"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "-etu"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "-enu"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "-ao"}
+
+    x-Pronoun-type_x-dem:
+      applies: {x-Pronoun-type: x-dem}
+      formparadigms:
+      - title: "Demonstratives by noun class (proximal vs. distal)"
+        formparadigm:
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "1", u-Deixis: u-prox}, form: "huyu"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "1", u-Deixis: u-remt}, form: "yule"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "2", u-Deixis: u-prox}, form: "hawa"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "2", u-Deixis: u-remt}, form: "wale"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "3", u-Deixis: u-prox}, form: "huu"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "3", u-Deixis: u-remt}, form: "ule"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "4", u-Deixis: u-prox}, form: "hii"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "4", u-Deixis: u-remt}, form: "ile"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "5", u-Deixis: u-prox}, form: "hili"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "5", u-Deixis: u-remt}, form: "lile"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "6", u-Deixis: u-prox}, form: "hiya"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "6", u-Deixis: u-remt}, form: "yale"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "7", u-Deixis: u-prox}, form: "hiki"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "7", u-Deixis: u-remt}, form: "kile"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "8", u-Deixis: u-prox}, form: "hivi"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "8", u-Deixis: u-remt}, form: "vile"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "9", u-Deixis: u-prox}, form: "hii"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "9", u-Deixis: u-remt}, form: "ile"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "10", u-Deixis: u-prox}, form: "hizi"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "10", u-Deixis: u-remt}, form: "zile"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "11+14", u-Deixis: u-prox}, form: "huu"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "11+14", u-Deixis: u-remt}, form: "ule"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "15", u-Deixis: u-prox}, form: "huku"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "15", u-Deixis: u-remt}, form: "kule"}
+
+    x-Pronoun-type_x-int:
+      applies: {x-Pronoun-type: x-int}
+      notes:
+      - "The 'which?' interrogative is formed using the class marker plus -pi; class 1/2 singular is an exception: yupi?"
+      formparadigms:
+      - title: "'Which?' forms by noun class"
+        formparadigm:
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "1", x-PronounSubtype: "which"}, form: "yupi?"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "2", x-PronounSubtype: "which"}, form: "wapi?"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "3", x-PronounSubtype: "which"}, form: "upi?"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "4", x-PronounSubtype: "which"}, form: "ipi?"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "5", x-PronounSubtype: "which"}, form: "lipi?"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "6", x-PronounSubtype: "which"}, form: "yapi?"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "7", x-PronounSubtype: "which"}, form: "kipi?"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "8", x-PronounSubtype: "which"}, form: "vipi?"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "9", x-PronounSubtype: "which"}, form: "ipi?"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "10", x-PronounSubtype: "which"}, form: "zipi?"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "11+14", x-PronounSubtype: "which"}, form: "upi?"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "15", x-PronounSubtype: "which"}, form: "kupi-"}
+
+    x-Pronoun-type_x-rel:
+      applies: {x-Pronoun-type: x-rel}
+      notes:
+      - "Independent relative pronouns are formed by attaching the class reference pronoun to amba-."
+      formparadigms:
+      - title: "Relative pronouns (amba- + reference pronoun)"
+        formparadigm:
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "1"}, form: "ambaye"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "2"}, form: "ambao"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "3"}, form: "ambao"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "4"}, form: "ambayo"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "5"}, form: "ambalo"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "6"}, form: "ambayo"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "7"}, form: "ambacho"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "8"}, form: "ambavyo"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "9"}, form: "ambayo"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "10"}, form: "ambazo"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "11"}, form: "ambao"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "14"}, form: "ambao"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "15"}, form: "ambako"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "16"}, form: "ambapo"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "17"}, form: "ambako"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "18"}, form: "ambamo"}

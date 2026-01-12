@@ -1,0 +1,56 @@
+Present:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Number: [u-sg, u-pl]
+    u-Aspect: [u-ipfv, u-hab, u-iter, u-prog]
+
+  Rules:
+    Present:
+      title: "Present"
+      applies: {u-Aspect: [u-ipfv, u-hab, u-iter]}
+      endingparadigms:
+      - endingparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, ending: "e"}     # ich mache
+        - {features: {u-Person: u-2, u-Number: u-sg}, ending: "st"}    # du machst
+        - {features: {u-Person: u-3, u-Number: u-sg}, ending: "t"}     # er macht
+        - {features: {u-Person: u-1, u-Number: u-pl}, ending: "en"}    # wir machen
+        - {features: {u-Person: u-2, u-Number: u-pl}, ending: "t"}     # ihr macht
+        - {features: {u-Person: u-3, u-Number: u-pl}, ending: "en"}    # sie machen
+        title: "Weak Verbclass"
+        examples:
+        - "lemma: 'machen', stem: 'mach-'"
+      - title: "Strong Verbclass" 
+        endingparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, ending: "e"}     # ich sehe
+        - {features: {u-Person: u-2, u-Number: u-sg}, ending: "st"}    # du siehst
+        - {features: {u-Person: u-3, u-Number: u-sg}, ending: "t"}     # er sieht
+        - {features: {u-Person: u-1, u-Number: u-pl}, ending: "en"}    # wir sehen
+        - {features: {u-Person: u-2, u-Number: u-pl}, ending: "t"}     # ihr seht
+        - {features: {u-Person: u-3, u-Number: u-pl}, ending: "en"}    # sie sehen
+        notes: 
+        - "Stem vowel alternation occurs in 2sg and 3sg"
+        examples:
+        - "lemma: 'sehen', stem: 'seh-', altered stem: 'sieh-'"
+        - "u-ipfv: Ich lese gerade ein Buch."
+        - "u-hab: Er geht jeden Tag zur Arbeit."
+        - "u-iter: Er ruft immer wieder an."
+      patterns:
+      - pattern: "suppletive endings"
+        title: "Irregular Verbclass"
+        examples:
+        - "sein → ich bin, du bist, er ist"
+        - "haben → ich habe, du hast, er hat"
+        - "wissen → ich weiß, du weißt, er weiß"
+      notes: 
+      - "The simple present is the unmarked tense for present reference. It encodes ongoing situations (u-ipfv), habitual actions (u-hab), and repeated or iterative actions (u-iter). It can also be used for near-future reference in context."
+
+    u-Aspect_u-prog:
+      applies: {u-Aspect: u-prog}
+      patterns: 
+      - pattern: "{sein (finite)} + am + Infinitiv"
+        examples:
+        - "ich bin am Arbeiten"
+        - "er ist am Lesen"
+        notes: 
+        - "The 'am'-progressive is a colloquial construction used mainly in spoken German. It highlights that an action is ongoing (u-prog), and often overlaps functionally with the simple present as an imperfective marker (u-ipfv). Less common in endingal registers."
+      

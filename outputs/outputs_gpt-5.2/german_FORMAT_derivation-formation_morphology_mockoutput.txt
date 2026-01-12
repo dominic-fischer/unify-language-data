@@ -1,0 +1,125 @@
+DerivationalMorphology:
+  Features:
+    u-Part-of-Speech:
+    - u-adj
+    - u-n
+    - u-v
+    u-Gender:
+    - u-fem
+    - u-neut
+
+  Rules:
+    u-Gender_u-fem__u-Part-of-Speech_u-n:
+      applies: {u-Gender: u-fem, u-Part-of-Speech: u-n}
+      patterns:
+      - pattern: "_stem_ + heit"
+        examples:
+        - "schön → Schönheit"
+        notes: 
+        - "forms abstract nouns denoting qualities"
+      - pattern: "_stem_ + keit"
+        examples:
+        - "tapfer → Tapferkeit"
+        notes: 
+        - "forms abstract nouns denoting qualities"
+      - pattern: "_stem_ + ung"
+        examples:
+        - "lesen → Lesung"
+        notes: 
+        - "action/result nouns"
+
+    u-Gender_u-neut__u-Part-of-Speech_u-n:
+      applies: {u-Gender: u-neut, u-Part-of-Speech: u-n}
+      patterns:
+      - pattern: "_stem_ + chen"
+        examples:
+        - "Hund → Hündchen"
+        notes: 
+        - "diminutive, always neuter, often umlaut"
+      - pattern: "_stem_ + lein"
+        examples:
+        - "Fräulein"
+        notes: 
+        - "diminutive, always neuter"
+      - pattern: "Verb → Noun"
+        examples:
+        - "laufen → das Laufen"
+        notes: 
+        - "gerund-like; infinitive as neuter noun"
+      - pattern: "Adjective → Noun"
+        examples:
+        - "grün → das Grün"
+        notes: 
+        - "abstract quality, substance, or color"
+
+    u-Part-of-Speech_u-v:
+      applies: {u-Part-of-Speech: u-v}
+      patterns:
+      - pattern: "be- + _stem_"
+        examples:
+        - "sprechen → besprechen"
+        notes: 
+        - "adds transitivity, valency"
+      - pattern: "ver- + _stem_"
+        examples:
+        - "kaufen → verkaufen"
+        notes: 
+        - "change, error, destruction, completion"
+      - pattern: "zer- + _stem_"
+        examples:
+        - "brechen → zerbrechen"
+        notes: 
+        - "destruction/disintegration"
+      - pattern: "miss- + _stem_"
+        examples:
+        - "verstehen → missverstehen"
+        notes: 
+        - "negation/mis- prefix"
+      - pattern: "_stem_ + ieren"
+        examples:
+        - "passen → passieren"
+        notes: 
+        - "productive for Latinate stems"
+      - pattern: "_stem_ + isieren"
+        examples:
+        - "modern → modernisieren"
+        notes: 
+        - "productive for Latinate stems"
+
+    u-Part-of-Speech_u-adj:
+      applies: {u-Part-of-Speech: u-adj}
+      patterns:
+      - pattern: "un- + _stem_"
+        examples:
+        - "glücklich → unglücklich"
+        notes: 
+        - "productive negation prefix"
+      - pattern: "in-/im-/ir-/il- + _stem_"
+        examples:
+        - "rational → irrational"
+        notes: 
+        - "Latinate negation prefix; assimilation to following consonant"
+      - pattern: "_stem_ + lich"
+        examples:
+        - "Kind → kindlich"
+        notes: 
+        - "'like' or 'characteristic of'"
+      - pattern: "_stem_ + bar"
+        examples:
+        - "essen → essbar"
+        notes: 
+        - "possibility or capability ('-able')"
+      - pattern: "_stem_ + ig"
+        examples:
+        - "Sonne → sonnig"
+        notes: 
+        - "possession or abundance"
+
+    u-Part-of-Speech_u-n:
+      applies: {u-Part-of-Speech: u-n}
+      patterns: 
+      - pattern: "Noun + Noun"
+        examples:
+        - "Tisch + Decke → Tischdecke"
+        notes: 
+        - "head-final; rightmost noun determines gender and meaning"

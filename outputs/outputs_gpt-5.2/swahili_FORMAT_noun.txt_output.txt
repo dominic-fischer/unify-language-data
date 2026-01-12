@@ -1,0 +1,55 @@
+Noun:
+  Features:
+    u-Gender: [u-bantu1-23]
+    u-Number: [u-sg, u-pl]
+
+  Rules:
+    u-Gender_u-bantu1-23:
+      applies: {u-Gender: u-bantu1-23}
+      notes:
+      - "Augmentatives use class 5/6 morphology (sg ji- or Ø; pl ma-)."
+      formparadigms:
+      - title: "From class 1/2"
+        formparadigm:
+        - features: {u-Number: u-sg}
+          form: "ji- + stem"
+        - features: {u-Number: u-pl}
+          form: "ma-ji- + stem"
+        examples:
+        - "mtu/watu → ji-tu / ma-ji-tu"
+      - title: "From class 5/6"
+        formparadigm:
+        - features: {u-Number: u-sg}
+          form: "ji- + stem"
+        - features: {u-Number: u-pl}
+          form: "ma-ji- + stem"
+        examples:
+        - "kombe/makombe → ji-kombe / ma-ji-kombe"
+      - title: "From class 7/8"
+        notes:
+        - "Class prefix is removed before augmentative prefixes."
+        formparadigm:
+        - features: {u-Number: u-sg}
+          form: "stem (class prefix removed)"
+        - features: {u-Number: u-pl}
+          form: "ma- + stem"
+        examples:
+        - "kikapu/vikapu → kapu / ma-kapu"
+      - title: "From class 9/10"
+        notes:
+        - "Class prefix is removed before augmentative prefixes."
+        formparadigm:
+        - features: {u-Number: u-sg}
+          form: "stem (class prefix removed)"
+        - features: {u-Number: u-pl}
+          form: "ma- + stem"
+        examples:
+        - "mfuko → fuko / ma-fuko"
+      - title: "From class 11+14"
+        formparadigm:
+        - features: {u-Number: u-sg}
+          form: "ji- + stem"
+        - features: {u-Number: u-pl}
+          form: "ma-ji- + stem"
+        examples:
+        - "uwanja/nyanja → ji-wanja / ma-ji-wanja"

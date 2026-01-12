@@ -1,0 +1,61 @@
+Subjunctive:
+  Features:
+    u-Mood: [u-sbjv]
+    u-Polarity: [u-pos, u-neg]
+  Rules:
+    u-Mood_u-sbjv:
+      applies: {u-Mood: u-sbjv}
+      patterns:
+      - pattern: "[SUBJ](ØTAM)___e"
+        title: "Positive subjunctive (verbs ending in -a)"
+        notes:
+        - "Formed by the lack of any Tense-Aspect-Mood prefix and the change of final -a to -e."
+        - "Used for polite requests and wishes, after verbs of wishing/wanting/requesting, and after 'ili' (so that/in order that)."
+        examples:
+        - "Tafadhali (u)nipe mkate."
+        - "Tungependa uje nyumbani kwetu."
+        - "Tunaondoka leo (ili) tufike huko karibuni."
+        - "Aende."
+        - "Nile."
+        - "Uandike."
+        - "Tusahau."
+        - "Nilimwambia aende."
+        - "Tutawaomba wakae."
+        - "Ninataka uje."
+        - "(Ni) lazima ulale."
+        - "Utoke."
+      - pattern: "[SUBJ](ØTAM)___"
+        title: "Positive subjunctive (loan verbs not ending in -a)"
+        notes:
+        - "Loan verbs which do not end in -a do not change the final vowel; the subjunctive is made by omitting any tense marker."
+      - pattern: "[SUBJ]si___e"
+        title: "Negative subjunctive (verbs ending in -a)"
+        notes:
+        - "Formed by inserting -si- into the tense slot; the positive subject prefix is used rather than the negative."
+        examples:
+        - "Tunaondoka leo (ili) tusichelewe kufika."
+        - "Asiende."
+        - "Nisile."
+        - "Usiandike."
+        - "Tusisahau."
+        - "Nilimwambia asiende."
+        - "Tutawaomba wasikae."
+        - "Ninataka usije."
+        - "(Ni) lazima usilale."
+        - "Usitoke."
+      - pattern: "[SUBJ]si___"
+        title: "Negative subjunctive (loan verbs not ending in -a)"
+        notes:
+        - "For loan verbs not ending in -a, the negative subjunctive is formed by inserting -si- while omitting any tense marker."
+      - pattern: "[SUBJ][OBJ](ØTAM)___e"
+        title: "Positive subjunctive with object marker (verbs ending in -a)"
+        notes:
+        - "Subjunctive may include an object marker."
+      - pattern: "[SUBJ]si[OBJ]___e"
+        title: "Negative subjunctive with object marker (verbs ending in -a)"
+        notes:
+        - "Negative subjunctive may include an object marker."
+      - pattern: "[SUBJ][OBJ](ØTAM)___"
+        title: "Positive subjunctive with object marker (loan verbs not ending in -a)"
+      - pattern: "[SUBJ]si[OBJ]___"
+        title: "Negative subjunctive with object marker (loan verbs not ending in -a)"

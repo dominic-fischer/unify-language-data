@@ -1,0 +1,109 @@
+Subjunctive:
+  Features:
+    u-Tense:
+    - u-prs
+    - u-pst
+    - u-rmt
+    u-Person: [u-1, u-2, u-3]
+    u-Number: [u-sg, u-pl]
+
+  Rules:
+    u-Tense_u-prs:
+      applies: {u-Tense: u-prs}
+      notes:
+      - "The Italian subjunctive mood is used to indicate cases of desire, express doubt, make impersonal emotional statements, and to talk about impending events."
+      endingparadigms:
+      - title: "Present subjunctive (1st conjugation)"
+        endingparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, ending: "i"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, ending: "i"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, ending: "i"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, ending: "iamo"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, ending: "iate"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, ending: "ino"}
+        examples:
+        - "io parli"
+        - "noi parliamo"
+        - "essi/esse parlino"
+      - title: "Present subjunctive (2nd conjugation)"
+        endingparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, ending: "a"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, ending: "a"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, ending: "a"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, ending: "iamo"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, ending: "iate"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, ending: "ano"}
+        examples:
+        - "io tema"
+        - "noi temiamo"
+        - "essi/esse temano"
+      - title: "Present subjunctive (3rd conjugation)"
+        endingparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, ending: "a"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, ending: "a"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, ending: "a"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, ending: "iamo"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, ending: "iate"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, ending: "ano"}
+        examples:
+        - "io parta"
+        - "noi partiamo"
+        - "essi/esse partano"
+        notes:
+        - "Third conjugation verbs such as capire insert -isc- in the 1st, 2nd, and 3rd persons singular and 3rd person plural of the present."
+
+    u-Tense_u-pst:
+      applies: {u-Tense: u-pst}
+      patterns:
+      - pattern: "Present of avere/essere + past participle"
+        title: "Past (compound) subjunctive"
+        notes:
+        - "Compound forms are made by adding the past participle to the corresponding auxiliary form in the present."
+        examples:
+        - "present of avere/essere + past participle"
+      - pattern: "Imperfect of avere/essere + past participle"
+        title: "Past perfect (compound) subjunctive"
+        notes:
+        - "Compound forms are made by adding the past participle to the corresponding auxiliary form in the imperfect."
+        examples:
+        - "imperfect of avere/essere + past participle"
+
+    u-Tense_u-rmt:
+      applies: {u-Tense: u-rmt}
+      endingparadigms:
+      - title: "Imperfect subjunctive (1st conjugation)"
+        endingparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, ending: "assi"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, ending: "assi"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, ending: "asse"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, ending: "assimo"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, ending: "aste"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, ending: "assero"}
+        examples:
+        - "io parlassi"
+        - "egli/ella parlasse"
+        - "essi/esse parlassero"
+      - title: "Imperfect subjunctive (2nd conjugation)"
+        endingparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, ending: "essi"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, ending: "essi"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, ending: "esse"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, ending: "essimo"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, ending: "este"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, ending: "essero"}
+        examples:
+        - "io temessi"
+        - "egli/ella temesse"
+        - "essi/esse temessero"
+      - title: "Imperfect subjunctive (3rd conjugation)"
+        endingparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, ending: "issi"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, ending: "issi"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, ending: "isse"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, ending: "issimo"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, ending: "iste"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, ending: "issero"}
+        examples:
+        - "io partissi"
+        - "egli/ella partisse"
+        - "essi/esse partissero"

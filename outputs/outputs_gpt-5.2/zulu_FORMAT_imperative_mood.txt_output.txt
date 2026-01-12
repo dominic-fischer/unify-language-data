@@ -1,0 +1,65 @@
+Imperative:
+  Features:
+    u-Person: [u-2]
+    u-Number: [u-sg, u-pl]
+    u-Politeness: [u-infm, u-pol]
+    u-Polarity:
+    - u-pos
+    x-Pronoun-type:
+    - x-pers
+
+  Rules:
+    u-Number_u-sg__u-Person_u-2__u-Polarity_u-pos:
+      applies: {u-Number: u-sg, u-Person: u-2, u-Polarity: u-pos}
+      patterns:
+      - pattern: "verb stem"
+        notes:
+        - "used when addressing one lower-ranking person"
+      - pattern: "(yi- / y- / wo-) + verb stem"
+        notes:
+        - "yi- is used when the verb stem has one syllable"
+        - "y- is used when the verb stem begins with a vowel"
+        - "exception: verb -za 'to come' uses wo- (woza)"
+        examples:
+        - "Yidlá!"
+        - "Yenzá!"
+        - "Síza!"
+
+    u-Number_u-pl__u-Person_u-2__u-Polarity_u-pos:
+      applies: {u-Number: u-pl, u-Person: u-2, u-Polarity: u-pos}
+      patterns:
+      - pattern: "verb stem + -ni"
+        notes:
+        - "used when addressing multiple people"
+        - "also used when addressing a higher-ranking person (respect form)"
+      - pattern: "(yi- / y- / wo-) + verb stem + -ni"
+        notes:
+        - "yi- is used when the verb stem has one syllable"
+        - "y- is used when the verb stem begins with a vowel"
+        - "exception: verb -za 'to come' uses wo- (wozani)"
+        examples:
+        - "Yidláni!"
+        - "Yenzáni!"
+        - "Sizáni!"
+
+    u-Number_u-sg__u-Person_u-2__u-Polarity_u-pos__x-Pronoun-type_x-pers:
+      applies: {u-Number: u-sg, u-Person: u-2, x-Pronoun-type: x-pers, u-Polarity: u-pos}
+      patterns:
+      - pattern: "[object prefix] + verb stem + -e"
+        notes:
+        - "imperative with object prefix"
+        examples:
+        - "Yídle!"
+        - "Kwenze!"
+        - "Ngisize!"
+
+    u-Number_u-pl__u-Person_u-2__u-Polarity_u-pos__x-Pronoun-type_x-pers:
+      applies: {u-Number: u-pl, u-Person: u-2, x-Pronoun-type: x-pers, u-Polarity: u-pos}
+      patterns:
+      - pattern: "[object prefix] + verb stem + -eni"
+        notes:
+        - "imperative with object prefix"
+        examples:
+        - "Yidleni!"
+        - "Kwenzeni!"
+        - "Ngisizeni!"

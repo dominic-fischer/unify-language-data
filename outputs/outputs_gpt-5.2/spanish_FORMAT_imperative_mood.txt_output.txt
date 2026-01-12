@@ -1,0 +1,18 @@
+Imperative:
+  Features:
+    u-Person: [u-2]
+    u-Number: [u-pl]
+
+  Rules:
+    u-Number_u-pl__u-Person_u-2:
+      applies: {u-Number: u-pl, u-Person: u-2}
+      patterns:
+      - pattern: "infinitive (used instead of the normative vosotros imperative; colloquial in Spain)"
+        examples:
+        - "¡Venir! (instead of ¡Venid!)"
+        - "¡Callaros! (instead of ¡Callaos!)"
+        - "¡Iros! (instead of ¡Idos!)"
+        - "¡Marcharos! (instead of ¡Idos!)"
+        notes:
+        - "In Spain, colloquially, the infinitive is used instead of the normative imperative for vosotros."
+        - "This usage is not accepted in the normative language."

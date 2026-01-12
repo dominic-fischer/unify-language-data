@@ -1,0 +1,77 @@
+Imperative:
+  Features:
+    u-Person: [u-2]
+    u-Number: [u-sg, u-pl]
+    u-Polarity:
+    - u-neg
+    u-Aspect:
+    - u-ipfv
+
+  Rules:
+    Base:
+      applies: {}
+      patterns:
+      - pattern: "VERB + (-ni)!"
+        examples:
+        - "thandiza(-ni)!"
+        notes:
+        - "(-ni) is optional; glossed as used for singular/plural in the source."
+
+    Immediate:
+      applies: {}
+      patterns:
+      - pattern: "Ta- + VERB + (-ni)!"
+        examples:
+        - "Ta-thándiza(-ni)!"
+        notes:
+        - "immediate imperative ('help now(, please)!'); (-ni) optional; glossed as used for singular/plural in the source."
+
+    ObjectFronting_SubjunctiveForm:
+      applies: {}
+      patterns:
+      - pattern: "OBJ + VERB- + é + (-ni) + (-ko)"
+        examples:
+        - "Ndi-thándíz-é (-ni) (-ko)"
+        notes:
+        - "when the object is preposed in an imperative, the form is a subjunctive (per source)."
+        - "(-ni) and (-ko) are optional (as shown in the table)."
+
+    Imperative_WithAspectInfixes:
+      applies: {}
+      patterns:
+      - pattern: "ASP- + VERB- + é + (-ni)"
+        title: "GO"
+        examples:
+        - "Ka-thandiz-é (-ni)"
+        notes:
+        - "aspect infix Ka- used with imperative: 'Go and help!'; (-ni) optional."
+      - pattern: "ASP- + VERB- + é + (-ni)"
+        title: "COME"
+        examples:
+        - "Dza-thandiz-é (-ni)"
+        notes:
+        - "aspect infix Dza- used with imperative: 'Come and help!'; (-ni) optional."
+      - pattern: "I- + ASP- + VERB + (-ni)"
+        title: "JUST"
+        examples:
+        - "I-ngo-bwéra (-ni)"
+        notes:
+        - "imperative with I- and asp element ngo-: 'Just help!'; (-ni) optional."
+    u-Polarity_u-neg:
+      applies: {u-Polarity: u-neg}
+      patterns:
+      - pattern: "O/Mu-sa + VERB- + e!"
+        examples:
+        - "O/Mu-sa thandiz-e!"
+        notes:
+        - "negative imperative; glossed as used for singular/plural in the source."
+
+    u-Aspect_u-ipfv:
+      applies: {u-Aspect: u-ipfv}
+      patterns:
+      - pattern: "Zi- + VERB + (-ni)!"
+        examples:
+        - "Zi-thandíza(-ni)!"
+        notes:
+        - "imperfective imperative ('keep on helping!'); (-ni) optional; glossed as used for singular/plural in the source."
+

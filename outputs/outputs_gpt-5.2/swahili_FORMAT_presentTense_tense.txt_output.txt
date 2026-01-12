@@ -1,0 +1,58 @@
+Present:
+  Features:
+    u-Aspect:
+    - u-hab
+    u-Person: [u-1]
+    u-Number: [u-sg]
+    u-Polarity: [u-pos, u-neg]
+    u-Tense:
+    - u-prs
+
+  Rules:
+    u-Polarity_u-pos__u-Tense_u-prs:
+      applies: {u-Tense: u-prs, u-Polarity: u-pos}
+      patterns:
+      - pattern: "[SUBJ]-a-[STEM]"
+        notes:
+        - "Sometimes termed the 'indefinite present' with -a-; in modern standard Swahili it is almost obsolete and rarely used except e.g. in media headlines."
+        - "No great difference in meaning from the -na- form in modern standard Swahili."
+        examples:
+        - "Aenda."
+        - "Na-enda."
+      - pattern: "[SUBJ]-a-[OBJ]-[STEM]"
+        examples:
+        - "Wa-andika."
+      - pattern: "[SUBJ[a]]a___a (common verb); [SUBJ[a]]a___a (short verb); [SUBJ[a]]a___ (loan verb)"
+        notes:
+        - "In the 1sg, ni- may collapse into -na- and become inaudible/unwritten."
+        - "Short verbs keep -ku- in the -na- tense but lose it in the -a- tense: (ni)nakula vs nala."
+        examples:
+        - "Nala."
+        - "(Ni)nakula."
+    u-Aspect_u-hab__u-Polarity_u-pos__u-Tense_u-prs:
+      applies: {u-Tense: u-prs, u-Aspect: u-hab, u-Polarity: u-pos}
+      patterns:
+      - pattern: "hu-[STEM]"
+        notes:
+        - "Labeled 'Präsens Gewohnheit' (habitual present)."
+        examples:
+        - "Hu-enda."
+    u-Polarity_u-neg__u-Tense_u-prs:
+      applies: {u-Tense: u-prs, u-Polarity: u-neg}
+      patterns:
+      - pattern: "[NEG.SUBJ]-[STEM]-i"
+        notes:
+        - "No distinction between 'definite' (-na-) and 'indefinite' (-a-) present in the negative; both are negated the same way."
+        examples:
+        - "Si-endi."
+        - "Haendi."
+        - "Sili."
+        - "Huandiki."
+      - pattern: "[NEG.SUBJ]-[OBJ]-[STEM]-i"
+        examples:
+        - "Ha-tu-jibu."
+      - pattern: "[NEG.SUBJ]___ (loan verb)"
+        notes:
+        - "Loan verbs: no final -a suffix to be changed to -i."
+        examples:
+        - "Hatujibu."

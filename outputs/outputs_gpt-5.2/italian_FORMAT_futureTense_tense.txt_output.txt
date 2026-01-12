@@ -1,0 +1,30 @@
+Future:
+  Features:
+    u-Aspect:
+    - u-ipfv
+    - u-prf
+    - u-prog
+
+  Rules:
+    u-Aspect_u-ipfv:
+      applies: {u-Aspect: u-ipfv}
+      patterns:
+      - pattern: "futuro semplice"
+        examples:
+        - "farò"
+
+    Future perfect:
+      title: Future perfect
+      applies: {u-Aspect: u-prf}
+      patterns:
+      - pattern: "futuro anteriore"
+        examples:
+        - "avrò fatto"
+
+    Future continuous:
+      title: Future continuous
+      applies: {u-Aspect: u-prog}
+      patterns:
+      - pattern: "futuro progressivo"
+        examples:
+        - "starò facendo"

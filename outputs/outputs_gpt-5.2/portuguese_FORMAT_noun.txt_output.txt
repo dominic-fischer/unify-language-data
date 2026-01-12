@@ -1,0 +1,109 @@
+Noun:
+  Features:
+    u-Gender: [u-masc, u-fem]
+    u-Number:
+    - u-pl
+
+  Rules:
+    Gender-and-number:
+      applies: {}
+      patterns:
+      - pattern: "Nouns have two grammatical genders (masculine, feminine) and inflect for number (singular, plural)."
+        notes:
+        - "Adjectives and determiners (articles, demonstratives, possessives, quantifiers) inflect to agree with the noun in gender and number."
+        examples:
+        - "esta bela casa branca"
+        - "este belo carro branco"
+        - "estas belas aves brancas"
+        - "estes belos gatos brancos"
+        - "o carro é branco"
+        - "a casa é branca"
+
+    No-case-inflection:
+      applies: {}
+      patterns:
+      - pattern: "Portuguese nouns do not inflect for grammatical case; grammatical function is expressed by prepositions and by context/word order."
+        notes:
+        - "Personal pronouns retain some vestiges of declension from Latin (unlike nouns)."
+
+    Gender-from-endings-generalizations:
+      applies: {}
+      patterns:
+      - pattern: "Often, masculine singular/plural correlates with -o/-os, and feminine singular/plural correlates with -a/-as, but there are many irregular exceptions and complex rules."
+        notes:
+        - "Nouns ending in -ção are usually feminine, except for augmentatives like bração."
+        examples:
+        - "casa (f.)"
+        - "carro (m.)"
+        - "bração (exception)"
+      - pattern: "For nouns ending in other letters, there are fewer reliable gender rules."
+        examples:
+        - "flor (f.)"
+        - "amor (m.)"
+
+    Semantic-gender-and-derivation:
+      applies: {}
+      patterns:
+      - pattern: "Some nouns (and first- and second-person pronouns) show agreement determined semantically by the referent's sex/gender in context."
+        examples:
+        - "esta estudante é nova, mas aquele estudante é velho"
+        - "eu sou brasileiro"
+        - "eu sou brasileira"
+        - "Vossa Excelência está atarefado"
+      - pattern: "Many animate masculine nouns have specific feminine derivative forms to indicate female sex or social gender."
+        notes:
+        - "These feminine derivations are distinct from adjectival gender inflection and may follow different rules."
+        examples:
+        - "lobo → loba"
+        - "conde → condessa"
+        - "doutor → doutora"
+        - "ator → atriz"
+
+    Diminutives:
+      applies: {}
+      patterns:
+      - pattern: "Diminutives are used to express small size, endearment, or insignificance; they are common in informal language and often avoided in formal writing."
+      - pattern: "Common diminutive endings are -inho (masculine) and -inha (feminine), typically replacing -o and -a respectively."
+      - pattern: "With stress on the last syllable, diminutives generally add -zinho or -zinha."
+        examples:
+        - "café → cafezinho"
+      - pattern: "In writing, c (but not ç) may become qu in some words to preserve [k]."
+        examples:
+        - "pouco → pouquinho"
+      - pattern: "Other possible diminutive endings include -ito(a), -ico(a), -(z)ete, -ote, -oto, -ejo, -acho, -ola, -el."
+        examples:
+        - "copo → copito"
+        - "burro → burrico"
+        - "palácio → palacete"
+        - "saia → saiote"
+        - "lebre → lebroto"
+        - "lugar → lugarejo"
+        - "rio → riacho"
+        - "aldeia → aldeola"
+        - "corda → cordel"
+      - pattern: "A diminutive can be formed from another diminutive."
+        examples:
+        - "burriquito"
+
+    Augmentatives:
+      applies: {}
+      patterns:
+      - pattern: "Common augmentative endings are masculine -ão and feminine -ona; other augmentatives include -aço(a) and -eirão."
+        examples:
+        - "mulher → mulheraça"
+        - "voz → vozeirão"
+      - pattern: "The masculine augmentative can sometimes be applied to a feminine noun, making it grammatically masculine while keeping feminine meaning."
+        examples:
+        - "a mulher → o mulherão"
+    u-Number_u-pl:
+      applies: {u-Number: u-pl}
+      patterns:
+      - pattern: "If the singular ends in a vowel, plural is formed by adding -s."
+      - pattern: "If the singular ends in n, r, or z, plural is formed by adding -es."
+      - pattern: "If the singular ends in s: when the last syllable is stressed, plural adds -es; otherwise, the plural is the same as the singular."
+      - pattern: "If the singular ends in m, plural changes m to ns."
+      - pattern: "If the singular ends in l, plural changes l to -is."
+        examples:
+        - "animal → animais"
+      - pattern: "If the singular ends in ão, plural formation varies: ão may change to ães, to ões, or the plural may be formed by adding -s."
+

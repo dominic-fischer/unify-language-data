@@ -1,0 +1,29 @@
+Adverbs:
+  Features:
+    u-Part-of-Speech: [u-adv, u-adj]
+
+  Rules:
+    u-Part-of-Speech_u-adv:
+      applies: {u-Part-of-Speech: u-adv}
+      patterns:
+      - pattern: "lexical adverb (not derived from an adjective)"
+        examples:
+        - "bien"
+
+    u-Part-of-Speech_u-adj:
+      applies: {u-Part-of-Speech: u-adj}
+      patterns:
+      - pattern: "adjective (usually feminine form) + -ment"
+        notes:
+        - "Most French adverbs are derived from an adjective by adding the suffix -ment, usually to the feminine form."
+        examples:
+        - "anciennement"
+        - "grandement"
+        - "lentement"
+      - pattern: "systematic deviations in -ment formation"
+        examples:
+        - "patient → patiemment"
+        - "malaisé → malaisément"
+      - pattern: "irregular derivation from adjective"
+        examples:
+        - "bon → bien"

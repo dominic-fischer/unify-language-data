@@ -1,0 +1,70 @@
+Past:
+  Features:
+    u-Aspect: [u-prf, u-pfv, u-ipfv, u-hab]
+    u-Tense: [u-pst]
+    x-Temp-Relation: [x-anterior]
+
+  Rules:
+    u-Aspect_u-prf__u-Tense_u-pst:
+      applies: {u-Tense: u-pst, u-Aspect: u-prf}
+      patterns:
+      - pattern: "SUBJ + ná- + VERB"
+        examples:
+        - "Ndi-ná-thandíza 'I helped.'"
+      - pattern: "sí- + SUBJ + na- + VERB + -e"
+        examples:
+        - "Sí-ndí-na-thandíz-e 'I did not help.'"
+      notes:
+      - "Continuous: the effect (outcome) of the action is still valid."
+
+    u-Aspect_u-pfv__u-Tense_u-pst:
+      applies: {u-Tense: u-pst, u-Aspect: u-pfv}
+      patterns:
+      - pattern: "SUBJ + na- + VERB"
+        examples:
+        - "Ndi-na-thándiza 'I helped just now (but not anymore).'"
+      - pattern: "si- + SUBJ + na- + VERB + -e"
+        examples:
+        - "Si-ndi-na-thandíz-e 'I have not helped yet.'"
+      notes:
+      - "Discontinuous: the effect (outcome) of the action is no longer valid."
+
+    u-Aspect_u-ipfv__u-Tense_u-pst:
+      applies: {u-Tense: u-pst, u-Aspect: u-ipfv}
+      patterns:
+      - pattern: "SUBJ + nká- + VERB"
+        examples:
+        - "Ndi-nká-thandíza 'I was helping / I used to help.'"
+      - pattern: "sí- + SUBJ + nká- + VERB"
+        examples:
+        - "Sí-ndí-nká-thandíza 'I was not helping / I did not use to help.'"
+
+    u-Aspect_u-hab__u-Tense_u-pst:
+      applies: {u-Tense: u-pst, u-Aspect: u-hab}
+      patterns:
+      - pattern: "SUBJ + ma- + VERB"
+        examples:
+        - "Ndi-ma-thándiza 'I was helping / I used to help.'"
+      - pattern: "sí- + SUBJ + ma- + VERB"
+        examples:
+        - "Sí-ndí-ma-thándiza 'I was not helping / I did not use to help.'"
+
+    u-Tense_u-pst:
+      applies: {u-Tense: u-pst}
+      patterns:
+      - pattern: "SUBJ + ná- + ká- + VERB"
+        examples:
+        - "Ndi-ná-ká-thandiza 'I went to help.'"
+      notes:
+      - "Aspect-markers can be added after the tense-marker."
+
+    "Pluperfect":
+      title: "Pluperfect"
+      applies: {u-Tense: u-pst, x-Temp-Relation: x-anterior}
+      patterns:
+      - pattern: "SUBJ + ná- + li + SUBJ + tá- + VERB"
+        examples:
+        - "Ndi-ná-li ndí-tá-thándiza 'I had helped.'"
+      - pattern: "SUBJ + ná- + li + SUBJ + sa-na- + VERB + -e"
+        examples:
+        - "Ndi-ná-li ndí-sa-na-thandíz-e 'I had not yet helped.'"

@@ -1,0 +1,55 @@
+Conditionals:
+  Features:
+    u-Tense: [u-prs, u-pst]
+    u-Mood: [u-cond]
+  Rules:
+    u-Mood_u-cond__u-Tense_u-prs:
+      applies: {u-Mood: u-cond, u-Tense: u-prs}
+      endingparadigms:
+      - title: "Regular conditional (present)"
+        endingparadigm:
+        - features: {x-VerbClass: x-1}
+          ending: "-er- + conditional endings"
+        - features: {x-VerbClass: x-2}
+          ending: "-er- + conditional endings"
+        - features: {x-VerbClass: x-3}
+          ending: "-ir- + conditional endings"
+        notes:
+        - "Regular verbs use a conditional stem based on the future-indicative stem: -are > -er-, -ere > -er-, -ire > -ir-."
+        - "All verbs add the same person/number endings to this stem."
+      formparadigms:
+      - formparadigm:
+        - features: {u-Person: u-1, u-Number: u-sg}
+          form: "parlerei / temerei / partirei"
+        - features: {u-Person: u-2, u-Number: u-sg}
+          form: "parleresti / temeresti / partiresti"
+        - features: {u-Person: u-3, u-Number: u-sg}
+          form: "parlerebbe / temerebbe / partirebbe"
+        - features: {u-Person: u-1, u-Number: u-pl}
+          form: "parleremmo / temeremmo / partiremmo"
+        - features: {u-Person: u-2, u-Number: u-pl}
+          form: "parlereste / temereste / partireste"
+        - features: {u-Person: u-3, u-Number: u-pl}
+          form: "parlerebbero / temerebbero / partirebbero"
+      patterns:
+      - pattern: "Conditional (present)"
+        examples:
+        - "Io andrei in spiaggia, ma fa troppo freddo."
+        notes:
+        - "Some verbs have irregular conditional stems (e.g., andr-, avr-, berr-, dar-, dovr-, sar-, far-, potr-, rimarr-, sapr-, sedr-, star-, terr-, vedr-, verr-, vivr-, vorr-)."
+      - pattern: "Conditional (present) in a conditional clause"
+        examples:
+        - "Mangerei un sacco adesso, se non stessi cercando di fare colpo su queste ragazze."
+      - pattern: "Conditional (present) with potere/dovere/volere"
+        examples:
+        - "[Lui] potrebbe leggere un libro."
+        - "[Loro] dovrebbero andare a letto."
+        - "Vorrei un bicchiere d'acqua, per favore."
+    u-Mood_u-cond__u-Tense_u-pst:
+      applies: {u-Mood: u-cond, u-Tense: u-pst}
+      patterns:
+      - pattern: "Conditional auxiliary (avere/essere) + past participle"
+        examples:
+        - "Sarei andato in città, se avessi saputo che ci andavano loro."
+        notes:
+        - "The past conditional is formed with an auxiliary (avere/essere) conjugated in the conditional plus the past participle."

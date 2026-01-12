@@ -1,0 +1,49 @@
+Clauses:
+  Features:
+    x-Clausetype: [x-main, x-subordinate]
+    u-Interrogativity:
+    - u-int
+
+  Rules:
+    x-Clausetype_x-main:
+      applies: {x-Clausetype: x-main}
+      patterns:
+      - pattern: "S + V + O (unmarked affirmative declarative)."
+        examples:
+        - "Mi amigo escribió el libro."
+        notes:
+        - "Unmarked word order for affirmative declarative sentences is SVO; in practice word order is flexible, with topicalization and focus guiding constituent order."
+      - pattern: "V + S + O / V + O + S / O + V + S (alternative orders in declarative clauses)."
+        examples:
+        - "Hace pocos años escribió mi amigo un libro."
+        - "Hace pocos años escribió un libro mi amigo."
+        - "Ayer vio mi madre a mi amigo y le preguntó por su libro."
+        - "Ayer vio a mi amigo mi madre y le preguntó por su libro."
+        notes:
+        - "VSO, VOS, and OVS are relatively common; other orders are very uncommon outside of poetry."
+        - "Bare VSO and VOS are somewhat rare in independent declarative clauses but are common when something other than the subject or direct object functions as the focus."
+      - pattern: "O (topic) + DO.CL + V + S (OVS with object clitic doubling)."
+        examples:
+        - "El libro lo escribió mi amigo."
+        notes:
+        - "When the direct object is the topic and the subject is part of the comment, OVS is common; the direct object noun phrase is supplemented with the appropriate direct object pronoun."
+
+    x-Clausetype_x-subordinate:
+      applies: {x-Clausetype: x-subordinate}
+      patterns:
+      - pattern: "… [subordinate clause] V + S … (verb before subject; often VSO/VOS)."
+        examples:
+        - "Este es el libro que escribió mi amigo."
+        notes:
+        - "In many dependent clauses, the verb is placed before the subject to avoid placing the verb in final position."
+        - "The order with subject before verb in such clauses is described as rare."
+
+    u-Interrogativity_u-int:
+      applies: {u-Interrogativity: u-int}
+      patterns:
+      - pattern: "V + S + O ? (usual in questions)."
+        examples:
+        - "¿Escribió mi amigo el libro?"
+        notes:
+        - "In questions, VSO is usual though not obligatory."
+        - "Yes/no questions, regardless of constituent order, are generally distinguished from declarative sentences by context and intonation."

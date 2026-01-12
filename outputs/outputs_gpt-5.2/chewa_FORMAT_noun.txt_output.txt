@@ -1,0 +1,89 @@
+Noun:
+  Features:
+    u-Gender: [u-bantu1-23]
+    u-Number: [u-sg, u-pl]
+
+  Rules:
+    u-Gender_u-bantu1-23:
+      applies: {u-Gender: u-bantu1-23}
+      notes:
+      - "Chewa nouns are divided into noun classes, conventionally grouped into singular/plural pairs."
+      - "Class 11 is not found in Chewa."
+      - "Class 14 has no dedicated plural class; class 6 is used."
+      - "To form the plural, the plural prefix replaces the singular prefix; exception: ma- is attached directly at the beginning of the word."
+      - "Some nouns belong to one class only and do not change between singular and plural."
+      - "When class assignment by noun prefix is unclear, concords (e.g., demonstratives) can be used as a guide."
+      formparadigms:
+      - title: "Main classes (singular/plural prefix pairs)"
+        formparadigm:
+        - features: {x-NounClass: "1", u-Number: u-sg}
+          form: "m(u)-"
+        - features: {x-NounClass: "2", u-Number: u-pl}
+          form: "a-"
+        - features: {x-NounClass: "3", u-Number: u-sg}
+          form: "m(u)-"
+        - features: {x-NounClass: "4", u-Number: u-pl}
+          form: "mi-"
+        - features: {x-NounClass: "5", u-Number: u-sg}
+          form: ""
+        - features: {x-NounClass: "6", u-Number: u-pl}
+          form: "ma-"
+        - features: {x-NounClass: "7", u-Number: u-sg}
+          form: "ch(i)-"
+        - features: {x-NounClass: "8", u-Number: u-pl}
+          form: "z(i)-"
+        - features: {x-NounClass: "9", u-Number: u-sg}
+          form: "(n-)"
+        - features: {x-NounClass: "10", u-Number: u-pl}
+          form: "(n-)"
+        - features: {x-NounClass: "14", u-Number: u-sg}
+          form: "u-"
+        notes:
+        - "Class 5 is shown as having no prefix in the provided tables."
+        examples:
+        - "munthu (class 1 sg.) → anthu (class 2 pl.)"
+        - "muti (class 3 sg.) → miti (class 4 pl.)"
+        - "sukulu (class 5 sg.) → masukulu (class 6 pl.)"
+        - "chinthu (class 7 sg.) → zinthu (class 8 pl.)"
+        - "nyumba (class 9 sg.) → nyumba (class 10 pl.)"
+        - "ubwino (class 14 sg.)"
+      - title: "Additional classes"
+        formparadigm:
+        - features: {x-NounClass: "12", u-Number: u-sg}
+          form: "ka-"
+        - features: {x-NounClass: "13", u-Number: u-pl}
+          form: "ti-"
+        - features: {x-NounClass: "15"}
+          form: "ku-"
+        - features: {x-NounClass: "16"}
+          form: "ku-"
+        - features: {x-NounClass: "17"}
+          form: "pa-"
+        - features: {x-NounClass: "18"}
+          form: "mu-"
+        examples:
+        - "kamwana (class 12 sg.)"
+        - "tiana (class 13 pl.)"
+        - "kupita (class 15)"
+        - "kuMalawi (class 16)"
+        - "pamwala (class 17)"
+        - "munyumba (class 18)"
+      - title: "Irregular/variant pairings and class-specific notes"
+        notes:
+        - "Some nouns have irregular class pairings, especially loanwords (e.g., class 9 singular with class 6 plural)."
+        - "Class 1a refers to nouns without an m- prefix; some use class 6 plural with ma-."
+        - "Words like lumo and lusó are treated as class 5/6 and take concords of that class."
+        - "In class 5/6, the first consonant is often softened or omitted in the plural."
+        formparadigm:
+        - features: {x-NounClassPair: "9/6", u-Number: u-sg}
+          form: "(class 9 concords)"
+        - features: {x-NounClassPair: "9/6", u-Number: u-pl}
+          form: "ma-"
+        - features: {x-NounClassPair: "1a/6", u-Number: u-sg}
+          form: ""
+        - features: {x-NounClassPair: "1a/6", u-Number: u-pl}
+          form: "ma-"
+        examples:
+        - "bánki (class 9 sg.) → mabánki (class 6 pl.)"
+        - "kíyi (class 1a sg.) → makíyi (class 6 pl.)"
+        - "dzína (class 5 sg.) → maína (class 6 pl.)"

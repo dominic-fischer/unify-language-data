@@ -1,0 +1,20 @@
+Future:
+  Features:
+    u-Aspect: [u-prosp]
+    u-Polarity: [u-pos, u-neg]
+
+  Rules:
+    u-Aspect_u-prosp:
+      applies: {u-Aspect: u-prosp}
+      patterns:
+      - pattern: "Subject marker + cha + nge + (ri / si + ri)"
+        notes:
+        - "For the verb 'to be', the future can be formed with the sequence cha + nge plus the copular element ri (affirmative) or si + ri (negative)."
+        examples:
+        - "Ndichange ndiri mudzidzisi."
+        - "Ndichange ndisiri mudzidzisi."
+      - pattern: "Subject marker + cha + ve"
+        notes:
+        - "An alternative future formation for the verb 'to be' uses the stem ve."
+        examples:
+        - "Ndichave mudzidzisi."

@@ -1,0 +1,105 @@
+Agreement:
+  Features:
+    u-Part-of-Speech:
+    - u-n
+    - u-pro
+    - u-adj
+    - u-v
+    - u-num
+
+  Rules:
+    u-Part-of-Speech_u-n_u-v:
+      applies: {u-Part-of-Speech: [u-n, u-v]}
+      patterns:
+      - pattern: "finite verb takes a subject prefix (subject marker) agreeing with the subject noun class"
+        examples:
+        - "A-nthu a-ku-pita ku-nkhalango."
+        - "mwaná ápita; aná ápita"
+        notes:
+        - "Personal pronouns (ine, iwe, iye, ife, inu, iwo) are usually only used for emphasis; otherwise person subject prefixes are used."
+      - pattern: "verb may take an object infix immediately before the verb root, agreeing with the object noun class; the object infix can be omitted if the object is clear from context"
+        examples:
+        - "Ti-ku-mu-ona munthu uyu."
+        - "Ti-ku-ona munthu uyu."
+        - "Ti-ku-mu-ona."
+        - "ndamúona; ndawáona"
+        notes:
+        - "The object infix follows the subject marker and any tense marker, and precedes the verb stem."
+        - "With classes 16, 17, and 18, the object infix is usually replaced by a suffix (e.g. ndaonámo)."
+        - "With the applicative suffix -ira, the same object infix can represent an indirect object (e.g. ndamúlembera)."
+      - pattern: "some singular human referents take class 2 (plural) concords for respect (including plural object marking)"
+        examples:
+        - "bambo anga akuyenda, ndikuwaona"
+        notes:
+        - "Using the singular class 1 object marker -mu- for such a referent is described as grossly impolite."
+      - pattern: "perfect tense uses a subject prefix formed with concords w- (from u-) and a- combined with vowel a; in the plural a-a- coalesces to a single vowel"
+        examples:
+        - "mwaná wapita; aná apita"
+        notes:
+        - "These subject prefixes differ from those used in other tenses."
+
+    u-Part-of-Speech_u-n_u-pro:
+      applies: {u-Part-of-Speech: [u-n, u-pro]}
+      patterns:
+      - pattern: "pronouns show agreement with noun class by means of concord prefixes"
+        examples:
+        - "Uyu ndi mwaná wángá."
+        - "Awa ndi aná ángá."
+        - "Ichi ndi chímanga chánga."
+        - "Iyi ndi nyumbá yángá."
+        notes:
+        - "For classes other than 1 and 2, demonstratives can be used instead of a freestanding pronoun."
+      - pattern: "in classes 1 and 2, a concord prefixed by a supporting vowel (and also forms with ná- 'with' and ndi- 'it is') yields freestanding pronouns"
+        examples:
+        - "iyé; iwó"
+        - "náye; náwo"
+        - "ndiyé; ndiwó"
+        notes:
+        - "Forms such as nácho and ndichó are also found."
+
+    u-Part-of-Speech_u-n_u-adj:
+      applies: {u-Part-of-Speech: [u-n, u-adj]}
+      patterns:
+      - pattern: "adjectives agree with noun class via prefixes (concords)"
+      - pattern: "possessive concord marks possession between nouns (genitive); used both for a subjective genitive reading and an attributive genitive reading"
+        examples:
+        - "Mwana wa mkazi a-ku-dya."
+        notes:
+        - "The attributive genitive is one way to describe nouns adjectivally."
+      - pattern: "a verbal property marker (agreeing element) differs from the possessive concord by ending in -o and is attached directly to the verb to form a noun–verb attributive relation"
+        examples:
+        - "Ti-ma-kolola mu nyengo yokolola."
+        notes:
+        - "Described as a second way to describe nouns adjectivally."
+      - pattern: "the concords w- (from u-) and a- are used with 'á 'of' and with possessive adjectives"
+        examples:
+        - "mwaná wá Mphátso; aná á Mphátso"
+        - "mwaná wángá; aná ángá"
+        notes:
+        - "Possessive adjective stems listed: -ánga, -áko, -áke, -áthu, -ánu, -áwo."
+        - "-áwo is used only of people; -áke is used for things."
+      - pattern: "concords with -ína 'other' and -ení-éní 'real' show plural concord a- converted to e-"
+        examples:
+        - "mwaná wína; aná éna"
+        - "mwaná weníwéní; aná eníéní"
+      - pattern: "certain adjectives take a double prefix combining possessive concord (wá-) and number concord (m- or mw-)"
+        examples:
+        - "mwaná wáḿkúlu; aná áákúlu"
+        - "mwaná wáḿng'óno; aná ááng'óno"
+        - "mwaná wámwámúna; aná áámúna"
+        - "mwaná wáḿkázi; aná áákázi"
+        notes:
+        - "Adjectives listed: -kúlu, -ng'óno, -(a)múna, -kázi, -táli, -fúpi, -wisi."
+
+    u-Part-of-Speech_u-n_u-num:
+      applies: {u-Part-of-Speech: [u-n, u-num]}
+      patterns:
+      - pattern: "numerals take numeral concord prefixes agreeing with noun class"
+        examples:
+        - "mwaná mmódzi"
+        - "aná awíri"
+        - "aná angáti?"
+        notes:
+        - "Used with -módzi 'one', -wíri 'two', -tátu 'three', -náyi 'four', -sanu 'five', -ngáti? 'how many', -ngápo 'several'."
+        - "Class 1 prefix m- becomes mu- before -wíri (example: tomáto muwíri)."
+        - "khúmi 'ten' has no concord."

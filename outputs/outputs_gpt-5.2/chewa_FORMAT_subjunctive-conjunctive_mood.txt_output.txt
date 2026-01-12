@@ -1,0 +1,38 @@
+Subjunctive:
+  Features:
+    u-Mood: [u-sbjv]
+    u-Polarity: [u-pos, u-neg]
+
+  Rules:
+    u-Mood_u-sbjv:
+      applies: {u-Mood: u-sbjv}
+      patterns:
+      - pattern: "SUBJ + VERB + -e"
+        notes:
+        - "Unlike the indicative, subjunctive verbs end in '-e'."
+        - "Used for polite requests and wishes."
+        - "Used after 'kuti' ('that') after verbs of wishing, wanting, and requesting/commanding."
+        - "Used after 'kuti' in the sense 'so that / in order that'."
+        examples:
+        - "Mundipatse mkhate."
+        - "Tikufuna (kuti) mubwere kwathu."
+        - "Tipita lero kuti tifike posachedwa."
+        - "Tipita lero kuti tisachedwe."
+      - pattern: "SUBJ + -sa- + VERB + -e"
+        notes:
+        - "For negation, '-sa-' can be inserted after the subject."
+        examples:
+        - "Ndi-sa-thandíz-e."
+      - pattern: "SUBJ + -nga- + VERB + -e"
+        notes:
+        - "If meanings like 'could' or 'would' are included, the modal infix '-nga-' is additionally present."
+        examples:
+        - "Tingapite mawa?"
+      - title: "Subjunctive with aspect infix"
+        pattern: "SUBJ + ASPECT-INFIX + VERB + -e"
+        notes:
+        - "Different aspect infixes slightly change the meaning."
+        examples:
+        - "Ndi-ká-thandiz-é."
+        - "Ndi-dzá-thandiz-é."
+        - "Ndi-má-thandiz-é."

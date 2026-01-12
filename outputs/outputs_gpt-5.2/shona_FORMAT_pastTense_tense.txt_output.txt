@@ -1,0 +1,29 @@
+Past:
+  Features:
+    u-Aspect: [u-prf]
+    x-Temp-Relation:
+    - x-anterior
+
+  Rules:
+    u-Aspect_u-prf:
+      applies: {u-Aspect: u-prf}
+      patterns:
+      - pattern: "subject prefix + nga + (ndiri | ndisiri)"
+        examples:
+        - "Ndanga ndiri mudzidzisi."
+        - "Ndanga ndisiri mudzidzisi."
+      notes:
+      - "Near past of the verb 'to be' is formed with nga + copula; negation uses -si- (ndisiri)."
+
+    u-Aspect_u-prf__x-Temp-Relation_x-anterior:
+      applies: {u-Aspect: u-prf, x-Temp-Relation: x-anterior}
+      patterns:
+      - pattern: "dai + subject prefix + ka + VERB + , subject prefix + nga + dai + subject prefix + ka + VERB"
+        examples:
+        - "Dai nda-ka-zvara mwana, ndi-nga-dai nda-ka-fara."
+      - pattern: "dai + subject prefix + sina + ku-VERB + , subject prefix + nga + dai + subject prefix + sina + ku-VERB"
+        examples:
+        - "Dai ndi-sina kuva no-mwana, ndi-nga-dai ndi-sina kufara."
+      notes:
+      - "In the past conditional, the auxiliary dai is used together with -nga-."
+      - "For negation, a helper construction with sina ('not have') is used."

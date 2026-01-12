@@ -1,0 +1,36 @@
+Clauses:
+  Features:
+    x-Clausetype:
+    - x-main
+    u-Interrogativity: [u-decl, u-int]
+
+  Rules:
+    u-Interrogativity_u-decl__x-Clausetype_x-main:
+      applies: {x-Clausetype: x-main, u-Interrogativity: u-decl}
+      patterns:
+      - pattern: "(Subject pronoun) V ..."
+        notes:
+        - "The subject is usually omitted when it is a pronoun, since verb conjugations make it redundant."
+        - "When subject pronouns are used, they are considered emphatic."
+        examples:
+        - "È arrivato in ufficio."
+        - "(Lui) è arrivato in ufficio."
+
+    u-Interrogativity_u-int__x-Clausetype_x-main:
+      applies: {x-Clausetype: x-main, u-Interrogativity: u-int}
+      patterns:
+      - pattern: "Declarative clause + rising intonation (?)"
+        title: "Yes–No Questions"
+        notes:
+        - "Questions are formed by a rising intonation at the end; there is usually no other special marker."
+        - "Intonation and context are important to recognize questions from affirmative statements."
+        examples:
+        - "Davide è arrivato in ufficio?"
+        - "È arrivato Davide in ufficio?"
+      - pattern: "Wh-word + clause (?)"
+        title: "Wh-Questions"
+        notes:
+        - "Wh-movement usually occurs."
+        examples:
+        - "Perché Davide è arrivato in ufficio?"
+        - "Chi è arrivato in ufficio?"

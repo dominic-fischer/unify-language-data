@@ -1,0 +1,18 @@
+Future:
+  Features:
+    u-Aspect: [u-prosp, u-prf]
+
+  Rules:
+    u-Aspect_u-prf:
+      applies: {u-Aspect: u-prf}
+      patterns:
+      - pattern: "werden (finite) + past participle + haben/sein infinitive"
+        examples:
+        - "ich werde gegangen sein"
+    u-Aspect_u-prosp:
+      applies: {u-Aspect: u-prosp}
+      patterns:
+      - pattern: "werden (finite) + infinitive"
+        examples:
+        - "ich werde gehen"
+

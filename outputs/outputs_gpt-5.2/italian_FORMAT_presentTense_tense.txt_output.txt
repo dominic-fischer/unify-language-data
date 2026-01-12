@@ -1,0 +1,36 @@
+Present:
+  Features:
+    u-Aspect: [u-hab, u-ipfv, u-prf, u-prog, u-prosp]
+  Rules:
+    u-Aspect_u-prf:
+      applies: {u-Aspect: u-prf}
+      patterns:
+      - pattern: "{avere/essere (finite)} + {past participle}"
+        examples:
+        - "io ho fatto"
+        notes:
+        - "Perfect aspect is rendered by a periphrastic structure with an auxiliary (avere or essere) plus the past participle."
+    u-Aspect_u-prog:
+      applies: {u-Aspect: u-prog}
+      patterns:
+      - pattern: "{stare (finite)} + {gerund}"
+        examples:
+        - "io sto facendo"
+        notes:
+        - "Progressive aspect is rendered by verb stare plus the gerund."
+    u-Aspect_u-prosp:
+      applies: {u-Aspect: u-prosp}
+      patterns:
+      - pattern: "{stare (finite)} + per + {infinitive}"
+        examples:
+        - "io sto per fare"
+        notes:
+        - "Prospective aspect is formed with stare plus the preposition per and the infinitive."
+    u-Aspect_u-hab_u-ipfv:
+      applies: {u-Aspect: [u-hab, u-ipfv]}
+      patterns:
+      - pattern: "indicativo presente"
+        examples:
+        - "faccio"
+        notes:
+        - "The simple present in the indicative mood (indicativo presente) is listed as the present tense."

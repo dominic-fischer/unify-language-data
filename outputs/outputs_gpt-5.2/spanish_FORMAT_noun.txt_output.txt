@@ -1,0 +1,12 @@
+Noun:
+  Features:
+    u-Gender: [u-masc, u-fem]
+
+  Rules:
+    u-Gender:
+      applies: {}
+      patterns:
+      - pattern: "Spanish nouns have grammatical gender: masculine or feminine."
+        notes:
+        - "Many adjectives change form to agree in gender with the noun they modify."
+        - "For most nouns referring to persons, grammatical gender matches biological gender."

@@ -1,0 +1,25 @@
+Determiner:
+  Features:
+    u-Definiteness: [u-def, u-indf]
+    u-Gender: [u-masc, u-fem]
+    u-Number: [u-sg, u-pl]
+
+  Rules:
+    Agreement:
+      applies: {}
+      patterns:
+      - pattern: "Articles and determiners agree in gender and number with the noun they determine."
+        notes:
+        - "Unlike nouns, this inflection is made in speech as well as in writing."
+
+    Article-types:
+      applies: {}
+      patterns:
+      - pattern: "French has three articles: definite, indefinite, and partitive."
+      - pattern: "The difference between the definite and indefinite articles is similar to that in English."
+        notes:
+        - "Definite corresponds to English 'the'; indefinite corresponds to 'a, an'."
+      - pattern: "The indefinite article has a plural form."
+        notes:
+        - "Similar to English 'some', though English normally does not use an article before indefinite plural nouns."
+      - pattern: "The partitive article is similar to the indefinite article but used for uncountable singular nouns."

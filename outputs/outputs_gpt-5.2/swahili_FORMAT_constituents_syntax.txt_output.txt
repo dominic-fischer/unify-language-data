@@ -1,0 +1,34 @@
+Constituents:
+  Features:
+    x-Constituent: [x-NP, x-VP, x-AP, x-PP, x-AdvP, x-CP]
+
+  Rules:
+    x-Constituent_x-NP:
+      applies: {x-Constituent: x-NP}
+      patterns:
+      - pattern: "No constituent/syntax description provided in the source data."
+
+    x-Constituent_x-VP:
+      applies: {x-Constituent: x-VP}
+      patterns:
+      - pattern: "No constituent/syntax description provided in the source data."
+
+    x-Constituent_x-AP:
+      applies: {x-Constituent: x-AP}
+      patterns:
+      - pattern: "No constituent/syntax description provided in the source data."
+
+    x-Constituent_x-PP:
+      applies: {x-Constituent: x-PP}
+      patterns:
+      - pattern: "No constituent/syntax description provided in the source data."
+
+    x-Constituent_x-AdvP:
+      applies: {x-Constituent: x-AdvP}
+      patterns:
+      - pattern: "No constituent/syntax description provided in the source data."
+
+    x-Constituent_x-CP:
+      applies: {x-Constituent: x-CP}
+      patterns:
+      - pattern: "No constituent/syntax description provided in the source data."

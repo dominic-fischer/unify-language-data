@@ -1,0 +1,56 @@
+Adverbs:
+  Features:
+    u-Part-of-Speech: [u-adv, u-adj, u-v]
+    u-Comparison: [u-cmpr]
+
+  Rules:
+    u-Part-of-Speech_u-adv:
+      applies: {u-Part-of-Speech: u-adv}
+      patterns:
+      - pattern: "de + (place adverb) → contracted form"
+        notes:
+        - "These adverbs (except cá and lá) get contracted with de."
+        examples:
+        - "de + aqui → daqui"
+        - "de + aí → daí"
+        - "de + ali → dali"
+        - "de + acolá → dacolá"
+
+    u-Part-of-Speech_u-adj:
+      applies: {u-Part-of-Speech: u-adj}
+      patterns:
+      - pattern: "adjective (feminine singular) + -mente"
+        notes:
+        - "The suffix -mente is generally added to the feminine singular of the adjective, whether or not it differs from the masculine singular."
+        - "An orthographic accent on the adjective is not retained in the adverb (e.g. rápido → rapidamente)."
+        examples:
+        - "claro → clara → claramente"
+        - "natural → naturalmente"
+        - "rápido → rapidamente"
+      - pattern: "irregular adverb from adjective"
+        examples:
+        - "bom → bem"
+        - "mau → mal"
+
+    u-Comparison_u-cmpr:
+      applies: {u-Comparison: u-cmpr}
+      patterns:
+      - pattern: "mais + adverb"
+        examples:
+        - "mais cedo"
+        - "mais rapidamente"
+      - pattern: "menos + adverb"
+        examples:
+        - "menos + adverb"
+      - pattern: "irregular comparative adverb"
+        examples:
+        - "bem → melhor"
+        - "mal → pior"
+
+    u-Part-of-Speech_u-v:
+      applies: {u-Part-of-Speech: u-v}
+      patterns:
+      - pattern: "verb + adverb sequence forming a single semantic unit (rare)"
+        examples:
+        - "ir embora"
+        - "jogar fora"

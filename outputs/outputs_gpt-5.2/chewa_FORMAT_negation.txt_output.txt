@@ -1,0 +1,18 @@
+Negation:
+  Features:
+    x-Negation-type: [x-clause]
+
+  Rules:
+    x-Negation-type_x-clause:
+      applies: {x-Negation-type: x-clause}
+      patterns:
+        - pattern: "Si- + SM + -ku- + verb"
+          examples:
+            - "Si-ndi-ku-funa."
+          notes:
+            - "If negation is formed with Si-, the -i of Si- is omitted when the following formative begins with a vowel."
+        - pattern: "S- + SM + -ku- + verb"
+          examples:
+            - "S-a-ku-funa."
+          notes:
+            - "If negation is formed with Si-, the -i of Si- is omitted when the following formative begins with a vowel."

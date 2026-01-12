@@ -1,0 +1,10 @@
+Future:
+  Features:
+    u-Aspect: [u-prosp]
+
+  Rules:
+    u-Aspect_u-prosp:
+      applies: {u-Aspect: u-prosp}
+      patterns:
+      - pattern: "VERB (finite)"
+      - pattern: "VERB (finite)"

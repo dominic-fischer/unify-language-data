@@ -1,0 +1,69 @@
+Adverbs:
+  Features:
+    u-Part-of-Speech: [u-adv, u-adj]
+    u-Comparison: [u-cmpr, u-sprl]
+
+  Rules:
+    u-Part-of-Speech_u-adv:
+      applies: {u-Part-of-Speech: u-adv}
+      patterns:
+      - pattern: "lexical adverb base form"
+        examples:
+        - "muy"
+        - "poco"
+        - "lejos"
+        - "mucho"
+        - "casi"
+
+    u-Part-of-Speech_u-adj:
+      applies: {u-Part-of-Speech: u-adj}
+      patterns:
+      - pattern: "feminine singular adjective + -mente"
+        examples:
+        - "claro → clara → claramente"
+        - "rápido → rápida → rápidamente"
+        - "natural → naturalmente"
+        - "triste → tristemente"
+        - "audaz → audazmente"
+      - pattern: "irregular adjectival adverb forms"
+        examples:
+        - "bueno → bien"
+        - "malo → mal"
+      - pattern: "adjective form reused as adverb (uninflected)"
+        examples:
+        - "temprano (adj) → temprano (adv)"
+        - "lento (adj) → lento (adv)"
+        - "hondo (adj) → hondo (adv)"
+      - pattern: "in a series of -mente adverbs, -mente appears only on the final adverb; preceding items remain feminine singular adjective forms"
+        examples:
+        - "rápida y fácilmente"
+        - "lenta, cuidosa, y duchamente"
+        - "parcial o completamente"
+
+    u-Comparison_u-cmpr:
+      applies: {u-Comparison: u-cmpr}
+      patterns:
+      - pattern: "más + adverb"
+        examples:
+        - "más temprano"
+        - "más rápidamente"
+      - pattern: "menos + adverb"
+        examples:
+        - "menos interesantemente"
+      - pattern: "irregular comparatives for bien and mal"
+        examples:
+        - "bien → mejor"
+        - "mal → peor"
+      - pattern: "comparatives of mucho and poco use más and menos, respectively"
+        examples:
+        - "mucho → más"
+        - "poco → menos"
+
+    u-Comparison_u-sprl:
+      applies: {u-Comparison: u-sprl}
+      patterns:
+      - pattern: "lo + (más|menos) + adverb"
+        examples:
+        - "lo más rápidamente que puedas"
+        - "lo más interesantemente de todos"
+        - "lo menos claramente de ellos"

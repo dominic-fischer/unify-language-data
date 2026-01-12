@@ -1,0 +1,32 @@
+DerivationalMorphology:
+  Features:
+    u-Part-of-Speech:
+    - u-n
+    u-Gender:
+    - u-fem
+    - u-masc
+
+  Rules:
+    u-Part-of-Speech_u-n:
+      applies: {u-Part-of-Speech: u-n}
+      patterns:
+      - pattern: "_stem_ + o → _stem_ + a"
+        examples:
+        - "lobo → loba"
+        notes:
+        - "Many animate masculine nouns have specific feminine derivative forms indicating female sex or social gender; this derivation is distinct from adjectival gender inflection."
+      - pattern: "_stem_ + de → _stem_ + dessa"
+        examples:
+        - "conde → condessa"
+        notes:
+        - "Derives feminine forms for some animate masculine nouns."
+      - pattern: "_stem_ + or → _stem_ + ora"
+        examples:
+        - "doutor → doutora"
+        notes:
+        - "Derives feminine forms for some animate masculine nouns."
+      - pattern: "_stem_ + or → _stem_ + riz"
+        examples:
+        - "ator → atriz"
+        notes:
+        - "Derives feminine forms for some animate masculine nouns."

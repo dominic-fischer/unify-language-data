@@ -1,0 +1,37 @@
+Negation:
+  Features:
+    x-Negation-type: [x-clause, x-constituent]
+
+  Rules:
+    x-Negation-type_x-clause:
+      applies: {x-Negation-type: x-clause}
+      patterns:
+        - pattern: "A- + subject concord (SC); in 3SG class 1/2: -ka- + verb stem"
+          notes:
+            - "General negation prefix is A-."
+            - "In negation, the 3SG subject concord (class 1/2) is -ka-."
+          examples:
+            - "Uhambahamba."
+            - "Akahambihamba."
+        - pattern: "For reduplicated verb stems: only the first stem changes to -i when the tense’s negation requires -i"
+          notes:
+            - "In reduplication, only the first copy shows the -i change under negation (when applicable)."
+        - pattern: "-nga- (sometimes combined with A-) as a negation marker in certain tenses"
+          notes:
+            - "In certain tenses, the versatile syllable -nga- carries negation, sometimes together with A-."
+
+    x-Negation-type_x-constituent:
+      applies: {x-Negation-type: x-constituent}
+      patterns:
+        - pattern: "SC + nge- + na/ne/no + noun"
+          examples:
+            - "Ungumuntu ungenomusa."
+        - pattern: "a- + subject concord (SC); in class 7/8: -ka- + predicative adjective"
+          notes:
+            - "Predicative adjective constructions can be negated with a- plus the subject concord."
+            - "Exception: in class 7/8 the subject concord changes to -ka-."
+        - pattern: "Ngaphandle kwa/kwe/kwo + noun"
+          examples:
+            - "Ugijima ngaphandle kwejubane."
+      notes:
+        - "To negate a specific sentence part, that part is negated regularly."

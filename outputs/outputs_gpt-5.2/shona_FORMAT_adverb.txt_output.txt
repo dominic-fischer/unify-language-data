@@ -1,0 +1,37 @@
+Adverbs:
+  Features:
+    u-Part-of-Speech:
+    - u-adv
+    u-Polarity: [u-pos, u-neg]
+    x-SourcePOS:
+    - u-n
+    - u-v
+
+  Rules:
+    u-Part-of-Speech_u-adv__u-Polarity_u-pos__x-SourcePOS_u-n:
+      applies: {u-Part-of-Speech: u-adv, u-Polarity: u-pos, x-SourcePOS: u-n}
+      patterns:
+      - pattern: "ne + N (nominal adverb)"
+        examples:
+        - "Anoseka nemufaro. ('He laughs joyfully.')"
+
+    u-Part-of-Speech_u-adv__u-Polarity_u-neg__x-SourcePOS_u-n:
+      applies: {u-Part-of-Speech: u-adv, u-Polarity: u-neg, x-SourcePOS: u-n}
+      patterns:
+      - pattern: "pasina + N (negative nominal adverb)"
+        examples:
+        - "Anoseka pasina mufaro. ('He laughs joylessly.')"
+
+    u-Part-of-Speech_u-adv__u-Polarity_u-pos__x-SourcePOS_u-v:
+      applies: {u-Part-of-Speech: u-adv, u-Polarity: u-pos, x-SourcePOS: u-v}
+      patterns:
+      - pattern: "ne + INF (verbal adverb)"
+        examples:
+        - "Anomhanya nekukurumidza. ('He runs fast.')"
+
+    u-Part-of-Speech_u-adv__u-Polarity_u-neg__x-SourcePOS_u-v:
+      applies: {u-Part-of-Speech: u-adv, u-Polarity: u-neg, x-SourcePOS: u-v}
+      patterns:
+      - pattern: "pasina + INF (negative verbal adverb)"
+        examples:
+        - "Anomhanya pasina kukurumidza. ('He does not run fast.')"

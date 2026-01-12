@@ -1,0 +1,25 @@
+Clauses:
+  Features:
+    x-Clausetype:
+    - x-main
+    u-Interrogativity: [u-decl]
+
+  Rules:
+    u-Interrogativity_u-decl__x-Clausetype_x-main:
+      applies: {x-Clausetype: x-main, u-Interrogativity: u-decl}
+      patterns:
+      - pattern: "... V + il y a + time expression"
+        notes:
+        - "The construction il y a is also used to express the passage of time since an event occurred (English 'ago' / 'it has been')."
+        examples:
+        - "Je l'ai vu il y a deux jours."
+      - pattern: "il y avait + duration + que + ..."
+        notes:
+        - "Il y avoir can be used to express 'it had been (a long time) since ...'."
+        examples:
+        - "Il y avait longtemps que je ne l'avais pas vu."
+      - pattern: "N + d' + il y a + time expression"
+        notes:
+        - "Il y a can occur in nominal modification referring to a time in the past ('of ... ago')."
+        examples:
+        - "Le langage d'il y a cent ans est très différent de celui d'aujourd'hui."

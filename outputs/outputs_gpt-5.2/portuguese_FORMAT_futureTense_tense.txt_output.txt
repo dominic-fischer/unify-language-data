@@ -1,0 +1,25 @@
+Future:
+  Features:
+    u-Aspect: [u-prog, u-prosp]
+
+  Rules:
+    u-Aspect_u-prosp:
+      applies: {u-Aspect: u-prosp}
+      patterns:
+      - pattern: "synthetic future tense (finite verb form)"
+        examples:
+        - "cantaremos"
+      - pattern: "ir (finite) + infinitive"
+        examples:
+        - "vou cantar"
+        - "vamos falar"
+
+    u-Aspect_u-prog:
+      applies: {u-Aspect: u-prog}
+      patterns:
+      - pattern: "estar (future) + gerund"
+        examples:
+        - "estarei falando"
+      - pattern: "estar (future) + a + infinitive"
+        examples:
+        - "estarei a falar"

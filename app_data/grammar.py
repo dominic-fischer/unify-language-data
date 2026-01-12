@@ -62,10 +62,24 @@ def normalize_grammar_files(files: List[Path]) -> pd.DataFrame:
     """
     Returns a rules dataframe.
     Each rule row has:
-      - pattern: table-friendly display string (from pattern OR patterns/forms/endings summary)
-      - details_json: full structured payload containing pattern/patterns/forms/endings for expanders
+      - pattern: table-friendly display string
+      - details_json: full structured payload containing pattern/patterns/formparadigms/endingparadigms
     """
     rules_rows: List[Dict[str, Any]] = []
+
+    def _coerce_list(x: Any) -> List[Any]:
+        return x if isinstance(x, list) else []
+
+    def _display_name(kind: str, i: int, obj: Any) -> str:
+        """
+        kind: "Pattern" | "Form paradigm" | "Ending paradigm"
+        Uses obj["title"] if present, else defaults to f"{kind} {i}".
+        """
+        if isinstance(obj, dict):
+            t = obj.get("title")
+            if isinstance(t, str) and t.strip():
+                return t.strip()
+        return f"{kind} {i}"
 
     for fp in files:
         lang = parse_lang_from_filename(fp)
@@ -95,46 +109,74 @@ def normalize_grammar_files(files: List[Path]) -> pd.DataFrame:
                 if not isinstance(applies, dict):
                     applies = {}
 
-                # ---- schema-aware extraction
+                # ---- schema-aware extraction (new + legacy)
                 pattern = rule.get("pattern")
-                patterns = rule.get("patterns") or []
-                forms = rule.get("forms") or []
-                endings = rule.get("endings") or []
+                patterns = _coerce_list(rule.get("patterns"))
 
-                if not isinstance(patterns, list):
-                    patterns = []
-                if not isinstance(forms, list):
-                    forms = []
-                if not isinstance(endings, list):
-                    endings = []
+                # New schema names
+                formparadigms = rule.get("formparadigms")
+                endingparadigms = rule.get("endingparadigms")
 
-                # Table-friendly "pattern" display
+                # Legacy names (fallback)
+                legacy_forms = rule.get("forms")
+                legacy_endings = rule.get("endings")
+
+                forms = _coerce_list(formparadigms if formparadigms is not None else legacy_forms)
+                endings = _coerce_list(endingparadigms if endingparadigms is not None else legacy_endings)
+
+                # Notes: new schema uses `notes: [str]`, legacy uses `note: str`
+                notes_val = rule.get("notes")
+                if isinstance(notes_val, list) and notes_val:
+                    note = "\n".join([str(n) for n in notes_val if n is not None])
+                else:
+                    note = rule.get("note")
+
+                # ---- Table-friendly "pattern" display
                 if isinstance(pattern, str) and pattern.strip():
                     pattern_display = pattern.strip()
                 else:
-                    n_patterns = len(patterns)
-                    n_forms = len(forms)
-                    n_endings = len(endings)
-
-                    parts = []
-                    if n_patterns:
-                        parts.append(f"{n_patterns} pattern blocks")
-                    if n_forms:
-                        parts.append(f"{n_forms} forms")
-                    if n_endings:
-                        parts.append(f"{n_endings} endings")
-
                     hint = ""
-                    if n_patterns and isinstance(patterns[0], dict):
-                        p0 = patterns[0].get("pattern")
-                        if isinstance(p0, str) and p0.strip():
-                            hint = p0.strip()
 
-                    pattern_display = (hint if hint else " / ".join(parts)) or "—"
+                    # Prefer a named block (title) if present
+                    if patterns:
+                        hint = _display_name("Pattern", 1, patterns[0])
 
+                        # If title was defaulted (no explicit title), try to hint with actual pattern text
+                        if hint == "Pattern 1" and isinstance(patterns[0], dict):
+                            p0 = patterns[0].get("pattern")
+                            if isinstance(p0, str) and p0.strip():
+                                hint = p0.strip()
+
+                    # Otherwise try paradigms' titles
+                    if not hint and forms:
+                        hint = _display_name("Form paradigm", 1, forms[0])
+                    if not hint and endings:
+                        hint = _display_name("Ending paradigm", 1, endings[0])
+
+                    # Otherwise fallback to counts
+                    if not hint:
+                        parts = []
+                        if patterns:
+                            parts.append(f"{len(patterns)} patterns")
+                        if forms:
+                            parts.append(f"{len(forms)} form paradigms")
+                        if endings:
+                            parts.append(f"{len(endings)} ending paradigms")
+                        hint = " / ".join(parts)
+
+                    pattern_display = hint or "—"
+
+                # ---- Details payload for expanders (UI can render Pattern N etc.)
+                # Keep legacy keys too so existing UI code doesn't break.
                 details = {
                     "pattern": pattern if isinstance(pattern, str) else None,
                     "patterns": patterns,
+
+                    # Explicit new schema keys
+                    "formparadigms": forms,
+                    "endingparadigms": endings,
+
+                    # Legacy keys (compat)
                     "forms": forms,
                     "endings": endings,
                 }
@@ -150,7 +192,7 @@ def normalize_grammar_files(files: List[Path]) -> pd.DataFrame:
                         "applies": applies,
                         "applies_json": json.dumps(applies, ensure_ascii=False),
                         "pattern": pattern_display,
-                        "note": rule.get("note"),
+                        "note": note,
                         "negation": rule.get("negation"),
                         "examples": rule.get("examples", []),
                         "details_json": details_json,

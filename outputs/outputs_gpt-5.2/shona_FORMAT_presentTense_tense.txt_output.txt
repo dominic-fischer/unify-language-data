@@ -1,0 +1,18 @@
+Present:
+  Features:
+    u-Tense:
+    - u-prs
+  Rules:
+    u-Tense_u-prs:
+      applies: {u-Tense: u-prs}
+      patterns:
+      - pattern: "(Kana) ndi-ka-siya ndi-no/cha/nga-rasika."
+        notes:
+        - "Positive conditional present uses -ka-; alternatively -chi- can be used instead of -ka-."
+        examples:
+        - "(Kana) ndi-ka-siya ndi-no/cha/nga-rasika."
+      - pattern: "Ndi-ka-sa-siya ha-ndi-goni kurasika."
+        notes:
+        - "For negation, -sa- is inserted after -ka-."
+        examples:
+        - "Ndi-ka-sa-siya ha-ndi-goni kurasika."

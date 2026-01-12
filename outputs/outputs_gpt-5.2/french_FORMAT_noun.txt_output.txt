@@ -1,0 +1,163 @@
+Noun:
+  Features:
+    u-Gender: [u-masc, u-fem]
+    u-Number:
+    - u-sg
+
+  Rules:
+    u-Gender_u-masc_u-fem:
+      applies: {u-Gender: [u-masc, u-fem]}
+      patterns:
+      - pattern: "Nouns have grammatical gender: masculine or feminine."
+        notes:
+        - "For nouns referring to humans, grammatical gender usually corresponds to natural gender; often there is a masculine and a feminine noun."
+        - "A plural noun referring to both males and females is masculine."
+        - "Some nouns have fixed grammatical gender regardless of natural gender (e.g., personne is always feminine; professeur is described as always masculine in standard French, while une professeure is standard in Canadian French and becoming more common in European French)."
+        examples:
+        - "un chanteur / une chanteuse / une cantatrice"
+        - "un catholique / une catholique"
+        - "personne (always feminine)"
+        - "professeur (described as masculine in standard French); une professeure (Canadian French)"
+      - pattern: "Gender is not perfectly predictable from form, but there are trends based on endings."
+        notes:
+        - "Broad trend: nouns ending in -e tend to be feminine; other nouns tend to be masculine, but exceptions exist."
+        - "Endings occurring almost exclusively with feminine nouns: -sion, -tion, -aison, -ité, -logie."
+        - "Endings occurring almost exclusively with masculine nouns: -aire, -isme, -ème, -ège."
+        - "Many nouns ending in -e preceded by double consonants are also masculine."
+        - "Noun clauses are masculine."
+        examples:
+        - "une étoile; une voiture"
+        - "un ballon; un stylo"
+        - "un cadre; un arbre; un signe; un meuble"
+        - "la peau; une dent"
+        - "le coude; un squelette"
+      - pattern: "Some nouns can be masculine or feminine with the same meaning; some change gender depending on use; some change meaning depending on gender."
+        notes:
+        - "A small number of nouns can be either masculine or feminine with the same meaning; often one gender is preferred."
+        - "Rarely, nouns change gender by number or by emphatic plural use (e.g., amour, délice; orgue in emphatic plural)."
+        - "The plural noun gens is usually masculine but can trigger feminine agreement when certain adjectives precede it."
+        - "Some nouns change meaning with gender; gender can also disambiguate homophones."
+        examples:
+        - "après-midi"
+        - "amour (masc sg, fem pl); délice (masc sg, fem pl)"
+        - "orgue (masc; fem in emphatic plural: les grandes orgues)"
+        - "le critique (critic) / la critique (criticism)"
+        - "le livre (book) / la livre (pound)"
+        - "le voile (veil) / la voile (sail)"
+        - "le pot / la peau (homophonous [po])"
+
+    u-Number_u-sg:
+      applies: {u-Number: u-sg}
+      endingparadigms:
+      - endingparadigm:
+        - features: {u-Number: u-sg}
+          ending: ""
+        - features: {u-Number: u-pl}
+          ending: "s"
+        notes:
+        - "Orthographically, the plural is usually formed by adding -s."
+        - "In most cases, plural -s is not pronounced; singular and plural are often homophonous."
+        examples:
+        - "maison → maisons"
+      - endingparadigm:
+        - features: {u-Number: u-sg}
+          ending: ""
+        - features: {u-Number: u-pl}
+          ending: "x"
+        notes:
+        - "Nouns ending in -au, -eu, and -ou often take plural -x."
+        - "In most cases, plural -x is not pronounced."
+        examples:
+        - "jeu → jeux"
+      - endingparadigm:
+        - features: {u-Number: u-sg}
+          ending: "(ends in -s, -x, or -z)"
+        - features: {u-Number: u-pl}
+          ending: "(unchanged)"
+        notes:
+        - "Nouns ending in -s, -x, or -z in the singular are unchanged in the plural (spelling and pronunciation)."
+        examples:
+        - "croix → croix"
+      - endingparadigm:
+        - features: {u-Number: u-sg}
+          ending: "al"
+        - features: {u-Number: u-pl}
+          ending: "aux"
+        notes:
+        - "Most nouns ending in -al have plural -aux; these are among the nouns whose spoken plural is distinguished from the singular."
+        examples:
+        - "cheval → chevaux"
+      - endingparadigm:
+        - features: {u-Number: u-sg}
+          ending: "ail"
+        - features: {u-Number: u-pl}
+          ending: "aux"
+        notes:
+        - "A few nouns ending in -ail also form plural -aux."
+        examples:
+        - "travail → travaux"
+      formparadigms:
+      - formparadigm:
+        - features: {u-Number: u-sg}
+          form: "aïeul"
+        - features: {u-Number: u-pl}
+          form: "aïeux"
+        notes:
+        - "Completely irregular plural."
+        examples:
+        - "aïeul → aïeux"
+      - formparadigm:
+        - features: {u-Number: u-sg}
+          form: "ciel"
+        - features: {u-Number: u-pl}
+          form: "cieux"
+        notes:
+        - "Completely irregular plural."
+        examples:
+        - "ciel → cieux"
+      - formparadigm:
+        - features: {u-Number: u-sg}
+          form: "œil"
+        - features: {u-Number: u-pl}
+          form: "yeux"
+        notes:
+        - "Completely irregular plural."
+        examples:
+        - "œil → yeux"
+      - formparadigm:
+        - features: {u-Number: u-sg}
+          form: "bœuf"
+        - features: {u-Number: u-pl}
+          form: "bœufs"
+        notes:
+        - "Regular plural spelling but irregular pronunciation."
+        examples:
+        - "bœuf → bœufs"
+      - formparadigm:
+        - features: {u-Number: u-sg}
+          form: "œuf"
+        - features: {u-Number: u-pl}
+          form: "œufs"
+        notes:
+        - "Regular plural spelling but irregular pronunciation."
+        examples:
+        - "œuf → œufs"
+      - formparadigm:
+        - features: {u-Number: u-sg}
+          form: "os"
+        - features: {u-Number: u-pl}
+          form: "os"
+        notes:
+        - "Regular plural spelling but irregular pronunciation."
+        examples:
+        - "os → os"
+      patterns:
+      - pattern: "In spoken French, plurality of most nouns is marked on a preceding article or determiner rather than on the noun."
+        examples:
+        - "la maison → les maisons"
+        - "mon frère → mes frères"
+      - pattern: "Liaison between a plural noun and a following adjective can make plural -s or -x pronounced in careful formal speech."
+        notes:
+        - "This liaison is usually limited to careful formal speech; in everyday speech singular and plural are often homophonous."
+        examples:
+        - "des fenêtres ouvertes [dɛ fənɛtʁəz‿uvɛʁt]"

@@ -1,0 +1,42 @@
+Subjunctive:
+  Features:
+    u-Mood: [u-sbjv]
+    u-Tense: [u-prs, u-pst, u-fut]
+
+  Rules:
+    u-Mood_u-sbjv__u-Tense_u-prs:
+      applies: {u-Mood: u-sbjv, u-Tense: u-prs}
+      patterns:
+      - pattern: "subordinate clause (often introduced with que) expressing non-assertive notions (wishes, orders, possibilities, etc.)"
+        examples:
+        - "quero que cante"
+        - "supondo que cante"
+        - "ele será pago, cante ou não"
+        notes:
+        - "Used mainly in subordinate clauses."
+
+    u-Mood_u-sbjv__u-Tense_u-pst:
+      applies: {u-Mood: u-sbjv, u-Tense: u-pst}
+      patterns:
+      - pattern: "adverbial subordinate clause introduced with se (‘if’) (or equivalent) expressing a condition for a main clause in the conditional tense"
+        examples:
+        - "se cantasse, seria famoso"
+        - "se cantasse, teríamos aplaudido"
+      - pattern: "noun clause introduced with que that is the object of past wishes or commands"
+        examples:
+        - "esperávamos que cantasse"
+        - "eu mandei que cantassem"
+
+    u-Mood_u-sbjv__u-Tense_u-fut:
+      applies: {u-Mood: u-sbjv, u-Tense: u-fut}
+      patterns:
+      - pattern: "adverbial subordinate clause (usually introduced by se ‘if’ or quando ‘when’) expressing a neutral/expected condition for a present- or future-tense main clause"
+        examples:
+        - "se cantarmos, seremos pagos"
+        - "se cantarmos, ele fica"
+        - "quando cantarmos, ele escutará"
+      - pattern: "adjectival (relative) subordinate clause expressing a neutral/expected condition for a present- or future-tense main clause"
+        examples:
+        - "Ando à procura de um cão que fale!"
+        notes:
+        - "Described as uncommon among Indo-European languages."

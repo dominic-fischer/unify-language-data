@@ -1,0 +1,37 @@
+Conditionals:
+  Features:
+    u-Tense: [u-prs, u-pst]
+    u-Mood: [u-irr]
+  
+  Rules:
+    u-Mood_u-irr__u-Tense_u-prs:
+      applies: {u-Tense: u-prs, u-Mood: u-irr}
+      notes:
+      - "Irrealis present is marked with TAM -nge-; the standard negative uses -si- in the TAM slot, yielding -singe-."
+      - "A variant negative uses NEG.SUBJ + -nge-."
+      patterns:
+      - pattern: "Protasis: SUBJ–nge–STEM; Apodosis: SUBJ–nge–STEM"
+        examples:
+        - "Ningeenda huko wazazi wangu wangefurahi."
+      - pattern: "Negative (standard): SUBJ–singe–STEM"
+        examples:
+        - "Tusingeenda huko wazazi wangu wangekasirika."
+      - pattern: "Negative (variant): NEG.SUBJ–nge–STEM"
+        examples:
+        - "Hau-nge-enda."
+    
+    u-Mood_u-irr__u-Tense_u-pst:
+      applies: {u-Tense: u-pst, u-Mood: u-irr}
+      notes:
+      - "Irrealis past is marked with TAM -ngali-; the standard negative uses -si- in the TAMAM slot, yielding -singali-."
+      - "A variant negative uses NEG.SUBJ + -ngali-."
+      patterns:
+      - pattern: "Protasis: SUBJ–ngali–STEM; Apodosis: SUBJ–ngali–STEM"
+        examples:
+        - "Ningalienda huko wazazi wangu wangalifurahi."
+      - pattern: "Negative (standard): SUBJ–singali–STEM"
+        examples:
+        - "Tusingalienda huko wazazi wangu wangalikasirika."
+      - pattern: "Negative (variant): NEG.SUBJ–ngali–STEM"
+        examples:
+        - "Hau–ngali–enda."

@@ -1,0 +1,106 @@
+Adjective:
+  Features:
+    u-Gender:
+    - u-bantu1-23
+    u-Number:
+    - u-sg
+    - u-pl
+    u-Polarity:
+    - u-neg
+    u-Part-of-Speech:
+    - u-adj
+    - u-n
+    - u-v
+
+  Rules:
+    x-Position_postnominal:
+      applies: {}
+      patterns:
+      - pattern: "Noun + adjective"
+        notes:
+        - "Adjectives follow the noun they modify."
+
+    u-Part-of-Speech_u-adj:
+      applies: {u-Part-of-Speech: u-adj}
+      formparadigms:
+      - title: "Adjective concord prefixes (by noun class; consonant-initial vs vowel-initial stems)"
+        formparadigm:
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "1", x-StemOnset: "consonant"}, form: "m-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "1", x-StemOnset: "vowel-i"}, form: "mwi-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "1", x-StemOnset: "vowel-e"}, form: "mwe-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "2", x-StemOnset: "consonant"}, form: "wa-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "2", x-StemOnset: "vowel-i"}, form: "we-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "2", x-StemOnset: "vowel-e"}, form: "we-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "3", x-StemOnset: "consonant"}, form: "m-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "3", x-StemOnset: "vowel-i"}, form: "mwi-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "3", x-StemOnset: "vowel-e"}, form: "mwe-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "4", x-StemOnset: "consonant"}, form: "mi-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "4", x-StemOnset: "vowel-i"}, form: "mi-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "4", x-StemOnset: "vowel-e"}, form: "mye-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "5", x-StemOnset: "consonant"}, form: "(ji-)[a]"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "5", x-StemOnset: "vowel-i"}, form: "ji-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "5", x-StemOnset: "vowel-e"}, form: "je-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "6", x-StemOnset: "consonant"}, form: "ma-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "6", x-StemOnset: "vowel-i"}, form: "me-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "6", x-StemOnset: "vowel-e"}, form: "me-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "7", x-StemOnset: "consonant"}, form: "ki-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "7", x-StemOnset: "vowel-i"}, form: "ki-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "7", x-StemOnset: "vowel-e"}, form: "che-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "8", x-StemOnset: "consonant"}, form: "vi-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "8", x-StemOnset: "vowel-i"}, form: "vi-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "8", x-StemOnset: "vowel-e"}, form: "vye-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "9", x-StemOnset: "consonant"}, form: "N-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "9", x-StemOnset: "vowel-i"}, form: "nyi-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "9", x-StemOnset: "vowel-e"}, form: "nye-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "10", x-StemOnset: "consonant"}, form: "N-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "10", x-StemOnset: "vowel-i"}, form: "nyi-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "10", x-StemOnset: "vowel-e"}, form: "nye-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "11", x-StemOnset: "consonant"}, form: "m-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "11", x-StemOnset: "vowel-i"}, form: "mwi-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "11", x-StemOnset: "vowel-e"}, form: "mwe-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "14", x-StemOnset: "consonant"}, form: "m-/u-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "14", x-StemOnset: "vowel-i"}, form: "mwi-/wi-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "14", x-StemOnset: "vowel-e"}, form: "mwe-/we-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "15", x-StemOnset: "consonant"}, form: "ku-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "15", x-StemOnset: "vowel-i"}, form: "kwi-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "15", x-StemOnset: "vowel-e"}, form: "kwe-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "16", x-StemOnset: "consonant"}, form: "pa-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "16", x-StemOnset: "vowel-i"}, form: "pe-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "16", x-StemOnset: "vowel-e"}, form: "pe-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "17", x-StemOnset: "consonant"}, form: "ku-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "17", x-StemOnset: "vowel-i"}, form: "kwi-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "17", x-StemOnset: "vowel-e"}, form: "kwe-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "18", x-StemOnset: "consonant"}, form: "mu-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "18", x-StemOnset: "vowel-i"}, form: "mwi-"}
+        - {features: {u-Gender: u-bantu1-23, x-NounClass: "18", x-StemOnset: "vowel-e"}, form: "mwe-"}
+        notes:
+        - "Class 11 (and generally also 14) replaces the nominal u- prefix with adjectival m-."
+        - "Most vowel-initial adjective stems begin with e or i."
+
+    u-Part-of-Speech_u-v:
+      applies: {u-Part-of-Speech: u-v}
+      patterns:
+      - pattern: "impersonal i- (class 9/10) + 'become/be' verb form + adjective"
+        notes:
+        - "Uses impersonal i- (class 9/10) as a marker and otherwise regular verb forms."
+        examples:
+        - "Imekuwa nzuri."
+        - "Itakuwa nzuri."
+    u-Part-of-Speech_u-v__u-Polarity_u-neg:
+      applies: {u-Part-of-Speech: u-v, u-Polarity: u-neg}
+      patterns:
+      - pattern: "negative relative: replace -li- with -si-"
+        examples:
+        - "Dirisha lisilofungwa limevunjika."
+        notes:
+        - "Described as a relative construction."
+
+    u-Part-of-Speech_u-n:
+      applies: {u-Part-of-Speech: u-n}
+      patterns:
+      - pattern: "possessive concord (without -a) + enye + noun"
+        notes:
+        - "Exception in class 1/2 singular: mwenye."
+        examples:
+        - "Ndiye mtu mwenye akili."
+

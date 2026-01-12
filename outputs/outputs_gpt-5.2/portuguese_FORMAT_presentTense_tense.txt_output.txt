@@ -1,0 +1,24 @@
+Present:
+  Features:
+    u-Aspect: [u-prog]
+    u-Tense: [u-prs]
+
+  Rules:
+    u-Aspect_u-prog__u-Tense_u-prs:
+      applies: {u-Tense: u-prs, u-Aspect: u-prog}
+      patterns:
+      - pattern: "{estar (finite)} + {gerund}"
+        examples:
+        - "Eu estou trabalhando."
+        - "estou falando"
+        notes:
+        - "This construction is used to form progressive tenses."
+        - "It is the rule in Brazil."
+        - "It is also found in southern and insular Portugal and in Portuguese literature."
+      - pattern: "{estar (finite)} + a + {infinitive}"
+        examples:
+        - "Eu estou a trabalhar."
+        - "estou a falar"
+        notes:
+        - "In European Portuguese, this is an alternative progressive construction."
+        - "It has replaced the older gerund construction in central and northern Portugal."

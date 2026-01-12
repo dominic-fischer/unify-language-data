@@ -1,0 +1,77 @@
+Negation:
+  Features:
+    x-Negation-type: [x-clause]
+
+  Rules:
+    x-Negation-type_x-clause:
+      applies: {x-Negation-type: x-clause}
+      patterns:
+        - pattern: "subject + ne + (object clitics) + finite verb/auxiliary + (object clitics) + negative word"
+          title: "Bipartite negation with finite verb"
+          examples:
+            - "Je ne sais pas."
+            - "Je ne les ai pas pris."
+            - "Il ne fume plus."
+            - "Nous n'avons vu personne."
+            - "Elle n'a rien bu."
+            - "Je n'ai aucune idée."
+            - "Vous ne mangez que des légumes ?"
+          notes:
+            - "French usually expresses negation with ne plus a negative word (e.g., pas, plus, jamais, nulle part, guère, point, aucunement, nullement, rien, personne, aucun, que)."
+            - "Negation encircles a conjugated verb: ne follows the subject, and the negative word follows the finite verb."
+            - "ne occurs before the verb marked for tense and before any unstressed object pronouns that come before the verb."
+
+        - pattern: "ne + negative word + infinitive"
+          title: "Bipartite negation with infinitive"
+          examples:
+            - "Je voudrais regarder un film et ne pas m'endormir."
+            - "Il prétend ne pas/ne jamais/ne rien fumer."
+          notes:
+            - "With infinitives, both parts of the negation precede the targeted verb."
+
+        - pattern: "negative word (rien/personne) + ne + finite verb"
+          title: "Negative subject (rien/personne)"
+          examples:
+            - "Rien n'est certain."
+            - "Personne n'est arrivé."
+          notes:
+            - "When rien or personne is the subject, it moves to clause-initial position before ne."
+
+        - pattern: "(ne +) multiple negative words (excluding pas) in one clause"
+          title: "Multiple negative words without pas"
+          examples:
+            - "Elle n'a plus jamais rien dit à personne."
+          notes:
+            - "Several negative words other than pas can appear in the same sentence; the result is usually interpreted as a simple negation."
+
+        - pattern: "ne + pas + negative word"
+          title: "pas with another negative word"
+          examples:
+            - "Elle n'a pas vu personne."
+          notes:
+            - "When another negative word occurs with pas, a double negation interpretation usually arises; this construction is criticised."
+
+        - pattern: "(colloquial) finite verb (+ complements) + negative word (without ne)"
+          title: "ne-dropping (colloquial)"
+          examples:
+            - "J'ai pas pu venir."
+          notes:
+            - "In colloquial French, ne is commonly dropped."
+
+        - pattern: "ne + (pouvoir|savoir|oser|cesser) (+ complements) [without pas/other negative word]"
+          title: "ne alone (literary)"
+          examples:
+            - "Je n'ai pu venir."
+          notes:
+            - "In mostly literary constructions, ne can express negation by itself with pouvoir, savoir, oser, and cesser."
+
+        - pattern: "(formal/literary) [finite subordinate clause] + ne (expletive)"
+          title: "Expletive ne (non-negative)"
+          examples:
+            - "J'ai peur que cela ne se reproduise."
+            - "Il est arrivé avant que nous n'ayons commencé."
+            - "Ils sont plus nombreux que tu ne le crois."
+          notes:
+            - "Expletive ne does not signify negation."
+            - "It occurs in finite subordinate clauses (never before an infinitive) and is characteristic of literary rather than colloquial style."
+            - "It appears in: complement clauses of verbs of fear/avoidance (craindre, avoir peur, empêcher, éviter); complement clauses of doubt/denial (douter, nier); adverbial clauses with avant que, à moins que, de peur/crainte que; and comparative inequality constructions (plus/moins, meilleur, etc.)."

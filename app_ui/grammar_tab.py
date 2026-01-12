@@ -12,17 +12,24 @@ from app_ui.common import apply_constraints, build_constraints_ui, is_empty_valu
 
 def render_rule_details(details_json: str) -> None:
     """
-    Render patterns/forms/endings with expanders.
+    Render patterns + form/ending paradigms with stable names:
+    - "Pattern N" unless item has title
+    - "Form paradigm N" unless item has title
+    - "Ending paradigm N" unless item has title
     """
     try:
         details = json.loads(details_json or "{}")
     except Exception:
         details = {}
 
+    # legacy support
     single_pattern = details.get("pattern")
+
     patterns = details.get("patterns") or []
-    forms = details.get("forms") or []
-    endings = details.get("endings") or []
+
+    # prefer new keys, fallback to legacy
+    formparadigms = details.get("formparadigms") or details.get("forms") or []
+    endingparadigms = details.get("endingparadigms") or details.get("endings") or []
 
     if single_pattern:
         with st.expander("Pattern", expanded=True):
@@ -32,34 +39,90 @@ def render_rule_details(details_json: str) -> None:
         with st.expander(f"Patterns ({len(patterns)})", expanded=True):
             for i, p in enumerate(patterns, 1):
                 if isinstance(p, dict):
-                    st.markdown(f"**#{i}**")
+                    title = p.get("title") or f"Pattern {i}"
+                    st.markdown(f"**{title}**")
+
                     if p.get("pattern"):
                         st.write(p["pattern"])
-                    if p.get("note"):
-                        st.caption(p["note"])
-                    if p.get("examples"):
-                        ex = p["examples"]
-                        if isinstance(ex, list):
-                            st.write("\n".join([f"- {x}" for x in ex]))
-                        else:
-                            st.write(str(ex))
-                    if p.get("forms"):
-                        st.markdown("_Forms:_")
-                        st.json(p["forms"])
-                    if p.get("endings"):
-                        st.markdown("_Endings:_")
-                        st.json(p["endings"])
+
+                    notes = p.get("notes") or p.get("note")
+                    if isinstance(notes, list):
+                        for n in notes:
+                            st.caption(n)
+                    elif isinstance(notes, str) and notes.strip():
+                        st.caption(notes)
+
+                    ex = p.get("examples")
+                    if isinstance(ex, list) and ex:
+                        st.write("\n".join([f"- {x}" for x in ex]))
+                    elif isinstance(ex, str) and ex.strip():
+                        st.write(ex)
+
                     st.divider()
                 else:
                     st.json(p)
 
-    if forms:
-        with st.expander(f"Forms ({len(forms)})"):
-            st.json(forms)
+    if formparadigms:
+        with st.expander(f"Form paradigms ({len(formparadigms)})", expanded=True):
+            for i, fp in enumerate(formparadigms, 1):
+                if isinstance(fp, dict):
+                    title = fp.get("title") or f"Form paradigm {i}"
+                    st.markdown(f"**{title}**")
 
-    if endings:
-        with st.expander(f"Endings ({len(endings)})"):
-            st.json(endings)
+                    # schema: "formparadigm": [ {features, form}, ... ]
+                    if fp.get("formparadigm") is not None:
+                        st.json(fp["formparadigm"])
+                    else:
+                        # legacy: may already be the array itself
+                        st.json(fp)
+
+                    notes = fp.get("notes") or fp.get("note")
+                    if isinstance(notes, list):
+                        for n in notes:
+                            st.caption(n)
+                    elif isinstance(notes, str) and notes.strip():
+                        st.caption(notes)
+
+                    ex = fp.get("examples")
+                    if isinstance(ex, list) and ex:
+                        st.write("\n".join([f"- {x}" for x in ex]))
+                    elif isinstance(ex, str) and ex.strip():
+                        st.write(ex)
+
+                    st.divider()
+                else:
+                    st.json(fp)
+
+    if endingparadigms:
+        with st.expander(f"Ending paradigms ({len(endingparadigms)})", expanded=True):
+            for i, ep in enumerate(endingparadigms, 1):
+                if isinstance(ep, dict):
+                    title = ep.get("title") or f"Ending paradigm {i}"
+                    st.markdown(f"**{title}**")
+
+                    # schema: "endingparadigm": [ {features, ending}, ... ]
+                    if ep.get("endingparadigm") is not None:
+                        st.json(ep["endingparadigm"])
+                    else:
+                        # legacy: may already be the array itself
+                        st.json(ep)
+
+                    notes = ep.get("notes") or ep.get("note")
+                    if isinstance(notes, list):
+                        for n in notes:
+                            st.caption(n)
+                    elif isinstance(notes, str) and notes.strip():
+                        st.caption(notes)
+
+                    ex = ep.get("examples")
+                    if isinstance(ex, list) and ex:
+                        st.write("\n".join([f"- {x}" for x in ex]))
+                    elif isinstance(ex, str) and ex.strip():
+                        st.write(ex)
+
+                    st.divider()
+                else:
+                    st.json(ep)
 
 
 def render_grammar_tab() -> None:

@@ -1,0 +1,96 @@
+Adjective:
+  Features:
+    u-Part-of-Speech:
+    - u-n
+    - u-v
+    u-Polarity:
+    - u-neg
+    u-Comparison:
+    - u-sprl
+    u-Gender:
+    - u-bantu1-23
+    u-Number:
+    - u-pl
+    - u-sg
+
+  Rules:
+    u-Part-of-Speech_u-n:
+      applies: {u-Part-of-Speech: u-n}
+      patterns:
+      - pattern: "possessive concord + noun"
+        examples:
+        - "munthu wa ulemu"
+        notes:
+        - "used for nominal adjectives derived from nouns (e.g. 'respectful' expressed with a possessive concord + noun)"
+      - pattern: "adjectival prefix + -panda + noun"
+        examples:
+        - "munthu wopanda ulemu"
+        notes:
+        - "used as negation for nominal adjectives"
+
+    u-Part-of-Speech_u-v:
+      applies: {u-Part-of-Speech: u-v}
+      patterns:
+      - pattern: "adjectival prefix + verb stem + noun"
+        examples:
+        - "munthu wakuda"
+        notes:
+        - "described for monosyllabic verb stems as 'possessive concord – base form'"
+      - pattern: "adjectival prefix + verb stem"
+        examples:
+        - "munthu wocheza"
+        notes:
+        - "described for polysyllabic verb stems as 'adjectival prefix – verb stem'"
+      - pattern: "adjectival prefix + -sa- + verb stem"
+        examples:
+        - "munthu wosada"
+        - "munthu wosacheza"
+        notes:
+        - "negation uses a negative infinitive marker -sa- before the verb stem"
+
+    u-Comparison_u-sprl:
+      applies: {u-Comparison: u-sprl}
+      patterns:
+      - pattern: "reduplication of the adjective stem"
+        examples:
+        - "yayikulu → yayikulukulu"
+        notes:
+        - "reduplication expresses an elative or superlative (adjective type does not matter)"
+
+    u-Gender_u-bantu1-23:
+      applies: {u-Gender: u-bantu1-23}
+      patterns:
+      - pattern: "possessive concord + adjectival concord + adjective stem"
+        examples:
+        - "Class 1: wamkulu"
+        - "Class 1: wang’ono"
+        - "Class 1 sg.: wamtali"
+        - "Class 1: wamfupi"
+      - pattern: "possessive concord + number concord + adjective stem"
+        examples:
+        - "mwaná wáḿkúlu; aná áákúlu"
+        - "mwaná wáḿng'óno; aná ááng'óno"
+        - "mwaná wámwámúna; aná áámúna"
+        - "mwaná wáḿkázi; aná áákázi"
+        notes:
+        - "certain adjectives use a double prefix combining possessive concord and number concord (m- or mw-)"
+
+    u-Number_u-sg:
+      applies: {u-Number: u-sg}
+      patterns:
+      - pattern: "possessive concord + number concord (m- or mw-) + adjective stem"
+        examples:
+        - "mwaná wáḿkúlu"
+        - "mwaná wáḿng'óno"
+        - "mwaná wámwámúna"
+        - "mwaná wáḿkázi"
+
+    u-Number_u-pl:
+      applies: {u-Number: u-pl}
+      patterns:
+      - pattern: "plural concord + adjective stem"
+        examples:
+        - "aná áákúlu"
+        - "aná ááng'óno"
+        - "aná áámúna"
+        - "aná áákázi"

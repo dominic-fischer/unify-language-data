@@ -1,0 +1,31 @@
+Imperative:
+  Features:
+    u-Person: [u-2]
+    u-Number: [u-sg, u-pl]
+    u-Politeness: [u-low, u-pol]
+
+  Rules:
+    u-Number_u-sg__u-Person_u-2__u-Politeness_u-low:
+      applies: {u-Person: u-2, u-Number: u-sg, u-Politeness: u-low}
+      patterns:
+      - pattern: "verb stem"
+        notes:
+        - "used when addressing a lower-status person in the singular"
+      - pattern: "i- + verb stem"
+        notes:
+        - "for monosyllabic verbs, prefix i- is added to the stem"
+
+    u-Number_u-pl__u-Person_u-2__u-Politeness_u-pol:
+      applies: {u-Person: u-2, u-Number: u-pl, u-Politeness: u-pol}
+      patterns:
+      - pattern: "verb stem + i"
+        notes:
+        - "used when addressing multiple people"
+        - "also used when addressing a respected (higher-status) person"
+
+    u-Number_u-sg__u-Person_u-2__u-Politeness_u-pol:
+      applies: {u-Person: u-2, u-Number: u-sg, u-Politeness: u-pol}
+      patterns:
+      - pattern: "verb stem + i"
+        notes:
+        - "used when addressing a respected (higher-status) person"

@@ -1,0 +1,38 @@
+Adverbs:
+  Features:
+    u-Part-of-Speech:
+    - u-adj
+    - u-n
+    - u-v
+    u-Polarity: [u-pos, u-neg]
+
+  Rules:
+    u-Part-of-Speech_u-v:
+      applies: {u-Part-of-Speech: u-v}
+      patterns:
+      - pattern: "infinitive (substantivized infinitive used in place of a noun)"
+        notes:
+        - "The (substantivized) infinitive replaces the noun, as with nouns."
+        examples:
+        - "Sabalekela kude. ('We ran far away.'; de 'be far')"
+
+    u-Part-of-Speech_u-adj:
+      applies: {u-Part-of-Speech: u-adj}
+      patterns:
+      - pattern: "ka + true adjective stem"
+        examples:
+        - "Tiyenza kahle lokhu. ('We do this well.'; -hle 'good/beautiful')"
+    u-Part-of-Speech_u-n__u-Polarity_u-pos:
+      applies: {u-Part-of-Speech: u-n, u-Polarity: u-pos}
+      patterns:
+      - pattern: "nga/nge/ngo + noun"
+        examples:
+        - "Ugijima ngejubane. ('He runs fast.'; ijubane 'speed')"
+
+    u-Part-of-Speech_u-n__u-Polarity_u-neg:
+      applies: {u-Part-of-Speech: u-n, u-Polarity: u-neg}
+      patterns:
+      - pattern: "ngaphandle kwa/kwe/kwo + noun"
+        examples:
+        - "Ugijima ngaphandle kwejubane. ('He does not run fast.')"
+

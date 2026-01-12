@@ -1,0 +1,90 @@
+Noun:
+  Features:
+    u-Gender:
+    - u-fem
+    u-Number:
+    - u-sg
+    u-Case:
+    - u-gen
+    - u-voc
+    u-Part-of-Speech:
+    - u-n
+
+  Rules:
+    u-Part-of-Speech_u-n:
+      applies: {u-Part-of-Speech: u-n}
+      formparadigms:
+      - title: "With a definite article"
+        formparadigm:
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-nom}
+          form: "băiatul"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-acc}
+          form: "băiatul"
+        - features: {u-Gender: u-masc, u-Number: u-pl, u-Case: u-nom}
+          form: "băieții"
+        - features: {u-Gender: u-masc, u-Number: u-pl, u-Case: u-acc}
+          form: "băieții"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-nom}
+          form: "mama"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-acc}
+          form: "mama"
+        - features: {u-Gender: u-fem, u-Number: u-pl, u-Case: u-nom}
+          form: "mamele"
+        - features: {u-Gender: u-fem, u-Number: u-pl, u-Case: u-acc}
+          form: "mamele"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-nom}
+          form: "oul"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-acc}
+          form: "oul"
+        - features: {u-Gender: u-neut, u-Number: u-pl, u-Case: u-nom}
+          form: "ouăle"
+        - features: {u-Gender: u-neut, u-Number: u-pl, u-Case: u-acc}
+          form: "ouăle"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-gen}
+          form: "băiatului"
+        - features: {u-Gender: u-masc, u-Number: u-sg, u-Case: u-dat}
+          form: "băiatului"
+        - features: {u-Gender: u-masc, u-Number: u-pl, u-Case: u-gen}
+          form: "băieților"
+        - features: {u-Gender: u-masc, u-Number: u-pl, u-Case: u-dat}
+          form: "băieților"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-gen}
+          form: "mamei"
+        - features: {u-Gender: u-fem, u-Number: u-sg, u-Case: u-dat}
+          form: "mamei"
+        - features: {u-Gender: u-fem, u-Number: u-pl, u-Case: u-gen}
+          form: "mamelor"
+        - features: {u-Gender: u-fem, u-Number: u-pl, u-Case: u-dat}
+          form: "mamelor"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-gen}
+          form: "oului"
+        - features: {u-Gender: u-neut, u-Number: u-sg, u-Case: u-dat}
+          form: "oului"
+        - features: {u-Gender: u-neut, u-Number: u-pl, u-Case: u-gen}
+          form: "ouălor"
+        - features: {u-Gender: u-neut, u-Number: u-pl, u-Case: u-dat}
+          form: "ouălor"
+
+    u-Case_u-gen__u-Gender_u-fem__u-Number_u-sg__u-Part-of-Speech_u-n:
+      applies: {u-Part-of-Speech: u-n, u-Gender: u-fem, u-Number: u-sg, u-Case: u-gen}
+      patterns:
+      - pattern: "For feminine nouns, the dative/genitive singular form is most often identical to the nominative plural."
+        examples:
+        - "o carte – unei cărți – două cărți"
+
+    u-Case_u-voc__u-Part-of-Speech_u-n:
+      applies: {u-Part-of-Speech: u-n, u-Case: u-voc}
+      formparadigms:
+      - formparadigm:
+        - features: {u-Gender: u-masc, u-Number: u-sg}
+          form: "băiatule/băiete"
+        - features: {u-Gender: u-masc, u-Number: u-pl}
+          form: "băieților"
+        - features: {u-Gender: u-fem, u-Number: u-sg}
+          form: "mamo"
+        - features: {u-Gender: u-fem, u-Number: u-pl}
+          form: "mamelor"
+        - features: {u-Gender: u-neut, u-Number: u-sg}
+          form: "oule"
+        - features: {u-Gender: u-neut, u-Number: u-pl}
+          form: "ouălor"

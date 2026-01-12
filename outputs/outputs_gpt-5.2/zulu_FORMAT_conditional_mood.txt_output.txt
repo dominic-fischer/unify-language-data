@@ -1,0 +1,49 @@
+Conditionals:
+  Features:
+    u-Tense: [u-prs, u-fut, u-pst]
+    u-Mood:
+    - u-cond
+    - u-pot
+
+  Rules:
+    u-Mood_u-cond__u-Tense_u-pst:
+      applies: {u-Mood: u-cond, u-Tense: u-pst}
+      notes:
+      - "Conditional clauses are introduced by 'uma' ('if') and may also appear as 'ukube' in the examples."
+      - "For an impossible/past condition, the condition clause uses a past tense form; the result clause uses 'ngabe' + subjunctive."
+      patterns:
+      - pattern: "ukube/uma + Past (condition) + ngabe + Subjunctive (result)"
+        examples:
+        - "ukube ngangazi, ngabe ngajabula."
+        - "ukube ngangingazi, ngabe angijabulanga."
+
+    u-Mood_u-pot__u-Tense_u-prs:
+      applies: {u-Mood: u-pot, u-Tense: u-prs}
+      notes:
+      - "Conditional clauses are introduced by 'uma' ('if')."
+      - "For a possible condition, the condition clause uses the participial form; the result clause uses the potential."
+      patterns:
+      - pattern: "uma + Participial (condition) + Potential (result)"
+        examples:
+        - "uma enemali, angathenga imoto."
+        - "uma engenamali, angethenge imoto."
+
+    u-Tense_u-prs:
+      applies: {u-Tense: u-prs}
+      notes:
+      - "Conditional clauses are introduced by 'uma' ('if')."
+      - "For a probable condition, both condition and result can be in the present tense."
+      patterns:
+      - pattern: "uma + Present (condition) + Present (result)"
+        examples:
+        - "uma lina, sizosala ekhaya."
+
+    u-Tense_u-fut:
+      applies: {u-Tense: u-fut}
+      notes:
+      - "Conditional clauses are introduced by 'uma' ('if')."
+      - "For a probable condition, both condition and result can be in the future tense."
+      patterns:
+      - pattern: "uma + Present/Future (condition) + Future (result)"
+        examples:
+        - "uma lina, sizosala ekhaya."

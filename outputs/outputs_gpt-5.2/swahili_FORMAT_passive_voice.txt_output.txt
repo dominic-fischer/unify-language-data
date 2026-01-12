@@ -1,0 +1,76 @@
+Passive:
+  Features:
+    u-Voice: [u-pass]
+
+  Rules:
+    u-Voice_u-pass:
+      applies: {u-Voice: u-pass}
+      patterns:
+      - pattern: "VERB-STEM + passive suffix (before final -a)"
+        notes:
+        - "Passive is formed by inserting -w- before the final -a."
+        - "The agent (if expressed) is introduced by the preposition na ('by')."
+        examples:
+        - "Nilipigwa na mwalimu."
+      endingparadigms:
+      - endingparadigm:
+        - features: {}
+          ending: "-wa"
+        - features: {}
+          ending: "-iwa"
+        - features: {}
+          ending: "-ewa"
+        - features: {}
+          ending: "-liwa"
+        - features: {}
+          ending: "-lewa"
+        - features: {}
+          ending: "-wewa"
+        - features: {}
+          ending: "-pewa"
+        - features: {}
+          ending: "-nyewa"
+        - features: {}
+          ending: "-chiwa"
+        notes:
+        - "The passive suffix is generally -wa."
+        - "Verb stems ending with l or with the semivowels w or y take -iwa; if the preceding syllable contains e or o, it is -ewa instead."
+        - "Verbs ending in -ea or -ia usually add -wa; some instead take -lewa (after e) or -liwa (after i)."
+        - "After /o/ or /u/, -liwa/-lewa are used because -wa would be inaudible."
+        - "Short verbs have passive forms that must be learnt separately."
+        - "Most loan-verbs add -wa; if a loan-verb ends with a consonant plus -u, this u becomes i; loan-verbs ending in -au add -liwa; verbs ending in -uu lose one u and replace it with -liwa."
+        examples:
+        - "-jenga → -jengwa"
+        - "-sema → -semwa"
+        - "-danganya → -danganywa"
+        - "-pwaya → -pwayiwa"
+        - "-chovya → -chovyewa"
+        - "-doya → -doyewa"
+        - "-gawa → -gawiwa"
+        - "-tawala → -tawaliwa"
+        - "-ambia → -ambiwa"
+        - "-tegemea → -tegemewa"
+        - "-zuia → -zuiwa"
+        - "-tia → -tiliwa"
+        - "-lea → -lelewa"
+        - "-pokea → -pokewa / -pokelewa"
+        - "-oa → -olewa"
+        - "-toa → -tolewa"
+        - "-nunua → -nunuliwa"
+        - "-ua → -uawa"
+        - "-zaa → -zaliwa"
+        - "-vaa → -valiwa"
+        - "-kaa → -kaliwa"
+        - "-la → -liwa"
+        - "-nywa → -nywewa"
+        - "-pa → -pewa"
+        - "-nya → -nyewa"
+        - "-cha → -chiwa"
+        - "-hitaji → -hitajiwa"
+        - "-kodi → -kodiwa"
+        - "-samehe → -samehewa"
+        - "-dai → -daiwa"
+        - "-laumu → -laumiwa"
+        - "-jaribu → -jaribiwa"
+        - "-sahau → -sahauliwa"
+        - "-nukuu → -nuku-liwa"

@@ -1,0 +1,226 @@
+Pronoun:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Gender: [u-masc, u-fem]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-gen, u-dat, u-acc, u-ins]
+    u-Animacy: [u-anim, u-inan]
+    u-Deixis: [u-prox, u-remt]
+    x-Pronoun-type: [x-pers, x-refl, x-poss, x-rel]
+
+  Rules:
+    x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers}
+      notes:
+        - "Personal pronouns are inflected for person, number, case, and (in the third person) gender."
+        - "Literary 3rd-person subject forms can distinguish animate vs inanimate antecedents; this is lost in colloquial usage."
+        - "Personal subject pronouns are normally omitted; they are used for emphasis."
+        - "Clitic pronouns are replaced with stressed forms for emphasis."
+        - "Clitic pronouns generally occur before the verb, but can be enclitic in certain constructions; in infinitive, gerund, and (except with third-person courtesy forms) imperative, they must be enclitic."
+        - "Stressed forms of non-subject cases are used when emphasized."
+        - "ci, vi, ne can also function as clitic pro-forms ('there' / 'from there') in addition to personal-pronoun uses."
+        - "Clitic pronouns can combine; any two cases can be used together except accusative + genitive; order is fixed by two patterns depending on whether a 3rd-person non-reflexive accusative or genitive clitic is present."
+        - "Clitics (except cui) before vowel-initial verb forms can be apocopated; apocopation is optional."
+      formparadigms:
+        - title: "Nominative (subject)"
+          formparadigm:
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-nom}, form: "io"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-nom}, form: "tu"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Animacy: u-anim, u-Case: u-nom}, form: "egli"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Animacy: u-inan, u-Case: u-nom}, form: "esso"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Animacy: u-anim, u-Case: u-nom}, form: "lui"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Animacy: u-anim, u-Case: u-nom}, form: "ella"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Animacy: u-inan, u-Case: u-nom}, form: "essa"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Animacy: u-anim, u-Case: u-nom}, form: "lei"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-nom}, form: "noi"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-nom}, form: "voi"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc, u-Case: u-nom}, form: "elli"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc, u-Case: u-nom}, form: "essi"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-nom}, form: "loro"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem, u-Case: u-nom}, form: "elle"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem, u-Case: u-nom}, form: "esse"}
+        - title: "Genitive"
+          formparadigm:
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-gen}, form: "di me"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-gen}, form: "di te"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-gen}, form: "ne"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-gen}, form: "di lui"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-gen}, form: "di esso"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-gen}, form: "ne"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-gen}, form: "di lei"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-gen}, form: "di essa"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-gen}, form: "di noi"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-gen}, form: "di voi"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-gen}, form: "ne"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-gen}, form: "di loro"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc, u-Case: u-gen}, form: "di essi"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem, u-Case: u-gen}, form: "di esse"}
+        - title: "Dative"
+          formparadigm:
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-dat}, form: "mi"}
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-dat}, form: "me"}
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-dat}, form: "a me"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-dat}, form: "ti"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-dat}, form: "te"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-dat}, form: "a te"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-dat}, form: "gli"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-dat}, form: "glie-"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-dat}, form: "a lui"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-dat}, form: "a esso"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-dat}, form: "le"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-dat}, form: "glie-"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-dat}, form: "a lei"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-dat}, form: "a essa"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-dat}, form: "ci"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-dat}, form: "ce"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-dat}, form: "a noi"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-dat}, form: "vi"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-dat}, form: "ve"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-dat}, form: "a voi"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-dat}, form: "loro"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-dat}, form: "a loro"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc, u-Case: u-dat}, form: "a essi"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem, u-Case: u-dat}, form: "a esse"}
+        - title: "Accusative"
+          formparadigm:
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc}, form: "mi"}
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc}, form: "me"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-acc}, form: "ti"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-acc}, form: "te"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-acc}, form: "lo"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-acc}, form: "lui"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-acc}, form: "esso"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-acc}, form: "la"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-acc}, form: "lei"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-acc}, form: "essa"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-acc}, form: "ci"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-acc}, form: "noi"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-acc}, form: "vi"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-acc}, form: "voi"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc, u-Case: u-acc}, form: "li"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc, u-Case: u-acc}, form: "loro"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc, u-Case: u-acc}, form: "essi"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem, u-Case: u-acc}, form: "le"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem, u-Case: u-acc}, form: "loro"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem, u-Case: u-acc}, form: "esse"}
+        - title: "Instrumental"
+          formparadigm:
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-ins}, form: "con me"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-ins}, form: "con te"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-ins}, form: "ci"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-ins}, form: "ce"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-ins}, form: "con lui"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-ins}, form: "con esso"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-ins}, form: "ci"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-ins}, form: "ce"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-ins}, form: "con lei"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-ins}, form: "con essa"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-ins}, form: "con noi"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-ins}, form: "con voi"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-ins}, form: "ci"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-ins}, form: "ce"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-ins}, form: "con loro"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc, u-Case: u-ins}, form: "con essi"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem, u-Case: u-ins}, form: "con esse"}
+      patterns:
+        - pattern: "T–V distinction: informal 2nd person nominative tu; formal 2nd person uses 3rd-person form Lei (historically Ella); formal plural Loro"
+          notes:
+            - "Lei and Loro take third-person conjugations."
+            - "Formal Lei is invariable for gender (always feminine); adjectives that modify it are not."
+            - "Formal Loro is variable for gender in object forms (Li / Le)."
+          examples:
+            - "La conosco."
+            - "Lei è alto."
+            - "Li conosco."
+            - "Le conosco."
+        - pattern: "Apocopation of clitic forms before vowel-initial verb forms (except when enclitic); optional"
+          examples:
+            - "c'è"
+            - "v'è"
+            - "m'è"
+            - "l'ho"
+            - "ch'ho"
+        - pattern: "Examples of clitic pronouns by case"
+          examples:
+            - "Non vedo Francesca, ma ne vedo la bicicletta."
+            - "Gli parlai per un'ora intera."
+            - "La vedo."
+            - "Sì! Lo conosco! Una volta ci giocai a pallacanestro!"
+
+    x-Pronoun-type_x-refl:
+      applies: {x-Pronoun-type: x-refl}
+      formparadigms:
+        - title: "Reflexive (3rd person), non-subject cases"
+          formparadigm:
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Case: u-gen}, form: "ne"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Case: u-gen}, form: "di sé"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Case: u-dat}, form: "si"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Case: u-dat}, form: "se"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Case: u-dat}, form: "a sé"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Case: u-acc}, form: "si"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Case: u-acc}, form: "sé"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Case: u-ins}, form: "ci"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Case: u-ins}, form: "ce"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Case: u-ins}, form: "con sé"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-gen}, form: "ne"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-gen}, form: "di sé"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-dat}, form: "si"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-dat}, form: "se"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-dat}, form: "a sé"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-acc}, form: "si"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-acc}, form: "sé"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-ins}, form: "ci"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-ins}, form: "ce"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-ins}, form: "con sé"}
+
+    x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss}
+      notes:
+        - "Possessive pronouns inflect for number (singular/plural) and gender (masculine/feminine)."
+      formparadigms:
+        - formparadigm:
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Gender: u-masc}, form: "mio"}
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Gender: u-fem}, form: "mia"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-masc}, form: "miei"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-fem}, form: "mie"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Gender: u-masc}, form: "tuo"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Gender: u-fem}, form: "tua"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-masc}, form: "tuoi"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-fem}, form: "tue"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc}, form: "suo"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem}, form: "sua"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc}, form: "suoi"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem}, form: "sue"}
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Gender: u-masc}, form: "nostro"}
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Gender: u-fem}, form: "nostra"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-masc}, form: "nostri"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-fem}, form: "nostre"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Gender: u-masc}, form: "vostro"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Gender: u-fem}, form: "vostra"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-masc}, form: "vostri"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-fem}, form: "vostre"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc}, form: "loro"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem}, form: "loro"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc}, form: "loro"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem}, form: "loro"}
+
+    x-Pronoun-type_x-rel:
+      applies: {x-Pronoun-type: x-rel}
+      notes:
+        - "Relative pronouns include che and cui; cui appears in genitive/dative/instrumental contexts."
+      formparadigms:
+        - formparadigm:
+            - {features: {u-Number: u-sg, u-Case: u-nom}, form: "che"}
+            - {features: {u-Number: u-pl, u-Case: u-nom}, form: "che"}
+            - {features: {u-Number: u-sg, u-Case: u-acc}, form: "che"}
+            - {features: {u-Number: u-pl, u-Case: u-acc}, form: "che"}
+            - {features: {u-Number: u-sg, u-Case: u-gen}, form: "cui"}
+            - {features: {u-Number: u-pl, u-Case: u-gen}, form: "cui"}
+            - {features: {u-Number: u-sg, u-Case: u-gen}, form: "di cui"}
+            - {features: {u-Number: u-pl, u-Case: u-gen}, form: "di cui"}
+            - {features: {u-Number: u-sg, u-Case: u-dat}, form: "cui"}
+            - {features: {u-Number: u-pl, u-Case: u-dat}, form: "cui"}
+            - {features: {u-Number: u-sg, u-Case: u-dat}, form: "a cui"}
+            - {features: {u-Number: u-pl, u-Case: u-dat}, form: "a cui"}
+            - {features: {u-Number: u-sg, u-Case: u-ins}, form: "con cui"}
+            - {features: {u-Number: u-pl, u-Case: u-ins}, form: "con cui"}

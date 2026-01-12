@@ -1,0 +1,41 @@
+Adverbs:
+  Features:
+    u-Part-of-Speech:
+    - u-adj
+    - u-n
+    - u-v
+    u-Polarity: [u-pos, u-neg]
+
+  Rules:
+    u-Part-of-Speech_u-n:
+      applies: {u-Part-of-Speech: u-n}
+      patterns:
+      - pattern: "kwa + noun"
+        examples:
+        - "Anakimbia kwa kasi."
+      - pattern: "bila + noun"
+        notes:
+        - "Used as a negated counterpart to nominal adverbs with kwa."
+        examples:
+        - "Anakimbia bila kasi."
+
+    u-Part-of-Speech_u-v:
+      applies: {u-Part-of-Speech: u-v}
+      patterns:
+      - pattern: "kwa + (substantivized) infinitive"
+        notes:
+        - "The (substantivized) infinitive can replace the noun in kwa + noun adverbs."
+
+    u-Part-of-Speech_u-adj:
+      applies: {u-Part-of-Speech: u-adj}
+      patterns:
+      - pattern: "vi- + (true adjective)"
+        notes:
+        - "Adverbs are treated as adjectives that agree with verbs; this is done using vi-."
+        examples:
+        - "Tunafanya hiki vizuri."
+      - pattern: "Arabic adjective adverb reused unchanged"
+        notes:
+        - "Adverbs of Arabic adjectives can be taken over one-to-one."
+        examples:
+        - "Mbweha hukimbia haraka."

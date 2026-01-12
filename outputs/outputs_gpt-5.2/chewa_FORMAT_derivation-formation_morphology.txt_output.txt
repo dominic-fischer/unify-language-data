@@ -1,0 +1,40 @@
+DerivationalMorphology:
+  Features:
+    u-Part-of-Speech:
+    - u-n
+    - u-v
+
+  Rules:
+    u-Part-of-Speech_u-v:
+      applies: {u-Part-of-Speech: u-v}
+      patterns:
+      - pattern: "Verb: SubjectMarker-(TenseMarker)-(AspectMarker)-VerbStem"
+        notes:
+        - "Tenses are differentiated by the tense-marker (tense-infix) and by tonal pattern; some tenses share a tense-marker and differ only in tone."
+        - "Aspect-markers can be added after the tense-marker; these can also function as tense-markers themselves."
+        examples:
+        - "ndi-ku-gúla 'I am buying'"
+        - "ndí-ma-gúla 'I usually buy'"
+        - "ndi-ma-gúla 'I was buying', 'I used to buy'"
+        - "ndí-dzá-gula 'I will buy (tomorrow or in future)'"
+        - "ndí-ká-gula 'I will buy (when I get there)'"
+        - "ndí-gula 'I will buy (soon)'"
+        - "ndi-ku-má-gúlá 'I am always buying'"
+        - "ndi-ná-ká-gula 'I went and bought'"
+        - "ndí-má-ngo-gúla 'I just usually buy'"
+      - pattern: "Compound tense: SubjectMarker-...-khala + SubjectMarker-(TenseMarker)-ku-VerbStem"
+        notes:
+        - "Compound tenses occur with an auxiliary-like verb form plus an additional finite verb form."
+        examples:
+        - "nd-a-khala ndí-kú-gúla 'I have been buying'"
+
+    u-Part-of-Speech_u-n:
+      applies: {u-Part-of-Speech: u-n}
+      patterns:
+      - pattern: "Diminutive/Augmentative class prefix attaches to the stem or to an existing prefix"
+        notes:
+        - "Diminutive and augmentative syllables may attach either to the stem or to a pre-existing prefix."
+        - "In plural formation, some languages show double plural marking: both the diminutive/augmentative and the regular class prefixes are pluralized."
+      - pattern: "Diminutive noun class prefixes: ka- (singular); tu-/ti- (plural)"
+        notes:
+        - "Diminutives frequently use a dedicated additional noun class with relatively consistent prefixes."

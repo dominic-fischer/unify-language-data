@@ -1,0 +1,71 @@
+Future:
+  Features:
+    u-Aspect: [u-prosp]
+    u-Tense:
+    - u-fut
+    - u-immed
+    - u-rmt
+    u-Polarity:
+    - u-neg
+    - u-pos
+    x-Clausetype:
+    - x-main
+    - x-subordinate
+
+  Rules:
+    u-Aspect_u-prosp__u-Polarity_u-pos__u-Tense_u-fut_u-immed__x-Clausetype_x-main:
+      applies: {u-Tense: [u-fut, u-immed], u-Aspect: u-prosp, u-Polarity: u-pos, x-Clausetype: x-main}
+      patterns:
+      - pattern: "[subj1]zo(ku)[obj]...a"
+        examples:
+        - "Ngizokuza."
+        - "Ngizokwakha."
+        - "Ngizomsiza."
+
+    u-Aspect_u-prosp__u-Polarity_u-pos__u-Tense_u-fut_u-rmt__x-Clausetype_x-main:
+      applies: {u-Tense: [u-fut, u-rmt], u-Aspect: u-prosp, u-Polarity: u-pos, x-Clausetype: x-main}
+      patterns:
+      - pattern: "[subj1]yo(ku)[obj]...a"
+        examples:
+        - "Ngiyokuza."
+        - "Ngiyokwakha."
+        - "Ngiyomsiza."
+
+    u-Aspect_u-prosp__u-Polarity_u-neg__u-Tense_u-fut_u-immed__x-Clausetype_x-main:
+      applies: {u-Tense: [u-fut, u-immed], u-Aspect: u-prosp, u-Polarity: u-neg, x-Clausetype: x-main}
+      patterns:
+      - pattern: "a[subj2]zu(ku)[obj]...a"
+        examples:
+        - "Angizukuza."
+        - "Angizukwakha."
+        - "Angizokumsiza."
+        - "Angizuba uthisha."
+
+    u-Aspect_u-prosp__u-Polarity_u-neg__u-Tense_u-fut_u-rmt__x-Clausetype_x-main:
+      applies: {u-Tense: [u-fut, u-rmt], u-Aspect: u-prosp, u-Polarity: u-neg, x-Clausetype: x-main}
+      patterns:
+      - pattern: "a[subj2]yu(ku)[obj]...a"
+        examples:
+        - "Angiyukuza."
+        - "Angiyukwakha."
+        - "Angiyukumsiza."
+
+    u-Aspect_u-prosp__u-Polarity_u-pos__u-Tense_u-fut_u-immed__x-Clausetype_x-subordinate:
+      applies: {u-Tense: [u-fut, u-immed], u-Aspect: u-prosp, u-Polarity: u-pos, x-Clausetype: x-subordinate}
+      patterns:
+      - pattern: "[subjP]zo(ku)[obj]...a"
+
+    u-Aspect_u-prosp__u-Polarity_u-pos__u-Tense_u-fut_u-rmt__x-Clausetype_x-subordinate:
+      applies: {u-Tense: [u-fut, u-rmt], u-Aspect: u-prosp, u-Polarity: u-pos, x-Clausetype: x-subordinate}
+      patterns:
+      - pattern: "[subjP]yo(ku)[obj]...a"
+
+    u-Aspect_u-prosp__u-Polarity_u-neg__u-Tense_u-fut_u-immed__x-Clausetype_x-subordinate:
+      applies: {u-Tense: [u-fut, u-immed], u-Aspect: u-prosp, u-Polarity: u-neg, x-Clausetype: x-subordinate}
+      patterns:
+      - pattern: "[subjP]ngezu(ku)[obj]...a"
+
+    u-Aspect_u-prosp__u-Polarity_u-neg__u-Tense_u-fut_u-rmt__x-Clausetype_x-subordinate:
+      applies: {u-Tense: [u-fut, u-rmt], u-Aspect: u-prosp, u-Polarity: u-neg, x-Clausetype: x-subordinate}
+      patterns:
+      - pattern: "[subjP]ngeyu(ku)[obj]...a"

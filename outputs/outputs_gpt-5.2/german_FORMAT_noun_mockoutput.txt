@@ -1,0 +1,94 @@
+Noun:
+  Features:
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+
+  Rules:
+    u-Gender_u-fem:
+      applies: {u-Gender: u-fem}
+      endingparadigms: 
+      - endingparadigm:
+        - features: {u-Number: u-sg}
+          ending: ""
+        - features: {u-Number: u-pl}
+          ending: "e"
+          notes: 
+          - "often with Umlaut"
+        examples: 
+        - "eine Nacht → Nächte"
+        notes: 
+        - "feminine nouns with plural -e, often umlauted"
+      - endingparadigm:
+        - features: {u-Number: u-sg}
+          ending: ""
+        - features: {u-Number: u-pl}
+          ending: "en"
+        examples: 
+        - "eine Frau → Frauen"
+        notes: 
+        - "default feminine pattern; plural in -(e)n"
+
+    u-Gender_u-neut:
+      applies: {u-Gender: u-neut}
+      endingparadigms:
+      - endingparadigm:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          ending: ""
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          ending: ""
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          ending: ""
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          ending: "es"
+        - features: {u-Number: u-pl}
+          ending: "er"
+        notes: 
+        - "often with Umlaut"
+        examples: 
+        - "ein Kind → Kinder"
+      - endingparadigm:
+        - features: {u-Number: u-sg}
+          ending: ""
+        - features: {u-Number: u-pl}
+          ending: "s"
+        examples: 
+        - "ein Auto → Autos"
+        notes: 
+        - "loanwords and abbreviations; plural in -s"
+
+    u-Gender_u-masc:
+      applies: {u-Gender: u-masc}
+      endingparadigms:
+      - endingparadigm:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          ending: ""
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          ending: ""
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          ending: ""
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          ending: "es"
+        - features: {u-Number: u-pl, u-Case: u-nom}
+          ending: "e"
+        - features: {u-Number: u-pl, u-Case: u-acc}
+          ending: "e"
+        - features: {u-Number: u-pl, u-Case: u-dat}
+          ending: "en"
+        - features: {u-Number: u-pl, u-Case: u-gen}
+          ending: "e"
+        examples: 
+        - "ein Hund → Hunde"
+      - endingparadigm:
+        - features: {u-Number: u-sg, u-Case: u-nom}
+          ending: "e"   # Junge
+        - features: {u-Number: u-sg, u-Case: u-acc}
+          ending: "en"  # Jungen
+        - features: {u-Number: u-sg, u-Case: u-dat}
+          ending: "en"
+        - features: {u-Number: u-sg, u-Case: u-gen}
+          ending: "en"
+        - features: {u-Number: u-pl}
+          ending: "en"  # Jungen
+        examples: 
+        - "ein Junge → Jungen"

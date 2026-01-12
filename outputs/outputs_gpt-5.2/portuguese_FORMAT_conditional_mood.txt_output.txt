@@ -1,0 +1,72 @@
+Conditionals:
+  Features:
+    u-Tense: [u-prs, u-pst, u-fut]
+    u-Mood: [u-cond, u-ind, u-sbjv]
+  
+  Rules:
+    u-Mood_u-cond__u-Tense_u-pst:
+      applies: {u-Mood: u-cond, u-Tense: u-pst}
+      formparadigms:
+      - formparadigm:
+        - features: {u-Person: u-1, u-Number: u-pl}
+          form: cantaríamos
+        notes:
+        - "The conditional tense is usually called 'future of the past' in Brazilian grammars, whereas in Portugal it is usually classified as a separate 'conditional mood'."
+        examples:
+        - "cantaríamos ('we would sing')"
+      patterns:
+      - pattern: "se + past subjunctive (subordinate clause) + conditional tense (main clause)"
+        examples:
+        - "se cantasse, seria famoso"
+        notes:
+        - "Past subjunctive is used for adverbial subordinate clauses introduced with se ('if') that are conditions for a main clause in the conditional tense."
+
+    u-Mood_u-ind__u-Tense_u-pst:
+      applies: {u-Mood: u-ind, u-Tense: u-pst}
+      patterns:
+      - pattern: "se + past subjunctive (subordinate clause) + imperfect (main clause)"
+        examples:
+        - "se você me desse dinheiro, eu cantava"
+        notes:
+        - "In everyday speech, the conditional is replaced by the imperfect, especially in its modal use."
+
+    u-Mood_u-ind__u-Tense_u-fut:
+      applies: {u-Mood: u-ind, u-Tense: u-fut}
+      patterns:
+      - pattern: "future tense (main clause) + future subjunctive in se-clause (subordinate clause)"
+        examples:
+        - "se cantarmos, seremos pagos"
+        notes:
+        - "Future subjunctive is used in adverbial subordinate clauses (often introduced by se 'if') for a present- or future-tense main clause."
+
+    u-Mood_u-ind__u-Tense_u-prs:
+      applies: {u-Mood: u-ind, u-Tense: u-prs}
+      patterns:
+      - pattern: "present tense (main clause) + future subjunctive in se-clause (subordinate clause)"
+        examples:
+        - "se cantarmos, ele fica"
+        notes:
+        - "Future subjunctive is used in adverbial subordinate clauses for a present- or future-tense main clause."
+
+    u-Mood_u-sbjv__u-Tense_u-fut:
+      applies: {u-Mood: u-sbjv, u-Tense: u-fut}
+      patterns:
+      - pattern: "future subjunctive in se-clause (subordinate clause)"
+        examples:
+        - "se cantarmos, seremos pagos"
+        - "quando cantarmos, ele escutará"
+
+    u-Mood_u-sbjv__u-Tense_u-pst:
+      applies: {u-Mood: u-sbjv, u-Tense: u-pst}
+      patterns:
+      - pattern: "past subjunctive in se-clause (subordinate clause) used as a condition for a main clause in the conditional tense"
+        examples:
+        - "se cantasse, seria famoso"
+
+    u-Mood_u-sbjv__u-Tense_u-prs:
+      applies: {u-Mood: u-sbjv, u-Tense: u-prs}
+      patterns:
+      - pattern: "que + present subjunctive (subordinate clause)"
+        examples:
+        - "quero que cante"
+        - "supondo que cante"

@@ -1,0 +1,187 @@
+Noun:
+  Features:
+    u-Gender: [u-bantu1-23]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-loc, u-gen]
+
+  Rules:
+    u-Gender_u-bantu1-23:
+      applies: {u-Gender: u-bantu1-23}
+      patterns:
+      - pattern: "Noun prefixes occur in a full form (with an initial augment vowel) and a simple/short form (augment dropped)."
+        notes:
+        - "The full form is the default and is used in most circumstances (e.g. subject or object)."
+      formparadigms:
+      - title: "Full vs. simple noun prefixes (as listed)"
+        formparadigm:
+        - features: {x-NounClass: "1", x-PrefixForm: "x-full"}
+          form: "um(u)-"
+        - features: {x-NounClass: "1", x-PrefixForm: "x-simple"}
+          form: "m(u)-"
+        - features: {x-NounClass: "2", x-PrefixForm: "x-full"}
+          form: "aba-"
+        - features: {x-NounClass: "2", x-PrefixForm: "x-simple"}
+          form: "ba-"
+        - features: {x-NounClass: "1a", x-PrefixForm: "x-full"}
+          form: "u-"
+        - features: {x-NounClass: "2a", x-PrefixForm: "x-full"}
+          form: "o-"
+        - features: {x-NounClass: "2a", x-PrefixForm: "x-simple"}
+          form: "bo-"
+        - features: {x-NounClass: "3", x-PrefixForm: "x-full"}
+          form: "um(u)-"
+        - features: {x-NounClass: "3", x-PrefixForm: "x-simple"}
+          form: "m(u)-"
+        - features: {x-NounClass: "4", x-PrefixForm: "x-full"}
+          form: "imi-"
+        - features: {x-NounClass: "4", x-PrefixForm: "x-simple"}
+          form: "mi-"
+        - features: {x-NounClass: "5", x-PrefixForm: "x-full"}
+          form: "i-/ili-"
+        - features: {x-NounClass: "5", x-PrefixForm: "x-simple"}
+          form: "li-"
+        - features: {x-NounClass: "6", x-PrefixForm: "x-full"}
+          form: "ama-"
+        - features: {x-NounClass: "6", x-PrefixForm: "x-simple"}
+          form: "ma-"
+        - features: {x-NounClass: "7", x-PrefixForm: "x-full"}
+          form: "isi-"
+        - features: {x-NounClass: "7", x-PrefixForm: "x-simple"}
+          form: "si-"
+        - features: {x-NounClass: "8", x-PrefixForm: "x-full"}
+          form: "izi-"
+        - features: {x-NounClass: "8", x-PrefixForm: "x-simple"}
+          form: "zi-"
+        - features: {x-NounClass: "9", x-PrefixForm: "x-full"}
+          form: "in-"
+        - features: {x-NounClass: "9", x-PrefixForm: "x-simple"}
+          form: "n-"
+        - features: {x-NounClass: "10", x-PrefixForm: "x-full"}
+          form: "izin-"
+        - features: {x-NounClass: "10", x-PrefixForm: "x-simple"}
+          form: "zin-"
+        - features: {x-NounClass: "11", x-PrefixForm: "x-full"}
+          form: "u-/ulu-"
+        - features: {x-NounClass: "11", x-PrefixForm: "x-simple"}
+          form: "lu-"
+        - features: {x-NounClass: "14", x-PrefixForm: "x-full"}
+          form: "ubu-"
+        - features: {x-NounClass: "14", x-PrefixForm: "x-simple"}
+          form: "bu-"
+        - features: {x-NounClass: "15", x-PrefixForm: "x-full"}
+          form: "uku-"
+        - features: {x-NounClass: "15", x-PrefixForm: "x-simple"}
+          form: "ku-"
+        - features: {x-NounClass: "17", x-PrefixForm: "x-full"}
+          form: "uku-"
+        - features: {x-NounClass: "17", x-PrefixForm: "x-simple"}
+          form: "ku-"
+    u-Case_u-loc__u-Gender_u-bantu1-23:
+      applies: {u-Gender: u-bantu1-23, u-Case: u-loc}
+      patterns:
+      - title: "Class 1/2 (incl. 1a/2a) locative"
+        pattern: "For nouns in class 1(a) or 2(a), form the locative by prefixing kú- and dropping the augment."
+        examples:
+        - "umúntu → kumúntu"
+        - "abántu → kubántu"
+        - "úbabá → kúbabá"
+        - "ṓbabá → kṓbabá"
+      - title: "Other classes locative"
+        pattern: "For nouns not in class 1 or 2, form the locative by replacing the augment with e- (or o- for class 11); most nouns also take the suffix -ini, with stem-final vowel changes."
+        examples:
+        - "uḿlenze → emlénzeni"
+        - "ámánzi → émánzini"
+        - "ū́phahla → ōpháhleni"
+        notes:
+        - "Some nouns form a locative without the suffix, using only the locative prefix."
+        - "The locative can translate as 'in/at/on/to/from' depending on context."
+      endingparadigms:
+      - title: "Locative suffix allomorphy with -ini"
+        endingparadigm:
+        - features: {x-StemFinalVowel: "a"}
+          ending: "-eni"
+        - features: {x-StemFinalVowel: "e"}
+          ending: "-eni"
+        - features: {x-StemFinalVowel: "i"}
+          ending: "-ini"
+        - features: {x-StemFinalVowel: "o"}
+          ending: "-weni"
+        - features: {x-StemFinalVowel: "u"}
+          ending: "-wini"
+        notes:
+        - "Given as: a+ini→eni; e+ini→eni; i+ini→ini; o+ini→weni; u+ini→wini."
+
+    u-Case_u-gen__u-Gender_u-bantu1-23:
+      applies: {u-Gender: u-bantu1-23, u-Case: u-gen}
+      patterns:
+      - pattern: "The possessive ('of') follows the possessed noun and takes a possessive prefix agreeing with the possessed noun's class."
+        examples:
+        - "ū́phahla lwéndlu"
+        - "ámasôndo êbhási"
+        - "úkushísa kwoḿlilo"
+        notes:
+        - "The possessive prefix is formed from the subject concord of verbs plus á."
+        - "With class 1a possessors, an additional k is infixed; if the subject concord is only a vowel, it is dropped."
+      formparadigms:
+      - title: "Possessive prefixes by noun class (and with class 1a possessor)"
+        formparadigm:
+        - features: {x-NounClass: "1"}
+          form: "wá-"
+        - features: {x-NounClass: "1a"}
+          form: "wá-"
+        - features: {x-NounClass: "1/1a", x-PossessorClass: "1a"}
+          form: "ká-"
+        - features: {x-NounClass: "2"}
+          form: "bá-"
+        - features: {x-NounClass: "2a"}
+          form: "bá-"
+        - features: {x-NounClass: "2/2a", x-PossessorClass: "1a"}
+          form: "baká-"
+        - features: {x-NounClass: "3"}
+          form: "wá-"
+        - features: {x-NounClass: "3", x-PossessorClass: "1a"}
+          form: "ká-"
+        - features: {x-NounClass: "4"}
+          form: "yá-"
+        - features: {x-NounClass: "4", x-PossessorClass: "1a"}
+          form: "ká-"
+        - features: {x-NounClass: "5"}
+          form: "lá-"
+        - features: {x-NounClass: "5", x-PossessorClass: "1a"}
+          form: "liká-"
+        - features: {x-NounClass: "6"}
+          form: "á-"
+        - features: {x-NounClass: "6", x-PossessorClass: "1a"}
+          form: "ká-"
+        - features: {x-NounClass: "7"}
+          form: "sá-"
+        - features: {x-NounClass: "7", x-PossessorClass: "1a"}
+          form: "siká-"
+        - features: {x-NounClass: "8"}
+          form: "zá-"
+        - features: {x-NounClass: "8", x-PossessorClass: "1a"}
+          form: "ziká-"
+        - features: {x-NounClass: "9"}
+          form: "yá-"
+        - features: {x-NounClass: "9", x-PossessorClass: "1a"}
+          form: "ká-"
+        - features: {x-NounClass: "10"}
+          form: "zá-"
+        - features: {x-NounClass: "10", x-PossessorClass: "1a"}
+          form: "ziká-"
+        - features: {x-NounClass: "11"}
+          form: "lwá-"
+        - features: {x-NounClass: "11", x-PossessorClass: "1a"}
+          form: "luká-"
+        - features: {x-NounClass: "14"}
+          form: "bá-"
+        - features: {x-NounClass: "14", x-PossessorClass: "1a"}
+          form: "buká-"
+        - features: {x-NounClass: "15"}
+          form: "kwá-"
+        - features: {x-NounClass: "15", x-PossessorClass: "1a"}
+          form: "kuká-"
+        - features: {x-NounClass: "17"}
+          form: "kwá-"
+        - features: {x-NounClass: "17", x-PossessorClass: "1a"}
+          form: "kuká-"

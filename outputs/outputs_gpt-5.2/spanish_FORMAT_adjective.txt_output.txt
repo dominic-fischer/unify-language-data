@@ -1,0 +1,45 @@
+Adjective:
+  Features:
+    u-Number:
+    - u-sg
+    - u-pl
+    u-Gender:
+    - u-masc
+    - u-fem
+
+  Rules:
+    AdjectivePosition:
+      applies: {}
+      patterns:
+      - pattern: "N + ADJ"
+        notes:
+        - "Adjectives usually follow the noun they modify."
+        examples:
+        - "Mi casa roja."
+        - "la taza roja"
+        - "el vaso rojo"
+      - pattern: "ADJ + N"
+        notes:
+        - "Pre-nominal position is used as an exception when the speaker/writer is emphatic or poetic about a quality."
+        examples:
+        - "Mi roja casa."
+
+    AgreementNumberGender:
+      applies: {}
+      patterns:
+      - pattern: "ADJ agrees with its referent in u-Number and u-Gender"
+        notes:
+        - "Spanish adjectives agree with what they refer to in singular/plural and masculine/feminine."
+        examples:
+        - "la taza roja"
+        - "el vaso rojo"
+
+    AdjectiveAsNoun:
+      applies: {}
+      patterns:
+      - pattern: "DET + ADJ (used nominally)"
+        notes:
+        - "An adjective can stand in for a noun or pronoun; when referring to people, this does not imply condescension or rudeness."
+        examples:
+        - "los altos"
+        - "El grande"

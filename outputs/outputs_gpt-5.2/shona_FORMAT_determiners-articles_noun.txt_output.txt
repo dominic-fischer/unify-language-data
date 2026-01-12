@@ -1,0 +1,57 @@
+Determiner:
+  Features:
+    u-Gender: [u-bantu1-23]
+  Rules:
+    u-Gender_u-bantu1-23:
+      applies: {u-Gender: u-bantu1-23}
+      notes:
+      - "Shona uses demonstrative pronouns frequently and distinguishes four types."
+      patterns:
+      - title: "Type I (proximal)"
+        pattern: "Noun + demonstrative (class vowel + class marker)"
+        notes:
+        - "Exceptions: class 1/2 SG uyu; class 3/4 SG uyu; class 7/8 PL aya."
+        examples:
+        - "munhu uyu"
+      - title: "Type II (distal)"
+        pattern: "Noun + demonstrative (class vowel + 'Eigenschaftssilbe')"
+        notes:
+        - "Exceptions: class 1/2 SG uyo; class 3/4 SG uyo; class 7/8 PL ayo."
+        examples:
+        - "munhu uyo"
+      - title: "Type III (proximal, autoreferential)"
+        pattern: "Noun + demonstrative (class marker + no)"
+        notes:
+        - "Exception: class 1/2 SG uno."
+        examples:
+        - "munhu uno"
+      - title: "Type IV (distal, discourse-known)"
+        pattern: "Noun + demonstrative (class marker + ye)"
+        notes:
+        - "Exception: class 1/2 SG uye."
+        examples:
+        - "munhu uye"
+
+Noun:
+  Features:
+    u-Gender: [u-bantu1-23]
+    u-Number: [u-sg, u-pl]
+  Rules:
+    u-Gender_u-bantu1-23:
+      applies: {u-Gender: u-bantu1-23}
+      notes:
+      - "Class 15: verbs can be nominalized; only a singular form exists corresponding to the infinitive."
+      - "Diminutive class 12/13 and augmentative class 21: in the plural, the class prefixes tu- and zi- are added to the plural form of the noun being diminutivized/augmentativized."
+      formparadigms:
+      - title: "Additional noun class prefixes (selected examples)"
+        formparadigm:
+        - features: {u-Number: u-sg}
+          form: "Class 12: ka- (e.g., kamwana)"
+        - features: {u-Number: u-pl}
+          form: "Class 13: tu- (e.g., tuvana)"
+        - features: {u-Number: u-sg}
+          form: "Class 15: ku- (e.g., kutya)"
+        - features: {u-Number: u-sg}
+          form: "Class 21: zi- (e.g., zimunhu)"
+        - features: {u-Number: u-pl}
+          form: "Class 21: zi- (e.g., zivanhu)"

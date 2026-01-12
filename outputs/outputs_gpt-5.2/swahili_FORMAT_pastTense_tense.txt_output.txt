@@ -1,0 +1,75 @@
+Past:
+  Features:
+    u-Aspect:
+    - u-ipfv
+    - u-prf
+    u-Finiteness: [u-fin]
+    x-Temp-Relation: [x-anterior]
+
+  Rules:
+    Pluperfect:
+      title: "Pluperfect"
+      applies: {u-Aspect: u-prf, u-Finiteness: u-fin, x-Temp-Relation: x-anterior}
+      patterns:
+      - pattern: "[SUBJ]-li-kuwa [SUBJ]-me-[STEM]"
+        notes:
+        - "In compound tenses, the first verb sets the temporal background and the second sets the temporal relation."
+        - "Normally the main verb is negated; the auxiliary kuwa can be negated to emphasise negation."
+        examples:
+        - "Ni-li-kuwa ni-me-kula."
+      - pattern: "[SUBJ]-kuwa [NEG.SUBJ]-ja-[STEM]"
+        examples:
+        - "Ni-li-kuwa Si-ja-kula."
+      - pattern: "[NEG.SUBJ]-kuwa [SUBJ]-me-[STEM]"
+        examples:
+        - "Si-kuwa ni-me-kula."
+    u-Finiteness_u-fin:
+      applies: {u-Finiteness: u-fin}
+      patterns:
+      - pattern: "[SUBJ]-ka-[STEM]"
+        notes:
+        - "Used mainly with the past: the first verb takes -li- and following verbs take -ka- to narrate a sequence."
+        examples:
+        - "Ni-ka-enda."
+        - "Ni-li-m-piga simu, ni-ka-tembea kwake, ni-ka-fanya kila kitu."
+        - "Tulicheza soka tu-ka-shinda."
+    u-Aspect_u-prf__u-Finiteness_u-fin:
+      applies: {u-Aspect: u-prf, u-Finiteness: u-fin}
+      patterns:
+      - pattern: "[SUBJ]-me-[STEM]"
+        notes:
+        - "Describes a past action or situation with relevance to the present moment."
+        examples:
+        - "A-me-penda."
+        - "Tu-me-ondoka."
+        - "A-mekwenda."
+        - "Ni-mekula."
+        - "U-me-andika."
+        - "Tu-me-jibu."
+      - pattern: "[NEG.SUBJ]-ja-[STEM]"
+        notes:
+        - "Negative of the perfect is formed with the negative subject prefix plus -ja-."
+        examples:
+        - "Ha-ja-penda."
+        - "Hatu-ja-ondoka."
+        - "Ha-ja-enda."
+        - "Si-ja-la."
+        - "Hu-ja-andika."
+        - "Hatu-ja-jibu."
+      - pattern: "[SUBJ]-me-sha-[STEM]"
+        notes:
+        - "-sha- after -me- emphasizes completeness ('already')."
+        examples:
+        - "A-mesha-fika."
+    u-Aspect_u-ipfv__u-Finiteness_u-fin:
+      applies: {u-Aspect: u-ipfv, u-Finiteness: u-fin}
+      patterns:
+      - pattern: "[SUBJ]-li-kuwa [SUBJ]-ki-[STEM]"
+        examples:
+        - "A-li-kuwa a-ki-la."
+      - pattern: "[NEG.SUBJ]-kuwa [SUBJ]-ki-[STEM]"
+        examples:
+        - "Ha-kuwa Ha-ki-kula."
+      - pattern: "[SUBJ]-li-kuwa [NEG.SUBJ]-[STEM]"
+        examples:
+        - "A-li-kuwa Ha-li."

@@ -1,0 +1,23 @@
+Adverbs:
+  Features:
+    u-Part-of-Speech: [u-adv, u-adj]
+
+  Rules:
+    u-Part-of-Speech_u-adv:
+      applies: {u-Part-of-Speech: u-adv}
+      patterns:
+      - pattern: "invariant; typically modifies a verb, but can also modify a clause or entire sentence"
+
+    u-Part-of-Speech_u-adj:
+      applies: {u-Part-of-Speech: u-adj}
+      patterns:
+      - pattern: "adverb identical to corresponding adjective in masculine singular form"
+        examples:
+        - "frumos (adj.m.sg) → frumos (adv)"
+      - pattern: "exceptional adjective–adverb pair: bun (adj.m.sg) → bine (adv)"
+        examples:
+        - "bun → bine"
+        - "Băieții sunt jucători buni. (adjective)"
+        - "Băieții joacă bine. (adverb)"
+        - "Cântecul acesta este frumos. (adjective)"
+        - "Cântăreața cântă frumos. (adverb)"

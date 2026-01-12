@@ -1,0 +1,139 @@
+Past:
+  Features:
+    u-Aspect: [u-pfv, u-ipfv]
+    u-Finiteness: [u-fin]
+
+  Rules:
+    u-Aspect_u-pfv__u-Finiteness_u-fin:
+      applies: {u-Aspect: u-pfv, u-Finiteness: u-fin}
+      patterns:
+      - pattern: "preterite (simple, single-word form)"
+        notes:
+        - "Used for past actions or events viewed as completed or instantaneous."
+        examples:
+        - "Ella se murió ayer."
+        - "Pablo apagó las luces."
+        - "Yo me comí el arroz."
+        - "Te cortaste el pelo."
+      formparadigms:
+      - title: "Regular -ar verb (hablar)"
+        formparadigm:
+        - features: {u-Person: u-1, u-Number: u-sg}
+          form: "hablé"
+        - features: {u-Person: u-2, u-Number: u-sg}
+          form: "hablaste"
+        - features: {u-Person: u-3, u-Number: u-sg}
+          form: "habló"
+        - features: {u-Person: u-1, u-Number: u-pl}
+          form: "hablamos"
+        - features: {u-Person: u-2, u-Number: u-pl}
+          form: "hablasteis"
+        - features: {u-Person: u-3, u-Number: u-pl}
+          form: "hablaron"
+        notes:
+        - "For -ar verbs, the 1PL preterite form is the same as the present indicative."
+      - title: "Regular -er verb (comer)"
+        formparadigm:
+        - features: {u-Person: u-1, u-Number: u-sg}
+          form: "comí"
+        - features: {u-Person: u-2, u-Number: u-sg}
+          form: "comiste"
+        - features: {u-Person: u-3, u-Number: u-sg}
+          form: "comió"
+        - features: {u-Person: u-1, u-Number: u-pl}
+          form: "comimos"
+        - features: {u-Person: u-2, u-Number: u-pl}
+          form: "comisteis"
+        - features: {u-Person: u-3, u-Number: u-pl}
+          form: "comieron"
+        notes:
+        - "-er and -ir verbs share the same set of preterite endings."
+      - title: "Regular -ir verb (vivir)"
+        formparadigm:
+        - features: {u-Person: u-1, u-Number: u-sg}
+          form: "viví"
+        - features: {u-Person: u-2, u-Number: u-sg}
+          form: "viviste"
+        - features: {u-Person: u-3, u-Number: u-sg}
+          form: "vivió"
+        - features: {u-Person: u-1, u-Number: u-pl}
+          form: "vivimos"
+        - features: {u-Person: u-2, u-Number: u-pl}
+          form: "vivisteis"
+        - features: {u-Person: u-3, u-Number: u-pl}
+          form: "vivieron"
+        notes:
+        - "For -ir verbs, the 1PL preterite form is the same as the present indicative."
+
+    u-Aspect_u-ipfv__u-Finiteness_u-fin:
+      applies: {u-Aspect: u-ipfv, u-Finiteness: u-fin}
+      patterns:
+      - pattern: "imperfect (simple, single-word form)"
+        notes:
+        - "Used for actions or states viewed as ongoing/continuing in the past; focus is on the action in progress rather than its beginning or end."
+        examples:
+        - "Yo era cómico en el pasado."
+        - "Usted comía mucho."
+        - "Ellos escuchaban la radio."
+      formparadigms:
+      - title: "Regular -ar verb (hablar)"
+        formparadigm:
+        - features: {u-Person: u-1, u-Number: u-sg}
+          form: "hablaba"
+        - features: {u-Person: u-2, u-Number: u-sg}
+          form: "hablabas"
+        - features: {u-Person: u-3, u-Number: u-sg}
+          form: "hablaba"
+        - features: {u-Person: u-1, u-Number: u-pl}
+          form: "hablábamos"
+        - features: {u-Person: u-2, u-Number: u-pl}
+          form: "hablabais"
+        - features: {u-Person: u-3, u-Number: u-pl}
+          form: "hablaban"
+        notes:
+        - "In the imperfect, 1SG and 3SG share the same form."
+      - title: "Regular -er verb (comer)"
+        formparadigm:
+        - features: {u-Person: u-1, u-Number: u-sg}
+          form: "comía"
+        - features: {u-Person: u-2, u-Number: u-sg}
+          form: "comías"
+        - features: {u-Person: u-3, u-Number: u-sg}
+          form: "comía"
+        - features: {u-Person: u-1, u-Number: u-pl}
+          form: "comíamos"
+        - features: {u-Person: u-2, u-Number: u-pl}
+          form: "comíais"
+        - features: {u-Person: u-3, u-Number: u-pl}
+          form: "comían"
+        notes:
+        - "In the imperfect, 1SG and 3SG share the same form."
+        - "-er and -ir verbs share the same set of imperfect endings."
+      - title: "Regular -ir verb (vivir)"
+        formparadigm:
+        - features: {u-Person: u-1, u-Number: u-sg}
+          form: "vivía"
+        - features: {u-Person: u-2, u-Number: u-sg}
+          form: "vivías"
+        - features: {u-Person: u-3, u-Number: u-sg}
+          form: "vivía"
+        - features: {u-Person: u-1, u-Number: u-pl}
+          form: "vivíamos"
+        - features: {u-Person: u-2, u-Number: u-pl}
+          form: "vivíais"
+        - features: {u-Person: u-3, u-Number: u-pl}
+          form: "vivían"
+        notes:
+        - "In the imperfect, 1SG and 3SG share the same form."
+        - "-er and -ir verbs share the same set of imperfect endings."
+
+    u-Finiteness_u-fin:
+      applies: {u-Finiteness: u-fin}
+      patterns:
+      - pattern: "imperfect (ongoing/background) + cuando + preterite (interrupting completed event)"
+        notes:
+        - "Used to express an event/completed action occurring during an ongoing past action or state; the ongoing situation is in the imperfect and the interrupting event in the preterite."
+        examples:
+        - "Ellos escuchaban la radio cuando oyeron un ruido afuera."
+        - "Yo estaba en mi cuarto cuando usted entró."
+        - "Era un día muy tranquilo cuando eso pasó."

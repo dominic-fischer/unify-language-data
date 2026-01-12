@@ -1,0 +1,92 @@
+Agreement:
+  Features:
+    u-Part-of-Speech:
+    - u-n
+    - u-pro
+    - u-adj
+    - u-v
+    x-Agreement-role:
+    - x-subject
+    - x-object
+    - x-possessor
+    - x-adjectival
+
+  Rules:
+    u-Part-of-Speech_u-v:
+      applies: {u-Part-of-Speech: u-v}
+      patterns:
+      - pattern: "verb takes a subject concord (prefix) that agrees with the subject (person or noun class)"
+        notes:
+        - "The subject concord is prefixed to the verb stem."
+        - "The subject concord must always be present, except in infinitive and imperative forms."
+        examples:
+        - "Abantu ba-ya-hamba e-hlath-ini."
+        - "Sihamba manje."
+        - "Thina sihamba manje."
+      - pattern: "verb may take an object concord (prefix) that agrees with the object (noun class/person); object concord is optional even when an explicit object follows"
+        notes:
+        - "The object concord occurs after the subject concord and (if present) tense marker, and before the verb stem."
+        - "The object concord is only used for transitive verbs."
+        - "Object concords can be used to mark specificity and/or definiteness."
+        examples:
+        - "Siyabona lo muntu."
+        - "Siyambona lo muntu."
+        - "Ngiyambona."
+        - "Ngimbona yena."
+        - "Ngimnika isipho."
+      - pattern: "reflexive concord occurs only as an object concord and refers back to the subject"
+        examples:
+        - "ngiyazigeza"
+        - "uyazibona"
+        notes:
+        - "The reflexive prefix is equivalent to forms like 'myself/yourself/himself'."
+
+    u-Part-of-Speech_u-pro_u-v:
+      applies: {u-Part-of-Speech: [u-pro, u-v]}
+      patterns:
+      - pattern: "personal pronouns are generally omitted; concords on the verb provide subject/object information, while explicit pronouns are used for emphasis"
+        notes:
+        - "Zulu is pro-drop: explicit personal pronouns are only used for emphasis."
+        examples:
+        - "Kodwa Mina ngi-funa ukuhamba lapho!"
+        - "Thina sihamba manje."
+        - "Ngimbona yena."
+
+    u-Part-of-Speech_u-n_u-v:
+      applies: {u-Part-of-Speech: [u-n, u-v]}
+      patterns:
+      - pattern: "when a noun functions as subject or object, the verb concord must match the noun class"
+        notes:
+        - "To refer to a third person without a noun, classes 1 and 2 are used."
+        examples:
+        - "Abantu ba-ya-hamba e-hlath-ini."
+        - "Siyambona lo muntu."
+
+    u-Part-of-Speech_u-n:
+      applies: {u-Part-of-Speech: u-n}
+      patterns:
+      - pattern: "possessive concord marks possession and agrees with the possessed noun; it precedes the possessor noun"
+        notes:
+        - "Possessive marking distinguishes a normal (subjective) genitive from an attributive genitive; the attributive genitive is often expressed with 'na' ('with')."
+        - "If the possessor is in class 1 or 2, the possessive syllable includes -ka-."
+        examples:
+        - "Ingane yowesifazane iyadla."
+        - "Ingane yesifazane iyadla."
+        - "izingane zikababa"
+      - pattern: "vowel coalescence (A-rule) affects certain prefixes (including possessive concords and 'na'/'nga') based on the initial vowel of the following noun"
+        notes:
+        - "-a before i -> e"
+        - "-a before u -> o"
+        examples:
+        - "nengane"
+        - "nobaba"
+        - "namadoda"
+
+    u-Part-of-Speech_u-adj_u-n:
+      applies: {u-Part-of-Speech: [u-adj, u-n]}
+      patterns:
+      - pattern: "adjective concord aligns adjectives with their head noun class"
+        notes:
+        - "Adjective concord formation includes: u- -> o-, i- -> e-."
+        examples:
+        - "The adjectival concord is used to agree true adjectives with nouns."

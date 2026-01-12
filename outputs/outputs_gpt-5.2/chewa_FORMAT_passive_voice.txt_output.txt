@@ -1,0 +1,23 @@
+Passive:
+  Features:
+    u-Tense: [u-fut]
+    u-Voice:
+    - u-pass
+
+  Rules:
+    u-Voice_u-pass:
+      applies: {u-Voice: u-pass}
+      patterns:
+      - pattern: "agent phrase marked with ndi ('with')"
+        notes:
+        - "The agent (German 'von') is marked in Chichewa with ndi 'with'."
+
+    u-Tense_u-fut:
+      applies: {u-Tense: u-fut}
+      patterns:
+      - pattern: "ndi + ku -> n'ku / naku"
+        notes:
+        - "ndi + ku can be contracted to n'ku / naku."
+        - "ku can be used both as an object marker and as a tense marker."
+        examples:
+        - "Ndidzabwera kwa inu n’ku-dza-ku-thandiza-ni."

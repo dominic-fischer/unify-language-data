@@ -1,0 +1,58 @@
+Past:
+  Features:
+    u-Aspect: [u-prf, u-pfv]
+    u-Finiteness: [u-fin]
+    x-Temp-Relation: [x-anterior]
+    u-Polarity:
+    - u-neg
+
+  Rules:
+    "Recent past (Perfect)":
+      title: "Recent past (Perfect)"
+      applies: {u-Aspect: u-prf, u-Finiteness: u-fin}
+      patterns:
+      - pattern: "[subj1][obj]...ile/ē"
+        notes:
+        - "The long form in -ile is used when the verb has a lengthened penultimate syllable (as with the present -ya-); otherwise the short form -ē is used."
+        examples:
+        - "Sihambile. \"We went.\""
+        - "Sihambē izolo. \"We went yesterday.\""
+      endingparadigms:
+      - endingparadigm:
+        - features: {x-Stem-ending: "-ala, -ela"}
+          ending: "-ele"
+        - features: {x-Stem-ending: "-ama, -ema"}
+          ending: "-eme"
+        - features: {x-Stem-ending: "-ana, -ena"}
+          ending: "-ene"
+        - features: {x-Stem-ending: "-asa, -esa"}
+          ending: "-ese"
+        - features: {x-Stem-ending: "-wa (passive)"}
+          ending: "-iwe"
+        - features: {x-Stem-ending: "-awa1"}
+          ending: "-ewe"
+        notes:
+        - "For verbs with these endings, the recent past ending -ile is not used; instead the vowels of the last two syllables of the stem are changed, and there is no long/short (-ile vs -ē) distinction."
+        - "The -awa1 case is a unique irregular passive (-bulawa from -bulala)."
+
+    "Remote past (Preterite)":
+      title: "Remote past (Preterite)"
+      applies: {u-Aspect: u-pfv, u-Finiteness: u-fin}
+      patterns:
+      - pattern: "[subj1]ā[obj]...a"
+        examples:
+        - "Sāhamba. \"We went.\""
+      notes:
+      - "Used for the distant past, for the past preceding the recent past, and as a narrative past."
+
+    u-Finiteness_u-fin__u-Polarity_u-neg:
+      applies: {u-Polarity: u-neg, u-Finiteness: u-fin}
+      patterns:
+      - pattern: "a[subj2][obj]...anga"
+        examples:
+        - "Asihambanga. \"We did not go.\""
+        - "Asimbonanga. \"We have not seen/did not see him/her.\""
+      notes:
+      - "The two past tenses share the same negative forms."
+      - "For the verb 'be', the only difference compared to other verbs is that in negation the syllable -nga- becomes -nge-."
+      - "What counts as 'recent' vs 'remote' depends on the speaker; in colloquial language the recent past is often preferred to the remote past."

@@ -1,0 +1,40 @@
+Passive:
+  Features:
+    u-Tense: [u-prs, u-pst, u-fut]
+
+  Rules:
+    u-Tense_u-fut:
+      applies: {u-Tense: u-fut}
+      patterns: 
+      - pattern: "werden (present, finite) + Past Participle + werden (infinitive)"
+        title: "Vorgangspassiv"
+        examples: 
+        - "Der Hund wird gesehen werden"
+      - pattern: "werden (present, finite) + Past Participle + sein (infinitive)"
+        title: "Zustandspassiv"
+        examples: 
+        - "Der Zaun wird gestrichen sein"
+
+    u-Tense_u-prs:
+      applies: {u-Tense: u-prs}
+      patterns: 
+      - pattern: "werden (present, finite) + Past Participle"
+        title: "Vorgangspassiv"
+        examples: 
+        - "Der Hund wird gesehen"
+      - pattern: "sein (present, finite) + Past Participle"
+        title: "Zustandspassiv"
+        examples: 
+        - "Der Zaun ist gestrichen"
+
+    u-Tense_u-pst:
+      applies: {u-Tense: u-pst}
+      patterns: 
+      - pattern: "werden (preterite, finite) + Past Participle"
+        title: "Vorgangspassiv"
+        examples: 
+        - "Der Hund wurde gesehen"
+      - pattern: "sein (preterite, finite) + Past Participle"
+        title: "Zustandspassiv"
+        examples: 
+        - "Der Zaun war gestrichen"

@@ -1,0 +1,67 @@
+Conditionals:
+  Features:
+    u-Tense: [u-prs, u-pst, u-fut]
+    u-Mood: [u-cond]
+
+  Rules:
+    u-Mood_u-cond__u-Tense_u-pst:
+      applies: {u-Mood: u-cond, u-Tense: u-pst}
+      patterns:
+      - pattern: "SUBJ + ka-na- + VERB"
+        examples:
+        - "Ndí-ka-na-thandíza."
+        notes:
+        - "Labelled as 'Konditional Past'."
+      - pattern: "SUBJ + ka-na- + panda + ku- + VERB"
+        examples:
+        - "Ndi-ka-na-panda ku-thándiza."
+        notes:
+        - "Negative conditional uses ku-panda ‘not have’ as an auxiliary."
+
+    u-Mood_u-cond__u-Tense_u-prs:
+      applies: {u-Mood: u-cond, u-Tense: u-prs}
+      patterns:
+      - pattern: "SUBJ + ka- (/chi-) + VERB"
+        examples:
+        - "Ndi-ka-thandiza."
+        notes:
+        - "Labelled as 'Konditional'."
+      - pattern: "SUBJ + ka- + má- + VERB"
+        examples:
+        - "Ndi-ka-má-thandíza."
+        notes:
+        - "Labelled as 'Konditional Habit'."
+      - pattern: "SUBJ + ka- + panda + ku- + VERB"
+        examples:
+        - "Ndi-ka-panda ku-thándiza."
+        notes:
+        - "Negative conditional uses ku-panda ‘not have’ as an auxiliary."
+      - pattern: "ngati + negated verb"
+        examples:
+        - "Ngati sindisíya ndilipo."
+        notes:
+        - "An alternative way to form conditionals uses ngati ‘if’; in present negation is formed by negating the verb."
+
+    u-Mood_u-cond__u-Tense_u-fut:
+      applies: {u-Mood: u-cond, u-Tense: u-fut}
+      patterns:
+      - pattern: "SUBJ + ka- + dzá- + VERB"
+        examples:
+        - "Ndi-ka-dzá-thandiza."
+        notes:
+        - "Labelled as 'Konditional Futur'."
+      - pattern: "SUBJ + ka- + má-dza- + VERB"
+        examples:
+        - "Ndi-ka-má-dza-thandíza."
+        notes:
+        - "Labelled as 'Konditional Future continuous'."
+      - pattern: "SUBJ + ka- + dzá- + panda + ku- + VERB"
+        examples:
+        - "Ndi-ka-dzá-panda ku-thándiza."
+        notes:
+        - "Negative conditional uses ku-panda ‘not have’ as an auxiliary."
+      - pattern: "ngati + negated verb (future)"
+        examples:
+        - "Ngati si-ndi-dza-siya ndi-dza-khala-be uko."
+        notes:
+        - "With ngati ‘if’, future negation is formed by negating the verb."

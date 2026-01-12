@@ -1,0 +1,53 @@
+Constituents:
+  Features:
+    x-Constituent: [x-CP, x-AP]
+
+  Rules:
+    x-Constituent_x-AP:
+      applies: {x-Constituent: x-AP}
+      patterns:
+        - pattern: "Adjective used as attribute defining a noun/pronoun/numeral"
+          examples:
+            - "Băiatul blond este aici."
+        - pattern: "Adjective used as adjectival complement defining a copulative verb"
+          examples:
+            - "Băiatul este blond."
+
+    x-Constituent_x-CP:
+      applies: {x-Constituent: x-CP}
+      patterns:
+        - title: Main clause
+          pattern: "Main clause (stand-alone meaning)"
+          examples:
+            - "Am văzut copiii din curtea școlii."
+        - title: Subordinate clause (relative/attributive)
+          pattern: "Subordinate clause introduced by a relative pronoun; determines/defines a noun/pronoun/numeral in another clause"
+          examples:
+            - "Am văzut copiii care sunt în curtea școlii."
+        - title: Subordinate clause (direct object)
+          pattern: "Subordinate clause functioning as direct object clause"
+          examples:
+            - "Înțeleg ce zice profesoara."
+        - title: Subordinate clause (indirect object)
+          pattern: "Subordinate clause functioning as indirect object clause"
+          examples:
+            - "Mă gândesc la ce spune profesoara."
+        - title: Subordinate clause (subject)
+          pattern: "Subordinate clause functioning as subject clause"
+          examples:
+            - "Ceea ce zice profesoara, e corect."
+        - title: Subordinate clause (local circumstantial object)
+          pattern: "Subordinate clause functioning as local circumstantial object clause"
+          examples:
+            - "Mă văd cu Ionuț unde (mi-)a propus el."
+        - title: Coordination with coordinating conjunction
+          pattern: "Coordinating conjunction links clauses without changing their type (main with main; subordinate with subordinate)"
+          examples:
+            - "Ana este o fată și Ion este un băiat."
+            - "V-am spus despre băiatul care este la mine în clasă, și care este foarte bun la matematică."
+          notes:
+            - "Coordinating conjunction types mentioned: copulative (și, nici, precum și), adversative (dar/însă/ci, iar), disjunctive (sau/ori/fie), conclusive (deci/așadar, în concluzie, prin urmare)."
+        - title: Coordination via juxtaposition
+          pattern: "Clauses can be coordinated by juxtaposition using a comma"
+          examples:
+            - "Am păzit palatul, palatul era și foarte greu de păzit."

@@ -1,0 +1,99 @@
+Pronoun:
+  Features:
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat]
+    u-Deixis: [u-prox, u-med, u-remt]
+    x-Pronoun-type: [x-pers, x-refl, x-dem, x-poss]
+
+  Rules:
+    x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers}
+      patterns:
+      - pattern: "personal pronouns are inflected according to syntactic role: subject; object of a verb; object of a preposition"
+        notes:
+        - "personal pronouns are often inflected for gender and number; many have irregular inflections"
+        - "in the third person, a distinction is made between simple direct objects, simple indirect objects, and reflexive objects"
+
+    x-Pronoun-type_x-refl:
+      applies: {x-Pronoun-type: x-refl}
+      patterns:
+      - pattern: "third-person reflexive object forms are distinguished from simple direct and simple indirect object forms"
+        notes:
+        - "this distinction is stated specifically for third person"
+
+    x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss}
+      patterns:
+      - pattern: "possessive pronouns = possessive adjectives"
+        notes:
+        - "inflected to agree with the gender of the possessed being or object"
+
+    x-Pronoun-type_x-dem:
+      applies: {x-Pronoun-type: x-dem}
+      formparadigms:
+      - title: "Demonstratives (three-way deixis; gender/number; neuter forms)"
+        formparadigm:
+        - {features: {u-Deixis: u-prox, u-Gender: u-masc, u-Number: u-sg}, form: "este"}
+        - {features: {u-Deixis: u-prox, u-Gender: u-fem, u-Number: u-sg}, form: "esta"}
+        - {features: {u-Deixis: u-prox, u-Gender: u-masc, u-Number: u-pl}, form: "estes"}
+        - {features: {u-Deixis: u-prox, u-Gender: u-fem, u-Number: u-pl}, form: "estas"}
+        - {features: {u-Deixis: u-prox, u-Gender: u-neut, u-Number: u-sg}, form: "isto"}
+
+        - {features: {u-Deixis: u-med, u-Gender: u-masc, u-Number: u-sg}, form: "esse"}
+        - {features: {u-Deixis: u-med, u-Gender: u-fem, u-Number: u-sg}, form: "essa"}
+        - {features: {u-Deixis: u-med, u-Gender: u-masc, u-Number: u-pl}, form: "esses"}
+        - {features: {u-Deixis: u-med, u-Gender: u-fem, u-Number: u-pl}, form: "essas"}
+        - {features: {u-Deixis: u-med, u-Gender: u-neut, u-Number: u-sg}, form: "isso"}
+
+        - {features: {u-Deixis: u-remt, u-Gender: u-masc, u-Number: u-sg}, form: "aquele"}
+        - {features: {u-Deixis: u-remt, u-Gender: u-fem, u-Number: u-sg}, form: "aquela"}
+        - {features: {u-Deixis: u-remt, u-Gender: u-masc, u-Number: u-pl}, form: "aqueles"}
+        - {features: {u-Deixis: u-remt, u-Gender: u-fem, u-Number: u-pl}, form: "aquelas"}
+        - {features: {u-Deixis: u-remt, u-Gender: u-neut, u-Number: u-sg}, form: "aquilo"}
+        notes:
+        - "demonstrative adjectives are identical to demonstrative pronouns"
+
+      - title: "Contractions with prepositions (de-, em-, a-)"
+        formparadigm:
+        - {features: {u-Case: u-gen, u-Deixis: u-prox, u-Gender: u-masc, u-Number: u-sg}, form: "deste"}
+        - {features: {u-Case: u-gen, u-Deixis: u-prox, u-Gender: u-fem, u-Number: u-sg}, form: "desta"}
+        - {features: {u-Case: u-gen, u-Deixis: u-prox, u-Gender: u-masc, u-Number: u-pl}, form: "destes"}
+        - {features: {u-Case: u-gen, u-Deixis: u-prox, u-Gender: u-fem, u-Number: u-pl}, form: "destas"}
+        - {features: {u-Case: u-gen, u-Deixis: u-prox, u-Gender: u-neut, u-Number: u-sg}, form: "disto"}
+
+        - {features: {u-Case: u-gen, u-Deixis: u-med, u-Gender: u-masc, u-Number: u-sg}, form: "desse"}
+        - {features: {u-Case: u-gen, u-Deixis: u-med, u-Gender: u-fem, u-Number: u-sg}, form: "dessa"}
+        - {features: {u-Case: u-gen, u-Deixis: u-med, u-Gender: u-masc, u-Number: u-pl}, form: "desses"}
+        - {features: {u-Case: u-gen, u-Deixis: u-med, u-Gender: u-fem, u-Number: u-pl}, form: "dessas"}
+        - {features: {u-Case: u-gen, u-Deixis: u-med, u-Gender: u-neut, u-Number: u-sg}, form: "disso"}
+
+        - {features: {u-Case: u-gen, u-Deixis: u-remt, u-Gender: u-masc, u-Number: u-sg}, form: "daquele"}
+        - {features: {u-Case: u-gen, u-Deixis: u-remt, u-Gender: u-fem, u-Number: u-sg}, form: "daquela"}
+        - {features: {u-Case: u-gen, u-Deixis: u-remt, u-Gender: u-masc, u-Number: u-pl}, form: "daqueles"}
+        - {features: {u-Case: u-gen, u-Deixis: u-remt, u-Gender: u-fem, u-Number: u-pl}, form: "daquelas"}
+        - {features: {u-Case: u-gen, u-Deixis: u-remt, u-Gender: u-neut, u-Number: u-sg}, form: "daquilo"}
+
+        - {features: {u-Case: u-in, u-Deixis: u-prox, u-Gender: u-masc, u-Number: u-sg}, form: "neste"}
+        - {features: {u-Case: u-in, u-Deixis: u-prox, u-Gender: u-fem, u-Number: u-sg}, form: "nesta"}
+        - {features: {u-Case: u-in, u-Deixis: u-prox, u-Gender: u-masc, u-Number: u-pl}, form: "nestes"}
+        - {features: {u-Case: u-in, u-Deixis: u-prox, u-Gender: u-fem, u-Number: u-pl}, form: "nestas"}
+        - {features: {u-Case: u-in, u-Deixis: u-prox, u-Gender: u-neut, u-Number: u-sg}, form: "nisto"}
+
+        - {features: {u-Case: u-in, u-Deixis: u-med, u-Gender: u-masc, u-Number: u-sg}, form: "nesse"}
+        - {features: {u-Case: u-in, u-Deixis: u-med, u-Gender: u-fem, u-Number: u-sg}, form: "nessa"}
+        - {features: {u-Case: u-in, u-Deixis: u-med, u-Gender: u-masc, u-Number: u-pl}, form: "nesses"}
+        - {features: {u-Case: u-in, u-Deixis: u-med, u-Gender: u-fem, u-Number: u-pl}, form: "nessas"}
+        - {features: {u-Case: u-in, u-Deixis: u-med, u-Gender: u-neut, u-Number: u-sg}, form: "nisso"}
+
+        - {features: {u-Case: u-in, u-Deixis: u-remt, u-Gender: u-masc, u-Number: u-sg}, form: "naquele"}
+        - {features: {u-Case: u-in, u-Deixis: u-remt, u-Gender: u-fem, u-Number: u-sg}, form: "naquela"}
+        - {features: {u-Case: u-in, u-Deixis: u-remt, u-Gender: u-masc, u-Number: u-pl}, form: "naqueles"}
+        - {features: {u-Case: u-in, u-Deixis: u-remt, u-Gender: u-fem, u-Number: u-pl}, form: "naquelas"}
+        - {features: {u-Case: u-in, u-Deixis: u-remt, u-Gender: u-neut, u-Number: u-sg}, form: "naquilo"}
+
+        - {features: {u-Case: u-dat, u-Deixis: u-remt, u-Gender: u-masc, u-Number: u-sg}, form: "àquele"}
+        - {features: {u-Case: u-dat, u-Deixis: u-remt, u-Gender: u-fem, u-Number: u-sg}, form: "àquela"}
+        - {features: {u-Case: u-dat, u-Deixis: u-remt, u-Gender: u-masc, u-Number: u-pl}, form: "àqueles"}
+        - {features: {u-Case: u-dat, u-Deixis: u-remt, u-Gender: u-fem, u-Number: u-pl}, form: "àquelas"}
+        - {features: {u-Case: u-dat, u-Deixis: u-remt, u-Gender: u-neut, u-Number: u-sg}, form: "àquilo"}

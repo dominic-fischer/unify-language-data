@@ -1,0 +1,118 @@
+Adjective:
+  Features:
+    u-Definiteness:
+    - u-def
+    - u-indf
+    - u-nspec
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+    u-Number:
+    - u-pl
+    - u-sg
+    u-Gender:
+    - u-fem
+    - u-masc
+    - u-neut
+    u-Comparison:
+    - u-cmpr
+    - u-sprl
+
+  Rules:
+    u-Comparison_u-cmpr:
+      applies: {u-Comparison: u-cmpr}
+      patterns:
+      - pattern: "stem + er"
+        notes: 
+        - "often with umlaut"
+        examples:
+        - "schön → schöner"
+
+    u-Comparison_u-sprl:
+      applies: {u-Comparison: u-sprl}
+      patterns: 
+      - pattern: "am stem + sten"
+        examples:
+        - "schön → am schönsten"
+        - "besser → am besten"
+      - pattern: "Determiner stem + ste"
+        examples:
+        - "schnell → der/die/das schnellste"
+
+    u-Definiteness_u-def:
+      applies: {u-Definiteness: u-def}
+      endingparadigms:
+      - endingparadigm:
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-masc}, ending: "e"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-fem}, ending: "e"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-neut}, ending: "e"}
+        - {features: {u-Case: u-nom, u-Number: u-pl}, ending: "en"}
+
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-masc}, ending: "en"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-fem}, ending: "e"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-neut}, ending: "e"}
+        - {features: {u-Case: u-acc, u-Number: u-pl}, ending: "en"}
+
+        - {features: {u-Case: u-dat, u-Number: u-sg}, ending: "en"}
+        - {features: {u-Case: u-dat, u-Number: u-pl}, ending: "en"}
+
+        - {features: {u-Case: u-gen, u-Number: u-sg}, ending: "en"}
+        - {features: {u-Case: u-gen, u-Number: u-pl}, ending: "en"}
+        examples:
+        - "schön → der schöne Hund"
+        - "schön → die schöne Katze"
+        notes: 
+        - "also called 'weak'; adjective endings are reduced, since the definite determiner already shows case/gender/number"
+
+    u-Definiteness_u-indf:
+      applies: {u-Definiteness: u-indf}
+      endingparadigms:
+      - endingparadigm:
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-masc}, ending: "er"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-fem}, ending: "e"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-neut}, ending: "es"}
+        - {features: {u-Case: u-nom, u-Number: u-pl}, ending: "en"}
+
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-masc}, ending: "en"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-fem}, ending: "e"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-neut}, ending: "es"}
+        - {features: {u-Case: u-acc, u-Number: u-pl}, ending: "en"}
+
+        - {features: {u-Case: u-dat, u-Number: u-sg}, ending: "en"}
+        - {features: {u-Case: u-dat, u-Number: u-pl}, ending: "en"}
+
+        - {features: {u-Case: u-gen, u-Number: u-sg}, ending: "en"}
+        - {features: {u-Case: u-gen, u-Number: u-pl}, ending: "en"}
+        examples:
+        - "schön → ein schöner Hund"
+        - "schön → eine schöne Katze"
+        notes: 
+        - "also called 'mixed'; adjective endings supply the missing case/gender/number features not marked on the determiner"
+
+    u-Definiteness_u-nspec:
+      applies: {u-Definiteness: u-nspec}
+      endingparadigms:
+      - endingparadigm:
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-masc}, ending: "er"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-fem}, ending: "e"}
+        - {features: {u-Case: u-nom, u-Number: u-sg, u-Gender: u-neut}, ending: "es"}
+        - {features: {u-Case: u-nom, u-Number: u-pl}, ending: "e"}
+
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-masc}, ending: "en"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-fem}, ending: "e"}
+        - {features: {u-Case: u-acc, u-Number: u-sg, u-Gender: u-neut}, ending: "es"}
+        - {features: {u-Case: u-acc, u-Number: u-pl}, ending: "e"}
+
+        - {features: {u-Case: u-dat, u-Number: u-sg, u-Gender: u-masc}, ending: "em"}
+        - {features: {u-Case: u-dat, u-Number: u-sg, u-Gender: u-fem}, ending: "er"}
+        - {features: {u-Case: u-dat, u-Number: u-sg, u-Gender: u-neut}, ending: "em"}
+        - {features: {u-Case: u-dat, u-Number: u-pl}, ending: "en"}
+
+        - {features: {u-Case: u-gen, u-Number: u-sg, u-Gender: u-masc}, ending: "en"}
+        - {features: {u-Case: u-gen, u-Number: u-sg, u-Gender: u-fem}, ending: "er"}
+        - {features: {u-Case: u-gen, u-Number: u-sg, u-Gender: u-neut}, ending: "en"}
+        - {features: {u-Case: u-gen, u-Number: u-pl}, ending: "er"}
+        examples:
+        - "schön → schöner Mann"
+        - "schön → schöne Frau"
+        notes: 
+        - "also called 'strong'; adjective endings show the full case/gender/number set, like definite articles"
+

@@ -1,0 +1,124 @@
+Adjective:
+  Features:
+    u-Definiteness:
+    - u-def
+    - u-indf
+    u-Case:
+    - u-dat
+    - u-gen
+    u-Number:
+    - u-sg
+    - u-pl
+    u-Gender:
+    - u-masc
+    - u-neut
+    - u-fem
+    u-Comparison:
+    - u-ab
+    - u-cmpr
+    - u-eqt
+    - u-sprl
+
+    x-Constituent:
+    - x-NP
+    u-Part-of-Speech:
+    - u-adj
+  Rules:
+    x-Constituent_x-NP:
+      applies: {x-Constituent: x-NP}
+      patterns:
+      - title: Noun + adjective (normal)
+        pattern: "N + ADJ; definite/indefinite article is appended to the noun"
+        examples:
+        - "un student bun"
+        - "studentul bun"
+        - "unui student bun"
+        - "studentului bun"
+      - title: Adjective + noun (emphatic)
+        pattern: "ADJ + N; definite/indefinite article and case marker (if any) are applied to the adjective"
+        notes:
+        - "Used mostly for emphasis on the adjective."
+        examples:
+        - "un bun student"
+        - "bunul student"
+        - "unui bun student"
+        - "bunului student"
+
+    u-Part-of-Speech_u-adj:
+      applies: {u-Part-of-Speech: u-adj}
+      notes:
+      - "Adjectives inflect for number and gender."
+      - "They inflect for case only in the feminine singular genitive/dative."
+      formparadigms:
+      - title: Four distinct forms (gender × number)
+        formparadigm:
+        - {features: {u-Gender: u-masc, u-Number: u-sg}, form: "amar"}
+        - {features: {u-Gender: u-masc, u-Number: u-pl}, form: "amari"}
+        - {features: {u-Gender: u-neut, u-Number: u-sg}, form: "amar"}
+        - {features: {u-Gender: u-neut, u-Number: u-pl}, form: "amare"}
+        - {features: {u-Gender: u-fem, u-Number: u-sg}, form: "amară"}
+        - {features: {u-Gender: u-fem, u-Number: u-pl}, form: "amare"}
+        notes:
+        - "Illustrated with amar ('bitter, rude'); also mentioned: curat ('clean')."
+      - title: Gender distinction only in the singular (-i in plural)
+        formparadigm:
+        - {features: {u-Gender: u-masc, u-Number: u-sg}, form: "lung"}
+        - {features: {u-Gender: u-neut, u-Number: u-sg}, form: "lung"}
+        - {features: {u-Gender: u-fem, u-Number: u-sg}, form: "lungă"}
+        - {features: {u-Number: u-pl}, form: "lungi"}
+        notes:
+        - "Illustrated with lung ('long'); also mentioned: mic ('small'), nou ('new')."
+      - title: Number only (no gender distinction)
+        formparadigm:
+        - {features: {u-Number: u-sg}, form: "verde"}
+        - {features: {u-Number: u-pl}, form: "verzi"}
+        notes:
+        - "Illustrated with verde ('green'); also mentioned: mare ('big'), moale ('soft')."
+
+    u-Comparison_u-ab:
+      applies: {u-Comparison: u-ab}
+      patterns:
+      - pattern: "positive degree: ADJ"
+        examples:
+        - "frumos"
+
+    u-Comparison_u-eqt:
+      applies: {u-Comparison: u-eqt}
+      patterns:
+      - pattern: "la fel de + ADJ"
+        examples:
+        - "la fel de frumos"
+
+    u-Comparison_u-cmpr:
+      applies: {u-Comparison: u-cmpr}
+      patterns:
+      - title: Superiority
+        pattern: "mai + ADJ"
+        examples:
+        - "mai frumos"
+      - title: Inferiority
+        pattern: "mai puțin + ADJ"
+        examples:
+        - "mai puțin frumos"
+
+    u-Comparison_u-sprl:
+      applies: {u-Comparison: u-sprl}
+      patterns:
+      - title: Relative superlative (superiority)
+        pattern: "cel mai + ADJ"
+        examples:
+        - "cel mai frumos"
+      - title: Relative superlative (inferiority)
+        pattern: "cel mai puțin + ADJ"
+        examples:
+        - "cel mai puțin frumos"
+      - title: Absolute superlative (superiority)
+        pattern: "foarte + ADJ"
+        examples:
+        - "foarte frumos"
+      - title: Absolute superlative (inferiority)
+        pattern: "foarte puțin + ADJ"
+        notes:
+        - "Not used very much."
+        examples:
+        - "foarte puțin frumos"

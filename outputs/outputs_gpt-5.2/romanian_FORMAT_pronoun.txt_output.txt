@@ -1,0 +1,229 @@
+Pronoun:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Gender: [u-masc, u-fem, u-neut]
+    u-Number: [u-sg, u-pl]
+    u-Case: [u-nom, u-acc, u-dat, u-gen]
+    u-Deixis: [u-prox, u-remt]
+    x-Pronoun-type: [x-pers, x-refl, x-dem, x-poss, x-int, x-rel]
+
+  Rules:
+    x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers}
+      notes:
+        - "Personal pronouns have four cases: nominative, accusative, dative, genitive."
+        - "Nominative forms are usually omitted unless needed for disambiguation."
+        - "Vocative use takes the same forms as the nominative."
+        - "In 3rd person plural, feminine forms are used only for exclusively female groups; otherwise masculine forms are used."
+        - "Accusative pronouns have stressed and unstressed forms."
+        - "Stressed accusative is used after the verb (in non-inverted phrases); unstressed accusative is used before the verb."
+        - "With a relative clause, both stressed and unstressed accusative forms are required; the order is stressed before unstressed."
+        - "Otherwise, the stressed accusative is usually omitted except for emphasis."
+        - "Dative pronouns have stressed and unstressed forms."
+      formparadigms:
+        - title: "Nominative"
+          formparadigm:
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-nom}, form: "eu"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-nom}, form: "tu"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-nom}, form: "el"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-nom}, form: "ea"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-nom}, form: "noi"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-nom}, form: "voi"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc, u-Case: u-nom}, form: "ei"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem, u-Case: u-nom}, form: "ele"}
+        - title: "Accusative (stressed vs. unstressed)"
+          formparadigm:
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc, x-Stress: x-stressed}, form: "(pe) mine"}
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc, x-Stress: x-unstressed}, form: "mă"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-acc, x-Stress: x-stressed}, form: "(pe) tine"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-acc, x-Stress: x-unstressed}, form: "te"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-acc, x-Stress: x-stressed}, form: "(pe) el"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-acc, x-Stress: x-unstressed}, form: "îl"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-acc, x-Stress: x-stressed}, form: "(pe) ea"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-acc, x-Stress: x-unstressed}, form: "o"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-acc, x-Stress: x-stressed}, form: "(pe) noi"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-acc, x-Stress: x-unstressed}, form: "ne"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-acc, x-Stress: x-stressed}, form: "(pe) voi"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-acc, x-Stress: x-unstressed}, form: "vă"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc, u-Case: u-acc, x-Stress: x-stressed}, form: "(pe) ei"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc, u-Case: u-acc, x-Stress: x-unstressed}, form: "îi"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem, u-Case: u-acc, x-Stress: x-stressed}, form: "(pe) ele"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem, u-Case: u-acc, x-Stress: x-unstressed}, form: "le"}
+          examples:
+            - "Îl văd."
+            - "Îl văd pe el."
+            - "Fata pe care o văd."
+        - title: "Dative (stressed vs. unstressed)"
+          formparadigm:
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-dat, x-Stress: x-stressed}, form: "mie"}
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-dat, x-Stress: x-unstressed}, form: "îmi"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-dat, x-Stress: x-stressed}, form: "ție"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-dat, x-Stress: x-unstressed}, form: "îți"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-dat, x-Stress: x-stressed}, form: "lui"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc, u-Case: u-dat, x-Stress: x-unstressed}, form: "îi"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-dat, x-Stress: x-stressed}, form: "ei"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem, u-Case: u-dat, x-Stress: x-unstressed}, form: "îi"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-dat, x-Stress: x-stressed}, form: "nouă"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-dat, x-Stress: x-unstressed}, form: "ne"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-dat, x-Stress: x-stressed}, form: "vouă"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-dat, x-Stress: x-unstressed}, form: "vă"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-dat, x-Stress: x-stressed}, form: "lor"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-dat, x-Stress: x-unstressed}, form: "le"}
+
+    x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss}
+      notes:
+        - "Genitive forms (possessive pronouns) inflect according to the possessor, not according to the possessed."
+        - "In the third person, genitive forms are retained."
+      formparadigms:
+        - formparadigm:
+            - {features: {x-Possessor-person: u-1, x-Possessor-number: u-sg, x-Possessed-number: u-sg, u-Gender: u-masc, u-Case: u-gen}, form: "al meu"}
+            - {features: {x-Possessor-person: u-1, x-Possessor-number: u-sg, x-Possessed-number: u-sg, u-Gender: u-neut, u-Case: u-gen}, form: "al meu"}
+            - {features: {x-Possessor-person: u-1, x-Possessor-number: u-sg, x-Possessed-number: u-sg, u-Gender: u-fem, u-Case: u-gen}, form: "a mea"}
+            - {features: {x-Possessor-person: u-1, x-Possessor-number: u-sg, x-Possessed-number: u-pl, u-Gender: u-masc, u-Case: u-gen}, form: "ai mei"}
+            - {features: {x-Possessor-person: u-1, x-Possessor-number: u-sg, x-Possessed-number: u-pl, u-Gender: u-neut, u-Case: u-gen}, form: "ale mele"}
+            - {features: {x-Possessor-person: u-1, x-Possessor-number: u-sg, x-Possessed-number: u-pl, u-Gender: u-fem, u-Case: u-gen}, form: "ale mele"}
+
+            - {features: {x-Possessor-person: u-2, x-Possessor-number: u-sg, x-Possessed-number: u-sg, u-Gender: u-masc, u-Case: u-gen}, form: "al tău"}
+            - {features: {x-Possessor-person: u-2, x-Possessor-number: u-sg, x-Possessed-number: u-sg, u-Gender: u-neut, u-Case: u-gen}, form: "al tău"}
+            - {features: {x-Possessor-person: u-2, x-Possessor-number: u-sg, x-Possessed-number: u-sg, u-Gender: u-fem, u-Case: u-gen}, form: "a ta"}
+            - {features: {x-Possessor-person: u-2, x-Possessor-number: u-sg, x-Possessed-number: u-pl, u-Gender: u-masc, u-Case: u-gen}, form: "ai tăi"}
+            - {features: {x-Possessor-person: u-2, x-Possessor-number: u-sg, x-Possessed-number: u-pl, u-Gender: u-neut, u-Case: u-gen}, form: "ale tale"}
+            - {features: {x-Possessor-person: u-2, x-Possessor-number: u-sg, x-Possessed-number: u-pl, u-Gender: u-fem, u-Case: u-gen}, form: "ale tale"}
+
+            - {features: {x-Possessor-person: u-3, x-Possessor-number: u-sg, x-Possessor-gender: u-masc, x-Possessed-number: u-sg, u-Gender: u-masc, u-Case: u-gen}, form: "al lui"}
+            - {features: {x-Possessor-person: u-3, x-Possessor-number: u-sg, x-Possessor-gender: u-masc, x-Possessed-number: u-sg, u-Gender: u-neut, u-Case: u-gen}, form: "al lui"}
+            - {features: {x-Possessor-person: u-3, x-Possessor-number: u-sg, x-Possessor-gender: u-masc, x-Possessed-number: u-sg, u-Gender: u-fem, u-Case: u-gen}, form: "a lui"}
+            - {features: {x-Possessor-person: u-3, x-Possessor-number: u-sg, x-Possessor-gender: u-masc, x-Possessed-number: u-pl, u-Gender: u-masc, u-Case: u-gen}, form: "ai lui"}
+            - {features: {x-Possessor-person: u-3, x-Possessor-number: u-sg, x-Possessor-gender: u-masc, x-Possessed-number: u-pl, u-Gender: u-neut, u-Case: u-gen}, form: "ale lui"}
+            - {features: {x-Possessor-person: u-3, x-Possessor-number: u-sg, x-Possessor-gender: u-masc, x-Possessed-number: u-pl, u-Gender: u-fem, u-Case: u-gen}, form: "ale lui"}
+
+            - {features: {x-Possessor-person: u-3, x-Possessor-number: u-sg, x-Possessor-gender: u-fem, x-Possessed-number: u-sg, u-Gender: u-masc, u-Case: u-gen}, form: "al ei"}
+            - {features: {x-Possessor-person: u-3, x-Possessor-number: u-sg, x-Possessor-gender: u-fem, x-Possessed-number: u-sg, u-Gender: u-neut, u-Case: u-gen}, form: "al ei"}
+            - {features: {x-Possessor-person: u-3, x-Possessor-number: u-sg, x-Possessor-gender: u-fem, x-Possessed-number: u-sg, u-Gender: u-fem, u-Case: u-gen}, form: "a ei"}
+            - {features: {x-Possessor-person: u-3, x-Possessor-number: u-sg, x-Possessor-gender: u-fem, x-Possessed-number: u-pl, u-Gender: u-masc, u-Case: u-gen}, form: "ai ei"}
+            - {features: {x-Possessor-person: u-3, x-Possessor-number: u-sg, x-Possessor-gender: u-fem, x-Possessed-number: u-pl, u-Gender: u-neut, u-Case: u-gen}, form: "ale ei"}
+            - {features: {x-Possessor-person: u-3, x-Possessor-number: u-sg, x-Possessor-gender: u-fem, x-Possessed-number: u-pl, u-Gender: u-fem, u-Case: u-gen}, form: "ale ei"}
+
+            - {features: {x-Possessor-person: u-1, x-Possessor-number: u-pl, x-Possessed-number: u-sg, u-Gender: u-masc, u-Case: u-gen}, form: "al nostru"}
+            - {features: {x-Possessor-person: u-1, x-Possessor-number: u-pl, x-Possessed-number: u-sg, u-Gender: u-neut, u-Case: u-gen}, form: "al nostru"}
+            - {features: {x-Possessor-person: u-1, x-Possessor-number: u-pl, x-Possessed-number: u-sg, u-Gender: u-fem, u-Case: u-gen}, form: "a noastră"}
+            - {features: {x-Possessor-person: u-1, x-Possessor-number: u-pl, x-Possessed-number: u-pl, u-Gender: u-masc, u-Case: u-gen}, form: "ai noștri"}
+            - {features: {x-Possessor-person: u-1, x-Possessor-number: u-pl, x-Possessed-number: u-pl, u-Gender: u-neut, u-Case: u-gen}, form: "ale noastre"}
+            - {features: {x-Possessor-person: u-1, x-Possessor-number: u-pl, x-Possessed-number: u-pl, u-Gender: u-fem, u-Case: u-gen}, form: "ale noastre"}
+
+            - {features: {x-Possessor-person: u-2, x-Possessor-number: u-pl, x-Possessed-number: u-sg, u-Gender: u-masc, u-Case: u-gen}, form: "al vostru"}
+            - {features: {x-Possessor-person: u-2, x-Possessor-number: u-pl, x-Possessed-number: u-sg, u-Gender: u-neut, u-Case: u-gen}, form: "al vostru"}
+            - {features: {x-Possessor-person: u-2, x-Possessor-number: u-pl, x-Possessed-number: u-sg, u-Gender: u-fem, u-Case: u-gen}, form: "a voastră"}
+            - {features: {x-Possessor-person: u-2, x-Possessor-number: u-pl, x-Possessed-number: u-pl, u-Gender: u-masc, u-Case: u-gen}, form: "ai voștri"}
+            - {features: {x-Possessor-person: u-2, x-Possessor-number: u-pl, x-Possessed-number: u-pl, u-Gender: u-neut, u-Case: u-gen}, form: "ale voastre"}
+            - {features: {x-Possessor-person: u-2, x-Possessor-number: u-pl, x-Possessed-number: u-pl, u-Gender: u-fem, u-Case: u-gen}, form: "ale voastre"}
+
+            - {features: {x-Possessor-person: u-3, x-Possessor-number: u-pl, x-Possessed-number: u-sg, u-Gender: u-masc, u-Case: u-gen}, form: "al lor"}
+            - {features: {x-Possessor-person: u-3, x-Possessor-number: u-pl, x-Possessed-number: u-sg, u-Gender: u-neut, u-Case: u-gen}, form: "al lor"}
+            - {features: {x-Possessor-person: u-3, x-Possessor-number: u-pl, x-Possessed-number: u-sg, u-Gender: u-fem, u-Case: u-gen}, form: "a lor"}
+            - {features: {x-Possessor-person: u-3, x-Possessor-number: u-pl, x-Possessed-number: u-pl, u-Gender: u-masc, u-Case: u-gen}, form: "ai lor"}
+            - {features: {x-Possessor-person: u-3, x-Possessor-number: u-pl, x-Possessed-number: u-pl, u-Gender: u-neut, u-Case: u-gen}, form: "ale lor"}
+            - {features: {x-Possessor-person: u-3, x-Possessor-number: u-pl, x-Possessed-number: u-pl, u-Gender: u-fem, u-Case: u-gen}, form: "ale lor"}
+
+    x-Pronoun-type_x-refl:
+      applies: {x-Pronoun-type: x-refl}
+      notes:
+        - "Reflexive pronouns are shown for accusative and dative, in both stressed and unstressed forms."
+        - "Reflexive pronouns are identical to personal pronouns except in the 3rd person, which has distinct forms."
+        - "Genitive reflexive forms are the same as personal pronouns in 1st and 2nd person; 3rd person singular differs: al său."
+      formparadigms:
+        - formparadigm:
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc, x-Stress: x-stressed}, form: "pe mine"}
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-acc, x-Stress: x-unstressed}, form: "mă"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-acc, x-Stress: x-stressed}, form: "pe noi"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-acc, x-Stress: x-unstressed}, form: "ne"}
+
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-acc, x-Stress: x-stressed}, form: "pe tine"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-acc, x-Stress: x-unstressed}, form: "te"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-acc, x-Stress: x-stressed}, form: "pe voi"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-acc, x-Stress: x-unstressed}, form: "vă"}
+
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Case: u-acc, x-Stress: x-stressed}, form: "pe sine"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Case: u-acc, x-Stress: x-unstressed}, form: "se"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-acc, x-Stress: x-stressed}, form: "pe sine"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-acc, x-Stress: x-unstressed}, form: "se"}
+
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-dat, x-Stress: x-stressed}, form: "mie"}
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Case: u-dat, x-Stress: x-unstressed}, form: "îmi"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-dat, x-Stress: x-stressed}, form: "nouă"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Case: u-dat, x-Stress: x-unstressed}, form: "ne"}
+
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-dat, x-Stress: x-stressed}, form: "ție"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Case: u-dat, x-Stress: x-unstressed}, form: "îți"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-dat, x-Stress: x-stressed}, form: "vouă"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Case: u-dat, x-Stress: x-unstressed}, form: "vă"}
+
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Case: u-dat, x-Stress: x-stressed}, form: "sieși"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Case: u-dat, x-Stress: x-unstressed}, form: "își"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-dat, x-Stress: x-stressed}, form: "sieși"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Case: u-dat, x-Stress: x-unstressed}, form: "își"}
+
+    x-Pronoun-type_x-dem:
+      applies: {x-Pronoun-type: x-dem}
+      notes:
+        - "Demonstrative pronouns include pronouns of proximity and of remoteness."
+        - "These pronouns distinguish proximity vs remoteness and vary by gender and number."
+      formparadigms:
+        - title: "Proximity"
+          formparadigm:
+            - {features: {u-Deixis: u-prox, u-Number: u-sg, u-Gender: u-masc}, form: "acesta/ăsta"}
+            - {features: {u-Deixis: u-prox, u-Number: u-pl, u-Gender: u-masc}, form: "aceștia/ăștia"}
+            - {features: {u-Deixis: u-prox, u-Number: u-sg, u-Gender: u-neut}, form: "acesta/ăsta"}
+            - {features: {u-Deixis: u-prox, u-Number: u-pl, u-Gender: u-neut}, form: "acestea/ăstea"}
+            - {features: {u-Deixis: u-prox, u-Number: u-sg, u-Gender: u-fem}, form: "aceasta/asta"}
+            - {features: {u-Deixis: u-prox, u-Number: u-pl, u-Gender: u-fem}, form: "acestea/ăstea"}
+        - title: "Remoteness"
+          formparadigm:
+            - {features: {u-Deixis: u-remt, u-Number: u-sg, u-Gender: u-masc}, form: "acela/ăla"}
+            - {features: {u-Deixis: u-remt, u-Number: u-pl, u-Gender: u-masc}, form: "aceia/ăia"}
+            - {features: {u-Deixis: u-remt, u-Number: u-sg, u-Gender: u-neut}, form: "acela/ăla"}
+            - {features: {u-Deixis: u-remt, u-Number: u-pl, u-Gender: u-neut}, form: "acelea/alea"}
+            - {features: {u-Deixis: u-remt, u-Number: u-sg, u-Gender: u-fem}, form: "aceea/aia"}
+            - {features: {u-Deixis: u-remt, u-Number: u-pl, u-Gender: u-fem}, form: "acelea/alea"}
+
+    x-Pronoun-type_x-int:
+      applies: {x-Pronoun-type: x-int}
+      notes:
+        - "Intensive pronouns are used for emphasis."
+      formparadigms:
+        - formparadigm:
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Gender: u-masc}, form: "însumi"}
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Gender: u-neut}, form: "însumi"}
+            - {features: {u-Person: u-1, u-Number: u-sg, u-Gender: u-fem}, form: "însămi"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-masc}, form: "înșine"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-neut}, form: "însene"}
+            - {features: {u-Person: u-1, u-Number: u-pl, u-Gender: u-fem}, form: "însene"}
+
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Gender: u-masc}, form: "însuți"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Gender: u-neut}, form: "însuți"}
+            - {features: {u-Person: u-2, u-Number: u-sg, u-Gender: u-fem}, form: "însăți"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-masc}, form: "înșivă"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-neut}, form: "însevă"}
+            - {features: {u-Person: u-2, u-Number: u-pl, u-Gender: u-fem}, form: "însevă"}
+
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-masc}, form: "însuși"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-neut}, form: "însuși"}
+            - {features: {u-Person: u-3, u-Number: u-sg, u-Gender: u-fem}, form: "însăși"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-masc}, form: "înșiși"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-neut}, form: "înseși"}
+            - {features: {u-Person: u-3, u-Number: u-pl, u-Gender: u-fem}, form: "înseși"}
+
+    x-Pronoun-type_x-rel:
+      applies: {x-Pronoun-type: x-rel}
+      notes:
+        - "Relative and interrogative pronouns are identical in form but differ in usage."
+        - "Relative pronouns connect relative clauses to their main clause; interrogative pronouns form questions."
+      formparadigms:
+        - formparadigm:
+            - {features: {}, form: "cine"}
+            - {features: {}, form: "(a/al/ai/ale) cui"}
+            - {features: {}, form: "care"}
+            - {features: {}, form: "pe care"}
+            - {features: {}, form: "ce"}
+            - {features: {}, form: "(a/al/ai/ale) cărui(a)/cărei(a)/căror(a)"}

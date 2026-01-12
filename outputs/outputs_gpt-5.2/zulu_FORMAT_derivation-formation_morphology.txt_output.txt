@@ -1,0 +1,28 @@
+DerivationalMorphology:
+  Features:
+    u-Part-of-Speech:
+    - u-n
+
+    x-Derivation:
+    - u-aug
+    - u-dim
+  Rules:
+    u-Part-of-Speech_u-n__x-Derivation_u-dim:
+      applies: {u-Part-of-Speech: u-n, x-Derivation: u-dim}
+      patterns:
+      - pattern: "ka- + _stem_ (SG)"
+        notes:
+        - "diminutive uses a dedicated additional class in the singular"
+      - pattern: "tu-/ti- + _stem_ (PL)"
+        notes:
+        - "diminutive uses a dedicated additional class in the plural"
+
+    u-Part-of-Speech_u-n__x-Derivation_u-aug:
+      applies: {u-Part-of-Speech: u-n, x-Derivation: u-aug}
+      notes:
+      - "diminutive/augmentative syllables may attach either to the stem or to an already existing prefix"
+      - "in plural formation, some languages form a double plural: both the diminutive/augmentative and the regular class prefixes are pluralized"
+      patterns:
+      - pattern: "augmentative: derivational syllable attaches to _stem_ or to an existing prefix"
+        notes:
+        - "no specific augmentative prefix forms are provided in the data"

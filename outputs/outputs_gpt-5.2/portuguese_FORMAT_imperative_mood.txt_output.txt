@@ -1,0 +1,21 @@
+Imperative:
+  Features:
+    u-Mood: [u-imp]
+    u-Polarity: [u-pos, u-neg]
+
+  Rules:
+    u-Mood_u-imp:
+      applies: {u-Mood: u-imp}
+      patterns:
+      - title: positive
+        pattern: "imperative (positive)"
+        examples:
+        - "canta! “sing!”"
+        notes:
+        - "used to express a command, advice, encouragement, etc."
+      - title: negative
+        pattern: "não + imperative (negative)"
+        examples:
+        - "não cantes! “don't sing!”"
+        notes:
+        - "negative imperative formed with 'não' + imperative form"

@@ -25,5 +25,28 @@
     "x-poss",
     "x-int",
     "x-rel"
+  ],
+  "x-Question-type": [
+    "x-yn",
+    "x-info"
+  ],
+  "x-Register": [
+    "x-informal",
+    "x-neutral",
+    "x-formal"
+  ],
+  "x-SourcePOS": [
+    "u-n",
+    "u-v"
+  ],
+  "x-Agreement-role": [
+    "x-subject",
+    "x-object",
+    "x-possessor",
+    "x-adjectival"
+  ],
+  "x-Derivation": [
+    "u-aug",
+    "u-dim"
   ]
 }

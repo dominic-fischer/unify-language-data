@@ -1,0 +1,66 @@
+Determiner:
+  Features:
+    u-Gender: [u-bantu1-23]
+    u-Number: [u-sg, u-pl]
+    x-Pronoun-type: [x-dem, x-int]
+  Rules:
+    x-Pronoun-type_x-dem:
+      applies: {x-Pronoun-type: x-dem}
+      notes:
+      - "Demonstratives can be used adjectivally (with a noun) or pronominally (standing alone)."
+      - "The demonstrative generally follows the noun, but it can also precede it for emphasis."
+      formparadigms:
+      - title: "Proximal (this/these)"
+        formparadigm:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg}
+          form: "huyu (class 1), huu (class 3/11/14), hii (class 4/9), hili (class 5), hiki (class 7), huku (class 15/17), hapa (class 16), humu (class 18)"
+        - features: {u-Gender: u-bantu1-23, u-Number: u-pl}
+          form: "hawa (class 2), haya (class 6), hivi (class 8), hizi (class 10)"
+      - title: "Distal (that/those)"
+        formparadigm:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg}
+          form: "yule (class 1), ule (class 3/11/14), ile (class 4/9), lile (class 5), kile (class 7), kule (class 15/17), pale (class 16), mle (class 18)"
+        - features: {u-Gender: u-bantu1-23, u-Number: u-pl}
+          form: "wale (class 2), yale (class 6), vile (class 8), zile (class 10)"
+      - title: "Medial/Referential (aforementioned)"
+        formparadigm:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg}
+          form: "huyo (class 1), huo (class 3/11/14), hiyo (class 4/9), hilo (class 5), hicho (class 7), huko (class 15/17), hapo (class 16), humo (class 18)"
+        - features: {u-Gender: u-bantu1-23, u-Number: u-pl}
+          form: "hao (class 2), hayo (class 6), hivyo (class 8), hizo (class 10)"
+      patterns:
+      - pattern: "N + DEM"
+        examples:
+        - "mtoto huyu"
+        - "kitabu hicho"
+      - pattern: "DEM + N"
+        examples:
+        - "hicho kikombe"
+    x-Pronoun-type_x-int:
+      applies: {x-Pronoun-type: x-int}
+      notes:
+      - "‘Which?’ is formed by using the class concord and adding -pi (with an exception for class 1 singular yupi?)."
+      formparadigms:
+      - formparadigm:
+        - features: {u-Gender: u-bantu1-23, u-Number: u-sg}
+          form: "yupi? (class 1), upi? (class 3/11/14), ipi? (class 4/9), lipi? (class 5), kipi? (class 7), kupi? (class 15/17), wapi? (class 16), mpi? (class 18)"
+        - features: {u-Gender: u-bantu1-23, u-Number: u-pl}
+          form: "wepi? (class 2), yapi? (class 6), vipi? (class 8), zipi? (class 10)"
+Noun:
+  Features:
+    u-Gender: [u-bantu1-23]
+    u-Number: [u-sg, u-pl]
+  Rules:
+    u-Gender_u-bantu1-23:
+      applies: {u-Gender: u-bantu1-23}
+      notes:
+      - "Augmentatives use class 5/6 material: singular has no prefix; plural uses ma-."
+      formparadigms:
+      - formparadigm:
+        - features: {u-Number: u-sg}
+          form: "(no prefix)"
+        - features: {u-Number: u-pl}
+          form: "ma-"
+      examples:
+      - "mtu, watu -> ji-tu, ma-ji-tu"
+      - "kikapu, vikapu -> kapu, ma-kapu"

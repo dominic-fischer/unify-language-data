@@ -1,0 +1,52 @@
+Clauses:
+  Features:
+    x-Clausetype: [x-main, x-subordinate]
+
+  Rules:
+    x-Clausetype_x-main:
+      applies: {x-Clausetype: x-main}
+      patterns:
+        - pattern: "a-ku-gúla"
+          notes:
+            - "Main-clause verb form (contrasts with dependent-clause tone pattern)."
+          examples:
+            - "a-ku-gúla 'he is buying'"
+
+    x-Clausetype_x-subordinate:
+      applies: {x-Clausetype: x-subordinate}
+      patterns:
+        - pattern: "á-kú-gúla"
+          notes:
+            - "Dependent verbs often have a tone on the first syllable; sometimes this change of tone alone marks a dependent clause (e.g., relative clauses and some temporal clauses)."
+          examples:
+            - "á-kú-gúla 'when he is buying' or 'who is buying'"
+        - pattern: "ndí-tá-gúla"
+          notes:
+            - "Commonly used dependent tense."
+          examples:
+            - "ndí-tá-gúla 'after I bought/buy'"
+        - pattern: "ndí-sa-na-gúle"
+          notes:
+            - "Commonly used dependent tense."
+          examples:
+            - "ndí-sa-na-gúle 'before I bought/buy'"
+        - pattern: "ndi-ka-gula"
+          notes:
+            - "Dependent series using toneless -ka- meaning 'when' or 'if'."
+          examples:
+            - "ndi-ka-gula 'when/if I buy'"
+        - pattern: "ndi-ka-dzá-gula"
+          notes:
+            - "Dependent series using toneless -ka- meaning 'when' or 'if'."
+          examples:
+            - "ndi-ka-dzá-gula 'if in future I buy'"
+        - pattern: "ndi-ka-má-gúlá"
+          notes:
+            - "Dependent series using toneless -ka- meaning 'when' or 'if'."
+          examples:
+            - "ndi-ka-má-gúlá 'whenever I buy'"
+        - pattern: "ndí-ka-da-gúla"
+          notes:
+            - "Dependent series using toneless -ka- meaning 'when' or 'if'."
+          examples:
+            - "ndí-ka-da-gúla 'if I had bought'"

@@ -1,0 +1,129 @@
+Pronoun:
+  Features:
+    u-Person: [u-1, u-2, u-3]
+    u-Number: [u-sg, u-pl]
+    u-Gender: [u-bantu1-23]
+    u-Deixis: [u-prox, u-remt]
+    x-Pronoun-type: [x-pers, x-dem, x-poss, x-int, x-rel]
+
+  Rules:
+    x-Pronoun-type_x-dem:
+      applies: {x-Pronoun-type: x-dem}
+      notes:
+      - "Shona distinguishes four types of demonstrative pronouns."
+      patterns:
+      - pattern: "noun + demonstrative (Type I: class marker vowel + class marker)"
+        title: "Type I"
+        examples: ["munhu uyu"]
+        notes:
+        - "Exception forms include: Class 1/2 SG uyu; Class 3/4 SG uyu; Class 7/8 PL aya."
+      - pattern: "noun + demonstrative (Type II: class marker vowel + descriptive syllable)"
+        title: "Type II"
+        examples: ["munhu uyo"]
+        notes:
+        - "Exception forms include: Class 1/2 SG uyo; Class 3/4 SG uyo; Class 7/8 PL ayo."
+      - pattern: "noun + demonstrative (Type III: class marker + no)"
+        title: "Type III"
+        examples: ["munhu uno"]
+        notes:
+        - "Exception form: Class 1/2 SG uno."
+      - pattern: "noun + demonstrative (Type IV: class marker + ye)"
+        title: "Type IV"
+        examples: ["munhu uye"]
+        notes:
+        - "Exception form: Class 1/2 SG uye."
+      formparadigms:
+      - title: "Demonstratives by noun class (Types I–IV and 'with' construction)"
+        formparadigm:
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 1: uyu (I), uyo (II), uno (III), uye (IV), naye ('with that/with him/her')"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 2: ava (I), avo (II), vano (III), vaye (IV), navo"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 3: uyu (I), uyo (II), uno (III), uye (IV), nawo"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 4: iyi (I), iyo (II), ino (III), iye (IV), nayo"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 5: iri (I), iro (II), rino (III), riye (IV), naro"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 6: aya (I), ayo (II), ano (III), aye (IV), nawo"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 7: ichi (I), icho (II), chino (III), chiye (IV), nacho"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 8: izvi (I), idzo (II), zvino (III), zviye (IV), nazvo"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 9: iyi (I), iyo (II), ino (III), iye (IV), nayo"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 10: idzi (I), idzo (II), dzino (III), dziye (IV), nadzo"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 11: uwru (I), uwro (II), rwuno (III), rwuye (IV), narwo"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 14: uwhu (I), uwho (II), hwuno (III), hwuye (IV), nahwo"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 12: aka (I), ako (II), kano (III), kaye (IV), naye"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 13: utwu (I), utwo (II), twuno (III), twuye (IV), natwo"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 15: uku (I), uko (II), kuno (III), kuye (IV), nako"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 21: izi (I), izo (II), zino (III), ziye (IV), nazo"}
+      - title: "Locative demonstratives (classes 16–18)"
+        formparadigm:
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 16: kupi? (where?), uku (here), uko (there), kuno (here in), kuye (there in)"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 17: papi? (where?), apa (here), apa (there), pano (here in), paye (there in)"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 18: mupi? (where?), umu (here), umu (there), muno (here in), muye (there in)"}
+
+    x-Pronoun-type_x-int:
+      applies: {x-Pronoun-type: x-int}
+      notes:
+      - "To ask which one is meant, the class marker is used with the suffix -pi."
+      formparadigms:
+      - title: "Interrogative 'which?' forms by noun class (class marker + -pi)"
+        formparadigm:
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 1: api?"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 2: vapi?"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 3: upi?"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 4: ipi?"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 5: ripi?"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 6: api?"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 7: chipi?"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 8: zvipi?"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 9: ipi?"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 10: dzipi?"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 11: rwupi?"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 14: hwupi?"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 12: kapi?"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 13: twupi?"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 15: kupi?"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 21: zipi?"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 16: kupi?"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 17: papi?"}
+        - {features: {u-Gender: u-bantu1-23}, form: "Class 18: mupi?"}
+
+    x-Pronoun-type_x-pers:
+      applies: {x-Pronoun-type: x-pers}
+      notes:
+      - "Personal pronouns are identical for subject and object."
+      - "Adults should always be addressed in 2nd person plural; singular is considered impolite in normal usage (used toward children or clearly lower-status persons)."
+      formparadigms:
+      - formparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "ini"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "iwe"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, form: "iye"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "isu"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "imwi"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "ivo"}
+      - title: "Comitative ('with me/you/him...') forms"
+        formparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "neni"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "newe"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, form: "naye"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "nesu"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "nemwi"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "navo"}
+
+    x-Pronoun-type_x-rel:
+      applies: {x-Pronoun-type: x-rel}
+      notes:
+      - "Relative constructions are formed with the possessive syllable attached before the verb."
+      examples:
+      - "Murume wa-ndaka-(mu-)ona aka-tiza."
+      - "Zvandichataura."
+      patterns:
+      - pattern: "possessive syllable (relative marker) + verb"
+
+    x-Pronoun-type_x-poss:
+      applies: {x-Pronoun-type: x-poss}
+      formparadigms:
+      - title: "Possessive pronoun stems (suffixes)"
+        formparadigm:
+        - {features: {u-Person: u-1, u-Number: u-sg}, form: "-ngu"}
+        - {features: {u-Person: u-2, u-Number: u-sg}, form: "-ko"}
+        - {features: {u-Person: u-3, u-Number: u-sg}, form: "-ke"}
+        - {features: {u-Person: u-1, u-Number: u-pl}, form: "-du"}
+        - {features: {u-Person: u-2, u-Number: u-pl}, form: "-nyu"}
+        - {features: {u-Person: u-3, u-Number: u-pl}, form: "-vo"}
