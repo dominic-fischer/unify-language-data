@@ -15,8 +15,7 @@ outfiles_pos/
 *.zip
 
 # Notes (personal, not code)
-junk/
-junk.py
+junk*
 notes.txt
 *.key
 

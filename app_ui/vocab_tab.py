@@ -288,15 +288,20 @@ def render_vocab_tab() -> None:
                 **{
                     lang1: ("lang1", lambda xs: " | ".join([x for x in xs if isinstance(x, str) and x.strip()])),
                     lang2: ("lang2", lambda xs: " | ".join([x for x in xs if isinstance(x, str) and x.strip()])),
+                    "meaning_lang2": (
+                        "meaning_lang2",
+                        lambda xs: " | ".join([x for x in xs if isinstance(x, str) and x.strip()]),
+                    ),
                     "_best_sim": ("_sim", "max"),
                 }
             )
             .sort_values("_best_sim", ascending=False, kind="stable")
         )
-
+        
         show_debug = st.checkbox("Show debug columns", value=False, key="v_compare_debug")
         if not show_debug:
-            df_out = df_out.drop(columns=["_best_sim"], errors="ignore")
+            df_out = df_out.drop(columns=["_best_sim", "meaning_lang2"], errors="ignore")
+
 
         st.caption(
             f"{len(df_out):,} meaning rows "

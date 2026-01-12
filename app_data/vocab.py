@@ -518,15 +518,20 @@ def align_meanings_two_langs(
 ) -> list[dict]:
     """
     Greedy alignment of glosses (meaning anchors) between two languages.
-    Returns rows: {meaning, lang1, lang2, _sim}
+    Returns rows:
+      {meaning, meaning_lang2, lang1, lang2, _sim}
+
+    - meaning: anchor gloss (lang1 gloss when available, else lang2 gloss for leftovers)
+    - meaning_lang2: ONLY filled when there is a matched pair AND glosses differ (debug)
     """
     used2 = set()
     out: list[dict] = []
 
     for w1, g1 in rows_lang1:
-        best_j = -1
         best_sim = 0.0
+        best_j = -1
         best_w2 = ""
+        best_g2 = ""
 
         for j, (w2, g2) in enumerate(rows_lang2):
             if j in used2:
@@ -536,16 +541,27 @@ def align_meanings_two_langs(
                 best_sim = sim
                 best_j = j
                 best_w2 = w2
+                best_g2 = g2
 
         if best_sim >= threshold and best_j >= 0:
             used2.add(best_j)
-            out.append({"meaning": g1, "lang1": w1, "lang2": best_w2, "_sim": best_sim})
+            out.append(
+                {
+                    "meaning": g1,
+                    "meaning_lang2": (best_g2 if isinstance(best_g2, str) and best_g2 != g1 else ""),
+                    "lang1": w1,
+                    "lang2": best_w2,
+                    "_sim": best_sim,
+                }
+            )
         else:
-            out.append({"meaning": g1, "lang1": w1, "lang2": "", "_sim": 0.0})
+            out.append({"meaning": g1, "meaning_lang2": "", "lang1": w1, "lang2": "", "_sim": 0.0})
 
+    # leftover lang2 meanings
     for j, (w2, g2) in enumerate(rows_lang2):
         if j in used2:
             continue
-        out.append({"meaning": g2, "lang1": "", "lang2": w2, "_sim": 0.0})
+        out.append({"meaning": g2, "meaning_lang2": "", "lang1": "", "lang2": w2, "_sim": 0.0})
 
     return out
+
